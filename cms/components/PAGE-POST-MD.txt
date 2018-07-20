@@ -1,0 +1,12 @@
+﻿<!DOCTYPE html>
+<html>
+	«HEAD»
+	<body class="body" id="«LINK:LOAD»">
+		<div class="main">
+			«NAVBAR»
+			«POSTAREA»
+		</div>
+		«FOOTER-AREA»
+		«MARKDOWN»
+	</body>
+</html>

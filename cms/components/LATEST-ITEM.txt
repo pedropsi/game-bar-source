@@ -1,0 +1,11 @@
+﻿<div class="mini">
+	<div>
+		<a href="«LINK:Load».html">
+			<h3>«TITLE:Load»</h3>
+		</a>
+		«LABELS»
+	</div>
+	<a href="«LINK:Load».html">
+		«PICTURE»
+	</a>
+</div>

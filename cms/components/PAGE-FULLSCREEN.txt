@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html>
+<html>
+	«HEAD»
+	«Content:Load»
+	<div class="main">
+		«NAVBAR»
+		«POSTAREA»
+	</div>
+	«FOOTER-AREA»
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿<h2>About the Hall of Fame</h2>
+<p>Puzzlers who solved any of the puzzles in the «SITE-NAME» earn the right to record their name (or alias) for posterity in the «HOF».</p>
+
+<h3>How hard is it to enter the Hall of Fame?</h3>
+<p>As of June 2018 only about 10% of players manage to finish a game. Moreover, no one has yet solved all the puzzles!  
+Therefore, you are officially allowed to brag to your friends about your victories. Most puzzlers, however, follow the humble path and decide not to be listed.</p>
+
+<h3>Are records permanent?</h3>
+<p>Yes, for as long as the «SITE-NAME» is live. Shall you want to remove or change your alias, please «CONTACT-TEXT-2».</p>
+
+<h3>I beat a puzzle but I can't find my record. Why?</h3>
+<p>Most likely you have found a bug. If you solved a puzzle before «DATE:Load», record-keeping hadn't yet begun. In either case, please «CONTACT-TEXT-1» to fix the situation and recover your glory!</p>
+
+<h3>How should I prove that a (missing) record relates to me?</h3>
+<p>Just provide the date and (if known) time when you solved the puzzle, plus the shape or name of the last level that you remember.</p>

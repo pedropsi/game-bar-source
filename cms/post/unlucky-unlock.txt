@@ -1,0 +1,14 @@
+﻿«ABOUT-TEXT»
+<p><b>«TITLE:Load»</b> is a simple mini-game, of the sliding block type.  
+Moving the pieces to the right positions unlocks each next level.</p>
+<p>There are four easier levels + three harder levels.</p>
+
+«HOWTO-TEXT»
+<p>Move and push blocks with the <b>arrow keys</b>.</p>
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»  
+
+<h2>Featured in</h2>
+<p><a href="http://www.bontegames.com/2014/07/unlucky-unlock.html" id="featured-bonte">Bart Bonte's blog</a> - with some very nice reviews.</p>

@@ -1,0 +1,11 @@
+﻿<div class="section">
+	<div class="container">
+		<h1 class="textarea title">«Title:Load»</h1>
+		<div class="textarea">
+			<div class="text «STYLE:Load»" id="markdown">
+				«CONTENT:Load»
+			</div>
+		</div>
+		«LABELS»
+	</div>
+</div>

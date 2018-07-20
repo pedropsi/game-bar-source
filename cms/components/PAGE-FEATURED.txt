@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html>
+<html>
+	«HEAD»
+<body class="body" id="«LINK:LOAD»">
+	<div class="main">
+		«NAVBAR»
+		«FEATURED-GENERAL»
+	</div>
+	«FOOTER-AREA»
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿<div class="section">
+	<div class="container">
+		<h1 class="textarea title">«TITLE:Load»</h1>
+		<div class="featured">
+			«CONTENT:Load»
+		</div>
+	</div>
+</div>

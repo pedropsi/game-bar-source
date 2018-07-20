@@ -1,0 +1,8 @@
+﻿<div class="section">
+	<div class="container">
+		<h1 class="textarea title">Latest posts</h1>
+		<div class="latest">
+			«LATEST-ITEM:FilterSort{"Update","«LATEST-LIMIT»"}»
+		</div>
+	</div>
+</div>

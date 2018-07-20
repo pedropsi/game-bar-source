@@ -1,0 +1,5 @@
+﻿<url>
+	<loc>«SITE»/«LINK:Load»</loc>
+	<lastmod>«UP-DA-TE:Load»</lastmod>
+	<changefreq>«FREQ:Load»</changefreq>
+</url>

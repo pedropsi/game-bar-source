@@ -1,0 +1,5 @@
+﻿<div class="figure" onclick="(function(){toggleBGMode('«LINK:Load»')})()">
+	«PICTURE»
+	<div class="legend" id="markdown">«CONTENT:Load»</div>
+	<p>«MOSAIC-TEXT»</p>
+</div>

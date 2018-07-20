@@ -1,0 +1,14 @@
+﻿«ABOUT-TEXT»
+<p>Place the blue <em>X Block</em> at the <em>goal</em> (white arrow).Take advantage of auxiliary blocks by thinking creatively and acting timely.</p>
+<p>8 levels only comprise this action puzzle. Good luck!</p>
+
+«HOWTO-TEXT»
+«AVATAR-TEXT»    
+<p>Press <b>X</b> on top of a _Block_ to pick it, press <b>X</b> again to drop it.  
+«RESTART-TEXT»
+
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»  
+<h3>Special thanks</h3>
+<p><a href="https://groups.google.com/forum/#!forum/puzzlescript" «BLANK»>Puzzlescript forum</a> community members Ove Ahlman, <a href="https://twitter.com/draknek" «BLANK»>Alan Hazelden</a>, Edderiofer, Nils Jung and Chz for varied levels of feedback.</p>

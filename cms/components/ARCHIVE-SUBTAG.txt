@@ -1,0 +1,5 @@
+﻿<div class="textarea">
+	<a href="«LINK:Load».html">
+		<div class="text">«Post:Load»</div>
+	</a>
+</div>

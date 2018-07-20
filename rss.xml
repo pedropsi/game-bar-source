@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" >
+	<channel>
+
+		<atom:link href="https://pedropsi.github.io/rss.xml" rel="self" type="application/rss+xml" />
+
+		<title>Creative Archive</title>
+		<link>https://pedropsi.github.io</link>
+		<description>Don't miss out on novelties from The Creative Archive!</description>
+		<language>en</language> 
+		<docs>https://cyber.harvard.edu/rss/rss.html</docs>
+		<copyright>© Pedro PSI 2010-2018.</copyright>
+		<image> 			
+			<link>https://pedropsi.github.io</link>
+			<title>Creative Archive</title>
+		    	<url>https://pedropsi.github.io/images/logo.png</url>
+		</image>
+
+		<item>
+		<title>Hastefulll</title>
+		<link>http://pedropsi.github.io/hastefulll</link>
+		<guid>http://pedropsi.github.io/hastefulll</guid>
+		<pubDate>Thu, 12 Jul 2018 07:06:05 GMT</pubDate>
+		<description>About Hastefulll
+		Hastefulll is a simple 7-level puzzle platformer about trying to leave a mark everywhere. However, you hurry so much everywhere that often you cannot go back to where you were before!
+		Fill the board, but plan wisely. Haste makes waste!
+		
+		How to playControls - keyboard
+		Dash horizon...</description>
+		<enclosure url="http://pedropsi.github.io/images/hastefulll.png" length="98765" type="image/png" />
+		
+		<category>Game</category><category>Platformer</category><category>Puzzle</category>
+		</item>
+		<item>
+		<title>Combinatura</title>
+		<link>http://combinatura.github.io/index</link>
+		<guid>http://combinatura.github.io/index</guid>
+		<pubDate>Fri, 06 Jul 2018 07:06:05 GMT</pubDate>
+		<description>Combinatura, a game of exploration.</description>
+		<enclosure url="http://pedropsi.github.io/images/combinatura.png" length="98765" type="image/png" />
+		
+		<category>Game</category><category>Nature</category><category>Travel</category>
+		</item>
+		<item>
+		<title>Hall of Fame</title>
+		<link>http://pedropsi.github.io/hall-of-fame</link>
+		<guid>http://pedropsi.github.io/hall-of-fame</guid>
+		<pubDate>Thu, 14 Jun 2018 07:06:05 GMT</pubDate>
+		<description>Hall of fame: winners of Pedro PSI's challenges.</description>
+		<enclosure url="http://pedropsi.github.io/images/splash.png" length="98765" type="image/png" />
+		
+		<category>Creative-Archive</category>
+		</item>
+		<item>
+		<title>Play Mini Gemini Replay (PMGRP)</title>
+		<link>http://pedropsi.github.io/pmgrp</link>
+		<guid>http://pedropsi.github.io/pmgrp</guid>
+		<pubDate>Tue, 20 Mar 2018 07:06:05 GMT</pubDate>
+		<description>About Play Mini Gemini Replay (PMGRP)
+		Play Mini Gemini Replay (PMGRP) is a mini puzzle platformer about cooperating with your future self to reach your goals.
+		Plan your limited moves wisely, play and replay all 11 levels!
+		
+		How to playControls - keyboard
+		Play mode
+		Move with the Arrow keys. When th...</description>
+		<enclosure url="http://pedropsi.github.io/images/pmgrp.png" length="98765" type="image/png" />
+		
+		<category>Game</category><category>Platformer</category><category>Puzzle</category>
+		</item>
+		<item>
+		<title>Privacy Policy</title>
+		<link>http://pedropsi.github.io/privacy-policy</link>
+		<guid>http://pedropsi.github.io/privacy-policy</guid>
+		<pubDate>Sat, 10 Mar 2018 07:06:05 GMT</pubDate>
+		<description>In connection to your use of the Creative Archive, you agree to be exclusively responsible to protect your own privacy. Otherwise you must cease to use the Creative Archive.  
+		Nevertheless, the Creative Archive is designed to minimise privacy risks. Here's how!
+		
+		Open-source
+		The Creative Archive i...</description>
+		<enclosure url="http://pedropsi.github.io/images/splash.png" length="98765" type="image/png" />
+		
+		<category>Creative-Archive</category><category>Post</category>
+		</item>
+		<item>
+		<title>Whirlpuzzle</title>
+		<link>http://pedropsi.github.io/whirlpuzzle</link>
+		<guid>http://pedropsi.github.io/whirlpuzzle</guid>
+		<pubDate>Thu, 01 Mar 2018 07:06:05 GMT</pubDate>
+		<description>About Whirlpuzzle
+		Find a path to the goal, by rotating the puzzle to displace obstacles and reach inacessible locations! Beware, whirling too much will only confuse you...
+		Can you solve all 7 levels? Good luck!
+		
+		How to playControls - keyboard
+		The goal is marked by an X.
+		Move your avatar by pressi...</description>
+		<enclosure url="http://pedropsi.github.io/images/whirlpuzzle.png" length="98765" type="image/png" />
+		
+		<category>Game</category><category>Puzzle</category>
+		</item>
+		<item>
+		<title>Viking Carpet - Gold over Red</title>
+		<link>http://pedropsi.github.io/viking-carpet</link>
+		<guid>http://pedropsi.github.io/viking-carpet</guid>
+		<pubDate>Fri, 23 Feb 2018 07:06:05 GMT</pubDate>
+		<description>Over a dark red background, golden patterns: diagonal lines of geometric cereal surrounding either an eight petal flower, or a diamond with four squares inside. The cereal lines would meet at a cross. This pattern was found on a viking carpet on display at the  Norsk Folkemuseum in Oslo.</description>
+		<enclosure url="http://pedropsi.github.io/images/mosaic/viking-carpet.png" length="98765" type="image/png" />
+		
+		<category>Mosaic</category><category>Travel</category><category>Wallpaper</category>
+		</item>
+		
+	</channel>
+</rss>

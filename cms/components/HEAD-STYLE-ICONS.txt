@@ -1,0 +1,5 @@
+<link href="«FAVICON32»" rel="icon" type="image/png">
+<link href="«FAVICON32»" rel="shortcut icon" type="image/x-icon">
+<link href="«APPLEICON»" rel="apple-touch-icon">
+
+<link href="«CSSPATH»" rel="stylesheet" type="text/css">

@@ -1,0 +1,42 @@
+﻿<h2>Welcome!</h2>
+<p>This is «NAME»'s «SITE-NAME».  
+It includes a collection of <a href="games.html">games</a> and a few patterned <a href="tag-Mosaic.html"><b>wallpapers</b></a>, and other surprises are coming.</p>
+
+<h2>About «ME»...</h2>
+<p>«NAME» is «MY» name.
+«I'm» currently based in «LOCATION», but «I» love to travel. <a href="contact.html">Catch me if you can</a>!</p>
+
+<h2>Do you want to collaborate?</h2>
+<p>«CONTACT-TEXT-6»</p>
+
+<h2>How was the «SITE-NAME» made?</h2>
+<table class="top-left">
+<thead>
+	<tr>
+		<th>Facet</th>
+		<th>Tool/Language</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Writing</th>
+		<th>Microsoft Word & Markdown</th>
+	</tr>
+	<tr>
+		<th>Illustration</th>
+		<th>Microsoft Powerpoint</th>
+	</tr>
+	<tr>
+		<th>Game design</th>
+		<th>Puzzlescript & Paletton</th>
+	</tr>
+	<tr>
+		<th>Page design</th>
+		<th>HTML & CSS: «CSS-NAME»</th>
+	</tr>
+	<tr>
+		<th>Content management</th>
+		<th>Microsoft Excel, Wolfram Language, Notepad++ & Javascript</th>
+	</tr>
+</tbody>
+</table>

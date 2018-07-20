@@ -1,0 +1,8 @@
+﻿<div class="tags">
+	<div class="tagup">
+		<a href="«LINK:Load(Archive,1)».html">
+			<div class="tag">«DATE:Load»</div>
+		</a>
+	</div>
+	«LABEL-TAG:Multiply»
+</div>

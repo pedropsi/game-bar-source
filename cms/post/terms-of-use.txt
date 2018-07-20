@@ -1,0 +1,5 @@
+﻿<p>«COPYRIGHT».. except where otherwise stated.</p>
+<p>Some content is shared under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license. 
+In practice, this means that you can use and modify it freely for non-commercial purposes as long as you provide credit and keep the same license on derivative works.  
+«I»'d also appreciate that you'd «CONTACT-TEXT-3» when you do so!</p>
+<p>For commercial purposes, please «CONTACT-TEXT-1» to discuss bespoke licenses.</p>

@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html>
+	«HEAD»
+<body class="body" id="«LINK:LOAD»">
+	<div class="main">
+		«NAVBAR»
+		<div class="section">
+			«CONTENT:Load»
+		</div>
+	</div>
+	«FOOTER-AREA»
+</body>
+</html>

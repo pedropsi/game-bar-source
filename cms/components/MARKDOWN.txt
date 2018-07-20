@@ -1,0 +1,1 @@
+<script type="text/javascript" src="codes/loader.js"> LoadText("posts/«LINK:LOAD».txt"); </script>

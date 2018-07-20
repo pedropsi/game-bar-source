@@ -1,0 +1,18 @@
+<div class="container" >
+	<h1 class="textarea title">Hall of fame</h1>
+	<div id="hall-of-fame-table">
+		<div class="section">
+			<iframe src="«HALL-OF-FAME-VIEW-LEGACY»" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+		</div>
+		<script>
+			«HALL-OF-FAME-DISPLAY»
+		</script>
+	</div>
+	<div class="textarea">
+		<div class="text «STYLE:Load»" id="markdown">
+			«POST:Load»
+		</div>
+		«STARSSHARE»
+	</div>
+	«LABELS»
+</div>

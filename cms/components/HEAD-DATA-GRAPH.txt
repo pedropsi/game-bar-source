@@ -1,0 +1,10 @@
+<title>«TITLE:Load»</title>
+<meta name="description" content="«DESCRIPTION:Load»"> 
+
+<meta property="og:title" content="«TITLE:Load»">
+<meta property="og:description" content="«DESCRIPTION:Load»">
+<meta property="og:url"   content="«LINK:Load».html">
+<meta property="og:image" content="«SOURCE-URL»/images/«IMAGE:Load»">
+
+<meta property="og:type" content="«TYPEGRAPH:Load»">
+<meta property="og:image:alt" content="«IMAGEALT:Load»">

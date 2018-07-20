@@ -1,0 +1,16 @@
+﻿«ABOUT-TEXT»
+<p>Blocks are falling from the sky! Reach the <em>flag</em> to avoid a catastrophe!</p>
+<p>There are 10 levels before reaching absolute safety.</p>
+
+«HOWTO-TEXT»
+<p><b>Press X</b> to let a <em>block</em> fall from the sky.</p>
+<p>Steer each <em>block</em> using the <b>arrow keys</b> to unlock the path to safety.</p>
+«AVATAR-TEXT»  
+<p>«RESTART-TEXT»</p>
+
+«GAME-EXTRAS-TEXT»
+
+«CREDITS-MUSIC»
+<p>«PUZZLESCRIPT-TEXT»</p>
+
+<audio src="media/Arpology 1 Frantic Sax version by longzijun.mp3" loop="true" autoplay="true"></audio> 

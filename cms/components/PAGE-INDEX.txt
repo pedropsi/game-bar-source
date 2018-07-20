@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+	«HEAD»
+<body class="body" id="«LINK:LOAD»">
+	<div class="main">
+		«NAVBAR»
+		«LATEST»
+		<div class="section">
+			<div class="container">
+				<h1 class="textarea title">Highlights</h1>
+				<div class="featured">
+					«CONTENT:Load»
+				</div>
+			</div>
+		</div>
+	</div>
+	«FOOTER-AREA»
+</body>
+</html>

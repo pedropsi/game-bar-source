@@ -1,0 +1,6 @@
+﻿<div class="textarea dated">
+	<a href="«LINK:Load».html">
+		<div class="text">«TITLE:Load»</div>
+	</a>
+		<div class="date">«DATE:Load»</div>
+</div>

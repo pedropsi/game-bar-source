@@ -1,0 +1,5 @@
+﻿<p>Today «I» scattered some <b>Sponsorship buttons</b> <em>strategically</em> across the «SITE-NAME». So if <b>you</b> would like to see the  <b>grow</b>, you can now <a href="«PATREON-URL»" «BLANK»>support it</a> financially. Any amounts raised will be channelled towards paying the only cost I incurr: <em>«MY» own free time</em>.</p>
+<p>As «I» dislike advertising and insist on keeping all content free, receiving sponsorships is probably the most effective way to prevent the «SITE-NAME» from <em>freezing in time</em>. At the moment «I» chose <a href="«PATREON-URL»" «BLANK»>Patreon</a> (see below), but «CONTACT-TEXT-3» if you require other donation options or have any suggestion.</p>
+«PATREON-BECOME-SPONSOR»  
+<p>For businesses, bespoke <a href="contact.html"><b>non-exclusive commercial licenses</b></a> are available. Expressions of interest are «CONTACT-TEXT-5».</p>
+<p>Otherwise, just enjoy the «SITE-NAME» as it is. After all, <b>it's free!</b></p>
