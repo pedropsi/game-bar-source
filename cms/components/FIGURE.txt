@@ -1,4 +1,0 @@
-﻿<div class="figure">
-	«PICTURE»
-	<div class="legend">«CONTENT:Load»</div>
-</div>

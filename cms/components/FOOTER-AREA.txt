@@ -1,4 +1,0 @@
-﻿<div class="footer">
-	«FOOTER-LINES»
-</div>
-«ANALYTICS-BEACON»
