@@ -776,6 +776,7 @@ textarea:focus, input:focus{
 
 #hall-of-fame-table{
     width: 100%;
+    margin-top: calc(-1*var(--vspace));
 }
 
 table{

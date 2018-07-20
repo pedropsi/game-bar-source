@@ -7,7 +7,7 @@ var DESTINATION_HOF={
 	sheet:"Hall of fame",
 	name:"HOF",
 	Data:function(qid){return {
-		identifier:document.body.id,
+		identifier:document.getElementsByTagName("H1")[0].innerHTML,
 		name:FindData("answer",qid),
 		}}
 	}
