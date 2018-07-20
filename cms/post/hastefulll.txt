@@ -3,7 +3,7 @@
 <p>Fill the board, but plan wisely. Haste makes waste!</p>
 
 «HOWTO-TEXT»
-<p><em>Dash horizontally</em> with the <b>left/right arrow keys</b>. You cannot stop until you hit an obstacle, then you fall down.  
+<p><em>Dash horizontally</em> with the <b>left/right arrow keys</b>. You cannot stop until you hit an obstacle, then you fall down.</p>
 <p><em>Elevate</em> yourself by pressing <b>up</b>. <em>Lower</em> yourself to the previous position by pressing <b>down</b>.</p>
 <p><em>Pick</em> a crate when standing on top of it by pressing <b>down</b>. <em>Drop</em> it by pressing <b>down</b> again.</p>
 «UNDO-RESTART-TEXT»
