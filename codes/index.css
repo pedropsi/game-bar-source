@@ -758,6 +758,12 @@ textarea:focus, input:focus{
         transition-duration: 0.5s;
 	}
 
+.patreon-b {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--vspace);
+    margin-top: var(--vspace);
+}
 
 .patreon-b img{
     padding:0;

@@ -83,7 +83,7 @@ function RequestGameFeedback(){
   if(!HasBalloon(targetid)){
 	var levelindices=LevelIndices();
 	if(TitleScreen())
-		OpenMessageBalloon("Your real-time feedback is much appreciated! Press F anytime to toggle these balloons.",targetid)
+		OpenMessageBalloon("Your real-time feedback is much appreciated! Press F as soon as you start the first level to toggle these balloons.",targetid)
 	else if(HasFeedback(currlevel)&&HasFeedback(lastlevel))
 		OpenFeedbackBalloon("Any further comments?","",targetid)
 	else if(lastlevel===currlevel){
