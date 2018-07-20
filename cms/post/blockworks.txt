@@ -4,7 +4,7 @@
 
 «HOWTO-TEXT»
 «AVATAR-TEXT»    
-<p>Press <b>X</b> on top of a _Block_ to pick it, press <b>X</b> again to drop it.  
+<p>Press <b>X</b> on top of a <em>block</em> to pick it, press <b>X</b> again to drop it.  
 «RESTART-TEXT»
 
 «GAME-EXTRAS-TEXT»

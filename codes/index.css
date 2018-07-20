@@ -470,10 +470,12 @@ ol {
 .game {
     padding: 5px 5px 5px 5px;
     margin: 5px 5px 10px 0px;
+    width: 100%;
 }
 
 #gameCanvas {
     height:600px;
+    width: 100%;
 }
 
 .gameNav{

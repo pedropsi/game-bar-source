@@ -10,7 +10,6 @@
 
 «GAME-EXTRAS-TEXT»
 
-«CREDITS-MUSIC»
-<p>«PUZZLESCRIPT-TEXT»</p>
+«CREDITS»
 
 <audio src="media/Arpology 1 Frantic Sax version by longzijun.mp3" loop="true" autoplay="true"></audio> 
