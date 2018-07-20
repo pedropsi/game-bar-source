@@ -379,9 +379,8 @@ p {
 }
 ul,
 ol {
-    margin-bottom: 10px;
-    padding-left: 40px;
-    max-width: 100%;
+	text-align: justify;
+    text-indent:var(--vspace);
 }
 
 .logo {
@@ -927,4 +926,9 @@ tbody tr:hover{
   	background-color: var(--blue);
     border-color: var(--turquoise);
     color: var(--turquoise);   
+}
+
+ol{
+    line-height: 20px;
+    
 }

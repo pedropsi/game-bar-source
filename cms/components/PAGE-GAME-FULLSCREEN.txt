@@ -1,7 +1,9 @@
 ﻿<!DOCTYPE html>
 <html>
-	«HEAD»
+<head>
+	«HEAD-ITEMS»
 	«PUZZLE-SCRIPT-PRE»
+	</head>
 <body class="body" id="«LINK:LOAD»">
 	<div class="game-container">
 		<div id="puzzlescript-game" class="game"></div>
