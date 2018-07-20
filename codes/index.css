@@ -869,16 +869,19 @@ tbody tr:hover{
 
 .balloon{
     position:absolute;
+    right:var(--vspace);
+    bottom:var(--vspace);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: calc(-80px - 10vh) 0px 0px calc(-30px + 8vw);
+    margin: calc(-600px + 10vh) 0px 0px calc(-30px + 8vw);
     border-bottom: 4px solid var(--turquoise);
     background-color: var(--white);
     padding: 10px;
     max-width: calc(80vw);
     animation: fadein 1s;
+   	
 }
 
 .balloon .avatar {
