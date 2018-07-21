@@ -1954,13 +1954,13 @@ Mobile.debugDot = function (event) {
         ];
 
         if (!noUndo) {
-            menuLines.push('  <div class="undo button">Undo</div>');
+            menuLines.push('  <div class="undo p-button">Undo</div>');
         }
         if (!noRestart) {
-            menuLines.push('  <div class="restart button">Restart</div>');
+            menuLines.push('  <div class="restart p-button">Restart</div>');
         }
         menuLines = menuLines.concat([
-            '  <div class="quit button">Quit to Menu</div>',
+            '  <div class="quit p-button">Quit to Menu</div>',
             '  <div class="clear"></div>',
             '</div>'
         ]);

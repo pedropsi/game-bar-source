@@ -2,7 +2,7 @@
 	Octaflower Theme (c) 2017-2018 by Pedro PSI
 	https://pedropsi.github.io/
 	License: CC BY-NC-SA 4.0
-    	                                          */
+												*/
 
 :root {
     --white:#fff;
@@ -468,13 +468,13 @@ ol {
 }
 
 .game {
-    padding: 5px 5px 5px 5px;
-    margin: 5px 5px 10px 0px;
+    padding: 0px 5px 0px 5px;
+    margin: 0px 5px 10px 0px;
     width: 100%;
 }
 
 #gameCanvas {
-    height:600px;
+    height:calc(100vh - 30px);
     width: 100%;
 }
 
@@ -869,19 +869,16 @@ tbody tr:hover{
 
 .balloon{
     position:absolute;
-    right:var(--vspace);
-    bottom:var(--vspace);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: calc(-600px + 10vh) 0px 0px calc(-30px + 8vw);
+    margin: calc(-80px - 10vh) 0px 0px calc(-30px + 8vw);
     border-bottom: 4px solid var(--turquoise);
     background-color: var(--white);
     padding: 10px;
     max-width: calc(80vw);
     animation: fadein 1s;
-   	
 }
 
 .balloon .avatar {
@@ -931,9 +928,4 @@ tbody tr:hover{
   	background-color: var(--blue);
     border-color: var(--turquoise);
     color: var(--turquoise);   
-}
-
-ol{
-    line-height: 20px;
-    
 }

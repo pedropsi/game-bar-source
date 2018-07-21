@@ -11,7 +11,7 @@
 	width: 90%;
 	margin-left: 5%;
 }
-.mobile-menu.item-count-3 .button {
+.mobile-menu.item-count-3 .p-button {
 	width: 28.3333%;
 	/* scale the height of the button relative to the width of .mobile-menu */
 	padding: 7.5% 0%;
@@ -20,7 +20,7 @@
 	width: 60%;
 	margin-left: 20%;
 }
-.mobile-menu.item-count-2 .button {
+.mobile-menu.item-count-2 .p-button {
 	width: 46%;
 	/* scale the height of the button relative to the width of .mobile-menu */
 	padding: 12.1765% 0%;
@@ -29,7 +29,7 @@
 	width: 30%;
 	margin-left: 35%;
 }
-.mobile-menu.item-count-1 .button {
+.mobile-menu.item-count-1 .p-button {
 	width: 98%;
 	/* scale the height of the button relative to the width of .mobile-menu */
 	padding: 26.5% 0%;
@@ -41,7 +41,7 @@
 	border: 2px solid rgba(255, 255, 255, 0.4);
 	color: rgba(255, 255, 255, 1);
 }
-.mobile-menu .button {
+.mobile-menu .p-button {
 	margin: 2%;
 	border-radius: 0.25em;
 	text-align: center;
