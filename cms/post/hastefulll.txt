@@ -1,5 +1,5 @@
 ﻿«ABOUT-TEXT»
-<p>«TITLE:Load» is a simple 7-level puzzle platformer about trying to leave a mark everywhere. However, you hurry so much everywhere that often you cannot go back to where you were before!</p>
+<p>«TITLE:Load» is a simple 7-level puzzle platformer about trying to leave a mark everywhere, as fast as possible. However, too much haste may have negative consequences!</p>
 <p>Fill the board, but plan wisely. Haste makes waste!</p>
 
 «HOWTO-TEXT»
