@@ -1444,7 +1444,8 @@ Mobile.debugDot = function (event) {
         down:    40, // down arrow
         undo:    85, // u
         restart: 82, // r
-        quit:    27 // escape
+        quit:    27, //  escape
+        feedback:70 //  f
     }
 
     var TAB_STRING = [
@@ -1785,7 +1786,7 @@ Mobile.debugDot = function (event) {
         this.emitKeydown('action');
     };
 
-    // Fake out keypresses to acheive the desired effect.
+    // Fake out keypresses to achieve the desired effect.
     proto.emitKeydown = function (input) {
         var event;
 
@@ -1885,7 +1886,7 @@ Mobile.debugDot = function (event) {
     proto.buildMenu = function () {
         var self = this;
         var tempElem, body;
-        var undo, restart, quit;
+        var undo, restart, feedback, quit;
         var closeTab;
         var closeCallback;
 
@@ -1915,6 +1916,14 @@ Mobile.debugDot = function (event) {
             restart.addEventListener('touchstart', function (event) {
                 event.stopPropagation();
                 self.emitKeydown('restart');
+            });
+        }
+
+        feedback = this.menuElem.getElementsByClassName('feedback')[0];
+        if (feedback) {
+            feedback.addEventListener('touchstart', function (event) {
+                event.stopPropagation();
+                self.emitKeydown('feedback');
             });
         }
 
@@ -1960,6 +1969,7 @@ Mobile.debugDot = function (event) {
             menuLines.push('  <div class="restart p-button">Restart</div>');
         }
         menuLines = menuLines.concat([
+			'  <div class="feedback p-button">Give feedback</div>',
             '  <div class="quit p-button">Quit to Menu</div>',
             '  <div class="clear"></div>',
             '</div>'

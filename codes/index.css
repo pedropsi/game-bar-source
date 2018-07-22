@@ -16,7 +16,8 @@
     --lightyellow: #fff9c9;
     
     --tgreen:rgba(70, 244, 111,0.5);
-    --tyellow:rgb(255, 249, 201,0.4);
+    --tyellow:rgba(255, 249, 201,0.4);
+    --tblack:rgba(0, 0, 0, 0.4);
     
     --vspace:calc(5px + 5vmin);
 }
@@ -32,6 +33,7 @@
     --yellow: #1982ed;
     --lightyellow: #000FFF;
     --whiteyellow: #070070;
+    
     --tgreen:rgba(70, 244, 111,0.5);   
 }
 

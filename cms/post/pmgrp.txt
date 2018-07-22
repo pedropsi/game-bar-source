@@ -7,7 +7,8 @@
 <p>Move with the <b>Arrow keys</b>. When the bar becomes full, you run out of moves.</p>
 <p>Press <b>Down</b> when standing on an <em>object</em> (either a <em>crate</em> or your <em>other self</em>) to pick it. Press <b>Down</b> again to drop it. Press <b>against an edge</b> to throw the <em>object</em> over it.</p>
 <h4>Replay mode</h4>
-<p>Press <b>X</b> to enter <b>Replay mode</b>. Your <em>future self</em> will now replay all your moves... then you return into <b>play mode</b>.</p>  
+<p>Press <b>X</b> to enter <b>Replay mode</b>. Your <em>future self</em> will now replay all your moves... then you return into <b>play mode</b>.</p>
+<p>Whenever your future self can't move in a particular direction, this move is simply skipped.</p>  
 
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
