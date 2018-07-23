@@ -71,6 +71,10 @@ a {
     color: var(--darkblue);
 }
 
+div{
+    max-width: 100%;
+}
+
 .main {
      display: flex;
    	 flex-direction: row;
@@ -202,8 +206,6 @@ nav {
     padding: 0;
     margin: 1px;
     transition-duration: 1s;
-    max-width: 100%;
-
 }
 
 .mini img {
@@ -234,7 +236,6 @@ nav {
 .mini .tags {
     font-size: 80%;
     word-wrap: break-word;
-    max-width: 100%;
 }
 
 .mini .tag {
@@ -263,7 +264,6 @@ nav {
 
 .card{
     flex-grow: 1;
-    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -871,6 +871,8 @@ tbody tr:hover{
 
 .balloon{
     position:absolute;
+    bottom:var(--vspace);
+    right:var(--vspace);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
