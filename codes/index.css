@@ -18,8 +18,14 @@
     --tgreen:rgba(70, 244, 111,0.5);
     --tyellow:rgba(255, 249, 201,0.4);
     --tblack:rgba(0, 0, 0, 0.4);
+    --tdarkblue:rgba(7, 0, 112,0.5);
+    
+    --transparent:rgba(0,0,0,0);
     
     --vspace:calc(5px + 5vmin);
+    
+    --logo:url("../images/logo.png");
+    --logoinv:url("../images/logo-inv.png");
 }
 
 .nightmode{
@@ -34,7 +40,14 @@
     --lightyellow: #000FFF;
     --whiteyellow: #070070;
     
-    --tgreen:rgba(70, 244, 111,0.5);   
+    --tgreen:rgba(70, 244, 111,0.5); 
+    
+    --tdarkblue:rgba(255, 249, 201,0.4);
+    --tblack:rgba(1, 1, 1, 0.4);
+    --tyellow:rgba(7, 0, 112,0.5);
+    
+    --logo:url("../images/logo-inv.png");
+    --logoinv:url("../images/logo.png");
 }
 
 
@@ -388,7 +401,7 @@ ol {
 .logo {
     width: 100%;
     padding: 40px 0px 20px 0px;
-    background-image: url("../images/logo.png");
+    background-image: var(--logo);
     background-position: 50% 50%;
     background-size: 50px 50px;
     background-repeat: no-repeat; 
@@ -397,7 +410,7 @@ ol {
 }
 
 .logo:hover {
-    background-image: url("../images/logo-inv.png");
+    background-image: var(--logoinv);
     background-color: var(--darkblue);
     transition-duration: 1s;
 }
@@ -932,4 +945,51 @@ tbody tr:hover{
   	background-color: var(--blue);
     border-color: var(--turquoise);
     color: var(--turquoise);   
+}
+
+#guestbook-area{
+    width: 100%;
+    margin-top: var(--vspace);
+}
+
+.comment {
+    background-color: var(--white);
+    text-align: left;
+    margin: 4px 0px;
+    border-bottom: 4px solid var(--lightyellow);
+    padding-top: 10px;
+    display: flex;
+
+}
+.comment:nth-child(odd){
+    text-align: right;
+    border-bottom: 4px solid var(--yellow);
+    flex-flow: row-reverse;
+}
+.comment .date{
+    display: inline-block;
+    padding: 4px;
+    align-self: end;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.comment:nth-child(odd) .date{
+    background-color:var(--yellow);
+     text-align: left;
+}
+.comment p{
+    padding: 0px 10px 0px 10px;
+    font-size: 90%;
+}
+.comment .author{
+    color:var(--blue);
+    font-weight: bold;
+}
+.comment .subject{
+    color:var(--blue);
+    font-style: italic;
+}
+.comment .quote{
+    font-size: 120%;
 }

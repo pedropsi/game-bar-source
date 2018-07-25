@@ -220,17 +220,23 @@ function toggleConfig(mode){
 // Night Mode
 
 function toggleNightMode(){
-	if(	document.body.className.replace("nightmode","")==document.body.className)
+	if(	document.body.className.replace("nightmode","")==document.body.className){
 		document.body.className=document.body.className+" nightmode";
-	else
-		document.body.className=document.body.className.replace("nightmode","")
-	toggleConfig("🌙»")
+		document.getElementById("NightMode").innerHTML="☀ Brighten";
+	}
+	else{
+		document.body.className=document.body.className.replace("nightmode","");
+		document.getElementById("NightMode").innerHTML="☾ Darken";
+	}
+	toggleConfig("☾»")
 }
 
 function activateNightMode(){
-	if(	document.body.className.replace("nightmode","")==document.body.className)
+	if(	document.body.className.replace("nightmode","")==document.body.className){
 		document.body.className=document.body.className+" nightmode";
-	activateConfig("🌙»")
+		document.getElementById("NightMode").innerHTML="☀ Brighten";
+	}
+	activateConfig("☾»")
 }
 
 // Background
@@ -258,7 +264,7 @@ function activateBGMode(bg){
 
 function loadConfig(){
 	updateConfig(Config())
-	if(inConfig("🌙»"))
+	if(inConfig("☾»"))
 		activateNightMode()
 	if(inConfig("🖼»"))
 		activateBGMode(getConfigArg("🖼»"))

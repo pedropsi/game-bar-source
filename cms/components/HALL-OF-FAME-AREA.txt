@@ -8,11 +8,5 @@
 			«HALL-OF-FAME-DISPLAY»
 		</script>
 	</div>
-	<div class="textarea">
-		<div class="text «STYLE:Load»" id="markdown">
-			«POST:Load»
-		</div>
-		«STARSSHARE»
-	</div>
-	«LABELS»
+	«POST-PLUS-LABELS»
 </div>

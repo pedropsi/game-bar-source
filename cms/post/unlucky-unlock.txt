@@ -11,4 +11,5 @@ Moving the pieces to the right positions unlocks each next level.</p>
 «CREDITS»  
 
 <h2>Featured in</h2>
-<p><a href="http://www.bontegames.com/2014/07/unlucky-unlock.html" id="featured-bonte">Bart Bonte's blog</a> - with some very nice reviews.</p>
+<p><a href="http://www.bontegames.com/2014/07/unlucky-unlock.html">Bart Bonte's blog</a> - with some very nice reviews.</p>
+<p><a href="http://warpdoor.com/2014/07/18/unlucky-unlock-pedro-psi">Warpdoor portal</a></p>

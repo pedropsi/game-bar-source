@@ -166,14 +166,19 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
-		<loc>https://pedropsi.github.io/https://combinatura.github.io/index</loc>
-		<lastmod>2018-07-06</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
 		<loc>https://pedropsi.github.io/hastefulll</loc>
 		<lastmod>2018-07-12</lastmod>
 		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://pedropsi.github.io/guestbook</loc>
+		<lastmod>2018-07-22</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://pedropsi.github.io/https://combinatura.github.io/index</loc>
+		<lastmod>2018-07-06</lastmod>
+		<changefreq>monthly</changefreq>
 	</url>
 	<url>
 		<loc>https://pedropsi.github.io/hall-of-fame</loc>

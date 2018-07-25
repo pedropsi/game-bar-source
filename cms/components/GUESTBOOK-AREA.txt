@@ -1,0 +1,16 @@
+<div class="container" >
+	<h1 class="textarea title">Guestbook</h1>
+	<div class="textarea">
+		<div class="text «STYLE:Load»" id="markdown">«POST:Load»</div>
+		«STARSSHARE»
+	</div>
+	«LABELS»
+	<div id="guestbook-area">
+		<div class="section">
+			<iframe src="«GUESTBOOK-VIEW-LEGACY»" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+		</div>
+		<script>
+			«GUESTBOOK-DISPLAY»
+		</script>
+	</div>
+</div>

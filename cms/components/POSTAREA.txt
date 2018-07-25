@@ -1,10 +1,5 @@
 ﻿<div class="section">
 	<div class="container">
-		<h1 class="textarea title">«TITLE:Load»</h1>
-		<div class="textarea">
-			<div class="text «STYLE:Load»" id="markdown">«POST:Load»</div>
-			«STARSSHARE»
-		</div>
-		«LABELS»
+		«POST-PLUS-LABELS»
 	</div>
 </div>

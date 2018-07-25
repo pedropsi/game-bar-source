@@ -11,6 +11,10 @@ function CombineRegex(a,b){
 	return comb;
 }
 
+function pageTitle(){
+	return document.getElementsByTagName("H1")[0].innerHTML;
+}
+
 function pageURL(){
 	return ""+window.location;
 }
@@ -31,6 +35,10 @@ function pageIdentifier(url){
 
 function SanitizeId(tex){
 	return tex.replace(/^[^a-z]+|[^\w:.-]+/gi,"");
+}
+
+function SafeString(tex){
+	return String(tex).replace(/[\<\>\=\+\-\(\)]/g,"");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -264,77 +272,6 @@ function CMSItemCurrent(){
 }
 
 
-/*
-(*Get cms items that match a particular filter*)
-CMSFilter[cms_, filter_, n_] := 
-  Cases[cms, Replace[CMSHeader[], filter, {1}], 1, n];
-CMSFilter[cms_, filter_] := CMSFilter[cms, filter, Infinity];
-CMSFilter[filter_] := CMSFilter[CMS[], filter];
-
-(*Create those filters*)
-MakeFilter[type_, inclusions_] := {Except[type] -> _, 
-   type -> inclusions};
-MakeFilterExclude[type_, exclusions_] := 
-  MakeFilter[type, Except[exclusions | type]];
-MakeFilter[type_] := MakeFilterExclude[type, ""];
-
-(*Get all first items with distinct properties*)
-CMSUnique[cms_, properties_List] := Module[{p, F, finalcms},
-   p = Function[x, 
-      Position[CMSHeader[], x] // 
-       If[# === {}, Sequence @@ {}, #[[1, 1]]] &] /@ properties;
-   F = #[[p]] &;
-   finalcms = 
-    If[MemberQ[F[First[#]], ""], Sequence @@ {}, First[#]] & /@ 
-     GatherBy[cms, F];
-   Reverse@SortBy[finalcms, F]
-   ];
-CMSUnique[cms_, property_String] := CMSUnique[cms, {property}];
-
-(*Sort CMS*)
-CMSSort[cms_, d : ("Date" | "Month" | "Year" | "Day")] := 
-  CMSSort[cms, d, False];
-CMSSort[cms_, d : ("Date" | "Month" | "Year" | "Day"), True] := 
-  CMSSort[cms, d, False];
-
-CMSSort[cms_, property_, up_: True] :=
-  With[{SortF = 
-     Position[CMSHeader[], property] // 
-      If[# === {}, Identity, Function[x, x[[#[[1, 1]]]]]] &},
-   If[up, Identity, Reverse]@SortBy[cms, SortF]];
-
-CMSSort[property_] := CMSSort[CMSBody[], property];
-
-(*CMSSort[cms_,properties_List,up_:True]:=Fold[CMSSort[#1,#2,up]&,cms,\
-properties]*)
-
-CMSSort[cms_, properties_List, up_: True] :=
-  If[properties === {},
-   cms,
-   With[{SortF = 
-      Position[CMSHeader[], Last[properties]] // 
-       If[# === {}, Identity, Function[x, x[[#[[1, 1]]]]]] &},
-    Flatten[
-     CMSSort[#, Most@properties, up] & /@ 
-      GatherBy[CMSSort[cms, Last[properties], up], SortF], 1]]];
-
-(*Obtain the nth item with a certain type*)
-CMSIndexedItem[cms_, type_, n_] := 
-  CMSFilter[cms, MakeFilter["Type", Caplow@type]] // 
-   With[{nu = ToExpression@ToString@n}, 
-     If[0 < nu < 1 + Length[#], #[[nu]], {}]] &;
-CMSIndexedItem[type_, n_] := CMSIndexedItem[CMS[], type, n];
-
-(*Select n more recent posts or alphabetically or etc..*)
-CMSFilterSort[cms_, property_, up_, n_: All] :=
-  CMSSort[CMSFilter[CMS[], MakeFilter[property]], property, up][[
-   1 ;; n]];
-
-*/
-
-
-
-
 // Add new element to page, under a parent element
 function AddElement(html,parentID){
 	var e=document.createElement("div");
@@ -365,24 +302,38 @@ function OverwriteData(source,destinationID,Transform){
 	ReplaceElement(data,destinationID);
 };
 
+//////////////////////////////////////////////////
 // Transformer: Table Inverted
 function MakeInvertedTable(dataarray){
 	function EnRow(dataline){
 		var datalin = dataline.map(
 			function(x){
-				var y = String(x);
+				var y = SafeString(x);
 				if(y!="")
-					y="\t\t<td>"+String(x)+"</td>";
+					y="\t\t<td>"+SafeString(x)+"</td>";
 				return y;
 			});
 		var dtl = datalin.join("\n");
-		console.log(dtl);
 		if(dtl!="\n")
 			dtl="\t<tr>\n"+dtl+"</tr>";
 		return 	dtl;
 	};
-	return "<table>\n"+dataarray.map(EnRow).reverse().join("\n")+"</table>";
+	return "<table><tbody>\n"+dataarray.map(EnRow).reverse().join("\n")+"</tbody></table>";
 }
+
+function MakeGuestbook(dataarray){
+	function MakeComment(dataline){
+		if(dataline[0]==="") return "";
+		var date="<div class='date'>"+SafeString(dataline[0])+"</div>";
+		var c="<p class='quote'>"+SafeString(dataline[3])+"</p>";
+		var a="<span class='author'>"+SafeString(dataline[2])+"</span>";
+		var o="<span class='subject'>, on "+SafeString(dataline[1])+"</span>";
+		var html="<div class='comment'><div>"+c+"<p>"+a+o+"</p></div>"+date+"</div>";
+		return 	html;
+	};
+	return "<table><tbody>\n"+dataarray.map(MakeComment).reverse().join("\n")+"</tbody></table>";
+}
+
 
 //Update Page with most recent edit
 
@@ -504,71 +455,109 @@ document.onkeydown=function(e){
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// Buttons and Components
+// Basic Buttons
 
 function CloseButtonHTML(targetid){
 	return '<span class="button closer" onclick="Close(\''+targetid+'\')">&times;</span>'
 }
 
 function SubmitButtonHTML(questionid){
-	return '<div class="button" onclick="Answer(\''+questionid+'\')">Submit</div>';
+	return '<div class="button" onclick="SubmitAnswer(\''+questionid+'\')">Submit</div>';
 }
 
 function MessageHTML(message){
 	return "<h4 class='question'>"+message+"</h4>";
 }
 
-function ChoicesButtonHTML(choice,questionid){
-	return '<div class="button" data-choice="'+choice+'" onclick="ToggleThis(event,this);ToggleData(\'answer\',\''+choice+'\',\''+questionid+'\')">'+choice+'</div>';
-}
+////////////////////////////////////////////////////////////////////////////////
+// Datapack Components
 
-function ExclusiveChoiceButtonHTML(choice,questionid){
-	return '<div class="button" data-choice="'+choice+'" onclick="ToggleThisOnly(event,this);ToggleData(\'answer\',\''+choice+'\',\''+questionid+'\')">'+choice+'</div>';
-}
+var DATAPACKHISTORY=[];
 
-function ChoiceHTML(QuestionName,choices,questionid,TypeOfChoice){
-	var choi="";
-	for(var i in choices)
-		choi=choi+TypeOfChoice(choices[i],questionid);
-	return '<div class="buttonrow" data-question="'+QuestionName+'">'+choi+'</div>'+SubmitButtonHTML(questionid);
-}
+function NewDataPack(){
+var d={
+	questionname:"???",			//Display name of the subquestion
+	qfield:"question",			//Field name must be unique
+	qvalue:"",					//Field value, by default
+	qchoices:"",				//answer options list
+	qtype:LongAnswerHTML,		//Format of question ---takes a Datapack as ony argument
+	qdestination:'feedback',	//Name of data repository
+	qplaceholder:"❤ Pedro PSI ❤",			//Placeholder answer
 
-function ChoicesButtonRowHTML(QuestionName,choices,questionid){
-	return ChoiceHTML(QuestionName,choices,questionid,ChoicesButtonHTML)
-}
-
-function ExclusiveChoiceButtonRowHTML(QuestionName,choices,questionid){
-	return ChoiceHTML(QuestionName,choices,questionid,ExclusiveChoiceButtonHTML)
-}
-
-function InputHTML(placeholder,QuestionName){return "<input data-question='"+QuestionName+"' placeholder='"+placeholder+"'></input>"}
-function TextareaHTML(placeholder,QuestionName){return "<textarea data-question='"+QuestionName+"' placeholder='"+placeholder+"'></textarea>"}
-
-function LongAnswerHTML(QuestionName,id){return TextareaHTML(' ❤ Pedro PSI ❤ ',QuestionName)+SubmitButtonHTML(id)}
-function ShortAnswerHTML(QuestionName,id){return InputHTML(QuestionName,QuestionName)+SubmitButtonHTML(id)}
-
-function QuestionHTML(QuestionName,Choices,destination){
-	var qid=SanitizeId(QuestionName);
-	var answers=Choices;
-	var title=MessageHTML(QuestionName);
-	if (typeof Choices==="object")
-		if(Choices.length>2)
-			answers=ChoicesButtonRowHTML(QuestionName,Choices,qid)
-		else
-			answers=ExclusiveChoiceButtonRowHTML(QuestionName,Choices,qid)
-	else if (Choices===""||Choices==="textarea")
-		answers=LongAnswerHTML(QuestionName,qid);
-	else if (Choices==="input"){
-		answers=ShortAnswerHTML(QuestionName,qid);
-		title="";
+	qid:GenerateId(),			//Which is the id of the overarching question/form element?
+	qtargetid:document.body.id,	//Where to introduce form in page?
+	qdisplay:OpenFeedbackBalloon//Question display function ---takes a Datapack as ony argument
 	}
-	var QA='<div data-destination="'+destination+'">'+title+answers+"</div>";
-	return QA;
+	
+	DATAPACKHISTORY.push(d);
+	return d;
+}
+
+
+function ChoiceHTML(dataPack,qbehaviour){
+	var choi="";
+	for(var i in dataPack.qchoices)
+		choi=choi+qbehaviour(dataPack.qchoices[i],dataPack);
+	return '<div class="buttonrow">'+choi+'</div>';
+}
+
+function ChoicesButtonRowHTML(dataPack){
+	function ChoicesButtonHTML(choice,dataPac){
+		return '<div class="button" onclick="ToggleThis(event,this);ToggleData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
+	}
+	return ChoiceHTML(dataPack,ChoicesButtonHTML)
+}
+
+function ExclusiveChoiceButtonRowHTML(dataPack){
+	function ExclusiveChoiceButtonHTML(choice,dataPac){
+		return '<div class="button" onclick="ToggleThisOnly(event,this);ToggleData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
+	}
+	return ChoiceHTML(dataPack,ExclusiveChoiceButtonHTML)
+}
+
+function ShortAnswerHTML(dataPack){
+	return "<input data-"+dataPack.qfield+"='' placeholder='"+dataPack.qplaceholder+"'></input>";
+}
+
+function LongAnswerHTML(dataPack){
+	return "<textarea data-"+dataPack.qfield+"='' placeholder='"+dataPack.qplaceholder+"'></textarea>";
+}
+
+
+function SubQuestionHTML(dataPack){
+	var questiontitle=MessageHTML(dataPack.questionname);
+	var answerfields=dataPack.qtype(dataPack);
+	return questiontitle+answerfields;
+}
+
+function QuestionHTML(dataPackArray){
+	if(typeof dataPackArray.qid !== "undefined") //Meaning it is a single subquestion unwrapped
+		return QuestionHTML([dataPackArray]);
+	var dataPack=dataPackArray[0];
+	var QA=dataPackArray.map(SubQuestionHTML).join("");
+	return '<div data-destination="'+dataPack.qdestination+'"id="'+dataPack.qid+'">'+QA+SubmitButtonHTML(dataPack.qid)+"</div>";
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // Balloons
+
+function OpenMessageBalloon(dataPack){
+	OpenBalloon(dataPack.questionname,dataPack.qid,dataPack.qtargetid);
+}
+
+function OpenSubmittedBalloon(targetid){
+	OpenBalloon("Submitted. Thank you!",GenerateId(),targetid);
+}
+
+function OpenFeedbackBalloon(dataPack){
+	var datap=dataPack;
+	datap.qdestination="feedback";
+//	datap.qid=SanitizeId(datap.questionname);
+	var QA = QuestionHTML(datap);
+	OpenBalloon(QA,datap.qid,datap.qtargetid)
+}
+
 
 function BalloonHTML(avatarsrc,content,id){
 	return '\
@@ -579,38 +568,21 @@ function BalloonHTML(avatarsrc,content,id){
 		</div>';
 }
 
-function OpenMessageBalloon(message,targetid){
-	var qid=SanitizeId(message);
-	OpenBalloon(message,qid,targetid);
-}
-
-function OpenSubmittedBalloon(targetid){
-	var qid="thanks";
-	OpenBalloon("Submitted. Thank you!",qid,targetid);
-}
-
-function OpenFeedbackBalloon(QuestionName,Choices,targetid){
-	var qid=SanitizeId(QuestionName);
-	var QA = QuestionHTML(QuestionName,Choices,"feedback");
-	OpenBalloon(QA,qid,targetid)
-}
-
-function OpenBalloon(message,id,targetid){
-	AddElement(BalloonHTML("images/logo.png",message,id),targetid);
+function OpenBalloon(content,id,targetid){
+	AddElement(BalloonHTML("images/logo.png",content,id),targetid);
 }
 
 function CloseBalloonIn(targetid){
 	var ballon=document.getElementById(targetid).querySelector(".balloon");
-	if(ballon)
+	if(ballon){
 		Close(ballon.id);
+	}
 }
 
 function HasBalloon(targetid){
 	var i=document.getElementById(targetid);
 	return (i.querySelector(".balloon")!==null);
 }
-
-
 
 
 function Close(targetid){
@@ -654,27 +626,30 @@ function SubmitData(dataObject,destination){
 	echoDataToSheetURL(data,destination.url,destination.sheet);
 }
 
-function Answer(questionid,choice){
-	if(typeof choice!=="undefined")
-		SetData("answer",choice,questionid);
+function SubmitAnswer(qid){
 
-	var formtype=FindData("destination",questionid);
+	var formtype=FindData("destination",qid);
 	var destinationObject=GetDestination(formtype);
-	var dataObject=(destinationObject.Data)(questionid);
-	
+	var dataObject=(destinationObject.Data)(qid);
+
 	SubmitData(dataObject,destinationObject);	
-	Close(questionid);
+	Close(qid);
 }
 
-function FindData(type,id){
-	return	FindDataInNode(type,document.getElementById(id))
+function FindData(field,id){
+	var d=FindDataInNode(field,document.getElementById(id));
+	if(typeof d==="undefined")
+		return GetData(field,id);
+	else
+		return d;
 };
-	
+
 function FindDataInNode(type,node){
+	console.log(node);
 	if(typeof node==="null")
 		return undefined;
-	else if(HasData(type,node)){
-		return GetData(type,node);
+	else if(NodeHasData(type,node)){
+		return NodeGetData(type,node);
 	}
 	else{
 		var children= node.childNodes;
@@ -688,38 +663,44 @@ function FindDataInNode(type,node){
 	}
 }
 
-function HasData(type,node){
-	if(type==="answer"&&["INPUT","TEXTAREA"].indexOf(node.tagName)>=0)
-		return (node.value!=="undefined")
-	else
-		return (typeof node.dataset!=="undefined")&&(typeof node.dataset[type]!=="undefined");
+function NodeHasData(field,node){
+	return (typeof node.dataset!=="undefined")&&(typeof node.dataset[field]!=="undefined");
 }
 
-function GetData(type,node){
-	if(type==="answer"&&["INPUT","TEXTAREA"].indexOf(node.tagName)>=0)
+function NodeGetData(field,node){
+	if((["INPUT","TEXTAREA"].indexOf(node.tagName)>=0)&&typeof node.dataset[field]!=="undefined")
 		return (node.value)
 	else
-		return (node.dataset[type]);
+		return (node.dataset[field]);
 }
 
-function SetData(type,value,questionid){
-	document.getElementById(questionid).setAttribute("data-"+type,value);
-}
+function GetDatapack(id){
+	var i=0;
+	while(i<DATAPACKHISTORY.length){
+		if(DATAPACKHISTORY[i].qid===id)
+			return DATAPACKHISTORY[i];
+		i++}
+	return undefined
+};
 
-function ToggleData(type,value,questionid){
-	var e=document.getElementById(questionid);
-	console.log(e);
-	var a;
-	if(!e.hasAttribute("data-"+type))
-		e.setAttribute("data-"+type,value)
+function GetData(field,id){
+	return GetDatapack(id)[field];
+};
+
+function SetData(field,value,id){
+	GetDatapack(id)[field]=value;
+};
+
+function ToggleData(field,value,id){
+	if(typeof GetData(field,id)==="undefined")
+		SetData(field,value,id)
 	else{
-		a=e.getAttribute("data-"+type);
+		a=GetData(field,id);
 		if(a.replace(value,"")===a)
-			e.setAttribute("data-"+type,a+" "+value)
+			SetData(field,a+" "+value,id)
 		else
-			e.setAttribute("data-"+type,a.replace(value,""))
+			SetData(field,a.replace(value,""),id)
 	}
-		console.log(e);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -748,7 +729,7 @@ function ModalHTML(content,id){
 			</div>\
 		</div>';
 }
-	
+
 function OpenModal(content,id,targetid){
 	AddElement(ModalHTML(content,id),targetid);
 }
