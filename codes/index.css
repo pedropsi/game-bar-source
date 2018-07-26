@@ -451,7 +451,7 @@ ol {
 .dated .text:first-of-type:before {
     content:" ";
     display: inline-block;
-    background-image: url('../images/Separator.png');
+    background-image: var(--logo);
     height: 20px;
     width: 20px;
     background-size: 10px;
@@ -532,7 +532,7 @@ ol {
     content:"";
     display: inline-block;
     margin-left:20px;
-    background-image: url('../images/Separator.png');
+    background-image: var(--logo);
     height: 20px;
     width: 20px;
     background-size: 14px;
