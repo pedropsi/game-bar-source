@@ -11,6 +11,9 @@
 
 «CREDITS»
 
+<h2>Featured in</h2>
+<p><a href="https://www.bontegames.com/2018/07/hastefulll-browser.html">Bart Bonte's blog</a></p>
+
 <h2>F.A.Q.</h2>
 <h3>How was the name Hastefulll chosen?</h3>
 <p>Hastefulll is a combination of the words <b>Haste</b> and <b>full</b>, in line with the main game goal: filling the entire board as quickly as possible (in the fewest tries).
