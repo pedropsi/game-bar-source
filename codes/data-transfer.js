@@ -12,7 +12,7 @@ function CombineRegex(a,b){
 }
 
 function pageTitle(){
-	return document.getElementsByTagName("H1")[0].innerHTML;
+	return document.title;
 }
 
 function pageURL(){
