@@ -1,7 +1,7 @@
 ///// ANALYTICS
 var domain = "pedropsi.github.io";
 var analyticsURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec";
-var analyticsParameters="[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\"]";
+var analyticsParameters="[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\",\"name\"]";
 var analyticsSheetName="analytics";
 var clearance = "test";
 
@@ -25,7 +25,8 @@ function LangUpperCase(s){
 					window.screen.colorDepth].join("x"),
 		"agent":window.navigator.userAgent,
 		"from":document.referrer,
-		"campaign":(pageTag(pageURL())=="")?"none":pageTag(pageURL())
+		"campaign":(pageTag(pageURL())=="")?"none":pageTag(pageURL()),
+		"name":UserId()
 	};		
 }
 

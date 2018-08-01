@@ -12,7 +12,7 @@ var DESTINATION_HOF={
 		}}
 	}
 
-var who=GenerateId();	
+var who=UserId();	
 var DESTINATON_FEEDBACK={
 	url:"https://script.google.com/macros/s/AKfycbwB-a8j-INbkzTiQFJ55qETLYkdZrRvSg2s8urj9bPbG0XkBg9z/exec",
 	headers:"[\"identifier\",\"context\",\"question\",\"answer\",\"name\"]",

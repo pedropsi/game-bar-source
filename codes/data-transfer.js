@@ -44,6 +44,13 @@ function SafeString(tex){
 ///////////////////////////////////////////////////////////////////////////////
 //Unique random identifier
 
+var UID=""
+function UserId(){
+	if (UID==="")
+		UID=GenerateId();
+	return UID;
+}
+
 function GenerateId(){
 	var preconsonants = "bcdfghjklmnpqrstvwxz";
 	var preconsonants2 = "hjlnrs";

@@ -756,7 +756,7 @@ var leveldata={
 	level:"0",
 	moves:"-",
 	winsequence:"-",
-	name: GenerateId(),
+	name: UserId(),
 	timing: "0",
 	type:"-"
 };
