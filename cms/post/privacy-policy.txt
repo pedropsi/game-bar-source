@@ -1,5 +1,5 @@
-﻿<p>In connection to your use of the «SITE-NAME», you agree to be exclusively responsible to protect your own privacy. Otherwise you must cease to use the «SITE-NAME».  
-Nevertheless, the «SITE-NAME» is designed to minimise privacy risks. <b>Here's how!</b></p>
+﻿<p>The «SITE-NAME» does not collect <em>personal data</em> as defined in <a href="https://gdpr-info.eu/art-4-gdpr/" «BLANK»>GDPR's Article 4</a>. Nevertheless, whenever <b>you choose</b> to communicate any <em>personal data</em>, your privacy and <a href="https://gdpr-info.eu/" «BLANK»>GDPR</a> will be <b>respected</b>.<p>
+<p>Moreover, the «SITE-NAME» is designed to minimise privacy risks. <b>Here's how!</b></p>
 
 <h2>Open-source</h2>
 <p>The «SITE-NAME» is <b>open-source</b>. Do <a href="«SOURCE-URL»" «BLANK»>look at the code</a> and if you find any privacy breach or concern, «CONTACT-TEXT-3».</p>
@@ -13,15 +13,12 @@ Nevertheless, the «SITE-NAME» is designed to minimise privacy risks. <b>Here's
 <h3><em>Google</em></h3>
 <p>Some site features (form and feedback submission, analytics) are managed by the «SITE-NAME»'s associated <em>Google</em> account:</p>
 
-<h3><em>Puzzlescript</em></h3>
-<p><em>Puzzlescript</em> games record your progress using <b>cookies</b> so that you can return later to the last level.</p>
-
 <h2>Private Communication</h2>
 <p>When you communicate with the «SITE-NAME», for instance by email or form submission, this communication is kept <b>private</b>.  
 However, it flows through a <em>Google</em> mailbox and it may stay there for archival purposes as long as «SITE-NAME» runs.</p>
 
 <h2>Minimal analytics</h2>
-<p>The «SITE-NAME» collects on each page load a minimal amount of anonymous visitor information (detailed below). 
+<p>The «SITE-NAME» collects on each page load a minimal amount of non-personal visitor information (detailed below). 
 This information is kept <b>private</b> in a <em>Google</em> account. </p>
 <p>If you can suggest how to reach the same purposes while collecting less information, «CONTACT-TEXT-4»</p>
 
@@ -51,8 +48,8 @@ This information is kept <b>private</b> in a <em>Google</em> account. </p>
 		<th>to compare the impact of different publicising efforts.<th>
 	</tr>
 	<tr>
-		<th>all the above together</th>
-		<th>to guess whether a visitor is new or an habitué. <th>
+		<th>a randomly generated word</th>
+		<th>to aggregate all data belonging the same visitor, across multiple pages.<th>
 	</tr>
 	</tbody>
 </table>
@@ -84,6 +81,9 @@ This information is kept <b>private</b> in a <em>Google</em> account. </p>
 	</tr>
 </tbody>
 </table>
+
+<h2>Cookies</h2>
+<p>Each game on the «SITE-NAME» uses cookies to save your progress. </p>
 
 <h2>More...</h2>
 <p>At the bottom of many pages, the sharing buttons, adapted from <a href="https://sharingbuttons.io/" «BLANK»>sharingbuttons.io</a>, are javascript-free thus privacy-friendly.</p>
