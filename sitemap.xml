@@ -46,6 +46,11 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
+		<loc>https://pedropsi.github.io/tag-Role-playing</loc>
+		<lastmod>2018-03-02</lastmod>
+		<changefreq>yearly</changefreq>
+	</url>
+	<url>
 		<loc>https://pedropsi.github.io/tag-Puzzle</loc>
 		<lastmod>2018-03-02</lastmod>
 		<changefreq>yearly</changefreq>
@@ -126,6 +131,11 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
+		<loc>https://pedropsi.github.io/hall-of-fame</loc>
+		<lastmod>2018-06-14</lastmod>
+		<changefreq>yearly</changefreq>
+	</url>
+	<url>
 		<loc>https://pedropsi.github.io/games</loc>
 		<lastmod>2018-03-02</lastmod>
 		<changefreq>yearly</changefreq>
@@ -166,13 +176,8 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
-		<loc>https://pedropsi.github.io/hastefulll</loc>
-		<lastmod>2018-07-12</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>https://pedropsi.github.io/guestbook</loc>
-		<lastmod>2018-07-22</lastmod>
+		<loc>https://pedropsi.github.io/tiaradventur</loc>
+		<lastmod>2018-08-28</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
@@ -181,8 +186,13 @@
 		<changefreq>monthly</changefreq>
 	</url>
 	<url>
-		<loc>https://pedropsi.github.io/hall-of-fame</loc>
-		<lastmod>2018-06-14</lastmod>
+		<loc>https://pedropsi.github.io/hastefulll</loc>
+		<lastmod>2018-07-12</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://pedropsi.github.io/guestbook</loc>
+		<lastmod>2018-07-22</lastmod>
 		<changefreq>monthly</changefreq>
 	</url>
 </urlset>

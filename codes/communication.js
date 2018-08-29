@@ -3,15 +3,18 @@
 
 var DESTINATION_HOF={
 	url:"https://script.google.com/macros/s/AKfycbzgwZUKFmuNQin6Kq4-kTMBSZtz9TapE6kxpZyk7p2tRaanLD1w/exec",
-	headers:"[\"identifier\",\"name\"]",
+	headers:"[\"identifier\",\"name\",\"honour\"]",
 	sheet:"Hall of fame",
 	name:"HOF",
 	Data:function(qid){return {
 		identifier:pageTitle(),
-		name:FindData("name",qid)
+		name:FindData("name",qid),
+		honour:GetHonour()
 		}}
 	}
-
+	
+function GetHonour(){return "";} //function to be customised in each game, otherwise inexistent
+	
 var who=UserId();	
 var DESTINATON_FEEDBACK={
 	url:"https://script.google.com/macros/s/AKfycbwB-a8j-INbkzTiQFJ55qETLYkdZrRvSg2s8urj9bPbG0XkBg9z/exec",

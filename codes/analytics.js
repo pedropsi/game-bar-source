@@ -4,6 +4,7 @@ var analyticsURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrX
 var analyticsParameters="[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\",\"name\"]";
 var analyticsSheetName="analytics";
 var clearance = "test";
+var clearancePages = ["Tiaradventur"];
 
 function LangUpperCase(s){
 	var pos=s.replace(/(.*-)/,"").replace(s,"");
@@ -90,7 +91,11 @@ function Analytics(){
 }
 
 function AnalyticsClearance(){
-	return (pageTag()!==clearance)&&(pageURL().replace(/^file\:\/\//,"")===pageURL())
+		return (pageTag()!==clearance)&&(pageURL().replace(/^file\:\/\//,"")===pageURL());
+}
+
+function AnalyticsInnerClearance(title){
+	return clearancePages.indexOf(title)<0; //Special pages without internal analytics
 }
 
 if(AnalyticsClearance()){
@@ -269,7 +274,11 @@ function loadConfig(){
 		activateNightMode()
 	if(inConfig("🖼»"))
 		activateBGMode(getConfigArg("🖼»"))
-
+	/*if(AnalyticsClearance()){
+		if(inConfig("💾»"))
+			UID=getConfigArg("💾»")
+		else activateConfig("💾("+UserId()+")»")
+	}*/  
 }
 
 loadConfig();

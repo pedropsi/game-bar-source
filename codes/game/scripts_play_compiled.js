@@ -379,10 +379,34 @@ var canvas,ctx,x,y,cellwidth,cellheight,magnification,xoffset,yoffset;window.add
 
 function glyphCount(){var a=0,b;for(b in state.glyphDict)1==b.length&&state.glyphDict.hasOwnProperty(b)&&a++;return a}
 
-function redraw(){if(0!==cellwidth&&0!==cellheight)if(void 0===spriteimages&&regenSpriteImages(),textMode){ctx.fillStyle=state.bgcolor;ctx.fillRect(0,0,canvas.width,canvas.height);for(var a=0;a<titleWidth;a++)for(var b=0;b<titleHeight;b++){var c=titleImage[b].charAt(a);if(c in textImages){var d=textImages[c];ctx.drawImage(d,xoffset+a*cellwidth,yoffset+b*cellheight)}}}else{ctx.fillStyle=state.bgcolor;ctx.fillRect(0,0,canvas.width,canvas.height);var c=0,e=screenwidth,g=0,h=screenheight;levelEditorOpened?
-(a=glyphCount(),editorRowCount=Math.ceil(a/(screenwidth-1)),e-=2,h-=2+editorRowCount):flickscreen?(a=getPlayerPositions(),0<a.length?(e=a[0],c=e/level.height|0,e=e%level.height|0,e=e/screenheight|0,c=(c/screenwidth|0)*screenwidth,g=e*screenheight,e=Math.min(c+screenwidth,level.width),h=Math.min(g+screenheight,level.height),oldflickscreendat=[c,g,e,h]):0<oldflickscreendat.length&&(c=oldflickscreendat[0],g=oldflickscreendat[1],e=oldflickscreendat[2],h=oldflickscreendat[3])):zoomscreen&&(a=getPlayerPositions(),
-0<a.length?(e=a[0],c=e/level.height|0,e=e%level.height|0,c=Math.max(Math.min(c-(screenwidth/2|0),level.width-screenwidth),0),g=Math.max(Math.min(e-(screenheight/2|0),level.height-screenheight),0),e=Math.min(c+screenwidth,level.width),h=Math.min(g+screenheight,level.height),oldflickscreendat=[c,g,e,h]):0<oldflickscreendat.length&&(c=oldflickscreendat[0],g=oldflickscreendat[1],e=oldflickscreendat[2],h=oldflickscreendat[3]));for(a=c;a<e;a++)for(b=g;b<h;b++)for(var l=level.getCellInto(b+a*level.height,
-_o12),p=0;p<state.objectCount;p++)0!=l.get(p)&&(d=spriteimages[p],ctx.drawImage(d,xoffset+(a-c)*cellwidth,yoffset+(b-g)*cellheight));levelEditorOpened&&drawEditorIcons()}}
+function redraw(){
+	if(0!==cellwidth&&0!==cellheight)
+		if(void 0===spriteimages&&regenSpriteImages(),textMode){
+			ctx.fillStyle=state.bgcolor;
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+			for(var a=0;a<titleWidth;a++)
+				for(var b=0;b<titleHeight;b++){
+					var c=titleImage[b].charAt(a);
+					if(c in textImages){
+						var d=textImages[c];
+						ctx.drawImage(d,xoffset+a*cellwidth,yoffset+b*cellheight)
+						}
+				}
+		}
+		else{
+			ctx.fillStyle=state.bgcolor;
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+			
+			var c=0,e=screenwidth,g=0,h=screenheight;
+			levelEditorOpened?(a=glyphCount(),editorRowCount=Math.ceil(a/(screenwidth-1)),e-=2,h-=2+editorRowCount):flickscreen?(a=getPlayerPositions(),0<a.length?(e=a[0],c=e/level.height|0,e=e%level.height|0,e=e/screenheight|0,c=(c/screenwidth|0)*screenwidth,g=e*screenheight,e=Math.min(c+screenwidth,level.width),h=Math.min(g+screenheight,level.height),oldflickscreendat=[c,g,e,h]):0<oldflickscreendat.length&&(c=oldflickscreendat[0],g=oldflickscreendat[1],e=oldflickscreendat[2],h=oldflickscreendat[3])):zoomscreen&&(a=getPlayerPositions(),0<a.length?(e=a[0],c=e/level.height|0,e=e%level.height|0,c=Math.max(Math.min(c-(screenwidth/2|0),level.width-screenwidth),0),g=Math.max(Math.min(e-(screenheight/2|0),level.height-screenheight),0),e=Math.min(c+screenwidth,level.width),h=Math.min(g+screenheight,level.height),oldflickscreendat=[c,g,e,h]):0<oldflickscreendat.length&&(c=oldflickscreendat[0],g=oldflickscreendat[1],e=oldflickscreendat[2],h=oldflickscreendat[3]));
+			
+			for(a=c;a<e;a++)
+				for(b=g;b<h;b++)
+					for(var l=level.getCellInto(b+a*level.height,_o12),p=0;p<state.objectCount;p++)
+						0!=l.get(p)&&(d=spriteimages[p],ctx.drawImage(d,xoffset+(a-c)*cellwidth,yoffset+(b-g)*cellheight));
+					levelEditorOpened&&drawEditorIcons()
+		}
+}
 
 function drawEditorIcons(){var a=glyphImages.length-0;ctx.drawImage(glyphPrintButton,xoffset-cellwidth,yoffset-cellheight*(1+editorRowCount));mouseCoordY===-1-editorRowCount&&-1===mouseCoordX&&ctx.drawImage(glyphMouseOver,xoffset-cellwidth,yoffset-cellheight*(1+editorRowCount));for(var b=editorRowCount-(-mouseCoordY-2)-1,c=mouseCoordX+(screenwidth-1)*b,d=0;d<a;d++){var e=glyphImages[0+d],g=d%(screenwidth-1),b=d/(screenwidth-1)|0;ctx.drawImage(e,xoffset+g*cellwidth,yoffset+b*cellheight-cellheight*
 (1+editorRowCount));0<=mouseCoordX&&mouseCoordX<screenwidth-1&&c===d&&ctx.drawImage(glyphMouseOver,xoffset+g*cellwidth,yoffset+b*cellheight-cellheight*(1+editorRowCount));d===glyphSelectedIndex&&ctx.drawImage(glyphHighlight,xoffset+g*cellwidth,yoffset+b*cellheight-cellheight*(1+editorRowCount))}-1<=mouseCoordX&&-1<=mouseCoordY&&mouseCoordX<screenwidth-1&&mouseCoordY<screenheight-1-editorRowCount&&(-1==mouseCoordX||-1==mouseCoordY||mouseCoordX==screenwidth-2||mouseCoordY===screenheight-2-editorRowCount?
@@ -888,7 +912,7 @@ function GoToLevelPrev(){
 }
 
 function echoLevelWin(curlevel){
-	if(AnalyticsClearance()){
+	if(AnalyticsClearance()&&AnalyticsInnerClearance(pageTitle())){
 		UpdateLevelData(curlevel);
 		configLevelWin(curlevel);
 		echoPureData(leveldata,leveldataURL);
@@ -911,6 +935,7 @@ window.onunload=(function(){
 function DoWin() {
             if (!winning) {
 				echoLevelWin(curlevel);
+				if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
                 if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
                 winning = !0, timer = 0
             }
@@ -1479,6 +1504,7 @@ Mobile.debugDot = function (event) {
         window.addEventListener('touchstart', this.onTouchStart.bind(this));
         window.addEventListener('touchend', this.onTouchEnd.bind(this));
         window.addEventListener('touchmove', this.onTouchMove.bind(this));
+		document.getElementById('puzzlescript-game').addEventListener('touchmove', function(e){e.preventDefault()}); //PEDROPSI prevent scroll fix 
     };
 
     proto.bootstrap = function () {

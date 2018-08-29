@@ -17,6 +17,20 @@
 		</image>
 
 		<item>
+		<title>Tiaradventur</title>
+		<link>http://pedropsi.github.io/tiaradventur</link>
+		<guid>http://pedropsi.github.io/tiaradventur</guid>
+		<pubDate>Tue, 28 Aug 2018 07:06:05 GMT</pubDate>
+		<description>About Tiaradventur
+		
+		A desperate Princess, on a quest to find seven stolen tiaras, asks for your help. As a Hero in the making, you must not refuse, even in the face of danger! 
+		As the story unfolds, you may get to know the Princess better and understand what really is at stake.
+		The legend of Tiar...</description>
+		<enclosure url="http://pedropsi.github.io/images/tiaradventur.png" length="98765" type="image/png" />
+		
+		<category>Game</category><category>Puzzle</category><category>Role-playing</category>
+		</item>
+		<item>
 		<title>Guestbook</title>
 		<link>http://pedropsi.github.io/guestbook</link>
 		<guid>http://pedropsi.github.io/guestbook</guid>
@@ -82,30 +96,14 @@
 		<link>http://pedropsi.github.io/privacy-policy</link>
 		<guid>http://pedropsi.github.io/privacy-policy</guid>
 		<pubDate>Sat, 10 Mar 2018 07:06:05 GMT</pubDate>
-		<description>In connection to your use of the Creative Archive, you agree to be exclusively responsible to protect your own privacy. Otherwise you must cease to use the Creative Archive.  
-		Nevertheless, the Creative Archive is designed to minimise privacy risks. Here's how!
+		<description>The Creative Archive does not collect personal data as defined in GDPR's Article 4. Nevertheless, whenever you choose to communicate any personal data, your privacy and GDPR will be respected.
+		Moreover, the Creative Archive is designed to minimise privacy risks. Here's how!
 		
 		Open-source
-		The Creative Archive i...</description>
+		The Creat...</description>
 		<enclosure url="http://pedropsi.github.io/images/splash.png" length="98765" type="image/png" />
 		
 		<category>Creative-Archive</category><category>Post</category>
-		</item>
-		<item>
-		<title>Whirlpuzzle</title>
-		<link>http://pedropsi.github.io/whirlpuzzle</link>
-		<guid>http://pedropsi.github.io/whirlpuzzle</guid>
-		<pubDate>Thu, 01 Mar 2018 07:06:05 GMT</pubDate>
-		<description>About Whirlpuzzle
-		Find a path to the goal, by rotating the puzzle to displace obstacles and reach inacessible locations! Beware, whirling too much will only confuse you...
-		Can you solve all 7 levels? Good luck!
-		
-		How to playControls - keyboard
-		The goal is marked by an X.
-		Move your avatar by pressi...</description>
-		<enclosure url="http://pedropsi.github.io/images/whirlpuzzle.png" length="98765" type="image/png" />
-		
-		<category>Game</category><category>Puzzle</category>
 		</item>
 		
 	</channel>
