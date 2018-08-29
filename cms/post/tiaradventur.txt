@@ -41,7 +41,21 @@
 <p>The game <em>saves automatically</em> whenever the <b>Princess</b> <em>safely</em> enters an area containing a new <b>tiara</b>.</p>
 «GAME-EXTRAS-NONAV-TEXT»
 
-«CREDITS»
+<h2>Credits</h2>
+<p><a href="«SITE»/«LINK:Load».html">«TITLE:Load»</a> by <a href="«SITE»">«NAME»</a>, «YEAR:Load».</p>
+
+<h3>Music</h3>
+<p>All music tracks by the talented <a href='«MUSIC-LINK:Load»' id='music-author' «BLANK»><b>«MUSIC-AUTHOR:Load»</b></a>.
+
+<p><b>1. Legend of the King</b> 
+<p><b>2. Beyond</b> 
+<p><b>3. Changing Lights</b> 
+<p><b>4. Eternity</b> 
+<p><b>5. Friendly Storm</b> 
+<p><b>6. Your Voice</b> 
+<p><b>7. Monsters</b> 
+
+«CREDITS-ENGINE-SUPPORT»
 
 <h2>F.A.Q.</h2>
 <h3>How does the name «TITLE:Load» mean?</h3>
