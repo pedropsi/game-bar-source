@@ -827,8 +827,15 @@ function UpdateLevelData(curlevel){
 	
 	leveldata["timing"]=ElapsedTime();	
 	leveldata["level"]=curlevel;
+
 	leveldata["moves"]=ms;
 	leveldata["winsequence"]=ws;
+	
+	if(!AnalyticsInnerClearance(pageTitle())){
+		leveldata["moves"]="---";
+		leveldata["winsequence"]="---";
+	}
+	
 	leveldata["type"]="win";
 }
 
@@ -912,7 +919,7 @@ function GoToLevelPrev(){
 }
 
 function echoLevelWin(curlevel){
-	if(AnalyticsClearance()&&AnalyticsInnerClearance(pageTitle())){
+	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
 		configLevelWin(curlevel);
 		echoPureData(leveldata,leveldataURL);
