@@ -57,8 +57,15 @@
 
 «CREDITS-ENGINE-SUPPORT»
 
+<h3>Special thanks</h3>
+<p>Doomsday One and <a href="https://twitter.com/draknek" «BLANK»>Alan Hazelden</a> for spotting important bugs and for useful feedback!</p>
+
 <h2>F.A.Q.</h2>
 <h3>How does the name «TITLE:Load» mean?</h3>
 <p><b>Tiara</b> + <b>Adventure!</b></p>
 <h3>What was your inspiration?</h3>
 <p><b>The Legend of Zelda</b>.</p>
+
+<h2 id="changelog">Changelog</h2>
+<h3>09/2018</h3>
+<p>Redesign of <em>area 3</em> to prevent unintended solution; minor graphic changes (polishing margins, choosing smaller trees in key positions); dialogue flow fix; player falling unintentionally into water disallowed; burning message added; player cannot leave princess while wolves are chasing her.</p>
