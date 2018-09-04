@@ -551,9 +551,18 @@ ol {
     text-align: center;
     padding: 20px 40px 20px 40px;
 }
+
+.prose .figure {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .figure img{
   max-width:50%;
 }
+
 .legend p{
     border-bottom: 5px solid var(--darkblue);
     border-top: 5px solid var(--darkblue);  

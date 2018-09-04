@@ -131,6 +131,11 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
+		<loc>https://pedropsi.github.io/https://combinatura.github.io/index</loc>
+		<lastmod>2018-07-06</lastmod>
+		<changefreq>yearly</changefreq>
+	</url>
+	<url>
 		<loc>https://pedropsi.github.io/hall-of-fame</loc>
 		<lastmod>2018-06-14</lastmod>
 		<changefreq>yearly</changefreq>
@@ -179,11 +184,6 @@
 		<loc>https://pedropsi.github.io/tiaradventur</loc>
 		<lastmod>2018-08-28</lastmod>
 		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>https://pedropsi.github.io/https://combinatura.github.io/index</loc>
-		<lastmod>2018-07-06</lastmod>
-		<changefreq>monthly</changefreq>
 	</url>
 	<url>
 		<loc>https://pedropsi.github.io/hastefulll</loc>
