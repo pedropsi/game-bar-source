@@ -11,7 +11,7 @@ I'm	I'm
 SITE-NAME	Creative Archive
 SITE	https://pedropsi.github.io
 SITE-HTTP	http://pedropsi.github.io
-SOURCE-URL	https://github.com/pedropsi/pedropsi.github.io
+SOURCE-URL	https://github.com/pedropsi
 LOGOPATH	images/logo.png
 CSS-NAME	<a href="«CSSPATH»">"Octaflower Theme" by «NAME»</a>
 CSSPATH	codes/index.css
@@ -19,6 +19,7 @@ APPLEICON	images/splash.png
 FAVICON32	images/favicon-32x32.png
 PLACEHOLDER-IMAGE	splash.png
 BLANK	target="_blank"
+HTML-PREFIX	<html prefix="og: http://ogp.me/ns#">
 CONTACT_FORM_SRC	https://docs.google.com/forms/d/e/1FAIpQLSc7pMuScBJIJesW4LMXdegzH2nJh5tbnwR8PmqZvyMhNrUl8A/viewform?embedded=true
 RATINGS-URL-VIEW	https://docs.google.com/spreadsheets/d/1hySpQzOdDriPZIx7wG9XQzj_L-cvUmlPYS2odywqhUI/edit#gid=0
 RATING-FORM-URL	action="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec"

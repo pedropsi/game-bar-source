@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+«HTML-PREFIX»
 	«HEAD»
 	«Content:Load»
 	<div class="main">

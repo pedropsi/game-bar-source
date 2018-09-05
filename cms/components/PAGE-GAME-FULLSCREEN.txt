@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+«HTML-PREFIX»
 <head>
 	«HEAD-ITEMS»
 	«PUZZLE-SCRIPT-PRE»
