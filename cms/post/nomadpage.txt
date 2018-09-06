@@ -1,0 +1,20 @@
+﻿<h2>What is «TITLE-BOLD»?</h2>
+<p>«TITLE-BOLD» is a <b>browser add-on</b>.</p>
+<p>It sets a different homepage every day, by cycling through a list of pages of your choice. Up to 31 homepages can be listed, one for each day of the month. If the list contains fewer pages, one simply counts from the first page again.</p>
+
+<h2>You need «TITLE-BOLD» if you...</h2>
+<p>... love to read newspapers, but have limited time and you'd like to read different ones on different days of the week. Now you can <b>keep your balance!</b></p> 
+<p>... follow weekly magazines, and need to structure your reading. Now you can <b>be more organized!</b></p> 
+<p>... check, at least once a month, blogs and other pages that update rarely. Now you can <b>forget no more!</b></p> 
+<p>... want to keep tabs on particular friends' pages or acquaintances regularly. Now you can <b>be a better person!</b></p> 
+
+<h2>How do I use «TITLE-BOLD»?</h2>
+<p>Easily! Just <em>list your choices</em> (in the options menu, in the browser add-ons page), <em>hit save</em> and you're good to go!</p>
+
+«FIGURE-SIMPLE»
+
+<h2>Any new features planned?</h2>
+<p>A <b>yearly</b> page calendar may be added. Please «CONTACT-TEXT-1» if you think this would be a good idea or you'd like to suggest something else.</p>
+
+<h2>Which browsers are currently supported?</h2>
+<p>At the moment, only <b>Firefox</b>. Please «CONTACT-TEXT-1» if you'd like to see «TITLE-BOLD» in your favourite browser.</p>

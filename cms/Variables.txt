@@ -24,12 +24,13 @@ CONTACT_FORM_SRC	https://docs.google.com/forms/d/e/1FAIpQLSc7pMuScBJIJesW4LMXdeg
 RATINGS-URL-VIEW	https://docs.google.com/spreadsheets/d/1hySpQzOdDriPZIx7wG9XQzj_L-cvUmlPYS2odywqhUI/edit#gid=0
 RATING-FORM-URL	action="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec"
 RSS-SITE-DESCRIPTION	Don't miss out on novelties from The «SITE-NAME»!
-RSS-LIMIT	7
+RSS-LIMIT	9
 RSS-PATH	rss.xml
 RSS-URL	«SITE»/«RSS-PATH»
 RSS-SVG	<svg viewBox="0 0 98.918 100" xml:space="preserve"><ellipse cx="13.566" cy="86.286" rx="13.566" ry="13.714"/><path d="M65.569,100H46.35c0-25.879-20.752-46.858-46.35-46.858l0,0V33.715C36.214,33.715,65.569,63.391,65.569,100z"/><path d="M79.135,100c0-44.183-35.429-80-79.135-80V0c54.631,0,98.918,44.772,98.918,100H79.135z"/></svg>
-LATEST-LIMIT	7
+LATEST-LIMIT	9
 SITEMAP-PATH	sitemap.xml
+TITLE-BOLD	<b>«TITLE:Load»</b>
 HALL-OF-FAME-VIEW-LEGACY	https://docs.google.com/spreadsheets/d/e/2PACX-1vQwd7CTU3k1HsrT4fPLljY9HSW5eWbOv118H3zn5nsRg6Uc1b_aTg577hjFoHLPCUbKAEmht603qmc7/pubhtml?gid=2116581279&single=true&widget=false&chrome=false&headers=false
 HALL-OF-FAME-URL	action="https://script.google.com/macros/s/AKfycbzgwZUKFmuNQin6Kq4-kTMBSZtz9TapE6kxpZyk7p2tRaanLD1w/exec"
 HALL-OF-FAME-DORM-ID	enterHallOfFame
