@@ -19,7 +19,6 @@ src/flash/classes/
 
 node_modules/
 
-build/
 *.tmp
 *.run
 test_swf_avm2.baseline
