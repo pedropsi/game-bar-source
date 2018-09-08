@@ -1,7 +1,0 @@
-ref/
-tmp/
-fuzz/
-swfarchive
-test_snapshots/
-avm2/acceptance-results.txt
-*.log

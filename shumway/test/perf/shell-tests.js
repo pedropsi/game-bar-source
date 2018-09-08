@@ -1,3 +1,0 @@
-testFiles = [
-  'vectors.js'
-];

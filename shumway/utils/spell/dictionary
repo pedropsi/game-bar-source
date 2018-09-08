@@ -1,6 +1,0 @@
-+.*
--^as[A-Z].+
-~^asProto
-~^asClass
-~^asArgs
--REDUX
