@@ -1,0 +1,279 @@
+[
+    {  "id": "basic",
+       "stas": "swfs/trace.stas",
+       "filenames": [
+         "swfs/encoding1.swf",
+         "swfs/fscommand1.swf",
+         "swfs/local2global.swf",
+         "swfs/movieinfo1.swf",
+         "swfs/stream1.swf",
+         "swfs/avm1/filters/filtersdump.swf",
+         "swfs/stroke1.swf"
+       ],
+       "type": "stas"
+    },
+    {  "id": "avm1core",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/add.swf",
+        "swfs/avm1/operations/actionequals2.swf",
+        "swfs/avm1/undefined/undefined-swf6.swf",
+        "swfs/avm1/undefined/undefined-swf7.swf",
+        "swfs/avm1/super/super.swf",
+        "swfs/avm1/callee/callee.swf",
+        "swfs/avm1/watch/watch.swf",
+        "swfs/avm1/array/arraygeneric.swf",
+        "swfs/avm1/property-paths/property-paths-6.swf",
+        "swfs/avm1/property-paths/property-paths-7.swf",
+        "swfs/avm1/propertycase/propertycase.swf",
+        "swfs/avm1/propertycase/propertycase-preserving-6.swf",
+        "swfs/avm1/propertycase/propertycase-preserving-7.swf",
+        "swfs/avm1/scope/avm1-scope-1.swf",
+        "swfs/avm1/loadevent/loadevent.swf",
+        "swfs/avm1/levels/twolevels_main.swf",
+        "swfs/avm1/nativeinheritance/avm1_inheritedproperties.swf",
+        "swfs/avm1/doactionorder/symbolclass.swf",
+        "swfs/avm1/doactionorder/doactionorder.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "hittesting as3",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/hittesting/hittesting.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "timeline_as2",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/timeline/timeline_as2_4.swf",
+        "swfs/timeline/timeline_as2_5.swf",
+        "swfs/avm1/label/avm1-label-1.swf",
+        "swfs/avm1/duplicateMovieClip/samedepth.swf",
+        "swfs/avm1/duplicateMovieClip/dontremove.swf",
+        "swfs/avm1/depth/depth.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "acid",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/acid/acid-morph.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "flash_events_Event trace",
+       "stas": "swfs/trace.stas",
+       "filenames": [
+         "swfs/flash_events_Event.swf",
+         "swfs/avm2/event-dispatching/event-handler-exceptions.swf"
+       ],
+       "type": "stas"
+    },
+    {  "id": "flash_geom_Matrix3D trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm2/flash/geom/matrix3d/Matrix3DClass.swf",
+        "swfs/avm2/flash/geom/matrix3d/TransformBasics.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "flash_geom_PerspectiveProjection trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm2/flash/geom/perspectiveprojection/PerspectiveProjectionClass.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "flash_geom_Transform trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm2/flash/geom/transform/pixelBounds.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "flash_net_classes trace",
+       "stas": "swfs/trace.stas",
+       "filenames": [
+         "swfs/flash_net_classes.swf"
+       ],
+       "type": "stas"
+    },
+    {  "id": "flash.display.Loader events trace",
+       "stas": "swfs/trace.stas",
+       "filenames": [
+         "swfs/as3-loader/events/loader-events.swf"
+       ],
+       "type": "stas"
+    },
+    {  "id": "flash.display.LoaderInfo trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/as3-loader/loaderinfo/Preloader.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "lzma",
+      "stas": "swfs/lzma.stas",
+      "filenames": [
+        "swfs/lzma.swf",
+        "swfs/lzma_bytes.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "avm1 setInterval trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/setinterval/setinterval.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "avm1 setTimeout trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/settimeout/settimeout.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "avm1 loadvariables",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/loadvariables/loadvariables.swf",
+        "swfs/avm1/loadvariables/loadvars.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "flash_utils_Timer",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/flash_utils_Timer.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "registerClass_as2_trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/doubleAndRegister.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "haxe_as2_trace",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/haxe/flocons1.swf",
+        "swfs/avm1/haxe/flocons2.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "blendmode_trace",
+       "stas": "swfs/trace.stas",
+       "filenames": [
+         "swfs/blendmode/blendmode_1.swf",
+         "swfs/blendmode/blendmode_2.swf"
+       ],
+       "type": "stas"
+    },
+    {  "id": "timeline",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/timeline/timeline_name_0.swf",
+        "swfs/timeline/timeline_loop.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "navigation",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/timeline/nav/blendMode.swf",
+        "swfs/timeline/nav/cacheAsBitmap.swf",
+        "swfs/timeline/nav/clipDepth.swf",
+        "swfs/timeline/nav/colorTransform.swf",
+        "swfs/timeline/nav/filters.swf",
+        "swfs/timeline/nav/matrix.swf",
+        "swfs/timeline/nav/morphShape.swf",
+        "swfs/timeline/nav/name.swf",
+        "swfs/timeline/nav/ratio.swf",
+        "swfs/timeline/nav/ratio2.swf",
+        "swfs/timeline/nav/ratio3.swf",
+        "swfs/timeline/nav/shape.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "styleheet",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/captions.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "Bug 1093712 - Loadee does not call frames if Loader is not on the stage",
+       "stas": "swfs/trace.stas",
+       "filenames": [
+         "swfs/as3-loader/bug1093712/loader.swf"
+       ],
+       "type": "stas"
+    },
+    {  "id": "avm1-duplicate-movieclip",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/duplicateMovieClip/duplicateMovieClip.swf",
+        "swfs/avm1/duplicateMovieClip/name-coercion.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "MaskTest-3",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/MaskTest-3.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "avm1-bitmapdata",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/bitmapdata/getPixel.swf",
+        "swfs/avm1/bitmapdata/loadBitmap.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "avm1-xml",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/xml/xmlbuild.swf",
+        "swfs/avm1/xml/xmlload.swf",
+        "swfs/avm1/xml/xmlload.swf",
+        "swfs/avm1/xml/xmlstring.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "avm1-externalinterface",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/externalinterface/catch-call-errors.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "avm1-textfield",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/avm1/textfield/textfield-html.swf",
+        "swfs/avm1/textfield/textfield-text-setters.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "moviecli-empty-mc-scenes",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/movieclip/empty-mc-scenes.swf"
+      ],
+      "type": "stas"
+    },
+    {  "id": "LocalConnection",
+      "stas": "swfs/trace.stas",
+      "filenames": [
+        "swfs/localconnection/lc-send.swf"
+      ],
+      "type": "stas"
+    }
+]
