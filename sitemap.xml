@@ -96,7 +96,12 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
-		<loc>https://pedropsi.github.io/tag-Addon</loc>
+		<loc>https://pedropsi.github.io/tag-Art</loc>
+		<lastmod>2018-03-02</lastmod>
+		<changefreq>yearly</changefreq>
+	</url>
+	<url>
+		<loc>https://pedropsi.github.io/tag-Add-on</loc>
 		<lastmod>2018-03-02</lastmod>
 		<changefreq>yearly</changefreq>
 	</url>
@@ -141,8 +146,18 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
+		<loc>https://pedropsi.github.io/hastefulll</loc>
+		<lastmod>2018-07-12</lastmod>
+		<changefreq>yearly</changefreq>
+	</url>
+	<url>
 		<loc>https://pedropsi.github.io/hall-of-fame</loc>
 		<lastmod>2018-06-14</lastmod>
+		<changefreq>yearly</changefreq>
+	</url>
+	<url>
+		<loc>https://pedropsi.github.io/guestbook</loc>
+		<lastmod>2018-07-22</lastmod>
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
@@ -186,23 +201,18 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
+		<loc>https://pedropsi.github.io/abxtract-tractx</loc>
+		<lastmod>2018-10-04</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>https://pedropsi.github.io/tiaradventur</loc>
 		<lastmod>2018-08-28</lastmod>
-		<changefreq>weekly</changefreq>
+		<changefreq>monthly</changefreq>
 	</url>
 	<url>
 		<loc>https://pedropsi.github.io/nomadpage</loc>
 		<lastmod>2018-09-06</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>https://pedropsi.github.io/hastefulll</loc>
-		<lastmod>2018-07-12</lastmod>
-		<changefreq>monthly</changefreq>
-	</url>
-	<url>
-		<loc>https://pedropsi.github.io/guestbook</loc>
-		<lastmod>2018-07-22</lastmod>
 		<changefreq>monthly</changefreq>
 	</url>
 </urlset>

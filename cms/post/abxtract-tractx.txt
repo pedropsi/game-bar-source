@@ -1,0 +1,60 @@
+﻿«ABOUT-TEXT»
+<p><em>"Abstract art is too simple to be considered art."</em> Do you agree? Try reproducing all 6 iconic abstract paintings, by traversing very puzzling <b>«TITLE:Load»</b>!</p> 
+
+«HOWTO-TEXT»
+<p>Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the right-hand-side.</p>
+<p><em>Move</em> with the <b>arrow keys</b>. <em>Stepping towards</em> a coloured square will spill a <em>straight line of colour</em> onto the canvas all the way to the frame.</p>
+
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-TEXT»
+
+<h2>Credits</h2>
+<p><a href="«SITE»/«LINK:Load».html">«TITLE:Load»</a> by <a href="«SITE»">«NAME»</a>, «YEAR:Load».</p>
+
+<h3>Abstract Artworks</h3>
+<p>All abstract artworks, listed chronologically below, are in the public domain (see Wikiart page link).</p>
+<table class="top-left">
+	<thead>
+		<tr><th>Year</th><th>Author</th><th>Title</th><th>Link</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>1914</td><td>Vanessa Bell</td><td>Abstract Painting</td><td><a href="https://www.wikiart.org/en/vanessa-bell/abstract-painting-1914" «BLANK»>Wikiart</a></td>
+		<tr><td>1915</td><td>Kasimir Malevitch</td><td>Black Square</td><td><a href="https://www.wikiart.org/en/kazimir-malevich/black-square-1915" «BLANK»>Wikiart</a></td>
+		<tr><td>1923</td><td>Theo van Doesburg</td><td>Study for Composition XXV</td><td><a href="https://www.wikiart.org/en/theo-van-doesburg/study-for-composition-xxv-1923" «BLANK»>Wikiart</a></td>
+		<tr><td>1922</td><td>Paul Klee</td><td>Separation in the Evening</td><td><a href="https://www.wikiart.org/en/paul-klee/separation-in-the-evening-1922" «BLANK»>Wikiart</a></td>
+		<tr><td>1927</td><td>Sophie Taeuber-Arp</td><td>Projet pour l'Aubette</td><td><a href="https://www.wikiart.org/en/sophie-taeuber-arp/projet-pour-l-aubette-1927" «BLANK»>Wikiart</a></td>
+		<tr><td>1930</td><td>Piet  Mondrian</td><td>Composition in Red, Blue and Yellow</td><td><a href="https://www.wikiart.org/en/piet-mondrian/composition-with-red-blue-and-yellow-1930" «BLANK»>Wikiart</a></td>
+	</tbody>
+</table>
+
+<h3>Classical Music</h3>
+<p>All classical music scores used in the background are too in the public domain. The recordings fall under the licenses listed below.</p>
+<table class="top-left">
+	<thead>
+		<tr><th>Year</th><th>Composer</th><th>Title</th><th>Performer</th><th>License</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>1914</a></td><td>Gustav Holst</td><td>The Planets, Op. 32 - Venus, The Bringer Of Peace</td><td>US Air Force Band</td><td><a href="https://www.music.af.mil/" «BLANK»>Public Domain</td></tr>
+		<tr><td>1921</td><td>Camille Saint-Saëns</td><td>Bassoon Sonata, Op.168</td><td>Charles Kaufmann</td><td><a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>CC-BY 3.0</a></td>
+		</tbody>
+</table>
+
+
+«CREDITS-ENGINE-SUPPORT»
+
+<h2>F.A.Q.</h2>
+<h3>What does the name «TITLE:Load» mean?</h3>
+<p><em>Abstract Tracts</em> refers both to the vast canvas areas (tracts) to become abstract art, and to the colourful lines (also tracts) connecting different areas in each painting. The <b>S</b>s were replaced by <b>X</b>s to represent the intercrossing of paint lines - so often a byproduct of the game mechanics.</p>
+
+<h3>Why is «TITLE:Load» so unusual a game?</h3>
+<p>Because:</p>
+<ol>
+<li> its main purpose is to <b>spark curiosity for abstract art and classical culture</b> in an entertaining way;</li>
+<li> it draws extensively from the <b>history of art</b> rather than from a purpose-made fictional world;</li>
+<li> its original mechanics are <b>simple yet difficult to master</b> and</li>
+<li> it belongs to the very rare <b>art puzzle</b> computer game genre.</li>
+</ol>
+<p>Do you agree? Please «CONTACT-TEXT-3»!</p>
+
+<h3> Which criteria guided the choice of artists and artworks?</h3>
+<p> The most important criterion for inclusion was the availability of at least one <b>public domain</b> artwork (per artist) that would broadly fit in the abstract category (e.g. Neoplasticism, Suprematism, Abstract Expressionism...). Critically, each artwork had to make <b>a good puzzle</b>, so those with very complicated details or too many colours were excluded. Also, due to the game mechanic and low resolution, right angles were preferred to obliques, and no curvature could be added. So, for instance, Rothko, Pollock, O'Keefe, Delaunay or Kandinsky couldn't be included.</p>

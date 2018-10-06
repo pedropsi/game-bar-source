@@ -17,17 +17,26 @@
 		</image>
 
 		<item>
+		<title>Abxtract Tractx</title>
+		<link>http://pedropsi.github.io/abxtract-tractx</link>
+		<guid>http://pedropsi.github.io/abxtract-tractx</guid>
+		<pubDate>Thu, 04 Oct 2018 07:06:05 GMT</pubDate>
+		<description>«abxtract-tractx»</description>
+		<enclosure url="http://pedropsi.github.io/images/abxtract-tractx.png" length="98765" type="image/png" />
+		
+		<category>Art</category><category>Game</category><category>Puzzle</category>
+		</item>
+		<item>
 		<title>NomadPage</title>
 		<link>http://pedropsi.github.io/nomadpage</link>
 		<guid>http://pedropsi.github.io/nomadpage</guid>
 		<pubDate>Thu, 06 Sep 2018 07:06:05 GMT</pubDate>
-		<description>«TITLE.Load»
-		What is NomadPage?
-		Nomad page is a browser addon.
+		<description>What is NomadPage?
+		NomadPage is a browser add-on. Get it here!
 		It sets a different homepage every day, by cycling through a list of pages of your choice. Up to 31 homepages can be listed, one for each day of the month. If the list contains fewer pages, one simply counts from the first page again....</description>
 		<enclosure url="http://pedropsi.github.io/images/nomadpage.png" length="98765" type="image/png" />
 		
-		<category>Addon</category>
+		<category>Add-on</category>
 		</item>
 		<item>
 		<title>Tiaradventur</title>
@@ -117,22 +126,6 @@
 		<enclosure url="http://pedropsi.github.io/images/splash.png" length="98765" type="image/png" />
 		
 		<category>Creative-Archive</category><category>Post</category>
-		</item>
-		<item>
-		<title>Whirlpuzzle</title>
-		<link>http://pedropsi.github.io/whirlpuzzle</link>
-		<guid>http://pedropsi.github.io/whirlpuzzle</guid>
-		<pubDate>Thu, 01 Mar 2018 07:06:05 GMT</pubDate>
-		<description>About Whirlpuzzle
-		Find a path to the goal, by rotating the puzzle to displace obstacles and reach inacessible locations! Beware, whirling too much will only confuse you...
-		Can you solve all 7 levels? Good luck!
-		
-		How to playControls - keyboard
-		The goal is marked by an X.
-		Move your avatar by pressi...</description>
-		<enclosure url="http://pedropsi.github.io/images/whirlpuzzle.png" length="98765" type="image/png" />
-		
-		<category>Game</category><category>Puzzle</category>
 		</item>
 		
 	</channel>

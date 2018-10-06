@@ -395,7 +395,12 @@ p {
 ul,
 ol {
 	text-align: justify;
-    text-indent:var(--vspace);
+}
+li {
+    list-style-type:none;
+    border-left:4px solid var(--yellow);
+    margin-bottom:4px;
+    padding-left:8px;       
 }
 
 .logo {
