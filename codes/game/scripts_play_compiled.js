@@ -757,7 +757,7 @@ function processInput(a,b,c){
 		for(g=0;g<level.commandQueue.length;g++)
 			a=level.commandQueue[g],"f"===a.charAt(1)&&tryPlaySimpleSound(a),!1===unitTesting?"message"===a&&showTempMessage():messagetext="";
 		!1!==textMode||void 0!==b&&!1!==b||(verbose_logging&&consolePrint("Checking win condition."),checkWin());
-		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,b=JSON.stringify(restartTarget),localStorage[document.URL+"_checkpoint"]=b,localStorage[document.URL]=curlevel),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
+		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(echoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,b=JSON.stringify(restartTarget),localStorage[document.URL+"_checkpoint"]=b,localStorage[document.URL]=curlevel),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
 	}
 	verbose_logging&&consoleCacheDump();
 	winning&&(againing=!1);
@@ -791,6 +791,7 @@ var timeticker=Date.now();
 var moveseq=[];
 var winseq=[];
 var maxlevel=Number(curlevel);
+var checkpointsaver=0;
 
 function registerMove(move){
 	switch(move){
@@ -837,6 +838,12 @@ function UpdateLevelData(curlevel){
 	}
 	
 	leveldata["type"]="win";
+}
+
+function UpdateLevelCheckpointData(curlevel,checkpointsaver){
+	UpdateLevelData(curlevel);
+	leveldata["type"]="checkpoint";
+	leveldata["level"]=String(curlevel)+"."+String(checkpointsaver);
 }
 
 function configLevelWin(curlevel){
@@ -924,6 +931,14 @@ function echoLevelWin(curlevel){
 		configLevelWin(curlevel);
 		echoPureData(leveldata,leveldataURL);
 	}
+}
+
+function echoCheckpoint(){
+	if(AnalyticsClearance()){
+		UpdateLevelCheckpointData(curlevel,checkpointsaver);
+		echoPureData(leveldata,leveldataURL);
+	}
+	checkpointsaver++;
 }
 
 function echoLevelClose(curlevel){

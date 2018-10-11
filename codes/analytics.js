@@ -4,7 +4,7 @@ var analyticsURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrX
 var analyticsParameters="[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\",\"name\"]";
 var analyticsSheetName="analytics";
 var clearance = "test";
-var clearancePages = ["Tiaradventur"];
+var clearancePages = [""];
 
 function LangUpperCase(s){
 	var pos=s.replace(/(.*-)/,"").replace(s,"");
