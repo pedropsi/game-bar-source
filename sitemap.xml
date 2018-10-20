@@ -201,11 +201,6 @@
 		<changefreq>yearly</changefreq>
 	</url>
 	<url>
-		<loc>https://pedropsi.github.io/abxtract-tractx</loc>
-		<lastmod>2018-10-04</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
 		<loc>https://pedropsi.github.io/tiaradventur</loc>
 		<lastmod>2018-08-28</lastmod>
 		<changefreq>monthly</changefreq>
@@ -213,6 +208,11 @@
 	<url>
 		<loc>https://pedropsi.github.io/nomadpage</loc>
 		<lastmod>2018-09-06</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://pedropsi.github.io/abxtract-tractx</loc>
+		<lastmod>2018-10-04</lastmod>
 		<changefreq>monthly</changefreq>
 	</url>
 </urlset>

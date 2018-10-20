@@ -21,11 +21,19 @@
 		<link>http://pedropsi.github.io/abxtract-tractx</link>
 		<guid>http://pedropsi.github.io/abxtract-tractx</guid>
 		<pubDate>Thu, 04 Oct 2018 07:06:05 GMT</pubDate>
-		<description>About Abxtract Tractx
-		Do you think  Abstract Art is too simple to be considered art? Try reproducing all 6 iconic abstract paintings in the very puzzling Abxtract Tractx! 
-		
-		How to playControls - keyboard
-		Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the rig...<![CDATA[<img src="https://pedropsi.github.io/images/abxtract-tractx.png" alt="Abxtract Tractx" title="Abxtract Tractx"/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					About Abxtract Tractx
+					Do you think  Abstract Art is too simple to be considered art? Try reproducing all 6 iconic abstract paintings in the very puzzling Abxtract Tractx! 
+					
+					How to playControls - keyboard
+					Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the rig...
+					<img src="https://pedropsi.github.io/images/abxtract-tractx.png" height="200" alt="Abxtract Tractx" title="Abxtract Tractx"/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Art</category><category>Game</category><category>Puzzle</category>
 		</item>
@@ -34,9 +42,17 @@
 		<link>http://pedropsi.github.io/nomadpage</link>
 		<guid>http://pedropsi.github.io/nomadpage</guid>
 		<pubDate>Thu, 06 Sep 2018 07:06:05 GMT</pubDate>
-		<description>What is NomadPage?
-		NomadPage is a browser add-on. Get it here!
-		It sets a different homepage every day, by cycling through a list of pages of your choice. Up to 31 homepages can be listed, one for each day of the month. If the list contains fewer pages, one simply counts from the first page again....<![CDATA[<img src="https://pedropsi.github.io/images/nomadpage.png" alt="NomadPage" title="NomadPage"/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					What is NomadPage?
+					NomadPage is a browser add-on. Get it here!
+					It sets a different homepage every day, by cycling through a list of pages of your choice. Up to 31 homepages can be listed, one for each day of the month. If the list contains fewer pages, one simply counts from the first page again....
+					<img src="https://pedropsi.github.io/images/nomadpage.png" height="200" alt="NomadPage" title="NomadPage"/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Add-on</category>
 		</item>
@@ -45,11 +61,19 @@
 		<link>http://pedropsi.github.io/tiaradventur</link>
 		<guid>http://pedropsi.github.io/tiaradventur</guid>
 		<pubDate>Tue, 28 Aug 2018 07:06:05 GMT</pubDate>
-		<description>About Tiaradventur
-		
-		A desperate Princess, on a quest to find seven stolen tiaras, asks for your help. As a Hero in the making, you must not refuse, even in the face of danger! 
-		As the story unfolds, you may get to know the Princess better and understand what really is at stake.
-		The legend of Tiar...<![CDATA[<img src="https://pedropsi.github.io/images/tiaradventur.png" alt="Tiaradventur" title="Tiaradventur"/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					About Tiaradventur
+					
+					A desperate Princess, on a quest to find seven stolen tiaras, asks for your help. As a Hero in the making, you must not refuse, even in the face of danger! 
+					As the story unfolds, you may get to know the Princess better and understand what really is at stake.
+					The legend of Tiar...
+					<img src="https://pedropsi.github.io/images/tiaradventur.png" height="200" alt="Tiaradventur" title="Tiaradventur"/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Game</category><category>Puzzle</category><category>Role-playing</category>
 		</item>
@@ -58,7 +82,15 @@
 		<link>http://pedropsi.github.io/guestbook</link>
 		<guid>http://pedropsi.github.io/guestbook</guid>
 		<pubDate>Sun, 22 Jul 2018 07:06:05 GMT</pubDate>
-		<description>The Guestbook of the Creative Archive<![CDATA[<img src="https://pedropsi.github.io/images/splash.png" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					The Guestbook of the Creative Archive
+					<img src="https://pedropsi.github.io/images/splash.png" height="200" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Creative-Archive</category>
 		</item>
@@ -67,12 +99,20 @@
 		<link>http://pedropsi.github.io/hastefulll</link>
 		<guid>http://pedropsi.github.io/hastefulll</guid>
 		<pubDate>Thu, 12 Jul 2018 07:06:05 GMT</pubDate>
-		<description>About Hastefulll
-		Hastefulll is a simple 7-level puzzle platformer about trying to leave a mark everywhere, as fast as possible. However, too much haste may have negative consequences!
-		Fill the board, but plan wisely. Haste makes waste!
-		
-		How to playControls - keyboard
-		Dash horizontally with the le...<![CDATA[<img src="https://pedropsi.github.io/images/hastefulll.png" alt="Hastefulll" title="Hastefulll"/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					About Hastefulll
+					Hastefulll is a simple 7-level puzzle platformer about trying to leave a mark everywhere, as fast as possible. However, too much haste may have negative consequences!
+					Fill the board, but plan wisely. Haste makes waste!
+					
+					How to playControls - keyboard
+					Dash horizontally with the le...
+					<img src="https://pedropsi.github.io/images/hastefulll.png" height="200" alt="Hastefulll" title="Hastefulll"/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Game</category><category>Platformer</category><category>Puzzle</category>
 		</item>
@@ -81,7 +121,15 @@
 		<link>http://combinatura.github.io/index</link>
 		<guid>http://combinatura.github.io/index</guid>
 		<pubDate>Fri, 06 Jul 2018 07:06:05 GMT</pubDate>
-		<description>Combinatura, a game of exploration.<![CDATA[<img src="https://pedropsi.github.io/images/combinatura.png" alt="Combinatura" title="Combinatura"/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					Combinatura, a game of exploration.
+					<img src="https://pedropsi.github.io/images/combinatura.png" height="200" alt="Combinatura" title="Combinatura"/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Game</category><category>Nature</category><category>Travel</category>
 		</item>
@@ -90,7 +138,15 @@
 		<link>http://pedropsi.github.io/hall-of-fame</link>
 		<guid>http://pedropsi.github.io/hall-of-fame</guid>
 		<pubDate>Thu, 14 Jun 2018 07:06:05 GMT</pubDate>
-		<description>Hall of fame: winners of Pedro PSI's challenges.<![CDATA[<img src="https://pedropsi.github.io/images/splash.png" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					Hall of fame: winners of Pedro PSI's challenges.
+					<img src="https://pedropsi.github.io/images/splash.png" height="200" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Creative-Archive</category>
 		</item>
@@ -99,13 +155,21 @@
 		<link>http://pedropsi.github.io/pmgrp</link>
 		<guid>http://pedropsi.github.io/pmgrp</guid>
 		<pubDate>Tue, 20 Mar 2018 07:06:05 GMT</pubDate>
-		<description>About Play Mini Gemini Replay (PMGRP)
-		Play Mini Gemini Replay (PMGRP) is a mini puzzle platformer about cooperating with your future self to reach your goals.
-		Plan your limited moves wisely, play and replay all 11 levels!
-		
-		How to playControls - keyboard
-		Play mode
-		Move with the Arrow keys. When th...<![CDATA[<img src="https://pedropsi.github.io/images/pmgrp.png" alt="Play Mini Gemini Replay (PMGRP)" title="Play Mini Gemini Replay (PMGRP)"/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					About Play Mini Gemini Replay (PMGRP)
+					Play Mini Gemini Replay (PMGRP) is a mini puzzle platformer about cooperating with your future self to reach your goals.
+					Plan your limited moves wisely, play and replay all 11 levels!
+					
+					How to playControls - keyboard
+					Play mode
+					Move with the Arrow keys. When th...
+					<img src="https://pedropsi.github.io/images/pmgrp.png" height="200" alt="Play Mini Gemini Replay (PMGRP)" title="Play Mini Gemini Replay (PMGRP)"/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Game</category><category>Platformer</category><category>Puzzle</category>
 		</item>
@@ -114,11 +178,19 @@
 		<link>http://pedropsi.github.io/privacy-policy</link>
 		<guid>http://pedropsi.github.io/privacy-policy</guid>
 		<pubDate>Sat, 10 Mar 2018 07:06:05 GMT</pubDate>
-		<description>The Creative Archive does not collect personal data as defined in GDPR's Article 4. Nevertheless, whenever you choose to communicate any personal data, your privacy and GDPR will be respected.
-		Moreover, the Creative Archive is designed to minimise privacy risks. Here's how!
-		
-		Open-source
-		The Creat...<![CDATA[<img src="https://pedropsi.github.io/images/splash.png" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>]]></description>
+		<description>
+			<![CDATA[
+				<div style="display:flex;flex-direction: column;">
+					The Creative Archive does not collect personal data as defined in GDPR's Article 4. Nevertheless, whenever you choose to communicate any personal data, your privacy and GDPR will be respected.
+					Moreover, the Creative Archive is designed to minimise privacy risks. Here's how!
+					
+					Open-source
+					The Creat...
+					<img src="https://pedropsi.github.io/images/splash.png" height="200" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+				</div>
+					
+					]]>
+			</description>
 		
 		<category>Creative-Archive</category><category>Post</category>
 		</item>

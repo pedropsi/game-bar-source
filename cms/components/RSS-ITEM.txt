@@ -3,8 +3,15 @@
 <link>«RSSLINK:Load»</link>
 <guid>«RSSLINK:Load»</guid>
 <pubDate>«UPDATE:Load» 07:06:05 GMT</pubDate>
-<description>«DESCRIPTION:Load»</description>
-<enclosure url="«SITE-HTTP»/images/«IMAGE:Load»" type="image/png" />
+<description>
+	<![CDATA[
+		<div style="display:flex;flex-direction: column;">
+			«DESCRIPTION:Load»
+			<img src="«SITE»/images/«IMAGE:Load»" height="200" alt="«IMAGEALT:Load»" title="«IMAGEALT:Load»"/>
+		</div>
+			
+			]]>
+	</description>
 
 «RSS-TAGS:Multiply»
 </item>
