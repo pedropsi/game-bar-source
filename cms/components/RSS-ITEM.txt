@@ -4,7 +4,7 @@
 <guid>«RSSLINK:Load»</guid>
 <pubDate>«UPDATE:Load» 07:06:05 GMT</pubDate>
 <description>«DESCRIPTION:Load»</description>
-<enclosure url="«SITE-HTTP»/images/«IMAGE:Load»" length="98765" type="image/png" />
+<enclosure url="«SITE-HTTP»/images/«IMAGE:Load»" type="image/png" />
 
 «RSS-TAGS:Multiply»
 </item>
