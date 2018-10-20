@@ -5,12 +5,9 @@
 <pubDate>«UPDATE:Load» 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<div style="display:flex;flex-direction: column;">
-			«DESCRIPTION:Load»
-			<img src="«SITE»/images/«IMAGE:Load»" height="200" alt="«IMAGEALT:Load»" title="«IMAGEALT:Load»"/>
-		</div>
-			
-			]]>
+		<img src="«SITE»/images/«IMAGE:Load»" height="200" align="left" hspace="5" alt="«IMAGEALT:Load»" title="«IMAGEALT:Load»"/>
+		<p>«DESCRIPTION:Load»</p>
+	]]>
 	</description>
 
 «RSS-TAGS:Multiply»
