@@ -1,6 +1,0 @@
-﻿<a href="«LINK:Load».html">
-	<div class="card">
-		<h3>«TITLE:Load»</h3>
-		«PICTURE»
-	</div>
-</a>

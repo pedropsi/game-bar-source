@@ -86,6 +86,8 @@ a {
 
 div{
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .main {
@@ -140,28 +142,19 @@ nav {
     display:flex;
     flex-direction:column;
     justify-content: center;
+    background-color: var(--white);
     
 }
 
 .nav-link {
     border-width: 4px;
     padding: 10px 10px 10px 10px;
-    background-color: var(--white);
 }
 
 @media only screen and (min-width: 400px) and (max-width:900px) {
     nav {
-        display:flex;
         flex-direction:row;
-        background-color: var(--white);
     }
-}
-
-@media only screen and (max-width: 900px) {
-    .nav {
-		width:100%;
-        max-width:100%;      
-	}
 }
 
 
@@ -213,6 +206,7 @@ nav {
     background: var(--white); 
     display: flex;
     justify-content: flex-end;
+    flex-direction: row;
     align-items: center;
     flex-grow: 1;
     margin:0;
@@ -249,6 +243,7 @@ nav {
 .mini .tags {
     font-size: 80%;
     word-wrap: break-word;
+    flex-direction: row;
 }
 
 .mini .tag {
@@ -257,6 +252,7 @@ nav {
     border-bottom: 2px solid var(--lightblue);
     color:var(--lightblue);
     transition-duration: 1s;
+    display:inline;
 }
 
 .mini .tagup .tag {
@@ -267,6 +263,7 @@ nav {
 .featured {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: row;
     align-items: stretch;
     flex-wrap: wrap;
     width: 100%;
@@ -318,7 +315,7 @@ nav {
     transition-duration: 0.5s;
 }
 
-a div:hover,.nav-link:hover, .text a:hover, p a:hover, .latest .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .gameNav.active:hover {
+.button:hover,.button:hover a,.nav-link:hover, .text a:hover, p a:hover, .latest .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .gameNav.active:hover {
     color: var(--turquoise) ;
     text-decoration-color: var(--turquoise);
     text-decoration-style:solid ;
@@ -440,7 +437,7 @@ li {
 }
 
 .tags {
-    display: flex;
+    flex-direction: row;
     overflow: visible;
     margin: 5px 0px 0px 0px;
     justify-content: flex-end;
@@ -449,8 +446,7 @@ li {
 }
 
 .dated {
-    display: flex;
-    justify-content:space-between;
+    flex-direction: row;
    }
 
 .dated .text:first-of-type:before {
@@ -465,8 +461,9 @@ li {
 }
 
 .date {
-    font-size: 50%;
+    font-size: 80%;
     font-weight: bold;
+    overflow: hidden;
     background-color: var(--lightyellow);
 }
 
@@ -558,10 +555,11 @@ li {
 }
 
 .prose .figure {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+   width: 100%;
+}
+
+.figure{
+   align-items: center;
 }
 
 .figure img{
@@ -689,13 +687,13 @@ li {
 }
 
 .starsshare {
-    display:flex;
+    flex-direction: row;
     flex-wrap:wrap;
     justify-content: center
 }
 
 .sharer{
-    display:flex;
+    flex-direction: row;
     color:var(--blue);
     align-items:center;
     text-align: right;
@@ -705,9 +703,9 @@ li {
 
 
 .sharer > div{
-   display:flex;
-   flex-wrap: wrap;
-   margin:0px 0px -5px 10px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin:0px 0px -5px 10px;
 }
 
 
@@ -729,15 +727,11 @@ li {
 }
 
 .form-block{
-    display: flex;
     overflow: visible;
     height: auto;
-    flex-direction: column;
-    justify-content: space-between;
     flex-wrap: nowrap;
-    align-items: stretch;
     border-color:inherit;
-   margin:20px 10px 20px 10px;
+	margin:20px 10px 20px 10px;
     
 }
 
@@ -750,6 +744,7 @@ input, textarea{
     	font-family: inherit;
         width: 100%;
     	font-size: inherit;
+    	align-self: center;
 }
 input:invalid,textarea:invalid{
     color:red
@@ -765,12 +760,11 @@ textarea:focus, input:focus{
  textarea:hover, input:hover{
     	border-bottom-width: 4px;
         padding:10px 0 7px 0;
-
      }
 
 
 .button{
-    	background-color: var(--white);
+    	background-color: var(--smokewhite);
         border: 0px;
         max-width:80%;
         text-align: center;
@@ -779,13 +773,8 @@ textarea:focus, input:focus{
     	margin-top:16px;
     	padding:4px 16px 4px 16px;
         margin:10px;
-	}
-
-.button:hover{
-    	background-color: var(--darkblue);
-        color:var(--turquoise);
-    	border-bottom-color: var(--turquoise);
-        transition-duration: 0.5s;
+    	align-self: center;
+    
 	}
 
 .patreon-b {
@@ -855,6 +844,7 @@ tbody tr:hover{
 
 .modal {   
         position: fixed;
+    	align-items: center;
         left: 0;
         top: 0;
         width: 100%;
@@ -867,8 +857,6 @@ tbody tr:hover{
 
 .modal-content {
         position: absolute;
-        display:flex;
-        flex-direction: column;
         align-items: center;
         top: 50%;
         left: 50%;
@@ -900,7 +888,6 @@ tbody tr:hover{
     position:absolute;
     bottom:var(--vspace);
     right:var(--vspace);
-    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
@@ -973,7 +960,6 @@ tbody tr:hover{
     border-bottom: 4px solid var(--lightyellow);
     padding-top: 10px;
     display: flex;
-
 }
 .comment:nth-child(odd){
     text-align: right;
@@ -1006,4 +992,93 @@ tbody tr:hover{
 }
 .comment .quote{
     font-size: 120%;
+}
+
+.com-banner img{
+    max-width: 100%;
+}
+
+.buy {
+    background: var(--yellow);
+    height: 10vmax;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;   
+    font-size: 200%;
+    font-weight: bold;
+    max-width: 100%;
+   
+}
+
+.tutorial{
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial>div{
+    flex-direction: row;
+    align-items:center;
+    margin: 2px;
+    height: 100%;
+}
+
+.tutorial .left {
+    background-color: var(--smokewhite);
+}
+
+.tutorial .left ::-selection { 
+    background: var(--white);
+    color: var(--blue);
+}
+.tutorial .left ::-moz-selection { 
+    background: var(--white);
+    color: var(--blue);
+}
+
+.tutorial  p{
+    padding: 4px;
+}
+.tutorial .right img{
+    background-color: var(--white);
+}
+.tutorial img{
+    max-width: 85%;
+}
+
+.button-comment{
+    font-size: 70%;
+    padding:0;
+    font-weight: bold;
+    text-align: right;
+    max-width: 100%;
+    border:0;
+    margin:-20px 0px -20px 0px;
+    align-self: flex-end;
+    
+}
+
+.archive{
+    flex-direction: row;
+    flex-wrap: wrap;
+    }
+.archive h2{
+    width: 100%;
+    font-size: 150%;
+}
+.architem{
+    margin: 1%;
+    padding: 1%;
+}
+.architem:nth-child(even){
+	background-color: var(--smokewhite);
+}
+
+.announce{
+    margin:4px 0px 8px 0px;
+    width: 100%;
+    background-image: linear-gradient(86deg, var(--darkblue), var(--blue) 12%, var(--lightblue) 44%, var(--turquoise) 71%, var(--green) 87%, var(--yellow) 94%, var(--lightyellow) 97%, var(--white)); 
+    font-weight: bold;
+    font-size: 120%;
+    color: var(--white);
+    padding: 8px;
 }

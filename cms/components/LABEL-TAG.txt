@@ -1,5 +1,0 @@
-﻿<a href="tag-«TAGS:Load».html">
-	<div class="tag">
-		«TAGS:Load»
-	</div>
-</a>

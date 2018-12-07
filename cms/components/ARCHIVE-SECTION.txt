@@ -1,9 +1,0 @@
-﻿<div class="textarea archive">
-	<h2 class="text">«YEAR:Load»</h2>
-	«TAGSELECT:Filter{
-		"Type"->Except["Tag"],
-		"Day"->_?NumberQ,
-		"Month"->_?NumberQ,
-		"Year"->_?((#==«YEAR:Load»)&)
-		}»
-</div>

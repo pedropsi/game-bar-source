@@ -1,3 +1,0 @@
-﻿		"Day"->_,
-		"Month"->_,
-		"Year"->_?(StringMatchQ[ToString[#],___~~"«YEAR:Load»"~~___]&)

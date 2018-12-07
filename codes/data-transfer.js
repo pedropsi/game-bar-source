@@ -101,14 +101,10 @@ function getDataRecord(targetid) {
 
 	fields.forEach(function(k){
 		data[k] = elements[k].value;
-		var str = ""; // declare empty string outside of loop to allow
-					// it to be appended to for each item in the loop
+		var str = ""; // declare empty string outside of loop to allow it to be appended to for each item in the loop
 		if(elements[k].type === "checkbox"){ // special case for Edge's html collection
-			str = str + elements[k].checked + ", "; // take the string and append the current checked value to 
-												// the end of it, along with a comma and a space
-			data[k] = str.slice(0, -2); // remove the last comma and space 
-										// from the  string to make the output 
-										// prettier in the spreadsheet
+			str = str + elements[k].checked + ", "; // take the string and append the current checked value to the end, along with a comma and a space
+			data[k] = str.slice(0, -2); // remove the last comma and space from the  string to make the output prettier in the spreadsheet
 		}
 		else if(elements[k].length){
 			for(var i = 0; i < elements[k].length; i++){
@@ -134,7 +130,7 @@ function echoPureData(data,url){
 			xhr.open('POST', url);
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			xhr.onreadystatechange = function() {
-				console.log( xhr.status, xhr.statusText )
+				console.log( xhr.status, xhr.statusText);
 				console.log(xhr.responseText);
 				return;
 			};
@@ -284,6 +280,16 @@ function AddElement(html,parentID){
 	var e=document.createElement("div");
 	e.innerHTML=html;
 	document.getElementById(parentID).appendChild(e);
+};
+
+// Add new element to page, after a sibling element
+function AddAfterElement(html,selector){
+	var s=document.querySelectorAll(selector);
+	var e;
+	for(var i=0;i<s.length;i++){
+		e=document.createElement("div");
+		e.innerHTML=html;
+		s[i].insertAdjacentElement('afterend',e.firstChild)};
 };
 
 // Replace parent element contents with new element
@@ -652,7 +658,7 @@ function FindData(field,id){
 };
 
 function FindDataInNode(type,node){
-	console.log(node);
+	//console.log(node);
 	if(typeof node==="null")
 		return undefined;
 	else if(NodeHasData(type,node)){

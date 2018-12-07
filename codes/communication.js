@@ -13,10 +13,10 @@ var DESTINATION_HOF={
 		}}
 	}
 	
-function GetHonour(){return "";} //function to be customised in each game, otherwise inexistent
+function GetHonour(){return " ";} //function to be overriden (customised for) in each game, otherwise blank
 	
 var who=UserId();	
-var DESTINATON_FEEDBACK={
+var DESTINATION_FEEDBACK={
 	url:"https://script.google.com/macros/s/AKfycbwB-a8j-INbkzTiQFJ55qETLYkdZrRvSg2s8urj9bPbG0XkBg9z/exec",
 	headers:"[\"identifier\",\"context\",\"question\",\"answer\",\"name\"]",
 	sheet:"Feedback",
@@ -32,7 +32,7 @@ var DESTINATON_FEEDBACK={
 }
 
 var DESTINATION_GUESTBOOK={
-	url:"https://script.google.com/macros/s/AKfycbzgwZUKFmuNQin6Kq4-kTMBSZtz9TapE6kxpZyk7p2tRaanLD1w/exec",
+	url:DESTINATION_HOF.url,
 	headers:"[\"who\",\"identifier\",\"comment\"]",
 	sheet:"Guestbook",
 	name:"Guestbook",
@@ -43,9 +43,64 @@ var DESTINATION_GUESTBOOK={
 		}}
 	}
 
+function commentID(){return "no comment yet!"};
+var DESTINATION_COMMENT={
+	url:DESTINATION_GUESTBOOK.url,
+	headers:DESTINATION_GUESTBOOK.headers,
+	sheet:DESTINATION_GUESTBOOK.sheet,
+	name:"Comments",
+	Data:function(qid){return {
+		identifier:commentID(),
+		comment:FindData("answer",qid),
+		name:FindData("who",qid),
+		}}
+	}
+	
+var DESTINATION_SUBSCRIPTION={
+	url:DESTINATION_FEEDBACK.url,
+	headers:"[\"name\",\"address\"]",
+	sheet:"Subscription",
+	name:"Subscription",
+	Data:function(qid){return {
+		name:FindData("who",qid),
+		address:FindData("address",qid)
+		}}
+	}
+
+var DESTINATION_ORDER={
+	url:DESTINATION_FEEDBACK.url,
+	headers:"[\"identifier\",\"address\"]",
+	sheet:"Order",
+	name:"Order",
+	Data:function(qid){return {
+		identifier:pageTitle(),
+		address:FindData("address",qid)
+		}}
+	}
+	
+/*
+var DESTINATION_RATING={
+	url:DESTINATION_FEEDBACK.url,
+	headers:"[\"identifier\",\"rating\"]",
+	sheet:"Rating",
+	name:"Rating",
+	Data:function(qid){
+		return{
+			identifier:pageTitle(),
+			rating:document.querySelector("#"+qid+" #rate-it").value
+			}}
+}
+DESTINATIONS[DESTINATION_RATING.name]=DESTINATION_RATING;
+*/
+
 DESTINATIONS[DESTINATION_HOF.name]=DESTINATION_HOF;
 DESTINATIONS[DESTINATION_GUESTBOOK.name]=DESTINATION_GUESTBOOK;
-DESTINATIONS[DESTINATON_FEEDBACK.name]=DESTINATON_FEEDBACK;
+DESTINATIONS[DESTINATION_COMMENT.name]=DESTINATION_COMMENT;
+DESTINATIONS[DESTINATION_FEEDBACK.name]=DESTINATION_FEEDBACK;
+DESTINATIONS[DESTINATION_SUBSCRIPTION.name]=DESTINATION_SUBSCRIPTION;
+DESTINATIONS[DESTINATION_ORDER.name]=DESTINATION_ORDER;
+
+
 
 //////////////////////////////////////////////////////////////////////
 //Hall of Fame
@@ -150,7 +205,7 @@ function RequestGameFeedback(){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Guestbook
+// Guestbook & Comments
 
 function RequestGuestbook(){
 	var DP=NewDataPack();
@@ -165,4 +220,72 @@ function RequestGuestbook(){
 	DP2.questionname="Your name";
 	DP2.qplaceholder="or alias";
 	return OpenModal(QuestionHTML([DP,DP2]),DP.qid,document.body.id);
+}
+
+function commentAddress(e){
+	var f=1;
+	var title=e;
+	while(f!=0&&f<=100){
+		f++;
+		title=title.nextSibling;
+		if(title.tagName==="H3"){f=0}
+	}
+	return title.innerText;
+}
+
+
+
+function RequestComment(title,elemsubtitle){
+
+	commentID=function(){return title+": "+commentAddress(elemsubtitle);}; 	//redefine this global function dynamically
+
+	var DP=NewDataPack();
+	DP.qdestination='Comments';
+	DP.questionname="Your comment";
+	DP.qfield="answer";
+
+	var DP2=NewDataPack();
+	DP2.qid=DP.qid;
+	DP2.qdestination='Comments';
+	DP2.qfield="who";
+	DP2.qtype=ShortAnswerHTML;
+	DP2.questionname="Your name";
+	DP2.qplaceholder="or alias";
+	return OpenModal(QuestionHTML([DP,DP2]),DP.qid,document.body.id);
+}
+
+//////////////////////////////////////////////////////////////////////
+//Subscribe
+
+function OpenModalSubscribe(){
+	var DP=NewDataPack();
+	DP.qdestination='Subscription';
+	DP.questionname="Subscribe to be the first to know about Pedro PSI's next project!";
+	DP.qtype=ShortAnswerHTML;
+	DP.qfield="address";
+	DP.qplaceholder="_______@___.___";
+
+	var DP2=NewDataPack();
+	DP2.qid=DP.qid;
+	DP2.qdestination='Subscription';
+	DP2.qfield="who";
+	DP2.qtype=ShortAnswerHTML;
+	DP2.questionname="Your name";
+	DP2.qplaceholder="(optional)";
+	
+	return OpenModal(QuestionHTML([DP,DP2]),DP.qid,document.body.id);
+}
+
+//////////////////////////////////////////////////////////////////////
+//Order
+
+function OpenModalPreOrder(campaigntext){
+	var DP=NewDataPack();
+	DP.qdestination='Order';
+	DP.questionname=campaigntext;
+	DP.qtype=ShortAnswerHTML;
+	DP.qfield="address";
+	DP.qplaceholder="_______@___.___";
+	
+	return OpenModal(QuestionHTML(DP),DP.qid,document.body.id);
 }

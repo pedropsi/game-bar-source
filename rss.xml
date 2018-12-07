@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" >
 	<channel>
 
@@ -16,6 +16,58 @@
 		    	<url>https://pedropsi.github.io/images/logo.png</url>
 		</image>
 
+		<item>
+		<title>Subscribe</title>
+		<link>http://pedropsi.github.io/subscribe</link>
+		<guid>http://pedropsi.github.io/subscribe</guid>
+		<pubDate>Thu, 06 Dec 2018 07:06:05 GMT</pubDate>
+		<description>
+			<![CDATA[
+				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Subscribe to Creative Archive news!" title="Subscribe to Creative Archive news!"/>
+				<p>Curious about Pedro PSI's next project? Subscribe to Creative Archive by RSS, email or join the discord group!</p>
+			]]>
+			</description>
+		
+		<category>Creative-Archive</category><category>Post</category>
+		</item>
+		<item>
+		<title>Gravirinth</title>
+		<link>http://pedropsi.github.io/gravirinth</link>
+		<guid>http://pedropsi.github.io/gravirinth</guid>
+		<pubDate>Fri, 23 Nov 2018 07:06:05 GMT</pubDate>
+		<description>
+			<![CDATA[
+				<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
+				<p>
+			
+		
+		
+		About Gravirinth
+		
+		According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
+		Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive thi...</p>
+			]]>
+			</description>
+		
+		<category>Game</category><category>Platformer</category><category>Puzzle</category>
+		</item>
+		<item>
+		<title>Gravirinth changelog</title>
+		<link>http://pedropsi.github.io/gravirinth-log</link>
+		<guid>http://pedropsi.github.io/gravirinth-log</guid>
+		<pubDate>Thu, 22 Nov 2018 07:06:05 GMT</pubDate>
+		<description>
+			<![CDATA[
+				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Gravirinth changelog" title="Gravirinth changelog"/>
+				<p>04-12-2018
+			Unstable gravity fields
+				Whenever two blocks of different gravities would fall towards the same point, an unstable local gravity field appears, and stays there until after the potential collision is resolved.
+				This was the last piece to be added to the tutorial area, which is now co...</p>
+			]]>
+			</description>
+		
+		<category>Creative-Archive</category><category>Log</category><category>Post</category>
+		</item>
 		<item>
 		<title>Abxtract Tractx</title>
 		<link>http://pedropsi.github.io/abxtract-tractx</link>
@@ -114,58 +166,6 @@
 			</description>
 		
 		<category>Game</category><category>Nature</category><category>Travel</category>
-		</item>
-		<item>
-		<title>Hall of Fame</title>
-		<link>http://pedropsi.github.io/hall-of-fame</link>
-		<guid>http://pedropsi.github.io/hall-of-fame</guid>
-		<pubDate>Thu, 14 Jun 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-				<p>Hall of fame: winners of Pedro PSI's challenges.</p>
-			]]>
-			</description>
-		
-		<category>Creative-Archive</category>
-		</item>
-		<item>
-		<title>Play Mini Gemini Replay (PMGRP)</title>
-		<link>http://pedropsi.github.io/pmgrp</link>
-		<guid>http://pedropsi.github.io/pmgrp</guid>
-		<pubDate>Tue, 20 Mar 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/pmgrp.png" height="200" align="left" hspace="5" alt="Play Mini Gemini Replay (PMGRP)" title="Play Mini Gemini Replay (PMGRP)"/>
-				<p>About Play Mini Gemini Replay (PMGRP)
-		Play Mini Gemini Replay (PMGRP) is a mini puzzle platformer about cooperating with your future self to reach your goals.
-		Plan your limited moves wisely, play and replay all 11 levels!
-		
-		How to playControls - keyboard
-		Play mode
-		Move with the Arrow keys. When th...</p>
-			]]>
-			</description>
-		
-		<category>Game</category><category>Platformer</category><category>Puzzle</category>
-		</item>
-		<item>
-		<title>Privacy Policy</title>
-		<link>http://pedropsi.github.io/privacy-policy</link>
-		<guid>http://pedropsi.github.io/privacy-policy</guid>
-		<pubDate>Sat, 10 Mar 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-				<p>The Creative Archive does not collect personal data as defined in GDPR's Article 4. Nevertheless, whenever you choose to communicate any personal data, your privacy and GDPR will be respected.
-		Moreover, the Creative Archive is designed to minimise privacy risks. Here's how!
-		
-		Open-source
-		The Creat...</p>
-			]]>
-			</description>
-		
-		<category>Creative-Archive</category><category>Post</category>
 		</item>
 		
 	</channel>

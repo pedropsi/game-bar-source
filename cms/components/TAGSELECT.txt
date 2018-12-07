@@ -1,4 +1,0 @@
-﻿<div>
-	<h3><a href="«LINK:Load».html">«TITLE:Load»</a></h3>
-	<div class="date">«DATE:Load»</div>
-</div>

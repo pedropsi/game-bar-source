@@ -1,0 +1,103 @@
+﻿<h2>04-12-2018</h2>
+	<h3>Unstable gravity fields</h3>
+		<p>Whenever two blocks of different gravities would fall towards the same point, an unstable local gravity field appears, and stays there until after the potential collision is resolved.</p>
+		<p>This was the last piece to be added to the tutorial area, which is now complete.</p>
+		
+<h2>03-12-2018</h2>
+	<h3>Inter-level navigation</h3>
+		<p>A system to allow speedy transitions between levels was created, dubbed <em>the highway</em>. Once a level is solved, you may extend the <em>the highway</em> up to that point, so you can shuttle back and forth between the main atrium and the last unsolved level in each area.</p>
+		
+<h2>02-12-2018</h2>
+	<h3>Intro</h3>
+		<p>The game starts with a mysterious introductory scene.</p>
+
+		<h2>30-11-2018</h2>
+	<h3>Game speed-up</h3>
+		<p>Significant game lag was traced back to two sources:</p>
+		<ul>
+			<li><b>Scaling with map size:</b> animation execution was restricted to the field of view.</li>
+			<li><b>Split rules:</b> where some display elements had a fixed size of <em>n</em> units, </em>n</em> rules were consolidated into a </em>single one</em>.</li>
+		</ul>
+		<p>Gravirinth now runs super smoothly.</p>
+
+<h2>25-11-2018</h2>
+	<h3>Dialog system</h3>
+		<p>A basic dialog console was made. This will introduce new story elements, names of areas, hints, without breaking the action flow. </p>
+	<h3>4px Font</h3>
+		<p>A minimalist uppercase 4 by 4 pixel font was designed to fit the dialog console. Trickiest character: <b>M</b>!</p>
+		
+<h2>23-11-2018</h2>
+	<h3>Achievements</h3>
+		<p>A move counter and inventory were added to the new bottom display line.
+		Now <b>perfecionist puzzlers</b> will be able to minimise the number of moves and the <b>explorers</b> may easily know how many <em>fourfold orbs</em> they discovered. </p>
+		<p>There is no pressure to do everything right the first time, as resetting to a previous checkpoint erases the elapsed moves. However, collecting a <em>fourfold orb</em> creates a new checkpoint, so to then undoing would be the only way to return to a previous state.</p>
+		<p>Naturally, both types of achievements will be displayed at the «HOF».</p>
+
+<h2>22-11-2018</h2>
+	<p>Gravirinth's cover page is <a href="gravirinth.html">now live</a>.</p>
+
+<h2>21-11-2018</h2>
+	<h3>Cover page</h3>
+		<p>Gravirinth's cover page completed, with a preliminary storyline and animated tutorial instructions.</p>	
+
+<h2>20-11-2018</h2>
+	<h3>Price timeline</h3>
+		<p>To reward those who support the game earlier, the price could vary continuously until the release date. But simpler is better so a flat 20% discount on a 2.5G price (reduced to a plain 2G) seems more appropriate. There are other good indie puzzle games priced similarly so this price should capture the value of a couple hours of intellectual stimulation.</p>
+	<h3>Integration with payment platforms</h3>
+		<p>A basic payment infrastructure was set up. This is likely to improve in the future.</p>
+
+<h2>18-11-2018</h2>
+	<h3>Why paid?</h3>
+		<p><b>Meaning.</b> When someone decides to pay, it means something special is received in return.</p>
+		<p><b>Learning.</b> Making a paid game requires a broader set set of skills (marketing, communication, processing payments, taxes, etc...) than required for free games. My primary goal with this project is to learn these broader skills in practice!</p>
+	<h3>What if I don't want to pay?</h3>
+		<p> That's ok! You can still enjoy all <a href="games">free games</a>!</p>
+
+
+<h2>17-11-2018</h2>
+	<h3>Naming</h3>
+		<p>After some iteration, Gravirinth's name was chosen! «I'm» happy with this choice, which reflects the character of the game: finding your way through a labirinth by manipulating gravity.</p>
+		<p>Names that didn't make the cut failed mostly for being non-unique (searching for them yields too many results) or not specially interesting. For instance names such as "Gravity Brothers" or "Proper Gravity" fell into the former case, while "Gravicrate" or "Gravitalt" fell into the latter.</p>
+
+		
+	<h2>20-11-2018</h2>
+	
+	<h3>Logo design</h3>
+		<p>Gravirinth's logo is born! The main goals were that it be easily readable and typographically interesting:</p>
+			<ul>
+				<li>almost all letters are contiguous and represent a labyrinth;</li>
+				<li>the detached "<b>v</b>" symbolises a gravity beacon, so the line below doubles as a labyrinth wall;</li>
+				<li>the large dots over the "<b>i</b>"s represent the elusive </em>fourfold orbs</em>.</li>
+			</ul>
+		<p>The logo was animated, then etched onto a Gravirinth wall, whose shifting symbols and surrounding perpetual loop were added for decoration. This animated version will be displayed at the cover page.</p>
+
+
+<h2>16-11-2018</h2>
+	<h3>Interactive tutorial</h3>
+		<p>The <em>tutorial area</em> of the world map was designed. In the first stages, the player shouldn't have much choice, since the goal is to learn all the rules in the simplest possible way. In the last stages, while play remains linear, the solutions are not direct, making the learning process more enjoyable.</p>
+		<p>This <em>tutorial area</em> should be self-explanatory, without text, so that players anywhere in the world learn easily. Optional helping points may be added later!</p>
+
+
+<h2>15-11-2018</h2>
+	<h3>World map sketch</h3>
+		<p>The world map was divided in five areas: a initial <em>tutorial area</em>, linked to the <em>main atrium</em>. From here one may enter the area codenamed <em>the tower</em> which is traversed linearly (with increasing difficulty) and another area dubbed <em>the catacombs</em> which branches to a shallow depth and contains harder chllenges. A last area called <em>the core</em> which will be central to winning the game, a puzzle equivalent to the "final boss".</p>
+
+		
+<h2>14-11-2018</h2>
+	<h3>Game rules</h3>
+		<p>Although recycling some assets from previous games saved some time, it still took a while to nail down the final set of rules and to polish the code!</p>
+		<p>An early idea was to control 4 different agents simultaneously, each with its own gravity direction; soon rejected as too confusing. Alternating control across all 4 agents cleared the confusion, but wasn't very compelling either. So «I» tried a single agent and introduced the gravity beacons to change gravity. When applying the beacons to the crates as well «I» instantly realised that a <b>very cool</b> game awaited creation.
+		
+<h2>03-11-2018</h2>
+	<h3>Colour system</h3>
+		<p>A coulour palette was devised using <b>purple</b> as the primary background colour. Why purple? To be different from previous games.</p>
+		<p>Contrasting with purple, four secondary colours were assigned to each of the four directions:</p>
+		<ol>
+			<li>Left - Pink</li>
+			<li>Up - Yellow</li>
+			<li>Right - Beige</li>
+			<li>Down - Orange</li>
+		</ol>
+		<p>Then each of the five colours earned five shades: very light, light, medium, dark and very dark.</p>
+
+«LOG-COMMENTS»

@@ -15,7 +15,11 @@
 
 <h2>Private Communication</h2>
 <p>When you communicate with the «SITE-NAME», for instance by email or form submission, this communication is kept <b>private</b>.  
-However, it flows through a <em>Google</em> mailbox and it may stay there for archival purposes as long as «SITE-NAME» runs.</p>
+However, it flows through a <em>Google</em> mailbox and drive so it may stay there for archival purposes as long as «SITE-NAME» runs.</p>
+
+<h2>Email subscriptions</h2>
+<p>The same provisions apply as for <b>private communication</b>. Plus, when you subscribe for «SITE-NAME» emails, the use of your adress or any other provided personal data will be restricted to that purpose. All such data is deletable by request, such as when you cancel a subscription.</p> 
+
 
 <h2>Minimal analytics</h2>
 <p>The «SITE-NAME» collects on each page load a minimal amount of non-personal visitor information (detailed below). 

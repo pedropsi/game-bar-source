@@ -13,10 +13,12 @@ function starry(thi,j){
 }
 
 function handleFormSubmit(event) {  
-	event.preventDefault();         			// prevent page reload
-	echoDataRecord("rating-form","ratings")
- }
- 
+	event.preventDefault();// prevent page reload
+	var data = {formGoogleSheetName:"Rating",formDataNameOrder: "[\"identifier\",\"rating\"]",identifier: pageTitle(),rating: document.querySelector("#rating-form #rate-it").value};
+	var u= "https://script.google.com/macros/s/AKfycbwB-a8j-INbkzTiQFJ55qETLYkdZrRvSg2s8urj9bPbG0XkBg9z/exec";
+	echoPureData(data,u);
+}
+
 function loaded() {
 	var form = document.getElementById('rating-form');
 	form.addEventListener("submit", handleFormSubmit, false);

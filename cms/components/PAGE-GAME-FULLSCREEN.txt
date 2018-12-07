@@ -7,7 +7,7 @@
 <body class="body" id="«LINK:LOAD»">
 	<div class="game-container">
 		<div id="puzzlescript-game" class="game"></div>
-		«GN:LOAD»
+		«GAME-NAVIGATION»
 	</div>
 	<div class="main">
 		«NAVBAR»
