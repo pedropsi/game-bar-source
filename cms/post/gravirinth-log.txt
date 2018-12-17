@@ -1,4 +1,18 @@
-﻿<h2>04-12-2018</h2>
+﻿<h2>16-12-2018</h2>
+	<h3>Beta-test</h3>
+		<p>Beta-testing is now live. Please «CONTACT-TEXT-1» to obtain a password. Only a limited number will be issued!</p>
+	<h3>Honours system</h3>
+		<p>Upon completing the game, the number of <em>fourford orbs</em> collected as well as the number of <em>steps taken</em> are recorded in each entry to the «HOF».</p>
+		
+<h2>15-12-2018</h2>
+	<h3>Bonus areas</h3>
+		<p>Three new bonus areas added.</p>
+		
+<h2>14-12-2018</h2>
+	<h3>Main map</h3>
+		<p>All areas are now complete. The <em>Tower</em> and the <em>Catacombs</em> must be traversed (in any order) before entering the final chambers. One thus passes three times through the <em>Main Atrium</em>, which was redesigned.</p>
+
+<h2>04-12-2018</h2>
 	<h3>Unstable gravity fields</h3>
 		<p>Whenever two blocks of different gravities would fall towards the same point, an unstable local gravity field appears, and stays there until after the potential collision is resolved.</p>
 		<p>This was the last piece to be added to the tutorial area, which is now complete.</p>

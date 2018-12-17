@@ -282,6 +282,13 @@ function AddElement(html,parentID){
 	document.getElementById(parentID).appendChild(e);
 };
 
+function PrependElement(html,parentID){
+	var e=document.createElement("div");
+	e.innerHTML=html;
+	var p=document.getElementById(parentID);
+	p.insertBefore(e,p.firstChild);
+};
+
 // Add new element to page, after a sibling element
 function AddAfterElement(html,selector){
 	var s=document.querySelectorAll(selector);
@@ -474,8 +481,8 @@ function CloseButtonHTML(targetid){
 	return '<span class="button closer" onclick="Close(\''+targetid+'\')">&times;</span>'
 }
 
-function SubmitButtonHTML(questionid){
-	return '<div class="button" onclick="SubmitAnswer(\''+questionid+'\')">Submit</div>';
+function SubmitButtonHTML(datapack){
+	return '<div class="button" onclick="'+datapack.action+'(\''+datapack.qid+'\')">Submit</div>';
 }
 
 function MessageHTML(message){
@@ -497,6 +504,8 @@ var d={
 	qdestination:'feedback',	//Name of data repository
 	qplaceholder:"❤ Pedro PSI ❤",			//Placeholder answer
 
+	action:'SubmitAnswer', //action on submit ---takes a Datapack as ony argument
+	
 	qid:GenerateId(),			//Which is the id of the overarching question/form element?
 	qtargetid:document.body.id,	//Where to introduce form in page?
 	qdisplay:OpenFeedbackBalloon//Question display function ---takes a Datapack as ony argument
@@ -548,7 +557,7 @@ function QuestionHTML(dataPackArray){
 		return QuestionHTML([dataPackArray]);
 	var dataPack=dataPackArray[0];
 	var QA=dataPackArray.map(SubQuestionHTML).join("");
-	return '<div data-destination="'+dataPack.qdestination+'"id="'+dataPack.qid+'">'+QA+SubmitButtonHTML(dataPack.qid)+"</div>";
+	return '<div data-destination="'+dataPack.qdestination+'"id="'+dataPack.qid+'">'+QA+SubmitButtonHTML(dataPack)+"</div>";
 }
 
 
@@ -640,7 +649,6 @@ function SubmitData(dataObject,destination){
 }
 
 function SubmitAnswer(qid){
-
 	var formtype=FindData("destination",qid);
 	var destinationObject=GetDestination(formtype);
 	var dataObject=(destinationObject.Data)(qid);

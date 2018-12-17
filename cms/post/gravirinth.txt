@@ -2,6 +2,8 @@
 	<img src="images/gravirinth/Gravirinth-banner.gif" alt="Gravirinth game banner" title="Gravirinth animated banner"/>
 </div>
 
+<div class="announce"><p>Reserve your «TITLE-BOLD» now!</p><div class="button" onclick="OpenModalPreOrder('Enter your email address to secure your discount and be notified when «TITLE-BOLD» is released.')">Book now!</div></div>
+
 «ABOUT-TEXT»
 
 <p>According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
@@ -14,14 +16,18 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 
 <h3>Release notes</h3>
 <p class="centre">«TITLE-BOLD» is scheduled to release by <b>January 7, 2018.</b> Meanwhile, all pre-orders earn a <b>25% discount</b>, in appreciation of early enthusiasm!</p>
-<div class="announce"><p>Reserve your «TITLE-BOLD» now!</p><div class="button" onclick="OpenModalPreOrder('Enter your email address to reserve your discount and be notified when «TITLE-BOLD» is released.')">Reserve now!</div></div>
-
 <p class="centre">A modern browser is all «TITLE-BOLD» needs is to run - so Windows, Mac, Linux, Android and iOS are all covered.</p>
 
 <h3>Stay informed</h3>
 <p class="centre">Follow development @ «LOG-LINK», or...</p>
 «BUTTON-SUBSCRIBE»
 
+<h3>Beta-test</h3>
+«PUZZLE-SCRIPT-PRE»«HONOURS:LOAD»
+<script src="codes/game/beta.js"></script>
+<script src="codes/decrypt.js"></script>
+<p class="centre">Load a beta version of «TITLE-BOLD» using your <em>secret password</em> or «CONTACT-TEXT-1» to request one. Many thanks!</p> 
+<div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [beta]</div>
 
 <h2>How to play</h2>
 

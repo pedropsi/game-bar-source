@@ -72,10 +72,7 @@ body {
     font-family: Arial, sans-serif;
     font-size: calc(10px + 0.5vw);
     line-height: calc(12px + 0.5vw);  
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-items: stretch;
     text-align: center;
 }
 
@@ -88,6 +85,7 @@ div{
     max-width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
 }
 
 .main {
@@ -114,8 +112,6 @@ div{
 
 .container {
     justify-content: space-between;
-    display:flex;
-    flex-direction:column;
     align-items: center;
     border-color:inherit;
     width:100%;
@@ -159,10 +155,8 @@ nav {
 
 
 .textarea {
-    display: flex;
     width: 100%;
     clear: none;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--white);
@@ -171,10 +165,8 @@ nav {
 }
 
 .card {
-    display: flex;
     width: 100%;
     clear: none;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--white);
@@ -196,15 +188,26 @@ nav {
 }
 
 .latest{
-    display: flex;
     flex-direction:row;
     flex-wrap:wrap;
     align-items: stretch;
 }
 
+/*
+.latest .mini:first-child,.latest .mini:nth-child(2) ,.latest .mini:nth-child(3){
+    min-width: 50%;
+    font-size:150%;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.latest .mini:first-child img, .latest .mini:nth-child(2) img ,.latest .mini:nth-child(3) img{
+    max-width: 60px;
+    max-height: 60px;   
+}*/
+
 .mini {
     background: var(--white); 
-    display: flex;
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
@@ -261,10 +264,8 @@ nav {
 }
 
 .featured {
-    display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    align-items: stretch;
     flex-wrap: wrap;
     width: 100%;
     background-color: var(--white);
@@ -315,13 +316,14 @@ nav {
     transition-duration: 0.5s;
 }
 
-.button:hover,.button:hover a,.nav-link:hover, .text a:hover, p a:hover, .latest .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .gameNav.active:hover {
+.button:hover,.button:hover a,.nav-link:hover, .text a:hover, p a:hover, .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .gameNav.active:hover, .card:hover {
     color: var(--turquoise) ;
     text-decoration-color: var(--turquoise);
     text-decoration-style:solid ;
     border-color: var(--turquoise) ;
     background-color: var(--darkblue);
     transition-duration: 1s;
+    cursor:pointer;
 }
 
 .mini .tag:hover {
@@ -329,6 +331,7 @@ nav {
      color: var(--darkblue);
      border-color: var(--darkblue) ;
      transition-duration: 1s;
+     cursor:pointer;
 }
 
 
@@ -338,6 +341,7 @@ nav {
 a div:hover img {
     background-color: var(--lightyellow);
     transition-duration: 1s;
+    cursor:pointer;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -689,7 +693,7 @@ li {
 .starsshare {
     flex-direction: row;
     flex-wrap:wrap;
-    justify-content: center
+    justify-content: center;
 }
 
 .sharer{
@@ -774,8 +778,12 @@ textarea:focus, input:focus{
     	padding:4px 16px 4px 16px;
         margin:10px;
     	align-self: center;
-    
-	}
+    	font-weight: bold;    
+}
+.button a {
+    text-decoration: none;
+}
+
 
 .patreon-b {
     display: flex;
@@ -998,23 +1006,6 @@ tbody tr:hover{
     max-width: 100%;
 }
 
-.buy {
-    background: var(--yellow);
-    height: 10vmax;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;   
-    font-size: 200%;
-    font-weight: bold;
-    max-width: 100%;
-   
-}
-
-.tutorial{
-    display: flex;
-    flex-direction: column;
-}
-
 .tutorial>div{
     flex-direction: row;
     align-items:center;
@@ -1050,11 +1041,10 @@ tbody tr:hover{
     padding:0;
     font-weight: bold;
     text-align: right;
-    max-width: 100%;
     border:0;
     margin:-20px 0px -20px 0px;
     align-self: flex-end;
-    
+    cursor: pointer;
 }
 
 .archive{

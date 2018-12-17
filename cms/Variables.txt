@@ -69,7 +69,7 @@ PICTURE	<img src="images/«IMAGE:Load»" alt="«IMAGEALT:Load»" title="«IMAGEALT:Lo
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT:Load»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
 FIGURE-MOSAIC	<div class="figure" onclick="(function(){toggleBGMode('«LINK:Load»')})()">«PICTURE»<div class="legend" id="markdown">«CONTENT:Load»</div><p>«MOSAIC-TEXT»</p></div>
-HONOURS-TIARADVENTUR	<script type="text/javascript" src="codes/game/honours-tiaradventur.js"></script>
+HONOURS-HOF	<script type="text/javascript" src="codes/game/honours-«TITLE:LOAD».js"></script>
 PUZZLE-SCRIPT	«PUZZLE-LOAD»«HONOURS:LOAD»
 PUZZLE-LOAD	<script type="text/javascript">PuzzleScript.embed(document.getElementById('«PUZZLE-MARK»'),"«CONTENT:Load»");</script>
 PUZZLE-MARK	puzzlescript-game
@@ -120,7 +120,7 @@ PATREON-TEXT	<a href='«PATREON-URL»' «BLANK»>Support «TITLE-BOLD» on <b>Patreon<
 PATREON-BUTTON	<a href='«PATREON-URL»' «BLANK»><img src='«PATREON-IMG-URL»' alt='Sponsor the «SITE-NAME»'></img></a>
 PATREON-BECOME-SPONSOR	<div class='patreon-b'>«PATREON-BUTTON»</div>
 PATREON-GAME	«PATREON-BECOME-SPONSOR»
-DISCORD-CHANNEL	<h3>Forums</h3><p>Comment and discuss «TITLE-BOLD» on the dedicated <a href='«DISCORD-PREFIX»/«FORUMS:Load»' «BLANK»><b>discord channel!</b></a></p>
+DISCORD-CHANNEL	<h3>Forums</h3><p>Comment and discuss «TITLE-BOLD» on the dedicated <a href='«DISCORD-MAIN»' «BLANK»><b>discord channel!</b></a></p>
 COMMUNITY	<h2>Community</h2>«GUESTBOOK-MESSAGE»«DISCORD-CHANNEL»
 STAY-TUNED	<a href='«RSS-PATH»'><b>stay tuned!</b></a>
 GUESTBOOK-POST-TEXT	<p>Enjoyed «TITLE-BOLD»? Add <b>your message</b> below to the «SITE-NAME»'s <a href="guestbook.html">guestbook</a>!</p>
