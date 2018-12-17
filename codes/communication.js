@@ -18,7 +18,7 @@ function GetHonour(){return " ";} //function to be overriden (customised for) in
 var who=UserId();	
 var DESTINATION_FEEDBACK={
 	url:"https://script.google.com/macros/s/AKfycbwB-a8j-INbkzTiQFJ55qETLYkdZrRvSg2s8urj9bPbG0XkBg9z/exec",
-	headers:"[\"identifier\",\"context\",\"question\",\"answer\",\"name\"]",
+	headers:"[\"identifier\",\"context\",\"question\",\"answer\",\"name\",\"state\"]",
 	sheet:"Feedback",
 	name:"feedback",
 	Data:function(qid){
@@ -27,7 +27,8 @@ var DESTINATION_FEEDBACK={
 			context:String(GetContext()),
 			question:FindData("questionname",qid),
 			answer:FindData("qvalue",qid),
-			name:who
+			name:who,
+			state:PrintGameState()
 			}}
 }
 
@@ -203,6 +204,9 @@ function RequestGameFeedback(){
   }
 }
 
+function PrintGameState(){
+	return document.getElementById("gameCanvas").toDataURL();
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Guestbook & Comments
