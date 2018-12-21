@@ -1,11 +1,11 @@
-﻿<p>The «SITE-NAME» does not collect <em>personal data</em> as defined in <a href="https://gdpr-info.eu/art-4-gdpr/" «BLANK»>GDPR's Article 4</a>. Nevertheless, whenever <b>you choose</b> to communicate any <em>personal data</em>, your privacy and <a href="https://gdpr-info.eu/" «BLANK»>GDPR</a> will be <b>respected</b>.<p>
+﻿<p>The «SITE-NAME» does not collect <em>personal data</em> as defined in <a href="https://gdpr-info.eu/art-4-gdpr/" «BLANK»>GDPR's Article 4</a>, except when you <b>you explicitly choose</b> to communicate it, in which case <a href="https://gdpr-info.eu/" «BLANK»>GDPR</a> will be <b>respected</b>.<p>
 <p>Moreover, the «SITE-NAME» is designed to minimise privacy risks. <b>Here's how!</b></p>
 
 <h2>Open-source</h2>
 <p>The «SITE-NAME» is <b>open-source</b>. Do <a href="«SOURCE-URL»" «BLANK»>look at the code</a> and if you find any privacy breach or concern, «CONTACT-TEXT-3».</p>
 
 <h2>Transparent</h2>
-<p>Here's the list of third parties the «SITE-NAME» infrastructure relies on.</p>
+<p>Here's the list of third parties the «SITE-NAME» infrastructure relies on. Their respective privacy policies apply to the extent that they are relied on.</p>
 
 <h3><em>Github Pages (Microsoft)</em></h3>
 <p>This site is hosted on <em>Github Pages</em>, owned by <em>Microsoft</em>.</p>
@@ -18,7 +18,7 @@
 However, it flows through a <em>Google</em> mailbox and drive so it may stay there for archival purposes as long as «SITE-NAME» runs.</p>
 
 <h2>Email subscriptions</h2>
-<p>The same provisions apply as for <b>private communication</b>. Plus, when you subscribe for «SITE-NAME» emails, the use of your adress or any other provided personal data will be restricted to that purpose. All such data is deletable by request, such as when you cancel a subscription.</p> 
+<p>The same provisions apply as for <b>private communication</b>. Plus, if you subscribe for «SITE-NAME» emails, the use of your adress or any other provided personal data will be restricted to that purpose. All such data is deletable by request, such as when you cancel a subscription.</p> 
 
 
 <h2>Minimal analytics</h2>
@@ -48,7 +48,7 @@ This information is kept <b>private</b> in a <em>Google</em> account. </p>
 		<th>to know whether the «SITE-NAME» can be seen perfectly by all visitors. Do <a href="contact-html"><b>report any bug</b></a> you find! </th>
 	</tr>
 	<tr>
-		<th>referrer url</th>
+		<th>referrer url hashtag</th>
 		<th>to compare the impact of different publicising efforts.<th>
 	</tr>
 	<tr>
@@ -87,7 +87,7 @@ This information is kept <b>private</b> in a <em>Google</em> account. </p>
 </table>
 
 <h2>Cookies</h2>
-<p>Each game on the «SITE-NAME» uses cookies to save your progress. </p>
+<p>Each game on the «SITE-NAME» uses cookies to save your progress. You can clear them (and your progress) by deleting the browser cache.</p>
 
 <h2>More...</h2>
 <p>At the bottom of many pages, the sharing buttons, adapted from <a href="https://sharingbuttons.io/" «BLANK»>sharingbuttons.io</a>, are javascript-free thus privacy-friendly.</p>

@@ -123,7 +123,8 @@ PATREON-GAME	«PATREON-BECOME-SPONSOR»
 DISCORD-CHANNEL	<h3>Forums</h3><p>Comment and discuss «TITLE-BOLD» on the dedicated <a href='«DISCORD-MAIN»' «BLANK»><b>discord channel!</b></a></p>
 COMMUNITY	<h2>Community</h2>«GUESTBOOK-MESSAGE»«DISCORD-CHANNEL»
 STAY-TUNED	<a href='«RSS-PATH»'><b>stay tuned!</b></a>
-GUESTBOOK-POST-TEXT	<p>Enjoyed «TITLE-BOLD»? Add <b>your message</b> below to the «SITE-NAME»'s <a href="guestbook.html">guestbook</a>!</p>
+GUESTBOOK-POST-TEXT	<p>Enjoyed «TITLE-BOLD»? Add <b>your message</b> below to the «SITE-NAME»'s «GUESTBOOK-LINK»!</p>
+GUESTBOOK-LINK	<b><a href="guestbook.html">guestbook</a></b>
 GUESTBOOK-MESSAGE	<h3>Guestbook</h3>«GUESTBOOK-POST-TEXT»«GUESTBOOK-ADD»
 SENDOWL-EMBED	<a href="https://transactions.sendowl.com/products/«SENDOWL-ID»" rel="nofollow">«SENDOWL-BUTTON»</a><script type="text/javascript" src="https://transactions.sendowl.com/assets/sendowl.js" ></script>
 SENDOWL-BUTTON	«BUTTON-PREORDER»

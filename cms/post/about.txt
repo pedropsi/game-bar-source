@@ -1,6 +1,6 @@
 ﻿<h2>Welcome!</h2>
-<p>This is «NAME»'s «SITE-NAME».  
-It includes a collection of <a href="games.html"><b>games</b></a> and a few patterned <a href="tag-Mosaic.html"><b>wallpapers</b></a>, and other surprises are coming.</p>
+<p>This is «NAME»'s «SITE-NAME». It includes a collection of <a href="games.html"><b>games</b></a> and a few patterned <a href="tag-Mosaic.html"><b>wallpapers</b></a>. More surprises are coming...</p>
+<p>The «SITE-NAME» is essentially a hobby and learning journal, thus most of its content is <b>free</b>.<p>
 
 <h2>About «ME»...</h2>
 <p>«NAME» is «MY» name.

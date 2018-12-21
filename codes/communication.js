@@ -13,8 +13,11 @@ var DESTINATION_HOF={
 		}}
 	}
 	
-function GetHonour(){return " ";} //function to be overriden (customised for) in each game, otherwise blank
-	
+
+if (typeof(GetHonour)==="undefined"){
+	function GetHonour(){return " ";} //function to be overriden (customised for) in each game, otherwise blank
+}
+
 var who=UserId();	
 var DESTINATION_FEEDBACK={
 	url:"https://script.google.com/macros/s/AKfycbwB-a8j-INbkzTiQFJ55qETLYkdZrRvSg2s8urj9bPbG0XkBg9z/exec",

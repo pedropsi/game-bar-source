@@ -16,7 +16,7 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 
 <h3>Release notes</h3>
 <p class="centre">«TITLE-BOLD» is scheduled to release by <b>January 7, 2018.</b> Meanwhile, all pre-orders earn a <b>25% discount</b>, in appreciation of early enthusiasm!</p>
-<p class="centre">A modern browser is all «TITLE-BOLD» needs is to run - so Windows, Mac, Linux, Android and iOS are all covered.</p>
+<p class="centre">A modern browser is all «TITLE-BOLD» needs to run - so Windows, Mac, Linux, Android and iOS are all covered.</p>
 
 <h3>Stay informed</h3>
 <p class="centre">Follow development @ «LOG-LINK», or...</p>
@@ -136,6 +136,9 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 	<tr>
 		<th>RUB, INR</th>
 		<th>200</th>	</tr>
+	<tr>
+		<th>JPY</th>
+		<th>350</th>	</tr>
 	<tr>
 		<th>KRW</th>
 		<th>3500</th>	</tr>

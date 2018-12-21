@@ -1,5 +1,20 @@
-﻿<p>«COPYRIGHT».. except where otherwise stated.</p>
-<p>Some content is shared under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license. 
-In practice, this means that you can use and modify it freely for non-commercial purposes as long as you provide credit and keep the same license on derivative works.  
-«I»'d also appreciate that you'd «CONTACT-TEXT-3» when you do so!</p>
-<p>For commercial purposes, please «CONTACT-TEXT-1» to discuss bespoke licenses.</p>
+﻿<h3>General rule</h3>
+<p>All content in «SITE-NAME» is «COPYRIGHT», unless otherwise stated. This includes, in particular, the logo.</p>
+
+<h3>Content under CC BY-NC-SA 4.0 License</h3>
+<p>A large portion of the content is shared under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license. This applies at least to:</p>
+<ul>
+	<li>«SITE-NAME» source code files, s therein stated</li>
+	<li>Game source codes, when therein stated</li>
+	<li>All mosaics in the «SITE-NAME», unless otherwise stated</li>
+</ul>
+<p>In practice, this means that you can use and modify this content freely for non-commercial purposes as long as you provide credit and keep the same license on derivative works. «I»'d appreciate that you'd «CONTACT-TEXT-3»!</p>
+
+<h3>Sharing links and snippets...</h3>
+<p>...is ok!</p>
+
+<h3>Journalists</h3>
+<p>All textual and pictorial content in «SITE-NAME» can be used for the purpose of journalism, without restrictions, with attribution of source.</p>
+
+<h3>Other commercial uses</h3>
+<p>For commercial usage of any content in «SITE-NAME», please «CONTACT-TEXT-1» to discuss bespoke licenses.</p>

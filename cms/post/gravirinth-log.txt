@@ -1,4 +1,22 @@
-﻿<h2>16-12-2018</h2>
+﻿<p>This is <a href="gravirinth.html">gravirinth's</a> devlog.</p>
+
+<h2>21-12-2018</h2>
+	<p>Many thanks to all <b>beta-testers</b>, whose brilliant suggestions enabled the following improvements:</p>
+	<h3>Unstable gravity blocks physics</h3>
+		<p>These blocks now disappear (when the conflict no longer exists) as soon as a player is moving, instead of waiting for the next gravity phase.</p>
+	<h3>Camera system </h3>
+		<p>A new camera system was devised to enable focusing on certain level areas, improving playability. This system also eliminated the need for wasted tiles padding the sides of the world map, increasing game performance.</p>
+	<h3>Keybuffer</h3>
+		<p>The next action intended by the player is recorded in a keybuffer, resulting in smoother gameplay.</p>
+	<h3>Less flashy gravity beacons</h3>
+		<p>The gravity beacons now flash slighlty less often, reducing distraction potential.</p>
+	<h3>Better typography</h3>
+		<p>Gravirinth's font got upgraded to improve legibility, retaining its character. </p>
+	<h3>Level map changes</h3>
+		<p>Some areas were tweaked to accomodate the change in unstable gravity block physics.</p>
+
+
+<h2>16-12-2018</h2>
 	<h3>Beta-test</h3>
 		<p>Beta-testing is now live. Please «CONTACT-TEXT-1» to obtain a password. Only a limited number will be issued!</p>
 	<h3>Honours system</h3>
