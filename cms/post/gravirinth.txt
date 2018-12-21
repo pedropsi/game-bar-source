@@ -14,6 +14,14 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 <p><b>...until Xeno, the Exoarcheologist, arrived.</b> Will the «TITLE-BOLD» reveal its mysteries?</p>
 </p>
 
+<h3>Features</h3>
+<ul>
+<li>A deep labyrinth of spatial puzzles at the core of an epic story;</li>
+<li>Carefully crafted minimalistic atmosphere;</li>
+<li>Competitive mode, including a movement counter and (some quite hard) bonus puzzles;</li>
+<li>Probably the most ambitious puzzlescript experience ever coded.</li>
+</ul>
+
 <h3>Release notes</h3>
 <p class="centre">«TITLE-BOLD» is scheduled to release by <b>January 7, 2018.</b> Meanwhile, all pre-orders earn a <b>25% discount</b>, in appreciation of early enthusiasm!</p>
 <p class="centre">A modern browser is all «TITLE-BOLD» needs to run - so Windows, Mac, Linux, Android and iOS are all covered.</p>
@@ -36,38 +44,38 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 <div  class="tutorial">
 	<div class="left">
 		<div>
-			<img src="images/gravirinth/tutorial-1.gif" alt="Gravirinth tutorial 1:move and switch gravity" title="Gravirinth tutorial 1:move and switch gravity"/>
+			<img src="images/gravirinth/gravirinth-tutorial-1.gif" alt="Gravirinth tutorial 1:move and switch gravity" title="Gravirinth tutorial 1:move and switch gravity"/>
 		</div>
 		<p>Navigate the «TITLE-BOLD» with the <b>arrow keys</b>. Step on <em>gravity beacons</em> to change your <em>specific gravity</em>! The controls change accordingly.</p>
 	</div>
 	<div class="right">
 		<p>Pick any number of <em>blocks</em> with the <b>downward arrow key</b>. Place them strategically  with the <b>upward arrow key</b> to overcome obstacles!</p>
 		<div>
-			<img src="images/gravirinth/tutorial-2.gif" alt="Gravirinth tutorial 2:pick and carry blocks" title="Gravirinth tutorial 1:pick and carry blocks"/>
+			<img src="images/gravirinth/gravirinth-tutorial-2.gif" alt="Gravirinth tutorial 2:pick and carry blocks" title="Gravirinth tutorial 1:pick and carry blocks"/>
 		</div>
 	</div>
 	<div class="left">
 		<div>
-			<img src="images/gravirinth/tutorial-3.gif" alt="Gravirinth tutorial 3:throw a block" title="Gravirinth tutorial 3:throw a block"/>
+			<img src="images/gravirinth/gravirinth-tutorial-3.gif" alt="Gravirinth tutorial 3:throw a block" title="Gravirinth tutorial 3:throw a block"/>
 		</div>
 		<p>Blocks also have their own <em>specific gravity</em>! Push blocks in your way or throw them horizontally to a higher platform!</p>
 	</div>
 	<div class="right">
 		<p>What if two specific gravities <em>collide</em>? An <em>unstable gravity field</em> materialises, keeping everything in place. Untangle the collision, and it eventually vanishes!</p>
 		<div>
-			<img src="images/gravirinth/tutorial-4.gif" alt="Gravirinth tutorial 4:collision of specific gravities" title="Gravirinth tutorial 4:collision of specific gravities"/>
+			<img src="images/gravirinth/gravirinth-tutorial-4.gif" alt="Gravirinth tutorial 4:collision of specific gravities" title="Gravirinth tutorial 4:collision of specific gravities"/>
 		</div>
 	</div>
 	<div class="left">
 		<div>
-			<img src="images/gravirinth/tutorial-5.gif" alt="Gravirinth tutorial 5:incoming call" title="Gravirinth tutorial 5:incoming call"/>
+			<img src="images/gravirinth/gravirinth-tutorial-5.gif" alt="Gravirinth tutorial 5:incoming call" title="Gravirinth tutorial 5:incoming call"/>
 		</div>
 		<p>Base communicates with you though a low-bandwidth intercom. In this way general tips and orientation hints may be given.</p>
 	</div>
 	<div class="right">
 		<p>It is said that finding the elusive <em>fourfold orbs</em> is a sign of great virtue. Try your best!</p>
 		<div>
-			<img src="images/gravirinth/tutorial-6.gif" alt="Gravirinth tutorial 6:fourfold orb" title="Gravirinth tutorial 6:fourfold orb"/>
+			<img src="images/gravirinth/gravirinth-tutorial-6.gif" alt="Gravirinth tutorial 6:fourfold orb" title="Gravirinth tutorial 6:fourfold orb"/>
 		</div>
 	</div>
 </div>
@@ -76,14 +84,14 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 <div  class="tutorial">
 	<div class="left">
 		<div>
-			<img src="images/gravirinth/tutorial-7.gif" alt="Gravirinth tutorial 7: undo" title="Gravirinth tutorial 7: undo"/>
+			<img src="images/gravirinth/gravirinth-tutorial-7.gif" alt="Gravirinth tutorial 7: undo" title="Gravirinth tutorial 7: undo"/>
 		</div>
 		<p>Your progress is reported continuously to base, so you may retrace your steps whenever you've done anything wrong. <b>Press Z</b> on your exopad.</p>
 	</div>
 	<div class="right">
 		<p>A special record of your progress is created whenever you reach a save point. <b>Press R</b> on your exopad to go back in time! This should work even if you quit the game for a while.</p>
 		<div>
-			<img src="images/gravirinth/tutorial-8.png" alt="Gravirinth tutorial 8:save" title="Gravirinth tutorial 8:save"/>
+			<img src="images/gravirinth/gravirinth-tutorial-8.png" alt="Gravirinth tutorial 8:save" title="Gravirinth tutorial 8:save"/>
 		</div>
 	</div>
 </div>
