@@ -26,7 +26,7 @@ var NumberIndices=[so.n0.id,so.n1.id,so.n2.id,so.n3.id,so.n4.id,so.n5.id,so.n6.i
 		var f="";
 		for(var i=0;i<NumberIndices.length;i++)
 			if(level.getCell(cellindex).get(NumberIndices[i]))
-				f=String(NumberIndices[i]-259);
+				f=String(NumberIndices[i]-NumberIndices[0]);
 		return f}
 
 	for(var j=0;j<level.n_tiles;j++){

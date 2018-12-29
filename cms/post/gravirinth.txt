@@ -16,10 +16,10 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 
 <h3>Features</h3>
 <ul>
-<li>A deep labyrinth of spatial puzzles at the core of an epic story;</li>
+<li>A deep labyrinth of spatial puzzles at the core of a space adventure;</li>
 <li>Carefully crafted minimalistic atmosphere;</li>
 <li>Competitive mode, including a movement counter and (some quite hard) bonus puzzles;</li>
-<li>Probably the most ambitious puzzlescript experience ever coded.</li>
+<li>Probably one of the most ambitious puzzlescript experiences ever coded.</li>
 </ul>
 
 <h3>Release notes</h3>

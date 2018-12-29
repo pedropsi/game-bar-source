@@ -1,5 +1,15 @@
 ﻿<p>This is <a href="gravirinth.html">gravirinth's</a> devlog.</p>
 
+<h2>29-12-2018</h2>
+	<h3>New bonus level</h3>
+		<p>The new bonus level "loop" was added.</p>
+	<h3>More dialogue</h3>
+		<p>More story-related in-game comments were added.</p>
+
+<h2>27-12-2018</h2>
+	<h3>Darkness</h3>
+		<p>New untreaded areas are now revealed progressively, encouraging exploration and contributing to a more mysterious atmosphere. This means some bonus chambers will only be revealed to the observing eye.</p>
+
 <h2>21-12-2018</h2>
 	<p>Many thanks to all <b>beta-testers</b>, whose brilliant suggestions enabled the following improvements:</p>
 	<h3>Unstable gravity blocks physics</h3>
