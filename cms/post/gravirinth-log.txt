@@ -1,5 +1,12 @@
 ﻿<p>This is <a href="gravirinth.html">gravirinth's</a> devlog.</p>
 
+<h2>30-12-2018</h2>
+	<h3>Beta-test (second round)</h3>
+		<p>After a first successful round of beta-testing, with extremely useful feedback, a <b>second round</b> is now live.</p>
+		<p>Old keys ares still valid. If you haven't joined the first round, please «CONTACT-TEXT-1» to obtain a password. Only an even more limited number will be issued!</p>
+	<h3>What's still missing?</h3>
+		<p>At least three extra bonus levels and music, for which suggestions are «CONTACT-TEXT-5»!</p>
+
 <h2>29-12-2018</h2>
 	<h3>New bonus level</h3>
 		<p>The new bonus level "loop" was added.</p>
