@@ -17,6 +17,7 @@ function PrepareGame(){
 }
 
 function RevealGame(qid){
+	window.scroll(0,0);
 	var key=FindData("password",qid);
 	var gameid=Unlock(qid,key);
 	PuzzleScript.embed(document.getElementById('puzzlescript-game'),gameid);
