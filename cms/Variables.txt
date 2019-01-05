@@ -1,5 +1,5 @@
 Link	Content
-YEAR-NOW	2018
+YEAR-NOW	2019
 LOCATION	a secret location
 NAME	Pedro PSI
 MOSAIC-TEXT	Clicking on the mosaic above will change this page's background. Try it!
@@ -35,7 +35,7 @@ SITEMAP	«XML»<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">«CONTEN
 SITEMAP-ITEM	<url><loc>«LINK-URL»</loc><lastmod>«UP-DA-TE:Load»</lastmod><changefreq>«FREQ:Load»</changefreq></url>
 SITEMAP-PATH	sitemap.xml
 TITLE-BOLD	<b>«TITLE:Load»</b>
-TITLE-BY	«TITLE:Load» by «NAME» «YEAR:Load»
+TITLE-BY	«TITLE-BOLD» by «NAME» «YEAR:Load»
 HALL-OF-FAME-VIEW-LEGACY	https://docs.google.com/spreadsheets/d/e/2PACX-1vQwd7CTU3k1HsrT4fPLljY9HSW5eWbOv118H3zn5nsRg6Uc1b_aTg577hjFoHLPCUbKAEmht603qmc7/pubhtml?gid=2116581279&single=true&widget=false&chrome=false&headers=false
 HALL-OF-FAME-URL	action="https://script.google.com/macros/s/AKfycbzgwZUKFmuNQin6Kq4-kTMBSZtz9TapE6kxpZyk7p2tRaanLD1w/exec"
 HALL-OF-FAME-DORM-ID	enterHallOfFame
