@@ -16,10 +16,11 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 
 <h3>Features</h3>
 <ul>
-<li>A deep labyrinth of spatial puzzles at the core of a space adventure;</li>
-<li>Carefully crafted minimalistic atmosphere;</li>
-<li>Competitive mode, including a movement counter and (some quite hard) bonus puzzles;</li>
-<li>Probably one of the most ambitious puzzlescript experiences ever coded.</li>
+<li>A deep labyrinth of spatial puzzles;</li>
+<li>an exoarcheology space expedition at the outskirts of the solar system;</li>
+<li>a carefully handcrafted, minimalist and mysterious atmosphere;</li>
+<li>for <em>experienced</em> puzzlers: harder bonus levels; for <em>perfectionists</em>: an actions counter; for <em>explorers</em>: some very well hidden paths;</li>
+<li>beautiful, ambitious, puzzlescript code.</li>
 </ul>
 
 <h3>Release notes</h3>
@@ -37,9 +38,13 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 <p class="centre">Load a beta version of «TITLE-BOLD» using your <em>secret password</em> or «CONTACT-TEXT-1» to request one. Many thanks!</p> 
 <div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [beta]</div>
 
+<h3>Press, bloggers, vloggers, etc.. </h3>
+<p class="centre">Would you like to write an article about «TITLE-BOLD»? Do you wish to feature «TITLE-BOLD» in a curated collection? Do «CONTACT-TEXT-1» to request a <em>media pass</em>.</p>
+<div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [media pass]</div>
+
 <h2>How to play</h2>
 
-<p>Experience the instruction set below in «TITLE-BOLD»'s interactive tutorial!</p>
+<p>Experience the instruction set (also shown below) live in «TITLE-BOLD»'s interactive tutorial!</p>
 
 <div  class="tutorial">
 	<div class="left">
@@ -106,16 +111,29 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 <p>TBA!</p>
 
 <h3>Special thanks</h3>
-<p>TBA!</p>
+<p>All beta testers for their comprehensive feedback! Among them a special mention to «P-LESLO» for outstanding help.</p>
 
 <h2>F.A.Q.</h2>
 <h3>What does the name <em>Gravirinth</em> mean?</h3>
-<p><em>Gravirinth</em> is a combination of the words <em>Gravity</em> and <em>Labyrinth</em> and refers to the full area to be explored.</p>
+<p><em>Gravirinth</em> is a combination of the words <em>Gravity</em> and <em>Labyrinth</em>. It was coined by <b>base</b> when discussing with <b>Xeno</b> whether to greenlight the expedition, once the strange gravitic signatures were detected. The original alien name is unknown.</p>
+
 <h3>What games inspired «TITLE-BOLD»?</h3>
-<p>The game mechanic emerged naturally when I tried to cross <a href="pmgrp">Play Mini Gemini Replay</a> with <a href="whirlpuzzle">Whirpuzzle</a>.</p>
+<p>The game mechanic emerged naturally, drawing elements from <a href="pmgrp.html">Play Mini Gemini Replay</a> (basic platform mechanics),  <a href="whirlpuzzle.html">Whirpuzzle</a> (idea of rotation and space theme) and <a href="tiaradventur.html">Tiaradventur</a> (inventory, narrative system, management of a large word map), whose source codes are openly available.</p>
 <p>Specific gravity is also a central theme of the game <a href="https://manifold.garden/" «BLANK»>Manifold Garden</a>.</p>
-<h3>What is the price tag?</h3>
-<p>Depending on your favourite currency, the price is:</p>
+
+<h3>How is «TITLE-BOLD» ambitious from a coding point of view?</h3>
+<p>The features below make a great game experience and are a puzzlescript coding challenge:</p>
+<ul>
+	<li>a large animated world map;</li>
+	<li>a camera directing system;</li>
+	<li>a message selector, for storytelling and strategic hint placement;</li>
+	<li>a smart action counter;</li>
+	<li>an inventory/dialogue display banners trailing along with the field of view;</li>
+	<li>a progressive reveal of unseen areas.</li>
+</ul>
+
+<h3>What will be the price tag?</h3>
+<p>Depending on your favourite currency:</p>
 <table class="top-left">
 <thead>
 	<tr>

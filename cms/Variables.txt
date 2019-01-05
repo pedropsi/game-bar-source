@@ -169,3 +169,4 @@ SUBSCRIBE-RSS	<a href="«SITE»/«RSS-PATH»" id="rss">Subscribe to RSS feed.</a>
 SUBSCRIBE-EMAIL	<a onclick="OpenModalSubscribe()">Subscribe to email alerts.</a>
 SUBSCRIBE-LINK	<a href="subscribe.html">Subscribe!</a>
 SUBSCRIBE-DISCORD	<a href="«DISCORD-MAIN»" «BLANK»>Join the community.</a>
+P-LESLO	<a href="https://twitter.com/leslodev" «BLANK»><b>Lucas LeSlo</b></a>
