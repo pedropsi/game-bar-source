@@ -134,6 +134,11 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 	</thead>
 	<tbody>
 		<tr>
+			<td>Eternity</td>
+			<td><a href="https://stellardrone.bandcamp.com/album/light-years" «BLANK»>Light Years</a></td>
+			<td>2013</td>
+			</tr>
+		<tr>
 			<td>Comet Halley</td>
 			<td><a href="https://stellardrone.bandcamp.com/album/light-years" «BLANK»>Light Years</a></td>
 			<td>2013</td>
@@ -144,33 +149,19 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 			<td>2011</td>
 		</tr>
 		<tr>
-			<td>Between The Rings</td>
-			<td><a href="https://stellardrone.bandcamp.com/album/between-the-rings" «BLANK»>Between The Rings</a></td>
-			<td>2017</td>
-			</tr>
-		<tr>
 			<td>Twillight</td>
 			<td><a href="https://stellardrone.bandcamp.com/album/a-moment-of-stillness" «BLANK»>A moment of stillness</a></td>
 			<td>2011</td>
 			</tr>
 		<tr>
-			<td>Eternity</td>
-			<td><a href="https://stellardrone.bandcamp.com/album/light-years" «BLANK»>Light Years</a></td>
-			<td>2013</td>
+			<td>Between The Rings</td>
+			<td><a href="https://stellardrone.bandcamp.com/album/between-the-rings" «BLANK»>Between The Rings</a></td>
+			<td>2017</td>
 			</tr>
 		</tbody>
 </table>
 <p>Playback is managed by the <a href="https://github.com/goldfire/howler.js" «BLANK»>Howler</a> code base.</a> 
 <script src="codes/lib/howler.js"></script>
-<script>
- var p="media/gravirinth/";
- var soundtracks = [
-	  p+'Stellardrone - Light Years - 07 Comet Halley.mp3',
-	  p+'Stellardrone - A Moment Of Stillness - 02 Billions And Billions.mp3',
-	  p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',
-	  p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',
-	  p+'Stellardrone - Light Years - 03 Eternity.mp3'];
-</script>
 
 <h3>Special thanks</h3>
 <p>All beta testers for their comprehensive feedback! Among them a special mention to «P-LESLO» for outstanding help.</p>

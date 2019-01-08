@@ -27,18 +27,23 @@ function RevealGame(qid){
 
 //Music
 
-function Music(){
-if(typeof soundtracks!="undefined"){
-	function LoadTrack(id){
-		var id= id%soundtracks.length;
-		var sound =new Howl({
-			src: [soundtracks[id]],
-			volume: 0.1,
-			onend: function(){LoadTrack(id+1);}
-			});
-		sound.once('load', function(){sound.play();});	
+function LoadTrack(id){
+	if(typeof soundtracks!="undefined"){
+	var id= id%soundtracks.length;
+	var sound =new Howl({
+		src: [soundtracks[id].src],
+		volume: soundtracks[id].volume,
+		onend: function(){LoadTrack(id+1);}
+	});
+	sound.once('load', function(){
+		if(typeof soundtracks[id].start!="undefined")
+			sound.seek(soundtracks[id].start);
+		sound.play();
+		Howler.volume(soundtracks[id].volume);
+	});	
 	};
+	}
+
+function Music(){
 	LoadTrack(0);
-	Howler.volume(0.1);
-}
 }

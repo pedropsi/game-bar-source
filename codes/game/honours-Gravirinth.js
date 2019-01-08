@@ -49,3 +49,14 @@ function GetHonour(){
 	h=h+" ("+g[1]+" steps)";
 	return h;
 }
+
+
+//Playlist
+var p="media/gravirinth/";
+ var soundtracks = [
+	  {src:p+'Stellardrone - Light Years - 03 Eternity.mp3',volume:0.2,start:60},
+	  {src:p+'Stellardrone - Light Years - 07 Comet Halley.mp3',volume:0.1,start:30},
+	  {src:p+'Stellardrone - A Moment Of Stillness - 02 Billions And Billions.mp3',volume:0.2,start:5},
+	  {src:p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',volume:0.1,start:15},
+	  {src:p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',volume:0.1,start:5},
+	  ];
