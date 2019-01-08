@@ -17,6 +17,27 @@
 		</image>
 
 		<item>
+		<title>Gravirinth</title>
+		<link>http://pedropsi.github.io/gravirinth</link>
+		<guid>http://pedropsi.github.io/gravirinth</guid>
+		<pubDate>Mon, 07 Jan 2019 07:06:05 GMT</pubDate>
+		<description>
+			<![CDATA[
+				<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
+				<p>
+			
+		
+		
+		About Gravirinth
+		
+		According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
+		Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive thi...</p>
+			]]>
+			</description>
+		
+		<category>Game</category><category>Platformer</category><category>Puzzle</category>
+		</item>
+		<item>
 		<title>Subscribe</title>
 		<link>http://pedropsi.github.io/subscribe</link>
 		<guid>http://pedropsi.github.io/subscribe</guid>
@@ -31,29 +52,6 @@
 		<category>Creative-Archive</category><category>Post</category>
 		</item>
 		<item>
-		<title>Gravirinth</title>
-		<link>http://pedropsi.github.io/gravirinth</link>
-		<guid>http://pedropsi.github.io/gravirinth</guid>
-		<pubDate>Fri, 23 Nov 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
-				<p>
-			
-		
-		
-		Reserve your Gravirinth now!Book now!
-		
-		About Gravirinth
-		
-		According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
-		Eager at first to share their wisdom, soon they became aware that most alien l...</p>
-			]]>
-			</description>
-		
-		<category>Game</category><category>Platformer</category><category>Puzzle</category>
-		</item>
-		<item>
 		<title>Gravirinth changelog</title>
 		<link>http://pedropsi.github.io/gravirinth-log</link>
 		<guid>http://pedropsi.github.io/gravirinth-log</guid>
@@ -61,11 +59,12 @@
 		<description>
 			<![CDATA[
 				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Gravirinth changelog" title="Gravirinth changelog"/>
-				<p>16-12-2018
-			Beta-test
-				Beta-testing is now live. Please contact Pedro PSI to obtain a password. Only a limited number will be issued!
-			Honours system
-				Upon completing the game, the number of fourford orbs collected as well as the number of steps taken are recorded in each entry to the Hall of F...</p>
+				<p>This is Gravirinth's devlog.
+		
+		04-01-2019
+			Happy new year and thanks to all beta-testers for an extra round of wonderful ideas and important suggestions, which motivated the following improvements:
+			Map redesign
+				The ordering of some levels (especially just before the posterior core) was changed ...</p>
 			]]>
 			</description>
 		

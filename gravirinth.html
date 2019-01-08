@@ -88,7 +88,7 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 
 <h3>Beta-test</h3>
 <link href="codes/game/puzzlescript-mobile.css" rel="stylesheet" type="text/css"><script src="codes/game/puzzlescript-embed.js" type="text/javascript"></script><script type="text/javascript" src="codes/game/honours-Gravirinth.js"></script>
-<script src="codes/game/beta.js"></script>
+<script src="codes/game/loader.js"></script>
 <script src="codes/decrypt.js"></script>
 <p class="centre">Load a the latest version of <b>Gravirinth</b> using your <em>secret password</em> or <a href='contact.html'>contact Pedro PSI</a> to request one. Many thanks!</p> 
 <div class="button" onclick="PrepareGame()" id="preparegame" data-game="xBTevvRk4eHt0GWdtOMma4uTPiR1HuOn">Load game [beta]</div>
@@ -166,8 +166,52 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 <p><a href="https://pedropsi.github.io/gravirinth.html"><b>Gravirinth</b></a> by <a href="https://pedropsi.github.io">Pedro PSI</a>, 2019.</p>
 <h3>Game Engine</h3><p>Made with <a target="_blank" href='http://puzzlescript.net'>Puzzlescript</a>.</p>
 
+
 <h3>Music</h3>
-<p>TBA!</p>
+<p>All <b>Gravirinth</b>'s background music by <a href="https://stellardrone.bandcamp.com/" target="_blank">Stellardrone</a>, under a <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a> license. Selected tracks below, in order.</p>
+<table class="top-left">
+	<thead>
+		<tr><th>Track</th><th>Album</th><th>Year</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Comet Halley</td>
+			<td><a href="https://stellardrone.bandcamp.com/album/light-years" target="_blank">Light Years</a></td>
+			<td>2013</td>
+		</tr>
+		<tr>
+			<td>Billions and billions</td>
+			<td><a href="https://stellardrone.bandcamp.com/album/a-moment-of-stillness" target="_blank">A moment of stillness</a></td>
+			<td>2011</td>
+		</tr>
+		<tr>
+			<td>Between The Rings</td>
+			<td><a href="https://stellardrone.bandcamp.com/album/between-the-rings" target="_blank">Between The Rings</a></td>
+			<td>2017</td>
+			</tr>
+		<tr>
+			<td>Twillight</td>
+			<td><a href="https://stellardrone.bandcamp.com/album/a-moment-of-stillness" target="_blank">A moment of stillness</a></td>
+			<td>2011</td>
+			</tr>
+		<tr>
+			<td>Eternity</td>
+			<td><a href="https://stellardrone.bandcamp.com/album/light-years" target="_blank">Light Years</a></td>
+			<td>2013</td>
+			</tr>
+		</tbody>
+</table>
+<p>Playback is managed by the <a href="https://github.com/goldfire/howler.js" target="_blank">Howler</a> code base.</a> 
+<script src="codes/lib/howler.js"></script>
+<script>
+ var p="media/gravirinth/";
+ var soundtracks = [
+	  p+'Stellardrone - Light Years - 07 Comet Halley.mp3',
+	  p+'Stellardrone - A Moment Of Stillness - 02 Billions And Billions.mp3',
+	  p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',
+	  p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',
+	  p+'Stellardrone - Light Years - 03 Eternity.mp3'];
+</script>
 
 <h3>Special thanks</h3>
 <p>All beta testers for their comprehensive feedback! Among them a special mention to <a href="https://twitter.com/leslodev" target="_blank"><b>Lucas LeSlo</b></a> for outstanding help.</p>
