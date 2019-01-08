@@ -127,7 +127,7 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 
 
 <h3>Music</h3>
-<p>All «TITLE-BOLD»'s background music by <a href="https://stellardrone.bandcamp.com/" «BLANK»>Stellardrone</a>, under a <a href="https://creativecommons.org/licenses/by/3.0/" «BLANK»>CC BY 3.0</a> license. Selected tracks below, in order.</p>
+<p>All «TITLE-BOLD»'s background music by <a href="https://stellardrone.bandcamp.com/" «BLANK»>Stellardrone</a>, under a <a href="https://creativecommons.org/licenses/by/3.0/" «BLANK»>CC BY 3.0</a> license:</p>
 <table class="top-left">
 	<thead>
 		<tr><th>Track</th><th>Album</th><th>Year</th></tr>
