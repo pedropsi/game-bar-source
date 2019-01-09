@@ -20,30 +20,58 @@ function RevealGame(qid){
 	var key=FindData("password",qid);
 	var gameid=Unlock(qid,key);
 	PuzzleScript.embed(document.getElementById('puzzlescript-game'),gameid); 
-	Music();
 	Close("preparegame");
 	Close(qid);
 }
 
+
 //Music
 
-function LoadTrack(id){
-	if(typeof soundtracks!="undefined"){
-	var id= id%soundtracks.length;
-	var sound =new Howl({
-		src: [soundtracks[id].src],
-		volume: soundtracks[id].volume,
-		onend: function(){LoadTrack(id+1);}
-	});
-	sound.once('load', function(){
-		if(typeof soundtracks[id].start!="undefined")
-			sound.seek(soundtracks[id].start);
-		sound.play();
-		Howler.volume(soundtracks[id].volume);
-	});	
-	};
-	}
+var sound;
 
-function Music(){
+function LoadTrack(id,soundtracks){
+	if(typeof soundtracks!="undefined"){
+		
+		if(typeof id =="number")
+			var id= id%soundtracks.length;
+		
+		if(sound)
+			sound.stop();
+		
+		sound =new Howl({
+			src: [soundtracks[id].src],
+			volume: soundtracks[id].volume,
+			onend: function(){LoadTrack(id+1);}
+		});
+	
+		sound.once('load', function(){
+			if(typeof soundtracks[id].start!="undefined")
+				sound.seek(soundtracks[id].start);
+			sound.play();
+		
+			Howler.volume(soundtracks[id].volume);
+		});	
+		
+		};
+	}
+	
+	/*function LoadSound(id){
+	if(typeof soundeffects!="undefined"){
+		
+		soundeffect =new Howl({
+			src: [soundeffects[id].src],
+			volume: soundeffects[id].volume}
+		});
+	
+		sound.once('load', function(){
+			sound.play();
+			Howler.volume(soundeffects[id].volume);
+		});	
+		};*/
+
+function OverrideMusic(){
+	if(OverrideSounds)
+		OverrideSounds();
+	
 	LoadTrack(0);
 }

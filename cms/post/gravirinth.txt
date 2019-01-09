@@ -192,6 +192,7 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 	<li>inventory/dialogue display banners, trailing along with the camera;</li>
 	<li>progressively revealing and activating unseen areas.</li>
 </ul>
+<p>Plus, some custom sound effects and a backgrond muic playlist were plugged.</p>
 
 
 <h3>What will be the price tag?</h3>

@@ -52,11 +52,40 @@ function GetHonour(){
 
 
 //Playlist
-var p="media/gravirinth/";
- var soundtracks = [
-	  {src:p+'Stellardrone - Light Years - 03 Eternity.mp3',volume:0.4,start:60},
-	  {src:p+'Stellardrone - Light Years - 07 Comet Halley.mp3',volume:0.3,start:30},
+var p="media/gravirinth/music/";
+var soundtracks = [
+	  {src:p+'Stellardrone - Light Years - 03 Eternity.mp3',volume:0.4,start:30},
+	  {src:p+'Stellardrone - Light Years - 07 Comet Halley.mp3',volume:0.3,start:15},
 	  {src:p+'Stellardrone - A Moment Of Stillness - 02 Billions And Billions.mp3',volume:0.4,start:5},
 	  {src:p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',volume:0.3,start:15},
-	  {src:p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',volume:0.3,start:5},
-	  ];
+	  {src:p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',volume:0.3,start:5}];
+ 
+ var ps="media/gravirinth/sound/";
+ function OverrideSounds(){
+	
+left = new Audio(ps+'left.mp3');
+up = new Audio(ps+'up.mp3');
+right = new Audio(ps+'right.mp3');
+down = new Audio(ps+'down.mp3');
+orb = new Audio(ps+'orb.mp3');
+type = new Audio(ps+'type.mp3');
+light = new Audio(ps+'light.mp3');
+save = new Audio(ps+'save.mp3');
+startplay= {play:function(){LoadTrack(1);}};
+endplay= {play:function(){LoadTrack(1);}}
+
+sfxCache={
+13614108:left,
+25636708:up,
+79636308:right,
+76346108:down,
+27763708:type,
+40605508:light,
+50758708:orb,
+4002908:save,
+22586308:startplay,
+20449708:endplay
+}
+
+console.log("Sounds overriden");
+}

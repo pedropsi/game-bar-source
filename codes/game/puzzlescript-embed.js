@@ -80,6 +80,8 @@
 			var result = JSON.parse(githubHTTPClient.responseText);
 			var code = result["files"]["script.txt"]["content"];
 			compile(["restart"], code);
+			if(OverrideMusic)
+				OverrideMusic();
 		}
 		githubHTTPClient.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		githubHTTPClient.send();

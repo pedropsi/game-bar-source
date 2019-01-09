@@ -1,5 +1,16 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>08-01-2019</h2>
+	<h3>Sound effects</h3>
+	<p>Sound effects were added:</p>
+	<ul>
+		<li>Dialog console: a <b>typewriter</b>;</li>
+		<li>Directional arrows: a <b>piccolo</b> flute;</li>
+		<li>Save points: a <b>tuba</b>;</li>
+		<li>Light beams: a <b>xylophone</b>;</li>
+		<li>Orb: an <b>oboe</b>.</li>
+	</ul>
+	
 <h2>07-01-2019</h2>
 	<h3>Music</h3>
 		<p><a href="https://stellardrone.bandcamp.com/" «BLANK»>Stellardrone</a>'s music has been picked to enter <a href="gravirinth.html"><b>Gravirinth</b></a>'s soundtrack.</p>
