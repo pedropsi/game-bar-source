@@ -58,7 +58,7 @@ var soundtracks={
 		1:{src:p+'Stellardrone - Light Years - 03 Eternity.mp3',volume:0.4,start:0,next:2,stopall:true},
 		2:{src:p+'Stellardrone - Light Years - 07 Comet Halley.mp3',volume:0.3,start:5,next:3,sfx:22586308,stopall:true,play:function(){PlayTrack(2)}},
 		3:{src:p+'Stellardrone - A Moment Of Stillness - 02 Billions And Billions.mp3',volume:0.4,start:5,next:4,stopall:true},
-		4:{src:p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',volume:0.3,start:15,next:0,stopall:true},
+		4:{src:p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',volume:0.3,start:5,next:5,stopall:true},
 		5:{src:p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',volume:0.3,start:5,next:1,stopall:true},
 		left:{src:ps+'left.mp3',volume:0.3,sfx:13614108,play:function(){PlayTrack("left")}},
 		up:{src:ps+'up.mp3',volume:0.3,sfx:25636708,play:function(){PlayTrack("up")}},
