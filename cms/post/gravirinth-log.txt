@@ -2,13 +2,13 @@
 
 <h2>08-01-2019</h2>
 	<h3>Sound effects</h3>
-	<p>Sound effects were added:</p>
+	<p>Sound effects were made for:</p>
 	<ul>
-		<li>Dialog console: a <b>typewriter</b>;</li>
-		<li>Directional arrows: a <b>piccolo</b> flute;</li>
+		<li>Dialog console: a <b>typewriter</b> recording;</li>
+		<li>Directional arrows: a flute;</li>
 		<li>Save points: a <b>tuba</b>;</li>
-		<li>Light beams: a <b>xylophone</b>;</li>
-		<li>Orb: an <b>oboe</b>.</li>
+		<li>Light beams: a <b>vibraphone</b>;</li>
+		<li>Orb: a <b>piccolo</b> flute;</li>
 	</ul>
 	
 <h2>07-01-2019</h2>
