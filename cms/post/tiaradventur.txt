@@ -39,7 +39,7 @@
 <p><em>Use</em> the <b>sword</b>, once obtained, by pressing <b>X</b>. You'll <em>swipe</em> it instinctively when dangerously close to a <b>wolf</b>.</p>
 «UNDO-RESTART-TEXT»
 <p>The game <em>saves automatically</em> whenever the <b>Princess</b> <em>safely</em> enters an area containing a new <b>tiara</b>.</p>
-«GAME-EXTRAS-NONAV-TEXT»
+«GAME-EXTRAS-TEXT»
 
 <h2>Credits</h2>
 <p><a href="«SITE»/«LINK:Load».html">«TITLE:Load»</a> by <a href="«SITE»">«NAME»</a>, «YEAR:Load».</p>

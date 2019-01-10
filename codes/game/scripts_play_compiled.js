@@ -1,18 +1,85 @@
-var unitTesting=!1,curlevel=0,curlevelTarget=null,hasUsedCheckpoint=!1,levelEditorOpened=!1;
+var unitTesting=!1,curlevel=0,curlevelTarget=null,hasUsedCheckpoint=!1,curcheckpoint=0,levelEditorOpened=!1;
 
 function doSetupTitleScreenLevelContinue(){
 	try{
-		if(window.localStorage&&void 0!==localStorage[document.URL]){
-			if(void 0!==localStorage[document.URL+"_checkpoint"]){
-				curlevelTarget=JSON.parse(localStorage[document.URL+"_checkpoint"]);
-				var a=[],b;
-				for(b in Object.keys(curlevelTarget.dat))
-					a[b]=curlevelTarget.dat[b];
-				curlevelTarget.dat=new Int32Array(a)
-			}
-			curlevel=localStorage[document.URL]}
+		LoadSave()
 		}
 	catch(c){}}
+
+function HasCheckpoint(){
+	return void 0!==localStorage[document.URL+"_checkpoint"];
+}
+function HasLevel(){
+	return HasSave()&&void 0!==localStorage[document.URL];
+}
+function HasSave(){
+	return window.localStorage;
+}
+	
+function SaveCheckpoint(levelTarget,isReloading){
+	var newqueue;
+	if (HasCheckpoint()){
+		var queue=JSON.parse(localStorage[document.URL+"_checkpoint"]);
+		if(typeof queue.dat==="undefined"){
+			if(isReloading)
+				queue.pop();
+			newqueue=queue.concat([levelTarget]);
+		}
+		else{
+			if(isReloading)
+				newqueue=[levelTarget];
+			else
+				newqueue=[queue,levelTarget];
+		}
+	}
+	else
+		newqueue=[levelTarget];
+	return localStorage[document.URL+"_checkpoint"]=JSON.stringify(newqueue);
+}
+function SaveLevel(curlevel){
+	return localStorage[document.URL]=curlevel;
+};
+
+function UnsaveCheckpoint(){
+	return localStorage.removeItem(document.URL+"_checkpoint");
+};
+function UnsaveLevel(){
+	return localStorage.removeItem(document.URL);
+};
+function UnsaveSave(){
+	return HasSave()&&(UnsaveLevel(),UnsaveCheckpoint())
+}
+
+function LoadLevel(){
+	return curlevel=localStorage[document.URL];
+}
+function LoadCheckpoint(n){
+	var queue=JSON.parse(localStorage[document.URL+"_checkpoint"]);
+	if(typeof queue.dat=="undefined"){
+			if(typeof n==="undefined")
+				curcheckpoint=queue.length-1; //default to last checkpoint
+			else
+				curcheckpoint=Math.min(Math.max(n,0),queue.length-1);
+		curlevelTarget=queue[curcheckpoint];
+	}
+	else{
+		curcheckpoint=0;
+		curlevelTarget=queue;
+	}
+	var a=[],b;
+	for(b in Object.keys(curlevelTarget.dat))
+		a[b]=curlevelTarget.dat[b];
+	return curlevelTarget.dat=new Int32Array(a)
+}
+
+
+function LoadSave(){
+	if(HasLevel()){
+		if(HasCheckpoint())
+			LoadCheckpoint();
+		return LoadLevel();}
+}
+
 
 doSetupTitleScreenLevelContinue();
 
@@ -757,7 +824,7 @@ function processInput(a,b,c){
 		for(g=0;g<level.commandQueue.length;g++)
 			a=level.commandQueue[g],"f"===a.charAt(1)&&tryPlaySimpleSound(a),!1===unitTesting?"message"===a&&showTempMessage():messagetext="";
 		!1!==textMode||void 0!==b&&!1!==b||(verbose_logging&&consolePrint("Checking win condition."),checkWin());
-		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(echoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,b=JSON.stringify(restartTarget),localStorage[document.URL+"_checkpoint"]=b,localStorage[document.URL]=curlevel),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
+		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(echoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,SaveCheckpoint(restartTarget),SaveLevel(curlevel)),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
 	}
 	verbose_logging&&consoleCacheDump();
 	winning&&(againing=!1);
@@ -791,6 +858,7 @@ var timeticker=Date.now();
 var moveseq=[];
 var winseq=[];
 var maxlevel=Number(curlevel);
+var maxcheckpoint=Number(curcheckpoint);
 var checkpointsaver=0;
 
 function registerMove(move){
@@ -867,7 +935,7 @@ function GoToLevel(lvl){
 };
 
 function isLevelMessage(lvl){
-	return typeof state.levels[lvl].message !== "undefined"
+	return typeof state.levels[lvl].message !=="undefined"
 }
 
 function LevelType(level){
@@ -885,12 +953,14 @@ function LevelIndices(){
 }
 
 function UpdateGameNav(){
-	if(curlevel>=maxlevel){
-		maxlevel=curlevel;
+	if(!(curlevel<maxlevel||curcheckpoint<maxcheckpoint)){
+		maxlevel=Math.max(curlevel,maxlevel);
+		maxcheckpoint=Math.max(curcheckpoint,maxcheckpoint);
 		DeactivateButton("GameFW");
 	}
 	else
-		ActivateButton("GameFW");		
+		ActivateButton("GameFW");
+	
 	if(curlevel==0){
 		DeactivateButton("GameBW");
 	}
@@ -910,19 +980,28 @@ function DeactivateButton(id){
 }
 
 function GoToLevelNext(){
-	if(curlevel<maxlevel){
-		GoToLevel(curlevel+1);
+	if(HasCheckpoint()){
+		GoToLevelCheckpoint(curcheckpoint+1);
+	}
+	else{
+		if(curlevel<maxlevel){
+			GoToLevel(curlevel+1);
+			}
+		if(curlevel==(state.levels.length-1)&&isLevelMessage(curlevel)){
+			DoWin();
 		}
-	if(curlevel==(state.levels.length-1)&&isLevelMessage(curlevel)){
-		DoWin();
 	}
 }
 
 function GoToLevelPrev(){
-	if(curlevel>0){
-		GoToLevel(curlevel-1);
+	if(HasCheckpoint()){
+		GoToLevelCheckpoint(curcheckpoint-1);
 	}
-	// typeof state.level[x].message == "undefined"
+	else{
+		if(curlevel>0){
+			GoToLevel(curlevel-1);
+		}
+	}
 }
 
 function echoLevelWin(curlevel){
@@ -963,6 +1042,13 @@ function DoWin() {
             }
         }
 
+function GoToLevelCheckpoint(ncheckpoint){
+	if(HasCheckpoint()){
+		LoadCheckpoint(ncheckpoint);
+		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
+		UpdateGameNav();
+}};
+
 		
 function nextLevel(){
 	ClearLevelRecord();
@@ -978,7 +1064,7 @@ function nextLevel(){
 	}
 	else{
 		try{
-			window.localStorage&&(localStorage.removeItem(document.URL),localStorage.removeItem(document.URL+"_checkpoint"))
+			UnsaveSave()
 		}
 		catch(a){}
 		curlevel=0;
@@ -988,13 +1074,12 @@ function nextLevel(){
 		tryPlayEndGameSound()
 	}
 	try{
-		if(window.localStorage)
-			if(localStorage[document.URL]=curlevel,null!==curlevelTarget){
+		if(HasSave())
+			if(SaveLevel(curlevel),null!==curlevelTarget){
 				restartTarget=level4Serialization();
-				var b=JSON.stringify(restartTarget);
-				localStorage[document.URL+"_checkpoint"]=b
+				SaveCheckpoint(restartTarget,true)
 			}
-			else localStorage.removeItem(document.URL+"_checkpoint")
+			else UnsaveCheckpoint()
 	}
 	catch(c){}
 	void 0!==state&&void 0!==state.metadata.flickscreen&&(oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)]);
