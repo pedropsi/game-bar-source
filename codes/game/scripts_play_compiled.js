@@ -15,26 +15,40 @@ function HasLevel(){
 function HasSave(){
 	return window.localStorage;
 }
+
+function SetCheckpointStack(newstack){
+	maxcheckpoint=newstack.length;
+	return localStorage[document.URL+"_checkpoint"]=JSON.stringify(newstack);
+}
+function GetCheckpointStack(){
+	var stack= JSON.parse(localStorage[document.URL+"_checkpoint"]);
+	maxcheckpoint=stack.length-1;
+	return stack;
+}
 	
 function SaveCheckpoint(levelTarget,isReloading){
-	var newqueue;
+	var newstack;
 	if (HasCheckpoint()){
-		var queue=JSON.parse(localStorage[document.URL+"_checkpoint"]);
-		if(typeof queue.dat==="undefined"){
+		var stack=GetCheckpointStack();
+		if(typeof stack.dat==="undefined"){
 			if(isReloading)
-				queue.pop();
-			newqueue=queue.concat([levelTarget]);
+				stack.pop();
+			newstack=EvacuateCheckpointStack(stack,curcheckpoint);
+			newstack=stack.concat([levelTarget]);
 		}
 		else{
 			if(isReloading)
-				newqueue=[levelTarget];
-			else
-				newqueue=[queue,levelTarget];
+				newstack=[levelTarget];
+			else{
+				newstack=[stack,levelTarget];
+			}
 		}
 	}
 	else
-		newqueue=[levelTarget];
-	return localStorage[document.URL+"_checkpoint"]=JSON.stringify(newqueue);
+		newstack=[levelTarget];
+	
+	curcheckpoint=newstack.length-1;
+	return SetCheckpointStack(newstack);
 }
 function SaveLevel(curlevel){
 	return localStorage[document.URL]=curlevel;
@@ -54,17 +68,19 @@ function LoadLevel(){
 	return curlevel=localStorage[document.URL];
 }
 function LoadCheckpoint(n){
-	var queue=JSON.parse(localStorage[document.URL+"_checkpoint"]);
-	if(typeof queue.dat=="undefined"){
+	var stack=GetCheckpointStack();
+	if(typeof stack.dat=="undefined"){
 			if(typeof n==="undefined")
-				curcheckpoint=queue.length-1; //default to last checkpoint
-			else
-				curcheckpoint=Math.min(Math.max(n,0),queue.length-1);
-		curlevelTarget=queue[curcheckpoint];
+				curcheckpoint=stack.length-1; //default to last checkpoint
+			else{
+				curcheckpoint=Math.min(Math.max(n,0),stack.length-1);
+				stack=EvacuateCheckpointStack(stack,curcheckpoint);
+		}
+		curlevelTarget=stack[curcheckpoint];
 	}
 	else{
 		curcheckpoint=0;
-		curlevelTarget=queue;
+		curlevelTarget=stack;
 	}
 	var a=[],b;
 	for(b in Object.keys(curlevelTarget.dat))
@@ -72,6 +88,15 @@ function LoadCheckpoint(n){
 	return curlevelTarget.dat=new Int32Array(a)
 }
 
+function EvacuateCheckpointStack(stack,n){
+	var s=stack;
+	var i=s.length-1;
+	while(n<i){
+		i--;
+		s.pop()
+	}
+	return s;
+};
 
 function LoadSave(){
 	if(HasLevel()){
