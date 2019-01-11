@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 		<th>Game design</th>
-		<th><b>Programming:</b> Puzzlescript, Javascript; <b>Colour:</b> Paletton; <b>Sound:</b> Howler.js, MuseScore</th>
+		<th><em>Programming:</em> Puzzlescript, Javascript; <em>Colour:</em> Paletton; <em>Sound:</em> Howler.js, MuseScore</th>
 	</tr>
 	<tr>
 		<th>Page design</th>
@@ -38,9 +38,6 @@
 		<th>Content management</th>
 		<th>Microsoft Excel, Wolfram Language, Notepad++ </th>
 	</tr>
-	<tr>
-		<th>Sounds</th>
-		<th>Howler.js</th>
-	</tr>
+
 </tbody>
 </table>
