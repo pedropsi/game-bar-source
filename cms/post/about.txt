@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 		<th>Game design</th>
-		<th>Puzzlescript, Paletton, Javascript, Howler.js</th>
+		<th><b>Programming:</b> Puzzlescript, Javascript; <b>Colour:</b> Paletton; <b>Sound:</b> Howler.js, MuseScore</th>
 	</tr>
 	<tr>
 		<th>Page design</th>

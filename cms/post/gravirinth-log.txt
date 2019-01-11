@@ -1,14 +1,15 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
-<h2>08-01-2019</h2>
+<h2>11-01-2019</h2>
 	<h3>Sound effects</h3>
-	<p>Sound effects were added for:</p>
+	<p>The tyewriter effect was enhanced with a <b>typewriter</b> recording. Then sound effects were created for:</p>
 	<ul>
-		<li>Dialog console typing: a <b>typewriter</b> recording;</li>
-		<li>Directional arrows: a flute;</li>
+		<li>Directional arrows: a <b>piccolo</b> flute;</li>
 		<li>Save points: a <b>tuba</b>;</li>
 		<li>Light beams: a <b>vibraphone</b>;</li>
 		<li>Orb: a <b>piccolo</b> flute;</li>
+		<li>undo: a quick <b>harpsichord</b>;</li>
+		<li>restart: an <b>harp</b></li>
 	</ul>
 	
 <h2>07-01-2019</h2>
