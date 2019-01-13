@@ -1,5 +1,9 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>13-01-2019</h2>
+	<h3>Exit or keep exploring?</h3>
+	<p>Upon completing the main puzzle, Xeno now has the option to continue exploring the <a href="gravirinth.html"><b>Gravirinth</b></a> and access overlooked areas (to perhaps collect some extra elusive <em>fourfold orbs</em>), or to be rescued anytime - terminating the game and entering the «HOF». This option is likely to be cherished by <b>completionists</b> and <b>explorers</b> alike.</p>
+
 <h2>11-01-2019</h2>
 	<h3>Sound effects</h3>
 	<p>Sound effects were added. Apart from the typewriter sound recording, all sound effects were created intentionally. The idea was that frequent sounds needed to be very simple and discrete, while others could be more complex and last longer. Each sound needed also to retain an own character: changing instrument, rhythm and pitch sequence.</p>
@@ -10,7 +14,7 @@
 		<li><b>Activating a light beam</b>: a mysterious and rewarding crescendo <b>vibraphone</b> sequence;</li>
 		<li><b>Collecting an orb</b>: a victory evoking slow, then accelerating <b>piccolo</b> flute;</li>
 		<li><b>Undoing a step</b>: an ultra-quick <b>harpsichord</b> dyad;</li>
-		<li><b>Returning to a previous point</b>: a soothing <b>harp</b></li> valley.
+		<li><b>Returning to a previous point</b>: a soothing <b>harp</b> valley.</li>
 	</ul>
 	
 <h2>07-01-2019</h2>
