@@ -1,10 +1,9 @@
 var TA_Obtained=[0,0,0];
 
 function TA_CountObtained(){
-	var so=state.objects; //Global game state	
-	var TiaraIndex=so.Tiara;
-	var TiaraBrokenIndex=so.TiaraBroken;
-	var SecretIndex=so.Ring;
+	var TiaraIndex=35;
+	var TiaraBrokenIndex=36;
+	var SecretIndex=38;
 	var M=8; //Multiplicity in counters
 	var T=0;
 	var TB=0;
