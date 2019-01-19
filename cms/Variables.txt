@@ -169,4 +169,7 @@ SUBSCRIBE-RSS	<a href="«SITE»/«RSS-PATH»" id="rss">Subscribe to RSS feed.</a>
 SUBSCRIBE-EMAIL	<a onclick="OpenModalSubscribe()">Subscribe to email alerts.</a>
 SUBSCRIBE-LINK	<a href="subscribe.html">Subscribe!</a>
 SUBSCRIBE-DISCORD	<a href="«DISCORD-MAIN»" «BLANK»>Join the community.</a>
-P-LESLO	<a href="https://twitter.com/leslodev" «BLANK»><b>Lucas LeSlo</b></a>
+P-LESLO	<a href="https://twitter.com/leslodev" «BLANK»>Lucas LeSlo</a>
+P-HAZELDEN	<a href="https://twitter.com/draknek" «BLANK»>Alan Hazelden</a>
+P-LAVELLE	<a href="https://twitter.com/increpare">Stephen Lavelle</a>
+P-PUZZLESCRIPT	<a href="https://groups.google.com/forum/#!forum/puzzlescript" «BLANK»>Puzzlescript forum</a> community members

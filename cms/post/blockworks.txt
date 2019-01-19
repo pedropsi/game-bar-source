@@ -11,4 +11,4 @@
 
 «CREDITS»  
 <h3>Special thanks</h3>
-<p><a href="https://groups.google.com/forum/#!forum/puzzlescript" «BLANK»>Puzzlescript forum</a> community members Ove Ahlman, <a href="https://twitter.com/draknek" «BLANK»>Alan Hazelden</a>, Edderiofer, Nils Jung and Chz for varied levels of feedback.</p>
+<p>«P-PUZZLESCRIPT» Ove Ahlman, «P-HAZELDEN», Edderiofer, Nils Jung and Chz for varied levels of feedback.</p>

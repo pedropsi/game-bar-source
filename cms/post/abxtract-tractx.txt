@@ -43,7 +43,7 @@
 «CREDITS-ENGINE-SUPPORT»
 
 <h3>Special thanks</h3>
-<p><a href="https://twitter.com/LeSloDev" «BLANK»>Lucas Le Slo</a>, <a href="http://warpdoor.com/tag/thegreatescaper/" «BLANK»>TheGreatEscaper</a>, Personman, Chz, <a href="https://marcosd.itch.io/" «BLANK»>Marcos Donnantuoni</a> and <a href="https://twitter.com/mvandevander" «BLANK»>Matthew VanDevander</a> for early positive feedback and/or for suggestions about the game synopsis; <a href="http://lunarchstudios.com/" «BLANK»>Elyot Grant</a> for spotting other polishing opportunities.</p>
+<p>«P-LESLO», <a href="http://warpdoor.com/tag/thegreatescaper/" «BLANK»>TheGreatEscaper</a>, Personman, Chz, <a href="https://marcosd.itch.io/" «BLANK»>Marcos Donnantuoni</a> and <a href="https://twitter.com/mvandevander" «BLANK»>Matthew VanDevander</a> for early positive feedback and/or for suggestions about the game synopsis; <a href="http://lunarchstudios.com/" «BLANK»>Elyot Grant</a> for spotting other polishing opportunities.</p>
 
 
 <h2>F.A.Q.</h2>

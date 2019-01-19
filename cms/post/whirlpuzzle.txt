@@ -12,4 +12,4 @@
 
 «CREDITS»  
 <h3>Special thanks</h3>
-<p><a href="https://groups.google.com/forum/#!forum/puzzlescript">Puzzlescript forum</a> community members <a href="https://plus.google.com/u/0/116049570908402327989" «BLANK»>S Mattison</a>, <a href="https://plus.google.com/u/0/112121953522427737858" «BLANK»>Mark Richardson</a>, Lukas Schüller and <a href="https://twitter.com/draknek" «BLANK»>Alan Hazelden</a> for varying levels of feedback.</p>
+<p><a href="https://groups.google.com/forum/#!forum/puzzlescript">Puzzlescript forum</a> community members <a href="https://plus.google.com/u/0/116049570908402327989" «BLANK»>S Mattison</a>, <a href="https://plus.google.com/u/0/112121953522427737858" «BLANK»>Mark Richardson</a>, Lukas Schüller and «P-HAZELDEN» for varying levels of feedback.</p>
