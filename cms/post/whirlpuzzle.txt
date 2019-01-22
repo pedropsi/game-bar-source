@@ -12,4 +12,10 @@
 
 «CREDITS»  
 <h3>Special thanks</h3>
-<p><a href="https://groups.google.com/forum/#!forum/puzzlescript">Puzzlescript forum</a> community members <a href="https://plus.google.com/u/0/116049570908402327989" «BLANK»>S Mattison</a>, <a href="https://plus.google.com/u/0/112121953522427737858" «BLANK»>Mark Richardson</a>, Lukas Schüller and «P-HAZELDEN» for varying levels of feedback.</p>
+<p>«P-PUZZLESCRIPT» «P-MATTISON», «P-RICHARDSON», Lukas Schüller and «P-HAZELDEN» for varying levels of feedback.</p>
+<p>«P-JOEL» for spotting <a href="#changelog-1">an important bug in block-pushing physics</a>.</p>
+
+
+<h2 id="changelog">Changelog</h2>
+<h3 id="changelog-1">01/2019</h3>
+<p>Blocks that are stuck at some point in a sequence now won't push blocks located further away in the same sequence.</p>

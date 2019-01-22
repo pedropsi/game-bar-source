@@ -16,7 +16,7 @@
 «CREDITS»  
 <h3>Special thanks</h3>
 <p>Mark Wainwright, for impressive feedback, both in quality and quantity (see changelogs below).</p>
-<p>«P-PUZZLESCRIPT» <a href="https://twitter.com/InfinitNutshell" «BLANK»>Jamie Perconti</a>, Skalmantas Šimėnas, «P-HAZELDEN» and «P-LAVELLE» for different levels of feedback.</p>
+<p>«P-PUZZLESCRIPT» «P-PERCONTI», «P-THATSCAR», «P-HAZELDEN» and «P-LAVELLE» for different levels of feedback.</p>
 
 <h2>Featured in</h2>
 <p>Stephen Lavelle's <a href="https://puzzlescriptgallery.tumblr.com/post/172318724969/httpspedropsigithubiopmgrppuzzlescript" «BLANK»>Puzzlescript Gallery</a>.</p>

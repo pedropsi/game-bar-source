@@ -1,5 +1,15 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>22-01-2019</h2>
+	<h3>Ongoing bug corrections and level polishes</h3>
+	<p>Light propagation instantaneous. Missing checkpoint.</p>
+	<p>Polishing levels <em>unplugged</em> and <em>block booster</em>.</p>
+
+<h2>20-01-2019</h2>
+	<h3>New release date</h3>
+	<p>Although the game could be released as is, new polish ideas keep appearing. So the release date date will be postponed to <b>February 2019</b>.</p>
+
+
 <h2>13-01-2019</h2>
 	<h3>Exit or keep exploring?</h3>
 	<p>Upon completing the main puzzle, Xeno now has the option to continue exploring the <a href="gravirinth.html"><b>Gravirinth</b></a> and access overlooked areas (to perhaps collect some extra elusive <em>fourfold orbs</em>), or to be rescued anytime - terminating the game and entering the «HOF». This option is likely to be cherished by <b>completionists</b> and <b>explorers</b> alike.</p>
