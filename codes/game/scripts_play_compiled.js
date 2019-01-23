@@ -885,20 +885,30 @@ var winseq=[];
 var maxlevel=Number(curlevel);
 var maxcheckpoint=Number(curcheckpoint);
 var checkpointsaver=0;
+var recordingmoves=true;
 
-function registerMove(move){
-	switch(move){
-		case 1:moveseq.push("<");winseq.push("<");break;
-		case 0:moveseq.push("^");winseq.push("^");break;
-		case 3:moveseq.push(">");winseq.push(">");break;
-		case 2:moveseq.push("v");winseq.push("v");break;
-		case "X":moveseq.push("X");winseq.push("X");break;
-		case "R":moveseq.push("R");winseq=[];break;
-		case "Z":moveseq.push("Z");winseq.pop();break;
-		case "Q":moveseq.push("Q");winseq=["Q"];break;
+function registerMove(mov){
+	if(recordingmoves){
+		var move=mov;
+		switch(move){
+			case 1:move=37;break;//<
+			case 0:move=38;break;//^
+			case 3:move=39;break;//>
+			case 2:move=40;break;//v
+			case 4:move=88;break;//v
+			registerMove(88)
+		}
+		var delta = ElapsedTime();
+		moveseq.push([move,delta]);
+		switch(move){
+			case 82:winseq=[];break;//R
+			case 88:winseq.pop();break;//Z
+			case 27:winseq=["Q"];break;//Q
+			default: winseq.push([move,delta]);break
+		}
 	}
 }
-		
+	
 function clearMoves(){
 	moveseq=[];winseq=[];
 }
@@ -910,20 +920,20 @@ function ClearLevelRecord(){
 
 function ElapsedTime(){
 	var timenow=Date.now();
-	var elapsedtime = Math.floor((timenow-timeticker)/1000);
+	var elapsedtime = (timenow-timeticker);
 	timeticker = timenow;
 	return elapsedtime;
 }
 
 function UpdateLevelData(curlevel){
-	var ws=winseq.join("");
-	var ms=moveseq.join("");
+	var ws=winseq;
+	var ms=moveseq;
 	
-	leveldata["timing"]=ElapsedTime();	
+	leveldata["timing"]=Math.floor(ms.reduce((x,y)=>(x+y[1]),0)/1000);
 	leveldata["level"]=curlevel;
 
-	leveldata["moves"]=ms;
-	leveldata["winsequence"]=ws;
+	leveldata["moves"]=JSON.stringify(ms);
+	leveldata["winsequence"]=JSON.stringify(ws);
 	
 	if(!AnalyticsInnerClearance(pageTitle())){
 		leveldata["moves"]="---";
@@ -931,6 +941,36 @@ function UpdateLevelData(curlevel){
 	}
 	
 	leveldata["type"]="win";
+}
+
+function ParseMoves(movestring){
+	return JSON.parse(movestring);
+}
+function Replay(movetimes){
+	var time=0;
+	recordingmoves=false;
+	
+	function PlayMove(move){
+		checkKey({keyCode:move},!0);
+		console.log("move:",move);
+	}
+	
+	function Schedule(move,time){
+		setTimeout(function(){PlayMove(move)},time);
+	}
+	
+	for (var i=0;i<movetimes.length;i++){
+		if(i!==0){
+			time=time+movetimes[i][1];
+		}
+		Schedule(movetimes[i][0],time);
+	}
+	setTimeout(function(){recordingmoves=true;},time+100);
+	console.log("Replay Scheduled");
+}
+
+function ReplayParseMoves(movetext){
+	Replay(ParseMoves(movetext));
 }
 
 function UpdateLevelCheckpointData(curlevel,checkpointsaver){
@@ -1434,10 +1474,10 @@ function checkKey(a,b){
 			case 38:case 87:c=0;break;
 			case 68:case 39:c=3;break;
 			case 83:case 40:c=2;break;
-			case 13:case 32:case 67:case 88:if(!1===norepeat_action||b)registerMove("X"),c=4;else return;break;
-			case 85:case 90:if(!1===textMode)return registerMove("Z"),pushInput("undo"),DoUndo(!1,!0),canvasResize(),prevent(a);break;
-			case 82:if(!1===textMode&&b)return registerMove("R"),pushInput("restart"),DoRestart(),canvasResize(),prevent(a);break;
-			case 27:if(!1===titleScreen)return registerMove("Q"),goToTitleScreen(),tryPlayTitleSound(),canvasResize(),prevent(a);break;
+			case 13:case 32:case 67:case 88:if(!1===norepeat_action||b)c=4;else return;break;
+			case 85:case 90:if(!1===textMode)return registerMove(85),pushInput("undo"),DoUndo(!1,!0),canvasResize(),prevent(a);break;
+			case 82:if(!1===textMode&&b)return registerMove(82),pushInput("restart"),DoRestart(),canvasResize(),prevent(a);break;
+			case 27:if(!1===titleScreen)return registerMove(27),goToTitleScreen(),tryPlayTitleSound(),canvasResize(),prevent(a);break;
 			case 69:if(canOpenEditor)return b&&(levelEditorOpened=!levelEditorOpened,!1===levelEditorOpened&&printLevel(),restartTarget=backupLevel(),canvasResize()),prevent(a);break;
 			case 48:case 49:case 50:case 51:case 52:case 53:case 54:case 55:case 56:case 57:if(levelEditorOpened&&b)return c=9,49<=a.keyCode&&(c=a.keyCode-49),c<glyphImages.length?glyphSelectedIndex=c:consolePrint("Trying to select tile outside of range in level editor.",!0),canvasResize(),prevent(a);break	
 			case 70:RequestGameFeedback();//F is for Feedback!
