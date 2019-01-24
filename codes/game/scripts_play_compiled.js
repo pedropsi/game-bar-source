@@ -909,6 +909,11 @@ function RegisterMove(mov){
 	}
 }
 	
+function UnRegisterMove(){
+	winseq.pop();
+	moveseq.pop();
+}
+	
 function ClearMoves(){
 	moveseq=[];winseq=[];
 }
@@ -1480,8 +1485,8 @@ function checkKey(a,b){
 		}
 		if(fdb)UnRequestGameFeedback();//F
 		if(throttle_movement&&0<=c&&3>=c){
-			if(lastinput==c&&input_throttle_timer<repeatinterval)
-				return;
+			if(lastinput==c&&input_throttle_timer<repeatinterval){
+				UnRegisterMove();return;}
 			lastinput=c;
 			input_throttle_timer=0
 		}

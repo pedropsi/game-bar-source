@@ -12,7 +12,6 @@ var DESTINATION_HOF={
 		honour:GetHonour()
 		}}
 	}
-	
 
 if (typeof(GetHonour)==="undefined"){
 	function GetHonour(){return " ";} //function to be overriden (customised for) in each game, otherwise blank
@@ -109,25 +108,31 @@ DESTINATIONS[DESTINATION_ORDER.name]=DESTINATION_ORDER;
 //////////////////////////////////////////////////////////////////////
 //Hall of Fame
 
-function OpenModalHallOfFame(){
-	var DP=NewDataPack();
-	DP.questionname="Enter the Hall of Fame:";
-	DP.qplaceholder="Your name or alias";
-	DP.qfield="name";
-	DP.qdestination="HOF";
-	return OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
+function RequestModalHallOfFame(){
+	var DP=NewDataPack({
+		questionname:"Enter the Hall of Fame:",
+		qplaceholder:"Your name or alias",
+		qfield:"name",
+		qdestination:"HOF",
+		qonclose:Identity
+		});
+	
+	DP.qdisplay(DP);
 }
 
-function OpenModalWinning(){
-	var DP=NewDataPack();
-	DP.questionname="As a winner, what would you tell Pedro PSI?";
-	DP.qfield="qvalue";
-	return OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
+function RequestModalWinning(){
+	var DP=NewDataPack({
+		questionname:"As a winner, what would you tell Pedro PSI?",
+		qfield:"qvalue",
+		thanksmessage:"Thank you for your message."
+		});
+	
+	DP.qdisplay(DP);
 }
 
 function RequestHallOfFame(){
-	OpenModalWinning();
-	OpenModalHallOfFame();
+	RequestModalWinning();
+	RequestModalHallOfFame();
 }
 
 
@@ -169,15 +174,18 @@ function RequestGameFeedback(){
   if(!feedbackRequests)
 	  feedbackRequests=[];
   
-  var DP=NewDataPack();
-  DP.qfield='qvalue';
-  DP.qtargetid='puzzlescript-game';
-  
+  var DP=NewDataPack({
+		qfield:'qvalue',
+		qtargetid:'puzzlescript-game',
+		qdisplay:LaunchFeedbackBalloon,
+		qonclose:LaunchThanksBalloon
+		});
+    
   if(!HasBalloon(DP.qtargetid)){
 	var levelindices=LevelIndices();
 	if(TitleScreen()){
 		DP.questionname="Your real-time feedback is much appreciated! Press F as soon as you start the first level to toggle these balloons.";
-		DP.qdisplay=OpenMessageBalloon;
+		DP.qdisplay=LaunchMessageBalloon;
 	}
 	else if(HasFeedback(currlevel)&&HasFeedback(lastlevel)){
 		DP.questionname="Any further comments?";
@@ -200,7 +208,7 @@ function RequestGameFeedback(){
 	else{
 		DP.questionname="Any further comments?";
 	}
-	DP.qdisplay(DP)
+	DP.qdisplay(DP);
   }
   else{
 	  CloseBalloonIn(DP.qtargetid);
@@ -215,18 +223,25 @@ function PrintGameState(){
 // Guestbook & Comments
 
 function RequestGuestbook(){
-	var DP=NewDataPack();
-	DP.qdestination='Guestbook';
-	DP.questionname="Your message";
-	DP.qfield="answer";
-	var DP2=NewDataPack();
-	DP2.qid=DP.qid;
-	DP2.qdestination='Guestbook';
-	DP2.qfield="who";
-	DP2.qtype=ShortAnswerHTML;
-	DP2.questionname="Your name";
-	DP2.qplaceholder="or alias";
-	return OpenModal(QuestionHTML([DP,DP2]),DP.qid,document.body.id);
+	var DP=NewDataPack({
+		qdestination:'Guestbook',
+		questionname:"Your message",
+		qfield:"answer",
+		thanksmessage:"Thank you for your message in the Guestbook!",
+		qvalidator:SomeTextValidator
+		});
+	
+	var DP2=NewDataPack({
+		qid:DP.qid,
+		qdestination:'Guestbook',
+		qfield:"who",
+		qtype:ShortAnswerHTML,
+		questionname:"Your name",
+		qrequired:false,
+		qplaceholder:"or alias"
+		});
+	
+	DP.qdisplay([DP,DP2]);
 }
 
 function commentAddress(e){
@@ -246,53 +261,68 @@ function RequestComment(title,elemsubtitle){
 
 	commentID=function(){return title+": "+commentAddress(elemsubtitle);}; 	//redefine this global function dynamically
 
-	var DP=NewDataPack();
-	DP.qdestination='Comments';
-	DP.questionname="Your comment";
-	DP.qfield="answer";
-
-	var DP2=NewDataPack();
-	DP2.qid=DP.qid;
-	DP2.qdestination='Comments';
-	DP2.qfield="who";
-	DP2.qtype=ShortAnswerHTML;
-	DP2.questionname="Your name";
-	DP2.qplaceholder="or alias";
-	return OpenModal(QuestionHTML([DP,DP2]),DP.qid,document.body.id);
+	var DP=NewDataPack({
+		qdestination:'Comments',
+		questionname:"Your comment",
+		qfield:"answer",
+		thanksmessage:"Message submitted. Thank you!",
+		qvalidator:SomeTextValidator
+	});
+	
+	var DP2=NewDataPack({
+		qid:DP.qid,
+		qdestination:'Comments',
+		qfield:"who",
+		qtype:ShortAnswerHTML,
+		questionname:"Your name",
+		qrequired:false,
+		qplaceholder:"or alias"
+	});
+	
+	DP.qdisplay([DP,DP2]);
 }
 
 //////////////////////////////////////////////////////////////////////
 //Subscribe
 
 function OpenModalSubscribe(){
-	var DP=NewDataPack();
-	DP.qdestination='Subscription';
-	DP.questionname="Subscribe to be the first to know about Pedro PSI's next project!";
-	DP.qtype=ShortAnswerHTML;
-	DP.qfield="address";
-	DP.qplaceholder="_______@___.___";
 
-	var DP2=NewDataPack();
-	DP2.qid=DP.qid;
-	DP2.qdestination='Subscription';
-	DP2.qfield="who";
-	DP2.qtype=ShortAnswerHTML;
-	DP2.questionname="Your name";
-	DP2.qplaceholder="(optional)";
+	var DP=NewDataPack({
+		qdestination:'Subscription',
+		questionname:"Subscribe to be the first to know about Pedro PSI's next project!",
+		qtype:ShortAnswerHTML,
+		qfield:"address",
+		qplaceholder:"_______@___.___",
+		thanksmessage:"Thank you for subscribing!",
+		qvalidator:EmailValidator
+		});
 	
-	return OpenModal(QuestionHTML([DP,DP2]),DP.qid,document.body.id);
+	var DP2=NewDataPack({
+		qid:DP.qid,
+		qdestination:'Subscription',
+		qfield:"who",
+		qtype:ShortAnswerHTML,
+		questionname:"Your name",
+		qrequired:false,
+		qplaceholder:"(optional)"});
+	
+	DP.qdisplay([DP,DP2]);
 }
 
 //////////////////////////////////////////////////////////////////////
 //Order
 
 function OpenModalPreOrder(campaigntext){
-	var DP=NewDataPack();
-	DP.qdestination='Order';
-	DP.questionname=campaigntext;
-	DP.qtype=ShortAnswerHTML;
-	DP.qfield="address";
-	DP.qplaceholder="_______@___.___";
 	
-	return OpenModal(QuestionHTML(DP),DP.qid,document.body.id);
+	var DP=NewDataPack({
+		qdestination:'Order',
+		questionname:campaigntext,
+		qtype:ShortAnswerHTML,
+		qfield:"address",
+		qplaceholder:"_______@___.___",
+		thanksmessage:"Your booking was placed. Thank you!",
+		qvalidate:EmailValidator
+		});
+		
+	DP.qdisplay(DP);
 }

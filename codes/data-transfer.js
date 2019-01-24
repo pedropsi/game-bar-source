@@ -1,6 +1,9 @@
 var CONTEXT="";
 var DESTINATIONS={};
 
+//Do nothing
+function Identity(){return;};
+
 ///////////////////////////////////////////////////////////////////////////////
 //URL Manipulation
 
@@ -481,6 +484,10 @@ function CloseButtonHTML(targetid){
 	return '<span class="button closer" onclick="Close(\''+targetid+'\')">&times;</span>'
 }
 
+function OkButtonHTML(targetid){
+	return '<div class="button" onclick="Close(\''+targetid+'\')">OK</div>';
+}
+
 function SubmitButtonHTML(datapack){
 	return '<div class="button" onclick="'+datapack.action+'(\''+datapack.qid+'\')">Submit</div>';
 }
@@ -489,13 +496,14 @@ function MessageHTML(message){
 	return "<h4 class='question'>"+message+"</h4>";
 }
 
+function ErrorHTML(message){
+	return "<div class='error'><p>"+message+"</p></div>";
+}
 ////////////////////////////////////////////////////////////////////////////////
-// Datapack Components
+// Datapack New
 
-var DATAPACKHISTORY=[];
-
-function NewDataPack(){
-var d={
+function DefaultDataPack(){
+var DP={
 	questionname:"???",			//Display name of the subquestion
 	qfield:"question",			//Field name must be unique
 	qvalue:"",					//Field value, by default
@@ -504,17 +512,38 @@ var d={
 	qdestination:'feedback',	//Name of data repository
 	qplaceholder:"❤ Pedro PSI ❤",			//Placeholder answer
 
-	action:'SubmitAnswer', //action on submit ---takes a Datapack as ony argument
+	action:'SubmitAndNext', //action on submit ---takes a Datapack id as ony argument
 	
 	qid:GenerateId(),			//Which is the id of the overarching question/form element?
 	qtargetid:document.body.id,	//Where to introduce form in page?
-	qdisplay:OpenFeedbackBalloon//Question display function ---takes a Datapack as ony argument
+	qdisplay:LaunchModal,//Question display function ---takes a Datapack (or datapack array) as ony argument
+
+	qrequired:true,
+	qvalidator:function(DP){return {valid:true,error:"no errors"};},//Receives an DP
+	qanswerformatter:Identity,//Receives an DP
+	
+	qonclose:LaunchThanksModal,//Receives an id
+	thanksmessage:"Submitted. Thank you!"
+	
 	}
 	
-	DATAPACKHISTORY.push(d);
-	return d;
+	return DP;
 }
 
+var DATAPACKHISTORY=[];
+
+function NewDataPack(obj){
+	var DP=DefaultDataPack();
+	var keys=Object.keys(obj);
+	for(var k in keys){
+		DP[keys[k]]=obj[keys[k]];
+	}
+	DATAPACKHISTORY.push(DP);
+	return DP;
+}
+
+
+// Datapack Components
 
 function ChoiceHTML(dataPack,qbehaviour){
 	var choi="";
@@ -564,18 +593,17 @@ function QuestionHTML(dataPackArray){
 ////////////////////////////////////////////////////////////////////////////////
 // Balloons
 
-function OpenMessageBalloon(dataPack){
+function LaunchMessageBalloon(dataPack){
 	OpenBalloon(dataPack.questionname,dataPack.qid,dataPack.qtargetid);
 }
 
-function OpenSubmittedBalloon(targetid){
-	OpenBalloon("Submitted. Thank you!",GenerateId(),targetid);
+function LaunchThanksBalloon(dataPack){
+	OpenBalloon(dataPack.thanksmessage,dataPack.qid,dataPack.qtargetid);
 }
 
-function OpenFeedbackBalloon(dataPack){
+function LaunchFeedbackBalloon(dataPack){
 	var datap=dataPack;
 	datap.qdestination="feedback";
-//	datap.qid=SanitizeId(datap.questionname);
 	var QA = QuestionHTML(datap);
 	OpenBalloon(QA,datap.qid,datap.qtargetid)
 }
@@ -638,7 +666,7 @@ function ToggleThisOnly(ev,thi){
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// Data finding and submission in forms
+// Data submission in forms
 
 function SubmitData(dataObject,destination){
 	var data =dataObject;
@@ -648,14 +676,35 @@ function SubmitData(dataObject,destination){
 	echoDataToSheetURL(data,destination.url,destination.sheet);
 }
 
-function SubmitAnswer(qid){
-	var formtype=FindData("destination",qid);
-	var destinationObject=GetDestination(formtype);
-	var dataObject=(destinationObject.Data)(qid);
+function SubmitAnswer(DP){
+	
+	var validator=DP.qvalidator(DP);
+	console.log(validator);
+	
+	if(DP.qrequired)
+		if(!validator.valid)
+			AddAfterElement(ErrorHTML(validator.error),"#"+DP.qid);
+	else{
 
-	SubmitData(dataObject,destinationObject);	
-	Close(qid);
+		var formtype=FindData("destination",DP.qid);
+		var destinationObject=GetDestination(formtype);
+		var dataObject=(destinationObject.Data)(DP.qid);
+
+		SubmitData(dataObject,destinationObject);
+		Close(DP.qid);
+		DP.qonclose(DP);
+	}
 }
+
+function SubmitAndNext(qid){
+	var DP=GetDatapack(qid);
+	if(typeof DP!=="undefined"){
+		SubmitAnswer(DP);
+	};
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Data finding in forms
 
 function FindData(field,id){
 	var d=FindDataInNode(field,document.getElementById(id));
@@ -694,6 +743,39 @@ function NodeGetData(field,node){
 	else
 		return (node.dataset[field]);
 }
+
+
+function OverwriteDataField(field,id,newdata){
+	OverwriteDataInNode(field,document.getElementById(id),newdata);
+};
+
+function OverwriteDataInNode(type,node,newdata){
+	//console.log(node);
+	if(typeof node==="null")
+		return undefined;
+	else if(NodeHasData(type,node)){
+		return NodeOverwriteData(type,node,newdata);
+	}
+	else{
+		var children= node.childNodes;
+		var i=0;
+		while((typeof children[i]!=="undefined")){
+			if(typeof FindDataInNode(type,children[i])!=="undefined"){
+				return OverwriteDataInNode(type,children[i],newdata);}
+			i++;
+		}
+		return undefined
+	}
+}
+
+function NodeOverwriteData(field,node,newdata){
+	if((["INPUT","TEXTAREA"].indexOf(node.tagName)>=0)&&typeof node.dataset[field]!=="undefined")
+		return (node.value=newdata);
+	else
+		return (node.dataset[field]=newdata);
+}
+
+///////////////////////
 
 function GetDatapack(id){
 	var i=0;
@@ -755,16 +837,40 @@ function OpenModal(content,id,targetid){
 	AddElement(ModalHTML(content,id),targetid);
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// Form Validator
-
-function SubmitForm(formid){
-	var form = document.getElementById(formid);
-	if(form.querySelector(":invalid")===null){
-		echoDataRecord('Contact','Contact');
-		OpenModal("#Success");
-	}
+/*Modal self-laucher for questions (datapacks)*/
+function LaunchModal(DP){
+	if(Array.isArray(DP))
+		OpenModal(QuestionHTML(DP),DP[0].qid,DP[0].qtargetid);
 	else
-		OpenModal("#Failure");
-	
+		OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
+}
+
+function LaunchThanksModal(DP,message){
+	var qid=GenerateId();
+	OpenModal(MessageHTML(DP.thanksmessage)+OkButtonHTML(qid),qid,DP.qtargetid);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Form Validators and Modifiers
+
+function EmailValidator(DP){
+	var em=FindData("address",DP.qid);
+	var pattern=/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ig
+	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
+		return {valid:true,error:"none"}
+	else
+		return {valid:false,error:"Please check your e-mail!"}
+}
+
+function SomeTextValidator(DP){
+	var em=FindData("answer",DP.qid);
+	var pattern=/[\d\w]/;
+	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
+		return {valid:true,error:"none"}
+	else
+		return {valid:false,error:"Please write something!"}
+}
+
+function Anonimiser(DP){
+	OverwriteDataField(DP.qfield,DP.qid,"Anonymous");
 }

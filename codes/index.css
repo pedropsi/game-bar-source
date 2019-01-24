@@ -924,11 +924,10 @@ tbody tr:hover{
 }
 
 .buttonrow {
-    display: flex;
-    align-items: center;
-    justify-items: center;
+    flex-direction: row;
     flex-wrap: wrap;
     margin-top: 10px;
+    margin-bottom: 10px;
     justify-content: center;
 }
 
@@ -937,7 +936,7 @@ tbody tr:hover{
     margin:unset;
     margin-right:1px;
     margin-top: 1px;
-    flex-grow: 1;
+   
 }
 
 
@@ -1071,4 +1070,12 @@ tbody tr:hover{
     font-size: 120%;
     color: var(--white);
     padding: 8px;
+}
+
+.error{
+    width: 50%;
+    border:4px solid var(--lightblue); 
+    margin:4px;
+    font-weight: bold;
+    color: var(--lightblue);
 }
