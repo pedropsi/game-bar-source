@@ -326,7 +326,7 @@ function OverwriteData(source,destinationID,Transform){
 };
 
 //////////////////////////////////////////////////
-// Transformer: Table Inverted
+// Transformer: Table (not inverted anymore)
 function MakeInvertedTable(dataarray){
 	function EnRow(dataline){
 		var datalin = dataline.map(
@@ -341,7 +341,7 @@ function MakeInvertedTable(dataarray){
 			dtl="\t<tr>\n"+dtl+"</tr>";
 		return 	dtl;
 	};
-	return "<table><tbody>\n"+dataarray.map(EnRow).reverse().join("\n")+"</tbody></table>";
+	return "<table><tbody>\n"+dataarray.map(EnRow).join("\n")+"</tbody></table>";
 }
 
 function MakeGuestbook(dataarray){
@@ -354,7 +354,7 @@ function MakeGuestbook(dataarray){
 		var html="<div class='comment'><div>"+c+"<p>"+a+o+"</p></div>"+date+"</div>";
 		return 	html;
 	};
-	return "<table><tbody>\n"+dataarray.map(MakeComment).reverse().join("\n")+"</tbody></table>";
+	return "<table><tbody>\n"+dataarray.map(MakeComment).join("\n")+"</tbody></table>";
 }
 
 
