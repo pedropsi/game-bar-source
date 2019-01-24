@@ -849,7 +849,7 @@ function processInput(a,b,c){
 		for(g=0;g<level.commandQueue.length;g++)
 			a=level.commandQueue[g],"f"===a.charAt(1)&&tryPlaySimpleSound(a),!1===unitTesting?"message"===a&&showTempMessage():messagetext="";
 		!1!==textMode||void 0!==b&&!1!==b||(verbose_logging&&consolePrint("Checking win condition."),checkWin());
-		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(echoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,SaveCheckpoint(restartTarget),SaveLevel(curlevel)),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
+		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(EchoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,SaveCheckpoint(restartTarget),SaveLevel(curlevel)),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
 	}
 	verbose_logging&&consoleCacheDump();
 	winning&&(againing=!1);
@@ -887,7 +887,7 @@ var maxcheckpoint=Number(curcheckpoint);
 var checkpointsaver=0;
 var recordingmoves=true;
 
-function registerMove(mov){
+function RegisterMove(mov){
 	if(recordingmoves){
 		var move=mov;
 		switch(move){
@@ -896,7 +896,7 @@ function registerMove(mov){
 			case 3:move=39;break;//>
 			case 2:move=40;break;//v
 			case 4:move=88;break;//v
-			registerMove(88)
+			RegisterMove(88)
 		}
 		var delta = ElapsedTime();
 		moveseq.push([move,delta]);
@@ -909,12 +909,12 @@ function registerMove(mov){
 	}
 }
 	
-function clearMoves(){
+function ClearMoves(){
 	moveseq=[];winseq=[];
 }
 
 function ClearLevelRecord(){
-	clearMoves();
+	ClearMoves();
 	timeticker=Date.now();
 }
 
@@ -977,6 +977,7 @@ function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 	UpdateLevelData(curlevel);
 	leveldata["type"]="checkpoint";
 	leveldata["level"]=String(curlevel)+"."+String(checkpointsaver);
+	ClearMoves();
 }
 
 function configLevelWin(curlevel){
@@ -1069,7 +1070,7 @@ function GoToLevelPrev(){
 	}
 }
 
-function echoLevelWin(curlevel){
+function EchoLevelWin(curlevel){
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
 		configLevelWin(curlevel);
@@ -1077,7 +1078,7 @@ function echoLevelWin(curlevel){
 	}
 }
 
-function echoCheckpoint(){
+function EchoCheckpoint(){
 	if(AnalyticsClearance()){
 		UpdateLevelCheckpointData(curlevel,checkpointsaver);
 		echoPureData(leveldata,leveldataURL);
@@ -1085,7 +1086,7 @@ function echoCheckpoint(){
 	checkpointsaver++;
 }
 
-function echoLevelClose(curlevel){
+function EchoLevelClose(curlevel){
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
 		leveldata["winsequence"]="";
@@ -1095,12 +1096,12 @@ function echoLevelClose(curlevel){
 }
 
 window.onunload=(function(){
-	echoLevelClose(curlevel);
+	EchoLevelClose(curlevel);
 })
 
 function DoWin() {
             if (!winning) {
-				echoLevelWin(curlevel);
+				EchoLevelWin(curlevel);
 				if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
                 if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
                 winning = !0, timer = 0
@@ -1459,25 +1460,19 @@ function prevent(a){a.preventDefault&&a.preventDefault();a.stopImmediatePropagat
 
 
 
-
-
-
-
-
-
 function checkKey(a,b){
 	if(!winning){
 		var c=-1;
 		var fdb=true;//F
 		switch(a.keyCode){
-			case 65:case 37:c=1;break;
-			case 38:case 87:c=0;break;
-			case 68:case 39:c=3;break;
-			case 83:case 40:c=2;break;
-			case 13:case 32:case 67:case 88:if(!1===norepeat_action||b)c=4;else return;break;
-			case 85:case 90:if(!1===textMode)return registerMove(85),pushInput("undo"),DoUndo(!1,!0),canvasResize(),prevent(a);break;
-			case 82:if(!1===textMode&&b)return registerMove(82),pushInput("restart"),DoRestart(),canvasResize(),prevent(a);break;
-			case 27:if(!1===titleScreen)return registerMove(27),goToTitleScreen(),tryPlayTitleSound(),canvasResize(),prevent(a);break;
+			case 65:case 37:c=1;RegisterMove(c);break;
+			case 38:case 87:c=0;RegisterMove(c);break;
+			case 68:case 39:c=3;RegisterMove(c);break;
+			case 83:case 40:c=2;RegisterMove(c);break;
+			case 13:case 32:case 67:case 88:if(!1===norepeat_action||b)c=4,RegisterMove(c);else return;break;
+			case 85:case 90:if(!1===textMode)return RegisterMove(85),pushInput("undo"),DoUndo(!1,!0),canvasResize(),prevent(a);break;
+			case 82:if(!1===textMode&&b)return RegisterMove(82),pushInput("restart"),DoRestart(),canvasResize(),prevent(a);break;
+			case 27:if(!1===titleScreen)return RegisterMove(27),goToTitleScreen(),tryPlayTitleSound(),canvasResize(),prevent(a);break;
 			case 69:if(canOpenEditor)return b&&(levelEditorOpened=!levelEditorOpened,!1===levelEditorOpened&&printLevel(),restartTarget=backupLevel(),canvasResize()),prevent(a);break;
 			case 48:case 49:case 50:case 51:case 52:case 53:case 54:case 55:case 56:case 57:if(levelEditorOpened&&b)return c=9,49<=a.keyCode&&(c=a.keyCode-49),c<glyphImages.length?glyphSelectedIndex=c:consolePrint("Trying to select tile outside of range in level editor.",!0),canvasResize(),prevent(a);break	
 			case 70:RequestGameFeedback();//F is for Feedback!
@@ -1495,7 +1490,7 @@ function checkKey(a,b){
 				if(titleScreen)
 					if(0===titleMode)
 						4===c&&b&&!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=!0,messageselected=!1,timer=0,quittingTitleScreen=!0,generateTitleScreen(),canvasResize());
-					else if(4==c&&b)!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=!0,messageselected=!1,timer=0,quittingTitleScreen=!0,generateTitleScreen(),redraw());else{if(0===c||2===c)titleSelection=0===c?0:1,generateTitleScreen(),redraw()}else 4==c&&b&&(unitTesting?nextLevel():!1===messageselected&&(messageselected=!0,timer=0,quittingMessageScreen=!0,tryPlayCloseMessageSound(),titleScreen=!1,drawMessageScreen()))}else if(!againing&&0<=c)return 4===c&&"noaction"in state.metadata||(registerMove(c),pushInput(c),processInput(c)&&redraw()),prevent(a)
+					else if(4==c&&b)!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=!0,messageselected=!1,timer=0,quittingTitleScreen=!0,generateTitleScreen(),redraw());else{if(0===c||2===c)titleSelection=0===c?0:1,generateTitleScreen(),redraw()}else 4==c&&b&&(unitTesting?nextLevel():!1===messageselected&&(messageselected=!0,timer=0,quittingMessageScreen=!0,tryPlayCloseMessageSound(),titleScreen=!1,drawMessageScreen()))}else if(!againing&&0<=c)return 4===c&&"noaction"in state.metadata||(pushInput(c),processInput(c)&&redraw()),prevent(a)
 }}
 			
 

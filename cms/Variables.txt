@@ -187,4 +187,5 @@ P-VANDEVANDER	<a href="https://twitter.com/mvandevander" «BLANK»>Matthew VanDeva
 P-GRANT	<a href="http://lunarchstudios.com/" «BLANK»>Elyot Grant</a>
 P-AHLMAN	<a href="https://twitter.com/ahlmanove" «BLANK»>Ove Ahlman</a>
 P-EDDERIOFER	<a href="https://twitter.com/edderiofer" «BLANK»>Edderiofer</a>
+DO-COMMENT	<a href="#" onclick="RequestGuestbook()">Leave a comment!</a>
 

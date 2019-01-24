@@ -75,4 +75,4 @@
 <h3>09/2018</h3>
 <p>Redesign of <em>level 3</em> to prevent unintended solution; minor tweaks to <em>levels 1, 2 and 4</em>; two crates removed from near the secret item; minor graphic changes (polishing margins, choosing smaller trees in key positions, fixing lamp flame animation); dialogue flow fix; player falling unintentionally into water disallowed; burning message added; diverse improvements of princess behaviour; fixes to auto-save system including a golden flash; new restart trigger; golden win animation.</p>
 <h3>01/2019</h3>
-<p>Princess now stubbornly refuses to be left behind! Ongoing fixes to the realtime system to prevent extra turns by the player.</p>
+<p>The princess now stubbornly refuses to be left behind! Also, on the last level, she will now consistently flee from the wolves and cause a fire.</p>
