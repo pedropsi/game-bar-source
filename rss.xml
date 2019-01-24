@@ -9,7 +9,7 @@
 		<description>Don't miss out on novelties from The Creative Archive!</description>
 		<language>en</language> 
 		<docs>https://cyber.harvard.edu/rss/rss.html</docs>
-		<copyright>© Pedro PSI 2010-2018.</copyright>
+		<copyright>© Pedro PSI 2010-2019.</copyright>
 		<image> 			
 			<link>https://pedropsi.github.io</link>
 			<title>Creative Archive</title>
@@ -61,22 +61,14 @@
 				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Gravirinth changelog" title="Gravirinth changelog"/>
 				<p>This is Gravirinth's devlog.
 		
-		08-01-2019
-			Sound effects
-			Nice sound effects were added:
-			
-				Dialog console: Typewriter
-				Directional arrows:Flute
-				Save:Tuba
-				Light beam: Xilophone
-				Orb:Oboe
-			
-			
-		07-01-2019
-			Music
-				Stellardrone's music has been picked to enter Gravirinth's soundtrack.
+		22-01-2019
+			Ongoing bug corrections and level polishes
+			Light propagation instantaneous. Missing checkpoint.
+			Polishing levels unplugged and block booster.
 		
-		04-01-20...</p>
+		20-01-2019
+			New release date
+			Although the game could be released as is, new polish ideas keep appearing. So t...</p>
 			]]>
 			</description>
 		
