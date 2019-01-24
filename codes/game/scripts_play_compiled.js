@@ -910,8 +910,10 @@ function RegisterMove(mov){
 }
 	
 function UnRegisterMove(){
-	winseq.pop();
-	moveseq.pop();
+	if(recordingmoves){
+		winseq.pop();
+		moveseq.pop();
+	};
 }
 	
 function ClearMoves(){
