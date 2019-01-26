@@ -11,4 +11,4 @@
 
 «CREDITS»  
 <h3>Special thanks</h3>
-<p>«P-PUZZLESCRIPT» «P-AHLMAN», «P-HAZELDEN», «P-EDDERIOFER», Nils Jung and «P-CHZ» for varied levels of feedback.</p>
+<p>«PUZZLESCRIPT«P»» «AHLMAN«P»», «HAZELDEN«P»», «EDDERIOFER«P»», «JUNG«P»» and «CHZ«P»» for varied levels of feedback.</p>

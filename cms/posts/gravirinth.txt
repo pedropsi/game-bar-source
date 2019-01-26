@@ -164,7 +164,7 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 <script src="codes/lib/howler.js"></script>
 
 <h3>Special thanks</h3>
-<p>All beta testers for their comprehensive feedback! Among them a special mention to «P-LESLO» for outstanding help.</p>
+<p>All beta testers for their comprehensive feedback! Among them a special mention to «LESLO«P»» for outstanding help.</p>
 
 
 <h2>F.A.Q.</h2>

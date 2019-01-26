@@ -60,16 +60,16 @@
 
 <h3>Special thanks</h3>
 <h4>09/2018</h4>
-<p>Doomsday One, «P-HAZELDEN» and «P-CHZ» for spotting important bugs and for useful feedback.</p>
+<p>«ONE«P»», «HAZELDEN«P»» and «CHZ«P»» for spotting important bugs and for useful feedback.</p>
 <h4>01/2019</h4>
-<p>«P-HUNKYDORY», «P-MOKESMOE» and «P-THATSCAR» for feedback and finding unintended solutions.</p>
+<p>«HUNKYDORY«P»», «MOKESMOE«P»» and «THATSCAR«P»» for feedback and finding unintended solutions.</p>
 
 
 <h2>F.A.Q.</h2>
 <h3>How does the name «TITLE:Load» mean?</h3>
 <p><b>Tiara</b> + <b>Adventure!</b></p>
 <h3>What was your inspiration?</h3>
-<p>The adventure theme was inspired by <b>The Legend of Zelda</b>. A second source of inspiration was «P-HAZELDEN»'s <a href="http://www.draknek.org/games/puzzlescript/skipping-stones.php" «BLANK»><b>Skipping Stones To Lonely Homes</b></a>.</p>
+<p>The adventure theme was inspired by <b>The Legend of Zelda</b>. A second source of inspiration was «HAZELDEN«P»»'s <a href="http://www.draknek.org/games/puzzlescript/skipping-stones.php" «BLANK»><b>Skipping Stones To Lonely Homes</b></a>.</p>
 
 <h2 id="changelog">Changelog</h2>
 <h3>09/2018</h3>

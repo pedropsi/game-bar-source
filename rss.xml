@@ -159,20 +159,6 @@
 		
 		<category>Game</category><category>Platformer</category><category>Puzzle</category>
 		</item>
-		<item>
-		<title>Combinatura</title>
-		<link>http://combinatura.github.io/index</link>
-		<guid>http://combinatura.github.io/index</guid>
-		<pubDate>Fri, 06 Jul 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/combinatura.png" height="200" align="left" hspace="5" alt="Combinatura" title="Combinatura"/>
-				<p>Combinatura, a game of exploration.</p>
-			]]>
-			</description>
-		
-		<category>Game</category><category>Nature</category><category>Travel</category>
-		</item>
 		
 	</channel>
 </rss>

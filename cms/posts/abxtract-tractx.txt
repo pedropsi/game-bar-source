@@ -43,7 +43,7 @@
 «CREDITS-ENGINE-SUPPORT»
 
 <h3>Special thanks</h3>
-<p>«P-LESLO», «P-ESCAPER», Personman, «P-CHZ», «P-MARCOSD» and «P-VANDEVANDER» for early positive feedback and/or for suggestions about the game synopsis; «P-GRANT» for spotting other polishing opportunities.</p>
+<p>«LESLO«P»», «ESCAPER«P»», «PERSONMAN«P»», «CHZ«P»», «MARCOSD«P»» and «VANDEVANDER«P»» for early positive feedback and/or for suggestions about the game synopsis; «GRANT«P»» for spotting other polishing opportunities.</p>
 
 
 <h2>F.A.Q.</h2>

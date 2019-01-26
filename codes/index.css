@@ -138,6 +138,7 @@ nav {
     display:flex;
     flex-direction:column;
     justify-content: center;
+    flex-wrap: wrap;
     background-color: var(--white);
     
 }
@@ -147,7 +148,7 @@ nav {
     padding: 10px 10px 10px 10px;
 }
 
-@media only screen and (min-width: 400px) and (max-width:900px) {
+@media only screen and (min-width: 330px) and (max-width:900px) {
     nav {
         flex-direction:row;
     }
@@ -709,7 +710,15 @@ li {
 .sharer > div{
 	flex-direction: row;
 	flex-wrap: wrap;
+    align-items: left;
 	margin:0px 0px -5px 10px;
+    border-right: 8px solid transparent;
+    transition: 0.5s;
+}
+
+.sharer > div:hover{
+    border-right: 0px solid transparent;
+    transition: 0.5s;
 }
 
 
@@ -717,18 +726,20 @@ li {
     fill:var(--white);
     stroke:var(--blue);
     stroke-width: 1;
-    width:1em;
+    width:25px;
+    height: 25px;
     padding: 2px 2px 5px 5px;
     vertical-align:middle;
-    transition-duration: 0.5s;
+    transition: 0.5s;
 }
 
 .sharing-button svg:hover {
     fill:var(--turquoise);
     stroke:var(--darkblue);
     border-left: 8px solid var(--turquoise);
-    transition-duration: 0.5s;
+    transition: 0.5s;
 }
+
 
 .form-block{
     overflow: visible;

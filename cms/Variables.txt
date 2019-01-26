@@ -35,7 +35,7 @@ SITEMAP	«XML»<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">«CONTEN
 SITEMAP-ITEM	<url><loc>«LINK-URL»</loc><lastmod>«UP-DA-TE:Load»</lastmod><changefreq>«FREQ:Load»</changefreq></url>
 SITEMAP-PATH	sitemap.xml
 TITLE-BOLD	<b>«TITLE:Load»</b>
-TITLE-BY	«TITLE-BOLD» by «NAME» «YEAR:Load»
+TITLE-BY	«TITLE:Load» by «NAME» «YEAR:Load»
 HALL-OF-FAME-VIEW-LEGACY	https://docs.google.com/spreadsheets/d/e/2PACX-1vQwd7CTU3k1HsrT4fPLljY9HSW5eWbOv118H3zn5nsRg6Uc1b_aTg577hjFoHLPCUbKAEmht603qmc7/pubhtml?gid=2116581279&single=true&widget=false&chrome=false&headers=false
 HALL-OF-FAME-URL	action="https://script.google.com/macros/s/AKfycbzgwZUKFmuNQin6Kq4-kTMBSZtz9TapE6kxpZyk7p2tRaanLD1w/exec"
 HALL-OF-FAME-DORM-ID	enterHallOfFame
@@ -140,7 +140,7 @@ PAGE-FEATURED-EMPTY	«HTML-PRE»«SECTION-PRE»«FEATURED»«LABELS»«SECTION-POS»«HTML-
 FEATURED	<h1 class="textarea title">«TITLE:Load»</h1><div class="featured">«CONTENT:Load»</div>
 FEATURED-ITEM	<a href="«LINK:Load».html"><div class="card"><h3>«TITLE:Load»</h3>«PICTURE»</div></a>
 PAGE-POST-MD	«HTML-PRE»«POSTAREA»«MARKDOWN»«HTML-POS»
-LABELS	<div class="tags"><div class="tagup"><a href="«LINK:Load(Archive,1)».html"><div class="tag">«DATE:Load»</div></a></div>«LABEL-TAG:Multiply»</div>
+LABELS	<div class="tags"><div class="tagup"><a href="posts-by-date.html"><div class="tag">«DATE:Load»</div></a></div>«LABEL-TAG:Multiply»</div>
 LABEL-TAG	<a href="tag-«TAGS:Load».html"><div class="tag">«TAGS:Load»</div></a>
 SORT-BY-DATE	"Day"->_,"Month"->_,"Year"->_?(StringMatchQ[ToString[#],___~~"«YEAR:Load»"~~___]&)
 SECTION-PRE	<div class="section"><div class="container">
@@ -169,23 +169,12 @@ SUBSCRIBE-RSS	<a href="«SITE»/«RSS-PATH»" id="rss">Subscribe to RSS feed.</a>
 SUBSCRIBE-EMAIL	<a onclick="OpenModalSubscribe()">Subscribe to email alerts.</a>
 SUBSCRIBE-LINK	<a href="subscribe.html">Subscribe!</a>
 SUBSCRIBE-DISCORD	<a href="«DISCORD-MAIN»" «BLANK»>Join the community.</a>
-P-LESLO	<a href="https://twitter.com/leslodev" «BLANK»>Lucas LeSlo</a>
-P-HAZELDEN	<a href="https://twitter.com/draknek" «BLANK»>Alan Hazelden</a>
-P-LAVELLE	<a href="https://twitter.com/increpare" «BLANK»>Stephen Lavelle</a>
-P-PUZZLESCRIPT	<a href="https://groups.google.com/forum/#!forum/puzzlescript" «BLANK»>Puzzlescript forum</a> community members
-P-HUNKYDORY	Hunkydory
-P-MOKESMOE	<a href="https://twitter.com/mokesmoe" «BLANK»>Tim Nicholson</a> (mokesmoe)
-P-THATSCAR	Skalmantas Šimenas (that Scar)
-P-JOEL	<a href="https://joelthefox.github.io/">Joel</a>
-P-MARCOSD	<a href="https://twitter.com/marcos_don" «BLANK»>Marcos Donnantuoni</a>
-P-RICHARDSON	<a href="https://plus.google.com/u/0/112121953522427737858" «BLANK»>Mark Richardson</a>
-P-MATTISON	<a href="https://plus.google.com/u/0/116049570908402327989" «BLANK»>S Mattison</a>
-P-CHZ	<a href="https://chz.itch.io/" «BLANK» >Ili Butterfield</a>
-P-PERCONTI	<a href="https://twitter.com/InfinitNutshell" «BLANK»>Jamie Perconti</a>
-P-ESCAPER	<a href="http://warpdoor.com/tag/thegreatescaper/" «BLANK»>TheGreatEscaper</a>
-P-VANDEVANDER	<a href="https://twitter.com/mvandevander" «BLANK»>Matthew VanDevander</a>
-P-GRANT	<a href="http://lunarchstudios.com/" «BLANK»>Elyot Grant</a>
-P-AHLMAN	<a href="https://twitter.com/ahlmanove" «BLANK»>Ove Ahlman</a>
-P-EDDERIOFER	<a href="https://twitter.com/edderiofer" «BLANK»>Edderiofer</a>
 DO-COMMENT	<a href="#" onclick="RequestGuestbook()">Leave a comment!</a>
-
+GOOGLE-PLUS-URL	https://plus.google.com/u/0/
+TWITTER-URL	https://twitter.com/
+GITHUB-URL	.github.io/
+ITCH-URL	.itch.io/
+P	:In{People}
+SHARER-PRE	<a href="
+SHARER-POS	" target="_«TARGET:Load»" id="share-«SERVICE:Load»"><div class="sharing-button">«SHARE-SVG»</div></a>
+SHARE-SVG	<svg viewBox="0 0 «DIM:Load» «DIM:Load»"><path «STROKE:Load» d="«SVG:Load»"/></svg>
