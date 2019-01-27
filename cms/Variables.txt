@@ -8,6 +8,7 @@ ME	me
 MY	my
 I	I
 I'm	I'm
+PERSONAL	personal
 SITE-NAME	Creative Archive
 SITE	https://pedropsi.github.io
 SITE-HTTP	http://pedropsi.github.io
@@ -174,6 +175,7 @@ GOOGLE-PLUS-URL	https://plus.google.com/u/0/
 TWITTER-URL	https://twitter.com/
 GITHUB-URL	.github.io/
 ITCH-URL	.itch.io/
+PUZZLESCRIPT-URL	https://www.puzzlescript.net/play.html?p=
 P	:In{People}
 SHARER-PRE	<a href="
 SHARER-POS	" target="_«TARGET:Load»" id="share-«SERVICE:Load»"><div class="sharing-button">«SHARE-SVG»</div></a>

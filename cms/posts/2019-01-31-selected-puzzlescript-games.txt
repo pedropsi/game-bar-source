@@ -1,0 +1,27 @@
+﻿<h2>Purpose</h2>
+<p>This is a <em>short</em> list of <em>very good</em> puzzlescript games, in «MY» opinion. It serves as a <em>«PERSONAL»</em>, yet publicly shared, reference (to be updated whenever needed). </p>
+
+<h2>Criteria</h2>
+<p>The list focusses on games released within the years <em>2014-2018</em>, yet many during this period were overlooked. As long as they match the <b>criteria</b> below, suggestions are «CONTACT-TEXT-5».</p>
+<p>Please be aware that there's a separate list for <a href="games.html">«NAME»'s games</a>.</p>
+
+<h3>Inclusion criteria:</h3>
+<p>To be included, a game must score very highly in at least one of these <b>inclusion criteria</b>:</p>
+<ul>
+	<li><b>Atmosphere:</b> pleasant colours, agreeable music, cool animations;</li>
+	<li><b>Challenge:</b> challenging puzzles;</li>
+	<li><b>Originality:</b> a distinct style, goal, mechanics or story;</li>
+	<li><b>Effort:</b> intense detail, innovative features.</li>
+</ul>
+
+<h3>Exclusion criteria:</h3>
+<p>Fatal is the failure to meet at least one the following <b>exclusion criteria</b>:</p>
+<ul>
+	<li><b>Completeness:</b> not unfinished, not unpolished;</li>
+	<li><b>Intuition:</b> lack of adequate controls, lack of visual clarity;</li>
+	<li><b>Kinder-friendly:</b> absence of violence and of profanity;</li>
+	<li><b>Minimalism:</b> no repetitions, no padding;</li>
+	<li><b>Optimism:</b> no unsurpassed negative feelings, at the end of the game;</li>
+</ul>
+
+«GAME-LIST»
