@@ -1509,7 +1509,9 @@ function update(){
 	timer+=deltatime;
 	input_throttle_timer+=deltatime;
 	quittingTitleScreen&&0.3<timer/1E3&&(quittingTitleScreen=!1,nextLevel());
-	againing&&timer>againinterval&&0==messagetext.length&&processInput(-1)&&(redraw(),autotick=keyRepeatTimer=0);quittingMessageScreen&&0.15<timer/1E3&&(quittingMessageScreen=!1,""===messagetext?nextLevel():(messagetext="",titleScreen=textMode=!1,titleMode=0<curlevel||null!==curlevelTarget?1:0,titleSelected=!1,titleSelection=0,canvasResize(),checkWin()));winning&&0.5<timer/1E3&&(winning=!1,nextLevel());
+	againing&&timer>againinterval&&0==messagetext.length&&processInput(-1)&&(redraw(),autotick=keyRepeatTimer=0);
+	quittingMessageScreen&&0.15<timer/1E3&&(quittingMessageScreen=!1,""===messagetext?nextLevel():(messagetext="",titleScreen=textMode=!1,titleMode=0<curlevel||null!==curlevelTarget?1:0,titleSelected=!1,titleSelection=0,canvasResize(),checkWin()));
+	winning&&0.5<timer/1E3&&(winning=!1,nextLevel());
 	if(0<keybuffer.length){
 		keyRepeatTimer+=deltatime;
 		var a=throttle_movement?repeatinterval:repeatinterval/Math.sqrt(keybuffer.length);
