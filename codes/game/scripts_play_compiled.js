@@ -957,20 +957,20 @@ function Replay(movetimes){
 	var time=0;
 	recordingmoves=false;
 	
-	function PlayMove(move){
+	function PlayMove(move,message){
 		checkKey({keyCode:move},!0);
-		console.log("move:",move);
+		console.log("move:",move,message);
 	}
 	
-	function Schedule(move,time){
-		setTimeout(function(){PlayMove(move)},time);
+	function Schedule(move,time,message){
+		setTimeout(function(){PlayMove(move,message)},time);
 	}
 	
 	for (var i=0;i<movetimes.length;i++){
 		if(i!==0){
 			time=time+movetimes[i][1];
 		}
-		Schedule(movetimes[i][0],time);
+		Schedule(movetimes[i][0],time,(i+1)+" of "+movetimes.length);
 	}
 	setTimeout(function(){recordingmoves=true;},time+100);
 	console.log("Replay Scheduled");
