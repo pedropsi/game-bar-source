@@ -953,8 +953,14 @@ function UpdateLevelData(curlevel){
 function ParseMoves(movestring){
 	return JSON.parse(movestring);
 }
-function Replay(movetimes){
+
+var movesplaylist=[];
+
+function Replay(movetimes,maxdelay,mindelay){
+	ClearMovesPlaylist();
 	var time=0;
+	var maxdelay=maxdelay?maxdelay:9000;
+	var mindelay=mindelay?mindelay:0;
 	recordingmoves=false;
 	
 	function PlayMove(move,message){
@@ -963,22 +969,30 @@ function Replay(movetimes){
 	}
 	
 	function Schedule(move,time,message){
-		setTimeout(function(){PlayMove(move,message)},time);
+		return setTimeout(function(){PlayMove(move,message)},time);
 	}
 	
 	for (var i=0;i<movetimes.length;i++){
 		if(i!==0){
-			time=time+movetimes[i][1];
+				time=time+Math.max(Math.min(movetimes[i][1],maxdelay),mindelay);
 		}
-		Schedule(movetimes[i][0],time,(i+1)+" of "+movetimes.length);
+		movesplaylist[i]=Schedule(movetimes[i][0],time,(i+1)+" of "+movetimes.length);
 	}
+	
 	setTimeout(function(){recordingmoves=true;},time+100);
 	console.log("Replay Scheduled");
+	return movesplaylist;
+}
+
+function ClearMovesPlaylist(){
+	movesplaylist.map(clearTimeout);
+	movesplaylist=[];
 }
 
 function ReplayParseMoves(movetext){
-	Replay(ParseMoves(movetext));
+	return Replay(ParseMoves(movetext));
 }
+
 
 function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 	UpdateLevelData(curlevel);
