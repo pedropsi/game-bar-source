@@ -116,6 +116,12 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 			<img src="images/gravirinth/gravirinth-tutorial-8.png" alt="Gravirinth tutorial 8:save" title="Gravirinth tutorial 8:save"/>
 		</div>
 	</div>
+	<div class="left">
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-9.png" alt="Gravirinth tutorial 9:rescue" title="Gravirinth tutorial 9:rescue"/>
+		</div>
+		<p>At the end of the expedition, <b>Press X</b> on your exopad to call rescue, unless you prefer to collect any still accessible <em>fourfold orbs</em>...</p>
+	</div>
 </div>
 
 «GAME-EXTRAS-TEXT»
