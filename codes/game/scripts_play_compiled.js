@@ -895,14 +895,13 @@ function RegisterMove(mov){
 			case 0:move=38;break;//^
 			case 3:move=39;break;//>
 			case 2:move=40;break;//v
-			case 4:move=88;break;//v
-			RegisterMove(88)
+			case 4:move=88;break;//X
 		}
 		var delta = ElapsedTime();
 		moveseq.push([move,delta]);
 		switch(move){
 			case 82:winseq=[];break;//R
-			case 88:winseq.pop();break;//Z
+			case 85:winseq.pop();break;//Z
 			case 27:winseq=["Q"];break;//Q
 			default: winseq.push([move,delta]);break
 		}
@@ -950,56 +949,174 @@ function UpdateLevelData(curlevel){
 	leveldata["type"]="win";
 }
 
-function ParseMoves(movestring){
-	return JSON.parse(movestring);
-}
-
-var movesplaylist=[];
-
-function Replay(movetimes,maxdelay,mindelay){
-	ClearMovesPlaylist();
-	var time=0;
-	var maxdelay=maxdelay?maxdelay:9000;
-	var mindelay=mindelay?mindelay:0;
-	recordingmoves=false;
-	
-	function PlayMove(move,message){
-		checkKey({keyCode:move},!0);
-		console.log("move:",move,message);
-	}
-	
-	function Schedule(move,time,message){
-		return setTimeout(function(){PlayMove(move,message)},time);
-	}
-	
-	for (var i=0;i<movetimes.length;i++){
-		if(i!==0){
-				time=time+Math.max(Math.min(movetimes[i][1],maxdelay),mindelay);
-		}
-		movesplaylist[i]=Schedule(movetimes[i][0],time,(i+1)+" of "+movetimes.length);
-	}
-	
-	setTimeout(function(){recordingmoves=true;},time+100);
-	console.log("Replay Scheduled");
-	return movesplaylist;
-}
-
-function ClearMovesPlaylist(){
-	movesplaylist.map(clearTimeout);
-	movesplaylist=[];
-}
-
-function ReplayParseMoves(movetext){
-	return Replay(ParseMoves(movetext));
-}
-
-
 function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 	UpdateLevelData(curlevel);
 	leveldata["type"]="checkpoint";
 	leveldata["level"]=String(curlevel)+"."+String(checkpointsaver);
 	ClearMoves();
 }
+
+///Replaying Moves
+
+function ParseMoves(movestring){
+	return JSON.parse(movestring);
+}
+
+var movesplaylist=[];
+var maxdelay=500; //delay between moves
+var mindelay=500; //delay between moves
+var recordingmovesid;
+
+
+function ReplayParseMoves(movetext){
+	return Replay(ParseMoves(movetext));
+}
+
+function ClearMovesPlaylist(){
+	movesplaylist.map(function(mpi){clearTimeout(mpi.schid)});
+	movesplaylist=[];
+}
+
+function Replay(movetimes){
+	ClearMovesPlaylist();
+	movesplaylist=NewMovesPlaylist(movetimes);
+	movesplaylist=ResumeMovesPlaylist(movesplaylist);
+	return movesplaylist;
+}
+
+function NewMovesPlaylist(movetimes){
+	var movesplaylist=movetimes.map(function(movetime,i){
+		return {
+			move:movetime[0],
+			timedelta:movetime[1],
+			time:0,
+			id:i,
+			schid:0,
+			state:"paused"
+			};	
+		});
+	movesplaylist=SetTimesMovesPlaylist(movesplaylist);
+	return movesplaylist;
+};
+
+function SetTimesMovesPlaylist(movesplaylist){
+	var m=movesplaylist;
+	var time=0;
+	for (var i=0;i<m.length;i++){
+		if(m[i].state=="paused"){
+			time=time+Math.max(Math.min(m[i].timedelta,maxdelay),mindelay);
+			m[i].time=time;
+		}
+	}
+	return m;
+}
+
+function PauseMovesPlaylist(movesplaylist){
+	var m=movesplaylist.map(function(mpi){
+		if(mpi.state=="scheduled"){
+			clearTimeout(mpi.schid);
+			mpi.state="paused";
+		}
+		return mpi;
+		});
+
+	recordingmoves=true;
+	clearTimeout(recordingmovesid);
+	
+
+	return m;
+}
+
+function ResumeMovesPlaylist(movesplaylist){
+	var m=movesplaylist;
+	m=SetTimesMovesPlaylist(m);
+	recordingmoves=false;	
+	m=m.map(function(mpi){ScheduleMove(mpi,m);return mpi})
+	console.log("Replay Scheduled");
+	return m;
+}
+
+function ScheduleMove(mpi,movesplaylist){
+	if(mpi.state=="paused"){
+		mpi.schid=setTimeout(function(){PlayMove(mpi,movesplaylist)},mpi.time);
+		mpi.state="scheduled";
+	}
+	if(mpi.id===movesplaylist[movesplaylist.length-1].id)
+		recordingmovesid=setTimeout(function(){recordingmoves=true;},mpi.time+100);
+	return mpi;
+}
+
+function PlayMove(mpi,movesplaylist){
+	var move=mpi.move;
+	var message= mpi.id+" of "+movesplaylist.length;
+	checkKey({keyCode:move},!0);
+	mpi.state="played";
+	mpi.time=0;
+	console.log("move:",move,message);
+}
+
+function UnPlayMove(mpi,movesplaylist){
+	var move=mpi.move;
+	var message= mpi.id+" of "+movesplaylist.length;
+	if(move!=85)
+		checkKey({keyCode:85},!0);
+	else
+		checkKey({keyCode:PreviousMove(mpi).move},!0);
+	mpi.state="paused";
+	mpi.time=0;
+	console.log("unplaying move:",move,message);
+}
+
+function FindMove(i,movesplaylist){
+	return movesplaylist.find(function(mpi){return mpi.id===i;});
+}
+
+function NextMovesPlaylist(movesplaylist){
+	var m=movesplaylist;
+	var found=false;
+	var time=0;
+
+	for (var i=0;i<m.length&&!found;i++){
+		if(m[i].state=="paused"){
+			time=time+Math.max(Math.min(m[i].timedelta,maxdelay),mindelay);
+			m[i].time=time;
+			found=true;
+			ScheduleMove(m[i],m);
+		}
+	}
+	return m;
+}
+
+function PreviousMovesPlaylist(movesplaylist){
+	var m=movesplaylist;
+	var found=false;
+	var time=0;
+
+	for (var i=m.length-1;i>=0&&!found;i--){
+		if(m[i].state=="played"){
+			found=true;
+			UnPlayMove(m[i],m);
+		}
+	}
+	return m;
+}
+
+function ChangeReplaySpeed(movesplaylist,newinterval){
+	PauseMovesPlaylist(movesplaylist);
+	maxdelay=newinterval;
+	mindelay=newinterval;
+	ResumeMovesPlaylist(movesplaylist);
+}
+
+function FasterReplaySpeed(movesplaylist){
+	ChangeReplaySpeed(movesplaylist,maxdelay*0.9)
+}
+
+function SlowerReplaySpeed(movesplaylist){
+	ChangeReplaySpeed(movesplaylist,maxdelay/0.9)
+}
+
+
 
 function configLevelWin(curlevel){
 	updateConfig(document.body.id+"("+maxlevel+")»");
