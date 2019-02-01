@@ -21,6 +21,8 @@ function Decode(id,key){
 	var decoded=Decrypt(id,key);
 	var a="";
 	var m=12;
+	while(decoded.length<=m)
+		decoded=decoded+"A";
 	for(i=0;i<decoded.length-m;i++)
 		a=a+decoded[i];
 	return Decrypt(a,key);

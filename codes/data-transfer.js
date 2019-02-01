@@ -680,12 +680,10 @@ function SubmitAnswer(DP){
 	
 	var validator=DP.qvalidator(DP);
 	console.log(validator);
-	
-	if(DP.qrequired)
-		if(!validator.valid)
-			AddAfterElement(ErrorHTML(validator.error),"#"+DP.qid);
+	if(DP.qrequired&&!validator.valid){
+		AddAfterElement(ErrorHTML(validator.error),"#"+DP.qid);
+	}
 	else{
-
 		var formtype=FindData("destination",DP.qid);
 		var destinationObject=GetDestination(formtype);
 		var dataObject=(destinationObject.Data)(DP.qid);

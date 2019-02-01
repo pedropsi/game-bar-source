@@ -80,6 +80,17 @@ var DESTINATION_ORDER={
 		address:FindData("address",qid)
 		}}
 	}
+
+var DESTINATION_KEYS={
+	url:DESTINATION_FEEDBACK.url,
+	headers:"[\"identifier\",\"key\"]",
+	sheet:"Keys",
+	name:"Keys",
+	Data:function(qid){return {
+		identifier:pageTitle(),
+		key:FindData("answer",qid)
+		}}
+	}
 	
 /*
 var DESTINATION_RATING={
@@ -102,7 +113,7 @@ DESTINATIONS[DESTINATION_COMMENT.name]=DESTINATION_COMMENT;
 DESTINATIONS[DESTINATION_FEEDBACK.name]=DESTINATION_FEEDBACK;
 DESTINATIONS[DESTINATION_SUBSCRIPTION.name]=DESTINATION_SUBSCRIPTION;
 DESTINATIONS[DESTINATION_ORDER.name]=DESTINATION_ORDER;
-
+DESTINATIONS[DESTINATION_KEYS.name]=DESTINATION_KEYS;
 
 
 //////////////////////////////////////////////////////////////////////
@@ -321,7 +332,7 @@ function OpenModalPreOrder(campaigntext){
 		qfield:"address",
 		qplaceholder:"_______@___.___",
 		thanksmessage:"Your booking was placed. Thank you!",
-		qvalidate:EmailValidator
+		qvalidator:EmailValidator
 		});
 		
 	DP.qdisplay(DP);
