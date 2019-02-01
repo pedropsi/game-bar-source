@@ -1,1 +1,5 @@
-﻿
+﻿<h2>Sorry, the page you were looking for wasn't found (404)!</h2>
+<p>Is this a bug? Please «CONTACT-TEXT-3»!<p>
+<p>All pages are listed below for your convenience.</p>
+
+«ARCHIVE-OF-POST-BY-DATE»
