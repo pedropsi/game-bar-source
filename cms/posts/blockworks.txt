@@ -1,6 +1,5 @@
 ﻿«ABOUT-TEXT»
-<p>Place the blue <em>X Block</em> at the <em>goal</em> (white arrow).Take advantage of auxiliary blocks by thinking creatively and acting timely.</p>
-<p>8 levels only comprise this action puzzle. Good luck!</p>
+«ONE-LINER:Load»
 
 «HOWTO-TEXT»
 «AVATAR-TEXT»    

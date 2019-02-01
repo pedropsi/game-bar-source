@@ -17,6 +17,62 @@
 		</image>
 
 		<item>
+		<title>Press kit</title>
+		<link>http://pedropsi.github.io/press</link>
+		<guid>http://pedropsi.github.io/press</guid>
+		<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+		<description>
+			<![CDATA[
+				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+				<p>Quick links
+				Factsheet
+				Description
+				History
+				Projects
+				Images & Logo
+				Contact
+		
+		Factsheet
+				
+				
+				  
+				Author:
+					Pedro PSI
+				Address:
+					a secret location
+				Founding date:
+					December, 2017
+				Website:
+					https://pedropsi.github.io
+				Social media:
+					None.
+				Releases:
+					Gravirinth (2019) 
+		...</p>
+			]]>
+			</description>
+		
+		<category>Creative-Archive</category><category>Press</category><category>Sitemap</category>
+		</item>
+		<item>
+		<title>Selected Puzzlescript Games</title>
+		<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
+		<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
+		<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+		<description>
+			<![CDATA[
+				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+				<p>Purpose
+		This is a short list of very good puzzlescript games, in my opinion. It serves as a personal, yet publicly shared, reference (to be updated whenever needed). 
+		
+		Criteria
+		The list focusses on games released within the years 2014-2018, yet many during this period were overlooked. As long as ...</p>
+			]]>
+			</description>
+		
+		<category>List</category><category>Post</category>
+		</item>
+		<item>
 		<title>Gravirinth</title>
 		<link>http://pedropsi.github.io/gravirinth</link>
 		<guid>http://pedropsi.github.io/gravirinth</guid>
@@ -29,9 +85,8 @@
 		
 		
 		About Gravirinth
-		
 		According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
-		Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive thi...</p>
+		Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive this...</p>
 			]]>
 			</description>
 		
@@ -61,14 +116,11 @@
 				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Gravirinth changelog" title="Gravirinth changelog"/>
 				<p>This is Gravirinth's devlog.
 		
-		22-01-2019
-			Ongoing bug corrections and level polishes
-			Light propagation instantaneous. Missing checkpoint.
-			Polishing levels unplugged and block booster.
+		29-01-2019
+		Level Unplugged became clearer yet harder. Another major simplification, to level Blockbooster, created a better level, renamed  Hourglass.
+		An at first sight impossible bonus level, named Brakes, was created - the last level to be added to Gravirinth.
 		
-		20-01-2019
-			New release date
-			Although the game could be released as is, new polish ideas keep appearing. So t...</p>
+		22-...</p>
 			]]>
 			</description>
 		
@@ -83,10 +135,10 @@
 			<![CDATA[
 				<img src="https://pedropsi.github.io/images/abxtract-tractx.png" height="200" align="left" hspace="5" alt="Abxtract Tractx" title="Abxtract Tractx"/>
 				<p>About Abxtract Tractx
-		Do you think  Abstract Art is too simple to be considered art? Try reproducing all 6 iconic abstract paintings in the very puzzling Abxtract Tractx! 
+		Do you think Abstract Art is too simple to be considered art? Try reproducing all 6 iconic abstract paintings in the very puzzling Abxtract Tractx!
 		
 		How to playControls - keyboard
-		Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the rig...</p>
+		Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the right...</p>
 			]]>
 			</description>
 		
@@ -117,47 +169,12 @@
 			<![CDATA[
 				<img src="https://pedropsi.github.io/images/tiaradventur.png" height="200" align="left" hspace="5" alt="Tiaradventur" title="Tiaradventur"/>
 				<p>About Tiaradventur
-		
-		A desperate Princess, on a quest to find seven stolen tiaras, asks for your help. As a Hero in the making, you must not refuse, even in the face of danger! 
-		As the story unfolds, you may get to know the Princess better and understand what really is at stake.
-		The legend of Tiar...</p>
+		A desperate Princess, on a quest to find seven stolen tiaras, asks for your help. As a Hero in the making, you must not refuse, even in the face of danger! As the story unfolds, you may get to know the Princess better and understand what really is at stake.
+		The legend of Tiarad...</p>
 			]]>
 			</description>
 		
 		<category>Game</category><category>Puzzle</category><category>Role-playing</category>
-		</item>
-		<item>
-		<title>Guestbook</title>
-		<link>http://pedropsi.github.io/guestbook</link>
-		<guid>http://pedropsi.github.io/guestbook</guid>
-		<pubDate>Sun, 22 Jul 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-				<p>The Guestbook of the Creative Archive</p>
-			]]>
-			</description>
-		
-		<category>Creative-Archive</category>
-		</item>
-		<item>
-		<title>Hastefulll</title>
-		<link>http://pedropsi.github.io/hastefulll</link>
-		<guid>http://pedropsi.github.io/hastefulll</guid>
-		<pubDate>Thu, 12 Jul 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/hastefulll.png" height="200" align="left" hspace="5" alt="Hastefulll" title="Hastefulll"/>
-				<p>About Hastefulll
-		Hastefulll is a simple 7-level puzzle platformer about trying to leave a mark everywhere, as fast as possible. However, too much haste may have negative consequences!
-		Fill the board, but plan wisely. Haste makes waste!
-		
-		How to playControls - keyboard
-		Dash horizontally with the le...</p>
-			]]>
-			</description>
-		
-		<category>Game</category><category>Platformer</category><category>Puzzle</category>
 		</item>
 		
 	</channel>

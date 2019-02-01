@@ -1,152 +1,51 @@
-<div id="menu" class="four columns">
-	<ul>
-		<!-- the rest of this menu is populated by js -->
-	</ul>
-</div>
+<h2>Quick links</h2>
+		<a href="press#factsheet">Factsheet</a>
+		<a href="press#description">Description</a>
+		<a href="press#history">History</a>
+		<a href="press#projects">Projects</a>
+		<a href="press#images">Images & Logo</a>
+		<a href="press#contact">Contact</a>
 
-<div id="factsheet" class="four columns">
-	<h2>Factsheet</h2>
-	<dl>
-		<dt>Author:</dt>
-			<dd>«NAME»</dd>
-			<dd>Based in: «LOCATION»</dd>
-
-		<dt>Founding date:</dt>
-			<dd>«DATE-FOUNDED»</dd>
-
-		<dt>Website:</dt>
-			<dd>«SITE-LINK»</dd>
-
-		<dt>Press / Business Contact:</dt>
-			<dd>(this site's full address, minus the https://) at gmail </dd>
-
-		<dt>Social media:</dt>
-			<dd>None, deliberately.</dd>
+<h2 id="factsheet">Factsheet</h2>
 		
-		<dt>Releases:</dt>
-			<dd>«GRAVIRINTH|Linked»</dd>
-			<dd>«ABXTRACT-TRACTX|Linked»</dd>
-			<dd>«TIARADVENTUR|Linked»</dd>
-			<dd>«PMGRP|Linked»</dd>
-			<dd>«UNLUCKY-UNLOCK|Linked»</dd>
-		
-	</dl>
-</div><div id="historydescription" class="eight columns alpha omega">
-	<div id="description" class="eight columns">
-		<h2>Description</h2>
-		<p>«SITE-NAME» is an archive of «NAME»'s puzzle games and other personal projects, with a triple purpose: record «NAME»'s learning journey, make it useful to others and become a stepping stone to something greater. Contrary to expectations, a growing community of enthusiasts find joy in «NAME»'s unique challenges and learn something new every time.</p>
-	</div>
+		<table>
+		<thead><th> </th><th> </th></thead>
+		<tr><td>Author:</td>
+			<td>«NAME»</td></tr>
+		<tr><td>Address:</td>
+			<td>«LOCATION».</td></tr>
+		<tr><td>Founding date:</td>
+			<td>«DATE-FOUNDED»</td></tr>
+		<tr><td>Website:</td>
+			<td>«SITE-LINK-SELF»</td></tr>
+		<tr><td>Social media:</td>
+			<td>None.</td></tr>
+		<tr><td>Releases:</td>
+			<td>«TITLE-ONLY«SELECTION»»</td>
+		</table>
 
-	<div id="history" class="eight columns">
-		<h2>History</h2>
-		<h3>Before 2017</h3>
-		<p>Before 2017, «NAME» made a couple small puzzle games, of which notably <a href="unlucky-unlock.html">Unlucky Unlock</a> was widely shared in the puzzle community.
-		<h3>2018 - the debut</h3>
-		<p>2018 marks the debut of «SITE-NAME», the release of 6 free games (blockworks, whirlpuzzle, pmgrp, hastefulll, tiaradventur, abxtract-tractx) and the revealing the world of <a href="combinatura.github.io">combinatura</a>.</p>
-		<h3>From 2019 onwards</h3>
-		<p>The year of 2019 will start with the release of <a href="gravirinth.hrml">Gravirinth</a>, the first commercial and one of the most complex puzzlescript games ever coded.</p>
-	</div>
+<h2 id="description">Description</h2>
+		<p>«SITE-NAME» is an archive of «NAME»'s personal projects - notably «NAME»'s puzzles - with a triple purpose: record «NAME»'s learning journey, make it useful to others and become a stepping stone to something greater. Surpassing all expectations, a growing community of enthusiasts find joy in «NAME»'s unique challenges and often learn something new.</p>
+
+<h2 id="history">History</h2>
+	<p>Many years elapsed since «NAME»'s first hit, the mini puzzle <a href="unlucky-unlock.html">Unlucky Unlock</a>, and the birth of the «SITE-NAME», just before 2018. Fast-forward a year, and five intriguing puzzles (<a href="whirlpuzzle.html">whirlpuzzle</a>, <a href="pmgrp.html">pmgrp</a>, <a href="hastefulll.html">hastefulll</a>, <a href="tiaradventur.html">tiaradventur</a>, <a href="abxtract-tractx.html">abxtract-tractx</a>), came into being, each a stepping stone for the next greater project.</p>
+	<p>«NAME»'s game-making adventure ends in 2019, with an achievement: the first commercial puzzlescript game ever released worldwide. Enter the <a href="gravirinth.html">Gravirinth</a> - a mysteriously puzzling exoarcheology expedition.</p>
 	
-	<div id="games" class="eight columns">
-		<h2>Projects</h2>
-		<ul>
-			<li>
-				<a href="gravirinth/" class="eight columns alpha omega tall"style="background-image: url(images/gravirinth.png);">holedown</a>				</li>
-			<li>
-				<a href="rymdkapsel/" class="four columns alpha"style="background-image: url(data/rymdkapsel/images/icon.png);">rymdkapsel</a>				</li>
-			<li>
-				<a href="twofold/" class="four columns omega"style="background-image: url(data/twofold/images/icon.png);">twofold inc.</a>				</li>
-				</ul>
-		</div>
+<h2 id="projects" >Projects</h2>
+	«SNIPPET«SELECTION»»
+	<h3>Other Projects</h3>
+	<p>See <a href="games.html">all games</a>.</p>
+
+<h2 class="images">Images & Logo</h2>
+	<p>Download all images + logo <a class="download" title="Download all images and logo" 
+	href="images/press-images-pedropsi.zip">↓↓↓ (zip archive)</a></p>
 	
-</div>
-<hr class="twelve columns" /><div id="images" class="twelve columns">
-	<h2>Images
-					<a class="download" title="Download all images as an archive" href="/data/images/grapefrukt-images.zip"><i class="icon-download icon-large"></i></a>
-			</h2>
-	<ul>
-				<li class="twelve columns alpha omega">
-				<a class="widescreen" href="/data/images/0_mugshot_by_martin_jonasson-cc-by-sa.jpg" style="background-image: url(/data/images/0_mugshot_by_martin_jonasson-cc-by-sa.jpg);" ></a>
-			</li>
-					<li class="six columns alpha">
-				<a class="widescreen" href="/data/images/fantasticarcade2011_by_fantasticarcade.png" style="background-image: url(/data/images/fantasticarcade2011_by_fantasticarcade.png);" ></a>
-			</li>
-					<li class="six columns omega">
-				<a class="widescreen" href="/data/images/gdc2010_by_tedmartens.png" style="background-image: url(/data/images/gdc2010_by_tedmartens.png);" ></a>
-			</li>
-					<li class="six columns alpha">
-				<a class="widescreen" href="/data/images/killscreenvsscandinavia_by_elliot_trinidad.png" style="background-image: url(/data/images/killscreenvsscandinavia_by_elliot_trinidad.png);" ></a>
-			</li>
-					<li class="six columns omega">
-				<a class="widescreen" href="/data/images/ngin2011_by_zo-ii.png" style="background-image: url(/data/images/ngin2011_by_zo-ii.png);" ></a>
-			</li>
-			</ul>
-</div>
-
-<hr class="twelve columns" />
-
-<div id="logo" class="twelve columns">
-	<h2>Logo
-			</h2>
-	<a href="/data/images/logo.png"><img class="twelve columns alpha omega" src="/data/images/logo.png" alt="Logo" /></a>
-</div>
-
-<hr class="twelve columns" />
-
-<div id="trailers" class="twelve columns">
-	<h2>Videos</h2>
+<h3 id="logo">Selected project images</h3>
+	<div class="featured">«GALLERY-PICTURE«SELECTION»»</div>
 	
-		<div class="video six columns twelve columns alpha omega">
-			<ul class="videolinks">
-									<li><a href="//youtu.be/Fy0aCDmgnxg" ><i class="icon-youtube-play icon-large"></i></a></li>
-							</ul>
-			
-			<div class="widescreen">
-									<iframe src="//www.youtube.com/embed/Fy0aCDmgnxg?autohide=1&amp;hd=1&amp;controls=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=1&amp;allowfullscreen" allowfullscreen></iframe>
-							</div>
-		</div>
+<h3 id="logo">Logo</h3>
+	<div class="figure"><img src="«LOGOPATH»" alt="«NAME»'s logo, of the «SITE-NAME»" title="«NAME»'s octaflower logo, of the «SITE-NAME»"/><div class="legend">«SITE-NAME»'s logo, by «NAME».</div></div>	
 
-		
-		<div class="video six columns six columns alpha">
-			<ul class="videolinks">
-									<li><a href="//youtu.be/CsRZ3cBQV9U" ><i class="icon-youtube-play icon-large"></i></a></li>
-							</ul>
-			
-			<div class="widescreen">
-									<iframe src="//www.youtube.com/embed/CsRZ3cBQV9U?autohide=1&amp;hd=1&amp;controls=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=1&amp;allowfullscreen" allowfullscreen></iframe>
-							</div>
-		</div>
-
-		
-		<div class="video six columns six columns omega">
-			<ul class="videolinks">
-									<li><a href="//youtu.be/q_BEe5KuG1c" ><i class="icon-youtube-play icon-large"></i></a></li>
-							</ul>
-			
-			<div class="widescreen">
-									<iframe src="//www.youtube.com/embed/q_BEe5KuG1c?autohide=1&amp;hd=1&amp;controls=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=1&amp;allowfullscreen" allowfullscreen></iframe>
-							</div>
-		</div>
-
-		</div>
-
-<hr class="twelve columns" />
-<div class="twelve columns">
-	<div id="credits" class="six columns alpha">
-		<h2>Team & Repeating Collaborators</h2>
-		<dl>
-		<dt><a href="http://salkinitzor.bandcamp.com/" >Niklas Ström</a></dt><dd>Music &amp; sound, Freelancer</dd>		</dl>
-	</div>
-
-	<div id="contact" class="six columns omega">
-		<h2>Contact</h2>
-		<dl>
-		<dt>Inquiries</dt><dd><a href="mailto:m@grapefrukt.com" >m@grapefrukt.com</a></dd><dt>Twitter</dt><dd><a href="https://twitter.com/grapefrukt" >twitter.com/grapefrukt</a></dd><dt>Facebook</dt><dd><a href="https://facebook.com/grapefrukt" >facebook.com/grapefrukt</a></dd><dt>Web</dt><dd><a href="http://grapefrukt.com" >grapefrukt.com</a></dd>		</dl>
-	</div>
-</div>
-</div>
-
-<script src="/js/presskit.js" type="text/javascript"></script>	
-	
-</body>
-</html>
+<h2 id="contact">Contact</h2>
+	<h3>Inquiries</h3>
+	<p>Contact form: <a href="https://pedropsi.github.io/contact" >pedropsi.github.io/contact</a></p>

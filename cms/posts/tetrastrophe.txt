@@ -1,6 +1,6 @@
 ﻿«ABOUT-TEXT»
-<p>Blocks are falling from the sky! Reach the <em>flag</em> to avoid a catastrophe!</p>
-<p>There are 10 levels before reaching absolute safety.</p>
+«ONE-LINER:Load»
+
 
 «HOWTO-TEXT»
 <p><b>Press X</b> to let a <em>block</em> fall from the sky.</p>

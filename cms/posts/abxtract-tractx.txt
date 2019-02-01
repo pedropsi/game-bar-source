@@ -1,5 +1,5 @@
 ﻿«ABOUT-TEXT»
-<p>Do you think <em> Abstract Art is too simple to be considered art</em>? Try reproducing all 6 iconic abstract paintings in the very puzzling <b>«TITLE:Load»</b>!</p> 
+«ONE-LINER:Load»
 
 «HOWTO-TEXT»
 <p>Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the right-hand-side.</p>

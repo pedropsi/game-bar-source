@@ -1,6 +1,5 @@
 ﻿«ABOUT-TEXT»
-<p>Find a path to the <em>goal</em>, by rotating the puzzle to displace obstacles and reach inaccessible locations! Beware, whirling too much will only confuse you...</p>
-<p>Can you solve all 7 levels? Good luck!</p>
+«ONE-LINER:Load»
 
 «HOWTO-TEXT»
 <p>The goal is marked by an <b>X</b>.</p>

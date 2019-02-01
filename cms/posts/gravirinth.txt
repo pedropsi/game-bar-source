@@ -3,14 +3,7 @@
 </div>
 
 «ABOUT-TEXT»
-
-<p>According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
-Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive this great power...</p>
-<p>So an enigma was devised to test the intelligence of alien societies, a puzzle marvelous yet so obscure that finding it would be a challenge in the first place. Thus the «TITLE-BOLD» were born, each hidden into the most promising solar systems.</p> 
-<p>In the next millenia, few «TITLE-BOLD» were ever found, and even fewer yielded their secrets, a rare moment of great joy where two civilisations found they were not alone in the vast cosmos. In the Solar System too had once a «TITLE-BOLD» been found, but its location was lost to mankind...</p>
-
-<p><b>...until Xeno, the Exoarchaeologist, arrived.</b> Will the «TITLE-BOLD» reveal its mysteries?</p>
-</p>
+«ONE-LINER:Load»
 
 <h3>Features</h3>
 <ul>
@@ -211,32 +204,32 @@ Eager at first to share their wisdom, soon they became aware that most alien lif
 </thead>
 <tbody>
 	<tr>
-		<th>EUR, GBP</th>
-		<th>2,5</th>	</tr>
+		<td>EUR, GBP</td>
+		<td>2,5</td>	</tr>
 	<tr>
-		<th>USD, CHF</th>
-		<th>3</th>	</tr>
+		<td>USD, CHF</td>
+		<td>3</td>	</tr>
 	<tr>
-		<th>AUD, NZD, CAD, SGD</th>
-		<th>4</th>	</tr>
+		<td>AUD, NZD, CAD, SGD</td>
+		<td>4</td>	</tr>
 	<tr>
-		<th>BRL</th>
-		<th>10</th>	</tr>
+		<td>BRL</td>
+		<td>10</td>	</tr>
 	<tr>
-		<th>RMB, DKK</th>
-		<th>20</th>	</tr>
+		<td>RMB, DKK</td>
+		<td>20</td>	</tr>
 	<tr>
-		<th>SEK, NOK, HKD</th>
-		<th>25</th>	</tr>
+		<td>SEK, NOK, HKD</td>
+		<td>25</td>	</tr>
 	<tr>
-		<th>RUB, INR</th>
-		<th>200</th>	</tr>
+		<td>RUB, INR</td>
+		<td>200</td>	</tr>
 	<tr>
-		<th>JPY</th>
-		<th>350</th>	</tr>
+		<td>JPY</td>
+		<td>350</td>	</tr>
 	<tr>
-		<th>KRW</th>
-		<th>3500</th>	</tr>
+		<td>KRW</td>
+		<td>3500</td>	</tr>
 	</tbody>
 </table>
 

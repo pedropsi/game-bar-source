@@ -1,6 +1,5 @@
 ﻿«ABOUT-TEXT»
-<p>«TITLE:Load» is a mini puzzle platformer about cooperating with your future self to reach your goals.</p>
-<p>Plan your limited moves wisely, play and replay all 11 levels!</p>
+«ONE-LINER:Load»
 
 «HOWTO-TEXT»
 <h4>Play mode</h4>

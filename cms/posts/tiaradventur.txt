@@ -1,8 +1,5 @@
 ﻿«ABOUT-TEXT»
-
-<p>A desperate Princess, on a quest to find seven stolen tiaras, asks for your help. As a Hero in the making, you must not refuse, even in the face of danger!</p> 
-<p>As the story unfolds, you may get to know the Princess better and understand what really is at stake.</p>
-<p>The <em>legend of «TITLE:Load»</em> is yours to write! How much intelligence you dedicate to this <b>role-playing puzzle</b> is up to you:</p>
+«ONE-LINER:Load»
 
 <h3>Easy quest</h3>
 <p>Pick each <b>tiara</b> and hand it to the <b>Princess</b> to fulfill the <b>easy quest</b>.</p>
