@@ -45,7 +45,7 @@
 <p><a href="«SITE»/«LINK:Load».html">«TITLE:Load»</a> by <a href="«SITE»">«NAME»</a>, «YEAR:Load».</p>
 
 <h3>Music</h3>
-<p>All music tracks by the talented <a href='«MUSIC-LINK:Load»' id='music-author' «BLANK»><b>«MUSIC-AUTHOR:Load»</b></a>.
+<p>All music tracks by the talented «WHITESAND«P»».
 <ol>
 <li>Legend of the King</li> 
 <li>Beyond</li> 

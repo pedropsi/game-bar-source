@@ -2,20 +2,24 @@ Link	Content
 YEAR-NOW	2019
 LOCATION	a secret location
 NAME	Pedro PSI
+NAME-LINK	<a href="«SITE»">«NAME»</a>
 MOSAIC-TEXT	Clicking on the mosaic above will change this page's background. Try it!
 YEAR-START	2010
+DATE-FOUNDED	December, 2017
 ME	me
 MY	my
 I	I
 I'm	I'm
 PERSONAL	personal
 SITE-NAME	Creative Archive
-SITE	https://pedropsi.github.io
-SITE-HTTP	http://pedropsi.github.io
+SITE-SHORT	pedropsi.github.io
+SITE	https://«SITE-SHORT»
+SITE-HTTP	http://«SITE-SHORT»
+SITE-LINK	<a href="«SITE»">«SITE-NAME»</a>
 SOURCE-URL	https://github.com/pedropsi
 LINK-URL	«SITE»/«LINK:Load»
 LOGOPATH	images/logo.png
-CSS-NAME	<a href="«CSSPATH»">"Octaflower Theme" by «NAME»</a>
+CSS-NAME	<a href="«CSSPATH»">"Octaflower Theme"</a> by «NAME-LINK»
 CSSPATH	codes/index.css
 APPLEICON	images/splash.png
 FAVICON32	images/favicon-32x32.png
@@ -105,10 +109,10 @@ UNDO-TEXT	Press <b>Z</b> to undo a move.
 FEEDBACK-TEXT	<h3>Real-time feedback</h3><p>Press <b>F</b> anytime to provide real-time feedback! Much appreciated!</p>
 AVATAR-TEXT	<p>Control your <em>avatar</em> with the <b>arrow keys</b>.</p>
 CREDITS	<h2>Credits</h2>«CREDITS-AUTHORSHIP»«CREDITS-MUSIC»«CREDITS-ENGINE-SUPPORT»
-CREDITS-AUTHORSHIP	<p><a href="«LINK-URL».html">«TITLE-BOLD»</a> by <a href="«SITE»">«NAME»</a>, «YEAR:Load».</p>
+CREDITS-AUTHORSHIP	<p><a href="«LINK-URL».html">«TITLE-BOLD»</a> by «NAME-LINK», «YEAR:Load».</p>
 CREDITS-MUSIC	<h3>Music</h3><p><b><em>«MUSIC-TITLE:Load»</em></b> by <a href='«MUSIC-LINK:Load»' id='music-author' «BLANK»><b>«MUSIC-AUTHOR:Load»</b></a>.
 CREDITS-ENGINE-SUPPORT	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT»«SOURCE-TEXT»«PATREON-GAME»
-CREDITS-ENGINE-CLOSED	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT»
+CREDITS-ENGINE-CLOSED	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT» The source will be available some time after the release.
 PUZZLESCRIPT-TEXT	<p>Made with <a «BLANK» href='http://puzzlescript.net'>Puzzlescript</a>.</p>
 SOURCE-TEXT	<p>Inspect the <a «BLANK» href='http://puzzlescript.net/editor.html?hack=«CONTENT:Load»'><b>source</b></a> freely, but consider <a «BLANK» href='«DONATE-LINK»'><b>supporting the «SITE-NAME»</b></a>!</p>
 DONATE-LINK	2018-02-08-support-the-archive.html

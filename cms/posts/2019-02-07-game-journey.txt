@@ -1,0 +1,239 @@
+<h2>Learning by doing games</h2>
+<p>In this post «I» want to share my game making journey of more than a year (2018), because what «I» have learned might be useful to other people. Despite the focus on puzzlescript, the main tool that «I» used, with «my» own game source-codes publicly available (so other people can benefit), the lessons are widely applicable. </p>
+
+<h3>From player to maker<h3>
+<p>«I» played games often in «my» childhood, occasionally too much. Eventually «I» learned to programm in different languages, which in turn led to some early private experiments in game-making, mostly for fun (vastly overestimated) and for the (vastly underestimated) challenge. It would all have ended there, in the drawer, had «I» not stumbled across puzzlescript, whose greatest virtue was to allow, with a single click, to publish and share any game onlicne, in seconds.</p>
+<p><em>A game-making journey had begun.</em></p>
+
+<h3>The beginnings<h3>
+<h4>#1 A very bad game<h4>
+<p>«My» very first puzzlescript game was, like everyone else's, a <em>very</em> bad game. So bad, it's not even online anymore. Really? Well, the art was ugly, the game mechanics were too complex, the levels lacked focus and the difficulty curve was chaotic. Luckily, some game designers gave «me» useful feedback, so the game improved from very bad to just <em>mediocre</em>.</p>
+
+<p><b>Lessons learned:</b>
+<ul>
+<li><b>Nice developers</b> out there will help you;</li>
+<li><b>Less is more</b>: simpler graphics, smoother difficulty curves, less features.</li>
+</ul>
+</p>
+
+<h4>#2 Tetrastrophe - a twist on a classic<h4>
+<p>The challenge now was to make something more complex, so <a>Tetrastrophe</a>, a real-time puzzle game, was born. Having used simpler colours and gradually introduced the player to the different rules, this was already an enjoyable game, with an added a nice music soundtrack.</p>
+<p>The combination of the real-time and the puzzle element made the game extremely hard for all players, so an alternate version was released, with a slower pace. Sadly, the slower version felt too easy.  Each version required its own link, but afterwards it wold be wrong to issue a new link be issued for every new change. Instead, «I» started using github's <a href="gist.github.com">gists</a> to generate and update links, one per game.</p>
+<p> Later it occurred to «me» Tetris was still protected by copyright; «I» needed to know that this was being respected by Tetrastrophe. Given that Tetrastrophe's game nature, goal, piece shapes and mechanics are by large original, «I» «am» confident no problems will ever arise, but next games had to be 100% original.</p>
+<p>
+
+<b>New achievements:</b>
+<ul>
+	<li>an original game inspired by a classic;</li>
+	<li>moving and copying blocks of different shapes;</li>
+	<li>real-time elements;</li>
+	<li>an appropriate game soundtrack;</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>Research similar games beforehand (to ensure originality and no copyright issues);</li>
+	<li>centralise the newest release version using a single updateable link;</li>
+	<li>puzzles and fast pace don't easily go together;</li>
+</ul>
+</p>
+
+<h4>#3 Unlucky Unlock - an original puzzle<h4>
+<p>The previous game felt like much work without much gain, so this time «I» wanted to create the simplest game possible, yet beautiful and original. How simple? A simple goal - placing coloured blocks in prefefined positions - and a simple mechanics - pure block pushing, nothing else. How could such a simple game be original? Firstly, making blocks in Puzzlescript is not very easy, so many developers don't use these elements. Luckily, this hurdle had been partially overcome in Tetrastrophe, whose (not yet very modular) code could be reused and improved. Secondly, adding the player avatar (who pushes the blocks) to grid, occupying a precious 1x1 space, suddenly created a very challenging puzzle - a key insight.</p>
+<p>Visually, Unlucky Unlock was minimalist yet polished: high contrast between plain colourful blocks and avatar and a lightly paterned gray background, with matching markers for the desired block positions. Piece and wall borders took great attention, a subtle detail which not only embellished the game, as helped properly separating different blocks in the game rules. Not redesigning the player avatar was a strategic decision. Instead of designing a new one every game, the same avatar from Tetrastrophe was colour-tweaked, to save time and achieve brand consistency.</p>
+<p>This game was very well received, as some people sent nice feedback, and some sites (notably Bart Bonte's and Warpdoor) featured it spontaneously. However, at the time «I» didn't realise - this would later yield a new lesson.</p>
+
+<b>New achievements:</b>
+<ul>
+	<li>rigid block physics;</li>
+	<li>higher aesthetic standard - simplicity yet attention to detail;</li>
+	<li>common avatar as first brand element.</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>Strategically creating modular code accellerates subsequent game making;</li>
+	<li>Simplicity begets quality;</li>
+	<li>Numbering the levels (and total) so the player is situated;</li>
+	<li>How to know whether your game is a hit?</li>
+</ul>
+</p>
+
+
+<h4>#4 Total fiasco - an overly ambitious game<h4>
+<p>Encouraged by the feedback from Unlucky Unlock, and with some time in «my» hands, «I» decided it was time for a very ambitious game. A masterpiece, so to speak. So I endeavoured to make a puzzle RPG with many different elements and interactions. Plus a real-time component. I suffices to say that the combinatorial possibilities of element interactions, combined with the real-time variability, made for an extremly buggy game, frustrating players and developer alike.</p>
+
+<b>New achievements:</b>
+<ul>
+	<li>a percursor to Tiaradventur.</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>Debug complex games carefully, element by element, and keep test cases;</li>
+</ul>
+</p>
+
+<h3>The winter<h3>
+<p>After this terrible experience, «I» decided to quit making games alogether. Some years elapsed. Meanwhile, «I» deleted all links to my previous games, and moved on.</p>
+
+<h3>Maturity<h3>
+<p>«I» wanted to learn how to make a website, so I learned HTML, CSS and Javascript by making «SITE-LINK». «I» wanted to have an online presence, but there wasn't much «I»'d want to share publicly.</p>
+<p>At this point «I» realised Unlucky Unlock had been a hit! So «I» decided to make a few more games, with a condition - every game must teach «me» something new.</p>
+
+<h4>#5 Blockworks - tackling the release<h4>
+<p>A first improvement over previous games was the definition of a game palette in the beginning, which ensured consistent colours and faster decisions throughout development.</p>
+<p>Some of the problems in real-time puzzles were back again, but eventually were sorted using rule separation (rules were separated into different groups to play alternately in different turns). This pattern was useful in latter games. Another innovative element was the introduction of in-game hints at precise postions.</p>
+<p>With this game «I» wanted to learn how to release a game properly. So a template for the information to release: title, goal, theme/challenge, controls, picture was made, to be used in different release channels. A trailer was also made in OBS studio, but this proved to be too much work for the effect. Everything was placed in multiple channels, among them Youtube, Itch.io, many game groups, etc...</p>
+
+<b>New achievements:</b>
+<ul>
+	<li>a template for game releases;</li>
+	<li>game released directly in «SITE-LINK»;</li>
+	<li>rule groups evaluate alternately;</li>
+	<li>in-game hints;</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>use colour palette from the beginning;</li>
+	<li>game trailers are not always needed;</li>
+</ul>
+</p>
+
+<h4>#6 Whirlpuzzle - self-knowledge<h4>
+<p>This game used everything learned before, so it was meant to be good. But how could «I» know? Well, the answer to that is analytics. Now «I» knew at least X people played Whirlpuzzle. But where would this people come? All links were individually marked so different campaigns could be tracked.</p>
+<p>Still, some innovative bits were added: the ability to rotate an entire level, and a preview mode. A minor detail was the game was themed with space, both through «BEEK«P»»'s  music track and twinkling star decorations.</p>
+
+<b>New achievements:</b>
+<ul>
+	<li>Solid physics, mixing gravity and multiple block-pushing;</li>
+	<li>random-generated decorative elements (twinking stars);</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>analytics and link-marking are indispensable;</li>
+</ul>
+</p>
+
+<h4>#7 Play Mini Gemini Replay (PMGRP) - bold design <h4>
+<p>This time, «I» designed PMGRP boldly. From the extremely long name, exagerated decorative circuitry that surrounds the playing area (generated randomly each replay), to the completely innovative game mechanic (a future self repeats the movements of the present player, yet both interact in unexpected ways), the implicit dialogue between master and pupil (with extensive english idiomatic wordplay) and to the take-home optimistic message (help yourself, prepare your future, chase your dreams), this is a great work. At least, good enough to enter the Puzzlescript gallery.</p>
+<p>It was also the first time animations were used, to improve aesthetics and keep a low colour palette, with just 4 colours. Dark green (background and circuit animations), Green (walls), Yellow (past player, goal marker, respawn point, moves list) and orange (the player avatar, equal in all games).</p>
+<p>Not all was perfect, though. The physics and some levels had to be redesigned after player feedback (it's part of the process). The music track (by «BEEK«P»») might have been too bold and short (keeping with the theme of repetition, yet annoying some players).</p>
+
+
+<b>New achievements:</b>
+<ul>
+	<li>using a very limited colour palette;</li>
+	<li>integrating the game with a public hall-of-fame;</li>
+	<li>entering Stephens Puzzlescript Gallery;</li>
+	<li>more than 1100 game plays to today.</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>music tracks should match the duration of gameplay;</li>
+	<li>boldness pays;</li>
+</ul>
+</p>
+
+<h4>#8 Hastefulll - theme then game <h4>
+<p>Hastefulll aimed to reflect on the stressfull experience of not having time to do everything, and not only relax the player as also convey the message that sometimes it is better to slow down and think rather than go ahead at full speed. The speed is conveyed by the movement of the player avatar, which won't stop until hitting a wall, and by the rain which falls in the contrary direction. When the player stops, the rain falls down again, soothing the player. The music, a very long meditative piece by «MCLEOD«P»» contributes to this effect.</p>
+
+<p>With the analytics in place, I realised that Hastefulll was featured by Bart Bonte on his personal page, due to a roughly 9x spike in game views. As a result, the game was played by more than 600 people in the first two weeks after release. Up to today, more than 800 people played the game (of which only just short of 100 people actually beat the last level).</p>
+
+<b>New achievements:</b>
+<ul>
+	<li>theme-led design resulting in a very soothing atmosphere;</li>
+	<li>extremely quickly-made game, literally and metaphorically (typo in hastefulll's title)</li>
+	<li>second game featured by Bart Bonte</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>a key thing for game visibity is being linked to by other people;</li>
+</ul>
+</p>
+
+<h4>#9 Tiaradventur - the long game <h4>
+<p>Encouraged by previous success, «I» felt ready to tackle the old, failed, puzzle-RPG project - «I» planned the game carefully, introduced the different elements one by one after carefully testing all edge cases, and even threw in a lot more ambition. No longer was «I» satisfied with a sequence of levels, the game demanded an open map, allowing objects from previous levels to interact with the next levels. Moreover, every level were actually two levels (one easy level, to retrieve the broken Tiara, plus a hard level, to retrieve the unbroken Tiara). Furthermore, the level topology changes in a myriad of ways, because the crates can float on water, making new routes; the trees may be removed by fire, clearing vast patches of land; and so do the crates.</p>
+<p> Altogether, the above became the perfect debugging nightmare, but «I» preservered, because Tiaradventur is special. How special? Well, it's not just the challenging puzzles, part of which involve evading and fighting wolves with a sword. It's the underlying story, revealed by the princess as the game progresses, whose relationship with the Hero (our avatar) also develops - culminating with an hidden ending in case a secret item is found.</p>
+<p>Or so «I» thought. In reality, about a month after starting the project, «I» felt it was taking too much time and rushed ahead with the release, after discovering an epic music playlist by «WHITESAND«P»» and a way to integrate it with the game. This was a mistake, because some bugs were still unadressed, which caused a few lukewarm first impressions. Later I've polished Tiaradventur and received amazing feedback, but that didn't make for the wasted opportunity.</p>
+
+<b>New achievements:</b>
+<ul>
+	<li>Open world design;</li>
+	<li>perspective effect (overlaying layer);</li>
+	<li>dual-difficulty levels;</li>
+	<li>hidden ending;</li>
+	<li>honours system linked to hall-of-fame (counting the number of unbroken tiaras);</li>
+	<li>storytelling system (context-dependent, guided by player);</li>
+	<li>princess with personality and relatively smart AI movement;</li>
+	<li>integrated full playlist, of thematic music.</li>
+	</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>Open world design is a whole new challenge - a good state mapping tool is needed;</li>
+	<li>Curating a good, attribution-licensed, thematic, music playlist is time-consuming;</li>
+	<li>Never, rush a release. Do beta-tests.</li>
+	</ul>
+</p>
+
+<h4>#10 Abxtract-tractx - the art <h4>
+<p>Still recovering from the near failure of Tiaradventur, «I» decided to make a very quick game, to explore the question "what is art, and why?". While reproducing famous abstract art paintings (using a new puzzle mechanic involving streaks of paint) one becomes curious about the considered (shortlisted or otherwise) artists, their paintings, their historical context and ideas, some alluded to as inter-level messages. «I» learned much about abstract art from making this game, and visited with pleasure lifetime works of many artists, while searching for suitable paintings.</p>
+<p>To avoid any disappointment, prior to the main release, «I» made a smaller release on the thinky discord community, whose feedback enabled preemptive improvements to the game and its description. </p>
+
+
+<b>New achievements:</b>
+<ul>
+	<li>A game based in the real, rather than a fictional world.</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>Showing the game to a small group prior to release is useful;</li>
+	<li>Depending on whose country an artist was born, lived, first presented an artwork, etc... applicable artwork copyright laws may change;</li>
+	<li>discussing art (and related cultural themes) evokes strong emotions.</li>
+	</ul>
+</p>
+
+<h3>The future<h3>
+<h4>#11 Gravirinth - the last one?<h4>
+<p> Somehow I felt the need </p>
+
+<p> «I» can't wait for you to enter the Gravirinth.</p>
+
+<b>New achievements:</b>
+<ul>
+	<li>A first commercially released game;</li>
+	<li>a regularly updated development log;</li>
+	<li>a successfuly run beta-test;</li>
+	<li>distributing game keys to access encrypted content;</li>
+	<li>integration with payemnt providers;</li>
+	<li>custom-designed sound effects;</li>
+	<li>starting cutscene;</li>
+	<li>interactive tutorial for a unique multi-gravity puzzle mechanics;</li>
+	<li>open world map with a core challenge comprising multiple paths, plus many bonus levels;</li>
+	<li>optional post-ending secrets and bonuses;</li>
+	<li>integrated camera system /in-game messaging console and inventory;</li>
+	<li>animated game logo;</li>
+</ul>
+</p>
+
+<b>Lessons learned:</b>
+<ul>
+	<li>Beta testing can make your game grow immensely. Some kind people go the extra mile to beta-test your game in depth and make game-changing suggestions.</li>
+	<li>Beta testing takes time! At least a month is not unreasonable.</li>
+	</ul>
+</p>
