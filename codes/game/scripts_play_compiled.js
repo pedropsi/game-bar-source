@@ -1046,6 +1046,22 @@ function ScheduleMove(mpi,movesplaylist){
 	return mpi;
 }
 
+function SkipMove(mpi,movesplaylist){
+	var move=mpi.move;
+	var message= mpi.id+" of "+movesplaylist.length;
+	mpi.state="skipped";
+	mpi.time=0;
+	console.log("skipping:",move,message);
+}
+
+function UnSkipMove(mpi,movesplaylist){
+	var move=mpi.move;
+	var message= mpi.id+" of "+movesplaylist.length;
+	mpi.state="paused";
+	mpi.time=0;
+	console.log("unskipping move:",move,message);
+}
+
 function PlayMove(mpi,movesplaylist){
 	var move=mpi.move;
 	var message= mpi.id+" of "+movesplaylist.length;
@@ -1069,6 +1085,20 @@ function UnPlayMove(mpi,movesplaylist){
 
 function FindMove(i,movesplaylist){
 	return movesplaylist.find(function(mpi){return mpi.id===i;});
+}
+
+function SkipMovesPlaylist(movesplaylist){
+	var m=movesplaylist;
+	var found=false;
+	var time=0;
+
+	for (var i=0;i<m.length&&!found;i++){
+		if(m[i].state=="paused"){
+			found=true;
+			SkipMove(m[i],m);
+		}
+	}
+	return m;
 }
 
 function NextMovesPlaylist(movesplaylist){
@@ -1096,6 +1126,10 @@ function PreviousMovesPlaylist(movesplaylist){
 		if(m[i].state=="played"){
 			found=true;
 			UnPlayMove(m[i],m);
+		}
+		if(m[i].state=="skipped"){
+			found=true;
+			UnSkipMove(m[i],m);
 		}
 	}
 	return m;

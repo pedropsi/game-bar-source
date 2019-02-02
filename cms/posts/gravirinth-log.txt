@@ -1,6 +1,13 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>02-02-2019</h2>
+<h3>Bug fixes</h3>
+<p>Crouching against a block of opposing gravity while carrying a second block lateraly, will now form an unstable block only. Carrying the lateral block must wait a full turn, and the player is required to repeat the action (now crouching against the new unstable block).
+</p>
+<p>It is no longer possible to intentionally dash past a rotator beacon (by pressing two keys in very fast succession).<p>
+
 <h2>29-01-2019</h2>
+<h3>Bonus level updates</h3>
 <p>Level <em>Unplugged</em> became clearer yet harder. Another major simplification, to level <em>Blockbooster</em>, created a better level, renamed  <em>Hourglass</em>.</p>
 <p>An at first sight impossible bonus level, named <em>Brakes</em>, was created - the last level to be added to Gravirinth.<p>
 
