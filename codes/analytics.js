@@ -1,5 +1,5 @@
 ///// ANALYTICS
-var domain = "pedropsi.github.io";
+var domain = "pedropsi.github.io|combinatura.github.io";
 var analyticsURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec";
 var analyticsParameters="[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\",\"name\"]";
 var analyticsSheetName="analytics";
@@ -87,7 +87,7 @@ function anonimiseLinks(){
 }
  
 function Analytics(){
-  echoPureData(fingerprintData(),analyticsURL);	
+	echoPureData(fingerprintData(),analyticsURL);	
 }
 
 function AnalyticsClearance(){
