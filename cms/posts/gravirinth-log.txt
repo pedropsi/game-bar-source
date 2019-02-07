@@ -1,5 +1,12 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>07-02-2019</h2>
+<h3>Physics tweaks</h3>
+<p>Eliminating inconsistent physical behaviours when raising or picking a block, while carrying another laterally.<p>
+
+<h3>Minor level fixes</h3>
+<p>Preventing some traps and adding more post-win navigation possibility in certain level areas.<p>
+
 <h2>02-02-2019</h2>
 <h3>Bug fixes</h3>
 <p>Crouching against a block of opposing gravity while carrying a second block lateraly, will now form an unstable block only. Carrying the lateral block must wait a full turn, and the player is required to repeat the action (now crouching against the new unstable block).

@@ -47,6 +47,8 @@
 
 <h3>Press & reviews</h3>
 <p class="centre">Would you like to write an article about «TITLE-BOLD»? Do you wish to feature «TITLE-BOLD» in a curated collection? Perhaps a video or livestream? Do «CONTACT-TEXT-1» to request a (free) <em>media pass</em>. All reviews are equally encouraged.</p>
+<p class="centre">There's also a «PRESSKIT».</p>
+
 <div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [with media pass]</div>
 
 <h3>Other inquiries</h3>
@@ -177,7 +179,8 @@
 <p>Certainly <b>more than 12</b>. The <em>exact number</em> eludes most exoarchaeologists.</p>
 <p>The ultimate purpose of the <em>fourfould orbs</em> within the «TITLE-BOLD» is unknown, although it may contribute to a more accurate classification of alien life traits such as <em>inventiveness</em> and <em>persistence</em> or simply reward <em>exploration</em>.</p> 
 
-<h3>What games inspired «TITLE-BOLD»?</h3>
+<h3>What inspired «TITLE-BOLD»?</h3>
+<p>The exoarcheology theme was inspired by Michio Kaku's <em>Future of Mankind</em>.</p>
 <p>The game mechanic emerged naturally, drawing elements from <a href="pmgrp.html">Play Mini Gemini Replay</a> (basic platform mechanics),  <a href="whirlpuzzle.html">Whirpuzzle</a> (idea of rotation and space theme) and <a href="tiaradventur.html">Tiaradventur</a> (inventory, narrative system, management of a large word map), whose source codes are openly available.</p>
 <p>Specific gravity is also a central theme of the game <a href="https://manifold.garden/" «BLANK»>Manifold Garden</a>.</p>
 
@@ -191,7 +194,7 @@
 	<li>inventory/dialogue display banners, trailing along with the camera;</li>
 	<li>progressively revealing and activating unseen areas.</li>
 </ul>
-<p>Plus, some custom sound effects and a backgrond muic playlist were plugged.</p>
+<p>Plus, some custom sound effects and a backgrond music playlist were plugged.</p>
 
 
 <h3>What will be the price tag?</h3>

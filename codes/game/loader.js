@@ -24,7 +24,9 @@ function RevealGame(qid){
 	window.scroll(0,0);
 	var key=FindData("answer",qid);
 	var gameid=Unlock(qid,key);
-	SubmitAndNext(qid);
+	
+	if(AnalyticsClearance())
+		SubmitAndNext(qid);
 	
 	PuzzleScript.embed(document.getElementById('puzzlescript-game'),gameid);
 }

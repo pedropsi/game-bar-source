@@ -192,3 +192,4 @@ SNIPPET	<div class="mini"><div>«TITLE-ONLY»</div>«PICTURE-LINK»</div>
 SELECTION	:Filter{"Selected"->_?NumberQ,"Day"->_?NumberQ,"Month"->_?NumberQ,"Year"->_?NumberQ}
 GALLERY-PICTURE	<a href="images/«IMAGE:Load»" «BLANK»><div class="card">«PICTURE»</div></a>
 SUPPORT-LINK	2018-02-08-support-the-archive.html
+PRESSKIT	<a href="press.html"><b>press kit</b></a>
