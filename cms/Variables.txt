@@ -136,7 +136,9 @@ GUESTBOOK-MESSAGE	<h3>Guestbook</h3>«GUESTBOOK-POST-TEXT»«GUESTBOOK-ADD»
 SENDOWL-EMBED	<a href="https://transactions.sendowl.com/products/«SENDOWL-ID»" rel="nofollow">«SENDOWL-BUTTON»</a><script type="text/javascript" src="https://transactions.sendowl.com/assets/sendowl.js" ></script>
 SENDOWL-BUTTON	«BUTTON-PREORDER»
 SENDOWL-ID	«CONTENT:Load»
-HTML-PRE	<!DOCTYPE html>«HTML-PREFIX»«HEAD»<body class="body" id="«LINK:LOAD»"><div class="main">«NAVBAR»
+HTML-PRE-MAIN-PRE	<!DOCTYPE html>«HTML-PREFIX»«HEAD»<body class="body" id="«LINK:LOAD»">
+HTML-PRE-MAIN-POS	<div class="main">«NAVBAR»
+HTML-PRE	«HTML-PRE-MAIN»«HTML-PRE-MAIN-POS»
 HTML-POS	</div>«FOOTER-AREA»</body></html>
 PAGE-INDEX	«HTML-PRE»«LATEST»«SUBSCRIBE-ANNOUNCEMENT»«SECTION-PRE»<h1 class="textarea title">Highlights</h1><div class="featured">«CONTENT:Load»</div>«SECTION-POS»«HTML-POS»
 PAGE-SIMPLE	«HTML-PRE»«POSTAREA-SIMPLE»«HTML-POS»
@@ -193,3 +195,4 @@ SELECTION	:Filter{"Selected"->_?NumberQ,"Day"->_?NumberQ,"Month"->_?NumberQ,"Yea
 GALLERY-PICTURE	<a href="images/«IMAGE:Load»" «BLANK»><div class="card">«PICTURE»</div></a>
 SUPPORT-LINK	2018-02-08-support-the-archive.html
 PRESSKIT	<a href="press.html"><b>press kit</b></a>
+VIDEO-SRC	media/«LINK:Load»/«LINK:Load».mp4

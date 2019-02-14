@@ -12,6 +12,7 @@ function PrepareGame(){
 		qplaceholder:"(top-secret)",
 		action:'RevealGame',
 		qtargetid:"puzzlescript-game",
+		qonclose:CloseTeaser,
 		
 		thanksmessage:"Password submitted. Please turn on the sound & press F anytime while playing to provide live feedback!"
 		
@@ -31,4 +32,6 @@ function RevealGame(qid){
 	PuzzleScript.embed(document.getElementById('puzzlescript-game'),gameid);
 }
 
-
+function CloseTeaser(iddummy){
+	Close("teaser");
+}

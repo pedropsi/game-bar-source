@@ -1,5 +1,9 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>14-02-2019</h2>
+<h3>Landing page with teaser video</h3>
+<p>Gravirinth's <a href="gravirinth.html">landing page</a> improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's <a href="#gravirinth-logo">former logo</a>.<p>
+
 <h2>07-02-2019</h2>
 <h3>Physics tweaks</h3>
 <p>Eliminating inconsistent physical behaviours when raising or picking a block, while carrying another laterally.<p>
@@ -181,6 +185,10 @@
 				<li>the large dots over the "<b>i</b>"s represent the elusive </em>fourfold orbs</em>.</li>
 			</ul>
 		<p>The logo was animated, then etched onto a <b>Gravirinth</b> wall, whose shifting symbols and surrounding perpetual loop were added for decoration. This animated version will be displayed at the cover page.</p>
+		
+		<div class="figure com-banner" id="gravirinth-logo">
+			<img src="images/gravirinth/Gravirinth-banner.gif" alt="Gravirinth game banner" title="Gravirinth animated banner"/>
+		</div>
 
 
 <h2>16-11-2018</h2>

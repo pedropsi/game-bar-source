@@ -31,7 +31,7 @@
 	</tr>
 	<tr>
 		<th>Game design</th>
-		<th><em>Programming:</em> Puzzlescript, Javascript; <em>Colour:</em> Paletton; <em>Sound:</em> Howler.js, MuseScore</th>
+		<th><em>Programming:</em> Puzzlescript, Javascript; <em>Colour:</em> Paletton; <em>Sound:</em> Howler.js, MuseScore; <em>Video:</em> Shotcut</th>
 	</tr>
 	<tr>
 		<th>Page design</th>

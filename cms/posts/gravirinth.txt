@@ -1,8 +1,4 @@
-﻿<div class="figure com-banner">
-	<img src="images/gravirinth/Gravirinth-banner.gif" alt="Gravirinth game banner" title="Gravirinth animated banner"/>
-</div>
-
-«ABOUT-TEXT»
+﻿«ABOUT-TEXT»
 «ONE-LINER:Load»
 
 <h3>Features</h3>
@@ -39,9 +35,6 @@
 <h2>Test play</h2>
 
 <h3>Beta-test</h3>
-«PUZZLE-SCRIPT-PRE»«HONOURS:LOAD»
-<script src="codes/game/loader.js"></script>
-<script src="codes/decrypt.js"></script>
 <p class="centre">Load a the latest version of «TITLE-BOLD» using your <em>secret password</em> or «CONTACT-TEXT-1» to request one. Many thanks!</p> 
 <div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [beta]</div>
 

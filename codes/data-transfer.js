@@ -326,6 +326,14 @@ function OverwriteData(source,destinationID,Transform){
 };
 
 //////////////////////////////////////////////////
+// Scroll into
+
+function ScrollInto(elementSelector) {
+  var e = document.querySelector(elementSelector);
+  e.scrollIntoView();
+}
+
+//////////////////////////////////////////////////
 // Transformer: Table (not inverted anymore)
 function MakeInvertedTable(dataarray){
 	function EnRow(dataline){

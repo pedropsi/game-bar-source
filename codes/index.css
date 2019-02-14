@@ -1,5 +1,5 @@
 /*
-	Octaflower Theme (c) 2017-2018 by Pedro PSI
+	Octaflower Theme (c) 2017-2019 by Pedro PSI
 	https://pedropsi.github.io/
 	License: CC BY-NC-SA 4.0
 												*/
@@ -19,13 +19,20 @@
     --tyellow:rgba(255, 249, 201,0.4);
     --tblack:rgba(0, 0, 0, 0.4);
     --tdarkblue:rgba(7, 0, 112,0.5);
+    --tsmokewhite:rgba(241, 241, 241,0.7);
+   
     
     --transparent:rgba(0,0,0,0);
     
     --vspace:calc(5px + 5vmin);
     
+    --innerwidth:calc(100vw - 43px); /*Window width minus borders*/
+    --padv:calc(var(--innerwidth) /60); /*Dynamic font size and padding*/
+    --padh:calc(var(--padv)*2);
+    
     --logo:url("../images/logo.png");
     --logoinv:url("../images/logo-inv.png");
+    
 }
 
 .nightmode{
@@ -149,6 +156,7 @@ nav {
 .nav-link {
     border-width: 4px;
     padding: 10px 10px 10px 10px;
+    max-width:100%;
 }
 
 @media only screen and (min-width: 330px) and (max-width:900px) {
@@ -310,6 +318,12 @@ nav {
     text-decoration-style:dotted;
     text-decoration-color: var(--darkblue);
     transition-duration: 0.5s;
+}
+
+.videoModal .button{
+    padding: 4vmin 8vmin 4vmin 8vmin;
+    font-size: calc(3vmin + 10px);
+    background-color: var(--tsmokewhite);
 }
 
 .button:hover,.button:hover a,.nav-link:hover, .text a:hover, p a:hover, .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .gameNav.active:hover, .card:hover {
@@ -799,8 +813,12 @@ textarea:focus, input:focus{
 }
 .button a {
     text-decoration: none;
+    color: inherit;
 }
 
+.button:hover a{
+    background-color: transparent;
+}
 
 .patreon-b {
     display: flex;
@@ -878,6 +896,7 @@ tbody tr:hover{
         transform: scale(1.1);
         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
         animation: fadein 1s;
+    	z-index:10;
 }
 
 .modal-content {
@@ -1097,3 +1116,21 @@ tbody tr:hover{
     color: var(--lightblue);
 }
 
+
+.videoContainer video{
+    width: var(--innerwidth);
+}
+
+.videoModal{
+    margin-top: calc( 0px - var(--innerwidth) / 2  );
+ 	margin-bottom: calc( var(--innerwidth) / 3.3 );
+    z-index: 1;
+
+}
+
+.videoModal .button{
+  font-size: var(--padh);
+  line-height: var(--padh);
+  padding:  var(--padv) var(--padh) var(--padv) var(--padh);
+  margin:  var(--padv) var(--padh) var(--padv) var(--padh);
+}
