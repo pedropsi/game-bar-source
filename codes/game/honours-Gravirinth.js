@@ -129,9 +129,18 @@ function OverrideSounds(){
 
 
 //Music
-
 function OverrideMusic(){
 	if(OverrideSounds)
 		OverrideSounds();
 	PlayTrack(1);
 };
+
+//Pass management
+function displayError(code,message){
+	console.log("Error: ",code,message);
+	clear_children(document.getElementById("puzzlescript-game"))
+	if(code===200){
+	var DP=CustomDataPack("message",{thanksmessage:"Wrong password..."});
+		DP.qdisplay(DP);
+	}
+}

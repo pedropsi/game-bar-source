@@ -8,7 +8,7 @@ var DESTINATION_HOF={
 	name:"HOF",
 	Data:function(qid){return {
 		identifier:pageTitle(),
-		name:FindData("name",qid),
+		name:FindData("who",qid),
 		honour:GetHonour()
 		}}
 	}
@@ -28,7 +28,7 @@ var DESTINATION_FEEDBACK={
 			identifier:document.body.id,
 			context:String(GetContext()),
 			question:FindData("questionname",qid),
-			answer:FindData("qvalue",qid),
+			answer:FindData("answer",qid),
 			name:who,
 			state:PrintGameState()
 			}}
@@ -119,31 +119,23 @@ DESTINATIONS[DESTINATION_KEYS.name]=DESTINATION_KEYS;
 //////////////////////////////////////////////////////////////////////
 //Hall of Fame
 
-function RequestModalHallOfFame(){
-	var DP=NewDataPack({
+function RequestHallOfFame(){
+	RequestDatapack('alias',{
 		questionname:"Enter the Hall of Fame:",
 		qplaceholder:"Your name or alias",
-		qfield:"name",
+		qrequired:true,
+		qerrorcustom:"The Hall of Fame's guards ask for at least 2 alphanumerics!",
 		qdestination:"HOF",
-		qonclose:Identity
+		qonclose:RequestModalWinnerMessage,
+		qonsubmit:RequestModalWinnerMessage
 		});
-	
-	DP.qdisplay(DP);
 }
 
-function RequestModalWinning(){
-	var DP=NewDataPack({
+function RequestModalWinnerMessage(dpdummy){
+	RequestDatapack('answer',{
 		questionname:"As a winner, what would you tell Pedro PSI?",
-		qfield:"qvalue",
 		thanksmessage:"Thank you for your message."
 		});
-	
-	DP.qdisplay(DP);
-}
-
-function RequestHallOfFame(){
-	RequestModalWinning();
-	RequestModalHallOfFame();
 }
 
 
@@ -186,10 +178,10 @@ function RequestGameFeedback(){
 	  feedbackRequests=[];
   
   var DP=NewDataPack({
-		qfield:'qvalue',
+		qfield:'answer',
 		qtargetid:'puzzlescript-game',
 		qdisplay:LaunchFeedbackBalloon,
-		qonclose:LaunchThanksBalloon
+		qonsubmit:LaunchThanksBalloon
 		});
     
   if(!HasBalloon(DP.qtargetid)){
@@ -234,25 +226,14 @@ function PrintGameState(){
 // Guestbook & Comments
 
 function RequestGuestbook(){
-	var DP=NewDataPack({
-		qdestination:'Guestbook',
-		questionname:"Your message",
-		qfield:"answer",
-		thanksmessage:"Thank you for your message in the Guestbook!",
-		qvalidator:SomeTextValidator
-		});
-	
-	var DP2=NewDataPack({
-		qid:DP.qid,
-		qdestination:'Guestbook',
-		qfield:"who",
-		qtype:ShortAnswerHTML,
-		questionname:"Your name",
-		qrequired:false,
-		qplaceholder:"or alias"
-		});
-	
-	DP.qdisplay([DP,DP2]);
+	RequestDatapack([
+		['answer',{
+			qdestination:'Guestbook',
+			questionname:"Your message",
+			thanksmessage:"Thank you for your message in the Guestbook!"}],
+		['alias',{
+			qdestination:'Guestbook'}]
+	])
 }
 
 function commentAddress(e){
@@ -269,71 +250,42 @@ function commentAddress(e){
 
 
 function RequestComment(title,elemsubtitle){
-
 	commentID=function(){return title+": "+commentAddress(elemsubtitle);}; 	//redefine this global function dynamically
-
-	var DP=NewDataPack({
-		qdestination:'Comments',
-		questionname:"Your comment",
-		qfield:"answer",
-		thanksmessage:"Message submitted. Thank you!",
-		qvalidator:SomeTextValidator
-	});
 	
-	var DP2=NewDataPack({
-		qid:DP.qid,
-		qdestination:'Comments',
-		qfield:"who",
-		qtype:ShortAnswerHTML,
-		questionname:"Your name",
-		qrequired:false,
-		qplaceholder:"or alias"
-	});
-	
-	DP.qdisplay([DP,DP2]);
+	RequestDatapack([
+		['answer',{
+			qdestination:'Comments',
+			questionname:"Your comment"
+		}],
+		['alias',{
+			qdestination:'Comments'
+		}]
+	]);
 }
 
 //////////////////////////////////////////////////////////////////////
 //Subscribe
 
 function OpenModalSubscribe(){
-
-	var DP=NewDataPack({
-		qdestination:'Subscription',
-		questionname:"Subscribe to be the first to know about Pedro PSI's next project!",
-		qtype:ShortAnswerHTML,
-		qfield:"address",
-		qplaceholder:"_______@___.___",
-		thanksmessage:"Thank you for subscribing!",
-		qvalidator:EmailValidator
-		});
-	
-	var DP2=NewDataPack({
-		qid:DP.qid,
-		qdestination:'Subscription',
-		qfield:"who",
-		qtype:ShortAnswerHTML,
-		questionname:"Your name",
-		qrequired:false,
-		qplaceholder:"(optional)"});
-	
-	DP.qdisplay([DP,DP2]);
-}
+	RequestDatapack([
+		['email',{
+			qdestination:'Subscription',
+			questionname:"Subscribe to be the first to know about Pedro PSI's next project!",
+			thanksmessage:"Thank you for subscribing!"
+		}],
+		['name',{
+			qdestination:'Subscription'
+		}]])
+	}
 
 //////////////////////////////////////////////////////////////////////
 //Order
 
 function OpenModalPreOrder(campaigntext){
 	
-	var DP=NewDataPack({
-		qdestination:'Order',
-		questionname:campaigntext,
-		qtype:ShortAnswerHTML,
-		qfield:"address",
-		qplaceholder:"_______@___.___",
-		thanksmessage:"Your booking was placed. Thank you!",
-		qvalidator:EmailValidator
+	RequestDatapack('email',{
+			qdestination:'Order',
+			questionname:campaigntext,
+			thanksmessage:"Your booking was placed. Thank you!"
 		});
-		
-	DP.qdisplay(DP);
 }

@@ -508,7 +508,7 @@ function ErrorHTML(message){
 	return "<div class='error'><p>"+message+"</p></div>";
 }
 ////////////////////////////////////////////////////////////////////////////////
-// Datapack New
+// Datapack System : default datapack, from which Datapack types are derived, each in turn can be Custom-ised 
 
 function DefaultDataPack(){
 var DP={
@@ -528,9 +528,12 @@ var DP={
 
 	qrequired:true,
 	qvalidator:function(DP){return {valid:true,error:"no errors"};},//Receives an DP
-	qanswerformatter:Identity,//Receives an DP
+	qerrorcustom:'',
+	qanswerformatter:Identity,//Receives a DP
 	
-	qonclose:LaunchThanksModal,//Receives an id
+	qonsubmit:LaunchThanksModal,//Next modal on successful submit: Receives a DP
+	qonclose:Identity,//Next modal on close (defaults to nothing): Receives a DP
+	
 	thanksmessage:"Submitted. Thank you!"
 	
 	}
@@ -546,10 +549,88 @@ function NewDataPack(obj){
 	for(var k in keys){
 		DP[keys[k]]=obj[keys[k]];
 	}
-	DATAPACKHISTORY.push(DP);
 	return DP;
 }
 
+
+function DataPackTypes(type){
+	var DPTypes={
+		normal:NewDataPack({}),
+		message:NewDataPack({
+			action:'Close',
+			qdestination:'none',
+			qdisplay:LaunchThanksModal}),
+		email:NewDataPack({
+			qtype:ShortAnswerHTML,
+			qfield:"address",
+			qplaceholder:"_______@___.___",
+			qvalidator:EmailValidator,
+			}),
+		name:NewDataPack({
+			qrequired:false,
+			qvalidator:NameValidator,
+			qfield:"who",
+			qtype:ShortAnswerHTML,
+			questionname:"Your name",
+			qplaceholder:"(optional)"}),
+		answer:NewDataPack({
+			qfield:"answer",
+			thanksmessage:"Submitted. Thank you!",
+			qvalidator:SomeTextValidator})
+		//messagelinked
+		//askmessage
+		//askmultiple
+	}
+	if(typeof type==="undefined")
+		return DPTypes;
+	else
+		if(type==='alias')
+			return CustomDataPack('name',{qplaceholder:"or alias"});
+		else
+			return DPTypes[type];
+
+}
+
+function CustomDataPack(type,obj){
+	var DP=DataPackTypes(type);
+	if(obj===undefined)
+		obj={};
+	var keys=Object.keys(obj);
+	for(var k in keys){
+		DP[keys[k]]=obj[keys[k]];
+	}
+	return DP;
+}
+
+// Datapack Series
+
+function RequestMultiDatapack(NameDataPackObjArray){
+	var ndpa=NameDataPackObjArray;
+	if(NameDataPackObjArray.length<1)
+		return;
+	else{
+		var DP=CustomDataPack(ndpa[0][0],ndpa[0][1]);
+		var lastqid=DP.qid;
+		var dparray=[];
+		var DisplayF=DP.qdisplay;
+		while(ndpa.length>0){
+			DP=CustomDataPack(ndpa[0][0],ndpa[0][1]);
+			DP.qid=lastqid;
+			DATAPACKHISTORY.push(DP);//To be improved
+			dparray.push(DP);
+			ndpa.shift();
+			lastqid=DP.qid;
+		}
+		return DisplayF(dparray);
+	}
+}
+
+function RequestDatapack(TypeOrArray,obj){
+	if(typeof TypeOrArray==="object"&&typeof obj==="undefined")
+		RequestMultiDatapack(TypeOrArray)
+	else
+		RequestMultiDatapack([[TypeOrArray,obj]])
+}
 
 // Datapack Components
 
@@ -643,17 +724,6 @@ function HasBalloon(targetid){
 }
 
 
-function Close(targetid){
-	var fading=document.getElementById(targetid);
-	fading.classList.add("closing"); //Not working yet
-	fading.remove();
-}
-
-function CloseThis(ev,thi,targetid){
-	if(ev.target.id===thi.id)
-		Close(targetid);
-}
-
 function ToggleThis(ev,thi){
 	if(ev.target.id===thi.id)
 		thi.classList.toggle("selected");
@@ -671,6 +741,38 @@ function ToggleThisOnly(ev,thi){
 	}
 }
 
+
+// Closing functions
+
+function CloseElement(targetid){
+	var fading=document.getElementById(targetid);
+	fading.classList.add("closing"); //Not working yet
+	fading.remove();
+}
+
+function CloseThis(ev,thi,targetid){
+	if(ev.target.id===thi.id)
+		Close(targetid);
+}
+
+function Close(targetid){
+	//First tries to find the next item to open, then closes
+	if(typeof GetDatapack(targetid)!=="undefined"){
+		var ClosingF=FindData("qonclose",targetid);
+		if(typeof ClosingF!=="undefined")
+			ClosingF(GetDatapack(targetid));
+	}
+	CloseElement(targetid);
+}
+
+function CloseNext(targetid){
+	if(typeof GetDatapack(targetid)!=="undefined"){
+		var NextF=FindData("qonsubmit",targetid);
+		if(typeof NextF!=="undefined")
+			NextF(GetDatapack(targetid));
+	}
+	CloseElement(targetid);
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -697,8 +799,7 @@ function SubmitAnswer(DP){
 		var dataObject=(destinationObject.Data)(DP.qid);
 
 		SubmitData(dataObject,destinationObject);
-		Close(DP.qid);
-		DP.qonclose(DP);
+		CloseNext(DP.qid);
 	}
 }
 
@@ -713,11 +814,16 @@ function SubmitAndNext(qid){
 // Data finding in forms
 
 function FindData(field,id){
-	var d=FindDataInNode(field,document.getElementById(id));
-	if(typeof d==="undefined")
-		return GetData(field,id);
-	else
-		return d;
+	var e=document.getElementById(id);
+	if(e===null)
+		return undefined;
+	else{
+		var d=FindDataInNode(field,e);
+		if(typeof d==="undefined")
+			return GetData(field,id);
+		else
+			return d;
+	}
 };
 
 function FindDataInNode(type,node){
@@ -843,6 +949,12 @@ function OpenModal(content,id,targetid){
 	AddElement(ModalHTML(content,id),targetid);
 }
 
+function OpenMessageModal(message,id,targetid){
+	var qid=id?id:GenerateId();
+	var targetid=targetid?targetid:document.body.id;
+	OpenModal(MessageHTML(message)+OkButtonHTML(qid),qid,targetid);
+}
+
 /*Modal self-laucher for questions (datapacks)*/
 function LaunchModal(DP){
 	if(Array.isArray(DP))
@@ -851,7 +963,7 @@ function LaunchModal(DP){
 		OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
 
-function LaunchThanksModal(DP,message){
+function LaunchThanksModal(DP){
 	var qid=GenerateId();
 	OpenModal(MessageHTML(DP.thanksmessage)+OkButtonHTML(qid),qid,DP.qtargetid);
 }
@@ -865,7 +977,7 @@ function EmailValidator(DP){
 	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
 		return {valid:true,error:"none"}
 	else
-		return {valid:false,error:"Please check your e-mail!"}
+		return {valid:false,error:"Please verify your e-mail address!"}
 }
 
 function SomeTextValidator(DP){
@@ -874,7 +986,18 @@ function SomeTextValidator(DP){
 	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
 		return {valid:true,error:"none"}
 	else
-		return {valid:false,error:"Please write something!"}
+		return {valid:false,error:"Please write something!",}
+}
+
+function NameValidator(DP){
+	var em=FindData("who",DP.qid);
+	var pattern=/[\d\w][\d\w]+/;
+	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
+		return {valid:true,error:"none"}
+	else if (DP.qerrorcustom!=='')
+		return {valid:false,error:DP.qerrorcustom}
+	else
+		return {valid:false,error:"Please write at least 2 alphanumerics!"}
 }
 
 function Anonimiser(DP){
