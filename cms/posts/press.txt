@@ -1,10 +1,10 @@
 <h2>Quick links</h2>
-		<a href="press#factsheet">Factsheet</a>
-		<a href="press#description">Description</a>
-		<a href="press#history">History</a>
-		<a href="press#projects">Projects</a>
-		<a href="press#images">Images & Logo</a>
-		<a href="press#contact">Contact</a>
+		<a href="press.html#factsheet">Factsheet</a>
+		<a href="press.html#description">Description</a>
+		<a href="press.html#history">History</a>
+		<a href="press.html#projects">Projects</a>
+		<a href="press.html#images">Images & Logo</a>
+		<a href="press.html#contact">Contact</a>
 
 <h2 id="factsheet">Factsheet</h2>
 		

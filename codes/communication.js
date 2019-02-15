@@ -8,7 +8,7 @@ var DESTINATION_HOF={
 	name:"HOF",
 	Data:function(qid){return {
 		identifier:pageTitle(),
-		name:FindData("who",qid),
+		name:FindData("name",qid),
 		honour:GetHonour()
 		}}
 	}
@@ -34,15 +34,22 @@ var DESTINATION_FEEDBACK={
 			}}
 }
 
+function AnonimiseBlank(name){
+	if(SomeTextValidate(name))
+		return name;
+	else
+		return "Anonymous Pedro PSI fan";
+}
+
 var DESTINATION_GUESTBOOK={
 	url:DESTINATION_HOF.url,
-	headers:"[\"who\",\"identifier\",\"comment\"]",
+	headers:"[\"name\",\"identifier\",\"comment\"]",
 	sheet:"Guestbook",
 	name:"Guestbook",
 	Data:function(qid){return {
 		identifier:pageTitle(),
 		comment:FindData("answer",qid),
-		name:FindData("who",qid),
+		name:AnonimiseBlank(FindData("name",qid)),
 		}}
 	}
 
@@ -55,7 +62,7 @@ var DESTINATION_COMMENT={
 	Data:function(qid){return {
 		identifier:commentID(),
 		comment:FindData("answer",qid),
-		name:FindData("who",qid),
+		name:FindData("name",qid),
 		}}
 	}
 	
@@ -65,7 +72,7 @@ var DESTINATION_SUBSCRIPTION={
 	sheet:"Subscription",
 	name:"Subscription",
 	Data:function(qid){return {
-		name:FindData("who",qid),
+		name:FindData("name",qid),
 		address:FindData("address",qid)
 		}}
 	}
@@ -125,17 +132,28 @@ function RequestHallOfFame(){
 		qplaceholder:"Your name or alias",
 		qrequired:true,
 		qerrorcustom:"The Hall of Fame's guards ask for at least 2 alphanumerics!",
-		qdestination:"HOF",
+		destination:"HOF",
 		qonclose:RequestModalWinnerMessage,
 		qonsubmit:RequestModalWinnerMessage
 		});
 }
 
-function RequestModalWinnerMessage(dpdummy){
-	RequestDatapack('answer',{
-		questionname:"As a winner, what would you tell Pedro PSI?",
-		thanksmessage:"Thank you for your message."
-		});
+function RequestModalWinnerMessage(previousDP){
+	RequestDatapack([
+		['answer',{
+			questionname:"As a winner, what would you tell Pedro PSI?",
+			thanksmessage:"Thank you for your message.",
+			executeChoice:function(id,choice){
+				if(choice==="Public message in Guestbook") SetData("destination","Guestbook",id);
+				else SetData("destination","feedback",id);
+			}
+		}],
+		['exclusivechoice',{
+			questionname:"",
+			qfield:"answer2",
+			qchoices:["Private message","Public message in Guestbook"]
+		}]
+	]);
 }
 
 
@@ -228,11 +246,11 @@ function PrintGameState(){
 function RequestGuestbook(){
 	RequestDatapack([
 		['answer',{
-			qdestination:'Guestbook',
+			destination:'Guestbook',
 			questionname:"Your message",
 			thanksmessage:"Thank you for your message in the Guestbook!"}],
 		['alias',{
-			qdestination:'Guestbook'}]
+			destination:'Guestbook'}]
 	])
 }
 
@@ -254,11 +272,11 @@ function RequestComment(title,elemsubtitle){
 	
 	RequestDatapack([
 		['answer',{
-			qdestination:'Comments',
+			destination:'Comments',
 			questionname:"Your comment"
 		}],
 		['alias',{
-			qdestination:'Comments'
+			destination:'Comments'
 		}]
 	]);
 }
@@ -269,12 +287,12 @@ function RequestComment(title,elemsubtitle){
 function OpenModalSubscribe(){
 	RequestDatapack([
 		['email',{
-			qdestination:'Subscription',
+			destination:'Subscription',
 			questionname:"Subscribe to be the first to know about Pedro PSI's next project!",
 			thanksmessage:"Thank you for subscribing!"
 		}],
 		['name',{
-			qdestination:'Subscription'
+			destination:'Subscription'
 		}]])
 	}
 
@@ -284,7 +302,7 @@ function OpenModalSubscribe(){
 function OpenModalPreOrder(campaigntext){
 	
 	RequestDatapack('email',{
-			qdestination:'Order',
+			destination:'Order',
 			questionname:campaigntext,
 			thanksmessage:"Your booking was placed. Thank you!"
 		});

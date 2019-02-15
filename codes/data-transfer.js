@@ -516,8 +516,10 @@ var DP={
 	qfield:"question",			//Field name must be unique
 	qvalue:"",					//Field value, by default
 	qchoices:"",				//answer options list
+	executeChoice:Identity,		//immediate changes on toggle receives (id, choice)
+	
 	qtype:LongAnswerHTML,		//Format of question ---takes a Datapack as ony argument
-	qdestination:'feedback',	//Name of data repository
+	destination:'feedback',	//Name of data repository
 	qplaceholder:"❤ Pedro PSI ❤",			//Placeholder answer
 
 	action:'SubmitAndNext', //action on submit ---takes a Datapack id as ony argument
@@ -543,6 +545,21 @@ var DP={
 
 var DATAPACKHISTORY=[];
 
+function DPHistoryAdd(DP){
+	DATAPACKHISTORY.push(DP);//To be improved
+}
+/*
+function DPHistoryUpdate(DP){
+	function Update(dp){
+		if(dp.qid===DP.qid)
+			return DP;
+		else
+			return dp;
+	}
+	var d=DATAPACKHISTORY.map(Update);
+	DATAPACKHISTORY=d;
+}*/
+
 function NewDataPack(obj){
 	var DP=DefaultDataPack();
 	var keys=Object.keys(obj);
@@ -558,7 +575,7 @@ function DataPackTypes(type){
 		normal:NewDataPack({}),
 		message:NewDataPack({
 			action:'Close',
-			qdestination:'none',
+			destination:'',
 			qdisplay:LaunchThanksModal}),
 		email:NewDataPack({
 			qtype:ShortAnswerHTML,
@@ -569,17 +586,21 @@ function DataPackTypes(type){
 		name:NewDataPack({
 			qrequired:false,
 			qvalidator:NameValidator,
-			qfield:"who",
+			qfield:"name",
 			qtype:ShortAnswerHTML,
 			questionname:"Your name",
 			qplaceholder:"(optional)"}),
 		answer:NewDataPack({
 			qfield:"answer",
 			thanksmessage:"Submitted. Thank you!",
-			qvalidator:SomeTextValidator})
-		//messagelinked
-		//askmessage
-		//askmultiple
+			qvalidator:SomeTextValidator}),
+		exclusivechoice:NewDataPack({
+			qfield:'answer',
+			questionname:"Which one?",
+			qchoices:["on","off"],
+			qtype:ExclusiveChoiceButtonRowHTML,
+			thanksmessage:"Submitted. Thank you!"})
+		//multiplechoice
 	}
 	if(typeof type==="undefined")
 		return DPTypes;
@@ -616,7 +637,7 @@ function RequestMultiDatapack(NameDataPackObjArray){
 		while(ndpa.length>0){
 			DP=CustomDataPack(ndpa[0][0],ndpa[0][1]);
 			DP.qid=lastqid;
-			DATAPACKHISTORY.push(DP);//To be improved
+			DPHistoryAdd(DP);
 			dparray.push(DP);
 			ndpa.shift();
 			lastqid=DP.qid;
@@ -650,7 +671,7 @@ function ChoicesButtonRowHTML(dataPack){
 
 function ExclusiveChoiceButtonRowHTML(dataPack){
 	function ExclusiveChoiceButtonHTML(choice,dataPac){
-		return '<div class="button" onclick="ToggleThisOnly(event,this);ToggleData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
+		return '<div class="button" onclick="ToggleThisOnly(event,this);SwitchData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
 	}
 	return ChoiceHTML(dataPack,ExclusiveChoiceButtonHTML)
 }
@@ -665,7 +686,10 @@ function LongAnswerHTML(dataPack){
 
 
 function SubQuestionHTML(dataPack){
-	var questiontitle=MessageHTML(dataPack.questionname);
+	var qname=dataPack.questionname;
+	var questiontitle="";
+	if(qname!=="")
+		questiontitle=MessageHTML(qname);
 	var answerfields=dataPack.qtype(dataPack);
 	return questiontitle+answerfields;
 }
@@ -675,7 +699,7 @@ function QuestionHTML(dataPackArray){
 		return QuestionHTML([dataPackArray]);
 	var dataPack=dataPackArray[0];
 	var QA=dataPackArray.map(SubQuestionHTML).join("");
-	return '<div data-destination="'+dataPack.qdestination+'"id="'+dataPack.qid+'">'+QA+SubmitButtonHTML(dataPack)+"</div>";
+	return '<div id="'+dataPack.qid+'">'+QA+SubmitButtonHTML(dataPack)+"</div>";
 }
 
 
@@ -692,7 +716,7 @@ function LaunchThanksBalloon(dataPack){
 
 function LaunchFeedbackBalloon(dataPack){
 	var datap=dataPack;
-	datap.qdestination="feedback";
+	datap.destination="feedback";
 	var QA = QuestionHTML(datap);
 	OpenBalloon(QA,datap.qid,datap.qtargetid)
 }
@@ -736,6 +760,7 @@ function ToggleThisOnly(ev,thi){
 		if (siblings[i]!==thi){
 		siblings[i].classList.remove("selected");}
 		else{
+		siblings[i].classList.remove("selected");
 		siblings[i].classList.toggle("selected");}
 		i++;
 	}
@@ -783,6 +808,7 @@ function SubmitData(dataObject,destination){
 	data.formDataNameOrder=destination.headers;
 	data.formGoogleSendEmail="";
 	data.formGoogleSheetName=destination.sheet;
+	SUBMISSIONHISTORY.push(data);
 	echoDataToSheetURL(data,destination.url,destination.sheet);
 }
 
@@ -806,8 +832,19 @@ function SubmitAnswer(DP){
 function SubmitAndNext(qid){
 	var DP=GetDatapack(qid);
 	if(typeof DP!=="undefined"){
+		console.log(DP);
 		SubmitAnswer(DP);
 	};
+}
+
+var SUBMISSIONHISTORY=[];
+
+function PreviousSubmission(field){
+	var s=SUBMISSIONHISTORY.filter(datasub=>((typeof datasub[field])!=="undefined"));
+	if(s.length>0)
+		return s[s.length-1][field];
+	else
+		return undefined;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -816,7 +853,7 @@ function SubmitAndNext(qid){
 function FindData(field,id){
 	var e=document.getElementById(id);
 	if(e===null)
-		return undefined;
+		return PreviousSubmission(field);
 	else{
 		var d=FindDataInNode(field,e);
 		if(typeof d==="undefined")
@@ -899,14 +936,23 @@ function GetDatapack(id){
 };
 
 function GetData(field,id){
-	return GetDatapack(id)[field];
+	var data=GetDatapack(id)[field];
+	if(typeof data==="undefined")
+		return	PreviousSubmission(field)
+	else
+		return data;
 };
 
 function SetData(field,value,id){
 	GetDatapack(id)[field]=value;
 };
 
+function ChoiceExecute(value,id){
+	FindData("executeChoice",id)(id,value);
+};
+
 function ToggleData(field,value,id){
+	ChoiceExecute(value,id);
 	if(typeof GetData(field,id)==="undefined")
 		SetData(field,value,id)
 	else{
@@ -916,6 +962,11 @@ function ToggleData(field,value,id){
 		else
 			SetData(field,a.replace(value,""),id)
 	}
+}
+
+function SwitchData(field,value,id){
+	ChoiceExecute(value,id);
+	SetData(field,value,id);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -980,17 +1031,21 @@ function EmailValidator(DP){
 		return {valid:false,error:"Please verify your e-mail address!"}
 }
 
+function SomeTextValidate(name){
+	var pattern=/[\d\w]/;
+	return name.match(pattern)!==null;
+}
+
 function SomeTextValidator(DP){
 	var em=FindData("answer",DP.qid);
-	var pattern=/[\d\w]/;
-	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
+	if((typeof em!=="undefined")&&SomeTextValidate(em))
 		return {valid:true,error:"none"}
 	else
 		return {valid:false,error:"Please write something!",}
 }
 
 function NameValidator(DP){
-	var em=FindData("who",DP.qid);
+	var em=FindData("name",DP.qid);
 	var pattern=/[\d\w][\d\w]+/;
 	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
 		return {valid:true,error:"none"}
