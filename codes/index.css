@@ -964,7 +964,10 @@ tbody tr:hover{
     flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: calc(var(--innerwidth)/20);
+    margin-right: calc(var(--innerwidth)/20);
     justify-content: center;
+
 }
 
 .buttonrow .button {
@@ -972,7 +975,6 @@ tbody tr:hover{
     margin:unset;
     margin-right:1px;
     margin-top: 1px;
-   
 }
 
 

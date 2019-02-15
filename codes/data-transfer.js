@@ -662,23 +662,29 @@ function RequestDatapack(TypeOrArray,obj){
 
 // Datapack Components
 
-function ChoiceHTML(dataPack,qbehaviour){
+function ChoiceHTML(dataPack,buttontype){
 	var choi="";
 	for(var i in dataPack.qchoices)
-		choi=choi+qbehaviour(dataPack.qchoices[i],dataPack);
+		choi=choi+buttontype(dataPack.qchoices[i],dataPack,i);
 	return '<div class="buttonrow">'+choi+'</div>';
 }
 
 function ChoicesButtonRowHTML(dataPack){
-	function ChoicesButtonHTML(choice,dataPac){
-		return '<div class="button" onclick="ToggleThis(event,this);ToggleData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
+	function ChoicesButtonHTML(choice,dataPac,i){
+		var selected="";
+		if(i==='0')
+			selected=" selected";
+		return '<div class="button'+selected+'" onclick="ToggleThis(event,this);ToggleData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
 	}
 	return ChoiceHTML(dataPack,ChoicesButtonHTML)
 }
 
 function ExclusiveChoiceButtonRowHTML(dataPack){
-	function ExclusiveChoiceButtonHTML(choice,dataPac){
-		return '<div class="button" onclick="ToggleThisOnly(event,this);SwitchData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
+	function ExclusiveChoiceButtonHTML(choice,dataPac,i){
+		var selected="";
+		if(i==='0')
+			selected=" selected";
+		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
 	}
 	return ChoiceHTML(dataPack,ExclusiveChoiceButtonHTML)
 }
