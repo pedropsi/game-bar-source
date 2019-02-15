@@ -86,6 +86,16 @@ function anonimiseLinks(){
 	changeLinks(prepareLink);
 }
  
+function absolutiseLinks(){
+	function prepareLink(l){
+		var ref=l.href;
+		if(ref===pageRelativePath(ref))
+			l.href=pageDomain(url)+ref
+		};
+	changeLinks(prepareLink);
+}
+ 
+ 
 function Analytics(){
 	echoPureData(fingerprintData(),analyticsURL);	
 }

@@ -36,6 +36,22 @@ function pageIdentifier(url){
 		return url.replace(/(#.*)/,"").replace(/(\/$)/,"").replace(/(.*\/)/,"").replace(".html","").replace(".htm","");
 }
 
+function pageRelativePath(url){
+	if(typeof url==="undefined")
+		return pageRelativePath(pageURL());
+	else
+		return url.replace(/^https?\:\/\//,"").replace(/^file\:\/\//,"").replace(CombineRegex(domain),"").replace(/^[/]/g,"");
+}
+
+function pageDomain(url){
+	if(typeof url==="undefined")
+		return pageDomain(pageURL());
+	else
+		return url.replace(pageRelativePath(url),"");
+}
+
+
+
 function SanitizeId(tex){
 	return tex.replace(/^[^a-z]+|[^\w:.-]+/gi,"");
 }
