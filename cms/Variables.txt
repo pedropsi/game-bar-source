@@ -22,6 +22,8 @@ LINK-URL	«SITE»/«LINK:Load»
 LOGOPATH	images/logo.png
 CSS-NAME	<a href="«CSSPATH»">"Octaflower Theme"</a> by «NAME-LINK»
 CSSPATH	codes/index.css
+CSS-REL	<link href="«CSSPATH»" rel="stylesheet" type="text/css">
+CSS-ABS	<link href="«SITE»/«CSSPATH»" rel="stylesheet" type="text/css">
 APPLEICON	images/splash.png
 FAVICON32	images/favicon-32x32.png
 PLACEHOLDER-IMAGE	splash.png
@@ -138,7 +140,7 @@ SENDOWL-BUTTON	«BUTTON-PREORDER»
 SENDOWL-ID	«CONTENT:Load»
 HTML-PRE-MAIN-PRE	<!DOCTYPE html>«HTML-PREFIX»«HEAD»<body class="body" id="«LINK:LOAD»">
 HTML-PRE-MAIN-POS	<div class="main">«NAVBAR»
-HTML-PRE	«HTML-PRE-MAIN»«HTML-PRE-MAIN-POS»
+HTML-PRE	«HTML-PRE-MAIN-PRE»«HTML-PRE-MAIN-POS»
 HTML-POS	</div>«FOOTER-AREA»</body></html>
 PAGE-INDEX	«HTML-PRE»«LATEST»«SUBSCRIBE-ANNOUNCEMENT»«SECTION-PRE»<h1 class="textarea title">Highlights</h1><div class="featured">«CONTENT:Load»</div>«SECTION-POS»«HTML-POS»
 PAGE-SIMPLE	«HTML-PRE»«POSTAREA-SIMPLE»«HTML-POS»
