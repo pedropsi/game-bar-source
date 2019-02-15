@@ -519,7 +519,7 @@ var DP={
 	executeChoice:Identity,		//immediate changes on toggle receives (id, choice)
 	
 	qtype:LongAnswerHTML,		//Format of question ---takes a Datapack as ony argument
-	destination:'feedback',	//Name of data repository
+	destination:'Feedback',	//Name of data repository
 	qplaceholder:"❤ Pedro PSI ❤",			//Placeholder answer
 
 	action:'SubmitAndNext', //action on submit ---takes a Datapack id as ony argument
@@ -599,7 +599,14 @@ function DataPackTypes(type){
 			questionname:"Which one?",
 			qchoices:["on","off"],
 			qtype:ExclusiveChoiceButtonRowHTML,
+			thanksmessage:"Submitted. Thank you!"}),
+		multiplechoice:NewDataPack({
+			qfield:'answer',
+			questionname:"Which ones?",
+			qchoices:["1","2","3","4","5"],
+			qtype:ChoicesButtonRowHTML,
 			thanksmessage:"Submitted. Thank you!"})
+
 		//multiplechoice
 	}
 	if(typeof type==="undefined")
@@ -714,12 +721,19 @@ function LaunchThanksBalloon(dataPack){
 	OpenBalloon(dataPack.thanksmessage,dataPack.qid,dataPack.qtargetid);
 }
 
+function LaunchFeedbackBalloon(DP){
+	if(Array.isArray(DP))
+		OpenBalloon(QuestionHTML(DP),DP[0].qid,DP[0].qtargetid);
+	else
+		OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
+}
+	/*
 function LaunchFeedbackBalloon(dataPack){
 	var datap=dataPack;
-	datap.destination="feedback";
+	datap.destination="Feedback";
 	var QA = QuestionHTML(datap);
 	OpenBalloon(QA,datap.qid,datap.qtargetid)
-}
+}*/
 
 
 function BalloonHTML(avatarsrc,content,id){

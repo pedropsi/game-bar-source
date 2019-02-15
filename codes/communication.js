@@ -22,7 +22,7 @@ var DESTINATION_FEEDBACK={
 	url:"https://script.google.com/macros/s/AKfycbwB-a8j-INbkzTiQFJ55qETLYkdZrRvSg2s8urj9bPbG0XkBg9z/exec",
 	headers:"[\"identifier\",\"context\",\"question\",\"answer\",\"name\",\"state\"]",
 	sheet:"Feedback",
-	name:"feedback",
+	name:"Feedback",
 	Data:function(qid){
 		return{
 			identifier:document.body.id,
@@ -145,7 +145,7 @@ function RequestModalWinnerMessage(previousDP){
 			thanksmessage:"Thank you for your message.",
 			executeChoice:function(id,choice){
 				if(choice==="Public message in Guestbook") SetData("destination","Guestbook",id);
-				else SetData("destination","feedback",id);
+				else SetData("destination","Feedback",id);
 			}
 		}],
 		['exclusivechoice',{
@@ -195,44 +195,49 @@ function RequestGameFeedback(){
   if(!feedbackRequests)
 	  feedbackRequests=[];
   
-  var DP=NewDataPack({
-		qfield:'answer',
+  var DPsettingsObj={
 		qtargetid:'puzzlescript-game',
 		qdisplay:LaunchFeedbackBalloon,
-		qonsubmit:LaunchThanksBalloon
-		});
-    
-  if(!HasBalloon(DP.qtargetid)){
+		qonsubmit:LaunchThanksBalloon,
+		thanksmessage:"★ Thank you for your feedback! ★"
+		};
+
+  if(!HasBalloon(DPsettingsObj.qtargetid)){
 	var levelindices=LevelIndices();
 	if(TitleScreen()){
-		DP.questionname="Your real-time feedback is much appreciated! Press F as soon as you start the first level to toggle these balloons.";
-		DP.qdisplay=LaunchMessageBalloon;
+		DPsettingsObj.questionname="Your real-time feedback is much appreciated! Press F as soon as you start the first level to toggle these balloons.";
+		DPsettingsObj.qdisplay=LaunchMessageBalloon;
+		RequestDatapack('message',DPsettingsObj);
 	}
 	else if(HasFeedback(currlevel)&&HasFeedback(lastlevel)){
-		DP.questionname="Any further comments?";
+		DPsettingsObj.questionname="Any further comments?";
+		RequestDatapack('answer',DPsettingsObj);
 	}
 	else if(lastlevel===currlevel){
-		DP.questionname="What do you think of this level so far?";
+		DPsettingsObj.questionname="What do you think of this level so far?";
+		RequestDatapack('answer',DPsettingsObj);
 		feedbackRequests.push(currlevel);
 	}
 	else if(!HasFeedback(lastlevel+1)){
-		DP.questionname="How did you feel after beating the previous level?";
-		DP.qchoices=["amazed","amused","annoyed","bored","clever","confused","disappointed","excited","exhausted","frustrated","happy","hooked","lucky","proud","surprised"];
-		DP.qtype=ChoicesButtonRowHTML;
+		DPsettingsObj.questionname="How did you feel after beating the previous level?";
+		DPsettingsObj.qchoices=["amazed","amused","annoyed","bored","clever","confused","disappointed","excited","exhausted","frustrated","happy","hooked","lucky","proud","surprised"];
+		DPsettingsObj.qtype=ChoicesButtonRowHTML;
 		feedbackRequests.push(lastlevel+1);
 		feedbackRequests.push(currlevel);
+		RequestDatapack('multiplechoice',DPsettingsObj);
 	}
 	else if(currlevel>levelindices[levelindices.length-1]){
-		DP.questionname="Thank you for playing "+state.metadata.title+"! Would you like to leave a public Testimonial?";
+		DPsettingsObj.questionname="Thank you for playing "+state.metadata.title+"! Would you like to leave a public Testimonial?";
 		feedbackRequests.push(currlevel);
+		RequestDatapack('answer',DPsettingsObj);
 	}
 	else{
-		DP.questionname="Any further comments?";
+		DPsettingsObj.questionname="Any further comments?";
+		RequestDatapack('answer',DPsettingsObj);
 	}
-	DP.qdisplay(DP);
   }
   else{
-	  CloseBalloonIn(DP.qtargetid);
+	  CloseBalloonIn(DPsettingsObj.qtargetid);
   }
 }
 
