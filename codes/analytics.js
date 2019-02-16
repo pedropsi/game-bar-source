@@ -77,8 +77,9 @@ function anonimiseLinks(){
 function absolutiseLinks(){
 	function prepareLink(l){
 		var ref=l.href;
+		console.log("ABS!",ref);
 		if(isAbsolutableLink(ref))
-			return pageAbsolute(ref);
+			l.href=pageAbsolute(ref);
 		};
 	changeLinks(prepareLink);
 }
@@ -91,7 +92,7 @@ function Analytics(){
 }
 
 function AnalyticsClearance(){
-		return (pageTag()!==clearance)&&(pageURL().replace(/^file\:\/\//,"")===pageURL());
+		return (pageTag()!==clearance)&&!isFileLink(pageURL());
 }
 
 function AnalyticsInnerClearance(title){

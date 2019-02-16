@@ -87,7 +87,7 @@ function pageNoTag(url){
 		return pageNoTag(pageURL());
 	else{
 		if(pageTag(url)==="")
-			return url
+			return url.replace("#","");
 		else
 			return url.replace(ForwardRegex(pageTag(url)),"").replace("#","");
 	}
@@ -180,8 +180,12 @@ function isRelativeLink(url){
 	return pageRelativePath(url)===url;
 }
 
+function isFileLink(url){
+	return pageHead(url)==="file:///";
+}
+
 function isLocalLink(url){
-	return isRelativeLink(url)||(pageHead(url)==="file:///");
+	return isRelativeLink(url)||isFileLink(url);
 }
 
 function isInOwnDomain(url){
