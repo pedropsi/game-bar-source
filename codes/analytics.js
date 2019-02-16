@@ -104,7 +104,7 @@ function anonimiseLinks(){
 }
  
 function absolutiseLinks(){
-	console.log("Absolutised!");
+	console.log("Absolutised!")
 	function prepareLink(l){
 		var ref=l.href;
 		if(isInnerLink(ref)&&(ref===pageRelativePath(ref)))
