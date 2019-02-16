@@ -1,12 +1,13 @@
 var CONTEXT="";
 var DESTINATIONS={};
 
+///////////////////////////////////////////////////////////////////////////////
 //Do nothing
 function Identity(){return;};
 
-///////////////////////////////////////////////////////////////////////////////
-//URL Manipulation
 
+///////////////////////////////////////////////////////////////////////////////
+//Regex
 function CombineMultiRegex(exprarray,joiner){
 	var j="";var kl="";var kr="";
 	if(joiner){
@@ -25,6 +26,29 @@ function AlternateRegex(exprarray){
 	return CombineMultiRegex(exprarray,"|");
 }
 
+function ForwardRegex(string){
+	return CombineRegex(string,/[\d\D]*/);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+//URL MANIPULATION
+//HEAD 			http://
+//DOMAIN 		aaaa.bbb.com
+//RELATIVEPATH	/folder1/folder2/
+//IDENTIFIER 	page
+//EXTENSION 	.html
+//TAG			#etc
+var domain = "pedropsi.github.io|combinatura.github.io";
+var predomains=AlternateRegex(domain.split("|").map(d=>CombineRegex(/[\d\D]*/,d)));
+var posdomains=AlternateRegex(domain.split("|").map(d=>CombineRegex(d,/[\d\D]*/)));
+var idomain=CombineRegex(/^/,domain);
+
+function Domains(){
+	return idomain;
+}
+
+//PRIMARY
 
 function pageTitle(){
 	return document.title;
@@ -34,31 +58,163 @@ function pageURL(){
 	return ""+window.location;
 }
 
+function pageConfig(url){
+	if(typeof url==="undefined")
+		return pageConfig(pageURL());
+	else{
+		return url.replace(/(.*\$)/,"").replace(url,"");
+	}
+}
+
+function pageNoConfig(url){
+	if(typeof url==="undefined")
+		return pageNoConfig(pageURL());
+	else{
+		return url.replace(/(\$.*)/,"");
+	}
+}
+
+//without configs
 function pageTag(url){
 	if(typeof url==="undefined")
 		return pageTag(pageURL());
 	else
-		return url.replace(/(.*#)/,"").replace(url,"").replace(/(\$.*)/,"");
+		return pageNoConfig(url).replace(/(.*#)/,"").replace(url,"");
+}
+
+function pageNoTag(url){
+	if(typeof url==="undefined")
+		return pageNoTag(pageURL());
+	else{
+		if(pageTag(url)==="")
+			return url
+		else
+			return url.replace(ForwardRegex(pageTag(url)),"").replace("#","");
+	}
 }
 
 function pageIdentifier(url){
 	if(typeof url==="undefined")
 		return pageIdentifier(pageURL());
+	else{
+		var urlAfter=pageNoTag(url).replace(/(.*\/)/,"");
+		if(isMaybeRoot(urlAfter))
+			return ""
+		else
+			return urlAfter.replace(".html","").replace(".htm","");
+	}
+}
+
+function pageNoHead(url){
+	if(typeof url==="undefined")
+		return pageNoHead(pageURL());
 	else
-		return url.replace(/(#.*)/,"").replace(/(\/$)/,"").replace(/(.*\/)/,"").replace(".html","").replace(".htm","");
+		return url.replace(/[\w\d]*\:(\/\/+)/g,"");
 }
 
-function SanitizeId(tex){
-	return tex.replace(/^[^a-z]+|[^\w:.-]+/gi,"");
+function pageHead(url){
+	if(typeof url==="undefined")
+		return pageHead(pageURL());
+	else
+		return url.replace(pageNoHead(url),"");
 }
 
-function SafeString(tex){
-	return String(tex).replace(/[\<\>\=\+\-\(\)]/g,"");
+function pageAfterOwnDomain(url){
+	if(typeof url==="undefined")
+		return pageAfterOwnDomain(pageURL());
+	else
+		return url.replace(predomains,"").replace(/^\//,"");
 }
+
+function isMaybeRoot(urlAfter){
+	return (urlAfter.replace(".htm","")===urlAfter)&&(urlAfter.replace(".","")!==urlAfter)
+}
+function isSingleton(urlAfter){
+	return (urlAfter.replace("/","")===urlAfter)
+}
+function pageRelativePath(url){
+	if(typeof url==="undefined")
+		return pageRelativePath(pageURL());
+	else{
+		var urlAfter=pageNoHead(pageAfterOwnDomain(url));
+		if(isSingleton(urlAfter)){
+			if(isMaybeRoot(urlAfter))
+				return "";
+			else
+				return urlAfter;
+		}
+		else
+			return urlAfter.replace(/\/*$/,"/").replace(/^([\d\w]+\.)+([\d\w]*)/,"").replace(/\/*$/,"").replace(/^\//,"");
+	}
+}
+
+function pageRoot(url){
+	if(typeof url==="undefined")
+		return pageRoot(pageURL());
+	else{
+		return url.replace(pageRelativePath(url),"");
+	}
+}
+
+function pageIdentifierExtension(url){
+	if(typeof url==="undefined")
+		return pageIdentifierExtension(pageURL());
+	else{
+		return url.replace(url.replace(ForwardRegex(pageIdentifier(url)),""),"");
+	}
+}
+
+
+function pageAbsolute(url){
+	if(typeof url==="undefined")
+		return pageAbsolute(pageURL());
+	else{
+		return pageRoot(url)+pageIdentifierExtension(url);
+	}
+}
+
+
+//SECONDARY
+
+function isRelativeLink(url){
+	return pageRelativePath(url)===url;
+}
+
+function isLocalLink(url){
+	return isRelativeLink(url)||(pageHead(url)==="file:///");
+}
+
+function isInOwnDomain(url){
+	return url.replace(predomains,"")!==url;
+}
+
+function isIntraPageLink(url){
+	var inpage=url.replace(/^#/,"");
+	return url!=inpage;
+}
+
+function isExtraPageLink(url){
+	return !isIntraPageLink(url);
+}
+
+function isInnerLink(url){
+	return isExtraPageLink(url)&&(isLocalLink(url)||isInOwnDomain(url));
+}
+
+function isOuterLink(url){
+	return isExtraPageLink(url)&&!(isLocalLink(url)||isInOwnDomain(url));
+}
+
+function isAbsolutableLink(url){
+	return isExtraPageLink(url)&&(isRelativeLink(url)||isInOwnDomain(url));
+}
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //Unique random identifier
-
 var UID=""
 function UserId(){
 	if (UID==="")
@@ -95,49 +251,6 @@ function GenerateId(){
 ///////////////////////////////////////////////////////////////////////////////
 // Data transmission
 
-// Read data stored in a form with id "targetid"
-
-function getDataRecord(targetid) {
-	var form = document.getElementById(targetid);
-	var elements = form.elements; // all form elements
-
-	var fields = Object.keys(elements).map(function(k) {
-		if(elements[k].name !== undefined) {
-			return elements[k].name;
-			// special case for Edge's html collection
-			}else if(elements[k].length > 0){
-			return elements[k].item(0).name;
-			}
-		}).filter(function(item, pos, self) {
-			return self.indexOf(item) == pos && item;
-	});
-
-	var data = {};
-
-	fields.forEach(function(k){
-		data[k] = elements[k].value;
-		var str = ""; // declare empty string outside of loop to allow it to be appended to for each item in the loop
-		if(elements[k].type === "checkbox"){ // special case for Edge's html collection
-			str = str + elements[k].checked + ", "; // take the string and append the current checked value to the end, along with a comma and a space
-			data[k] = str.slice(0, -2); // remove the last comma and space from the  string to make the output prettier in the spreadsheet
-		}
-		else if(elements[k].length){
-			for(var i = 0; i < elements[k].length; i++){
-				if(elements[k].item(i).checked){
-					str = str + elements[k].item(i).value + ", "; // same as above
-					data[k] = str.slice(0, -2);
-				}
-			}
-		}
-	});
-
-	// add form-specific values into the data
-	data.formDataNameOrder = JSON.stringify(fields);
-
-	return data;
-}
-
-
 // Sends data (Json) to a script in url "url"
 function echoPureData(data,url){
 			
@@ -165,12 +278,6 @@ function echoDataToSheetURL(data,url,destinationSheet){
 // Sends data to a google doc in address of the form field "action", with sheet name "destinationSheet"
 function echoDataToSheet(data,source,destinationSheet){
 	echoDataToSheetURL(data,document.getElementById(source).action,destinationSheet);  
-}
-
-// Sends data from a form with id "source" and to a google doc in address of the form field "action", with sheet name "destinationSheet"
-function echoDataRecord(source,destinationSheet){
-	var data = getDataRecord(source);
-	echoDataToSheet(data,source,destinationSheet);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -345,9 +452,17 @@ function ScrollInto(elementSelector) {
   e.scrollIntoView();
 }
 
+
 //////////////////////////////////////////////////
-// Transformer: Table (not inverted anymore)
-function MakeInvertedTable(dataarray){
+// Safe string loading
+function SafeString(tex){
+	return String(tex).replace(/[\<\>\=\+\-\(\)]/g,"");
+}
+
+
+//////////////////////////////////////////////////
+// Transformer: Table
+function MakeTable(dataarray){
 	function EnRow(dataline){
 		var datalin = dataline.map(
 			function(x){
@@ -496,7 +611,6 @@ document.onkeydown=function(e){
 };
 
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // Basic Buttons
 
@@ -519,6 +633,7 @@ function MessageHTML(message){
 function ErrorHTML(message){
 	return "<div class='error'><p>"+message+"</p></div>";
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 // Datapack System : default datapack, from which Datapack types are derived, each in turn can be Custom-ised 
 
@@ -549,7 +664,6 @@ var DP={
 	qonclose:Identity,//Next modal on close (defaults to nothing): Receives a DP
 	
 	thanksmessage:"Submitted. Thank you!"
-	
 	}
 	
 	return DP;
@@ -560,17 +674,7 @@ var DATAPACKHISTORY=[];
 function DPHistoryAdd(DP){
 	DATAPACKHISTORY.push(DP);//To be improved
 }
-/*
-function DPHistoryUpdate(DP){
-	function Update(dp){
-		if(dp.qid===DP.qid)
-			return DP;
-		else
-			return dp;
-	}
-	var d=DATAPACKHISTORY.map(Update);
-	DATAPACKHISTORY=d;
-}*/
+
 
 function NewDataPack(obj){
 	var DP=DefaultDataPack();
@@ -1085,8 +1189,4 @@ function NameValidator(DP){
 		return {valid:false,error:DP.qerrorcustom}
 	else
 		return {valid:false,error:"Please write at least 2 alphanumerics!"}
-}
-
-function Anonimiser(DP){
-	OverwriteDataField(DP.qfield,DP.qid,"Anonymous");
 }

@@ -49,7 +49,7 @@ HALL-OF-FAME-URL	action="https://script.google.com/macros/s/AKfycbzgwZUKFmuNQin6
 HALL-OF-FAME-DORM-ID	enterHallOfFame
 HALL-OF-FAME-SHEET	Hall of Fame
 HALL-OF-FAME-DISPLAY-URL	https://script.google.com/macros/s/AKfycbx3VJTScX-y6L3I4KMql10hVBx_MpjoDfocNHzhR9nuRAQkedFi/exec
-HALL-OF-FAME-DISPLAY	OverwriteData("«HALL-OF-FAME-DISPLAY-URL»","hall-of-fame-table",d=>MakeInvertedTable(JSON.parse(d)))
+HALL-OF-FAME-DISPLAY	OverwriteData("«HALL-OF-FAME-DISPLAY-URL»","hall-of-fame-table",d=>MakeTable(JSON.parse(d)))
 PATREON-IMG-URL	images/patreon-button.png
 PATREON-URL	https://www.patreon.com/PedroPSI
 DISCORD-MAIN	https://discord.gg/RxUMt9V
@@ -58,8 +58,9 @@ CONTACT-FORM-CUSTOM	https://script.google.com/macros/s/AKfycbzJnrnkaamwSWZbNKhgN
 GUESTBOOK-VIEW-LEGACY	https://docs.google.com/spreadsheets/d/e/2PACX-1vQwd7CTU3k1HsrT4fPLljY9HSW5eWbOv118H3zn5nsRg6Uc1b_aTg577hjFoHLPCUbKAEmht603qmc7/pubhtml?gid=2036979410&single=true&widget=false&chrome=false&headers=false
 GUESTBOOK-DISPLAY-URL	https://script.google.com/macros/s/AKfycbzbI9ht52-sWmNcVi4SpQvjhyTtEdSJxTPpfqwuSDTPlQfJJfc/exec
 GUESTBOOK-DISPLAY	OverwriteData("«GUESTBOOK-DISPLAY-URL»","guestbook-area",d=>MakeGuestbook(JSON.parse(d)))
-BEACON-ANALYTICS	<script data-cfasync="false" type="text/javascript"  src="codes/analytics.js"></script>
-BEACON-COM	<script data-cfasync="false" type="text/javascript"  src="codes/communication.js"></script>
+BEACON-ANALYTICS	<script data-cfasync="false" type="text/javascript" src="codes/analytics.js"></script>
+BEACON-COM	<script data-cfasync="false" type="text/javascript" src="codes/communication.js"></script>
+BEACON-TEST	<script data-cfasync="false" type="text/javascript" src="codes/test.js"></script>
 ARCHIVE-OF-POST-BY-DATE	«ARCHIVE-SECTION:SubUnique{"Year"}»
 ARCHIVE-OF-CLASS	«ARCHIVE-CLASS:Filter{"Type"->"Tag","Tags"->_}»
 ARCHIVE-CLASS	<div class="architem"><h3><a href="«LINK:Load».html">«Post:Load»</a></h3></div>
@@ -72,7 +73,7 @@ NAVBAR	<div class="nav">«NAV-LOGO»<nav role="navigation">«NAV-LINK:Filter{"Nav"-
 NAV-LINK	<a href="«LINK:Load».html" class="nav-link" style="max-width: 728px;">«TITLE:Load»</a>
 NAV-LOGO	<a href="index.html"><div class="logo"></div></a>
 RAINBOWLINE	<div class="rainbowline"></div>
-FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACON-ANALYTICS»«BEACON-COM»
+FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACON-ANALYTICS»«BEACON-COM»«BEACON-TEST»
 PICTURE	<img src="images/«IMAGE:Load»" alt="«IMAGEALT:Load»" title="«IMAGEALT:Load»"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT:Load»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>

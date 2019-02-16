@@ -1,12 +1,10 @@
-///// ANALYTICS
-var domain = "pedropsi.github.io|combinatura.github.io";
+////////////////////////////////////////////////////////////////////////////////
+// ANALYTIC DATA
 var analyticsURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec";
 var analyticsParameters="[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\",\"name\"]";
 var analyticsSheetName="analytics";
 var clearance = "test";
 var clearancePages = [""];
-
-var predomains=AlternateRegex(domain.split("|").map(d=>CombineRegex(/[\d\D]+/,d)));
 
 
 function LangUpperCase(s){
@@ -14,7 +12,6 @@ function LangUpperCase(s){
 	var pre=s.replace(/(-.*)/,"").replace(s,"");
 	return pos.length?(pre+"-"+pos.toUpperCase()):s
 }
-
 
  function fingerprintData() {
 	return {
@@ -43,6 +40,10 @@ function LangUpperCase(s){
 	return data;
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+// OUTLINK MANAGEMENT
+
 function changeLinks(f){
 	var links=document.getElementsByTagName("a");
 	var i=0;
@@ -51,43 +52,13 @@ function changeLinks(f){
 	};
 }
 
-var idomain=CombineRegex(/^/,domain);
-
-function pageRelativePath(url){
-	if(typeof url==="undefined")
-		return pageRelativePath(pageURL());
-	else
-		return url.replace(predomains,"").replace(/^\//,"");
-}
-
-function pageDomain(url){
-	if(typeof url==="undefined")
-		return pageDomain(pageURL());
-	else
-		return url.replace(pageRelativePath(url),"");
-}
-
-function isInnerLink(url){
-	var urlnohead=url.replace(/^https?\:\/\//,"");
-	return (urlnohead.replace(idomain,"")!=urlnohead)||(url.replace("http","").length==url.length)	
-}
-
-function isInPageLink(url){
-	var inpage=url.replace(/^#/,"");
-	return url!=inpage;
-}
-
-function hrefShort(url){
-	return url.replace(window.location,"");
-}
-
 function outLinks(){
 	function RegisterOutLink(l){
 		echoPureData(fingerprintLink(l),analyticsURL);
 		};
 	function prepareLink(l){
 		var ref=l.href;
-		if(!isInnerLink(ref)){
+		if(isOuterLink(ref)){
 			l.setAttribute("target","_blank");};
 			l.addEventListener("mousedown", (function(){RegisterOutLink(ref)}),false);
 	};
@@ -97,22 +68,23 @@ function outLinks(){
 function anonimiseLinks(){
 	function prepareLink(l){
 		var ref=l.href;
-		if(isInnerLink(ref)&&!isInPageLink(hrefShort(ref)))
+		if(isInnerLink(ref))
 			l.href= ref+"#"+clearance;
 		};
 	changeLinks(prepareLink);
 }
  
 function absolutiseLinks(){
-	console.log("Absolutised!");
 	function prepareLink(l){
 		var ref=l.href;
-		if(isInnerLink(ref)&&(ref===pageRelativePath(ref)))
-			l.href=pageDomain()+pageIdentifier(ref)
+		if(isAbsolutableLink(ref))
+			return pageAbsolute(ref);
 		};
 	changeLinks(prepareLink);
 }
 
+
+// ANALYTIC BEHAVIOUR
  
 function Analytics(){
 	echoPureData(fingerprintData(),analyticsURL);	
@@ -141,8 +113,8 @@ else{
 
 
 
-
-/////// CONFIGS
+////////////////////////////////////////////////////////////////////////////////
+// CONFIGS
 
 function pageTagFull(url){
 	if(pageTag(url)!="")
@@ -272,6 +244,7 @@ function activateNightMode(){
 	}
 	activateConfig("☾»")
 }
+
 
 // Background
 
