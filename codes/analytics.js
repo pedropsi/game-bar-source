@@ -62,6 +62,7 @@ function outLinks(){
 			l.setAttribute("target","_blank");};
 			l.addEventListener("mousedown", (function(){RegisterOutLink(ref)}),false);
 	};
+	
 	changeLinks(prepareLink);
 };
 
@@ -79,7 +80,7 @@ function absolutiseLinks(){
 		var ref=l.href;
 		console.log("ABS!",ref);
 		if(isAbsolutableLink(ref))
-			l.href=pageAbsolute(ref);
+			l.href=pageAbsolute(pageNoTag(ref));
 		};
 	changeLinks(prepareLink);
 }
