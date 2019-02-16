@@ -6,6 +6,9 @@ var analyticsSheetName="analytics";
 var clearance = "test";
 var clearancePages = [""];
 
+var predomains=AlternateRegex(domain.split("|").map(d=>CombineRegex(/[\d\D]+/,d)));
+
+
 function LangUpperCase(s){
 	var pos=s.replace(/(.*-)/,"").replace(s,"");
 	var pre=s.replace(/(-.*)/,"").replace(s,"");
@@ -50,6 +53,20 @@ function changeLinks(f){
 
 var idomain=CombineRegex(/^/,domain);
 
+function pageRelativePath(url){
+	if(typeof url==="undefined")
+		return pageRelativePath(pageURL());
+	else
+		return url.replace(predomains,"").replace(/^\//,"");
+}
+
+function pageDomain(url){
+	if(typeof url==="undefined")
+		return pageDomain(pageURL());
+	else
+		return url.replace(pageRelativePath(url),"");
+}
+
 function isInnerLink(url){
 	var urlnohead=url.replace(/^https?\:\/\//,"");
 	return (urlnohead.replace(idomain,"")!=urlnohead)||(url.replace("http","").length==url.length)	
@@ -87,14 +104,15 @@ function anonimiseLinks(){
 }
  
 function absolutiseLinks(){
+	console.log("Absolutised!");
 	function prepareLink(l){
 		var ref=l.href;
-		if(ref===pageRelativePath(ref))
-			l.href=pageDomain(url)+ref
+		if(isInnerLink(ref)&&(ref===pageRelativePath(ref)))
+			l.href=pageDomain()+pageIdentifier(ref)
 		};
 	changeLinks(prepareLink);
 }
- 
+
  
 function Analytics(){
 	echoPureData(fingerprintData(),analyticsURL);	

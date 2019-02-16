@@ -7,12 +7,24 @@ function Identity(){return;};
 ///////////////////////////////////////////////////////////////////////////////
 //URL Manipulation
 
-function CombineRegex(a,b){
-	var pref=new RegExp(a);
-	var suff=new RegExp(b);
-	var comb=new RegExp(pref.source+suff.source,"g");
+function CombineMultiRegex(exprarray,joiner){
+	var j="";var kl="";var kr="";
+	if(joiner){
+		j=joiner;kl="(";kr=")"
+	}
+	var regarray=exprarray.map(a=>new RegExp(a));
+	regarray=regarray.map(a=>kl+a.source+kr);
+	var comb=new RegExp(regarray.join(j),"g");
 	return comb;
 }
+
+function CombineRegex(a,b){
+	return CombineMultiRegex([a,b]);
+}
+function AlternateRegex(exprarray){
+	return CombineMultiRegex(exprarray,"|");
+}
+
 
 function pageTitle(){
 	return document.title;
@@ -35,22 +47,6 @@ function pageIdentifier(url){
 	else
 		return url.replace(/(#.*)/,"").replace(/(\/$)/,"").replace(/(.*\/)/,"").replace(".html","").replace(".htm","");
 }
-
-function pageRelativePath(url){
-	if(typeof url==="undefined")
-		return pageRelativePath(pageURL());
-	else
-		return url.replace(/^https?\:\/\//,"").replace(/^file\:\/\//,"").replace(CombineRegex(domain),"").replace(/^[/]/g,"");
-}
-
-function pageDomain(url){
-	if(typeof url==="undefined")
-		return pageDomain(pageURL());
-	else
-		return url.replace(pageRelativePath(url),"");
-}
-
-
 
 function SanitizeId(tex){
 	return tex.replace(/^[^a-z]+|[^\w:.-]+/gi,"");
