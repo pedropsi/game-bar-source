@@ -57,19 +57,6 @@
     --logoinv:url("../images/logo.png");
 }
 
-
-@keyframes fadein {
-    from {opacity:0;}
-    to   {opacity:1;}
-}
-
-@keyframes fadeout {
-    from {opacity:1;}
-    to   {opacity:0;}
-}
-
-.closing {animation: fadeout 1s;}
-
 body {
     padding: 5px;
     background-color:var(--smokewhite);
@@ -1135,4 +1122,42 @@ tbody tr:hover{
   line-height: var(--padh);
   padding:  var(--padv) var(--padh) var(--padv) var(--padh);
   margin:  var(--padv) var(--padh) var(--padv) var(--padh);
+}
+
+
+
+#Console {
+	position:fixed;
+	top:0;
+	margin-top: 4px;
+	width: 100%;
+	z-index: 1000;
+	align-items: center;
+}
+
+#Console .message{
+    background-color: var(--lightyellow); 
+    color: var(--lightblue);
+    border-bottom:4px solid var(--lightblue); 
+    margin-bottom:10px;
+    padding: calc(var(--innerwidth)/100);
+    font-weight: bold;
+}   
+
+.closing {
+  	opacity: 0;
+	transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+}
+
+.opening {
+  	opacity: 1;
+	transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
 }

@@ -448,6 +448,19 @@ function OverwriteData(source,destinationID,Transform){
 	ReplaceElement(data,destinationID);
 };
 
+// Remove Children
+function RemoveChildren(parentID){
+	ReplaceElement(parentID,"")
+}
+
+// Remove Element
+function RemoveElement(elementID){
+	var e=document.getElementById(elementID);
+	if(e!==null){
+		e.parentNode.removeChild(e);
+	}
+}
+
 //////////////////////////////////////////////////
 // Scroll into
 
@@ -638,6 +651,10 @@ function ErrorHTML(message){
 	return "<div class='error'><p>"+message+"</p></div>";
 }
 
+function PlainMessageHTML(message){
+	return message;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Datapack System : default datapack, from which Datapack types are derived, each in turn can be Custom-ised 
 
@@ -648,6 +665,8 @@ var DP={
 	qvalue:"",					//Field value, by default
 	qchoices:"",				//answer options list
 	executeChoice:Identity,		//immediate changes on toggle receives (id, choice)
+	
+	qsubmission:SubmitButtonHTML, //which submit button to generate (receives a data pack)
 	
 	qtype:LongAnswerHTML,		//Format of question ---takes a Datapack as ony argument
 	destination:'Feedback',	//Name of data repository
@@ -692,7 +711,10 @@ function NewDataPack(obj){
 
 function DataPackTypes(type){
 	var DPTypes={
-		normal:NewDataPack({}),
+		plain:NewDataPack({
+			qtype:PlainHTML,
+			qsubmission:function(DP){return ""}
+		}),
 		message:NewDataPack({
 			action:'Close',
 			destination:'',
@@ -821,7 +843,7 @@ function LongAnswerHTML(dataPack){
 function SubQuestionHTML(dataPack){
 	var qname=dataPack.questionname;
 	var questiontitle="";
-	if(qname!=="")
+	if(qname!==""&&dataPack.qtype!==PlainHTML)
 		questiontitle=MessageHTML(qname);
 	var answerfields=dataPack.qtype(dataPack);
 	return questiontitle+answerfields;
@@ -832,34 +854,36 @@ function QuestionHTML(dataPackArray){
 		return QuestionHTML([dataPackArray]);
 	var dataPack=dataPackArray[0];
 	var QA=dataPackArray.map(SubQuestionHTML).join("");
-	return '<div id="'+dataPack.qid+'">'+QA+SubmitButtonHTML(dataPack)+"</div>";
+	return '<div id="'+dataPack.qid+'">'+QA+dataPack.qsubmission(dataPack)+"</div>";
 }
 
+function PlainHTML(dataPack){
+	return PlainMessageHTML(dataPack.questionname);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Balloons
 
 function LaunchMessageBalloon(dataPack){
-	OpenBalloon(dataPack.questionname,dataPack.qid,dataPack.qtargetid);
+	var DP=dataPack;
+	if(Array.isArray(DP))
+		DP=DP[0];
+	OpenBalloon(DP.questionname,DP.qid,DP.qtargetid);
 }
 
 function LaunchThanksBalloon(dataPack){
-	OpenBalloon(dataPack.thanksmessage,dataPack.qid,dataPack.qtargetid);
+	var DP=dataPack;
+	if(Array.isArray(DP))
+		DP=DP[0];
+	OpenBalloon(DP.thanksmessage,DP.qid,DP.qtargetid);
 }
 
-function LaunchFeedbackBalloon(DP){
-	if(Array.isArray(DP))
-		OpenBalloon(QuestionHTML(DP),DP[0].qid,DP[0].qtargetid);
-	else
-		OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
-}
-	/*
 function LaunchFeedbackBalloon(dataPack){
-	var datap=dataPack;
-	datap.destination="Feedback";
-	var QA = QuestionHTML(datap);
-	OpenBalloon(QA,datap.qid,datap.qtargetid)
-}*/
+	var DP=dataPack;
+	if(Array.isArray(DP))
+		DP=DP[0];
+	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
+}
 
 
 function BalloonHTML(avatarsrc,content,id){
@@ -887,6 +911,9 @@ function HasBalloon(targetid){
 	return (i.querySelector(".balloon")!==null);
 }
 
+function ToggleClass(selector,clas){
+	document.querySelector(selector).classList.toggle(clas);
+}
 
 function ToggleThis(ev,thi){
 	if(ev.target.id===thi.id)
@@ -906,13 +933,12 @@ function ToggleThisOnly(ev,thi){
 	}
 }
 
-
 // Closing functions
 
 function CloseElement(targetid){
 	var fading=document.getElementById(targetid);
-	fading.classList.add("closing"); //Not working yet
-	fading.remove();
+	fading.classList.add("closing");
+	setTimeout(function(){fading.remove();},1000);
 }
 
 function CloseThis(ev,thi,targetid){
@@ -1193,4 +1219,50 @@ function NameValidator(DP){
 		return {valid:false,error:DP.qerrorcustom}
 	else
 		return {valid:false,error:"Please write at least 2 alphanumerics!"}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+//Message Console 
+
+var consolebuffer=[];
+var consolemax=3;
+
+function ConsoleClear(){
+	RemoveChildren("Console");
+}
+
+function ConsoleRemove(mID){
+	RemoveElement(mID);
+	var i=consolebuffer.indexOf(mID);
+	if(i>=0)
+		consolebuffer.splice(i,1)
+}
+
+function ConsoleMessageHTML(message,mID){
+	return '<div class="message" id='+mID+'>'+message+'</div>';
+}
+
+function ConsoleAdd(messageHTML){
+	ConsoleLoad();
+	var mID="c-"+GenerateId();//random id
+	AddElement(ConsoleMessageHTML(messageHTML,mID),"Console");
+	setTimeout(function(){CloseElement(mID)},9000);
+	consolebuffer.push(mID);
+	while(consolebuffer.length>consolemax){
+		ConsoleRemove(consolebuffer[0]);
+	}
+}
+
+function ConsoleLoad(){
+	if(document.getElementById("Console")===null)
+		AddAfterElement('<div id="Console"></div>','.main')
+}
+
+//Datapack integration in console
+function LaunchConsoleMessage(dataPack){
+	var DP=dataPack;
+	if(Array.isArray(DP))
+		DP=DP[0];
+	ConsoleAdd(QuestionHTML(DP));
 }

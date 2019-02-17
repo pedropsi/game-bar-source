@@ -312,3 +312,15 @@ function OpenModalPreOrder(campaigntext){
 			thanksmessage:"Your booking was placed. Thank you!"
 		});
 }
+
+
+//////////////////////////////////////////////////////////////////////
+//News
+function News(){
+	if(pageIdentifier()!=="gravirinth")
+		RequestDatapack("plain",{
+			questionname:"<b>Pedro PSI's latest news:</b><a href='gravirinth.html' target='_blank'> Gravirinth about to be released!</a>",
+			qdisplay:LaunchConsoleMessage})
+	};
+	
+	News()

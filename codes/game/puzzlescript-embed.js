@@ -64,8 +64,12 @@
 				var result = JSON.parse(githubHTTPClient.responseText);
 				var code = result["files"]["script.txt"]["content"];
 				compile(["restart"], code);
-				if(OverrideMusic)
+				
+				/////////////////////////////////////////////////////////////////////////////////////
+				// Music hook
+				if(typeof OverrideMusic!=="undefined")
 					OverrideMusic();
+
 			}
 		}
 		githubHTTPClient.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
