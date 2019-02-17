@@ -13,9 +13,7 @@
 	<li>for <b>perfectionists</b>: a <em>smart</em>	action counter;</li>
 	<li>for <b>explorers</b>: some very well-hidden or almost unreachable paths;</li>
 </ul>
-<li>all with beautiful and ambitious puzzlescript code.</li>
 </ul>
-
 
 <h2>Release notes</h2>
 
@@ -40,10 +38,11 @@
 <div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [beta]</div>
 
 <h3>Press & reviews</h3>
-<p class="centre">Would you like to write an article about «TITLE-BOLD»? Do you wish to feature «TITLE-BOLD» in a curated collection? Perhaps a video or livestream? Do «CONTACT-TEXT-1» to request a (free) <em>media pass</em>. All reviews are equally encouraged.</p>
-<p class="centre">There's also a «PRESSKIT».</p>
+<p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p><p>Then apply for a free <em>media pass</em>!</p>
 
-<div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [with media pass]</div>
+<div class="button" onclick="RequestMediaPass()">Apply for a media pass!</div>
+
+<p class="centre">There's also a «PRESSKIT».</p>
 
 <h3>Other inquiries</h3>
 <p>Please «CONTACT-TEXT-1» for all unusual requests!</p>
@@ -188,8 +187,11 @@
 	<li>inventory/dialogue display banners, trailing along with the camera;</li>
 	<li>progressively revealing and activating unseen areas.</li>
 </ul>
-<p>Plus, some custom sound effects and a backgrond music playlist were plugged.</p>
+<p>Altogether, these features required more than 4000 lines of puzzlescript code, including the main labyrinth's 5734 tiles - laid by hand and thoroughly tested, since a single tile may mean the difference from an hard puzzle an impossible one.</p>
+<p>Custom sound effects and a background music playlist were linked to the puzzlescript engine.</p>
 
+<h3>Is «TITLE-BOLD» notable in other ways?</h3>
+<p>«TITLE-BOLD» is also the world's first fully commercial puzzlescript game.</p>
 
 <h3>What will be the price tag?</h3>
 <p>Depending on your favourite currency:</p>
@@ -202,33 +204,32 @@
 <tbody>
 	<tr>
 		<td>EUR, GBP</td>
-		<td>2,5</td>	</tr>
+		<td>5</td>	</tr>
 	<tr>
 		<td>USD, CHF</td>
-		<td>3</td>	</tr>
+		<td>6</td>	</tr>
 	<tr>
 		<td>AUD, NZD, CAD, SGD</td>
-		<td>4</td>	</tr>
+		<td>8</td>	</tr>
 	<tr>
 		<td>BRL</td>
-		<td>10</td>	</tr>
-	<tr>
-		<td>RMB, DKK</td>
 		<td>20</td>	</tr>
 	<tr>
+		<td>RMB, DKK</td>
+		<td>40</td>	</tr>
+	<tr>
 		<td>SEK, NOK, HKD</td>
-		<td>25</td>	</tr>
+		<td>50</td>	</tr>
 	<tr>
 		<td>RUB, INR</td>
-		<td>200</td>	</tr>
+		<td>400</td>	</tr>
 	<tr>
 		<td>JPY</td>
-		<td>350</td>	</tr>
+		<td>700</td>	</tr>
 	<tr>
 		<td>KRW</td>
-		<td>3500</td>	</tr>
+		<td>7000</td>	</tr>
 	</tbody>
 </table>
-
 
 <div class="announce"><p>Reserve your seat now in the expedition to the «TITLE-BOLD»!</p><div class="button" onclick="OpenModalPreOrder('Enter your email address to be notified when «TITLE-BOLD» is released and be entitled to a discount.')">Book now!</div></div>

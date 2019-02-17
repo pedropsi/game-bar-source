@@ -99,6 +99,20 @@ var DESTINATION_KEYS={
 		}}
 	}
 	
+var DESTINATION_PASS={
+	url:DESTINATION_FEEDBACK.url,
+	headers:"[\"identifier\",\"name\",\"address\",\"account\"]",
+	sheet:"Pass",
+	name:"Pass",
+	Data:function(qid){return {
+		identifier:pageTitle(),
+		name:FindData("name",qid),
+		address:FindData("address",qid),
+		account:FindData("answer",qid),
+		type:FindData("type",qid)
+		}}
+	}
+	
 /*
 var DESTINATION_RATING={
 	url:DESTINATION_FEEDBACK.url,
@@ -121,7 +135,7 @@ DESTINATIONS[DESTINATION_FEEDBACK.name]=DESTINATION_FEEDBACK;
 DESTINATIONS[DESTINATION_SUBSCRIPTION.name]=DESTINATION_SUBSCRIPTION;
 DESTINATIONS[DESTINATION_ORDER.name]=DESTINATION_ORDER;
 DESTINATIONS[DESTINATION_KEYS.name]=DESTINATION_KEYS;
-
+DESTINATIONS[DESTINATION_PASS.name]=DESTINATION_PASS;
 
 //////////////////////////////////////////////////////////////////////
 //Hall of Fame
@@ -325,3 +339,26 @@ function News(){
 };
 
 News();
+
+//////////////////////////////////////////////////////////////////////
+//Media Pass
+
+function RequestMediaPass(){
+		RequestDatapack([
+		['name',{
+			destination:'Pass',
+			thanksmessage:"Your request is being processed - please allow 1-2 business days.",
+			qrequired:true,
+			questionname:"What's your name?",
+			qplaceholder:"(real or artistic name)"}],
+		['answer',{
+			destination:'Pass',
+			qfield:'account',
+			questionname:"Through which channels do you intend to review this game?",
+			qplaceholder:"e.g. which blog, magazine, youtube channel, twitch account, etc..."}],
+		['email',{
+			destination:'Pass',
+			questionname:"Your email (to receive the key)"
+		}],
+		])
+}
