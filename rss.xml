@@ -39,7 +39,7 @@
 				Author:
 					Pedro PSI
 				Address:
-					a secret location
+					a secret location.
 				Founding date:
 					December, 2017
 				Website:
@@ -47,15 +47,14 @@
 				Social media:
 					None.
 				Releases:
-					Gravirinth (2019) 
-		...</p>
+					Gravirinth (2019) ...</p>
 			]]>
 			</description>
 		
 		<category>Creative-Archive</category><category>Press</category><category>Sitemap</category>
 		</item>
 		<item>
-		<title>Selected Puzzlescript Games</title>
+		<title>Selected Puzzlescript Games 2014-2018</title>
 		<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
 		<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
 		<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
@@ -81,12 +80,9 @@
 			<![CDATA[
 				<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
 				<p>
-			
-		
-		
 		About Gravirinth
 		According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
-		Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive this...</p>
+		Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive this gre...</p>
 			]]>
 			</description>
 		
@@ -116,11 +112,13 @@
 				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Gravirinth changelog" title="Gravirinth changelog"/>
 				<p>This is Gravirinth's devlog.
 		
-		29-01-2019
-		Level Unplugged became clearer yet harder. Another major simplification, to level Blockbooster, created a better level, renamed  Hourglass.
-		An at first sight impossible bonus level, named Brakes, was created - the last level to be added to Gravirinth.
+		14-02-2019
+		Landing page with teaser video
+		Gravirinth's landing page improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's former logo.
 		
-		22-...</p>
+		07-02-2019
+		Physics tweaks
+		Eliminating inconsistent physic...</p>
 			]]>
 			</description>
 		
