@@ -143,7 +143,7 @@
 			<td>2011</td>
 		</tr>
 		<tr>
-			<td>Twillight</td>
+			<td>Twilight</td>
 			<td><a href="https://stellardrone.bandcamp.com/album/a-moment-of-stillness" «BLANK»>A moment of stillness</a></td>
 			<td>2011</td>
 			</tr>
@@ -168,9 +168,9 @@
 <h3>How <b>deep</b> is the «TITLE-BOLD»?</h3>
 <p>As far as the sonars can tell, the «TITLE-BOLD» is composed of a multitude of <em>interconnected chambers</em> of various sizes. Depending on how a chamber is defined, this number may vary, but probably <b>more than 32</b>. Some puzzles span <em>multiple chambers</em>, an some chambers comprise <em>multiple puzzles</em>.</p>
 
-<h3>How many <em>fourfould orbs</em> can be collected in «TITLE-BOLD»?</h3>
+<h3>How many <em>fourfold orbs</em> can be collected in «TITLE-BOLD»?</h3>
 <p>Certainly <b>more than 12</b>. The <em>exact number</em> eludes most exoarchaeologists.</p>
-<p>The ultimate purpose of the <em>fourfould orbs</em> within the «TITLE-BOLD» is unknown, although it may contribute to a more accurate classification of alien life traits such as <em>inventiveness</em> and <em>persistence</em> or simply reward <em>exploration</em>.</p> 
+<p>The ultimate purpose of the <em>fourfold orbs</em> within the «TITLE-BOLD» is unknown, although it may contribute to a more accurate classification of alien life traits such as <em>inventiveness</em> and <em>persistence</em> or simply reward <em>exploration</em>.</p> 
 
 <h3>What inspired «TITLE-BOLD»?</h3>
 <p>The exoarcheology theme was inspired by Michio Kaku's <em>Future of Mankind</em>.</p>
