@@ -317,10 +317,11 @@ function OpenModalPreOrder(campaigntext){
 //////////////////////////////////////////////////////////////////////
 //News
 function News(){
-	if(pageIdentifier()!=="gravirinth")
+	if(pageIdentifier()!=="gravirinth"&&!inConfig("📰»"))
 		RequestDatapack("plain",{
 			questionname:"<b>Pedro PSI's latest news:</b><a href='gravirinth.html' target='_blank'> Gravirinth about to be released!</a>",
-			qdisplay:LaunchConsoleMessage})
-	};
-	
-	News()
+			qdisplay:LaunchConsoleMessage});
+		activateConfig("📰»");
+};
+
+News();

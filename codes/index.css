@@ -1127,15 +1127,17 @@ tbody tr:hover{
 
 
 #Console {
+    pointer-events: none;
 	position:fixed;
 	top:0;
 	margin-top: 4px;
 	width: 100%;
 	z-index: 1000;
-	align-items: center;
+    align-items: center;
 }
 
 #Console .message{
+    pointer-events:all;
     background-color: var(--lightyellow); 
     color: var(--lightblue);
     border-bottom:4px solid var(--lightblue); 

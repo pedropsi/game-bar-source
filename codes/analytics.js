@@ -116,7 +116,7 @@ else{
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// CONFIGS
+// Inter-page memory via configs
 
 function pageTagFull(url){
 	if(pageTag(url)!="")
@@ -274,9 +274,9 @@ function activateBGMode(bg){
 function loadConfig(){
 	updateConfig(Config())
 	if(inConfig("☾»"))
-		activateNightMode()
+		activateNightMode();
 	if(inConfig("🖼»"))
-		activateBGMode(getConfigArg("🖼»"))
+		activateBGMode(getConfigArg("🖼»"));
 	/*if(AnalyticsClearance()){
 		if(inConfig("💾»"))
 			UID=getConfigArg("💾»")
