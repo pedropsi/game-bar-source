@@ -1,10 +1,10 @@
 <h2>Quick links</h2>
-		<a href="press.html#factsheet">Factsheet</a>
-		<a href="press.html#description">Description</a>
-		<a href="press.html#history">History</a>
-		<a href="press.html#projects">Projects</a>
-		<a href="press.html#images">Images & Logo</a>
-		<a href="press.html#contact">Contact</a>
+		<a href="#factsheet">Factsheet</a>
+		<a href="#description">Description</a>
+		<a href="#history">History</a>
+		<a href="#projects">Projects</a>
+		<a href="#images">Images & Logo</a>
+		<a href="#contact">Contact</a>
 
 <h2 id="factsheet">Factsheet</h2>
 		
@@ -28,7 +28,7 @@
 		<p>«SITE-NAME» is an archive of «NAME»'s personal projects - notably «NAME»'s puzzles - with a triple purpose: record «NAME»'s learning journey, make it useful to others and become a stepping stone to something greater. Surpassing all expectations, a growing community of enthusiasts find joy in «NAME»'s unique challenges and often learn something new.</p>
 
 <h2 id="history">History</h2>
-	<p>Many years elapsed since «NAME»'s first hit, the mini puzzle <a href="unlucky-unlock.html">Unlucky Unlock</a>, and the birth of the «SITE-NAME», just before 2018. Fast-forward a year, and five intriguing puzzles (<a href="whirlpuzzle.html">whirlpuzzle</a>, <a href="pmgrp.html">pmgrp</a>, <a href="hastefulll.html">hastefulll</a>, <a href="tiaradventur.html">tiaradventur</a>, <a href="abxtract-tractx.html">abxtract-tractx</a>), came into being, each a stepping stone for the next greater project.</p>
+	<p>Many years elapsed since «NAME»'s first hit, the mini puzzle <a href="unlucky-unlock.html">Unlucky Unlock</a>, and the birth of the «SITE-NAME», just before 2018. Fast-forward a year, and five intriguing puzzles (<a href="whirlpuzzle.html">whirlpuzzle</a>, <a href="pmgrp.html">pmgrp</a>, <a href="hastefulll.html">hastefulll</a>, <a href="tiaradventur.html">tiaradventur</a>, <a href="abxtract-tractx.html">abxtract-tractx</a>), came into being, each a stepping stone for the next project.</p>
 	<p>«NAME»'s game-making adventure ends in 2019, with an achievement: the first commercial puzzlescript game ever released worldwide. Enter the <a href="gravirinth.html">Gravirinth</a> - a mysteriously puzzling exoarcheology expedition.</p>
 	
 <h2 id="projects" >Projects</h2>

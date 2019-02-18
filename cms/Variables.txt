@@ -199,3 +199,7 @@ GALLERY-PICTURE	<a href="images/«IMAGE:Load»" «BLANK»><div class="card">«PICTURE
 SUPPORT-LINK	2018-02-08-support-the-archive.html
 PRESSKIT	<a href="press.html"><b>press kit</b></a>
 VIDEO-SRC	media/«LINK:Load»/«LINK:Load».mp4
+SELECTION-GRAVIRINTH	:Filter{"Context"->"gravirinth-screenshot"}
+ASSETS	:In{Assets}
+GALLERY-GRAVIRINTH-IN	«GALLERY-PICTURE«SELECTION-GRAVIRINTH»»
+GALLERY-GRAVIRINTH	<div class="featured">«GALLERY-GRAVIRINTH-IN«ASSETS»»</div>

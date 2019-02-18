@@ -48,6 +48,19 @@
 <p>Please «CONTACT-TEXT-1» for all unusual requests!</p>
 
 
+<h2 class="images">Screenshots & Logo</h2>
+	<p>Download all screenshots + logo <a class="download" title="Download all screenshots and logo" 
+	href="images/gravirinth/gravirinth-screenshots-logo.zip">↓↓↓ (zip archive)</a></p>
+	
+<h3 id="logo">Screenshots</h3>
+	«GALLERY-GRAVIRINTH»
+	
+<h3 id="logo">Logo</h3>
+	<div class="figure com-banner" id="gravirinth-logo">
+			<img src="images/gravirinth/gravirinth-logo.gif" alt="Gravirinth animated logo" title="Gravirinth animated logo"/>
+	</div>	
+
+
 <h2>How to play</h2>
 <p>Read the instructions below beforehand or skip them in favour of «TITLE-BOLD»'s interactive tutorial!</p>
 
@@ -113,6 +126,7 @@
 </div>
 
 «GAME-EXTRAS-TEXT»
+
 
 
 <h2>Credits</h2>

@@ -1,5 +1,9 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>18-02-2019</h2>
+<h3>Screenshots</h3>
+<p>Four Gravirinth screenshots were added, along with the option to download them all at once.</p>
+
 <h2>17-02-2019</h2>
 <h3>Free media passes</h3>
 <p>A more convenient way to request (and handle) free media passes, via the form below, was implemented.</p>
@@ -13,7 +17,7 @@
 
 <h2>14-02-2019</h2>
 <h3>Landing page with teaser video</h3>
-<p>Gravirinth's <a href="gravirinth.html">landing page</a> improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's <a href="#gravirinth-logo">former logo</a>.</p>
+<p>Gravirinth's <a href="gravirinth.html">landing page</a> improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's <a href="#gravirinth-logo">animated logo</a>, still downloadable alongside screenshots.</p>
 
 <h2>07-02-2019</h2>
 <h3>Physics tweaks</h3>
@@ -198,7 +202,7 @@
 		<p>The logo was animated, then etched onto a <b>Gravirinth</b> wall, whose shifting symbols and surrounding perpetual loop were added for decoration. This animated version will be displayed at the cover page.</p>
 		
 		<div class="figure com-banner" id="gravirinth-logo">
-			<img src="images/gravirinth/Gravirinth-banner.gif" alt="Gravirinth game banner" title="Gravirinth animated banner"/>
+			<img src="images/gravirinth/gravirinth-logo.gif" alt="Gravirinth animated logo" title="Gravirinth animated logo"/>
 		</div>
 
 
