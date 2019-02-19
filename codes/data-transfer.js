@@ -639,16 +639,16 @@ function OkButtonHTML(targetid){
 	return '<div class="button" onclick="Close(\''+targetid+'\')">OK</div>';
 }
 
-function SubmitButtonHTML(datapack){
-	return '<div class="button" onclick="'+datapack.action+'(\''+datapack.qid+'\')">Submit</div>';
+function SubmitButtonHTML(DP){
+	return '<div class="button" onclick="'+DP.action+'(\''+DP.qid+'\')">Submit</div>';
 }
 
 function MessageHTML(message){
 	return "<h4 class='question'>"+message+"</h4>";
 }
 
-function ErrorHTML(message){
-	return "<div class='error'><p>"+message+"</p></div>";
+function ErrorHTML(message,id){
+	return "<div class='error' id='"+id+"'><p>"+message+"</p></div>";
 }
 
 function PlainMessageHTML(message){
@@ -656,115 +656,131 @@ function PlainMessageHTML(message){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Datapack System : default datapack, from which Datapack types are derived, each in turn can be Custom-ised 
+// DataField and DataPack system : default DataField (customisable), many of which constitute a DataPack 
+
+function DefaultDataField(){
+	return {
+		questionname:"???",				//Display name of the field question
+		qfield:"question",				//Field name must be unique
+		qvalue:"",						//Field value, by default
+
+		qid:GenerateId(),				//id of the field question
+		
+		qchoices:"",					//answer options list
+		executeChoice:Identity,			//immediate changes on toggle receives (id, choice)
+
+		qtype:PlainHTML,				//Format of question :receives a DataField
+		qplaceholder:"❤ Pedro PSI ❤",	//Placeholder answer
+
+		qsubmittable:true, 				//whether the element expects submission (true) or merely presents information (false)
+		qrequired:true,					
+		qvalidator:IdentityValidator,	//Receives a DataField
+		qerrorcustom:''
+	}
+}
 
 function DefaultDataPack(){
-var DP={
-	questionname:"???",			//Display name of the subquestion
-	qfield:"question",			//Field name must be unique
-	qvalue:"",					//Field value, by default
-	qchoices:"",				//answer options list
-	executeChoice:Identity,		//immediate changes on toggle receives (id, choice)
-	
-	qsubmission:SubmitButtonHTML, //which submit button to generate (receives a data pack)
-	
-	qtype:LongAnswerHTML,		//Format of question ---takes a Datapack as ony argument
-	destination:'Feedback',	//Name of data repository
-	qplaceholder:"❤ Pedro PSI ❤",			//Placeholder answer
+	return {
+		fields:[],
 
-	action:'SubmitAndNext', //action on submit ---takes a Datapack id as ony argument
-	
-	qid:GenerateId(),			//Which is the id of the overarching question/form element?
-	qtargetid:document.body.id,	//Where to introduce form in page?
-	qdisplay:LaunchModal,//Question display function ---takes a Datapack (or datapack array) as ony argument
+		qid:GenerateId(),				//id
+		
+		destination:'Feedback',			//Name of data repository
 
-	qrequired:true,
-	qvalidator:function(DP){return {valid:true,error:"no errors"};},//Receives an DP
-	qerrorcustom:'',
-	qanswerformatter:Identity,//Receives a DP
-	
-	qonsubmit:LaunchThanksModal,//Next modal on successful submit: Receives a DP
-	qonclose:Identity,//Next modal on close (defaults to nothing): Receives a DP
-	
-	thanksmessage:"Submitted. Thank you!"
+		action:'CheckSubmit', 			//action on submit :receives a qid
+
+		qtargetid:document.body.id,		//Where to introduce form in page?
+		qdisplay:LaunchModal,			//Question display function :receives a DataPack
+
+		qonsubmit:LaunchThanksModal,	//Next modal on successful submit: receives a DataPack
+		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
+		thanksmessage:"Submitted. Thank you!"
 	}
-	
-	return DP;
 }
 
-var DATAPACKHISTORY=[];
-
-function DPHistoryAdd(DP){
-	DATAPACKHISTORY.push(DP);//To be improved
-}
-
-
-function NewDataPack(obj){
-	var DP=DefaultDataPack();
+function NewDataField(obj){
+	var DF=DefaultDataField();
 	var keys=Object.keys(obj);
 	for(var k in keys){
-		DP[keys[k]]=obj[keys[k]];
+		DF[keys[k]]=obj[keys[k]];
 	}
-	return DP;
+	return DF;
 }
 
-
-function DataPackTypes(type){
-	var DPTypes={
-		plain:NewDataPack({
-			qtype:PlainHTML,
-			qsubmission:function(DP){return ""}
+function DataFieldTypes(type){
+	var DFTypes={
+		plain:NewDataField({
+			qsubmittable:false
 		}),
-		message:NewDataPack({
+		message:NewDataField({
 			action:'Close',
 			destination:'',
+			qtype:LongAnswerHTML,
 			qdisplay:LaunchThanksModal}),
-		email:NewDataPack({
+		email:NewDataField({
 			qtype:ShortAnswerHTML,
 			qfield:"address",
 			qplaceholder:"_______@___.___",
 			qvalidator:EmailValidator,
 			}),
-		name:NewDataPack({
+		name:NewDataField({
 			qrequired:false,
 			qvalidator:NameValidator,
 			qfield:"name",
 			qtype:ShortAnswerHTML,
 			questionname:"Your name",
 			qplaceholder:"(optional)"}),
-		answer:NewDataPack({
+		answer:NewDataField({
 			qfield:"answer",
 			thanksmessage:"Submitted. Thank you!",
+			qtype:LongAnswerHTML,
 			qvalidator:SomeTextValidator}),
-		exclusivechoice:NewDataPack({
+		exclusivechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which one?",
 			qchoices:["on","off"],
 			qtype:ExclusiveChoiceButtonRowHTML,
 			thanksmessage:"Submitted. Thank you!"}),
-		multiplechoice:NewDataPack({
+		multiplechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which ones?",
 			qchoices:["1","2","3","4","5"],
 			qtype:ChoicesButtonRowHTML,
-			thanksmessage:"Submitted. Thank you!"})
-
-		//multiplechoice
+			thanksmessage:"Submitted. Thank you!"}),
+		pass:NewDataField({
+			questionname:"What is the password?",
+			qfield:'answer',
+			qtype:ShortAnswerHTML,
+			qvalidator:SomeTextValidator,
+			qplaceholder:"(top-secret)"})
 	}
 	if(typeof type==="undefined")
-		return DPTypes;
+		return DFTypes;
 	else
 		if(type==='alias')
-			return CustomDataPack('name',{qplaceholder:"or alias"});
+			return CustomDataField('name',{qplaceholder:"or alias"});
 		else
-			return DPTypes[type];
-
+			return DFTypes[type];
 }
 
-function CustomDataPack(type,obj){
-	var DP=DataPackTypes(type);
+function CustomDataField(type,obj){
+	var DF=DataFieldTypes(type);
 	if(obj===undefined)
 		obj={};
+	var keys=Object.keys(obj);
+	for(var k in keys){
+		DF[keys[k]]=obj[keys[k]];
+	}
+	return DF;
+}
+
+var DATAPACKHISTORY=[];
+
+function DPHistoryAdd(DF){
+	DATAPACKHISTORY.push(DF);
+}
+
+function UpdateDataPack(DP,obj){
 	var keys=Object.keys(obj);
 	for(var k in keys){
 		DP[keys[k]]=obj[keys[k]];
@@ -772,119 +788,113 @@ function CustomDataPack(type,obj){
 	return DP;
 }
 
-// Datapack Series
+function NewDataPack(obj){
+	return UpdateDataPack(DefaultDataPack(),obj);
+}
 
-function RequestMultiDatapack(NameDataPackObjArray){
-	var ndpa=NameDataPackObjArray;
-	if(NameDataPackObjArray.length<1)
+function NewDataPackFields(NamedFieldArray){
+	return {fields:NamedFieldArray.map(ndf=>CustomDataField(ndf[0],ndf[1]))};
+}
+
+function RequestDataPack(NamedFieldArray,Options){
+	if(NamedFieldArray.length<1)
 		return;
 	else{
-		var DP=CustomDataPack(ndpa[0][0],ndpa[0][1]);
-		var lastqid=DP.qid;
-		var dparray=[];
-		var DisplayF=DP.qdisplay;
-		while(ndpa.length>0){
-			DP=CustomDataPack(ndpa[0][0],ndpa[0][1]);
-			DP.qid=lastqid;
-			DPHistoryAdd(DP);
-			dparray.push(DP);
-			ndpa.shift();
-			lastqid=DP.qid;
-		}
-		return DisplayF(dparray);
+		var o=Options;
+		if(typeof o==="undefined")
+			o={};
+		var DP=NewDataPack(NewDataPackFields(NamedFieldArray));
+		DP=UpdateDataPack(DP,o);
+		DP.fields=DP.fields.map(function(f){var fi=f;fi.pid=DP.qid;return fi});
+		DPHistoryAdd(DP);
+		
+		DP.qdisplay(DP);
+		return DP;
 	}
+};
+
+
+// DataField HTML Components
+
+function PlainHTML(dataField){
+	return PlainMessageHTML(dataField.questionname);
 }
 
-function RequestDatapack(TypeOrArray,obj){
-	if(typeof TypeOrArray==="object"&&typeof obj==="undefined")
-		RequestMultiDatapack(TypeOrArray)
-	else
-		RequestMultiDatapack([[TypeOrArray,obj]])
-}
-
-// Datapack Components
-
-function ChoiceHTML(dataPack,buttontype){
+function ChoiceHTML(dataField,buttontype){
 	var choi="";
-	for(var i in dataPack.qchoices)
-		choi=choi+buttontype(dataPack.qchoices[i],dataPack,i);
-	return '<div class="buttonrow">'+choi+'</div>';
+	var clear='onload="ClearData(\''+dataField.qfield+'\',\''+dataField.pid+'\')" ';
+	for(var i in dataField.qchoices)
+		choi=choi+buttontype(dataField.qchoices[i],dataField,i);
+	return '<div class="buttonrow" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
 }
 
-function ChoicesButtonRowHTML(dataPack){
-	function ChoicesButtonHTML(choice,dataPac,i){
+function ChoicesButtonRowHTML(dataField){
+	function ChoicesButtonHTML(choice,dataFiel,i){
+		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
+		return '<div class="button" onclick="ToggleThis(event,this);ToggleData'+args+'">'+choice+'</div>';
+	};
+	console.log(dataField.qfield);console.log(dataField.pid);console.log(GetData(dataField.qfield,dataField.pid));
+	ClearData(dataField.qfield,dataField.pid);
+	return ChoiceHTML(dataField,ChoicesButtonHTML)
+}
+
+function ExclusiveChoiceButtonRowHTML(dataField){
+	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 		var selected="";
+		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
 		if(i==='0')
-			selected=" selected";
-		return '<div class="button'+selected+'" onclick="ToggleThis(event,this);ToggleData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
-	}
-	return ChoiceHTML(dataPack,ChoicesButtonHTML)
+			selected=' selected" onload="SetData'+args; //Default option
+		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData'+args+'">'+choice+'</div>';
+	};
+	console.log(dataField.qfield);console.log(dataField.pid);
+	ClearData(dataField.qfield,dataField.pid);
+	return ChoiceHTML(dataField,ExclusiveChoiceButtonHTML)
 }
 
-function ExclusiveChoiceButtonRowHTML(dataPack){
-	function ExclusiveChoiceButtonHTML(choice,dataPac,i){
-		var selected="";
-		if(i==='0')
-			selected=" selected";
-		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData(\''+dataPac.qfield+'\',\''+choice+'\',\''+dataPac.qid+'\')">'+choice+'</div>';
-	}
-	return ChoiceHTML(dataPack,ExclusiveChoiceButtonHTML)
+function ShortAnswerHTML(dataField){
+	return "<input data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></input>";
 }
 
-function ShortAnswerHTML(dataPack){
-	return "<input data-"+dataPack.qfield+"='' placeholder='"+dataPack.qplaceholder+"'></input>";
+function LongAnswerHTML(dataField){
+	return "<textarea data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></textarea>";
 }
 
-function LongAnswerHTML(dataPack){
-	return "<textarea data-"+dataPack.qfield+"='' placeholder='"+dataPack.qplaceholder+"'></textarea>";
-}
-
-
-function SubQuestionHTML(dataPack){
-	var qname=dataPack.questionname;
+function SubQuestionHTML(dataField){
+	var qname=dataField.questionname;
 	var questiontitle="";
-	if(qname!==""&&dataPack.qtype!==PlainHTML)
+	if(qname!==""&&dataField.qtype!==PlainHTML)
 		questiontitle=MessageHTML(qname);
-	var answerfields=dataPack.qtype(dataPack);
+	var answerfields=dataField.qtype(dataField);
 	return questiontitle+answerfields;
 }
 
-function QuestionHTML(dataPackArray){
-	if(typeof dataPackArray.qid !== "undefined") //Meaning it is a single subquestion unwrapped
-		return QuestionHTML([dataPackArray]);
-	var dataPack=dataPackArray[0];
-	var QA=dataPackArray.map(SubQuestionHTML).join("");
-	return '<div id="'+dataPack.qid+'">'+QA+dataPack.qsubmission(dataPack)+"</div>";
+
+// DataPack HTML Components
+
+function QuestionHTML(DP){
+	var Fields=DP.fields;
+	//!!! Outgrow for simple DP
+	var SubQuestions=Fields.map(SubQuestionHTML).join("");
+	var SubmissionButton="";
+	if (Fields.some(dp=>dp.qsubmittable))
+		SubmissionButton=SubmitButtonHTML(DP);
+	return '<div id="'+DP.qid+'">'+SubQuestions+SubmissionButton+"</div>";
 }
 
-function PlainHTML(dataPack){
-	return PlainMessageHTML(dataPack.questionname);
-}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Balloons
 
-function LaunchMessageBalloon(dataPack){
-	var DP=dataPack;
-	if(Array.isArray(DP))
-		DP=DP[0];
-	OpenBalloon(DP.questionname,DP.qid,DP.qtargetid);
+function LaunchThanksBalloon(DP){
+	RequestDataPack(
+		[['plain',{questionname:DP.thanksmessage,destination:""}]],
+		{qtargetid:DP.qtargetid,qdisplay:LaunchBalloon});
 }
 
-function LaunchThanksBalloon(dataPack){
-	var DP=dataPack;
-	if(Array.isArray(DP))
-		DP=DP[0];
-	OpenBalloon(DP.thanksmessage,DP.qid,DP.qtargetid);
-}
-
-function LaunchFeedbackBalloon(dataPack){
-	var DP=dataPack;
-	if(Array.isArray(DP))
-		DP=DP[0];
+function LaunchBalloon(DP){
 	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
-
 
 function BalloonHTML(avatarsrc,content,id){
 	return '\
@@ -911,6 +921,9 @@ function HasBalloon(targetid){
 	return (i.querySelector(".balloon")!==null);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Toggling class & buttons
+
 function ToggleClass(selector,clas){
 	document.querySelector(selector).classList.toggle(clas);
 }
@@ -933,12 +946,23 @@ function ToggleThisOnly(ev,thi){
 	}
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
 // Closing functions
 
 function CloseElement(targetid){
 	var fading=document.getElementById(targetid);
-	fading.classList.add("closing");
-	setTimeout(function(){fading.remove();},1000);
+	if(fading!==null){
+		fading.classList.add("closing");
+		setTimeout(function(){fading.remove();},1000);
+	}
+}
+
+function CloseElementNow(targetid){
+	var fading=document.getElementById(targetid);
+	if(fading!==null){
+		fading.remove();
+	}
 }
 
 function CloseThis(ev,thi,targetid){
@@ -948,23 +972,30 @@ function CloseThis(ev,thi,targetid){
 
 function Close(targetid){
 	//First tries to find the next item to open, then closes
-	if(typeof GetDatapack(targetid)!=="undefined"){
+	if(typeof GetDataPack(targetid)!=="undefined"){
 		var ClosingF=FindData("qonclose",targetid);
 		if(typeof ClosingF!=="undefined")
-			ClosingF(GetDatapack(targetid));
+			ClosingF(GetDataPack(targetid));
 	}
 	CloseElement(targetid);
 }
 
-function CloseNext(targetid){
-	if(typeof GetDatapack(targetid)!=="undefined"){
-		var NextF=FindData("qonsubmit",targetid);
-		if(typeof NextF!=="undefined")
-			NextF(GetDatapack(targetid));
-	}
-	CloseElement(targetid);
+function CloseAndContinue(DP){
+	var NextF=DP.qonsubmit;
+	if(typeof NextF!=="undefined")
+		NextF(DP);
+	CloseElement(DP.qid);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Focus functions
+
+function FocusElement(targetid){
+	var focussing=document.getElementById(targetid);
+	if(focussing!==null){
+		focussing.focus();	
+	}
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 // Data submission in forms
@@ -978,28 +1009,38 @@ function SubmitData(dataObject,destination){
 	echoDataToSheetURL(data,destination.url,destination.sheet);
 }
 
-function SubmitAnswer(DP){
-	
-	var validator=DP.qvalidator(DP);
-	console.log(validator);
-	if(DP.qrequired&&!validator.valid){
-		AddAfterElement(ErrorHTML(validator.error),"#"+DP.qid);
-	}
-	else{
-		var formtype=FindData("destination",DP.qid);
-		var destinationObject=GetDestination(formtype);
-		var dataObject=(destinationObject.Data)(DP.qid);
+function InvalidateAnswer(DF){
+	var validator=DF.qvalidator(DF);
+	var errorid="error-"+DF.qid;
+	CloseElementNow(errorid);
+	FocusElement(DF.qid);
+	var invalid=(DF.qrequired&&!validator.valid);
+	if(invalid)
+		AddAfterElement(ErrorHTML(validator.error,errorid),"#"+DF.qid);
+	return invalid;
+}
 
-		SubmitData(dataObject,destinationObject);
-		CloseNext(DP.qid);
+
+function SubmitValidAnswer(DP){
+	var formtype=FindData("destination",DP.qid);
+	var destinationObject=GetDestination(formtype);
+	var dataObject=(destinationObject.Data)(DP.qid);
+	SubmitData(dataObject,destinationObject);
+	CloseAndContinue(DP);
+}
+
+
+function SubmitAnswerSet(DP){
+	var invalidation=DP.fields.map(InvalidateAnswer);
+	if(!invalidation.some(x=>x===true)){
+		SubmitValidAnswer(DP);
 	}
 }
 
-function SubmitAndNext(qid){
-	var DP=GetDatapack(qid);
+function CheckSubmit(qid){
+	var DP=GetDataPack(qid);
 	if(typeof DP!=="undefined"){
-		console.log(DP);
-		SubmitAnswer(DP);
+		SubmitAnswerSet(DP);
 	};
 }
 
@@ -1092,7 +1133,16 @@ function NodeOverwriteData(field,node,newdata){
 
 ///////////////////////
 
-function GetDatapack(id){
+function GetMultiDataPack(id){
+	var i=0;
+	while(i<MULTIDATAPACKHISTORY.length){
+		if(MULTIDATAPACKHISTORY[i][0].qid===id)
+			return MULTIDATAPACKHISTORY[i];
+		i++}
+	return undefined
+};
+
+function GetDataPack(id){
 	var i=0;
 	while(i<DATAPACKHISTORY.length){
 		if(DATAPACKHISTORY[i].qid===id)
@@ -1101,16 +1151,29 @@ function GetDatapack(id){
 	return undefined
 };
 
+
 function GetData(field,id){
-	var data=GetDatapack(id)[field];
-	if(typeof data==="undefined")
-		return	PreviousSubmission(field)
+	var DP=GetDataPack(id);
+	var data=DP[field];
+	if(typeof data==="undefined"){
+		var fi=DP.fields.filter(f=>(typeof f[field]!=="undefined"));
+		if(fi.length>0)
+			return fi[0][field]; //first matching field
+		else
+			return	PreviousSubmission(field)
+	}
 	else
 		return data;
 };
 
 function SetData(field,value,id){
-	GetDatapack(id)[field]=value;
+	var DP=GetDataPack(id);
+	if(DP!==undefined)
+		GetDataPack(id)[field]=value;
+};
+
+function ClearData(field,id){
+	SetData(field,"",id);
 };
 
 function ChoiceExecute(value,id){
@@ -1119,14 +1182,14 @@ function ChoiceExecute(value,id){
 
 function ToggleData(field,value,id){
 	ChoiceExecute(value,id);
-	if(typeof GetData(field,id)==="undefined")
-		SetData(field,value,id)
+	var data=GetData(field,id);
+	if(typeof data==="undefined")
+		SetData(field,value,id);
 	else{
-		a=GetData(field,id);
-		if(a.replace(value,"")===a)
-			SetData(field,a+" "+value,id)
+		if(data.replace(" "+value,"").replace(value,"")===data)
+			SetData(field,data+" "+value,id)
 		else
-			SetData(field,a.replace(value,""),id)
+			SetData(field,data.replace(" "+value,"").replace(value,""),id)
 	}
 }
 
@@ -1174,22 +1237,22 @@ function OpenMessageModal(message,id,targetid){
 
 /*Modal self-laucher for questions (datapacks)*/
 function LaunchModal(DP){
-	if(Array.isArray(DP))
-		OpenModal(QuestionHTML(DP),DP[0].qid,DP[0].qtargetid);
-	else
-		OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
+	OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
 
 function LaunchThanksModal(DP){
-	var qid=GenerateId();
-	OpenModal(MessageHTML(DP.thanksmessage)+OkButtonHTML(qid),qid,DP.qtargetid);
+	RequestDataPack(
+		[['plain',{questionname:DP.thanksmessage,destination:""}]],
+		{qtargetid:DP.qtargetid,qdisplay:LaunchModal});
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // Form Validators and Modifiers
 
-function EmailValidator(DP){
-	var em=FindData("address",DP.qid);
+function IdentityValidator(DF){return {valid:true,error:"no errors"};}
+
+function EmailValidator(DF){
+	var em=FindData("address",DF.qid);
 	var pattern=/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ig
 	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
 		return {valid:true,error:"none"}
@@ -1202,25 +1265,24 @@ function SomeTextValidate(name){
 	return name.match(pattern)!==null;
 }
 
-function SomeTextValidator(DP){
-	var em=FindData("answer",DP.qid);
+function SomeTextValidator(DF){
+	var em=FindData("answer",DF.qid);
 	if((typeof em!=="undefined")&&SomeTextValidate(em))
 		return {valid:true,error:"none"}
 	else
 		return {valid:false,error:"Please write something!",}
 }
 
-function NameValidator(DP){
-	var em=FindData("name",DP.qid);
+function NameValidator(DF){
+	var em=FindData("name",DF.qid);
 	var pattern=/[\d\w][\d\w]+/;
 	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
 		return {valid:true,error:"none"}
-	else if (DP.qerrorcustom!=='')
-		return {valid:false,error:DP.qerrorcustom}
+	else if (DF.qerrorcustom!=='')
+		return {valid:false,error:DF.qerrorcustom}
 	else
 		return {valid:false,error:"Please write at least 2 alphanumerics!"}
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 //Message Console 
@@ -1259,10 +1321,7 @@ function ConsoleLoad(){
 		AddAfterElement('<div id="Console"></div>','.main')
 }
 
-//Datapack integration in console
-function LaunchConsoleMessage(dataPack){
-	var DP=dataPack;
-	if(Array.isArray(DP))
-		DP=DP[0];
+//DataPack integration in console
+function LaunchConsoleMessage(DP){
 	ConsoleAdd(QuestionHTML(DP));
 }

@@ -141,33 +141,41 @@ DESTINATIONS[DESTINATION_PASS.name]=DESTINATION_PASS;
 //Hall of Fame
 
 function RequestHallOfFame(){
-	RequestDatapack('alias',{
+	RequestDataPack([
+	['alias',{
 		questionname:"Enter the Hall of Fame:",
 		qplaceholder:"Your name or alias",
 		qrequired:true,
-		qerrorcustom:"The Hall of Fame's guards ask for at least 2 alphanumerics!",
+		qerrorcustom:"The Hall of Fame's guards ask for at least 2 alphanumerics!"}
+	]],
+	{
 		destination:"HOF",
 		qonclose:RequestModalWinnerMessage,
 		qonsubmit:RequestModalWinnerMessage
-		});
+	});
 }
 
 function RequestModalWinnerMessage(previousDP){
-	RequestDatapack([
+	RequestDataPack([
 		['answer',{
 			questionname:"As a winner, what would you tell Pedro PSI?",
-			thanksmessage:"Thank you for your message.",
-			executeChoice:function(id,choice){
-				if(choice==="Public message in Guestbook") SetData("destination","Guestbook",id);
-				else SetData("destination","Feedback",id);
-			}
 		}],
 		['exclusivechoice',{
 			questionname:"",
 			qfield:"answer2",
 			qchoices:["Private message","Public message in Guestbook"]
 		}]
-	]);
+	],
+	{
+		thanksmessage:"Thank you for your message.",
+		executeChoice:function(id,choice){
+			if(choice==="Public message in Guestbook")
+				SetData("destination","Guestbook",id);
+			else 
+				SetData("destination","Feedback",id);
+		}
+	}
+	);
 }
 
 
@@ -211,43 +219,44 @@ function RequestGameFeedback(){
   
   var DPsettingsObj={
 		qtargetid:'puzzlescript-game',
-		qdisplay:LaunchFeedbackBalloon,
+		qdisplay:LaunchBalloon,
 		qonsubmit:LaunchThanksBalloon,
 		thanksmessage:"★ Thank you for your feedback! ★"
 		};
+	
+	var DFsettingsObj={};
 
   if(!HasBalloon(DPsettingsObj.qtargetid)){
 	var levelindices=LevelIndices();
 	if(TitleScreen()){
-		DPsettingsObj.questionname="Your real-time feedback is much appreciated! Press F as soon as you start the first level to toggle these balloons.";
-		DPsettingsObj.qdisplay=LaunchMessageBalloon;
-		RequestDatapack('message',DPsettingsObj);
+		DFsettingsObj.questionname="Your real-time feedback is much appreciated! Press F as soon as you start the first level to toggle these balloons.";
+		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
 	else if(HasFeedback(currlevel)&&HasFeedback(lastlevel)){
-		DPsettingsObj.questionname="Any further comments?";
-		RequestDatapack('answer',DPsettingsObj);
+		DFsettingsObj.questionname="Any further comments?";
+		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
 	}
 	else if(lastlevel===currlevel){
-		DPsettingsObj.questionname="What do you think of this level so far?";
-		RequestDatapack('answer',DPsettingsObj);
+		DFsettingsObj.questionname="What do you think of this level so far?";
+		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
 		feedbackRequests.push(currlevel);
 	}
 	else if(!HasFeedback(lastlevel+1)){
-		DPsettingsObj.questionname="How did you feel after beating the previous level?";
-		DPsettingsObj.qchoices=["amazed","amused","annoyed","bored","clever","confused","disappointed","excited","exhausted","frustrated","happy","hooked","lucky","proud","surprised"];
-		DPsettingsObj.qtype=ChoicesButtonRowHTML;
+		DFsettingsObj.questionname="How did you feel after beating the previous level?";
+		DFsettingsObj.qchoices=["amazed","amused","annoyed","bored","clever","confused","disappointed","excited","exhausted","frustrated","happy","hooked","lucky","proud","surprised"];
+		DFsettingsObj.qtype=ChoicesButtonRowHTML;
 		feedbackRequests.push(lastlevel+1);
 		feedbackRequests.push(currlevel);
-		RequestDatapack('multiplechoice',DPsettingsObj);
+		RequestDataPack([['multiplechoice',DFsettingsObj]],DPsettingsObj);
 	}
 	else if(currlevel>levelindices[levelindices.length-1]){
-		DPsettingsObj.questionname="Thank you for playing "+state.metadata.title+"! Would you like to leave a public Testimonial?";
+		DFsettingsObj.questionname="Thank you for playing "+state.metadata.title+"! Would you like to leave a public Testimonial?";
 		feedbackRequests.push(currlevel);
-		RequestDatapack('answer',DPsettingsObj);
+		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
 	}
 	else{
-		DPsettingsObj.questionname="Any further comments?";
-		RequestDatapack('answer',DPsettingsObj);
+		DFsettingsObj.questionname="Any further comments?";
+		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
 	}
   }
   else{
@@ -263,7 +272,7 @@ function PrintGameState(){
 // Guestbook & Comments
 
 function RequestGuestbook(){
-	RequestDatapack([
+	RequestDataPack([
 		['answer',{
 			destination:'Guestbook',
 			questionname:"Your message",
@@ -289,7 +298,7 @@ function commentAddress(e){
 function RequestComment(title,elemsubtitle){
 	commentID=function(){return title+": "+commentAddress(elemsubtitle);}; 	//redefine this global function dynamically
 	
-	RequestDatapack([
+	RequestDataPack([
 		['answer',{
 			destination:'Comments',
 			questionname:"Your comment"
@@ -304,7 +313,7 @@ function RequestComment(title,elemsubtitle){
 //Subscribe
 
 function OpenModalSubscribe(){
-	RequestDatapack([
+	RequestDataPack([
 		['email',{
 			destination:'Subscription',
 			questionname:"Subscribe to be the first to know about Pedro PSI's next project!",
@@ -320,9 +329,8 @@ function OpenModalSubscribe(){
 
 function OpenModalPreOrder(campaigntext){
 	
-	RequestDatapack('email',{
+	RequestDataPack([['email',{questionname:campaigntext}]],{
 			destination:'Order',
-			questionname:campaigntext,
 			thanksmessage:"Your booking was placed. Thank you!"
 		});
 }
@@ -332,8 +340,8 @@ function OpenModalPreOrder(campaigntext){
 //News
 function News(){
 	if(pageIdentifier()!=="gravirinth"&&!inConfig("📰»"))
-		RequestDatapack("plain",{
-			questionname:"<b>Pedro PSI's latest news:</b><a href='gravirinth.html' target='_blank'> Gravirinth about to be released!</a>",
+		RequestDataPack([["plain",{
+		questionname:"<b>Pedro PSI's latest news:</b><a href='gravirinth.html' target='_blank'> Gravirinth about to be released!</a>"}]],{
 			qdisplay:LaunchConsoleMessage});
 		activateConfig("📰»");
 };
@@ -344,21 +352,21 @@ News();
 //Media Pass
 
 function RequestMediaPass(){
-		RequestDatapack([
+	RequestDataPack([
 		['name',{
 			destination:'Pass',
-			thanksmessage:"Your request is being processed - please allow 1-2 business days.",
 			qrequired:true,
 			questionname:"What's your name?",
 			qplaceholder:"(real or artistic name)"}],
 		['answer',{
-			destination:'Pass',
-			qfield:'account',
 			questionname:"Through which channels do you intend to review this game?",
 			qplaceholder:"e.g. which blog, magazine, youtube channel, twitch account, etc..."}],
 		['email',{
-			destination:'Pass',
 			questionname:"Your email (to receive the key)"
-		}],
-		])
+		}]],
+		{
+			thanksmessage:"Your request is being processed - please allow 1-2 business days.",
+			destination:'Pass'
+			}
+		)
 }

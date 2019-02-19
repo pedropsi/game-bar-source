@@ -140,7 +140,6 @@ function displayError(code,message){
 	console.log("Error: ",code,message);
 	clear_children(document.getElementById("puzzlescript-game"))
 	if(code===200){
-	var DP=CustomDataPack("message",{thanksmessage:"Wrong password..."});
-		DP.qdisplay(DP);
+		RequestDataPack([["plain",{questionname:"Wrong password..."}]],{});
 	}
 }

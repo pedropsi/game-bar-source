@@ -61,10 +61,13 @@
 				displayError(200,"HTTP Error " + githubHTTPClient.status + ' - ' + githubHTTPClient.statusText);
 			} else {
 				console.log("loaded");
+
 				var result = JSON.parse(githubHTTPClient.responseText);
 				var code = result["files"]["script.txt"]["content"];
 				compile(["restart"], code);
-				
+
+				// Teaser hook
+				CloseElementNow("teaser");				
 				/////////////////////////////////////////////////////////////////////////////////////
 				// Music hook
 				if(typeof OverrideMusic!=="undefined")
@@ -98,7 +101,7 @@
 
 	window.PuzzleScript = window.PuzzleScript || { embed: embed };
 	window.addEventListener("load", auto_embed);
-
+	
 })();
 
 function clear_children(element){

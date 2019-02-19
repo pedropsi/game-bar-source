@@ -897,6 +897,7 @@ tbody tr:hover{
         width: 80%;
         color:var(--blue);
         border-bottom: 8px solid var(--green);
+        padding: 4px;
 }
 	
 .modal-content input{
@@ -1098,11 +1099,10 @@ tbody tr:hover{
 }
 
 .error{
-    width: 50%;
-    border:4px solid var(--lightblue); 
-    margin:4px;
+	max-width: 95%;
     font-weight: bold;
     color: var(--lightblue);
+    align-self: center;
 }
 
 
