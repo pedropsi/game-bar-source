@@ -1,7 +1,10 @@
 PrependElement("<div id='puzzlescript-game'></div>"+'<div id="GameBW" class="gameNav" onclick="GoToLevelPrev()">Previous level</div><div id="GameFW" class="gameNav" onclick="GoToLevelNext()">Next level</div>',pageIdentifier());
 
 function PrepareGame(){
-	RequestDataPack([['pass',{}]],
+	RequestDataPack([
+		['pass',{}],
+		['plain',{questionname:'<p>The game is in closed beta.</p></p><a href="#" onclick="OpenModalPreOrder(\'Your email address (early bird discount entitlement).\')">Be notified when it is released!</a></p>'}]
+		],
 		{
 		destination:"Keys",
 		qonsubmit:RevealGame,

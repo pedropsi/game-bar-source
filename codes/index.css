@@ -886,7 +886,7 @@ tbody tr:hover{
     	z-index:10;
 }
 
-.modal-content {
+.modal-content  {
         position: absolute;
         align-items: center;
         top: 50%;
@@ -899,6 +899,7 @@ tbody tr:hover{
         border-bottom: 8px solid var(--green);
         padding: 4px;
 }
+
 	
 .modal-content input{
         max-width:80%;
