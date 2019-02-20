@@ -66,8 +66,10 @@
 				var code = result["files"]["script.txt"]["content"];
 				compile(["restart"], code);
 
-				// Teaser hook
-				CloseElementNow("teaser");				
+				/////////////////////////////////////////////////////////////////////////////////////
+				// Game start hook
+				if(typeof GameStart!=="undefined")
+					GameStart();				
 				/////////////////////////////////////////////////////////////////////////////////////
 				// Music hook
 				if(typeof OverrideMusic!=="undefined")

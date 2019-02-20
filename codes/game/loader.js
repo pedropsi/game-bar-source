@@ -19,5 +19,7 @@ function RevealGame(DP){
 	var key=FindData("answer",DP.qid);
 	var gameid=Unlock(gid,key);
 	console.log(gameid);
-	PuzzleScript.embed(document.getElementById('puzzlescript-game'),gameid)
+	PuzzleScript.embed(document.getElementById('puzzlescript-game'),gameid);
+	
+
 }

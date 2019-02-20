@@ -1,4 +1,12 @@
-﻿
+﻿<script>
+	function GameStart(){
+		CloseElementNow("teaser");
+		
+		RequestDataPack([['plain',{questionname:'Please turn on the sound and press F whenever you want so to send real-time feedback!'}]],{})
+		
+		}
+</script>
+
 «ABOUT-TEXT»
 «ONE-LINER:Load»
 
