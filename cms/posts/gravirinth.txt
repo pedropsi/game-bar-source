@@ -1,12 +1,4 @@
-﻿<script>
-	function GameStart(){
-		CloseElementNow("teaser");
-		
-		RequestDataPack([['plain',{questionname:'Please turn on the sound and press F whenever you want so to send real-time feedback!'}]],{})
-		
-		}
-</script>
-
+﻿
 «ABOUT-TEXT»
 «ONE-LINER:Load»
 
@@ -26,7 +18,8 @@
 <h2>Release notes</h2>
 
 <h3>Devices</h3>
-<p class="centre">A modern browser is all «TITLE-BOLD» needs to run - so Windows, Mac, Linux, Android and iOS devices are all covered.</p>
+<p class="centre">A modern browser is all «TITLE-BOLD» needs to run - so Windows, Mac, Linux, Android and iOS devices are all covered. </p>
+<p>An internet connection is not required to play «TITLE-BOLD», except when entering the «HOF».</p>
 
 <h3>Schedule</h3>
 <p class="centre">«TITLE-BOLD» is scheduled to release by late <b>February 2019</b>. Meanwhile, all pre-orders earn a <b>25% discount</b>, in appreciation of early enthusiasm!</p>
@@ -255,3 +248,12 @@
 </table>
 
 <div class="announce"><p>Reserve your seat now in the expedition to the «TITLE-BOLD»!</p><div class="button" onclick="OpenModalPreOrder('Enter your email address to be notified when «TITLE-BOLD» is released and be entitled to a discount.')">Book now!</div></div>
+
+<script>
+	function GameStart(){
+		CloseElementNow("teaser");
+		
+		RequestDataPack([['plain',{questionname:'Please turn on the sound and press F whenever you want so to send real-time feedback!'}]],{})
+		
+		}
+</script>

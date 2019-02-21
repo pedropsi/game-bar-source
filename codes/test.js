@@ -42,7 +42,8 @@ Testsuite=[
 		url6:"http://www.xxx.yyy",
 		url7:"http://www.xxx.yyy/great/greater.htm",
 		url8:"http://www.xxx.yyy/greater.htm",
-		url9:"https://pedropsi.github.io/guestbook.html"
+		url9:"https://pedropsi.github.io/guestbook.html",
+		url10:"https://pedropsi.github.io/gravirinth.html#$%F0%9F%93%B0%C2%BB"
 		},
 	tests:function(T){
 		return[
@@ -70,7 +71,8 @@ Testsuite=[
 		["pageIdentifier",pageIdentifier(T("url6")),""],
 		["pageIdentifier",pageIdentifier(T("url7")),"greater"],
 		["pageIdentifier",pageIdentifier(T("url8")),"greater"],
-		["pageIdentifier",pageIdentifier(T("url9")),"guestbook"]
+		["pageIdentifier",pageIdentifier(T("url9")),"guestbook"],
+		["pageIdentifier",pageIdentifier(T("url10")),"gravirinth"]
 
 		]}},
 	{

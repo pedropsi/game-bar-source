@@ -86,10 +86,11 @@ function pageNoTag(url){
 	if(typeof url==="undefined")
 		return pageNoTag(pageURL());
 	else{
-		if(pageTag(url)==="")
-			return url.replace("#","");
+		var u=pageNoConfig(url);
+		if(pageTag(u)==="")
+			return u.replace("#","");
 		else
-			return url.replace(ForwardRegex(pageTag(url)),"").replace("#","");
+			return u.replace(ForwardRegex(pageTag(u)),"").replace("#","");
 	}
 }
 
