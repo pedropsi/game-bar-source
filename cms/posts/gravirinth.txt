@@ -24,7 +24,7 @@
 <h3>Schedule</h3>
 <p class="centre">«TITLE-BOLD» is scheduled to release by late <b>February 2019</b>. Meanwhile, all pre-orders earn a <b>25% discount</b>, in appreciation of early enthusiasm!</p>
 
-<div class="announce"><p>Reserve your seat now in the expedition to the «TITLE-BOLD»!</p><div class="button" onclick="OpenModalPreOrder('Enter your email address to be notified when «TITLE-BOLD» is released and be entitled to a discount.')">Book now!</div></div>
+«GRAVIRINTH-ANNOUNCE»
 
 <h3>Development log</h3>
 <p class="centre">Follow development @ «LOG-LINK», or...</p>
@@ -48,6 +48,8 @@
 <h3>Other inquiries</h3>
 <p>Please «CONTACT-TEXT-1» for all unusual requests!</p>
 
+<h2 class="trailer">Trailer</h2>
+«GRAVIRINTH-TRAILER»
 
 <h2 class="images">Screenshots & Logo</h2>
 	<p>Download all screenshots + logo <a class="download" title="Download all screenshots and logo" 
@@ -214,7 +216,7 @@
 <thead>
 	<tr>
 		<th>Currency</th>
-		<th>Price<//th>	</tr>
+		<th>Price</th>	</tr>
 </thead>
 <tbody>
 	<tr>
@@ -247,7 +249,10 @@
 	</tbody>
 </table>
 
-<div class="announce"><p>Reserve your seat now in the expedition to the «TITLE-BOLD»!</p><div class="button" onclick="OpenModalPreOrder('Enter your email address to be notified when «TITLE-BOLD» is released and be entitled to a discount.')">Book now!</div></div>
+<h3>What if I don't like the game?</h3>
+<p>Please «CONTACT-TEXT-1» for a full refund.</p>
+
+«GRAVIRINTH-ANNOUNCE»
 
 <script>
 	function GameStart(){
