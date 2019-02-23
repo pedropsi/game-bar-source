@@ -203,5 +203,5 @@ SELECTION-GRAVIRINTH	:Filter{"Context"->"gravirinth-screenshot"}
 ASSETS	:In{Assets}
 GALLERY-GRAVIRINTH-IN	«GALLERY-PICTURE«SELECTION-GRAVIRINTH»»
 GALLERY-GRAVIRINTH	<div class="featured">«GALLERY-GRAVIRINTH-IN«ASSETS»»</div>
-GRAVIRINTH-TRAILER-URL	https://www.youtube.com/watch?v=tMRQhyb4XdI
+GRAVIRINTH-TRAILER-URL	https://www.youtube.com/watch?v=nq4ljKWdwsU
 GRAVIRINTH-TRAILER	<a href="«GRAVIRINTH-TRAILER-URL»" «BLANK»><img src="images/gravirinth/gravirinth-trailer.png" alt="Gravirinth's trailer" title="Gavirinth - an archaeological expedition (trailer)"/></a>
