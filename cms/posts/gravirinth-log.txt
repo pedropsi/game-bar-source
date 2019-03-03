@@ -8,7 +8,7 @@
 
 <h2>28-02-2019</h2>
 <h3>Gravirinh postponed</h3>
-<p>Gravirinth release was postponed due to technical issues, but will be released soon.</p>
+<p>Gravirinth release was postponed due to technical issues related to payment integration, but will be released soon. For now, just one currency will be supported (USD) - if you use a different one, you'll have to convert it for the moment.</p>
 
 <h2>23-02-2019</h2>
 <h3>Trailer update</h3>
