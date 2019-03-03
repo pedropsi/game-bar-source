@@ -217,11 +217,21 @@ function isAbsolutableLink(url){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Page auto index
-/*
-function SelfIndex(title,h){
-	
+
+function IDfy(s){
+	return s.replace(/([^A-Za-z0-9\:\_\.])+/g,"-").replace(/\-$/g,"");
 }
-*/
+
+function IndexTag(h){
+	var titleNodes=Object.values(document.getElementsByTagName(h));
+	return titleNodes.map(t=>function(t){t.id=t.id?t.id:IDfy(t.innerText); return t.id}(t))
+}
+
+function IndexTitles(){
+	return ["h1","h2","h3","h4","h5","h6"].map(IndexTag);
+}
+
+document.addEventListener('DOMContentLoaded', IndexTitles, false);
 
 ///////////////////////////////////////////////////////////////////////////////
 //Unique random identifier
