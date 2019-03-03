@@ -1,0 +1,10 @@
+﻿«HTML-PRE»
+«LATEST»
+«GRAVIRINTH-ANNOUNCE»
+«SECTION-PRE»
+<h1 class="textarea title">Highlights</h1>
+<div class="featured">«FEATURED-ITEM:Filter{"Type"->"Post"|"Game"|"Mosaic","Featured"->"Yes","Day"->_,"Month"->_,"Year"->_,"Type"->_}»
+</div>
+«SECTION-POS»
+«SUBSCRIBE-ANNOUNCEMENT»
+«HTML-POS»

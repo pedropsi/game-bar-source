@@ -1,5 +1,15 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>02-03-2019</h2>
+<h3>Gravirinh release!</h3>
+<p>Gravirinth was released today! What are you waiting for?</p>
+
+«GRAVIRINTH-ANNOUNCE»
+
+<h2>28-02-2019</h2>
+<h3>Gravirinh postponed</h3>
+<p>Gravirinth release was postponed due to technical issues, but will be released soon.</p>
+
 <h2>23-02-2019</h2>
 <h3>Trailer update</h3>
 <p>After some feedback from the thinky discord community, I've edited the Trailer to reduce the credits/text duration, remove the counterproductive statement, and introducing the mechanics more gradually. Overall the updated version feels much better! A major annoyance was youtube forbidding uploaded video edits - so next time I'll upload the trailer somewhere else.</p>

@@ -1,3 +1,6 @@
+function CheckSum(id){
+	return ToNumbers(id).reduce((a,v,i)=>(v*i+y)%10000);
+}
 
 function Lock(id,saltedkey){
 	return Encrypt(id,PureKey(saltedkey));

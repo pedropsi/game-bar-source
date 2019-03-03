@@ -22,7 +22,7 @@
 <p>An internet connection is not required to play «TITLE-BOLD», except when entering the «HOF».</p>
 
 <h3>Schedule</h3>
-<p class="centre">«TITLE-BOLD» is scheduled to release by late <b>February 2019</b>. Meanwhile, all pre-orders earn a <b>20% discount</b>, in appreciation of early enthusiasm!</p>
+<p class="centre">«TITLE-BOLD» was released on <b>February 28th 2019</b>. All pre-orders (before the release date) were entitled to a <b>20% discount</b>, in appreciation of early enthusiasm!</p>
 
 «GRAVIRINTH-ANNOUNCE»
 

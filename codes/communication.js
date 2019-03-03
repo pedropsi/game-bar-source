@@ -341,7 +341,7 @@ function OpenModalPreOrder(campaigntext){
 function News(){
 	if(pageIdentifier()!=="gravirinth"&&!inConfig("📰»"))
 		RequestDataPack([["plain",{
-		questionname:"<b>Pedro PSI's latest news:</b><a href='gravirinth.html' target='_blank'> Gravirinth about to be released!</a>"}]],{
+		questionname:"<b>Pedro PSI's latest news:</b><a href='gravirinth.html' target='_blank'> Gravirinth just released!</a>"}]],{
 			qdisplay:LaunchConsoleMessage});
 		activateConfig("📰»");
 };
@@ -369,4 +369,34 @@ function RequestMediaPass(){
 			destination:'Pass'
 			}
 		)
+}
+
+
+//////////////////////////////////////////////////////////////////////
+//Analytics
+
+function RequestAnalytics(){
+	var yes="Yes. Let Pedro PSI learn (and find bugs) faster.";
+	var no ="No. Pedro PSI must learn by other means.";
+	RequestDataPack([
+		['exclusivechoice',{
+			questionname:"Would you share (anonymous) gameplay analytics with Pedro PSI?",
+			qfield:"answer2",
+			qchoices:[no,yes]
+		}]
+	],
+	{
+		action:'Close',
+		destination:'',
+		executeChoice:function(id,choice){
+			if(choice===yes){
+				AnalyticsClearance=function(){return true;};
+				console.log("yes!!!");
+			}
+			else {
+				AnalyticsClearance=function(){return false;} //Default option
+				console.log("noooo!");
+			}
+		}
+	});
 }
