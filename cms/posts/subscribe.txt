@@ -9,5 +9,3 @@
 <h2>Discord</h2>
 <p>Get behind the scenes and actually see «NAME»'s next project while it is in the making. Perhaps you can even contribute with your own ideas!</p>
 <div class="button centered" >«SUBSCRIBE-DISCORD»</div>
-
-<h3>Thank you.</h3>

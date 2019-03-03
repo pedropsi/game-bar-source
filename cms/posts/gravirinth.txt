@@ -15,6 +15,8 @@
 </ul>
 </ul>
 
+«GRAVIRINTH-ANNOUNCE»
+
 <h2>Release notes</h2>
 
 <h3>Devices</h3>
@@ -22,9 +24,7 @@
 <p>An internet connection is not required to play «TITLE-BOLD», except when entering the «HOF».</p>
 
 <h3>Schedule</h3>
-<p class="centre">«TITLE-BOLD» was released on <b>February 28th 2019</b>. All pre-orders (before the release date) were entitled to a <b>20% discount</b>, in appreciation of early enthusiasm!</p>
-
-«GRAVIRINTH-ANNOUNCE»
+<p class="centre">«TITLE-BOLD» was released three days after <b>February 28th 2019</b>. All pre-orders up to this date were entitled to a <b>20% discount</b>, in appreciation of early enthusiasm!</p>
 
 <h3>Development log</h3>
 <p class="centre">Follow development @ «LOG-LINK», or...</p>
@@ -35,8 +35,8 @@
 <h2>Test play</h2>
 
 <h3>Beta-test</h3>
-<p class="centre">Load a the latest version of «TITLE-BOLD» using your <em>secret password</em> or «CONTACT-TEXT-1» to request one. Many thanks!</p> 
-<div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [beta]</div>
+<p>Beta test has now ended - but all beta-testers are entitled to play the final version of «TITLE-BOLD» for free forever (FFF).</p> 
+<div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [FFF]</div>
 
 <h3>Press & reviews</h3>
 <p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p><p>Then apply for a free <em>media pass</em>!</p>

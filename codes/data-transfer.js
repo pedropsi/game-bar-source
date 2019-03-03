@@ -216,15 +216,23 @@ function isAbsolutableLink(url){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-//Page auto index
+//Page traversal
 
+function MarkElements(selector,markfunction){
+	var elementNodes=Object.values(document.querySelectorAll(selector));
+	return elementNodes.map(t=>markfunction(t));
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//Page auto index
 function IDfy(s){
 	return s.replace(/([^A-Za-z0-9\:\_\.])+/g,"-").replace(/\-$/g,"");
 }
 
+function IndexTitle(t){t.id=t.id?t.id:IDfy(t.innerText); return t.id}
+
 function IndexTag(h){
-	var titleNodes=Object.values(document.getElementsByTagName(h));
-	return titleNodes.map(t=>function(t){t.id=t.id?t.id:IDfy(t.innerText); return t.id}(t))
+	return MarkElements(h,IndexTitle);
 }
 
 function IndexTitles(){
@@ -232,6 +240,8 @@ function IndexTitles(){
 }
 
 document.addEventListener('DOMContentLoaded', IndexTitles, false);
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //Unique random identifier
