@@ -13,7 +13,7 @@ function LangUpperCase(s){
 	return pos.length?(pre+"-"+pos.toUpperCase()):s
 }
 
- function fingerprintData() {
+ function FingerprintData() {
 	return {
 		formDataNameOrder: analyticsParameters,
 		formGoogleSendEmail: "",
@@ -31,8 +31,8 @@ function LangUpperCase(s){
 	};		
 }
 
- function fingerprintLink(ref){
-	var data=fingerprintData();
+ function FingerprintLink(ref){
+	var data=FingerprintData();
 	var fro=data["identifier"];
 	data["identifier"]=ref;
 	data["from"]=fro;
@@ -40,30 +40,33 @@ function LangUpperCase(s){
 	return data;
 }
 
+ function FingerprintAction(ref){
+	var data=FingerprintData();
+	var fro=data["identifier"];
+	data["identifier"]=ref;
+	data["from"]=fro;
+	data["campaign"]="Action";
+	return data;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // OUTLINK MANAGEMENT
 
-function changeLinks(f){
-	var links=document.getElementsByTagName("a");
-	var i=0;
-	for(i=0;i<links.length;i++){
-		f(links[i]);
-	};
+function ChangeLinks(f){
+	MarkElements("a",f);
 }
 
 function outLinks(){
-	function RegisterOutLink(l){
-		echoPureData(fingerprintLink(l),analyticsURL);
+	function RegisterOutlink(l){
+		echoPureData(FingerprintLink(l),analyticsURL);
 		};
 	function prepareLink(l){
 		var ref=l.href;
 		if(isOuterLink(ref)){
 			l.setAttribute("target","_blank");};
-			l.addEventListener("mousedown", (function(){RegisterOutLink(ref)}),false);
+			l.addEventListener("mousedown", (function(){RegisterOutlink(ref)}),false);
 	};
-	
-	changeLinks(prepareLink);
+	ChangeLinks(prepareLink);
 };
 
 function anonimiseLinks(){
@@ -72,7 +75,7 @@ function anonimiseLinks(){
 		if(isInnerLink(ref))
 			l.href= ref+"#"+clearance;
 		};
-	changeLinks(prepareLink);
+	ChangeLinks(prepareLink);
 }
  
 function absolutiseLinks(){
@@ -82,18 +85,18 @@ function absolutiseLinks(){
 		if(isAbsolutableLink(ref))
 			l.href=pageAbsolute(pageNoTag(ref));
 		};
-	changeLinks(prepareLink);
+	ChangeLinks(prepareLink);
 }
 
-
-// ANALYTIC BEHAVIOUR
+///////////////////////////////////////////////////////////////////////////////
+// Analytics Behaviour
  
-function Analytics(){
-	echoPureData(fingerprintData(),analyticsURL);	
+function RegisterOpen(){
+	echoPureData(FingerprintData(),analyticsURL);	
 }
 
 function AnalyticsClearance(){
-		return (pageTag()!==clearance)&&!isFileLink(pageURL());
+	return (pageTag()!==clearance)&&!isFileLink(pageURL());
 }
 
 function AnalyticsInnerClearance(title){
@@ -101,7 +104,7 @@ function AnalyticsInnerClearance(title){
 }
 
 if(AnalyticsClearance()){
-	document.addEventListener('DOMContentLoaded', Analytics, false);
+	document.addEventListener('DOMContentLoaded', RegisterOpen, false);
 	outLinks();
 }
 else{
@@ -109,8 +112,12 @@ else{
 };
 
 
+////////////////////////////////////////////////////////////////////////////////
+/* Custom element analytics
 
+MarkElements(selector,markfunction)
 
+*/
 
 
 
@@ -149,7 +156,7 @@ function updateConfig(newconfig){
 		if(isInnerLink(ref))
 			l.href=cleanConfigURL(ref)+(newconfig!=""?"$":"")+newconfig;
 		};
-	changeLinks(propagateConfig);
+	ChangeLinks(propagateConfig);
 }
 
 //// Mode parsing
