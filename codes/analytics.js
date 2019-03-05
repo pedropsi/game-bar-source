@@ -53,8 +53,8 @@ function DataUnitActions(){
 function FingerprintAction(type,target){
 	var data=DataUnitActions();
 	return FuseObjects(data,{
-		"target":dest,
-		"type":action,
+		"target":target,
+		"type":type,
 	});
 }
 
@@ -78,12 +78,21 @@ function RegisterOpen(){
 function RegisterLink(l){
 	EchoAnalytics(FingerprintLink(l));
 };
-function RegisterClick(b){
+function RegisterElementClicked(b){
 	EchoAnalytics(FingerprintAction("Click",b.innerText));	
 }
-function RegisterToggleBG(){ //Mosaic change
+function RegisterMosaicToggled(b){ //Mosaic change
 	EchoAnalytics(FingerprintAction("BG toggle","---"));	
 }
+function RegisterNightModeToggled(b){
+	EchoAnalytics(FingerprintAction("NM toggle",b.innerText));	
+}
+function RegisterLevelNavigated(b){
+	EchoAnalytics(FingerprintAction("Level Navigated",b.innerText));	
+}
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Links Management
@@ -141,6 +150,8 @@ if(AnalyticsClearance()){
 	document.addEventListener('DOMContentLoaded', RegisterOpen, false);
 	MarkElements(".button",ElementClicked);
 	MarkElements(".mosaic",MosaicToggled);
+	MarkElements(".gameNav",LevelNavigated);
+	MarkElements("#NightMode",NightModeToggled);
 	outLinks();
 }
 else{
@@ -151,9 +162,10 @@ else{
 ////////////////////////////////////////////////////////////////////////////////
 // Analytics: custom actions
 
-function ElementClicked(b){b.addEventListener("click", function(){RegisterClick(this)}); return b};
-function MosaicToggled(b){b.addEventListener("click", function(){RegisterToggleBG()}); return b};
-
+function ElementClicked(b){b.addEventListener("click", function(){RegisterElementClicked(this)}); return b};
+function MosaicToggled(b){b.addEventListener("click", function(){RegisterMosaicToggled(this)}); return b};
+function NightModeToggled(b){b.addEventListener("click", function(){RegisterNightModeToggled(this)}); return b};
+function LevelNavigated(b){b.addEventListener("click", function(){RegisterLevelNavigated(this)}); return b};
 
 ////////////////////////////////////////////////////////////////////////////////
 // Inter-page memory via configs
