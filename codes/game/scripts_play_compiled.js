@@ -1,4 +1,5 @@
 var unitTesting=!1,curlevel=0,curlevelTarget=null,hasUsedCheckpoint=!1,curcheckpoint=0,levelEditorOpened=!1;
+var levelindices;
 
 function doSetupTitleScreenLevelContinue(){
 	try{
@@ -861,8 +862,8 @@ function checkWin(){if(!levelEditorOpened)if(0<=level.commandQueue.indexOf("win"
 _o10),!d.bitsClearInArray(h.data)&&!e.bitsClearInArray(h.data)){l=!0;break}!1===l&&(g=!1);break;case 1:for(c=0;c<level.n_tiles;c++)if(h=level.getCellInto(c,_o10),!d.bitsClearInArray(h.data)&&e.bitsClearInArray(h.data)){g=!1;break}}!1===g&&(a=!1)}a&&(consolePrint("Win Condition Satisfied"),DoWin())}}
 
 
-///////////////
-/// CUSTOM CODE
+////////////////////////////////////////////////////////////////////////////////
+/// Level Data, recording moves
 
 var leveldata={
 	formDataNameOrder: "[\"name\",\"level\",\"identifier\",\"timing\",\"winsequence\",\"moves\",\"type\"]",
@@ -876,7 +877,6 @@ var leveldata={
 	timing: "0",
 	type:"-"
 };
-
 
 var leveldataURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec";
 var timeticker=Date.now();
@@ -936,7 +936,7 @@ function UpdateLevelData(curlevel){
 	var ms=moveseq;
 	
 	leveldata["timing"]=Math.floor(ms.reduce((x,y)=>(x+y[1]),0)/1000);
-	leveldata["level"]=curlevel;
+	leveldata["level"]=LevelNumber(curlevel);
 
 	leveldata["moves"]=JSON.stringify(ms);
 	leveldata["winsequence"]=JSON.stringify(ws);
@@ -956,6 +956,8 @@ function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 	ClearMoves();
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
 ///Replaying Moves
 
 function ParseMoves(movestring){
@@ -1150,11 +1152,13 @@ function SlowerReplaySpeed(movesplaylist){
 	ChangeReplaySpeed(movesplaylist,maxdelay/0.9)
 }
 
-
-
+/*
 function configLevelWin(curlevel){
 	updateConfig(document.body.id+"("+maxlevel+")»");
-}	
+}*/	
+
+////////////////////////////////////////////////////////////////////////////////
+/// Level navigation
 
 function GoToLevel(lvl){
 
@@ -1187,7 +1191,13 @@ function LevelIndices(){
 		if(LevelType(state.levels[i]))
 			l.push(i);
 	}
-	return l	
+	return levelindices=l;
+}
+
+function LevelNumber(curlevel){
+	if(levelindices===undefined)
+		levelindices=LevelIndices();
+	return levelindices.filter(function(l){return l<=curlevel}).length;
 }
 
 function UpdateGameNav(){
@@ -1242,10 +1252,13 @@ function GoToLevelPrev(){
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////
+/// Echo
+
 function EchoLevelWin(curlevel){
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
-		configLevelWin(curlevel);
+		//configLevelWin(curlevel);
 		echoPureData(leveldata,leveldataURL);
 	}
 }
