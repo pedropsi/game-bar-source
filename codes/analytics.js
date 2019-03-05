@@ -1,24 +1,42 @@
 ////////////////////////////////////////////////////////////////////////////////
-// ANALYTIC DATA
+// Analytics and Actions
 var analyticsURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec";
-var analyticsParameters="[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\",\"name\"]";
-var analyticsSheetName="analytics";
 var clearance = "test";
 var clearancePages = [""];
 
-
-function LangUpperCase(s){
-	var pos=s.replace(/(.*-)/,"").replace(s,"");
-	var pre=s.replace(/(-.*)/,"").replace(s,"");
-	return pos.length?(pre+"-"+pos.toUpperCase()):s
+function DataUnit(){
+	return {
+		formGoogleSendEmail:"",
+		"identifier":pageIdentifier(pageURL()),
+		"name":UserId()
+	};		
 }
 
- function FingerprintData() {
-	return {
-		formDataNameOrder: analyticsParameters,
-		formGoogleSendEmail: "",
-		formGoogleSheetName: analyticsSheetName,
-		"identifier":pageIdentifier(pageURL()),
+function DataUnitAnalytics(){
+	return FuseObjects(DataUnit(),{
+		formDataNameOrder:"[\"identifier\",\"language\",\"timezone\",\"screen\",\"agent\",\"from\",\"campaign\",\"name\"]",
+		formGoogleSheetName:"analytics"
+		});		
+}
+
+function DataUnitActions(){
+	return FuseObjects(DataUnit(),{
+		formDataNameOrder:"[\"identifier\",\"type\",\"target\",\"name\"]",
+		formGoogleSheetName:"actions"
+		});		
+}
+
+
+ function FingerprintOpen(){
+	var data=DataUnitAnalytics();
+	
+	function LangUpperCase(s){
+		var pos=s.replace(/(.*-)/,"").replace(s,"");
+		var pre=s.replace(/(-.*)/,"").replace(s,"");
+		return pos.length?(pre+"-"+pos.toUpperCase()):s
+	};
+	
+	return FuseObjects(data,{
 		"language":LangUpperCase(window.navigator.language),
 		"timezone":Date(),
 		"screen":[	window.screen.height,
@@ -26,54 +44,72 @@ function LangUpperCase(s){
 					window.screen.colorDepth].join("x"),
 		"agent":window.navigator.userAgent,
 		"from":document.referrer,
-		"campaign":(pageTag(pageURL())=="")?"none":pageTag(pageURL()),
-		"name":UserId()
-	};		
+		"campaign":(pageTag(pageURL())=="")?"none":pageTag(pageURL())
+		});		
 }
 
- function FingerprintLink(ref){
-	var data=FingerprintData();
-	var fro=data["identifier"];
-	data["identifier"]=ref;
-	data["from"]=fro;
-	data["campaign"]="OutLink";
-	return data;
+
+
+function FingerprintAction(type,target){
+	var data=DataUnitActions();
+	return FuseObjects(data,{
+		"target":dest,
+		"type":action,
+	});
 }
 
- function FingerprintAction(ref){
-	var data=FingerprintData();
-	var fro=data["identifier"];
-	data["identifier"]=ref;
-	data["from"]=fro;
-	data["campaign"]="Action";
-	return data;
+function FingerprintLink(ref){
+	return FingerprintAction(
+		isInnerLink(ref)?"InLink":"OutLink",
+		isInnerLink(ref)?pageIdentifier(ref):ref
+	)
+}
+
+
+// Echoes
+ 
+function EchoAnalytics(data){
+	echoPureData(data,analyticsURL);	
+}
+ 
+function RegisterOpen(){
+	EchoAnalytics(FingerprintOpen());	
+}
+function RegisterLink(l){
+	EchoAnalytics(FingerprintLink(l));
+};
+function RegisterClick(b){
+	EchoAnalytics(FingerprintAction("Click",b.innerText));	
+}
+function RegisterToggleBG(){ //Mosaic change
+	EchoAnalytics(FingerprintAction("BG toggle","---"));	
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// OUTLINK MANAGEMENT
+// Links Management
 
 function ChangeLinks(f){
 	MarkElements("a",f);
 }
 
 function outLinks(){
-	function RegisterOutlink(l){
-		echoPureData(FingerprintLink(l),analyticsURL);
-		};
 	function prepareLink(l){
 		var ref=l.href;
 		if(isOuterLink(ref)){
 			l.setAttribute("target","_blank");};
-			l.addEventListener("mousedown", (function(){RegisterOutlink(ref)}),false);
+		l.addEventListener("mousedown", (function(){RegisterLink(ref)}),false);
 	};
 	ChangeLinks(prepareLink);
 };
+
+////////////////////////////////////////////////////////////////////////////////
+// Link reformatting
 
 function anonimiseLinks(){
 	function prepareLink(l){
 		var ref=l.href;
 		if(isInnerLink(ref))
-			l.href= ref+"#"+clearance;
+			l.href= pageNoTag(ref)+"#"+clearance;
 		};
 	ChangeLinks(prepareLink);
 }
@@ -88,12 +124,10 @@ function absolutiseLinks(){
 	ChangeLinks(prepareLink);
 }
 
+
+
 ///////////////////////////////////////////////////////////////////////////////
 // Analytics Behaviour
- 
-function RegisterOpen(){
-	echoPureData(FingerprintData(),analyticsURL);	
-}
 
 function AnalyticsClearance(){
 	return (pageTag()!==clearance)&&!isFileLink(pageURL());
@@ -105,6 +139,8 @@ function AnalyticsInnerClearance(title){
 
 if(AnalyticsClearance()){
 	document.addEventListener('DOMContentLoaded', RegisterOpen, false);
+	MarkElements(".button",ElementClicked);
+	MarkElements(".mosaic",MosaicToggled);
 	outLinks();
 }
 else{
@@ -113,12 +149,10 @@ else{
 
 
 ////////////////////////////////////////////////////////////////////////////////
-/* Custom element analytics
+// Analytics: custom actions
 
-MarkElements(selector,markfunction)
-
-*/
-
+function ElementClicked(b){b.addEventListener("click", function(){RegisterClick(this)}); return b};
+function MosaicToggled(b){b.addEventListener("click", function(){RegisterToggleBG()}); return b};
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -283,11 +317,6 @@ function loadConfig(){
 		activateNightMode();
 	if(inConfig("🖼»"))
 		activateBGMode(getConfigArg("🖼»"));
-	/*if(AnalyticsClearance()){
-		if(inConfig("💾»"))
-			UID=getConfigArg("💾»")
-		else activateConfig("💾("+UserId()+")»")
-	}*/  
 }
 
 loadConfig();

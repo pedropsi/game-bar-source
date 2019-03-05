@@ -5,6 +5,18 @@ var DESTINATIONS={};
 //Do nothing
 function Identity(){return;};
 
+///////////////////////////////////////////////////////////////////////////////
+//Join Objects, overwriting conflicting properties
+function FuseObjects(object,extrapropertiesobject){
+	var O=object;
+	if(extrapropertiesobject===undefined)
+		extrapropertiesobject={};
+	var keys=Object.keys(extrapropertiesobject);
+	for(var k in keys){
+		O[keys[k]]=extrapropertiesobject[keys[k]];
+	}
+	return O;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Regex
@@ -279,36 +291,24 @@ function GenerateId(){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Data transmission
+// Data transmission - JSON, to a script in url "url"
 
-// Sends data (Json) to a script in url "url"
 function echoPureData(data,url){
-			
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', url);
-			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			xhr.onreadystatechange = function() {
-				console.log( xhr.status, xhr.statusText);
-				console.log(xhr.responseText);
-				return;
-			};
-			// url encode form data for sending as post data
-			var encoded = Object.keys(data).map(function(k) {
-				return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-			}).join('&')
-			xhr.send(encoded);	
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST',url);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange = function(){
+		console.log(xhr.status, xhr.statusText);
+		console.log(xhr.responseText);
+		return;
+	};
+	// url encode form data for sending as post data
+	var encoded = Object.keys(data).map(function(k) {
+		return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+	}).join('&')
+	xhr.send(encoded);	
 }
 
-// Sends data to a google doc in address of the form field "action", with sheet name "destinationSheet"
-function echoDataToSheetURL(data,url,destinationSheet){
-	data.formGoogleSheetName = destinationSheet; 
-	echoPureData(data,url);	
-}
-
-// Sends data to a google doc in address of the form field "action", with sheet name "destinationSheet"
-function echoDataToSheet(data,source,destinationSheet){
-	echoDataToSheetURL(data,document.getElementById(source).action,destinationSheet);  
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Data Reception
@@ -726,11 +726,7 @@ function DefaultDataPack(){
 
 function NewDataField(obj){
 	var DF=DefaultDataField();
-	var keys=Object.keys(obj);
-	for(var k in keys){
-		DF[keys[k]]=obj[keys[k]];
-	}
-	return DF;
+	return FuseObjects(DF,obj);
 }
 
 function DataFieldTypes(type){
@@ -791,13 +787,7 @@ function DataFieldTypes(type){
 
 function CustomDataField(type,obj){
 	var DF=DataFieldTypes(type);
-	if(obj===undefined)
-		obj={};
-	var keys=Object.keys(obj);
-	for(var k in keys){
-		DF[keys[k]]=obj[keys[k]];
-	}
-	return DF;
+	return FuseObjects(DF,obj);
 }
 
 var DATAPACKHISTORY=[];
@@ -807,11 +797,7 @@ function DPHistoryAdd(DF){
 }
 
 function UpdateDataPack(DP,obj){
-	var keys=Object.keys(obj);
-	for(var k in keys){
-		DP[keys[k]]=obj[keys[k]];
-	}
-	return DP;
+	return FuseObjects(DP,obj);
 }
 
 function NewDataPack(obj){

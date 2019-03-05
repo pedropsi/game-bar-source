@@ -77,7 +77,7 @@ FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACON-ANALYTICS»«BEACON-CO
 PICTURE	<img src="images/«IMAGE:Load»" alt="«IMAGEALT:Load»" title="«IMAGEALT:Load»"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT:Load»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
-FIGURE-MOSAIC	<div class="figure" onclick="(function(){toggleBGMode('«LINK:Load»')})()">«PICTURE»<div class="legend" id="markdown">«CONTENT:Load»</div><p>«MOSAIC-TEXT»</p></div>
+FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK:Load»')})()">«PICTURE»<div class="legend" id="markdown">«CONTENT:Load»</div><p>«MOSAIC-TEXT»</p></div>
 HONOURS-HOF	<script type="text/javascript" src="codes/game/honours-«TITLE:LOAD».js"></script>
 PUZZLE-SCRIPT	«PUZZLE-LOAD»«HONOURS:LOAD»
 PUZZLE-LOAD	<script type="text/javascript">PuzzleScript.embed(document.getElementById('«PUZZLE-MARK»'),"«CONTENT:Load»");</script>
