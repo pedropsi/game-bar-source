@@ -24,15 +24,7 @@
 		<description>
 			<![CDATA[
 				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-				<p>Quick links
-				Factsheet
-				Description
-				History
-				Projects
-				Images & Logo
-				Contact
-		
-		Factsheet
+				<p>Factsheet
 				
 				
 				  
@@ -47,7 +39,11 @@
 				Social media:
 					None.
 				Releases:
-					Gravirinth (2019) ...</p>
+					Gravirinth (2019) 
+		Abxtract Tractx (2018) 
+		Tiaradventur (2018) 
+		Hastefulll (2018) 
+		Play Mini Gemini Repl...</p>
 			]]>
 			</description>
 		
@@ -112,13 +108,17 @@
 				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Gravirinth changelog" title="Gravirinth changelog"/>
 				<p>This is Gravirinth's devlog.
 		
-		14-02-2019
-		Landing page with teaser video
-		Gravirinth's landing page improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's former logo.
+		02-03-2019
+		Gravirinh release!
+		Gravirinth was released today! What are you waiting for?
 		
-		07-02-2019
-		Physics tweaks
-		Eliminating inconsistent physic...</p>
+		
+		Join Xeno in the expedition to the Gravirinth!
+		Get it now!
+		
+		
+		  function ItchLink(e){Itch.attachBuyButton(e, {  user: "pedropsi",    game: "gravirinth"  });};
+		  var gg=document.ge...</p>
 			]]>
 			</description>
 		
