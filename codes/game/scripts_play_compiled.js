@@ -18,12 +18,12 @@ function HasSave(){
 }
 
 function SetCheckpointStack(newstack){
-	maxcheckpoint=newstack.length;
+	MaxCheckpoint(newstack.length);
 	return localStorage[document.URL+"_checkpoint"]=JSON.stringify(newstack);
 }
 function GetCheckpointStack(){
 	var stack= JSON.parse(localStorage[document.URL+"_checkpoint"]);
-	maxcheckpoint=stack.length-1;
+	MaxCheckpoint(stack.length-1);
 	return stack;
 }
 	
@@ -882,8 +882,7 @@ var leveldataURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrX
 var timeticker=Date.now();
 var moveseq=[];
 var winseq=[];
-var maxlevel=Number(curlevel);
-var maxcheckpoint=Number(curcheckpoint);
+
 var checkpointsaver=0;
 var recordingmoves=true;
 
@@ -1202,7 +1201,7 @@ function GoToLevel(lvl){
 	loadLevelFromState(state,lvl);
 	canvasResize();
 	clearInputHistory();
-	UpdateGameNav();
+	//UpdateGameNav();
 	
 };
 
@@ -1230,6 +1229,22 @@ function LevelNumber(curlevel){
 	return levelindices.filter(function(l){return l<=curlevel}).length;
 }
 
+function MaxLevel(){
+	MaxLevel.max=MaxLevel.max?Math.max(curlevel,MaxLevel.max):Number(curlevel);
+	return MaxLevel.max;
+}
+
+function MaxCheckpoint(m){ 
+	if(m===undefined){  //Getter
+		var c=Number(curcheckpoint);
+		MaxCheckpoint.max=MaxCheckpoint.max?Math.max(c,MaxCheckpoint.max):c;
+	}
+	else				//Setter (m)
+		MaxCheckpoint.max=Number(m);
+	return MaxCheckpoint.max;
+}
+
+/*
 function UpdateGameNav(){
 	if(!(curlevel<maxlevel||curcheckpoint<maxcheckpoint)){
 		maxlevel=Math.max(curlevel,maxlevel);
@@ -1256,10 +1271,11 @@ function DeactivateButton(id){
 	var b=document.getElementById(id);
 	b.className = b.className.replace(/active/g, "");
 }
+*/
 
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
-		var solvedLevelIndices=LevelIndices().filter(lvl=>lvl<=maxlevel).map(LevelNumber);
+		var solvedLevelIndices=LevelIndices().filter(lvl=>lvl<=MaxLevel()).map(LevelNumber);
 		var DPOpts={
 			questionname:"Reached levels ("+solvedLevelIndices.length+"/"+LevelIndices().length+")",
 			qfield:"level",
@@ -1303,7 +1319,7 @@ function GoToLevelNext(){
 		GoToLevelCheckpoint(curcheckpoint+1);
 	}
 	else{
-		if(curlevel<maxlevel){
+		if(curlevel<MaxLevel()){
 			GoToLevel(curlevel+1);
 			}
 		if(curlevel==(state.levels.length-1)&&isLevelMessage(curlevel)){
@@ -1322,6 +1338,24 @@ function GoToLevelPrev(){
 		}
 	}
 }
+
+
+
+AddAfterElement('<div id="GameBar">\
+					<div id="MovesPlaylist">\
+						\
+						\
+						\
+						\
+						\
+					</div>\
+					<div class="button"> <a href="#How-to-play">How to play?</a></div>\
+					<div class="button" onclick="RequestLevelSelector()">Select level</div>\
+					<div class="button" onclick="RequestGameFeedback()">Feedback</div>\
+					<div class="button"><a href="#Credits">Credits</a></div>\
+				</div>',
+				"#puzzlescript-game")
+
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Echo
@@ -1368,7 +1402,7 @@ function GoToLevelCheckpoint(ncheckpoint){
 		LoadCheckpoint(ncheckpoint);
 		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 		canvasResize();
-		UpdateGameNav();
+		//UpdateGameNav();
 }};
 
 		
@@ -1407,7 +1441,7 @@ function nextLevel(){
 	void 0!==state&&void 0!==state.metadata.flickscreen&&(oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)]);
 	canvasResize();
 	clearInputHistory();
-	UpdateGameNav();
+	//UpdateGameNav();
 	
 }
 	

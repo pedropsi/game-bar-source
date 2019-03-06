@@ -29,7 +29,7 @@
     --innerwidth:calc(100vw - 43px); /*Window width minus borders*/
     --padv:calc(var(--innerwidth) /60); /*Dynamic font size and padding*/
     --padh:calc(var(--padv)*2);
-    
+     
     --logo:url("../images/logo.png");
     --logoinv:url("../images/logo-inv.png");
     
@@ -70,7 +70,12 @@ body {
     text-align: center;
 }
 
-
+@media only screen and (max-width: 200px) {
+    body {
+       word-break: break-all;
+    }
+}
+    
 
 a {
     text-decoration: none;
@@ -488,17 +493,35 @@ li {
     color: var(--blue);
 }
 
-.game-container{
-    display: flex;
+#GameBar{
     flex-direction: row;
-    flex-wrap: no-wrap;
-    justify-content: space-between;
     align-items: stretch;
+    align-content:stretch;
+    justify-content: space-evenly;
+    background-color: var(--white);
+    width:100%;
+    border-bottom: 4px solid var(--blue);
+}
+
+#GameBar .button{
+    background-color: var(--white);
+    height: calc(100% - 8px);
+    margin: 0;
+    padding: 4px calc(var(--padh)) 4px calc(var(--padh));
+    flex-grow: 1;
+    border-bottom: unset;
+}
+
+#GameBar .button:hover{
+    background-color: var(--darkblue);
+    border-bottom-color: var(--turquoise);
+}
+.game-container{
+    align-items: center;
 }
 
 .game {
     padding: 0px 5px 0px 5px;
-    margin: 0px 5px 10px 0px;
     width: 100%;
 }
 

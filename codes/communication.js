@@ -229,7 +229,7 @@ function RequestGameFeedback(){
   if(!HasBalloon(DPsettingsObj.qtargetid)){
 	var levelindices=LevelIndices();
 	if(TitleScreen()){
-		DFsettingsObj.questionname="Your real-time feedback is much appreciated! Press F as soon as you start the first level to toggle these balloons.";
+		DFsettingsObj.questionname="Your real-time feedback is much appreciated! As soon as you start the first level, press F or click the Feedback button below.";
 		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
 	else if(HasFeedback(currlevel)&&HasFeedback(lastlevel)){
