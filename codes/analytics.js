@@ -36,6 +36,8 @@ function DataUnitActions(){
 		return pos.length?(pre+"-"+pos.toUpperCase()):s
 	};
 	
+	var referrer=document.referrer;
+	
 	return FuseObjects(data,{
 		"language":LangUpperCase(window.navigator.language),
 		"timezone":Date(),
@@ -43,7 +45,7 @@ function DataUnitActions(){
 					window.screen.width,
 					window.screen.colorDepth].join("x"),
 		"agent":window.navigator.userAgent,
-		"from":document.referrer,
+		"from":isInnerLink(referrer)?pageIdentifier(referrer):referrer,
 		"campaign":(pageTag(pageURL())=="")?"none":pageTag(pageURL())
 		});		
 }
