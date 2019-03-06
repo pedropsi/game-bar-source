@@ -309,7 +309,6 @@ function echoPureData(data,url){
 	xhr.send(encoded);	
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //Data Reception
 
@@ -714,6 +713,7 @@ function DefaultDataPack(){
 		destination:'Feedback',			//Name of data repository
 
 		action:'CheckSubmit', 			//action on submit :receives a qid
+		actionvalid:SubmitValidAnswer,	//action on valid submit: receives a DataPack
 
 		qtargetid:document.body.id,		//Where to introduce form in page?
 		qdisplay:LaunchModal,			//Question display function :receives a DataPack
@@ -1018,7 +1018,7 @@ function SubmitData(dataObject,destination){
 	data.formGoogleSendEmail="";
 	data.formGoogleSheetName=destination.sheet;
 	SUBMISSIONHISTORY.push(data);
-	echoDataToSheetURL(data,destination.url,destination.sheet);
+	echoPureData(data,destination.url);
 }
 
 function InvalidateAnswer(DF){
@@ -1045,7 +1045,7 @@ function SubmitValidAnswer(DP){
 function SubmitAnswerSet(DP){
 	var invalidation=DP.fields.map(InvalidateAnswer);
 	if(!invalidation.some(x=>x===true)){
-		SubmitValidAnswer(DP);
+		DP.actionvalid(DP);
 	}
 }
 
@@ -1264,7 +1264,7 @@ function LaunchThanksModal(DP){
 function IdentityValidator(DF){return {valid:true,error:"no errors"};}
 
 function EmailValidator(DF){
-	var em=FindData("address",DF.qid);
+	var em=FindData(DF.qfield,DF.qid);
 	var pattern=/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ig
 	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
 		return {valid:true,error:"none"}
@@ -1278,7 +1278,7 @@ function SomeTextValidate(name){
 }
 
 function SomeTextValidator(DF){
-	var em=FindData("answer",DF.qid);
+	var em=FindData(DF.qfield,DF.qid);
 	if((typeof em!=="undefined")&&SomeTextValidate(em))
 		return {valid:true,error:"none"}
 	else
@@ -1286,7 +1286,7 @@ function SomeTextValidator(DF){
 }
 
 function NameValidator(DF){
-	var em=FindData("name",DF.qid);
+	var em=FindData(DF.qfield,DF.qid);
 	var pattern=/[\d\w][\d\w]+/;
 	if((typeof em!=="undefined")&&(em.match(pattern)!==null))
 		return {valid:true,error:"none"}

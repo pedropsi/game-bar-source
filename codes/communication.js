@@ -354,7 +354,6 @@ News();
 function RequestMediaPass(){
 	RequestDataPack([
 		['name',{
-			destination:'Pass',
 			qrequired:true,
 			questionname:"What's your name?",
 			qplaceholder:"(real or artistic name)"}],
