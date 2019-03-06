@@ -1258,32 +1258,44 @@ function DeactivateButton(id){
 }
 
 function RequestLevelSelector(){
-	var solvedLevelIndices=LevelIndices().filter(lvl=>lvl<=maxlevel).map(LevelNumber);
-	RequestDataPack([
-		['exclusivechoice',{
+	if(!HasCheckpoint()){
+		var solvedLevelIndices=LevelIndices().filter(lvl=>lvl<=maxlevel).map(LevelNumber);
+		var DPOpts={
 			questionname:"Reached levels ("+solvedLevelIndices.length+"/"+LevelIndices().length+")",
 			qfield:"level",
 			qchoices:solvedLevelIndices
-		}]
+		}
+	}
+	else{
+		var checkpointIndices=Object.keys(GetCheckpointStack());
+		var DPOpts={
+			questionname:"Reached checkpoints:",
+			qfield:"level",
+			qchoices:checkpointIndices.map(l=>(Number(l)+1)+"")
+		}
+	}
+	RequestDataPack([
+		['exclusivechoice',DPOpts]
 	],
 	{
 		actionvalid:LoadLevelFromDP,
 		actionText:"Go to level",
 		qonsubmit:Identity,
 		qdisplay:LaunchBalloon,
-		qtargetid:'puzzlescript-game',
-		executeChoice:function(id,choice){
-			RequestLevelSelector.chosenlevel=choice;
-			console.log(choice);
-		}
+		qtargetid:'puzzlescript-game'
 	});
 }
 
 function LoadLevelFromDP(DP){
-	//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
 	var lvl=FindData('level',DP.qid);
-	var lvlpre=lvl<2?-1:LevelIndices()[lvl-2];
-	GoToLevel(lvlpre+1);
+	if(!HasCheckpoint()){
+		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
+		var lvlpre=lvl<2?-1:LevelIndices()[lvl-2];
+		GoToLevel(lvlpre+1);
+	}
+	else{
+		GoToLevelCheckpoint(lvl-1);
+	}
 };
 
 function GoToLevelNext(){
@@ -1355,6 +1367,7 @@ function GoToLevelCheckpoint(ncheckpoint){
 	if(HasCheckpoint()){
 		LoadCheckpoint(ncheckpoint);
 		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
+		canvasResize();
 		UpdateGameNav();
 }};
 
