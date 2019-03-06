@@ -1164,7 +1164,6 @@ function RequestPlaylist(){
 	],
 	{
 		actionvalid:LoadPlaylistFromDP,
-		destination:'',
 		qdisplay:LaunchBalloon,
 		qtargetid:'puzzlescript-game',
 		qonsubmit:Identity
@@ -1258,6 +1257,35 @@ function DeactivateButton(id){
 	b.className = b.className.replace(/active/g, "");
 }
 
+function RequestLevelSelector(){
+	var solvedLevelIndices=LevelIndices().filter(lvl=>lvl<=maxlevel).map(LevelNumber);
+	RequestDataPack([
+		['exclusivechoice',{
+			questionname:"Solved levels ("+solvedLevelIndices.length+"/"+LevelIndices().length+")",
+			qfield:"level",
+			qchoices:solvedLevelIndices
+		}]
+	],
+	{
+		actionvalid:LoadLevelFromDP,
+		actionText:"Go to level",
+		qonsubmit:Identity,
+		qdisplay:LaunchBalloon,
+		qtargetid:'puzzlescript-game',
+		executeChoice:function(id,choice){
+			RequestLevelSelector.chosenlevel=choice;
+			console.log(choice);
+		}
+	});
+}
+
+function LoadLevelFromDP(DP){
+	//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
+	var lvl=FindData('level',DP.qid);
+	var lvlpre=LevelIndices()[Math.max(lvl-2,0)];
+	GoToLevel(lvlpre+1);
+};
+
 function GoToLevelNext(){
 	if(HasCheckpoint()){
 		GoToLevelCheckpoint(curcheckpoint+1);
@@ -1289,7 +1317,6 @@ function GoToLevelPrev(){
 function EchoLevelWin(curlevel){
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
-		//configLevelWin(curlevel);
 		echoPureData(leveldata,leveldataURL);
 	}
 }

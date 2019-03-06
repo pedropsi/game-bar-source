@@ -665,7 +665,7 @@ function OkButtonHTML(targetid){
 }
 
 function SubmitButtonHTML(DP){
-	return '<div class="button" onclick="'+DP.action+'(\''+DP.qid+'\')">Submit</div>';
+	return '<div class="button" onclick="'+DP.action+'(\''+DP.qid+'\')">'+DP.actionText+'</div>';
 }
 
 function MessageHTML(message){
@@ -714,7 +714,8 @@ function DefaultDataPack(){
 
 		action:'CheckSubmit', 			//action on submit :receives a qid
 		actionvalid:SubmitValidAnswer,	//action on valid submit: receives a DataPack
-
+		actionText:'Submit',			//text to display instead of "Submit"
+		
 		qtargetid:document.body.id,		//Where to introduce form in page?
 		qdisplay:LaunchModal,			//Question display function :receives a DataPack
 
