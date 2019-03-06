@@ -1284,12 +1284,6 @@ function EmailValidator(DF){
 	return PatternValidatorGenerator(pattern,errormessage)(DF);
 }
 
-function PlaylistValidator(DF){
-	var pattern=/\[(\[(37|38|39|40|82|85)\,[0-9]+\])(\,\[(37|38|39|40|82|85)\,[0-9]+\])*\]/ig
-	var errormessage="Please verify the moves playlist!";
-	return PatternValidatorGenerator(pattern,errormessage)(DF);
-}
-
 function SomeTextValidator(DF){
 	var pattern=/[\d\w]/;
 	var errormessage="Please write something!";

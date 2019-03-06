@@ -1024,7 +1024,6 @@ function PauseMovesPlaylist(movesplaylist){
 
 	recordingmoves=true;
 	clearTimeout(recordingmovesid);
-	
 
 	return m;
 }
@@ -1152,13 +1151,45 @@ function SlowerReplaySpeed(movesplaylist){
 	ChangeReplaySpeed(movesplaylist,maxdelay/0.9)
 }
 
-/*
-function configLevelWin(curlevel){
-	updateConfig(document.body.id+"("+maxlevel+")»");
-}*/	
+////////////////////////////////////////////////////////////////////////////////
+// Replay Interface
+
+function RequestPlaylist(){
+	RequestDataPack([
+		['answer',{
+			questionname:"Moves playlist:",
+			qplaceholder:"[[move1,time1],[move2,time2],...]",
+			qvalidator:PlaylistValidator
+		}]
+	],
+	{
+		actionvalid:LoadPlaylistFromDP,
+		destination:'',
+		qdisplay:LaunchBalloon,
+		qtargetid:'puzzlescript-game',
+		qonsubmit:Identity
+	});
+}
+
+function PlaylistValidator(DF){
+	var pattern=/\[(\[(27|37|38|39|40|82|85|88)\,[0-9]+\])(\,\[(27|37|38|39|40|82|85|88)\,[0-9]+\])*\]/ig
+	var errormessage="Please verify the moves playlist!";
+	return PatternValidatorGenerator(pattern,errormessage)(DF);
+}
+
+function LoadPlaylistFromDP(DP){
+	var moves=FindData('answer',DP.qid);
+	movesplaylist=NewMovesPlaylist(ParseMoves(moves));
+};
+
+function DownLoadPlaylist(movesplaylist){
+	DownLoadPlaylist.counter=DownLoadPlaylist.counter?DownLoadPlaylist.counter+1:1;
+	var mpl=movesplaylist.map(function(mpi){return [mpi.move,mpi.timedelta];});
+	Download(JSON.stringify(mpl), pageIdentifier()+"playlist-"+DownLoadPlaylist.counter+".txt","text/js");
+}
 
 ////////////////////////////////////////////////////////////////////////////////
-/// Level navigation
+// Level navigation
 
 function GoToLevel(lvl){
 
