@@ -23,11 +23,11 @@ function FuseObjects(object,extrapropertiesobject){
 function CombineMultiRegex(exprarray,joiner){
 	var j="";var kl="";var kr="";
 	if(joiner){
-		j=joiner;kl="(";kr=")"
+		j=joiner;//kl="(";kr=")"
 	}
 	var regarray=exprarray.map(a=>new RegExp(a));
-	regarray=regarray.map(a=>kl+a.source+kr);
-	var comb=new RegExp(regarray.join(j),"g");
+	regarray=regarray.map(a=>a.source);
+	var comb=new RegExp("("+regarray.join(j)+")","g");
 	return comb;
 }
 
@@ -51,10 +51,11 @@ function ForwardRegex(string){
 //IDENTIFIER 	page
 //EXTENSION 	.html
 //TAG			#etc
-var domain = "pedropsi.github.io|combinatura.github.io";
-var predomains=AlternateRegex(domain.split("|").map(d=>CombineRegex(/[\d\D]*/,d)));
-var posdomains=AlternateRegex(domain.split("|").map(d=>CombineRegex(d,/[\d\D]*/)));
-var idomain=CombineRegex(/^/,domain);
+var domains =["pedropsi.github.io","combinatura.github.io"];
+var predomainssoft=AlternateRegex(domains.map(d=>CombineRegex(/^[\d\D]*/,d)));
+var predomainshard=AlternateRegex(domains.map(d=>CombineRegex(/^(https?:\/\/)*/,d)));
+var posdomains=AlternateRegex(domains.map(d=>CombineRegex(d,/[\d\D]*$/)));
+var idomain=CombineRegex(/^/,AlternateRegex(domains));
 
 function Domains(){
 	return idomain;
@@ -136,7 +137,7 @@ function pageAfterOwnDomain(url){
 	if(typeof url==="undefined")
 		return pageAfterOwnDomain(pageURL());
 	else
-		return url.replace(predomains,"").replace(/^\//,"");
+		return url.replace(predomainssoft,"").replace(/^\//,"");
 }
 
 function isMaybeRoot(urlAfter){
@@ -202,7 +203,7 @@ function isLocalLink(url){
 }
 
 function isInOwnDomain(url){
-	return url.replace(predomains,"")!==url;
+	return url.replace(predomainshard,"")!==url;
 }
 
 function isIntraPageLink(url){

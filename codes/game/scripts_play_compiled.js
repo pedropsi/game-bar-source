@@ -1275,6 +1275,7 @@ function DeactivateButton(id){
 
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
+		var type="level";
 		var solvedLevelIndices=LevelIndices().filter(lvl=>lvl<=MaxLevel()).map(LevelNumber);
 		var DPOpts={
 			questionname:"Reached levels ("+solvedLevelIndices.length+"/"+LevelIndices().length+")",
@@ -1283,6 +1284,7 @@ function RequestLevelSelector(){
 		}
 	}
 	else{
+		var type="checkpoint";
 		var checkpointIndices=Object.keys(GetCheckpointStack());
 		var DPOpts={
 			questionname:"Reached checkpoints:",
@@ -1295,7 +1297,7 @@ function RequestLevelSelector(){
 	],
 	{
 		actionvalid:LoadLevelFromDP,
-		actionText:"Go to level",
+		actionText:"Go to "+type,
 		qonsubmit:Identity,
 		qdisplay:LaunchBalloon,
 		qtargetid:'puzzlescript-game'

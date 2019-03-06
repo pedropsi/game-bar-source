@@ -83,7 +83,8 @@ Testsuite=[
 		url3:"https://pedropsi.github.io/folder/guestbook.html",
 		url4:"folder/guestbook.html",
 		url5:"www.xxx.yyy",
-		url6:"http://www.xxx.yyy"
+		url6:"http://www.xxx.yyy",
+		url7:"https://www.google.com/url?q=https%3A%2F%2Fpedropsi.github.io%2Fguestbook.html%23randomsomething"
 		},
 	tests:function(T){
 		return[
@@ -98,6 +99,7 @@ Testsuite=[
 		["isInnerLink relative folder",isInnerLink(T("url4")),true],
 		["isInnerLink online external www",isInnerLink(T("url5")),false],
 		["isInnerLink online external full http",isInnerLink(T("url6")),false],
+		["isInnerLink form google",isInnerLink(T("url7")),false]
 		]}},
 	{
 	name:"Tags",
