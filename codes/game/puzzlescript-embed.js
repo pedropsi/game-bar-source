@@ -74,6 +74,10 @@
 				// Music hook
 				if(typeof OverrideMusic!=="undefined")
 					OverrideMusic();
+				/////////////////////////////////////////////////////////////////////////////////////
+				// Game bark
+				if(typeof GameBar!=="undefined")
+					AddAfterElement(GameBar(),"#puzzlescript-game")
 
 			}
 		}

@@ -1342,21 +1342,25 @@ function GoToLevelPrev(){
 }
 
 
+function GameBar(){
+	function Button(txt,extras){return '<div class="button" '+extras+'>'+txt+'</div>'};
+	function ButtonLink(title){return '<div class="button"><a href="#'+IDfy(title)+'">'+title+'</a></div>'};
+	
+	var undo=!state.metadata.noundo?Button("↶","onclick='checkKey({keyCode:85},!0)'"):"";
+	var restart=!state.metadata.norestart?Button("↺","onclick='checkKey({keyCode:82},!0)'"):"";
+	
+	var buttons=[
+		ButtonLink("How to play?"),
+		undo,
+		restart,
+		Button("Select level",'onclick="RequestLevelSelector()"'),
+		Button("Feedback",'onclick="RequestGameFeedback()"'),
+		ButtonLink("Credits")
+	].join("")
+	
+	return '<div id="GameBar">'+buttons+'</div>';
+}
 
-AddAfterElement('<div id="GameBar">\
-					<div id="MovesPlaylist">\
-						\
-						\
-						\
-						\
-						\
-					</div>\
-					<div class="button"> <a href="#How-to-play">How to play?</a></div>\
-					<div class="button" onclick="RequestLevelSelector()">Select level</div>\
-					<div class="button" onclick="RequestGameFeedback()">Feedback</div>\
-					<div class="button"><a href="#Credits">Credits</a></div>\
-				</div>',
-				"#puzzlescript-game")
 
 
 ////////////////////////////////////////////////////////////////////////////////
