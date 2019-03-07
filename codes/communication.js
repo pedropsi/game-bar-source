@@ -30,15 +30,15 @@ var DESTINATION_FEEDBACK={
 			question:FindData("questionname",qid),
 			answer:FindData("answer",qid),
 			name:who,
-			state:PrintGameState()
+			state:FindData("snapshot",qid)?PrintGameState():"---"
 			}}
 }
 
 function AnonimiseBlank(name){
-	if(SomeTextValidate(name))
+	if(name!==undefined&&SomeTextValidate(name))
 		return name;
 	else
-		return "Anonymous Pedro PSI fan";
+		return "Anonymous fan "+RandomChoice("♩♬♪♬♫")+RandomChoice("♩♬♪♬♫")+RandomChoice("♩♬♪♬♫");
 }
 
 var DESTINATION_GUESTBOOK={
@@ -162,18 +162,20 @@ function RequestModalWinnerMessage(previousDP){
 		}],
 		['exclusivechoice',{
 			questionname:"",
-			qfield:"answer2",
-			qchoices:["Private message","Public message in Guestbook"]
+			qfield:"whence",
+			qchoices:["Private message","Public message in Guestbook"],
+			executeChoice:function(id,choice){
+				if(choice==="Public message in Guestbook"){
+					SetData("destination","Guestbook",id);
+				}
+				else {
+					SetData("destination","Feedback",id);
+				}
+			}
 		}]
 	],
 	{
-		thanksmessage:"Thank you for your message.",
-		executeChoice:function(id,choice){
-			if(choice==="Public message in Guestbook")
-				SetData("destination","Guestbook",id);
-			else 
-				SetData("destination","Feedback",id);
-		}
+		thanksmessage:"Thank you for your message."
 	}
 	);
 }
@@ -217,7 +219,7 @@ function RequestGameFeedback(){
   if(!feedbackRequests)
 	  feedbackRequests=[];
   
-  var DPsettingsObj={
+	var DPsettingsObj={
 		qtargetid:'puzzlescript-game',
 		qdisplay:LaunchBalloon,
 		qonsubmit:LaunchThanksBalloon,
@@ -225,6 +227,7 @@ function RequestGameFeedback(){
 		};
 	
 	var DFsettingsObj={};
+	var DFSnapshot=['snapshot',{}];
 
   if(!HasBalloon(DPsettingsObj.qtargetid)){
 	var levelindices=LevelIndices();
@@ -234,11 +237,11 @@ function RequestGameFeedback(){
 	}
 	else if(HasFeedback(currlevel)&&HasFeedback(lastlevel)){
 		DFsettingsObj.questionname="Any further comments?";
-		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
+		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
 	else if(lastlevel===currlevel){
 		DFsettingsObj.questionname="What do you think of this level so far?";
-		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
+		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 		feedbackRequests.push(currlevel);
 	}
 	else if(!HasFeedback(lastlevel+1)){
@@ -249,14 +252,9 @@ function RequestGameFeedback(){
 		feedbackRequests.push(currlevel);
 		RequestDataPack([['multiplechoice',DFsettingsObj]],DPsettingsObj);
 	}
-	else if(currlevel>levelindices[levelindices.length-1]){
-		DFsettingsObj.questionname="Thank you for playing "+state.metadata.title+"! Would you like to leave a public Testimonial?";
-		feedbackRequests.push(currlevel);
-		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
-	}
 	else{
 		DFsettingsObj.questionname="Any further comments?";
-		RequestDataPack([['answer',DFsettingsObj]],DPsettingsObj);
+		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
   }
   else{

@@ -265,6 +265,10 @@ function UserId(){
 	return UID;
 }
 
+function RandomInteger(n){return Math.floor(Math.random() * n)};
+function RandomChoice(v){return v[RandomInteger(v.length)]};
+
+
 function GenerateId(){
 	var preconsonants = "bcdfghjklmnpqrstvwxz";
 	var preconsonants2 = "hjlnrs";
@@ -272,9 +276,6 @@ function GenerateId(){
 	var posconsonants2 = "pkstm";
 	var posconsonants = "bcdglmnrstxz";
 				
-	function RandomInteger(n){return Math.floor(Math.random() * n)};
-	function RandomChoice(v){return v[RandomInteger(v.length)]};
-	
 	function PreSyllabe(){
 		return RandomInteger(5)<=3?RandomChoice(preconsonants)+(RandomInteger(5)<=1?RandomChoice(preconsonants2):""):"";
 	}
@@ -289,6 +290,8 @@ function GenerateId(){
 	}
 	return Syllabe()+Syllabe()+Syllabe()+Syllabe()+Syllabe();
 };
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -756,27 +759,29 @@ function DataFieldTypes(type){
 			qplaceholder:"(optional)"}),
 		answer:NewDataField({
 			qfield:"answer",
-			thanksmessage:"Submitted. Thank you!",
 			qtype:LongAnswerHTML,
 			qvalidator:SomeTextValidator}),
 		exclusivechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which one?",
 			qchoices:["on","off"],
-			qtype:ExclusiveChoiceButtonRowHTML,
-			thanksmessage:"Submitted. Thank you!"}),
+			qtype:ExclusiveChoiceButtonRowHTML}),
 		multiplechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which ones?",
 			qchoices:["1","2","3","4","5"],
-			qtype:ChoicesButtonRowHTML,
-			thanksmessage:"Submitted. Thank you!"}),
+			qtype:ChoicesButtonRowHTML}),
 		pass:NewDataField({
 			questionname:"What is the password?",
 			qfield:'answer',
 			qtype:ShortAnswerHTML,
 			qvalidator:SomeTextValidator,
-			qplaceholder:"(top-secret)"})
+			qplaceholder:"(top-secret)"}),
+		snapshot:NewDataField({
+			questionname:"Attach a snapshot?",
+			qfield:'snapshot',
+			qtype:ExclusiveChoiceButtonRowHTML,
+			qchoices:["no","yes"]})
 	}
 	if(typeof type==="undefined")
 		return DFTypes;
@@ -1189,12 +1194,18 @@ function ClearData(field,id){
 	SetData(field,"",id);
 };
 
-function ChoiceExecute(value,id){
-	FindData("executeChoice",id)(id,value);
+function GetField(field,parentid){
+	var fis=GetDataPack(parentid).fields.filter(f=>(f.qfield===field));
+	if (fis.length>0)
+		return fis[0];
+}
+
+function ChoiceExecute(field,value,id){
+	GetField(field,id).executeChoice(id,value); //Not dynamically updated. And why should it be?
 };
 
 function ToggleData(field,value,id){
-	ChoiceExecute(value,id);
+	ChoiceExecute(field,value,id);
 	var data=GetData(field,id);
 	if(typeof data==="undefined")
 		SetData(field,value,id);
@@ -1207,7 +1218,7 @@ function ToggleData(field,value,id){
 }
 
 function SwitchData(field,value,id){
-	ChoiceExecute(value,id);
+	ChoiceExecute(field,value,id);
 	SetData(field,value,id);
 }
 
