@@ -921,18 +921,31 @@ tbody tr:hover{
         color:var(--blue);
         border-bottom: 8px solid var(--green);
         padding: 4px;
+        z-index: 11;
+}
+
+.gallery-video .modal-content  {
+        width: 80%;
+        height: 70%;
+        border-bottom:unset;
+}
+
+.gallery-video {
+       background-color: var(--tblack);
 }
 
 	
 .modal-content input{
-        max-width:80%;
-        background-color:var(--lightyellow);
-        text-align: center;
-	}
+    max-width:80%;
+    background-color:var(--lightyellow);
+    text-align: center;
+}
 
 .modal .closer {
+    display: block;
     background-color: var(--lightyellow);
-    }
+    padding:8px;
+}
 
 .modal .closer:hover {
     background-color: var(--darkblue);
@@ -1188,4 +1201,3 @@ tbody tr:hover{
     -o-transition: opacity 1s ease-in-out;
     -ms-transition: opacity 1s ease-in-out;
 }
-

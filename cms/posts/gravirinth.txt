@@ -49,7 +49,7 @@
 <p>Please «CONTACT-TEXT-1» for all unusual requests!</p>
 
 <h2 class="trailer">Trailer</h2>
-«GRAVIRINTH-TRAILER»
+«TRAILER-LAUNCHER»
 
 <h2 class="images">Screenshots & Logo</h2>
 	<p>Download all screenshots + logo <a class="download" title="Download all screenshots and logo" 

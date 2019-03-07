@@ -1244,9 +1244,10 @@ function GetDestination(dname){
 ///////////////////////////////////////////////////////////////////////////////
 // Modals
 
-function ModalHTML(content,id){
+function ModalHTML(content,id,type){
+	var t=type?(" "+type):"";
 	return'\
-		<div class="modal" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
+		<div class="modal'+t+'" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
 	        <div class="modal-content">\
 	        	'+CloseButtonHTML(id)+'\
 				'+content+'\
@@ -1273,6 +1274,17 @@ function LaunchThanksModal(DP){
 	RequestDataPack(
 		[['plain',{questionname:DP.thanksmessage,destination:""}]],
 		{qtargetid:DP.qtargetid,qdisplay:LaunchModal});
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Gallery
+
+function VideoEmbedHTML(ytid,origin){
+	var ori=origin?"&origin="+origin:"";
+	return '<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="100%" height="100%" type="text/html" src="https://www.youtube.com/embed/'+ytid+'?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0'+ori+'"></iframe>'};
+
+function OpenVideoModal(ytid){
+	AddElement(ModalHTML(VideoEmbedHTML(ytid,pageTag()),GenerateId(),"gallery-video"),document.body.id);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

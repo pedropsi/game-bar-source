@@ -102,8 +102,7 @@ BLANK	target='_blank'
 ABOUT-TEXT	<h2>About «TITLE-BOLD»</h2>
 HOWTO-TEXT	«FIGURE-SIMPLE»<h2>How to play</h2><h3>Controls - keyboard</h3>
 GAME-EXTRAS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«NAVIGATION-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
-GAME-NAVIGATION	<div id="GameBW" class="gameNav" onclick="GoToLevelPrev()">Previous level</div><div id="GameFW" class="gameNav" onclick="GoToLevelNext()">Next level</div>
-NAVIGATION-TEXT	<h3>Level navigation</h3><p>The <b>lateral buttons</b> beside the game screen (which appear and disappear as needed) let you navigate «GN:Load»</p>
+NAVIGATION-TEXT	<h3>Level navigation</h3><p>Using the <em>Level Selector Menu</em> you can navigate freely between the current level and all previously solved levels.</p>
 NAV-LEVEL	between the current and previously solved levels. 
 NAV-SAVED	 to a previous checkpoint, or return to the most recent one. Please be aware that saving after going to a past checkpoint will erase your most recent checkpoint saves. 
 TOUCHSCREEN-TEXT	<h3>Controls - touchscreen</h3><p><b>Tap</b> to simulate <em>pressing X</em> and <b>swipe</b> to simulate an <em>arrow keypress</em>.</p><p>Open the tab on the left beside the game to: «CONTROLS:Load» <em>restart</em> and <em>return to menu</em>.</p>
@@ -187,7 +186,6 @@ P	:In{People}
 SHARER-PRE	<a href="
 SHARER-POS	" target="_«TARGET:Load»" id="share-«SERVICE:Load»"><div class="sharing-button">«SHARE-SVG»</div></a>
 SHARE-SVG	<svg viewBox="0 0 «DIM:Load» «DIM:Load»"><path «STROKE:Load» d="«SVG:Load»"/></svg>
-CMS	:In{CMS}
 TITLE-ONLY	«TITLE-BOLD» («YEAR:Load») 
 SNIPPET	<div class="mini"><div>«TITLE-ONLY»</div>«PICTURE-LINK»</div>
 SELECTION	:Filter{"Selected"->_?NumberQ,"Day"->_?NumberQ,"Month"->_?NumberQ,"Year"->_?NumberQ}
@@ -195,9 +193,9 @@ GALLERY-PICTURE	<a href="images/«IMAGE:Load»" «BLANK»><div class="card">«PICTURE
 SUPPORT-LINK	2018-02-08-support-the-archive.html
 PRESSKIT	<a href="press.html"><b>«SITE-NAME»'s press kit</b></a>
 VIDEO-SRC	media/«LINK:Load»/«LINK:Load».mp4
-SELECTION-GRAVIRINTH	:Filter{"Context"->"gravirinth-screenshot"}
+TRAILER-LAUNCHER	<img class="card" onclick='OpenVideoModal("«TRAILER:Load»")' src="images/«TRAILER-IMAGE:Load»" alt="«TITLE:Load»'s trailer" title="«TITLELONG» (trailer)"/>
+TITLELONG	«TITLE:Load» - «TAGLINE:Load»
 ASSETS	:In{Assets}
+SELECTION-GRAVIRINTH	:Filter{"Context"->"gravirinth-screenshot"}
 GALLERY-GRAVIRINTH-IN	«GALLERY-PICTURE«SELECTION-GRAVIRINTH»»
 GALLERY-GRAVIRINTH	<div class="featured">«GALLERY-GRAVIRINTH-IN«ASSETS»»</div>
-GRAVIRINTH-TRAILER-URL	https://www.youtube.com/watch?v=nq4ljKWdwsU
-GRAVIRINTH-TRAILER	<a href="«GRAVIRINTH-TRAILER-URL»" «BLANK»><img src="images/gravirinth/gravirinth-trailer.png" alt="Gravirinth's trailer" title="Gavirinth - an archaeological expedition (trailer)"/></a>
