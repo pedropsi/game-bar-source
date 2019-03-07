@@ -1175,8 +1175,7 @@ function GetDefaultData(field,id){
 		data=GetFieldValue(field,id);
 		if (data!==undefined)
 			return data;
-		return
-			PreviousSubmission(field)
+		return PreviousSubmission(field)
 	}
 };
 
