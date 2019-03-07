@@ -781,7 +781,10 @@ function DataFieldTypes(type){
 			questionname:"Attach a snapshot?",
 			qfield:'snapshot',
 			qtype:ExclusiveChoiceButtonRowHTML,
-			qchoices:["no","yes"]})
+			qchoices:["no","yes"]}),
+		secret:NewDataField({
+			questionname:"",
+			qsubmittable:false})
 	}
 	if(typeof type==="undefined")
 		return DFTypes;
@@ -852,7 +855,7 @@ function ChoicesButtonRowHTML(dataField){
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
 		return '<div class="button" onclick="ToggleThis(event,this);ToggleData'+args+'">'+choice+'</div>';
 	};
-	console.log(dataField.qfield);console.log(dataField.pid);console.log(GetData(dataField.qfield,dataField.pid));
+	console.log(dataField.qfield);console.log(dataField.pid);console.log(GetDefaultData(dataField.qfield,dataField.pid));
 	ClearData(dataField.qfield,dataField.pid);
 	return ChoiceHTML(dataField,ChoicesButtonHTML)
 }
@@ -1075,17 +1078,20 @@ function PreviousSubmission(field){
 ////////////////////////////////////////////////////////////////////////////////
 // Data finding in forms
 
-function FindData(field,id){
-	var e=document.getElementById(id);
+function FindData(field,pid){
+	var e=document.getElementById(pid);
+	var d;
 	if(e===null)
-		return PreviousSubmission(field);
+		d=PreviousSubmission(field);
 	else{
-		var d=FindDataInNode(field,e);
-		if(typeof d==="undefined")
-			return GetData(field,id);
-		else
-			return d;
+		d=FindDataInNode(field,e);
+		if(d===undefined){
+			d=GetDefaultData(field,pid);
+			if(d===undefined)
+				d=PreviousSubmission(field);
+		}
 	}
+	return d;
 };
 
 function FindDataInNode(type,node){
@@ -1151,15 +1157,6 @@ function NodeOverwriteData(field,node,newdata){
 
 ///////////////////////
 
-function GetMultiDataPack(id){
-	var i=0;
-	while(i<MULTIDATAPACKHISTORY.length){
-		if(MULTIDATAPACKHISTORY[i][0].qid===id)
-			return MULTIDATAPACKHISTORY[i];
-		i++}
-	return undefined
-};
-
 function GetDataPack(id){
 	var i=0;
 	while(i<DATAPACKHISTORY.length){
@@ -1169,19 +1166,18 @@ function GetDataPack(id){
 	return undefined
 };
 
-
-function GetData(field,id){
+function GetDefaultData(field,id){
 	var DP=GetDataPack(id);
 	var data=DP[field];
-	if(typeof data==="undefined"){
-		var fi=DP.fields.filter(f=>(typeof f[field]!=="undefined"));
-		if(fi.length>0)
-			return fi[0][field]; //first matching field
-		else
-			return	PreviousSubmission(field)
-	}
-	else
+	if(data!==undefined)
 		return data;
+	else{
+		data=GetFieldValue(field,id);
+		if (data!==undefined)
+			return data;
+		return
+			PreviousSubmission(field)
+	}
 };
 
 function SetData(field,value,id){
@@ -1195,9 +1191,18 @@ function ClearData(field,id){
 };
 
 function GetField(field,parentid){
-	var fis=GetDataPack(parentid).fields.filter(f=>(f.qfield===field));
-	if (fis.length>0)
-		return fis[0];
+	var DP=GetDataPack(parentid)
+	if(DP!==undefined){
+		var fis=DP.fields.filter(f=>(f.qfield===field));
+		if (fis.length>0)
+			return fis[0];
+	}
+}
+
+function GetFieldValue(field,parentid){
+	var fi=GetField(field,parentid);
+	if(fi!==undefined)
+		return	fi.qvalue;
 }
 
 function ChoiceExecute(field,value,id){
@@ -1206,7 +1211,7 @@ function ChoiceExecute(field,value,id){
 
 function ToggleData(field,value,id){
 	ChoiceExecute(field,value,id);
-	var data=GetData(field,id);
+	var data=GetDefaultData(field,id);
 	if(typeof data==="undefined")
 		SetData(field,value,id);
 	else{
