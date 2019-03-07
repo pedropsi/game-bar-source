@@ -830,23 +830,6 @@ textarea:focus, input:focus{
     background-color: transparent;
 }
 
-.patreon-b {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--vspace);
-    margin-top: var(--vspace);
-}
-
-.patreon-b img{
-    padding:0;
-    transition-duration: 0.5s;
-}
-
-.patreon-b img:hover{
-   	filter: hue-rotate(30deg) brightness(400%);
-    transition-duration: 0.5s;
-}
-
 .discrete{
     margin-top:-20px;
     margin-bottom:-20px; 

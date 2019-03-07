@@ -959,7 +959,19 @@ function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 ///Replaying Moves
 
 function ParseMoves(movestring){
-	return JSON.parse(movestring);
+	var pattern1=/^\[(\[(27|37|38|39|40|82|85|88)\,[0-9]+\])(\,\[(27|37|38|39|40|82|85|88)\,[0-9]+\])*\]$/ig;
+	var pattern2=/^((left|up|right|down|undo|restart|quit|[RZXQ<\^V>])\s*)+$/ig;
+	if (movestring.match(pattern1)!==null)
+		return JSON.parse(movestring);
+	else
+		return ParseTextualMoves(movestring);
+}
+
+function ParseTextualMoves(string){
+	var movements=string.match(/(left|up|right|down|undo|restart|quit|[LURDRZXQ<\^V>])/ig);
+	movements=movements.map(m=>m.replace(/quit|Q/ig,"27").replace(/undo|Z/ig,"85").replace(/left|</ig,"37").replace(/up|\^/ig,"38").replace(/right|>/ig,"39").replace(/down|v/ig,"40").replace(/restart|R/ig,"82"));
+	movements=movements.map(n=>[Number(n),200]);
+	return movements;
 }
 
 var movesplaylist=[];
@@ -1156,7 +1168,7 @@ function RequestPlaylist(){
 	RequestDataPack([
 		['answer',{
 			questionname:"Moves playlist:",
-			qplaceholder:"[[move1,time1],[move2,time2],...]",
+			qplaceholder:"<^v>RZ                     [[move1,time1 (ms)],[move2,time2 (ms)],...]                                possible moves: 27,37,38,39,40,82,85,88",
 			qvalidator:PlaylistValidator
 		}]
 	],
@@ -1169,7 +1181,7 @@ function RequestPlaylist(){
 }
 
 function PlaylistValidator(DF){
-	var pattern=/\[(\[(27|37|38|39|40|82|85|88)\,[0-9]+\])(\,\[(27|37|38|39|40|82|85|88)\,[0-9]+\])*\]/ig
+	var pattern=/^((\[(\[(27|37|38|39|40|82|85|88)\,[0-9]+\])(\,\[(27|37|38|39|40|82|85|88)\,[0-9]+\])*\])|(((left|up|right|down|undo|restart|quit|[LURDRZXQ<\^V>])\s*)+))$/ig;
 	var errormessage="Please verify the moves playlist!";
 	return PatternValidatorGenerator(pattern,errormessage)(DF);
 }
@@ -1334,6 +1346,7 @@ function GameBar(){
 		undo,
 		restart,
 		Button("Select level",'onclick="RequestLevelSelector()"'),
+		Button("Load Moves",'onclick="RequestPlaylist()"'),
 		Button("Feedback",'onclick="RequestGameFeedback()"'),
 		ButtonLink("Credits")
 	].join("")
