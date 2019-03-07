@@ -1,5 +1,4 @@
 var unitTesting=!1,curlevel=0,curlevelTarget=null,hasUsedCheckpoint=!1,curcheckpoint=0,levelEditorOpened=!1;
-var levelindices;
 
 function doSetupTitleScreenLevelContinue(){
 	try{
@@ -1214,19 +1213,29 @@ function LevelType(level){
 }
 
 function LevelIndices(){
-	var l=[];
-	var i;
-	for( i=0;i<state.levels.length;i++){
-		if(LevelType(state.levels[i]))
-			l.push(i);
+	if(LevelIndices.l!==undefined)
+		return LevelIndices.l;
+	else{
+		var l=[];
+		var i;
+		for( i=0;i<state.levels.length;i++){
+			if(LevelType(state.levels[i]))
+				l.push(i);
+		}
+		return LevelIndices.l=l;
 	}
-	return levelindices=l;
+}
+
+function SolvedLevelIndices(curlevel){
+	return LevelIndices().filter(function(l){return l<curlevel});
 }
 
 function LevelNumber(curlevel){
-	if(levelindices===undefined)
-		levelindices=LevelIndices();
-	return levelindices.filter(function(l){return l<=curlevel}).length;
+	return SolvedLevelIndices(curlevel).length+1;
+}
+
+function CurrentLevelIndices(curlevel){
+	return LevelIndices().slice(0,LevelNumber(curlevel));
 }
 
 function MaxLevel(){
@@ -1244,43 +1253,14 @@ function MaxCheckpoint(m){
 	return MaxCheckpoint.max;
 }
 
-/*
-function UpdateGameNav(){
-	if(!(curlevel<maxlevel||curcheckpoint<maxcheckpoint)){
-		maxlevel=Math.max(curlevel,maxlevel);
-		maxcheckpoint=Math.max(curcheckpoint,maxcheckpoint);
-		DeactivateButton("GameFW");
-	}
-	else
-		ActivateButton("GameFW");
-	
-	if(curlevel==0){
-		DeactivateButton("GameBW");
-	}
-	else
-		ActivateButton("GameBW");		
-}
-
-function ActivateButton(id){
-	var b=document.getElementById(id);
-	b.className = b.className.replace(/active/g, "");
-	b.className = b.className+" active";
-}
-
-function DeactivateButton(id){
-	var b=document.getElementById(id);
-	b.className = b.className.replace(/active/g, "");
-}
-*/
 
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
 		var type="level";
-		var solvedLevelIndices=LevelIndices().filter(lvl=>lvl<=MaxLevel()).map(LevelNumber);
 		var DPOpts={
-			questionname:"Reached levels ("+solvedLevelIndices.length+"/"+LevelIndices().length+")",
+			questionname:"Access levels ("+LevelNumber(MaxLevel())+"/"+LevelIndices().length+")",
 			qfield:"level",
-			qchoices:solvedLevelIndices
+			qchoices:CurrentLevelIndices(MaxLevel()).map(LevelNumber)
 		}
 	}
 	else{
