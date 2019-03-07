@@ -49,7 +49,7 @@ var DESTINATION_GUESTBOOK={
 	Data:function(qid){return {
 		identifier:pageTitle(),
 		comment:FindData("answer",qid),
-		name:AnonimiseBlank(FindData("name",qid)),
+		name:AnonimiseBlank(FindData("name",qid))
 		}}
 	}
 
@@ -272,12 +272,10 @@ function PrintGameState(){
 function RequestGuestbook(){
 	RequestDataPack([
 		['answer',{
-			destination:'Guestbook',
 			questionname:"Your message",
 			thanksmessage:"Thank you for your message in the Guestbook!"}],
-		['alias',{
-			destination:'Guestbook'}]
-	])
+		['alias',{}]
+	],{destination:'Guestbook'})
 }
 
 function commentAddress(e){
@@ -298,13 +296,12 @@ function RequestComment(title,elemsubtitle){
 	
 	RequestDataPack([
 		['answer',{
-			destination:'Comments',
 			questionname:"Your comment"
 		}],
-		['alias',{
-			destination:'Comments'
-		}]
-	]);
+		['alias',{}]
+	],{
+		destination:'Comments'
+	});
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -317,9 +314,10 @@ function OpenModalSubscribe(){
 			questionname:"Subscribe to be the first to know about Pedro PSI's next project!",
 			thanksmessage:"Thank you for subscribing!"
 		}],
-		['name',{
-			destination:'Subscription'
-		}]])
+		['name',{}]],
+		{
+			destination:'Subscription'}
+		)
 	}
 
 //////////////////////////////////////////////////////////////////////
