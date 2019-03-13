@@ -100,7 +100,7 @@ BLANK	target='_blank'
 ABOUT-TEXT	<h2>About «TITLE-BOLD»</h2>
 HOWTO-TEXT	«FIGURE-SIMPLE»<h2>How to play</h2><h3>Controls - keyboard</h3>
 GAME-EXTRAS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«NAVIGATION-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
-NAVIGATION-TEXT	<h3>Level navigation</h3><p>Using the <em>Level Selector Menu</em> you can navigate freely between the current level and all previously solved levels.</p>
+NAVIGATION-TEXT	<h3>Level navigation</h3><p>Using the <em>Level Selector Menu</em> (below in the game bar) you can navigate freely between the current level and all previously solved levels.</p>
 NAV-LEVEL	between the current and previously solved levels. 
 NAV-SAVED	 to a previous checkpoint, or return to the most recent one. Please be aware that saving after going to a past checkpoint will erase your most recent checkpoint saves. 
 TOUCHSCREEN-TEXT	<h3>Controls - touchscreen</h3><p><b>Tap</b> to simulate <em>pressing X</em> and <b>swipe</b> to simulate an <em>arrow keypress</em>.</p><p>Open the tab on the left beside the game to: «CONTROLS:Load» <em>restart</em> and <em>return to menu</em>.</p>
@@ -112,7 +112,7 @@ FEEDBACK-TEXT	<h3>Real-time feedback</h3><p>Press <b>F</b> anytime to provide re
 AVATAR-TEXT	<p>Control your <em>avatar</em> with the <b>arrow keys</b>.</p>
 CREDITS	<h2>Credits</h2>«CREDITS-AUTHORSHIP»«CREDITS-MUSIC»«CREDITS-ENGINE-SUPPORT»
 CREDITS-AUTHORSHIP	<p><a href="«LINK-URL».html">«TITLE-BOLD»</a> by «NAME-LINK», «YEAR:Load».</p>
-CREDITS-MUSIC	<h3>Music</h3><p><b><em>«MUSIC-TITLE:Load»</em></b> by <a href='«MUSIC-LINK:Load»' id='music-author' «BLANK»><b>«MUSIC-AUTHOR:Load»</b></a>.
+CREDITS-MUSIC	<h3>Music</h3><p><b><em>«MUSIC-TITLE:Load»</em></b> by <a href='«MUSIC-LINK:Load»' id='music-author' «BLANK»><b>«MUSIC-AUTHOR:Load»</b></a>. «LICENSE:Load»
 CREDITS-ENGINE-SUPPORT	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT»«SOURCE-TEXT»
 CREDITS-ENGINE-CLOSED	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT» The source will be available some time after the release.
 PUZZLESCRIPT-TEXT	<p>Made with <a «BLANK» href='http://puzzlescript.net'>Puzzlescript</a>.</p>
@@ -193,3 +193,7 @@ ASSETS	:In{Assets}
 SELECTION-GRAVIRINTH	:Filter{"Context"->"gravirinth-screenshot"}
 GALLERY-GRAVIRINTH-IN	«GALLERY-PICTURE«SELECTION-GRAVIRINTH»»
 GALLERY-GRAVIRINTH	<div class="featured">«GALLERY-GRAVIRINTH-IN«ASSETS»»</div>
+SELECTION-PT	:Filter{"Context"->"platformer-template-screenshot"}
+GALLERY-PT-IN	«GALLERY-PICTURE«SELECTION-PT»»
+GALLERY-PT	<div class="featured">«GALLERY-PT-IN«ASSETS»»</div>
+LICENSE-CC-BY-3.0	(<a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>CC-BY 3.0</a>)

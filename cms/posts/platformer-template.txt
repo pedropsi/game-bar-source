@@ -1,0 +1,78 @@
+«ABOUT-TEXT»
+«ONE-LINER:Load»
+
+«HOWTO-TEXT»
+<p>Your goal is to reach the X mark! </p>
+<p><em>Move</em> with the <b>arrow keys</b>. Everything else is explained interactively.</p>
+
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-TEXT»
+
+<h2>Credits</h2>
+«CREDITS-AUTHORSHIP»
+
+<h3>Music</h3>
+<p>All background music by «SAPPHEIROS«P»» «LICENSE-CC-BY-3.0».</p>
+<table class="top-left">
+	<thead>
+		<tr><th>Year</th>
+		<th>Title</th>
+		<th>Genre</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2016</td>
+			<td>Aurora</td>
+			<td>Chillstep</td>
+		</tr>
+		<tr>
+			<td>2016</td>
+			<td>A tale of unexplored worlds</td>
+			<td>Chillstep</td>
+		</tr>
+		<tr>
+			<td>2017</td>
+			<td>Fading</td>
+			<td>Drum & Bass</td>
+		</tr>
+		<tr>
+			<td>2017</td>
+			<td>Dawn</td>
+			<td>Chillstep</td>
+		</tr>
+		</tbody>
+</table>
+
+«CREDITS-ENGINE-SUPPORT»
+
+
+<h2>F.A.Q.</h2>
+<h3>Is «TITLE-BOLD» a real game or just a game template?</h3>
+<p>Both! Because there is no better way to teach that to put the principles in practice, immediately. Questions like: <em>Why was this level not introduced before?</em> or <em>What is new in this level?</em> or <em>Could any element be removed while preserving the desired effect?</em> should guide your attention while playing.</p>
+
+<h3>Is «TITLE-BOLD» a meta-game?</h3>
+<p>Many people would agree with that description.</p>
+
+<h3>Does it mean it's easier than other games?</h3>
+<p>Don't be fooled by the first few levels - «TITLE-BOLD» is built step by step.</p>
+
+
+<h2>Press</h2>
+<p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p>
+<p>Feel free to use and edit, for those purposes, all material on this page, including:
+<ul>
+<li>text;</li>
+<li>screenshots and logo below;</li>
+<li>recorded gameplay footage;</li>
+</ul>
+...provided you link back directly to this page.
+</p>
+
+<h3 class="images">Screenshots & Logo</h3>
+	<p>Download all screenshots + logo <a class="download" title="Download all screenshots and logo" 
+	href="images/«LINK:Load»/«LINK:Load»-screenshots-logo.zip">↓↓↓ (zip archive)</a></p>
+	
+	«GALLERY-PT»
+	
+<h3>Other inquiries</h3>
+<p>Please «CONTACT-TEXT-1» for all unusual requests!</p>
