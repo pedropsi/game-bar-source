@@ -23,7 +23,7 @@
 <tbody>
 	<tr>
 		<th>Writing</th>
-		<th>Microsoft Word & Markdown</th>
+		<th>Microsoft Word</th>
 	</tr>
 	<tr>
 		<th>Illustration & Colour design</th>

@@ -16,7 +16,7 @@
 		    	<url>«SITE»/«LOGOPATH»</url>
 		</image>
 
-		«RSS-ITEM:FilterSort{"Update","«RSS-LIMIT»"}»
+		«RSS-ITEM|In:CMS|SortBy:{Date}|Max:«RSS-LIMIT»|Contain:True»
 		
 	</channel>
 </rss>

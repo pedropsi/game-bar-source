@@ -658,18 +658,60 @@ document.onkeydown=function(e){
 
 
 ////////////////////////////////////////////////////////////////////////////////
+// Element Generator
+
+function ReadAttributes(attributesObj){
+	return Object.keys(attributesObj).map(k=>k+"='"+attributesObj[k]+"'").join(" ");
+}
+
+function ElementHTML(optionsObj){
+	var tag=optionsObj.tag?optionsObj.tag:"div";
+	var attributes=(optionsObj.attributes)?' '+ReadAttributes(optionsObj.attributes):'';	//attributes is an Object
+	var txt=optionsObj.txt?optionsObj.txt:"???";
+	return "<"+tag+attributes+">"+txt+"</"+tag+">"		//txt and tag
+};
+
+
+// Basic Elements
+function ButtonHTML(optionsObj){
+	var o=optionsObj?optionsObj:{};
+	o.tag=o.tag?o.tag:"div";			//defaults to div
+	if(!o.attributes)
+		o.attributes={class:"button"}
+	else if(!o.attributes['class'])
+		o.attributes['class']="button"
+	else
+		o.attributes['class']=o.attributes['class'].replace(/\s*button/g,"")+" button";
+	o.txt=o.txt?o.txt:"???";
+	return ElementHTML(o)
+};
+
+function AHTML(title,ref){
+	return ElementHTML({tag:"a",txt:title,attributes:{href:ref}});
+}
+
+
 // Basic Buttons
 
+function ButtonOnClickHTML(title,onclicktxt){
+	return ButtonHTML({txt:title,attributes:{onclick:onclicktxt}});
+}
+
+function ButtonLinkHTML(title){
+	var b=ButtonHTML({txt:title});
+	return AHTML(b,"#"+IDfy(title));
+}
+
 function CloseButtonHTML(targetid){
-	return '<span class="button closer" onclick="Close(\''+targetid+'\')">&times;</span>'
+	return ButtonHTML({tag:"span",txt:"&times;",attributes:{class:"closer",onclick:'Close(\"'+targetid+'\")'}});
+	//return '<span class="button closer" onclick="Close(\''+targetid+'\')">&times;</span>'
 }
 
 function OkButtonHTML(targetid){
-	return '<div class="button" onclick="Close(\''+targetid+'\')">OK</div>';
+	return ButtonOnClickHTML("OK",'Close(\"'+targetid+'\")');
 }
-
 function SubmitButtonHTML(DP){
-	return '<div class="button" onclick="'+DP.action+'(\''+DP.qid+'\')">'+DP.actionText+'</div>';
+	return ButtonOnClickHTML(DP.actionText,DP.action+"(\""+DP.qid+"\")");
 }
 
 function MessageHTML(message){
@@ -683,6 +725,9 @@ function ErrorHTML(message,id){
 function PlainMessageHTML(message){
 	return message;
 }
+
+//Button Bar
+function ButtonBar(buttonshtml,id){return '<div id="'+id+'" class="buttonbar">'+buttonshtml+'</div>'};
 
 ////////////////////////////////////////////////////////////////////////////////
 // DataField and DataPack system : default DataField (customisable), many of which constitute a DataPack 
@@ -853,9 +898,9 @@ function ChoiceHTML(dataField,buttontype){
 function ChoicesButtonRowHTML(dataField){
 	function ChoicesButtonHTML(choice,dataFiel,i){
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
-		return '<div class="button" onclick="ToggleThis(event,this);ToggleData'+args+'">'+choice+'</div>';
+		return ButtonOnClickHTML(choice,'ToggleThis(event,this);ToggleData'+args);
 	};
-	console.log(dataField.qfield);console.log(dataField.pid);console.log(GetDefaultData(dataField.qfield,dataField.pid));
+	//console.log(dataField.qfield);console.log(dataField.pid);console.log(GetDefaultData(dataField.qfield,dataField.pid));
 	ClearData(dataField.qfield,dataField.pid);
 	return ChoiceHTML(dataField,ChoicesButtonHTML)
 }
@@ -868,7 +913,7 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 			selected=' selected" onload="SetData'+args; //Default option
 		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData'+args+'">'+choice+'</div>';
 	};
-	console.log(dataField.qfield);console.log(dataField.pid);
+	//console.log(dataField.qfield);console.log(dataField.pid);
 	ClearData(dataField.qfield,dataField.pid);
 	return ChoiceHTML(dataField,ExclusiveChoiceButtonHTML)
 }
@@ -1353,11 +1398,12 @@ function ConsoleMessageHTML(message,mID){
 	return '<div class="message" id='+mID+'>'+message+'</div>';
 }
 
-function ConsoleAdd(messageHTML){
+function ConsoleAdd(messageHTML,duration){
 	ConsoleLoad();
+	var delay=duration?Math.max(1000,duration):9000;
 	var mID="c-"+GenerateId();//random id
 	AddElement(ConsoleMessageHTML(messageHTML,mID),"Console");
-	setTimeout(function(){CloseElement(mID)},9000);
+	setTimeout(function(){CloseElement(mID)},duration);
 	consolebuffer.push(mID);
 	while(consolebuffer.length>consolemax){
 		ConsoleRemove(consolebuffer[0]);

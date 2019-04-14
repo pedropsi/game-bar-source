@@ -1,5 +1,5 @@
 ﻿«ABOUT-TEXT»
-«ONE-LINER:Load»
+«ONE-LINER»
 
 
 «HOWTO-TEXT»

@@ -1,9 +1,9 @@
 ﻿<div class="stars">
-	<p><strong>Rate this «TYPE:Load»!</strong></p>
+	<p><strong>Rate this «TYPE»!</strong></p>
 	<form id="rating-form" method="POST" «RATING-FORM-URL» onsubmit="return false"> 
 		<div class="rating-stars">
-			«STARS-STARS»
-			<input name="identifier" value="«TITLE:Load»" />
+			«STARS-CONTAIN»
+			<input name="identifier" value="«TITLE»" />
 			<input name="rating" id="rate-it" value="0" />
 		</div>  
  	</form>

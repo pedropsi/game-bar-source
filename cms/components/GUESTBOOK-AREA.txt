@@ -1,7 +1,7 @@
 <div class="container" >
 	<h1 class="textarea title">Guestbook</h1>
 	<div class="textarea">
-		<div class="text «STYLE:Load»" id="markdown">«POST:Load»</div>
+		<div class="text «STYLE»" id="markdown">«POST»</div>
 		«STARSSHARE»
 	</div>
 	«LABELS»

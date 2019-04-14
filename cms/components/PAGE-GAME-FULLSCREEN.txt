@@ -4,7 +4,7 @@
 	«HEAD-ITEMS»
 	«PUZZLE-SCRIPT-PRE»
 	</head>
-<body class="body" id="«LINK:LOAD»">
+<body class="body" id="«LINK»">
 	<div class="game-container">
 		<div id="puzzlescript-game" class="game"></div>
 	</div>

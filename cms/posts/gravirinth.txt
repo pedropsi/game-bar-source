@@ -1,6 +1,6 @@
 ﻿
 «ABOUT-TEXT»
-«ONE-LINER:Load»
+«ONE-LINER»
 
 <h3>Features</h3>
 <ul>
@@ -36,7 +36,7 @@
 
 <h3>Beta-test</h3>
 <p>Beta test has now ended - but all beta-testers are entitled to play the final version of «TITLE-BOLD» for free forever (FFF).</p> 
-<div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT:LOAD»">Load game [FFF]</div>
+<div class="button" onclick="PrepareGame()" id="preparegame" data-game="«CONTENT»">Load game [FFF]</div>
 
 <h3>Press & reviews</h3>
 <p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p><p>Then apply for a free <em>media pass</em>!</p>
@@ -56,7 +56,7 @@
 	href="images/gravirinth/gravirinth-screenshots-logo.zip">↓↓↓ (zip archive)</a></p>
 	
 <h3 id="logo">Screenshots</h3>
-	«GALLERY-GRAVIRINTH»
+	«GALLERY»
 	
 <h3 id="logo">Logo</h3>
 	<div class="figure com-banner" id="gravirinth-logo">
@@ -138,7 +138,7 @@
 
 
 <h3>Music</h3>
-<p>All «TITLE-BOLD»'s background music by «STELLARDRONE«P»», under a <a href="https://creativecommons.org/licenses/by/3.0/" «BLANK»>CC BY 3.0</a> license:</p>
+<p>All «TITLE-BOLD»'s background music by ««P-PRE»STELLARDRONE«P-POS»», under a <a href="https://creativecommons.org/licenses/by/3.0/" «BLANK»>CC BY 3.0</a> license:</p>
 <table class="top-left">
 	<thead>
 		<tr><th>Track</th><th>Album</th><th>Year</th></tr>
@@ -175,7 +175,7 @@
 <script src="codes/lib/howler.js"></script>
 
 <h3>Special thanks</h3>
-<p>All beta testers for their comprehensive feedback! Among them a special mention to «LESLO«P»» for outstanding help.</p>
+<p>All beta testers for their comprehensive feedback! Among them a special mention to ««P-PRE»LESLO«P-POS»» for outstanding help.</p>
 
 
 <h2>F.A.Q.</h2>

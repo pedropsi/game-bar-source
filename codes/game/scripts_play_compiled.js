@@ -883,7 +883,9 @@ var moveseq=[];
 var winseq=[];
 
 var checkpointsaver=0;
-var recordingmoves=true;
+
+ResumeRecordingMovesPlaylist();
+var recordingmoves;
 
 function RegisterMove(mov){
 	if(recordingmoves){
@@ -897,6 +899,9 @@ function RegisterMove(mov){
 		}
 		var delta = ElapsedTime();
 		moveseq.push([move,delta]);
+		
+		RegisterMovesPlaylist([move,delta],movesplaylist);
+		
 		switch(move){
 			case 82:winseq=[];break;//R
 			case 85:winseq.pop();break;//Z
@@ -904,17 +909,21 @@ function RegisterMove(mov){
 			default: winseq.push([move,delta]);break
 		}
 	}
+	else
+		ResumeRecordingMovesPlaylist();
 }
 	
 function UnRegisterMove(){
 	if(recordingmoves){
 		winseq.pop();
 		moveseq.pop();
+		RemoveLastMovesPlaylist();
 	};
 }
 	
 function ClearMoves(){
 	moveseq=[];winseq=[];
+	ClearMovesPlaylist(movesplaylist);
 }
 
 function ClearLevelRecord(){
@@ -955,6 +964,38 @@ function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 }
 
 
+
+
+function ResumeRecordingMovesPlaylist(){
+	if(recordingmoves!==true){
+		ConsoleAddMPL("⏺ (recording started)");
+		ResumeRecordingMovesPlaylist.continued=true;
+	}
+	else
+		if(ResumeRecordingMovesPlaylist.continued!==true){
+			ConsoleAddMPL("⏺ (recording going on)");
+			ResumeRecordingMovesPlaylist.continued=true;
+		}
+	recordingmoves=true;
+}
+
+function PauseRecordingMovesPlaylist(){
+	if (recordingmoves===undefined)
+		ConsoleAddMPL("⏹ (recording hasn't started)");
+	else if (recordingmoves===false)
+		ConsoleAddMPL("⏹ (recording still paused)");
+	else
+		ConsoleAddMPL("⏹ (recording paused)");
+	recordingmoves=false;
+	ResumeRecordingMovesPlaylist.continued=false;
+}
+
+function RegisterMovesPlaylist(movedelta){
+	ClearUnplayedMovesPlaylist(movesplaylist);
+	PushMovesPlaylist(NewMPI(movedelta,{state:"played"}),movesplaylist);
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 ///Replaying Moves
 
@@ -974,42 +1015,74 @@ function ParseTextualMoves(string){
 	return movements;
 }
 
+function UnParseMove(n){
+	switch(n){
+		case 27:return "quit";break;
+		case 37:return ">";break;
+		case 38:return "^";break;
+		case 39:return "<";break;
+		case 40:return "v";break;
+		case 82:return "restart";break;
+		case 85:return "undo";break;
+		default:"???";
+	}
+}
+
+function ConsoleAddMPL(messageHTML){
+	if(ConsoleAddMPL.Playlist===undefined){
+		if(document.getElementById("PlaylistBar")!==null)
+			ConsoleAddMPL.Playlist=true
+	}else
+		ConsoleAdd(messageHTML,1500);
+}
+
 var movesplaylist=[];
 var maxdelay=500; //delay between moves
 var mindelay=500; //delay between moves
 var recordingmovesid;
 
-
+/*
 function ReplayParseMoves(movetext){
 	return Replay(ParseMoves(movetext));
 }
 
-function ClearMovesPlaylist(){
-	movesplaylist.map(function(mpi){clearTimeout(mpi.schid)});
-	movesplaylist=[];
-}
-
 function Replay(movetimes){
-	ClearMovesPlaylist();
+	ClearMovesPlaylist(movesplaylist);
 	movesplaylist=NewMovesPlaylist(movetimes);
 	movesplaylist=ResumeMovesPlaylist(movesplaylist);
 	return movesplaylist;
 }
+*/
+
+//MovesPlaylist: Add and Remove Moves
+
+function NewMPI(movetime,optionsObj){
+	var newmpi={
+		move:movetime[0],
+		timedelta:movetime[1],
+		time:0,
+		id:0,//defined in optionsObj
+		schid:0,
+		state:"paused"
+	};	
+	return SetMPI(newmpi,optionsObj);
+}
+
+function SetMPI(mpi,optionsObj){
+	return mpi=FuseObjects(mpi,optionsObj);
+}
+
 
 function NewMovesPlaylist(movetimes){
-	var movesplaylist=movetimes.map(function(movetime,i){
-		return {
-			move:movetime[0],
-			timedelta:movetime[1],
-			time:0,
-			id:i,
-			schid:0,
-			state:"paused"
-			};	
-		});
-	movesplaylist=SetTimesMovesPlaylist(movesplaylist);
+	var movesplaylist=movetimes.map(function(mt,i){return NewMPI(mt,{id:i})});
+		movesplaylist=SetTimesMovesPlaylist(movesplaylist);
 	return movesplaylist;
 };
+
+function ClearMovesPlaylist(movesplaylist){
+	movesplaylist.map(function(mpi){clearTimeout(mpi.schid)});
+	movesplaylist=[];
+}
 
 function SetTimesMovesPlaylist(movesplaylist){
 	var m=movesplaylist;
@@ -1023,27 +1096,69 @@ function SetTimesMovesPlaylist(movesplaylist){
 	return m;
 }
 
-function PauseMovesPlaylist(movesplaylist){
-	var m=movesplaylist.map(function(mpi){
-		if(mpi.state=="scheduled"){
-			clearTimeout(mpi.schid);
-			mpi.state="paused";
+
+function ClearUnplayedMovesPlaylist(movesplaylist){
+	PauseMovesPlaylist(movesplaylist);
+	if(MovesPlaylistState(movesplaylist)==="paused"){
+		ConsoleAddMPL("↶ ⏺ (erasing previous record)");
+		var found=false;
+		for (var i=movesplaylist.length-1;i>0&&!found;i--){
+			if(movesplaylist[i].state=="paused"){
+				movesplaylist.pop();
+			}
+			else
+				found=true;
 		}
-		return mpi;
+	}
+	return movesplaylist;
+}
+
+function PushMovesPlaylist(mpi,movesplaylist){
+	ClearUnplayedMovesPlaylist(movesplaylist);
+	var lastid=movesplaylist.length>0?movesplaylist[movesplaylist.length-1].id+1:0;
+	mpi.id=lastid;
+	movesplaylist.push(mpi);
+	//SetTimesMovesPlaylist(movesplaylist);
+}
+
+//MovesPlaylist: State
+function MovesPlaylistState(movesplaylist){
+	if(movesplaylist.some(mpi=>mpi.state==="scheduled"))
+		return "scheduled";
+	else if(movesplaylist.every(mpi=>(mpi.state==="played")||(mpi.state==="skipped")))
+		return "ended";
+	else
+		return "paused";
+
+}
+
+
+//MovesPlaylist: Pause and Resume
+
+function PauseMovesPlaylist(movesplaylist){
+	if(MovesPlaylistState(movesplaylist)==="scheduled"){
+		var m=movesplaylist.map(function(mpi){
+			if(mpi.state=="scheduled"){
+				clearTimeout(mpi.schid);
+				mpi.state="paused";
+			}
+			return mpi;
 		});
-
-	recordingmoves=true;
-	clearTimeout(recordingmovesid);
-
+		ResumeRecordingMovesPlaylist();
+		clearTimeout(recordingmovesid);
+		ConsoleAddMPL("⏸ (playback paused)");
+	}
 	return m;
 }
 
 function ResumeMovesPlaylist(movesplaylist){
-	var m=movesplaylist;
-	m=SetTimesMovesPlaylist(m);
-	recordingmoves=false;	
-	m=m.map(function(mpi){ScheduleMove(mpi,m);return mpi})
-	console.log("Replay Scheduled");
+	if(MovesPlaylistState(movesplaylist)!=="scheduled"){
+		var m=movesplaylist;
+		m=SetTimesMovesPlaylist(m);
+		PauseRecordingMovesPlaylist();	
+		m=m.map(function(mpi){ScheduleMove(mpi,m);return mpi});
+	ConsoleAddMPL("⏵ (playing moves)");
+	}
 	return m;
 }
 
@@ -1053,52 +1168,59 @@ function ScheduleMove(mpi,movesplaylist){
 		mpi.state="scheduled";
 	}
 	if(mpi.id===movesplaylist[movesplaylist.length-1].id)
-		recordingmovesid=setTimeout(function(){recordingmoves=true;},mpi.time+100);
+		recordingmovesid=setTimeout(ResumeRecordingMovesPlaylist,mpi.time+100);
 	return mpi;
 }
 
+
+//MovesPlaylist: Skip , Unskip, Play and Unplay - Next Moves
+
+function QuietCheckKey(move){
+	PauseRecordingMovesPlaylist();
+	checkKey({keyCode:move},!0);
+}
+
 function SkipMove(mpi,movesplaylist){
+	PauseRecordingMovesPlaylist();
 	var move=mpi.move;
-	var message= mpi.id+" of "+movesplaylist.length;
 	mpi.state="skipped";
 	mpi.time=0;
-	console.log("skipping:",move,message);
+	ConsoleAddMPL("⏭ skipping move: "+UnParseMove(move)+" of "+movesplaylist.length);
 }
 
 function UnSkipMove(mpi,movesplaylist){
+	PauseRecordingMovesPlaylist();
 	var move=mpi.move;
-	var message= mpi.id+" of "+movesplaylist.length;
 	mpi.state="paused";
 	mpi.time=0;
-	console.log("unskipping move:",move,message);
+	ConsoleAddMPL("⏭⏪︎ unskipping move: "+UnParseMove(move)+" of "+movesplaylist.length);
 }
 
 function PlayMove(mpi,movesplaylist){
 	var move=mpi.move;
-	var message= mpi.id+" of "+movesplaylist.length;
-	checkKey({keyCode:move},!0);
+	QuietCheckKey(move);
 	mpi.state="played";
 	mpi.time=0;
-	console.log("move:",move,message);
+	ConsoleAddMPL("⏵ playing move: "+UnParseMove(move)+" of "+movesplaylist.length);
 }
 
 function UnPlayMove(mpi,movesplaylist){
+	PauseRecordingMovesPlaylist();
 	var move=mpi.move;
-	var message= mpi.id+" of "+movesplaylist.length;
 	if(move!=85)
-		checkKey({keyCode:85},!0);
+		QuietCheckKey(85);
 	else
-		checkKey({keyCode:PreviousMove(mpi).move},!0);
+		QuietCheckKey(PreviousMove(mpi).move);
 	mpi.state="paused";
 	mpi.time=0;
-	console.log("unplaying move:",move,message);
+	ConsoleAddMPL("⏪︎ unplaying move: "+UnParseMove(move)+" of "+movesplaylist.length);
 }
 
-function FindMove(i,movesplaylist){
-	return movesplaylist.find(function(mpi){return mpi.id===i;});
-}
 
 function SkipMovesPlaylist(movesplaylist){
+	PauseMovesPlaylist(movesplaylist);
+	ConsoleAddMPL("⏩︎ (skip to next move)");
+	
 	var m=movesplaylist;
 	var found=false;
 	var time=0;
@@ -1113,6 +1235,9 @@ function SkipMovesPlaylist(movesplaylist){
 }
 
 function NextMovesPlaylist(movesplaylist){
+	PauseMovesPlaylist(movesplaylist);
+	ConsoleAddMPL("⏩︎ (play next move)");
+
 	var m=movesplaylist;
 	var found=false;
 	var time=0;
@@ -1129,6 +1254,8 @@ function NextMovesPlaylist(movesplaylist){
 }
 
 function PreviousMovesPlaylist(movesplaylist){
+	PauseMovesPlaylist(movesplaylist);
+
 	var m=movesplaylist;
 	var found=false;
 	var time=0;
@@ -1146,7 +1273,19 @@ function PreviousMovesPlaylist(movesplaylist){
 	return m;
 }
 
+
+//MovesPlaylist: Seek
+
+function FindMove(i,movesplaylist){
+	return movesplaylist.find(function(mpi){return mpi.id===i;});
+}
+
+
+// MovesPlaylist Replay Speed
+
 function ChangeReplaySpeed(movesplaylist,newinterval){
+	ConsoleAddMPL(" speed change: 1 move /"+Math.floor(newinterval)+"ms");
+	
 	PauseMovesPlaylist(movesplaylist);
 	maxdelay=newinterval;
 	mindelay=newinterval;
@@ -1168,7 +1307,7 @@ function RequestPlaylist(){
 	RequestDataPack([
 		['answer',{
 			questionname:"Moves playlist:",
-			qplaceholder:"<^v>RZ                     [[move1,time1 (ms)],[move2,time2 (ms)],...]                                possible moves: 27,37,38,39,40,82,85,88",
+			qplaceholder:"><^^>>>ZvvvvR    or: [[move1,time1 (ms)],[move2,time2 (ms)],...] with possible moves: 27,37,38,39,40,82,85,88",
 			qvalidator:PlaylistValidator
 		}]
 	],
@@ -1192,10 +1331,34 @@ function LoadPlaylistFromDP(DP){
 };
 
 function DownLoadPlaylist(movesplaylist){
+	ConsoleAddMPL("⏏ downloading...");
+	
 	DownLoadPlaylist.counter=DownLoadPlaylist.counter?DownLoadPlaylist.counter+1:1;
 	var mpl=movesplaylist.map(function(mpi){return [mpi.move,mpi.timedelta];});
 	Download(JSON.stringify(mpl), pageIdentifier()+"playlist-"+DownLoadPlaylist.counter+".txt","text/js");
 }
+
+function LoadPlaylistControls(){
+	if(document.getElementById("PlaylistBar")===null)
+		AddAfterElement(PlaylistBar(),"#GameBar");
+}
+
+function PlaylistBar(){
+	var buttons=[
+			['⏺','ResumeRecordingMovesPlaylist()'],
+			['⏹','PauseRecordingMovesPlaylist()'],
+	/*🔄*/	['↺','RequestPlaylist()'],
+			['⏵','ResumeMovesPlaylist(movesplaylist)'],
+			['⏸','PauseMovesPlaylist(movesplaylist)'],
+			['⏩︎','NextMovesPlaylist(movesplaylist)'],
+	/*⏭️*/	['⏭','SkipMovesPlaylist(movesplaylist)'],
+			['⏪︎','PreviousMovesPlaylist(movesplaylist)'],
+	/*⏏️*/	['⏏','DownLoadPlaylist(movesplaylist)']
+		];
+	buttons=buttons.map(b=>ButtonOnClickHTML(b[0],b[1])).join("");
+	return ButtonBar(buttons,"PlaylistBar");
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Level navigation
@@ -1265,6 +1428,7 @@ function MaxCheckpoint(m){
 	return MaxCheckpoint.max;
 }
 
+function RequestLevelSelectorSUDO(){GoToLevel(LevelIndices()[LevelIndices().length-1]);RequestLevelSelector();}
 
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
@@ -1308,6 +1472,8 @@ function LoadLevelFromDP(DP){
 	}
 };
 
+
+
 function GoToLevelNext(){
 	if(HasCheckpoint()){
 		GoToLevelCheckpoint(curcheckpoint+1);
@@ -1335,23 +1501,20 @@ function GoToLevelPrev(){
 
 
 function GameBar(){
-	function Button(txt,extras){return '<div class="button" '+extras+'>'+txt+'</div>'};
-	function ButtonLink(title){return '<div class="button"><a href="#'+IDfy(title)+'">'+title+'</a></div>'};
-	
-	var undo=!state.metadata.noundo?Button("↶","onclick='checkKey({keyCode:85},!0)'"):"";
-	var restart=!state.metadata.norestart?Button("↺","onclick='checkKey({keyCode:82},!0)'"):"";
+	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','checkKey({keyCode:85},!0)'):"";
+	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','checkKey({keyCode:82},!0)'):"";
 	
 	var buttons=[
-		ButtonLink("How to play?"),
+		ButtonLinkHTML("How to play?"),
 		undo,
 		restart,
-		Button("Select level",'onclick="RequestLevelSelector()"'),
-		Button("Load Moves",'onclick="RequestPlaylist()"'),
-		Button("Feedback",'onclick="RequestGameFeedback()"'),
-		ButtonLink("Credits")
+		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
+		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
+		ButtonOnClickHTML("Feedback",'RequestGameFeedback()'),
+		ButtonLinkHTML("Credits")
 	].join("")
 	
-	return '<div id="GameBar">'+buttons+'</div>';
+	return ButtonBar(buttons,"GameBar");
 }
 
 

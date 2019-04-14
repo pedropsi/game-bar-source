@@ -1,5 +1,5 @@
 ﻿«ABOUT-TEXT»
-«ONE-LINER:Load»
+«ONE-LINER»
 
 «HOWTO-TEXT»
 <p>The goal is marked by an <b>X</b>.</p>
@@ -11,8 +11,8 @@
 
 «CREDITS»  
 <h3>Special thanks</h3>
-<p>«PUZZLESCRIPT«P»» «MATTISON«P»», «RICHARDSON«P»», «SCHUELLER«P»» and «HAZELDEN«P»» for varying levels of feedback.</p>
-<p>«JOEL«P»» for spotting <a href="#changelog-1">an important bug in block-pushing physics</a>.</p>
+<p>««P-PRE»PUZZLESCRIPT«P-POS»» ««P-PRE»MATTISON«P-POS»», ««P-PRE»RICHARDSON«P-POS»», ««P-PRE»SCHUELLER«P-POS»» and ««P-PRE»HAZELDEN«P-POS»» for varying levels of feedback.</p>
+<p>««P-PRE»JOEL«P-POS»» for spotting <a href="#changelog-1">an important bug in block-pushing physics</a>.</p>
 
 
 <h2 id="changelog">Changelog</h2>

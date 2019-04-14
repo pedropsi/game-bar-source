@@ -17,163 +17,1180 @@
 		</image>
 
 		<item>
-		<title>Press kit</title>
-		<link>http://pedropsi.github.io/press</link>
-		<guid>http://pedropsi.github.io/press</guid>
-		<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-				<p>Factsheet
-				
-				
-				  
-				Author:
-					Pedro PSI
-				Address:
-					a secret location.
-				Founding date:
-					December, 2017
-				Website:
-					https://pedropsi.github.io
-				Social media:
-					None.
-				Releases:
-					Gravirinth (2019) 
-		Abxtract Tractx (2018) 
-		Tiaradventur (2018) 
-		Hastefulll (2018) 
-		Play Mini Gemini Repl...</p>
-			]]>
-			</description>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>Classed as 'Learning' in the Creative Archive</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>Introduction
+Here I share my game making journey, comprising 11 games designed as learning side-project, 7 of them programmed in 2018, including one commercial game launched in early 2019. After a brief motivation, the challenges, achievements and lessons learned from each game are summarised, ...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+</item>
+<item>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>These 11 lessons were drawn from my 11-game-making journey in 2018.
+
+#1 Know your goal
+What are you trying to accomplish, and why does it matter to you? Does it have positive effects, like learning a specific new skill? 
+#2 Define your message
+What should players gain or learn from your game? 
+...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Tue, 12 Mar 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>About Classed as 'Learning'
+
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Classed as 'Learning' on the dedicated discord channel!
+
+Credits
+Classed as 'Learning' by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About A game-making journey
+
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss A game-making journey on the dedicated discord channel!
+
+Credits
+A game-making journey by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
+<item>
+<title>Classed as 'Press'</title>
+<link>http://pedropsi.github.io/tag-Press</link>
+<guid>http://pedropsi.github.io/tag-Press</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About 11 Lessons from a 11-game-making journey
+
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss 11 Lessons from a 11-game-making journey on the dedicated discord channel!
+
+Credits
+11 Lessons from a 11-game-making journey by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Lists</title>
+<link>http://pedropsi.github.io/tag-List</link>
+<guid>http://pedropsi.github.io/tag-List</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About Platformer Template
+Would you like to design your own platformer puzzle? Study the principles outlined in this Classed as 'Learning' and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Platformer Template on the dedicated discord channel!
+
+Credits
+Platformer Template by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Selected Puzzlescript Games 2014-2018</title>
+<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
+<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
+<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About Press kit
+Would you like to design your own platformer puzzle? Study the principles outlined in this A game-making journey and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Press kit on the dedicated discord channel!
+
+Credits
+Press kit by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Gravirinth</title>
+<link>http://pedropsi.github.io/gravirinth</link>
+<guid>http://pedropsi.github.io/gravirinth</guid>
+<pubDate>Mon, 07 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
+		<p>About Classed as 'Press'
+Would you like to design your own platformer puzzle? Study the principles outlined in this 11 Lessons from a 11-game-making journey and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Classed as 'Press' on the dedicated discord channel!
+
+Credits
+Classed as 'Press' by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About All Lists
+Would you like to design your own platformer puzzle? Study the principles outlined in this Platformer Template and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat All Lists, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Lists? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss All Lists on the dedicated discord channel!
+
+Credits
+All Lists by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>About Selected Puzzlescript Games 2014-2018
+Would you like to design your own platformer puzzle? Study the principles outlined in this Press kit and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Selected Puzzlescript Games 2014-2018, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Selected Puzzlescript Games 2014-2018? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Selected Puzzlescript Games 2014-2018 on the dedicated discord channel!
+
+Credits
+Selected Puzzlescript Games 2014-2018 by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+</item>
+<item>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>About Gravirinth
+Would you like to design your own platformer puzzle? Study the principles outlined in this Classed as 'Press' and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Gravirinth, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Gravirinth? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Gravirinth on the dedicated discord channel!
+
+Credits
+Gravirinth by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Tue, 12 Mar 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>About Classed as 'Learning'
+Would you like to design your own platformer puzzle? Study the principles outlined in this All Lists and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Classed as 'Learning' on the dedicated discord channel!
+
+Credits
+Classed as 'Learning' by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About A game-making journey
+Would you like to design your own platformer puzzle? Study the principles outlined in this Selected Puzzlescript Games 2014-2018 and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss A game-making journey on the dedicated discord channel!
+
+Credits
+A game-making journey by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
+<item>
+<title>Classed as 'Press'</title>
+<link>http://pedropsi.github.io/tag-Press</link>
+<guid>http://pedropsi.github.io/tag-Press</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About 11 Lessons from a 11-game-making journey
+Would you like to design your own platformer puzzle? Study the principles outlined in this Gravirinth and you may learn something… provided you actually reach the required levels!
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss 11 Lessons from a 11-game-making journey on the dedicated discord channel!
+
+Credits
+11 Lessons from a 11-game-making journey by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Lists</title>
+<link>http://pedropsi.github.io/tag-List</link>
+<guid>http://pedropsi.github.io/tag-List</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About Platformer Template
+
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Platformer Template on the dedicated discord channel!
+
+Credits
+Platformer Template by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Selected Puzzlescript Games 2014-2018</title>
+<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
+<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
+<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About Press kit
+
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Press kit on the dedicated discord channel!
+
+Credits
+Press kit by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Gravirinth</title>
+<link>http://pedropsi.github.io/gravirinth</link>
+<guid>http://pedropsi.github.io/gravirinth</guid>
+<pubDate>Mon, 07 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
+		<p>About Classed as 'Press'
+
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Classed as 'Press' on the dedicated discord channel!
+
+Credits
+Classed as 'Press' by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About All Lists
+
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat All Lists, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Lists? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss All Lists on the dedicated discord channel!
+
+Credits
+All Lists by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>About Selected Puzzlescript Games 2014-2018
+According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
+Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive this great power...
+So an ...
+
+How to playControls - keyboard
+Your goal is to reach the X mark! 
+Move with the arrow keys. Everything else is explained interactively.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between the current level and all previously solved levels.Hall of fameOnce you beat Selected Puzzlescript Games 2014-2018, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Selected Puzzlescript Games 2014-2018? Add your message below to the Creative Archive's guestbook!Leave your message!ForumsComment and discuss Selected Puzzlescript Games 2014-2018 on the dedicated discord channel!
+
+Credits
+Selected Puzzlescript Games 2014-2018 by Pedro PSI, 2019.
+
+Music
+All background music by  Sappheiros  (CC-BY 3.0).
+
+	
+	...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+</item>
+<item>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>Factsheet
 		
-		<category>Creative-Archive</category><category>Press</category><category>Sitemap</category>
-		</item>
-		<item>
-		<title>Selected Puzzlescript Games 2014-2018</title>
-		<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-		<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-		<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-				<p>Purpose
-		This is a short list of very good puzzlescript games, in my opinion. It serves as a personal, yet publicly shared, reference (to be updated whenever needed). 
 		
-		Criteria
-		The list focusses on games released within the years 2014-2018, yet many during this period were overlooked. As long as ...</p>
-			]]>
-			</description>
+		  
+		Author:
+			Pedro PSI
+		Address:
+			a secret location.
+		Founding date:
+			December, 2017
+		Website:
+			https://pedropsi.github.io
+		Social media:
+			None.
+		Releases:
+			Platformer Template (2019) 
+Gravirinth (2019) 
+Abxtract Tractx (2018) 
+Tiaradventur (2018) 
+Hastefulll (2018) 
+Play Mini Gemini Replay (PMGRP) (2018) 
+Whirlpuzzle (2018) 
+Unlucky Unlock (2014) 
 		
-		<category>List</category><category>Post</category>
-		</item>
-		<item>
-		<title>Gravirinth</title>
-		<link>http://pedropsi.github.io/gravirinth</link>
-		<guid>http://pedropsi.github.io/gravirinth</guid>
-		<pubDate>Mon, 07 Jan 2019 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
-				<p>
-		About Gravirinth
-		According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
-		Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive this gre...</p>
-			]]>
-			</description>
-		
-		<category>Game</category><category>Platformer</category><category>Puzzle</category>
-		</item>
-		<item>
-		<title>Subscribe</title>
-		<link>http://pedropsi.github.io/subscribe</link>
-		<guid>http://pedropsi.github.io/subscribe</guid>
-		<pubDate>Thu, 06 Dec 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Subscribe to Creative Archive news!" title="Subscribe to Creative Archive news!"/>
-				<p>Curious about Pedro PSI's next project? Subscribe to Creative Archive by RSS, email or join the discord group!</p>
-			]]>
-			</description>
-		
-		<category>Creative-Archive</category><category>Post</category>
-		</item>
-		<item>
-		<title>Gravirinth changelog</title>
-		<link>http://pedropsi.github.io/gravirinth-log</link>
-		<guid>http://pedropsi.github.io/gravirinth-log</guid>
-		<pubDate>Thu, 22 Nov 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/gravirinth-log.png" height="200" align="left" hspace="5" alt="Gravirinth changelog" title="Gravirinth changelog"/>
-				<p>This is Gravirinth's devlog.
-		
-		02-03-2019
-		Gravirinh release!
-		Gravirinth was released today! What are you waiting for?
-		
-		
-		Join Xeno in the expedition to the Gravirinth!
-		Get it now!
-		
-		
-		  function ItchLink(e){Itch.attachBuyButton(e, {  user: "pedropsi",    game: "gravirinth"  });};
-		  var gg=document.ge...</p>
-			]]>
-			</description>
-		
-		<category>Creative-Archive</category><category>Log</category><category>Post</category>
-		</item>
-		<item>
-		<title>Abxtract Tractx</title>
-		<link>http://pedropsi.github.io/abxtract-tractx</link>
-		<guid>http://pedropsi.github.io/abxtract-tractx</guid>
-		<pubDate>Thu, 04 Oct 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/abxtract-tractx.png" height="200" align="left" hspace="5" alt="Abxtract Tractx" title="Abxtract Tractx"/>
-				<p>About Abxtract Tractx
-		Do you think Abstract Art is too simple to be considered art? Try reproducing all 6 iconic abstract paintings in the very puzzling Abxtract Tractx!
-		
-		How to playControls - keyboard
-		Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the right...</p>
-			]]>
-			</description>
-		
-		<category>Art</category><category>Game</category><category>Puzzle</category>
-		</item>
-		<item>
-		<title>NomadPage</title>
-		<link>http://pedropsi.github.io/nomadpage</link>
-		<guid>http://pedropsi.github.io/nomadpage</guid>
-		<pubDate>Thu, 06 Sep 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/nomadpage.png" height="200" align="left" hspace="5" alt="NomadPage" title="NomadPage"/>
-				<p>What is NomadPage?
-		NomadPage is a browser add-on. Get it here!
-		It sets a different homepage every day, by cycling through a list of pages of your choice. Up to 31 homepages can be listed, one for each day of the month. If the list contains fewer pages, one simply counts from the first page again....</p>
-			]]>
-			</description>
-		
-		<category>Add-on</category>
-		</item>
-		<item>
-		<title>Tiaradventur</title>
-		<link>http://pedropsi.github.io/tiaradventur</link>
-		<guid>http://pedropsi.github.io/tiaradventur</guid>
-		<pubDate>Tue, 28 Aug 2018 07:06:05 GMT</pubDate>
-		<description>
-			<![CDATA[
-				<img src="https://pedropsi.github.io/images/tiaradventur.png" height="200" align="left" hspace="5" alt="Tiaradventur" title="Tiaradventur"/>
-				<p>About Tiaradventur
-		A desperate Princess, on a quest to find seven stolen tiaras, asks for your help. As a Hero in the making, you must not refuse, even in the face of danger! As the story unfolds, you may get to know the Princess better and understand what really is at stake.
-		The legend of Tiarad...</p>
-			]]>
-			</description>
-		
-		<category>Game</category><category>Puzzle</category><category>Role-playing</category>
-		</item>
+
+Description
+		Creative Archive is an archive of Pedro PSI's personal projects - notably Pedro PSI's puzzle...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Tue, 12 Mar 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>Classed as 'Press' in the Creative Archive</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>All Lists in the Creative Archive</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
+<item>
+<title>Classed as 'Press'</title>
+<link>http://pedropsi.github.io/tag-Press</link>
+<guid>http://pedropsi.github.io/tag-Press</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>Purpose
+This is a short list of very good puzzlescript games, in my opinion. It serves as a personal, yet publicly shared, reference (to be updated whenever needed). 
+
+Criteria
+The list focusses on games released within the years 2014-2018, yet many during this period were overlooked. As long...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Lists</title>
+<link>http://pedropsi.github.io/tag-List</link>
+<guid>http://pedropsi.github.io/tag-List</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About Classed as 'Learning'
+
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Selected Puzzlescript Games 2014-2018</title>
+<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
+<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
+<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About A game-making journey
+
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Gravirinth</title>
+<link>http://pedropsi.github.io/gravirinth</link>
+<guid>http://pedropsi.github.io/gravirinth</guid>
+<pubDate>Mon, 07 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
+		<p>
+About 11 Lessons from a 11-game-making journey
+
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About Platformer Template
+Would you like to design your own platformer puzzle? Study the principles outlined in this Classed as 'Learning' and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>
+About Press kit
+Would you like to design your own platformer puzzle? Study the principles outlined in this A game-making journey and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+</item>
+<item>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>
+About Classed as 'Press'
+Would you like to design your own platformer puzzle? Study the principles outlined in this 11 Lessons from a 11-game-making journey and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Tue, 12 Mar 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>
+About All Lists
+Would you like to design your own platformer puzzle? Study the principles outlined in this Platformer Template and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About Selected Puzzlescript Games 2014-2018
+Would you like to design your own platformer puzzle? Study the principles outlined in this Press kit and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
+<item>
+<title>Classed as 'Press'</title>
+<link>http://pedropsi.github.io/tag-Press</link>
+<guid>http://pedropsi.github.io/tag-Press</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About Gravirinth
+Would you like to design your own platformer puzzle? Study the principles outlined in this Classed as 'Press' and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Lists</title>
+<link>http://pedropsi.github.io/tag-List</link>
+<guid>http://pedropsi.github.io/tag-List</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About Classed as 'Learning'
+Would you like to design your own platformer puzzle? Study the principles outlined in this All Lists and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Selected Puzzlescript Games 2014-2018</title>
+<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
+<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
+<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About A game-making journey
+Would you like to design your own platformer puzzle? Study the principles outlined in this Selected Puzzlescript Games 2014-2018 and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Gravirinth</title>
+<link>http://pedropsi.github.io/gravirinth</link>
+<guid>http://pedropsi.github.io/gravirinth</guid>
+<pubDate>Mon, 07 Jan 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/gravirinth.png" height="200" align="left" hspace="5" alt="Gravirinth" title="Gravirinth"/>
+		<p>
+About 11 Lessons from a 11-game-making journey
+Would you like to design your own platformer puzzle? Study the principles outlined in this Gravirinth and you may learn something… provided you actually reach the required levels!
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About Platformer Template
+
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>
+About Press kit
+
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+</item>
+<item>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>
+About Classed as 'Press'
+
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Tue, 12 Mar 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>
+About All Lists
+
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>
+About Selected Puzzlescript Games 2014-2018
+According to legend, a forgotten civilization once mastered the power of gravity, which they used to travel across the Milky Way, in search for alien life. 
+Eager at first to share their wisdom, soon they became aware that most alien life forms were not ready to receive this great power...
+So an ...
+
+Features
+
+A deep labyrinth of spatial puzzles;
+an exoarchaeology space expedition at the outskirts of the solar system;
+a carefully hand-crafted, minimalist and mysterious atmosphere;
+special features:
+
+	for experienced puzzlers: harder bonus levels; 
+	for perfectionist...</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
 		
 	</channel>
 </rss>

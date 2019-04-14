@@ -27,8 +27,8 @@
     --vspace:calc(5px + 5vmin);
     
     --innerwidth:calc(100vw - 43px); /*Window width minus borders*/
-    --padv:calc(var(--innerwidth) /60); /*Dynamic font size and padding*/
-    --padh:calc(var(--padv)*2);
+    --padh:calc(var(--innerwidth) /30); /*Dynamic font size and padding*/
+    --padv:calc(var(--padv)/2);
      
     --logo:url("../images/logo.png");
     --logoinv:url("../images/logo-inv.png");
@@ -82,7 +82,7 @@ a {
     color: var(--darkblue);
 }
 
-div{
+div {
     max-width: 100%;
     display: flex;
     flex-direction: column;
@@ -493,29 +493,35 @@ li {
     color: var(--blue);
 }
 
-#GameBar{
+.buttonbar{
     flex-direction: row;
     align-items: stretch;
     align-content:stretch;
     justify-content: space-evenly;
     background-color: var(--white);
     width:100%;
-    border-bottom: 4px solid var(--blue);
 }
 
-#GameBar .button{
+
+.buttonbar .button{
     background-color: var(--white);
-    height: calc(100% - 8px);
-    margin: 0;
-    padding: 4px calc(var(--padh)) 4px calc(var(--padh));
+    height: calc(100% - 12px);
+    margin:0;
+    padding: 4px calc(var(--padh)/2) 4px calc(var(--padh)/2);
     flex-grow: 1;
-    border-bottom: unset;
 }
 
-#GameBar .button:hover{
+.buttonbar .button:hover{
     background-color: var(--darkblue);
     border-bottom-color: var(--turquoise);
 }
+
+@media only screen and (max-width: 300px) {
+    .buttonbar {
+       word-break: break-all;
+    }
+}
+
 .game-container{
     align-items: center;
 }
@@ -858,7 +864,7 @@ thead th{
     text-emphasis: bold;
 }
 
-thead th:hover{
+thead th:hover {
     color: var(--lightyellow);
     background-color: var(--darkblue);
 }
@@ -952,7 +958,7 @@ tbody tr:hover{
 }
 
 .balloon .avatar {
-    max-width:50px;
+    max-width:calc(var(--padh) + 30px);
     background-color: var(--white);
 }
 

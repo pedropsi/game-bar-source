@@ -1,5 +1,5 @@
 «ABOUT-TEXT»
-«ONE-LINER:Load»
+«ONE-LINER»
 
 «HOWTO-TEXT»
 <p>Your goal is to reach the X mark! </p>
@@ -12,7 +12,7 @@
 «CREDITS-AUTHORSHIP»
 
 <h3>Music</h3>
-<p>All background music by «SAPPHEIROS«P»» «LICENSE-CC-BY-3.0».</p>
+<p>All background music by ««P-PRE»SAPPHEIROS«P-POS»» «LICENSE-CC-BY-3.0».</p>
 <table class="top-left">
 	<thead>
 		<tr><th>Year</th>
@@ -70,9 +70,8 @@
 
 <h3 class="images">Screenshots & Logo</h3>
 	<p>Download all screenshots + logo <a class="download" title="Download all screenshots and logo" 
-	href="images/«LINK:Load»/«LINK:Load»-screenshots-logo.zip">↓↓↓ (zip archive)</a></p>
-	
-	«GALLERY-PT»
+	href="images/«LINK»/«LINK»-screenshots-logo.zip">↓↓↓ (zip archive)</a></p>
+	«GALLERY»
 	
 <h3>Other inquiries</h3>
 <p>Please «CONTACT-TEXT-1» for all unusual requests!</p>
