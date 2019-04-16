@@ -1,9 +1,12 @@
 «ABOUT-TEXT»
 «ONE-LINER»
 
+<em>Please be aware that «TITLE-BOLD» is in Beta and not yet listed in the «SITE-NAME».</em>
+
 «HOWTO-TEXT»
 <p>Your goal is to reach the X mark! </p>
 <p><em>Move</em> with the <b>arrow keys</b>. Everything else is explained interactively.</p>
+
 
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
