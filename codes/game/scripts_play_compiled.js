@@ -6,11 +6,18 @@ function doSetupTitleScreenLevelContinue(){
 		}
 	catch(c){}}
 
+function DocumentURL(){
+	if (typeof pageNoTag==="undefined")
+		return document.URL;
+	else
+		return pageNoTag(document.URL);
+}
+	
 function HasCheckpoint(){
-	return void 0!==localStorage[document.URL+"_checkpoint"];
+	return void 0!==localStorage[DocumentURL()+"_checkpoint"];
 }
 function HasLevel(){
-	return HasSave()&&void 0!==localStorage[document.URL];
+	return HasSave()&&void 0!==localStorage[DocumentURL()];
 }
 function HasSave(){
 	return window.localStorage;
@@ -18,10 +25,10 @@ function HasSave(){
 
 function SetCheckpointStack(newstack){
 	MaxCheckpoint(newstack.length);
-	return localStorage[document.URL+"_checkpoint"]=JSON.stringify(newstack);
+	return localStorage[DocumentURL()+"_checkpoint"]=JSON.stringify(newstack);
 }
 function GetCheckpointStack(){
-	var stack= JSON.parse(localStorage[document.URL+"_checkpoint"]);
+	var stack= JSON.parse(localStorage[DocumentURL()+"_checkpoint"]);
 	MaxCheckpoint(stack.length-1);
 	return stack;
 }
@@ -51,21 +58,23 @@ function SaveCheckpoint(levelTarget,isReloading){
 	return SetCheckpointStack(newstack);
 }
 function SaveLevel(curlevel){
-	return localStorage[document.URL]=curlevel;
+	localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelIndices());
+	return localStorage[DocumentURL()]=curlevel;
 };
 
 function UnsaveCheckpoint(){
-	return localStorage.removeItem(document.URL+"_checkpoint");
+	return localStorage.removeItem(DocumentURL()+"_checkpoint");
 };
 function UnsaveLevel(){
-	return localStorage.removeItem(document.URL);
+	return localStorage.removeItem(DocumentURL());
 };
 function UnsaveSave(){
 	return HasSave()&&(UnsaveLevel(),UnsaveCheckpoint())
 }
 
 function LoadLevel(){
-	return curlevel=localStorage[document.URL];
+	SolvedLevelIndices.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]);
+	return curlevel=localStorage[DocumentURL()];
 }
 function LoadCheckpoint(n){
 	var stack=GetCheckpointStack();
@@ -1364,7 +1373,6 @@ function PlaylistBar(){
 // Level navigation
 
 function GoToLevel(lvl){
-
 	curlevel=lvl;
 	winning=!1;
 	timer=0;
@@ -1375,7 +1383,6 @@ function GoToLevel(lvl){
 	loadLevelFromState(state,lvl);
 	canvasResize();
 	clearInputHistory();
-	//UpdateGameNav();
 	
 };
 
@@ -1401,12 +1408,54 @@ function LevelIndices(){
 	}
 }
 
-function SolvedLevelIndices(curlevel){
-	return LevelIndices().filter(function(l){return l<curlevel});
+function SolvedLevelIndices(){
+	if(SolvedLevelIndices.levels===undefined){
+		SolvedLevelIndices.levels=[];
+	}
+	return SolvedLevelIndices.levels;
+}
+
+function SortNumber(a,b){return a-b};
+
+function AddToSolvedLevelIndices(curlevel){
+	if(!InSolvedLevelIndices(curlevel)){
+		SolvedLevelIndices.levels.push(curlevel);
+		SolvedLevelIndices.levels=SolvedLevelIndices.levels.sort(SortNumber);
+	}
+	return SolvedLevelIndices();
+}
+
+function InSolvedLevelIndices(curlevel){
+	return SolvedLevelIndices().indexOf(curlevel)!==-1;
+}
+
+function UnSolvedLevelIndices(){
+	return LevelIndices().filter(function(l){return SolvedLevelIndices().indexOf(l)===-1});
+}
+
+function NextUnsolvedLevel(dummmy){
+	if(UnSolvedLevelIndices().length===0)
+		return 1+LevelIndices()[LevelIndices().length-1];
+	else{
+		var c=LevelIndices().indexOf(UnSolvedLevelIndices()[0]);
+		if(c===0)
+			return 0;
+		else
+			return 1+LevelIndices()[c-1];
+	}
+}
+
+function ClearSolvedLevelIndices(){
+	console.log("levels solved cleared.");
+	return SolvedLevelIndices.levels=[];
+}
+
+function SolvedLevelsAll(){
+	return SolvedLevelIndices().length===LevelIndices().length;
 }
 
 function LevelNumber(curlevel){
-	return SolvedLevelIndices(curlevel).length+1;
+	return LevelIndices().filter(function(l){return l<curlevel}).length+1;
 }
 
 function CurrentLevelIndices(curlevel){
@@ -1428,15 +1477,14 @@ function MaxCheckpoint(m){
 	return MaxCheckpoint.max;
 }
 
-function RequestLevelSelectorSUDO(){GoToLevel(LevelIndices()[LevelIndices().length-1]);RequestLevelSelector();}
 
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
-			questionname:"Access levels ("+LevelNumber(MaxLevel())+"/"+LevelIndices().length+")",
+			questionname:"Access one of the "+LevelIndices().length+" levels",
 			qfield:"level",
-			qchoices:CurrentLevelIndices(MaxLevel()).map(LevelNumber)
+			qchoices:LevelIndices().map(l=>(LevelNumber(l)+(InSolvedLevelIndices(l)?"★":"")))
 		}
 	}
 	else{
@@ -1461,7 +1509,8 @@ function RequestLevelSelector(){
 }
 
 function LoadLevelFromDP(DP){
-	var lvl=FindData('level',DP.qid);
+	var lvl=FindData('level',DP.qid).replace("★","");
+	lvl=Number(lvl);
 	if(!HasCheckpoint()){
 		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
 		var lvlpre=lvl<2?-1:LevelIndices()[lvl-2];
@@ -1551,8 +1600,9 @@ window.onunload=(function(){
 })
 
 function DoWin() {
+	console.log("won");
             if (!winning) {
-				EchoLevelWin(curlevel);
+				EchoLevelWin(curlevel);AddToSolvedLevelIndices(curlevel);
 				if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
                 if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
                 winning = !0, timer = 0
@@ -1564,10 +1614,8 @@ function GoToLevelCheckpoint(ncheckpoint){
 		LoadCheckpoint(ncheckpoint);
 		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 		canvasResize();
-		//UpdateGameNav();
 }};
 
-		
 function nextLevel(){
 	ClearLevelRecord();
 	againing=!1;
@@ -1576,7 +1624,11 @@ function nextLevel(){
 	if(titleScreen)
 		0===titleSelection&&(curlevel=0,curlevelTarget=null),null!==curlevelTarget?loadLevelFromStateTarget(state,curlevel,curlevelTarget):loadLevelFromState(state,curlevel);
 	else if(hasUsedCheckpoint&&(curlevelTarget=null,hasUsedCheckpoint=!1),curlevel<state.levels.length-1){
-		curlevel++;
+		if(LevelIndices().indexOf(curlevel)!=-1)
+			curlevel=NextUnsolvedLevel();
+		else
+			curlevel++;
+		console.log("moved");
 		messageselected=quittingMessageScreen=titleScreen=textMode=!1;
 		null!==curlevelTarget?loadLevelFromStateTarget(state,curlevel,curlevelTarget):loadLevelFromState(state,curlevel);
 	}
@@ -1585,10 +1637,10 @@ function nextLevel(){
 			UnsaveSave()
 		}
 		catch(a){}
+		if(SolvedLevelsAll()) RequestHallOfFame();
 		curlevel=0;
 		curlevelTarget=null;
 		goToTitleScreen();
-		RequestHallOfFame();
 		tryPlayEndGameSound()
 	}
 	try{
@@ -1603,7 +1655,6 @@ function nextLevel(){
 	void 0!==state&&void 0!==state.metadata.flickscreen&&(oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)]);
 	canvasResize();
 	clearInputHistory();
-	//UpdateGameNav();
 	
 }
 	

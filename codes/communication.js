@@ -156,6 +156,7 @@ function RequestHallOfFame(){
 }
 
 function RequestModalWinnerMessage(previousDP){
+	if(ClearSolvedLevelIndices)ClearSolvedLevelIndices();
 	RequestDataPack([
 		['answer',{
 			questionname:"As a winner, what would you tell Pedro PSI?",
