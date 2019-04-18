@@ -29,7 +29,12 @@
     --innerwidth:calc(100vw - 43px); /*Window width minus borders*/
     --padh:calc(var(--innerwidth) /30); /*Dynamic font size and padding*/
     --padv:calc(var(--padv)/2);
-     
+
+    --buttonpadh:calc(var(--innerwidth) /100); /*Dynamic button padding*/
+    --buttonpadv:calc(var(--innerwidth) /200);
+    
+    --sharesize:calc(var(--innerwidth)/100 + 15px);
+    
     --logo:url("../images/logo.png");
     --logoinv:url("../images/logo-inv.png");
     
@@ -762,8 +767,8 @@ li {
     fill:var(--white);
     stroke:var(--blue);
     stroke-width: 1;
-    width:25px;
-    height: 25px;
+    width:var(--sharesize);
+    height::var(--sharesize);
     padding: 2px 2px 5px 5px;
     vertical-align:middle;
     transition: 0.5s;
@@ -822,7 +827,7 @@ textarea:focus, input:focus{
         border-bottom: 4px solid var(--blue);
     	color:var(--blue);
     	margin-top:16px;
-    	padding:4px 16px 4px 16px;
+    	padding:var(--buttonpadv) var(--buttonpadh) var(--buttonpadv) var(--buttonpadh);
         margin:10px;
     	align-self: center;
     	font-weight: bold;    
