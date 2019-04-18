@@ -987,7 +987,7 @@ function ResumeRecordingMovesPlaylist(){
 		}
 	recordingmoves=true;
 }
-
+ 
 function PauseRecordingMovesPlaylist(){
 	if (recordingmoves===undefined)
 		ConsoleAddMPL("⏹ (recording hasn't started)");
@@ -1408,6 +1408,10 @@ function LevelIndices(){
 	}
 }
 
+function InLevelIndices(curlevel){
+	return LevelIndices().indexOf(curlevel)!==-1;
+}
+
 function SolvedLevelIndices(){
 	if(SolvedLevelIndices.levels===undefined){
 		SolvedLevelIndices.levels=[];
@@ -1456,10 +1460,6 @@ function SolvedLevelsAll(){
 
 function LevelNumber(curlevel){
 	return LevelIndices().filter(function(l){return l<curlevel}).length+1;
-}
-
-function CurrentLevelIndices(curlevel){
-	return LevelIndices().slice(0,LevelNumber(curlevel));
 }
 
 function MaxLevel(){
@@ -1565,7 +1565,6 @@ function GameBar(){
 	
 	return ButtonBar(buttons,"GameBar");
 }
-
 
 
 ////////////////////////////////////////////////////////////////////////////////

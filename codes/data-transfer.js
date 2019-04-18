@@ -1274,12 +1274,6 @@ function SwitchData(field,value,id){
 ///////////////////////////////////////////////////////////////////////////////
 // Global Data Transmission Variables
 
-function SetContext(context){
-	CONTEXT=context;
-}
-function GetContext(){
-	return CONTEXT;
-}
 
 function GetDestination(dname){
 	return DESTINATIONS[dname];

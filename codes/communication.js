@@ -26,7 +26,7 @@ var DESTINATION_FEEDBACK={
 	Data:function(qid){
 		return{
 			identifier:document.body.id,
-			context:String(GetContext()),
+			context:String(LevelNumber(curlevel)),
 			question:FindData("questionname",qid),
 			answer:FindData("answer",qid),
 			name:who,
@@ -185,74 +185,52 @@ function RequestModalWinnerMessage(previousDP){
 //////////////////////////////////////////////////////
 // Real time Feedback Requests
 
-var feedbackRequests;
 
-function LevelNumber(levelframe){
-	return LevelIndices().indexOf(levelframe)+1;
-} 
 
-function PreviousLevelIndex(level){
-	var levelindices=LevelIndices();
-	while(levelindices[levelindices.length-1]>level){
-		levelindices.pop();
-	}
-	return levelindices.length?levelindices[levelindices.length-1]:0
-}
-
-function HasFeedback(level){
-	return feedbackRequests.indexOf(level)>=0;
-}
 function UnRequestGameFeedback(){
 	var targetid="puzzlescript-game";
 	CloseBalloonIn(targetid);
 }
 
 function RequestGameFeedback(){
-   
-  var currlevel=Number(curlevel);
-  var lastlevel=PreviousLevelIndex(currlevel);
 
-  SetContext(LevelNumber(lastlevel));
- 
-  function TitleScreen(){
-	return titleScreen||!lastlevel}
-  
-  if(!feedbackRequests)
-	  feedbackRequests=[];
-  
+	if(!RequestGameFeedback.requests)
+		RequestGameFeedback.requests=[];
+
+	function InTitleScreen(){return titleScreen}
+
+	function HasFeedback(curlevel){return RequestGameFeedback.requests.indexOf(curlevel)>=0;}
+	function RecordFeedback(curlevel){RequestGameFeedback.requests.push(curlevel);}
+	
+	function RecordAndLaunchThanksBalloon(DP){RecordFeedback(curlevel); return LaunchThanksBalloon(DP);};
 	var DPsettingsObj={
 		qtargetid:'puzzlescript-game',
 		qdisplay:LaunchBalloon,
-		qonsubmit:LaunchThanksBalloon,
+		qonsubmit:RecordAndLaunchThanksBalloon,
 		thanksmessage:"★ Thank you for your feedback! ★"
 		};
-	
 	var DFsettingsObj={};
 	var DFSnapshot=['snapshot',{}];
 
   if(!HasBalloon(DPsettingsObj.qtargetid)){
-	var levelindices=LevelIndices();
-	if(TitleScreen()){
+	if(InTitleScreen()){
 		DFsettingsObj.questionname="Your real-time feedback is much appreciated! As soon as you start the first level, press F or click the Feedback button below.";
 		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
-	else if(HasFeedback(currlevel)&&HasFeedback(lastlevel)){
+	else if(HasFeedback(curlevel)){
 		DFsettingsObj.questionname="Any further comments?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
-	else if(lastlevel===currlevel){
-		DFsettingsObj.questionname="What do you think of this level so far?";
+	else if(!isLevelMessage(curlevel)){
+		DFsettingsObj.questionname="What do you think of level "+LevelNumber(curlevel)+", so far?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
-		feedbackRequests.push(currlevel);
 	}
-	else if(!HasFeedback(lastlevel+1)){
+/*	else if(!HasFeedback(levelIndexLast+1)){
 		DFsettingsObj.questionname="How did you feel after beating the previous level?";
 		DFsettingsObj.qchoices=["amazed","amused","annoyed","bored","clever","confused","disappointed","excited","exhausted","frustrated","happy","hooked","lucky","proud","surprised"];
 		DFsettingsObj.qtype=ChoicesButtonRowHTML;
-		feedbackRequests.push(lastlevel+1);
-		feedbackRequests.push(currlevel);
 		RequestDataPack([['multiplechoice',DFsettingsObj]],DPsettingsObj);
-	}
+	}*/
 	else{
 		DFsettingsObj.questionname="Any further comments?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
