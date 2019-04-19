@@ -73,7 +73,7 @@ function UnsaveSave(){
 }
 
 function LoadLevel(){
-	SolvedLevelIndices.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]);
+	SolvedLevelIndices.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
 	return curlevel=localStorage[DocumentURL()];
 }
 function LoadCheckpoint(n){
@@ -1412,6 +1412,8 @@ function InLevelIndices(curlevel){
 	return LevelIndices().indexOf(curlevel)!==-1;
 }
 
+function isLastLevel(curlevel){return LevelIndices()[LevelIndices().length-1]===curlevel};
+
 function SolvedLevelIndices(){
 	if(SolvedLevelIndices.levels===undefined){
 		SolvedLevelIndices.levels=[];
@@ -1423,7 +1425,7 @@ function SortNumber(a,b){return a-b};
 
 function AddToSolvedLevelIndices(curlevel){
 	if(!InSolvedLevelIndices(curlevel)){
-		SolvedLevelIndices.levels.push(curlevel);
+		SolvedLevelIndices.levels.push(Number(curlevel));
 		SolvedLevelIndices.levels=SolvedLevelIndices.levels.sort(SortNumber);
 	}
 	return SolvedLevelIndices();
@@ -1437,7 +1439,7 @@ function UnSolvedLevelIndices(){
 	return LevelIndices().filter(function(l){return SolvedLevelIndices().indexOf(l)===-1});
 }
 
-function NextUnsolvedLevel(dummmy){
+function FirstUnsolvedLevel(curlevel){
 	if(UnSolvedLevelIndices().length===0)
 		return 1+LevelIndices()[LevelIndices().length-1];
 	else{
@@ -1447,6 +1449,12 @@ function NextUnsolvedLevel(dummmy){
 		else
 			return 1+LevelIndices()[c-1];
 	}
+}
+
+function NextUnsolvedLevel(curlevel){
+	var firstusolve=UnSolvedLevelIndices().filter(x=>x>=curlevel)[0];
+	var lastsolvebefore=LevelIndices().filter(x=>x<firstusolve);
+	return lastsolvebefore[lastsolvebefore.length-1]+1;
 }
 
 function ClearSolvedLevelIndices(){
@@ -1623,10 +1631,12 @@ function nextLevel(){
 	if(titleScreen)
 		0===titleSelection&&(curlevel=0,curlevelTarget=null),null!==curlevelTarget?loadLevelFromStateTarget(state,curlevel,curlevelTarget):loadLevelFromState(state,curlevel);
 	else if(hasUsedCheckpoint&&(curlevelTarget=null,hasUsedCheckpoint=!1),curlevel<state.levels.length-1){
-		if(LevelIndices().indexOf(curlevel)!=-1)
-			curlevel=NextUnsolvedLevel();
-		else
+		if(isLevelMessage(curlevel))
 			curlevel++;
+		else if(isLastLevel(curlevel))
+			curlevel=FirstUnsolvedLevel(curlevel);
+		else
+			curlevel=NextUnsolvedLevel(curlevel);
 		console.log("moved");
 		messageselected=quittingMessageScreen=titleScreen=textMode=!1;
 		null!==curlevelTarget?loadLevelFromStateTarget(state,curlevel,curlevelTarget):loadLevelFromState(state,curlevel);
