@@ -50,7 +50,7 @@
 <p>Both! Because there is no better way to teach that to put the principles in practice, immediately. Questions like: <em>Why was this level not introduced before?</em> or <em>What is new in this level?</em> or <em>Could any element be removed while preserving the desired effect?</em> should guide your attention while playing.</p>
 
 <h3>Is «TITLE-BOLD» «NAME»'s last game?</h3>
-<p>«NAME» intended to close 2018's cycle of puzzlescript games by teaching others - «TITLE-BOLD» emerged naturally from this intention.</p>
+<p>«NAME» intended to close <a href="2019-04-14-a-game-making-journey.html">2018's cycle of puzzlescript games</a> by teaching others - «TITLE-BOLD» emerged naturally from this intention.</p>
 
 
 <h2>Press</h2>
