@@ -1,12 +1,9 @@
 «ABOUT-TEXT»
 «ONE-LINER»
 
-<em>Please be aware that «TITLE-BOLD» is in Beta and not yet listed in the «SITE-NAME».</em>
-
 «HOWTO-TEXT»
-<p>Your goal is to reach the X mark! </p>
-<p><em>Move</em> with the <b>arrow keys</b>. Everything else is explained interactively.</p>
-
+<p><em>Move</em> with the <b>arrow keys</b>, which are used to interact with blocks of different shapes.</p>
+<p>Your perception of the goal and game rules should evolve as the game progresses.</p>
 
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
@@ -48,7 +45,6 @@
 
 «CREDITS-ENGINE-SUPPORT»
 
-
 <h2>F.A.Q.</h2>
 <h3>Is «TITLE-BOLD» a real game or just a game template?</h3>
 <p>Both! Because there is no better way to teach that to put the principles in practice, immediately. Questions like: <em>Why was this level not introduced before?</em> or <em>What is new in this level?</em> or <em>Could any element be removed while preserving the desired effect?</em> should guide your attention while playing.</p>
@@ -57,7 +53,7 @@
 <p>Many people would agree with that description.</p>
 
 <h3>Does it mean it's easier than other games?</h3>
-<p>Don't be fooled by the first few levels - «TITLE-BOLD» is built step by step.</p>
+<p>Don't be fooled by first impressions: the difficulty increases along the way.</p>
 
 
 <h2>Press</h2>
@@ -68,7 +64,7 @@
 <li>screenshots and logo below;</li>
 <li>recorded gameplay footage;</li>
 </ul>
-...provided you link back directly to this page.
+...as long as you provide appropriate credit and a direct link to this page.
 </p>
 
 <h3 class="images">Screenshots & Logo</h3>
