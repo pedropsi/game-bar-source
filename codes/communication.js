@@ -225,12 +225,6 @@ function RequestGameFeedback(){
 		DFsettingsObj.questionname="What do you think of level "+LevelNumber(curlevel)+", so far?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
-/*	else if(!HasFeedback(levelIndexLast+1)){
-		DFsettingsObj.questionname="How did you feel after beating the previous level?";
-		DFsettingsObj.qchoices=["amazed","amused","annoyed","bored","clever","confused","disappointed","excited","exhausted","frustrated","happy","hooked","lucky","proud","surprised"];
-		DFsettingsObj.qtype=ChoicesButtonRowHTML;
-		RequestDataPack([['multiplechoice',DFsettingsObj]],DPsettingsObj);
-	}*/
 	else{
 		DFsettingsObj.questionname="Any further comments?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
@@ -254,7 +248,11 @@ function RequestGuestbook(){
 			questionname:"Your message",
 			thanksmessage:"Thank you for your message in the Guestbook!"}],
 		['alias',{}]
-	],{destination:'Guestbook'})
+	],{
+		destination:'Guestbook'
+		/*,qonsubmit:function(DP){LaunchThanksModal(DP);RefreshData["guestbook-area"]()}*/
+		}
+	)
 }
 
 function commentAddress(e){
