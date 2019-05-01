@@ -38,6 +38,8 @@
     --logo:url("../images/logo.png");
     --logoinv:url("../images/logo-inv.png");
     
+    --duration:1s;
+    
 }
 
 .nightmode{
@@ -216,7 +218,7 @@ nav {
     margin:0;
     padding: 0;
     margin: 1px;
-    transition-duration: 1s;
+    transition-duration: var(--duration);
 }
 
 .mini img {
@@ -226,13 +228,13 @@ nav {
     margin: 0px 10px 0px 10px;
     margin: 2px;
     opacity: 0.5;
-    transition-duration: 0.5s;
+    transition-duration: var(--duration);
 }
 
 .mini:hover img {
     background-color: var(--turquoise);
     opacity:1;
-    transition-duration: 1s;
+    transition-duration: var(--duration);
 }
 
 .mini h3 {
@@ -255,13 +257,13 @@ nav {
     padding: 2px 5px 2px 5px;
     border-bottom: 2px solid var(--lightblue);
     color:var(--lightblue);
-    transition-duration: 1s;
+    transition-duration: var(--duration);
     display:inline;
 }
 
 .mini .tagup .tag {
     background-color:var(--lightyellow);
-    transition-duration: 1s;
+    transition-duration: var(--duration);
 }
 
 .featured {
@@ -295,7 +297,7 @@ nav {
 .card:hover img {
     max-width: 150px;
     opacity: 1;
-    transition-duration: 0.5s;
+    transition-duration: var(--duration);
     background-color: var(--turquoise);
 }
 
@@ -323,13 +325,13 @@ nav {
     background-color: var(--tsmokewhite);
 }
 
-.button:hover,.button:hover a,.nav-link:hover, .text a:hover, p a:hover, .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .card:hover {
+.button:hover,.button:active,.button:hover a,.button:active a,.nav-link:hover,.nav-link:active, .text a:hover,.text a:active, p a:hover,p a:active, .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .card:hover {
     color: var(--turquoise) ;
     text-decoration-color: var(--turquoise);
     text-decoration-style:solid ;
     border-color: var(--turquoise) ;
     background-color: var(--darkblue);
-    transition-duration: 1s;
+    transition-duration: var(--duration);
     cursor:pointer;
 }
 
@@ -337,17 +339,16 @@ nav {
      background-color: var(--white);
      color: var(--darkblue);
      border-color: var(--darkblue) ;
-     transition-duration: 1s;
+     transition-duration: var(--duration);
      cursor:pointer;
 }
-
 
 .nav-link:hover {text-decoration-line: none;}
 .nav-link {text-decoration-line: none;}
 
 a div:hover img {
     background-color: var(--lightyellow);
-    transition-duration: 1s;
+    transition-duration: var(--duration);
     cursor:pointer;
 }
 
@@ -429,14 +430,14 @@ li {
     background-position: 50% 50%;
     background-size: 50px 50px;
     background-repeat: no-repeat; 
-    transition-duration: 1s;
+    transition-duration: var(--duration);
     background-color: var(--white);
 }
 
 .logo:hover {
     background-image: var(--logoinv);
     background-color: var(--darkblue);
-    transition-duration: 1s;
+    transition-duration: var(--duration);
 }
 
 .rainbowline {
@@ -707,7 +708,7 @@ li {
  
 .rating-stars label{
     color: var(--white);
-    transition-duration: 0.5s;
+    transition-duration: var(--duration);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--blue);
 }
@@ -715,13 +716,13 @@ li {
 .rating-stars .label-on:hover,
 .rating-stars .label-on:hover ~ .label-on{
     color: var(--turquoise);
-    transition-duration: 0.5s;
+    transition-duration: var(--duration);
 
 }
 
 .rating-stars .checked ~ label{
     color: var(--blue);
-    transition-duration: 0.5s;
+    transition-duration: var(--duration);
 }
 
 .rating-stars label::before{
@@ -754,13 +755,6 @@ li {
 	flex-wrap: wrap;
     align-items: left;
 	margin:0px 0px -5px 10px;
-    border-right: 8px solid transparent;
-    transition: 0.5s;
-}
-
-.sharer > div:hover{
-    border-right: 0px solid transparent;
-    transition: 0.5s;
 }
 
 
@@ -772,14 +766,15 @@ li {
     height::var(--sharesize);
     padding: 2px 2px 5px 5px;
     vertical-align:middle;
-    transition: 0.5s;
+    transition: var(--duration);
 }
 
-.sharing-button svg:hover {
+.sharing-button svg:hover,.sharing-button svg:active {
     fill:var(--turquoise);
     stroke:var(--darkblue);
-    border-left: 8px solid var(--turquoise);
-    transition: 0.5s;
+    margin-top:-4px;
+    border-bottom: 4px solid var(--turquoise);
+    transition: var(--duration);
 }
 
 
@@ -814,7 +809,7 @@ textarea:focus, input:focus{
         padding:10px 0 7px 0;
 }
 
- textarea:hover, input:hover{
+ textarea:hover, input:hover,  textarea:active, input:active{
     	border-bottom-width: 4px;
         padding:10px 0 7px 0;
      }
