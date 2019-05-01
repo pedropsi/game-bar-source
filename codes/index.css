@@ -231,7 +231,7 @@ nav {
     transition-duration: var(--duration);
 }
 
-.mini:hover img {
+.mini:hover img,.mini:active img {
     background-color: var(--turquoise);
     opacity:1;
     transition-duration: var(--duration);
@@ -294,7 +294,7 @@ nav {
     margin-top: 2px;
 }
 
-.card:hover img {
+.card:hover img,.card:active img  {
     max-width: 150px;
     opacity: 1;
     transition-duration: var(--duration);
@@ -316,7 +316,7 @@ nav {
     text-decoration-line:underline;
     text-decoration-style:dotted;
     text-decoration-color: var(--darkblue);
-    transition-duration: 0.5s;
+    transition-duration: var(--duration);
 }
 
 .videoModal .button{
@@ -325,7 +325,17 @@ nav {
     background-color: var(--tsmokewhite);
 }
 
-.button:hover,.button:active,.button:hover a,.button:active a,.nav-link:hover,.nav-link:active, .text a:hover,.text a:active, p a:hover,p a:active, .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .card:hover {
+.button:hover,.button:active,
+.button:hover a,.button:active a,
+.nav-link:hover,.nav-link:active,
+.text a:hover,.text a:active,
+p a:hover,p a:active,
+.tag:hover, .tag:active,
+.mini:hover .tag, .mini:active .tag,
+.mini:hover h3, .mini:active h3,
+.mini:hover, .mini:active,
+.card:hover, .card:active,
+.selected {
     color: var(--turquoise) ;
     text-decoration-color: var(--turquoise);
     text-decoration-style:solid ;
@@ -895,7 +905,7 @@ tbody tr:hover{
         background-color: var(--tgreen);
         transform: scale(1.1);
         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-        animation: fadein 1s;
+        animation: fadein var(--duration);
     	z-index:10;
 }
 
@@ -955,7 +965,7 @@ tbody tr:hover{
     background-color: var(--white);
     padding: 10px;
     max-width: calc(80vw);
-    animation: fadein 1s;
+    animation: fadein var(--duration);
 }
 
 .balloon .avatar {
@@ -1015,38 +1025,40 @@ tbody tr:hover{
 
 .comment {
     background-color: var(--white);
-    text-align: left;
-    margin: 4px 0px;
+    margin: 2px 0px;
+    padding-top: 8px;
+
     border-bottom: 4px solid var(--lightyellow);
-    padding-top: 10px;
-    display: flex;
+    text-align: left;
 }
 .comment:nth-child(odd){
     text-align: right;
-    border-bottom: 4px solid var(--yellow);
-    flex-flow: row-reverse;
+    border-bottom-color: var(--yellow);
+    /*flex-flow:row-reverse;*/
 }
 .comment .date{
-    display: inline-block;
     padding: 4px;
-    align-self: end;
-    flex-grow: 1;
     text-align: right;
+    /*align-self: end;*/
+    flex-grow: 1;
 }
 
 .comment:nth-child(odd) .date{
     background-color:var(--yellow);
-     text-align: left;
+    text-align: left;
 }
 .comment p{
     padding: 0px 10px 0px 10px;
     font-size: 90%;
+    z-index: 2;
 }
 .comment .author{
+    background-color:var(--white);
     color:var(--blue);
     font-weight: bold;
 }
 .comment .subject{
+    background-color:var(--white);
     color:var(--blue);
     font-style: italic;
 }
