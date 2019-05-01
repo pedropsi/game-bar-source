@@ -2182,10 +2182,9 @@ Mobile.debugDot = function (event) {
     };
 
     proto.bindEvents = function () {
-        window.addEventListener('touchstart', this.onTouchStart.bind(this));
-        window.addEventListener('touchend', this.onTouchEnd.bind(this));
-        window.addEventListener('touchmove', this.onTouchMove.bind(this));
-		document.getElementById('puzzlescript-game').addEventListener('touchmove', function(e){e.preventDefault()}); //PEDROPSI prevent scroll fix 
+        document.getElementById('gameCanvas').addEventListener('touchstart', this.onTouchStart.bind(this));	//PEDROPSI fix 
+        document.getElementById('gameCanvas').addEventListener('touchend', this.onTouchEnd.bind(this));		//PEDROPSI fix 
+        document.getElementById('gameCanvas').addEventListener('touchmove', this.onTouchMove.bind(this));	//PEDROPSI fix 
     };
 
     proto.bootstrap = function () {
@@ -2199,6 +2198,7 @@ Mobile.debugDot = function (event) {
     /** Event Handlers **/
 
     proto.onTouchStart = function (event) {
+		
         if (this.isTouching) {
             return;
         }
@@ -2209,9 +2209,10 @@ Mobile.debugDot = function (event) {
             return;
         }
 
-        if (event.target.tagName.toUpperCase() === 'A') {
+		//PEDROPSI fix
+        /*if (event.target.id!=="gameCanvas") {
             return;
-        }
+        }*/
         this.isTouching = true;
 
         this.mayBeSwiping = true;

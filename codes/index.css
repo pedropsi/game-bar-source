@@ -323,7 +323,7 @@ nav {
     background-color: var(--tsmokewhite);
 }
 
-.button:hover,.button:hover a,.nav-link:hover, .text a:hover, p a:hover, .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .gameNav.active:hover, .card:hover {
+.button:hover,.button:hover a,.nav-link:hover, .text a:hover, p a:hover, .tag:hover, .mini:hover .tag, .mini:hover h3, .mini:hover, .selected, .card:hover {
     color: var(--turquoise) ;
     text-decoration-color: var(--turquoise);
     text-decoration-style:solid ;
@@ -534,6 +534,7 @@ li {
 .game {
     padding: 0px 5px 0px 5px;
     width: 100%;
+    touch-action: none;
 }
 
 #gameCanvas {
