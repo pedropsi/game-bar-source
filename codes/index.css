@@ -549,7 +549,7 @@ li {
 }
 
 #gameCanvas {
-    height:calc(100vh - 30px);
+    height:calc(87vh + calc(var(--innerwidth) /40));
     width: 100%;
 }
 
@@ -801,6 +801,7 @@ li {
 input, textarea{
         border: 0px;
         color:var(--lightblue);
+        background-color:var(--white);
         border-bottom: 1px solid var(--lightblue);
     	padding:10px 0 10px 0;
     	font-family: inherit;
