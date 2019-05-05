@@ -213,43 +213,6 @@
 <h3>What will be the price tag?</h3>
 <p><b>6$</b></p>
 
-<p>At some point, the following currencies may be added:</p>
-<table class="top-left">
-<thead>
-	<tr>
-		<th>Currency</th>
-		<th>Price</th>	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td>EUR, GBP</td>
-		<td>5</td>	</tr>
-	<tr>
-		<td>CHF</td>
-		<td>6</td>	</tr>
-	<tr>
-		<td>AUD, NZD, CAD, SGD</td>
-		<td>8</td>	</tr>
-	<tr>
-		<td>BRL</td>
-		<td>20</td>	</tr>
-	<tr>
-		<td>RMB, DKK</td>
-		<td>40</td>	</tr>
-	<tr>
-		<td>SEK, NOK, HKD</td>
-		<td>50</td>	</tr>
-	<tr>
-		<td>RUB, INR</td>
-		<td>400</td>	</tr>
-	<tr>
-		<td>JPY</td>
-		<td>700</td>	</tr>
-	<tr>
-		<td>KRW</td>
-		<td>7000</td>	</tr>
-	</tbody>
-</table>
 
 <h3>What if I don't like the game?</h3>
 <p>Please «CONTACT-TEXT-1» for a full refund.</p>

@@ -36,7 +36,6 @@
 <h3>Better pricing</h3>
 <p>After some benchmarking, it became clear that most puzzle games with similar complexity and quality (number of levels, degree of open-worldness, difficulty, story, artwork and music, etc...) are retailing between 4G - 10G so Gravirinth's price was increased to better position it in this market. A second reason for the increase is the significant improvement from beta-testing, which expanded the scope and quality of the game beyond the initial goal.</p>
 
-
 <p>Naturally, those who reserved <span onclick="OpenModalPreOrder('Enter your email address to be notified when «TITLE-BOLD» is released and be entitled to a discount.')">a place in the Gravirinth</span> before 16-02-2019 are still entitled to the previous discounted price.</p>
 
 <h2>14-02-2019</h2>

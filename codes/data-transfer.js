@@ -704,8 +704,7 @@ function ButtonOnClickHTML(title,onclicktxt){
 }
 
 function ButtonLinkHTML(title){
-	var b=ButtonHTML({txt:title});
-	return AHTML(b,"#"+IDfy(title));
+	return ButtonHTML({tag:"a",txt:title,attributes:{href:"#"+IDfy(title)}});
 }
 
 function CloseButtonHTML(targetid){
@@ -733,7 +732,7 @@ function PlainMessageHTML(message){
 }
 
 //Button Bar
-function ButtonBar(buttonshtml,id){return '<div id="'+id+'" class="buttonbar">'+buttonshtml+'</div>'};
+function ButtonBar(buttonshtml,id){return '<div id="'+id+'" class="buttonbar buttonrow">'+buttonshtml+'</div>'};
 
 ////////////////////////////////////////////////////////////////////////////////
 // DataField and DataPack system : default DataField (customisable), many of which constitute a DataPack 

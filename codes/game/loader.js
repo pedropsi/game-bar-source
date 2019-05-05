@@ -1,5 +1,3 @@
-PrependElement("<div id='puzzlescript-game'></div>"+'<div id="GameBW" class="gameNav" onclick="GoToLevelPrev()">Previous level</div><div id="GameFW" class="gameNav" onclick="GoToLevelNext()">Next level</div>',pageIdentifier());
-
 function PrepareGameBeta(){
 	RequestDataPack([
 		['pass',{}],
@@ -33,6 +31,4 @@ function RevealGame(DP){
 	var gameid=Unlock(gid,key);
 	console.log(gameid);
 	PuzzleScript.embed(document.getElementById('puzzlescript-game'),gameid);
-	
-
 }

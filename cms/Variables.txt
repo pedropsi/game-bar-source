@@ -7,6 +7,8 @@ MOSAIC-TEXT	Clicking on the mosaic above will change this page's background. Try
 YEAR-START	2010
 DATE-FOUNDED	December, 2017
 
+YEAR-SPAN 	«YEAR-START»-«YEAR-NOW»
+
 ME	me
 MY	my
 I	I
@@ -100,7 +102,7 @@ FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACON-ANALYTICS»«BEACON-CO
 PICTURE	<img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
-FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend" id="markdown">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
+FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend" id="post">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
 
 PUZZLE-SCRIPT	«PUZZLE-LOAD»«HONOURS»
 PUZZLE-LOAD	<script type="text/javascript">PuzzleScript.embed(document.getElementById('«PUZZLE-MARK»'),"«CONTENT»");</script>
@@ -121,7 +123,7 @@ CONTACT-TEXT-5	<a href='contact.html'>welcome</a>
 CONTACT-TEXT-6	<a href='contact.html'>Drop «ME» a line!</a>
 CONTACT-TEXT-7	<a href='contact.html'>reach out</a>
 
-COPYRIGHT	Copyright «NAME» «YEAR-START»-«YEAR-NOW», all rights reserved.
+COPYRIGHT	Copyright «NAME» «YEAR-SPAN», all rights reserved.
 COPYRIGHT-TEXT	© «NAME» «YEAR-START»-«YEAR-NOW».
 LICENSE	<a «BLANK» href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>
 
@@ -179,10 +181,10 @@ PAGE-FEATURED	«HTML-PRE»«SECTION-PRE»«FEATURED»«SECTION-POS»«HTML-POS»
 PAGE-FEATURED-EMPTY	«HTML-PRE»«SECTION-PRE»«FEATURED»«LABELS»«SECTION-POS»«HTML-POS»
 PAGE-POST-MD	«HTML-PRE»«POSTAREA»«HTML-POS»
 
-HIGHLIGHTS	<h1 class="textarea title">Highlights</h1><div class="featured">«FEATURED-ITEM-SUB|In:CMS|SortBy:{Date}|Unique:True|Filter:{Featured->Yes,Published->Yes,Day->_,Month->_,Year->_,Type->_}|Contain:True»
+HIGHLIGHTS	<h1 class="title">Highlights</h1><div class="featured">«FEATURED-ITEM-SUB|In:CMS|SortBy:{Date}|Unique:True|Filter:{Featured->Yes,Published->Yes,Day->_,Month->_,Year->_,Type->_}|Contain:True»
 </div>
 
-FEATURED	<h1 class="textarea title">«TITLE»</h1><div class="featured">«CONTENT»</div>
+FEATURED	<h1 class="title">«TITLE»</h1><div class="featured">«CONTENT»</div>
 FEATURED-ITEM	«FEATURED-ITEM-SUB|Contain:True»
 FEATURED-ITEM-SUB	<a href="«LINK».html"><div class="card"><h3>«TITLE»</h3>«PICTURE»</div></a>
 
@@ -190,22 +192,22 @@ SNIPPET	«SNIPPET-SUB|Filter:{Link->«LINK»}|Contain:True»
 SNIPPET-SUB	<div class="mini"><div>«TITLE-YEAR»</div>«PICTURE-LINK»</div>
 
 LATEST-LIMIT	12
-LATEST	«SECTION-PRE»<h1 class="textarea title">Latest posts</h1><div class="latest">«LATEST-ITEM|In:CMS|Filter:{Featured->_,Published->Yes}|SortBy:{Date}|Max:«LATEST-LIMIT»|Contain:True»</div>«SECTION-POS»
+LATEST	«SECTION-PRE»<h1 class="title">Latest posts</h1><div class="latest">«LATEST-ITEM|In:CMS|Filter:{Featured->_,Published->Yes}|SortBy:{Date}|Max:«LATEST-LIMIT»|Contain:True»</div>«SECTION-POS»
 LATEST-ITEM	<div class="mini"><div>«TITLE-H3-LINK»«LABELS»</div>«PICTURE-LINK»</div>
 
 TITLE-H3-LINK	<a href="«LINK».html"><h3>«TITLE»</h3></a>
 PICTURE-LINK	<a href="«LINK».html">«PICTURE»</a>
 
 LABELS	«LABELS-CONTAIN|Filter:{Link->«LINK»}»
-LABELS-CONTAIN	<div class="tags"><div class="tagup"><a href="posts-by-date.html"><div class="tag">«DATE»</div></a></div>«LABEL-TAG|Split:, |Contain:True»</div>
-LABEL-TAG	<a href="tag-«TAGS».html"><div class="tag">«TAGS»</div></a>
+LABELS-CONTAIN	<div class="tags buttonrow"><a class="tag button" href="posts-by-date.html">«DATE»</a>«LABEL-TAG|Split:, |Contain:True»</div>
+LABEL-TAG	<a class="tag button" href="tag-«TAGS».html">«TAGS»</a>
 
 SECTION-PRE	<div class="section"><div class="container">
 SECTION-POS	</div></div>
 
-POSTAREA-PRE	<h1 class="textarea title">«TITLE»</h1><div class="textarea"><div class="text «STYLE»" id="markdown">
+POSTAREA-PRE	<h1 class="title">«TITLE»</h1><div class="whiteboard"><div class="text «STYLE» post" id="post">
 POSTAREA-POS	</div></div>«LABELS»
-POSTAREA-SHARE-POS	</div>«STARSSHARE»</div>«LABELS»
+POSTAREA-SHARE-POS	</div>«SHARER»</div>«LABELS»
 POSTAREA	«SECTION-PRE»«POST-PLUS-LABELS»«SECTION-POS»
 POSTAREA-PIC	«SECTION-PRE»«POSTAREA-PRE»«POST»</div><div>«PICTURE»«POSTAREA-POS»«SECTION-POS»
 POSTAREA-SIMPLE	«SECTION-PRE»«POSTAREA-PRE»«CONTENT»«POSTAREA-POS»«SECTION-POS»
@@ -215,7 +217,7 @@ IFRAME-SETTINGS	width="100%" height="500px" frameborder="0" marginheight="0" mar
 
 STARSSHARE	<div class="starsshare">«STARS»«SHARER»</div>
 STARS-CONTAIN	«STARS-STAR|Split:---|Contain:True»
-STARS-STAR	<button name="rate-«ENUM-1-5»" id="rate-«ENUM-1-5»" onclick="starry(this,'«ENUM-1-5»');" class="star-b"/></button><label class="label-on" for="rate-«ENUM-1-5»"></label> 
+STARS-STAR	<button name="rate-«ENUM-1-5»" id="rate-«ENUM-1-5»" onclick="starry(this,'«ENUM-1-5»');" class="star-b"></button><label class="label-on" for="rate-«ENUM-1-5»"></label> 
 ENUM-1-5	5---4---3---2---1
 
 SHARER	<div class="sharer"><p><strong>Share it:</strong></p><div>«SHARER-SUB»</div></div>

@@ -1,7 +1,7 @@
 <div class="container" >
-	<h1 class="textarea title">Guestbook</h1>
-	<div class="textarea">
-		<div class="text «STYLE»" id="markdown">«POST»</div>
+	<h1 class="title">Guestbook</h1>
+	<div class="whiteboard">
+		<div class="text «STYLE» post" id="post">«POST»</div>
 		«STARSSHARE»
 	</div>
 	«LABELS»

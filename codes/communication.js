@@ -312,9 +312,9 @@ function OpenModalPreOrder(campaigntext){
 //////////////////////////////////////////////////////////////////////
 //News
 function News(){
-	if(pageIdentifier()!=="gravirinth"&&!inConfig("📰»"))
+	if(pageIdentifier()!=="platformer-template"&&!inConfig("📰»"))
 		RequestDataPack([["plain",{
-		questionname:"<b>Pedro PSI's latest news:</b><a href='gravirinth.html' target='_blank'> Gravirinth just released!</a>"}]],{
+		questionname:"<b>Pedro PSI's <em>news service</em>:</b><a href='platformer-template.html' target='_blank'> Platformer Template released!</a>"}]],{
 			qdisplay:LaunchConsoleMessage});
 		activateConfig("📰»");
 };
