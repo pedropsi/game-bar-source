@@ -1608,14 +1608,13 @@ window.onunload=(function(){
 
 function DoWin() {
 	console.log("won");
-	AddToSolvedLevelIndices(curlevel);
-	if (!winning) {
-		EchoLevelWin(curlevel);
-		if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
-			if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
-		winning = !0, timer = 0
-	}
-}
+            if (!winning) {
+				EchoLevelWin(curlevel);AddToSolvedLevelIndices(curlevel);
+				if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
+                if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
+                winning = !0, timer = 0
+            }
+        }
 
 function GoToLevelCheckpoint(ncheckpoint){
 	if(HasCheckpoint()){
