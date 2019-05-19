@@ -1609,7 +1609,7 @@ window.onunload=(function(){
 function DoWin() {
 	console.log("won");
             if (!winning) {
-				EchoLevelWin(curlevel);AddToSolvedLevelIndices(curlevel);
+				EchoLevelWin(curlevel);AddToSolvedLevelIndices(curlevel);SaveLevel(curlevel);
 				if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
                 if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
                 winning = !0, timer = 0
@@ -1654,7 +1654,7 @@ function nextLevel(){
 	}
 	try{
 		if(HasSave())
-			if(SaveLevel(curlevel),null!==curlevelTarget){
+			if(null!==curlevelTarget){
 				restartTarget=level4Serialization();
 				SaveCheckpoint(restartTarget,true)
 			}
