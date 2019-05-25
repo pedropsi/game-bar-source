@@ -1631,7 +1631,7 @@ function nextLevel(){
 	state&&state.levels&&curlevel>state.levels.length&&(curlevel=state.levels.length-1);
 	if(titleScreen)
 		0===titleSelection&&(curlevel=0,curlevelTarget=null),null!==curlevelTarget?loadLevelFromStateTarget(state,curlevel,curlevelTarget):loadLevelFromState(state,curlevel);
-	else if(hasUsedCheckpoint&&(curlevelTarget=null,hasUsedCheckpoint=!1),curlevel<state.levels.length-1){
+	else if(hasUsedCheckpoint&&(curlevelTarget=null,hasUsedCheckpoint=!1),(curlevel<state.levels.length-1)&&!SolvedLevelsAll()){
 		if(isLevelMessage(curlevel))
 			curlevel++;
 		else if(isLastLevel(curlevel))
@@ -1665,7 +1665,6 @@ function nextLevel(){
 	void 0!==state&&void 0!==state.metadata.flickscreen&&(oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)]);
 	canvasResize();
 	clearInputHistory();
-	
 }
 	
 function goToTitleScreen(){againing=!1;messagetext="";textMode=titleScreen=!0;doSetupTitleScreenLevelContinue();titleSelection=0<curlevel||null!==curlevelTarget?1:0;generateTitleScreen()};var compiling=!1,errorStrings=[],errorCount=0;
