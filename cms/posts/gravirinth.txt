@@ -1,5 +1,4 @@
-﻿
-«ABOUT-TEXT»
+﻿«ABOUT-TEXT»
 «ONE-LINER»
 
 <h3>Features</h3>
@@ -33,6 +32,9 @@
 
 
 <h2>Test play</h2>
+
+<h3>Demo</h3>
+<p>You can now play «TITLE-BOLD»'s <b>very short</b> <a href="https://www.puzzlescript.net/play.html?p=2ba2748e4c910776fa456d6f226cbd6f">demo</a>!</p> 
 
 <h3>Beta-test</h3>
 <p>Beta test has now ended - but all beta-testers are entitled to play the final version of «TITLE-BOLD» for free forever (FFF).</p> 

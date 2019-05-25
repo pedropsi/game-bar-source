@@ -1320,7 +1320,7 @@ function LaunchThanksModal(DP){
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// Gallery
+// Video modal
 
 function VideoEmbedHTML(ytid,origin){
 	var ori=origin?"&origin="+origin:"";

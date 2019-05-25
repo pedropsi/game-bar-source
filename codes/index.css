@@ -590,6 +590,7 @@ input, textarea{
     	font-family: inherit;
     	font-size: inherit;
     	align-self: center;
+        transition-duration: var(--duration);
 }
 input:invalid,textarea:invalid{
     color:red
@@ -620,15 +621,18 @@ textarea:focus, input:focus{
     padding:var(--h-2) var(--w2) var(--h-2) var(--w2);
     margin:var(--h1) var(--w2) var(--h1) var(--w1);
     align-self: center;
-    font-weight: bold;    
+    font-weight: bold;  
+    transition-duration: var(--duration);
 }
 .button a {
     text-decoration: none;
     color: inherit;
+    transition-duration: var(--duration);
 }
 
 .button:hover a{
     background-color: transparent;
+    transition-duration: var(--duration);
 }
 
 
@@ -648,26 +652,32 @@ thead th{
     color: var(--white);
     text-align: center;
     text-emphasis: bold;
+     transition-duration: var(--duration);
 }
 
 thead th:hover {
     color: var(--lightyellow);
     background-color: var(--darkblue);
+    transition-duration: var(--duration);
 }
 
 tbody tr{
     background-color: var(--white);
+     transition-duration: var(--duration);
 }
 tbody tr:nth-child(odd) {
     background-color: var(--smokewhite);
+     transition-duration: var(--duration);
 }
 tbody tr:hover{
    background-color: var(--lightyellow);
    color: var(--darkblue);
+     transition-duration: var(--duration);
 }
 .top-left tbody th:first-child{
     text-align: center;
     color: var(--darkblue);
+     transition-duration: var(--duration);
 }
 
 .modal {   
