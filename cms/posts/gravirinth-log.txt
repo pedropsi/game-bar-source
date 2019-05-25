@@ -2,7 +2,8 @@
 
 <h2>25-05-2019</h2>
 <h3>Playable demo</h3>
-<p>A small playable <a href="https://www.puzzlescript.net/play.html?p=2ba2748e4c910776fa456d6f226cbd6f">demo</a> of Gravirinth was prepared today!</p>
+<p>A tiny playable demo of Gravirinth was prepared today!</p>
+<div class="button"><a href="https://www.puzzlescript.net/play.html?p=2ba2748e4c910776fa456d6f226cbd6f" «BLANK»>Play demo!</a></div>
 
 <h2>02-03-2019</h2>
 <h3>Gravirinh release!</h3>
