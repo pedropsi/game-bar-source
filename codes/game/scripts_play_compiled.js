@@ -1463,7 +1463,7 @@ function ClearSolvedLevelIndices(){
 }
 
 function SolvedLevelsAll(){
-	return SolvedLevelIndices().length===LevelIndices().length;
+	return LevelIndices().every(l=>SolvedLevelIndices().indexOf(l)>=0);
 }
 
 function LevelNumber(curlevel){
@@ -1579,6 +1579,7 @@ function GameBar(){
 /// Echo
 
 function EchoLevelWin(curlevel){
+	console.log("EchoLevelWin");
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
 		echoPureData(leveldata,leveldataURL);
@@ -1608,13 +1609,13 @@ window.onunload=(function(){
 
 function DoWin() {
 	console.log("won");
-            if (!winning) {
-				EchoLevelWin(curlevel);AddToSolvedLevelIndices(curlevel);SaveLevel(curlevel);
-				if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
-                if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
-                winning = !0, timer = 0
-            }
-        }
+	if (!winning) {
+		EchoLevelWin(curlevel);AddToSolvedLevelIndices(curlevel);SaveLevel(curlevel);
+		if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
+		if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
+		winning = !0, timer = 0
+	}
+}
 
 function GoToLevelCheckpoint(ncheckpoint){
 	if(HasCheckpoint()){
