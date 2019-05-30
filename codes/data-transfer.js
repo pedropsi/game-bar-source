@@ -107,9 +107,9 @@ function pageNoTag(url){
 	}
 }
 
-function pageIdentifier(url){
+function pageIdentifierSimple(url){
 	if(typeof url==="undefined")
-		return pageIdentifier(pageURL());
+		return pageIdentifierSimple(pageURL());
 	else{
 		var urlAfter=pageNoTag(url).replace(/(.*\/)/,"");
 		if(isMaybeRoot(urlAfter))
@@ -117,6 +117,14 @@ function pageIdentifier(url){
 		else
 			return urlAfter.replace(".html","").replace(".htm","");
 	}
+}
+
+function pageIdentifier(url){
+	var i=pageIdentifierSimple(url);
+	if(i=="index")
+		return pageTitle(url);
+	else
+		return i;
 }
 
 function pageNoHead(url){
