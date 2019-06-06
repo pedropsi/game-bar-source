@@ -55,7 +55,22 @@
 <h3>Is «TITLE-BOLD» «NAME»'s last game?</h3>
 <p>«NAME» intended to close <a href="2019-04-14-a-game-making-journey.html">2018's cycle of puzzlescript games</a> by teaching others - «TITLE-BOLD» emerged naturally from this intention.</p>
 
+<h3>How is beating «TITLE-BOLD»'s an achievement?</h3>
+<p>It takes on average 4 enjoyable hours to solve all levels in «NAME», but only 4% of all players so far qualified for the «HOF».</p>
+
+<h3>Does the high difficulty prevent «NAME»'s teaching goals?</h3>
+<p>Since all levels are accessible via the level selector, all players regardless of ability can follow every lesson.</p>
+
+
 <h2>Changelog</h2>
+<h3>06/2019</h3>
+<p>Level tweaks:
+<li>
+<ul><b>level 31:</b> displaced a dash to remove one unintended solution; reduced level size by rearranging elements; simplified lesson;</ul>
+<ul><b>level 32:</b> switched places with former level 31.</ul>
+
+</li>
+
 <h3>05/2019</h3>
 <p>Major data-driven changes to selected levels, based on average time required to win a level, plus several minor tweaks:
 <li>
