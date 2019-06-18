@@ -1,12 +1,16 @@
 ﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
 
+<h2>21-06-2019</h2>
+<h3>Gravirinh giveaway!</h3>
+<p>The full version of gravirinth will be playable for free in the <a href="gravirinth.html">main page</a> until the end of June.</p>
+
 <h2>25-05-2019</h2>
 <h3>Playable demo</h3>
 <p>A tiny playable demo of Gravirinth was prepared today!</p>
 <div class="button"><a href="https://www.puzzlescript.net/play.html?p=2ba2748e4c910776fa456d6f226cbd6f" «BLANK»>Play demo!</a></div>
 
 <h2>02-03-2019</h2>
-<h3>Gravirinh release!</h3>
+<h3>Gravirinth release!</h3>
 <p>Gravirinth was released today! What are you waiting for?</p>
 
 «GRAVIRINTH-ANNOUNCE»

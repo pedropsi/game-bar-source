@@ -92,7 +92,7 @@ ARCHIVE-TYPE-FEATURED	«FEATURED-ITEM|«SELECTION-TYPE»»
 SELECTION-TAG	Filter:{Tags->_?(NameSelector[«POST»]),Type->_,Day->_?NumberQ,Month->_?NumberQ,Year->_?NumberQ}|SortBy:{Date}|Contain:True
 SELECTION-TYPE	Filter:{Type->_?(NameSelector[«POST»]),Day->_?NumberQ,Month->_?NumberQ,Year->_?NumberQ}|SortBy:{Date}|Contain:True
 
-NAVBAR	<div class="nav">«NAV-LOGO»<nav role="navigation">«NAV-LINK|Filter:{Nav->_?NumberQ}|Contain:True»</nav>«RAINBOWLINE»</div>
+NAVBAR	<div class="nav">«NAV-LOGO»<nav role="navigation">«NAV-LINK|SortBy:{Nav}|Filter:{Nav->_?NumberQ}|Contain:True»</nav>«RAINBOWLINE»</div>
 NAV-LINK	<a href="«LINK».html" class="nav-link" style="max-width: 728px;">«TITLE»</a>
 NAV-LOGO	<a href="index.html"><div class="logo">«LOGO-SVG»</div></a>
 RAINBOWLINE	<div class="rainbowline"></div>
@@ -255,6 +255,12 @@ GALLERY	<div class="featured">«PICTURE-GALLERY|In:Asset|Filter:{"Context-id"->«L
 
 SUPPORT-LINK	2018-02-08-support-the-archive.html
 PRESSKIT	<a href="press.html"><b>«SITE-NAME»'s press kit</b></a>
+
+PRESS	«PRESS-INTRO»«PRESS-USAGE»«PRESS-SCREENSHOT-GALLERY»«PRESS-OTHER-INQUIRIES»
+PRESS-INTRO	<h2>Press</h2><p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p>
+PRESS-USAGE	<p>Feel free to use and edit, for those purposes, all material on this page, including:<ul> <li>text;</li><li>screenshots and logo below;</li><li>recorded gameplay footage;</li></ul>...as long as you provide appropriate credit and a direct link to this page.</p>
+PRESS-SCREENSHOT-GALLERY	<h3 class="images">Screenshots & Logo</h3><p>Download all screenshots and logo at once:<a class="download" title="Download all screenshots and logo" href="images/«LINK»/«LINK»-screenshots-logo.zip"><b>download all</b> (zip archive)</a></p>«GALLERY»
+PRESS-OTHER-INQUIRIES	<h3>Other inquiries</h3><p class="centre">Check also the «PRESSKIT» or «CONTACT-TEXT-1» for all unusual requests!</p>
 
 VIDEO-SRC	media/«LINK»/«LINK».mp4
 TRAILER-LAUNCHER	<img class="card" onclick='OpenVideoModal("«TRAILER»")' src="images/«TRAILER-IMAGE»" alt="«TITLE»'s trailer" title="«TITLELONG» (trailer)"/>

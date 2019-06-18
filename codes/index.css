@@ -608,6 +608,10 @@ input, textarea{
     font-size: inherit;
     align-self: center;
     transition-duration: var(--duration);
+    overflow: auto;
+    text-align:center;
+    padding-top: var(--h1);
+    padding-bottom: var(--h1);
 }
 input:invalid,textarea:invalid{
     color:red

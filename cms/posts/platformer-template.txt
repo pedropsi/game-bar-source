@@ -85,21 +85,4 @@
 </p>
 
 
-<h2>Press</h2>
-<p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p>
-<p>Feel free to use and edit, for those purposes, all material on this page, including:
-<ul>
-<li>text;</li>
-<li>screenshots and logo below;</li>
-<li>recorded gameplay footage;</li>
-</ul>
-...as long as you provide appropriate credit and a direct link to this page.
-</p>
-
-<h3 class="images">Screenshots & Logo</h3>
-	<p>Download all screenshots + logo <a class="download" title="Download all screenshots and logo" 
-	href="images/«LINK»/«LINK»-screenshots-logo.zip">↓↓↓ (zip archive)</a></p>
-	«GALLERY»
-	
-<h3>Other inquiries</h3>
-<p>Please «CONTACT-TEXT-1» for all unusual requests!</p>
+«PRESS»
