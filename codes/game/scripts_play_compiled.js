@@ -968,7 +968,7 @@ function UpdateLevelData(curlevel){
 function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 	UpdateLevelData(curlevel);
 	leveldata["type"]="checkpoint";
-	leveldata["level"]=String(curlevel)+"."+String(checkpointsaver);
+	leveldata["level"]=String(curlevel)+"»"+String(checkpointsaver);
 	ClearMoves();
 }
 

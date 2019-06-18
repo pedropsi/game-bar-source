@@ -75,7 +75,7 @@
 				if(typeof OverrideMusic!=="undefined")
 					OverrideMusic();
 				/////////////////////////////////////////////////////////////////////////////////////
-				// Game bark
+				// Game bar
 				if(typeof GameBar!=="undefined")
 					AddAfterElement(GameBar(),"#puzzlescript-game")
 
