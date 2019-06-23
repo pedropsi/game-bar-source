@@ -34,7 +34,8 @@ APPLEICON	images/splash.png
 FAVICON32	images/favicon-32x32.png
 PLACEHOLDER-IMAGE	splash.png
 
-HTML-PREFIX	<html prefix="og: http://ogp.me/ns#">
+HTML-PREFIX	<html lang="«LANG»" xml:lang="«LANG»" prefix="og: http://ogp.me/ns#">
+LANG	en
 
 CONTACT_FORM_SRC	https://docs.google.com/forms/d/e/1FAIpQLSc7pMuScBJIJesW4LMXdegzH2nJh5tbnwR8PmqZvyMhNrUl8A/viewform?embedded=true
 RATINGS-URL-VIEW	https://docs.google.com/spreadsheets/d/1hySpQzOdDriPZIx7wG9XQzj_L-cvUmlPYS2odywqhUI/edit#gid=0
@@ -69,8 +70,8 @@ CONTACTAREA	<iframe src="«CONTACT_FORM_SRC»" width="100%" height="500px" framebo
 GUESTBOOK-DISPLAY-URL	https://script.google.com/macros/s/AKfycbzbI9ht52-sWmNcVi4SpQvjhyTtEdSJxTPpfqwuSDTPlQfJJfc/exec
 GUESTBOOK-DISPLAY	OverwriteData("«GUESTBOOK-DISPLAY-URL»","guestbook-area",d=>MakeGuestbook(JSON.parse(d)))
 
-SCRIPT-ASYNC-PRE	<script data-cfasync="false" type="text/javascript" src="
-SCRIPT-PRE	<script type="text/javascript" src="
+SCRIPT-ASYNC-PRE	<script data-cfasync="false" src="
+SCRIPT-PRE	<script src="
 SCRIPT-POS	"></script>
 BEACON-ANALYTICS	«SCRIPT-ASYNC-PRE»codes/analytics.js«SCRIPT-POS»
 BEACON-COM	«SCRIPT-ASYNC-PRE»codes/communication.js«SCRIPT-POS»
@@ -92,7 +93,7 @@ ARCHIVE-TYPE-FEATURED	«FEATURED-ITEM|«SELECTION-TYPE»»
 SELECTION-TAG	Filter:{Tags->_?(NameSelector[«POST»]),Type->_,Day->_?NumberQ,Month->_?NumberQ,Year->_?NumberQ}|SortBy:{Date}|Contain:True
 SELECTION-TYPE	Filter:{Type->_?(NameSelector[«POST»]),Day->_?NumberQ,Month->_?NumberQ,Year->_?NumberQ}|SortBy:{Date}|Contain:True
 
-NAVBAR	<div class="nav">«NAV-LOGO»<nav role="navigation">«NAV-LINK|SortBy:{Nav}|Filter:{Nav->_?NumberQ}|Contain:True»</nav>«RAINBOWLINE»</div>
+NAVBAR	<div class="nav">«NAV-LOGO»<nav>«NAV-LINK|SortBy:{Nav}|Filter:{Nav->_?NumberQ}|Contain:True»</nav>«RAINBOWLINE»</div>
 NAV-LINK	<a href="«LINK».html" class="nav-link" style="max-width: 728px;">«TITLE»</a>
 NAV-LOGO	<a href="index.html"><div class="logo">«LOGO-SVG»</div></a>
 RAINBOWLINE	<div class="rainbowline"></div>
@@ -102,7 +103,7 @@ FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACON-ANALYTICS»«BEACON-CO
 PICTURE	<img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
-FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend" id="post">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
+FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
 
 PUZZLE-SCRIPT	«PUZZLE-LOAD»«HONOURS»
 PUZZLE-LOAD	<script type="text/javascript">PuzzleScript.embed(document.getElementById('«PUZZLE-MARK»'),"«CONTENT»");</script>
@@ -246,6 +247,8 @@ TITLE-YEAR	«TITLE» («YEAR»)
 TITLELONG	«TITLE» - «TAGLINE»
 TITLE-BOLD	<b>«TITLE»</b>
 
+TITLE-CLEAN	«TITLE»
+TITLE-BY-CLEAN	«TITLE-BY»
 
 SELECTION-TYPE	Filter:{Type->«TYPE»,Day->_,Month->_,Year->_,Type->_}|Contain:True»
 SELECTION	Filter:{Selected->_?NumberQ,Day->_?NumberQ,Month->_?NumberQ,Year->_?NumberQ}|SortBy:{Date}|Contain:True

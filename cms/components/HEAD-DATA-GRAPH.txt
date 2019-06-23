@@ -1,5 +1,5 @@
 <title>«TITLE»</title>
-<meta name="description" content="«DESCRIPTION»"> 
+<meta name="description" content="«DESCRIPTION»">
 
 <meta property="og:title" 		content="«TITLE»">
 <meta property="og:description"	content="«DESCRIPTION|Parser:Markshort»">
