@@ -1426,3 +1426,51 @@ function ConsoleLoad(){
 function LaunchConsoleMessage(DP){
 	ConsoleAdd(QuestionHTML(DP));
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+//Music Control
+
+function Playlist(i){
+	if(typeof Playlist.p==="undefined"){
+		Playlist.p=document.getElementsByTagName('audio');
+		Playlist.l=Playlist.p.length;
+	}
+	if(typeof i ==="undefined"){
+		return Playlist.p;
+	}
+	else{
+		Playlist.current=i%Playlist.l;
+		return Playlist.p[Playlist.current];
+	}
+}
+
+function PlaylistLoad(){
+	document.addEventListener('click', PlaylistStartPlay);
+}
+
+function PlaylistStartPlay() {
+	document.removeEventListener('click',PlaylistStartPlay);
+	PlaySong(0);
+}
+
+function PlaySong(i){
+	if(Playlist.l<1)
+		console.log("Empty Playlist...");
+	else{
+		var song=Playlist(i);
+		song.play();
+		song.addEventListener('ended',PlayNextF(song));
+		console.log("Now playing: "+song);
+	}
+}
+
+function PlayNextF(song){
+	return function(){
+		PlaySong(Playlist.current+1);
+		song.removeEventListener('ended',PlayNextF);
+		console.log("Finished playing: "+song);
+	}
+}
+
+PlaylistLoad();

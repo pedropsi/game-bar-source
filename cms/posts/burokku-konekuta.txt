@@ -30,7 +30,9 @@
 		</tbody>
 </table>
 
-<audio src="media/burokku-konekuta/Ju-nya - breeze.mp3" loop="true" autoplay="true"></audio> 
+<audio src="media/burokku-konekuta/Ju-nya - breeze.mp3"></audio> 
+<audio src="media/burokku-konekuta/Ju-nya - Traffic information.mp3"></audio> 
+
 
 «CREDITS-ENGINE-SUPPORT»
 
