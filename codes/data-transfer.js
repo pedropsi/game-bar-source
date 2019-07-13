@@ -1446,12 +1446,13 @@ function Playlist(i){
 }
 
 function PlaylistLoad(){
-	document.addEventListener('click', PlaylistStartPlay);
+	document.addEventListener('click',PlaylistStartPlay);
 }
 
-function PlaylistStartPlay() {
+function PlaylistStartPlay(){
 	document.removeEventListener('click',PlaylistStartPlay);
 	PlaySong(0);
+	console.log("Music on");
 }
 
 function PlaySong(i){
@@ -1473,4 +1474,8 @@ function PlayNextF(song){
 	}
 }
 
-PlaylistLoad();
+PlaylistLoad()
+
+
+
+

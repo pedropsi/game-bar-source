@@ -128,18 +128,15 @@ function OverrideSounds(){
  }};
 
 
-//Music
+/*Music
+function PlaylistGravirinth(){
+	PlayTrack(1);
+	document.removeEventListener('click',PlaylistGravirinth);
+}
+
 function OverrideMusic(){
 	if(OverrideSounds)
 		OverrideSounds();
-	PlayTrack(1);
+	document.addEventListener('click',PlaylistGravirinth);
 };
-
-//Pass management
-function displayError(code,message){
-	console.log("Error: ",code,message);
-	clear_children(document.getElementById("puzzlescript-game"))
-	if(code===200){
-		RequestDataPack([["plain",{questionname:"Wrong password..."}]],{});
-	}
-}
+*/

@@ -671,7 +671,6 @@ function setGameState(a,b,c){
 	}
 	"rebuild"!==b[0]&&clearInputHistory();
 	canvasResize();
-	canYoutube&&"youtube"in state.metadata&&(b=state.metadata.youtube,b="https://www.youtube.com/embed/"+b+"?autoplay=1&loop=1&playlist="+b,ifrm=document.createElement("IFRAME"),ifrm.setAttribute("src",b),ifrm.style.visibility="hidden",ifrm.style.width="500px",ifrm.style.height="500px",ifrm.style.position="absolute",ifrm.style.top="-1000px",ifrm.style.left="-1000px",document.body.appendChild(ifrm))
 }
 
 function RebuildLevelArrays(){level.movements=new Int32Array(level.n_tiles*STRIDE_MOV);level.rigidMovementAppliedMask=[];level.rigidGroupIndexMask=[];level.rowCellContents=[];level.colCellContents=[];level.mapCellContents=new BitVec(STRIDE_OBJ);_movementVecs=[new BitVec(STRIDE_MOV),new BitVec(STRIDE_MOV),new BitVec(STRIDE_MOV)];_o1=new BitVec(STRIDE_OBJ);_o2=new BitVec(STRIDE_OBJ);_o2_5=new BitVec(STRIDE_OBJ);_o3=new BitVec(STRIDE_OBJ);_o4=new BitVec(STRIDE_OBJ);_o5=new BitVec(STRIDE_OBJ);_o6=new BitVec(STRIDE_OBJ);

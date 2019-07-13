@@ -43,6 +43,12 @@
 		</tbody>
 </table>
 
+<audio src="media/platformer-template/Sappheiros - A Tale of Unexplored Worlds.mp3"></audio>
+<audio src="media/platformer-template/Sappheiros - Aurora.mp3"></audio>
+<audio src="media/platformer-template/Sappheiros - Dawn.mp3"></audio>
+<audio src="media/platformer-template/Sappheiros - Fading.mp3"></audio>
+
+
 «CREDITS-ENGINE-SUPPORT»
 
 <h3>Special thanks</h3>

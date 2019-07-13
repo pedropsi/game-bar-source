@@ -35,10 +35,12 @@
 	</thead>
 	<tbody>
 		<tr><td>1914</a></td><td>Gustav Holst</td><td>The Planets, Op. 32 - Venus, The Bringer Of Peace</td><td>US Air Force Band</td><td><a href="https://www.music.af.mil/" «BLANK»>Public Domain</td></tr>
-		<tr><td>1921</td><td>Camille Saint-Saëns</td><td>Bassoon Sonata, Op.168</td><td>Charles Kaufmann</td><td><a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>CC-BY 3.0</a></td>
+		<tr><td>1921</td><td>Camille Saint-Saëns</td><td>Bassoon Sonata, Op.168</td><td>Charles Kaufmann</td><td><a href="https://musopen.org/music/8935-bassoon-sonata-op-168" «BLANK»>CC-BY 3.0</a></td>
 		</tbody>
 </table>
 
+<audio src="media/abxtract-tractx/CSS-BS.mp3"></audio> 
+<audio src="media/abxtract-tractx/GH-P-V.mp3"></audio> 
 
 «CREDITS-ENGINE-SUPPORT»
 
