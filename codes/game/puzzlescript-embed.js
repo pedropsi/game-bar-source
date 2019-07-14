@@ -65,7 +65,8 @@
 				var result = JSON.parse(githubHTTPClient.responseText);
 				var code = result["files"]["script.txt"]["content"];
 				compile(["restart"], code);
-
+				
+				window.scrollTo(0,0);
 				/////////////////////////////////////////////////////////////////////////////////////
 				// Music hook
 				if(typeof OverrideMusic!=="undefined")
