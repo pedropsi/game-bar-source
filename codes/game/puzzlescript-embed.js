@@ -67,18 +67,13 @@
 				compile(["restart"], code);
 
 				/////////////////////////////////////////////////////////////////////////////////////
-				// Game start hook
-				if(typeof GameStart!=="undefined")
-					GameStart();				
-				/////////////////////////////////////////////////////////////////////////////////////
 				// Music hook
 				if(typeof OverrideMusic!=="undefined")
 					OverrideMusic();
 				/////////////////////////////////////////////////////////////////////////////////////
 				// Game bar
-				if(typeof GameBar!=="undefined")
-					AddAfterElement(GameBar(),"#puzzlescript-game")
-
+				if(typeof AddGameBar!=="undefined")
+					AddGameBar();
 			}
 		}
 		githubHTTPClient.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

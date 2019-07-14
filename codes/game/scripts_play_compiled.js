@@ -1573,6 +1573,12 @@ function GameBar(){
 	return ButtonBar(buttons,"GameBar");
 }
 
+function AddGameBar(){
+	var bar=document.getElementById("GameBar");
+	if(bar!==null)
+		bar.parentNode.removeChild(bar);
+	AddAfterElement(GameBar(),"#puzzlescript-game")
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Echo

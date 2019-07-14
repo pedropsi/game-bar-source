@@ -36,10 +36,18 @@
 
 «CREDITS-ENGINE-SUPPORT»
 
+<h2>Featured in</h2>
+<p>««P-PRE»BONTE«P-POS»»'s <a href="https://www.bontegames.com/2019/07/burokku-konekuta-browser.html">blog</a></p>
+
 <h2>F.A.Q.</h2>
 
 <h3>Why is «TITLE-BOLD» in japanese?</h3>
 <p>Japanese culture values tidiness often.</p>
+
+<h3>Is there a version of «TITLE-BOLD» without the motion indicators?</h3>
+<p>Yes, in case you find them distracting. This was suggested by ««P-PRE»HAZELDEN«P-POS»».</p>
+<div class="button" onclick="PuzzleScript.embed(document.getElementById('puzzlescript-game'),'23a48efa1bad64ee435e63882c0efeb2');">Remove motion indicators!</div>
+
 
 <h2>Changelog</h2>
 <h3>07/2019</h3>
