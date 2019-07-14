@@ -312,9 +312,9 @@ function OpenModalPreOrder(campaigntext){
 //////////////////////////////////////////////////////////////////////
 //News
 function News(){
-	if(pageIdentifier()!=="platformer-template"&&!inConfig("📰»"))
+	if(pageIdentifier()!=="burokku-konekuta"&&!inConfig("📰»"))
 		RequestDataPack([["plain",{
-		questionname:"<b>Pedro PSI's <em>news service</em>:</b><a href='platformer-template.html' target='_blank'> Platformer Template released!</a>"}]],{
+		questionname:"<b>Pedro PSI's <em>news service</em>:</b><a href='burokku-konekuta.html' target='_blank'> Burokku Konekuta がリリースされました!</a>"}]],{
 			qdisplay:LaunchConsoleMessage});
 		activateConfig("📰»");
 };
