@@ -2,7 +2,7 @@
 <p>This is a <em>short</em> list of <em>very good</em> puzzlescript games, in «MY» opinion. It serves as a <em>«PERSONAL»</em>, yet publicly shared, reference (to be updated whenever needed). </p>
 
 <h2>Criteria</h2>
-<p>The list focusses on games released within the years <em>2014-2018</em>, yet many during this period were overlooked. As long as they match the <b>criteria</b> below, suggestions are «CONTACT-TEXT-5».</p>
+<p>The list focusses on games released within the years <em>2014-2019</em>, yet many during this period were overlooked. As long as they match the <b>criteria</b> below, suggestions are «CONTACT-TEXT-5». </p>
 <p>Please be aware that there's a separate list for <a href="games.html">«NAME»'s games</a>.</p>
 
 <h3>Inclusion criteria:</h3>
