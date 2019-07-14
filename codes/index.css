@@ -242,23 +242,24 @@ nav {
     transition-duration: var(--duration);
 }
 
-.button:hover,.button:active,
-.button:hover a,.button:active a,
-.nav-link:hover,.nav-link:active,
-.text a:hover,.text a:active,
-p a:hover,p a:active,
-.tag:hover, .tag:active,
-.mini:hover .tag, .mini:active .tag,
-.mini:hover h3, .mini:active h3,
-.mini:hover, .mini:active,
-.card:hover, .card:active,
+.button:hover,.button:active,.button:focus,
+.button:hover a,.button:active a,.button:focus a,
+.nav-link:hover,.nav-link:active,.nav-link:focus,
+.text a:hover,.text a:active,.text a:focus,
+p a:hover,p a:active,p a:focus,
+.tag:hover,.tag:active,.tag:focus,
+.mini:hover .tag,.mini:active .tag,.mini:focus .tag,
+.mini:hover h3,.mini:active h3,.mini:focus h3,
+.mini:hover,.mini:active,.mini:focus,
+.card:hover,.card:active,.card:focus,
 .selected {
-    color: var(--turquoise) ;
+    color: var(--turquoise);
     text-decoration-color: currentColor;
     text-decoration-style:solid ;
     background-color: var(--darkblue);
     transition-duration: var(--duration);
     cursor:pointer;
+    outline: none;
 }
 
 .mini .tag:hover {
@@ -907,7 +908,7 @@ modal .closer {
     transition-duration: var(--duration);
 }
 
-.mini .buttonrow .tag:hover {
+.mini .buttonrow .tag:hover,.mini .buttonrow .tag:focus {
     border-bottom-color: currentColor;
     color:var(--darkblue);
     background-color: var(--white);
