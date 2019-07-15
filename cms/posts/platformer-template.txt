@@ -62,9 +62,9 @@
 <p>«NAME» intended to close <a href="2019-04-14-a-game-making-journey.html">2018's cycle of puzzlescript games</a> by teaching others - «TITLE-BOLD» emerged naturally from this intention.</p>
 
 <h3>How is beating «TITLE-BOLD»'s an achievement?</h3>
-<p>It takes on average 4 enjoyable hours to solve all levels in «NAME», but only 4% of all players so far qualified for the «HOF».</p>
+<p>It takes on average 4 enjoyable hours to solve all levels in «TITLE-BOLD», but only 4% of all players so far qualified for the «HOF».</p>
 
-<h3>Does the high difficulty prevent «NAME»'s teaching goals?</h3>
+<h3>Does the high difficulty prevent «TITLE-BOLD»'s teaching goals?</h3>
 <p>Since all levels are accessible via the level selector, all players regardless of ability can follow every lesson.</p>
 
 
