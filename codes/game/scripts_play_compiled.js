@@ -1567,7 +1567,8 @@ function GameBar(){
 		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
 		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonOnClickHTML("Feedback",'RequestGameFeedback()'),
-		ButtonLinkHTML("Credits")
+		ButtonLinkHTML("Credits"),
+		ButtonOnClickHTML("♫",'ToggleCurrentSong(this)')
 	].join("")
 	
 	return ButtonBar(buttons,"GameBar");

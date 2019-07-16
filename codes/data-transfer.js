@@ -1445,6 +1445,8 @@ function Playlist(i){
 	}
 }
 
+Playlist.ConsoleAdd=function(message){ConsoleAdd(message,1500)};
+
 function PlaylistLoad(){
 	document.addEventListener('click',PlaylistStartPlay);
 }
@@ -1474,7 +1476,35 @@ function PlayNextF(song){
 	}
 }
 
-PlaylistLoad()
+function PauseSong(song){
+	if ((typeof song!=="undefined")&&!song.paused){
+		song.pause();
+		Playlist.ConsoleAdd("Music paused...");
+	}
+}
+
+function ResumeSong(song){
+	if ((typeof song!=="undefined")&&song.paused){
+		song.play();
+		var name=pageRelativePath(song.src).replace(/.*\//,"").replace(/\..*/,"").replace(/\%20/g," ");
+		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+name);
+	}
+}
+
+function ToggleCurrentSong(thi){
+	//Toggle button appearance
+	if(thi)thi.classList.toggle("selected");
+	//Toggle song
+	var song=Playlist.p[Playlist.current];
+	if(typeof song==="undefined")
+		Playlist.ConsoleAdd("Error: can't find the jukebox...");
+	else if (song.paused){
+		ResumeSong(song);
+	}
+	else PauseSong(song);
+}
+
+PlaylistLoad();
 
 
 
