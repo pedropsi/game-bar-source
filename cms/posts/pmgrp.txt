@@ -14,8 +14,6 @@
 
 «CREDITS»
 
-<audio src="media/pmgrp/Tim Beek - Space Flight.mp3"></audio> 
-
 <h3>Special thanks</h3>
 <p>««P-PRE»WAINWRIGHT«P-POS»», for impressive feedback, both in quality and quantity (see changelogs below).</p>
 <p>««P-PRE»PUZZLESCRIPT«P-POS»» ««P-PRE»PERCONTI«P-POS»», ««P-PRE»THATSCAR«P-POS»», ««P-PRE»HAZELDEN«P-POS»» and ««P-PRE»LAVELLE«P-POS»» for different levels of feedback.</p>

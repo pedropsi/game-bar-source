@@ -11,5 +11,3 @@
 «GAME-EXTRAS-TEXT»
 
 «CREDITS»
-
-<audio src="media/tetrastrophe/Longzijun - Arpology 1, Frantic Sax version.mp3"></audio> 

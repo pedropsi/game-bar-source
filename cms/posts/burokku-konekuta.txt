@@ -8,33 +8,7 @@
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
 
-<h2>Credits</h2>
-«CREDITS-AUTHORSHIP»
-
-<h3>Music</h3>
-<p>All background music by ««P-PRE»JUNYA«P-POS»» «LICENSE-CC-BY-3.0».</p>
-<table class="top-left">
-	<thead>
-		<tr><th>Year</th>
-		<th>Title</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td>2012</td>
-			<td><a href="https://soundcloud.com/ju-nya/breeze" «BLANK»>Breeze</a></td>
-		</tr>
-		<tr>
-			<td>2012</td>
-			<td><a href="https://soundcloud.com/ju-nya/traffic-information" «BLANK»>Traffic Information</a></td>
-		</tr>
-		</tbody>
-</table>
-
-<audio src="media/burokku-konekuta/Ju-nya - breeze.mp3"></audio> 
-<audio src="media/burokku-konekuta/Ju-nya - Traffic information.mp3"></audio> 
-
-
-«CREDITS-ENGINE-SUPPORT»
+«CREDITS»
 
 <h2>Featured in</h2>
 <p>««P-PRE»BONTE«P-POS»»'s <a href="https://www.bontegames.com/2019/07/burokku-konekuta-browser.html">blog</a></p>

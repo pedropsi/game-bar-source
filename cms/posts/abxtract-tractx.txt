@@ -28,19 +28,7 @@
 </table>
 
 <h3>Classical Music</h3>
-<p>All classical music scores used in the background are too in the public domain. The recordings fall under the licenses listed below.</p>
-<table class="top-left">
-	<thead>
-		<tr><th>Year</th><th>Composer</th><th>Title</th><th>Performer</th><th>License</th></tr>
-	</thead>
-	<tbody>
-		<tr><td>1914</a></td><td>Gustav Holst</td><td>The Planets, Op. 32 - Venus, The Bringer Of Peace</td><td>US Air Force Band</td><td><a href="https://www.music.af.mil/" «BLANK»>Public Domain</td></tr>
-		<tr><td>1921</td><td>Camille Saint-Saëns</td><td>Bassoon Sonata, Op.168</td><td>Charles Kaufmann</td><td><a href="https://musopen.org/music/8935-bassoon-sonata-op-168" «BLANK»>CC-BY 3.0</a></td>
-		</tbody>
-</table>
-
-<audio src="media/abxtract-tractx/Camille Saint-Saens - Bassoon Sonata.mp3"></audio> 
-<audio src="media/abxtract-tractx/Gustav Holst - The Planets, Venus.mp3"></audio> 
+«CREDITS-MUSIC»
 
 «CREDITS-ENGINE-SUPPORT»
 

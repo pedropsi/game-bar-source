@@ -1528,7 +1528,7 @@ function PauseSong(song){
 function ResumeSong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
-		var name=pageRelativePath(song.src).replace(/.*\//,"").replace(/\..*/,"").replace(/\%20/g," ");
+		var name=pageRelativePath(song.src).replace(/.*\//,"").replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"").replace(/\%20/g," ");
 		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+name);
 	}
 }

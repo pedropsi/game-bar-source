@@ -10,8 +10,6 @@
 
 «CREDITS»
 
-<audio src="media/hastefulll/Kevin McLeod - Garden Music.mp3"></audio> 
-
 <h2>Featured in</h2>
 <p>««P-PRE»BONTE«P-POS»»'s <a href="https://www.bontegames.com/2018/07/hastefulll-browser.html">blog</a></p>
 

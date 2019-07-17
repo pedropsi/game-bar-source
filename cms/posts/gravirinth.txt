@@ -96,47 +96,7 @@
 «GAME-EXTRAS-TEXT»
 
 
-<h2>Credits</h2>
-«CREDITS-AUTHORSHIP»
-«CREDITS-ENGINE-SUPPORT»
-
-
-<h3>Music</h3>
-<p>All «TITLE-BOLD»'s background music by ««P-PRE»STELLARDRONE«P-POS»», under a <a href="https://creativecommons.org/licenses/by/3.0/" «BLANK»>CC BY 3.0</a> license:</p>
-<table class="top-left">
-	<thead>
-		<tr><th>Track</th><th>Album</th><th>Year</th></tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Eternity</td>
-			<td><a href="https://stellardrone.bandcamp.com/album/light-years" «BLANK»>Light Years</a></td>
-			<td>2013</td>
-			</tr>
-		<tr>
-			<td>Comet Halley</td>
-			<td><a href="https://stellardrone.bandcamp.com/album/light-years" «BLANK»>Light Years</a></td>
-			<td>2013</td>
-		</tr>
-		<tr>
-			<td>Billions and billions</td>
-			<td><a href="https://stellardrone.bandcamp.com/album/a-moment-of-stillness" «BLANK»>A moment of stillness</a></td>
-			<td>2011</td>
-		</tr>
-		<tr>
-			<td>Twilight</td>
-			<td><a href="https://stellardrone.bandcamp.com/album/a-moment-of-stillness" «BLANK»>A moment of stillness</a></td>
-			<td>2011</td>
-			</tr>
-		<tr>
-			<td>Between The Rings</td>
-			<td><a href="https://stellardrone.bandcamp.com/album/between-the-rings" «BLANK»>Between The Rings</a></td>
-			<td>2017</td>
-			</tr>
-		</tbody>
-</table>
-<p>Playback is managed by the <a href="https://github.com/goldfire/howler.js" «BLANK»>Howler</a> code base.</a> 
-<script src="codes/lib/howler.js"></script>
+«CREDITS»
 
 <h3>Special thanks</h3>
 <p>All beta testers for their comprehensive feedback! Among them a special mention to ««P-PRE»LESLO«P-POS»» for outstanding help.</p>

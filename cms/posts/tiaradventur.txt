@@ -38,70 +38,7 @@
 <p>The game <em>saves automatically</em> whenever the <b>Princess</b> <em>safely</em> enters an area containing a new <b>tiara</b>.</p>
 «GAME-EXTRAS-TEXT»
 
-<h2>Credits</h2>
-<p><a href="«SITE»/«LINK».html">«TITLE»</a> by <a href="«SITE»">«NAME»</a>, «YEAR».</p>
-
-<h3>Music</h3>
-<p>All music tracks by the talented ««P-PRE»WHITESAND«P-POS»».
-
-<table class="top-left">
-	<thead>
-		<tr>
-		<th>Year</th>
-		<th>Title</th>
-		<th>License</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>2017</td>
-			<td>Legend of the King</td>
-			<td><a href="«YT-URL»ntGWv8F_ccM" «BLANK»>Creative Commons / Copyright Free</a></td>
-		</tr>
-		<tr>
-			<td>2016</td>
-			<td>Beyond</td>
-			<td><a href="«YT-URL»f2bXIBxWOMI" «BLANK»>Creative Commons / Copyright Free</a></td>
-		</tr>
-		<tr>
-			<td>2017</td>
-			<td>Changing Lights</td>
-			<td><a href="«YT-URL»iUMdtfy1H6k" «BLANK»>"You can use this music for as long as you credit (...)."</a></td>
-		</tr>
-		<tr>
-			<td>2017</td>
-			<td>Eternity</td>
-			<td><a href="«YT-URL»X5c83Uixoj8" «BLANK»>Creative Commons / Copyright Free</a></td>
-		</tr>
-		<tr>
-			<td>2017</td>
-			<td>Friendly Storm</td>
-			<td><a href="«YT-URL»o69aJ7eJkJ4" «BLANK»>Creative Commons / Copyright Free</a></td>
-		</tr>
-		<tr>
-			<td>2017</td>
-			<td>Your Voice</td>
-			<td><a href="«YT-URL»h-Bf7J2SvV8" «BLANK»>Creative Commons / Royalty Free</a></td>
-		</tr>
-		<tr>
-			<td>2018</td>
-			<td>Monsters</td>
-			<td><a href="«YT-URL»g7PRK2W1jCo" «BLANK»>Creative Commons / Copyright Free</a></td>
-		</tr>
-		</tbody>
-</table>
-
-
-<audio src="media/tiaradventur/Whitesand - Legend of the king.mp3"></audio>
-<audio src="media/tiaradventur/Whitesand - Beyond.mp3"></audio>
-
-<audio src="media/tiaradventur/Whitesand - Eternity.mp3"></audio>
-<audio src="media/tiaradventur/Whitesand - Friendly Storm.mp3"></audio>
-
-<audio src="media/tiaradventur/Whitesand - Monsters.mp3"></audio>
-
-
-«CREDITS-ENGINE-SUPPORT»
+«CREDITS»
 
 <h3>Special thanks</h3>
 <h4>09/2018</h4>

@@ -8,48 +8,7 @@
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
 
-<h2>Credits</h2>
-«CREDITS-AUTHORSHIP»
-
-<h3>Music</h3>
-<p>All background music by ««P-PRE»SAPPHEIROS«P-POS»» «LICENSE-CC-BY-3.0».</p>
-<table class="top-left">
-	<thead>
-		<tr><th>Year</th>
-		<th>Title</th>
-		<th>Genre</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td>2016</td>
-			<td>Aurora</td>
-			<td>Chillstep</td>
-		</tr>
-		<tr>
-			<td>2016</td>
-			<td>A tale of unexplored worlds</td>
-			<td>Chillstep</td>
-		</tr>
-		<tr>
-			<td>2017</td>
-			<td>Fading</td>
-			<td>Drum & Bass</td>
-		</tr>
-		<tr>
-			<td>2017</td>
-			<td>Dawn</td>
-			<td>Chillstep</td>
-		</tr>
-		</tbody>
-</table>
-
-<audio src="media/platformer-template/Sappheiros - A Tale of Unexplored Worlds.mp3"></audio>
-<audio src="media/platformer-template/Sappheiros - Aurora.mp3"></audio>
-<audio src="media/platformer-template/Sappheiros - Dawn.mp3"></audio>
-<audio src="media/platformer-template/Sappheiros - Fading.mp3"></audio>
-
-
-«CREDITS-ENGINE-SUPPORT»
+«CREDITS»
 
 <h3>Special thanks</h3>
 <p>««P-PRE»HUNKYDORY«P-POS»» and ««P-PRE»ZABEL«P-POS»» for spotting two rare yet important bugs.</p>
