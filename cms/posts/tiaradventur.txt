@@ -92,13 +92,13 @@
 </table>
 
 
-<audio src="media/tiaradventur/Legend-of-the-king.mp3"></audio>
-<audio src="media/tiaradventur/Beyond.mp3"></audio>
+<audio src="media/tiaradventur/Whitesand - Legend of the king.mp3"></audio>
+<audio src="media/tiaradventur/Whitesand - Beyond.mp3"></audio>
 
-<audio src="media/tiaradventur/Eternity.mp3"></audio>
-<audio src="media/tiaradventur/Friendly Storm.mp3"></audio>
+<audio src="media/tiaradventur/Whitesand - Eternity.mp3"></audio>
+<audio src="media/tiaradventur/Whitesand - Friendly Storm.mp3"></audio>
 
-<audio src="media/tiaradventur/Monsters.mp3"></audio>
+<audio src="media/tiaradventur/Whitesand - Monsters.mp3"></audio>
 
 
 «CREDITS-ENGINE-SUPPORT»

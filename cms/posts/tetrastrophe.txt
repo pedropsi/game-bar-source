@@ -12,4 +12,4 @@
 
 «CREDITS»
 
-<audio src="media/tetrastrophe/Arpology 1 Frantic Sax version by longzijun.mp3"></audio> 
+<audio src="media/tetrastrophe/Longzijun - Arpology 1, Frantic Sax version.mp3"></audio> 

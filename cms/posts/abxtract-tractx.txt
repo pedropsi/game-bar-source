@@ -39,8 +39,8 @@
 		</tbody>
 </table>
 
-<audio src="media/abxtract-tractx/CSS-BS.mp3"></audio> 
-<audio src="media/abxtract-tractx/GH-P-V.mp3"></audio> 
+<audio src="media/abxtract-tractx/Camille Saint-Saens - Bassoon Sonata.mp3"></audio> 
+<audio src="media/abxtract-tractx/Gustav Holst - The Planets, Venus.mp3"></audio> 
 
 «CREDITS-ENGINE-SUPPORT»
 
