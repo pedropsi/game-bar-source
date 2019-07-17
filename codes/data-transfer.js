@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', IndexTitles, false);
 //Unique random identifier
 var UID=""
 function UserId(){
-	if (UID==="")
+	if(UID==="")
 		UID=GenerateId();
 	return UID;
 }
@@ -315,7 +315,7 @@ function echoPureData(data,url){
 		return;
 	};
 	// url encode form data for sending as post data
-	var encoded = Object.keys(data).map(function(k) {
+	var encoded = Object.keys(data).map(function(k){
 		return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
 	}).join('&')
 	xhr.send(encoded);	
@@ -380,7 +380,7 @@ function TextReplaceOnce(txt){
 }
 
 function TextReplacerCMS(txt){
-	return txt.replace(/\«([^\»\«]+?)\:([^\»\«]+?)\»/g,function (match,param,action) {
+	return txt.replace(/\«([^\»\«]+?)\:([^\»\«]+?)\»/g,function (match,param,action){
 		switch (action.toLowerCase()){
 			case "load":
 				return CMSItemProperty(CMSItemCurrent(),param);break;
@@ -507,7 +507,7 @@ function RemoveElement(elementID){
 //////////////////////////////////////////////////
 // Scroll into
 
-function ScrollInto(elementSelector) {
+function ScrollInto(elementSelector){
   var e = document.querySelector(elementSelector);
   e.scrollIntoView();
 }
@@ -624,9 +624,9 @@ LOADID="markdown";
 
 // Download
 // https://stackoverflow.com/questions/13405129/javascript-create-and-save-file
-function Download(data, filename, type) {
+function Download(data, filename, type){
     var file = new Blob([data], {type: type});
-    if (window.navigator.msSaveOrOpenBlob) // IE10+
+    if(window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
     else { // Others
         var a = document.createElement("a"),
@@ -635,7 +635,7 @@ function Download(data, filename, type) {
         a.download = filename;
         document.body.appendChild(a);
         a.click();
-        setTimeout(function() {
+        setTimeout(function(){
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);  
         }, 0); 
@@ -697,11 +697,11 @@ ToggleEdit=function(){
 
 document.onkeydown=function(e){
 	 // Cmd + Q -> Save
-	 if (e.keyCode == 81 && e.ctrlKey){
+	 if(e.keyCode == 81 && e.ctrlKey){
 		  ToggleEdit();
      }
 	 // Esc -> Don't save
-	 else if (e.keyCode == 27 ){
+	 else if(e.keyCode == 27 ){
 		  ClosePageEditNode();
      };
 };
@@ -748,7 +748,7 @@ function ButtonOnClickHTML(title,onclicktxt){
 }
 
 function ButtonLinkHTML(title){
-	return ButtonHTML({tag:"a",txt:title,attributes:{href:"#"+IDfy(title)}});
+	return ButtonHTML({tag:"a",txt:title,attributes:{href:"#"+IDfy(title),onclick:"FullscreenClose()"}});
 }
 
 function CloseButtonHTML(targetid){
@@ -925,6 +925,11 @@ function RequestDataPack(NamedFieldArray,Options){
 		DPHistoryAdd(DP);
 		
 		DP.qdisplay(DP);
+		
+		var firstquestion=document.querySelectorAll("#"+DP.qid+" textarea, "+"#"+DP.qid+" input");
+		if(firstquestion&&firstquestion[0])
+			firstquestion[0].focus();
+		
 		return DP;
 	}
 };
@@ -992,7 +997,7 @@ function QuestionHTML(DP){
 	//!!! Outgrow for simple DP
 	var SubQuestions=Fields.map(SubQuestionHTML).join("");
 	var SubmissionButton="";
-	if (Fields.some(dp=>dp.qsubmittable))
+	if(Fields.some(dp=>dp.qsubmittable))
 		SubmissionButton=SubmitButtonHTML(DP);
 	return '<div id="'+DP.qid+'">'+SubQuestions+SubmissionButton+"</div>";
 }
@@ -1053,7 +1058,7 @@ function ToggleThisOnly(ev,thi){
 	var siblings=thi.parentNode.childNodes;
 	var i=0;
 	while (i<siblings.length){
-		if (siblings[i]!==thi){
+		if(siblings[i]!==thi){
 		siblings[i].classList.remove("selected");}
 		else{
 		siblings[i].classList.remove("selected");
@@ -1267,7 +1272,7 @@ function GetDefaultData(field,id){
 		return data;
 	else{
 		data=GetFieldValue(field,id);
-		if (data!==undefined)
+		if(data!==undefined)
 			return data;
 		return PreviousSubmission(field)
 	}
@@ -1287,7 +1292,7 @@ function GetField(field,parentid){
 	var DP=GetDataPack(parentid)
 	if(DP!==undefined){
 		var fis=DP.fields.filter(f=>(f.qfield===field));
-		if (fis.length>0)
+		if(fis.length>0)
 			return fis[0];
 	}
 }
@@ -1361,6 +1366,7 @@ function LaunchThanksModal(DP){
 	RequestDataPack(
 		[['plain',{questionname:DP.thanksmessage,destination:""}]],
 		{qtargetid:DP.qtargetid,qdisplay:LaunchModal});
+	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1383,7 +1389,7 @@ function PatternValidatorGenerator(pattern,errormessage){
 		var string=FindData(DF.qfield,DF.qid);
 		if((typeof string!=="undefined")&&(string.match(pattern)!==null))
 			return {valid:true,error:"none"}
-		else if (DF.qerrorcustom!=='')
+		else if(DF.qerrorcustom!=='')
 			return {valid:false,error:DF.qerrorcustom}
 		else
 			return {valid:false,error:errormessage}
@@ -1513,14 +1519,14 @@ function PlayNextF(song){
 }
 
 function PauseSong(song){
-	if ((typeof song!=="undefined")&&!song.paused){
+	if((typeof song!=="undefined")&&!song.paused){
 		song.pause();
 		Playlist.ConsoleAdd("Music paused...");
 	}
 }
 
 function ResumeSong(song){
-	if ((typeof song!=="undefined")&&song.paused){
+	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		var name=pageRelativePath(song.src).replace(/.*\//,"").replace(/\..*/,"").replace(/\%20/g," ");
 		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+name);
@@ -1534,7 +1540,7 @@ function ToggleCurrentSong(thi){
 	var song=Playlist.p[Playlist.current];
 	if(typeof song==="undefined")
 		Playlist.ConsoleAdd("Error: can't find the jukebox...");
-	else if (song.paused){
+	else if(song.paused){
 		ResumeSong(song);
 	}
 	else PauseSong(song);
@@ -1543,5 +1549,41 @@ function ToggleCurrentSong(thi){
 PlaylistLoad();
 
 
+///////////////////////////////////////////////////////////////////////////////
+//Fullscreen
 
+function FullScreenOpen(id){
+	var e = document.querySelector(id);
+	if(e.requestFullscreen){
+		e.requestFullscreen();
+	} else if(e.mozRequestFullScreen){ /* Firefox */
+		e.mozRequestFullScreen();
+	} else if(e.webkitRequestFullscreen){ /* Chrome, Safari and Opera */
+		e.webkitRequestFullscreen();
+	} else if(e.msRequestFullscreen){ /* IE/Edge */
+		e.msRequestFullscreen();
+	}
+}
 
+function FullscreenClose(){
+	if(document.fullscreenElement){
+		if(document.exitFullscreen){
+			document.exitFullscreen();
+		} else if(document.mozCancelFullScreen){ /* Firefox */
+			document.mozCancelFullScreen();
+		} else if(document.webkitExitFullscreen){ /* Chrome, Safari and Opera */
+			document.webkitExitFullscreen();
+		} else if(document.msExitFullscreen){ /* IE/Edge */
+			document.msExitFullscreen();
+		}
+	}
+}
+
+function ToggleFullscreen(id,thi){
+	if(thi)thi.classList.toggle("selected");
+	if(document.fullscreenElement){
+		FullscreenClose();
+	}
+	else
+		FullScreenOpen(id);
+};
