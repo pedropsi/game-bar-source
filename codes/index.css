@@ -931,16 +931,50 @@ modal .closer {
     text-align: right;
     border-bottom-color: var(--yellow);
 }
+
+
+.comment[data-depth]{
+    margin-left:var(--h64);
+}
+.comment[data-depth="1"]{
+    margin-left:unset;
+}
+.comment[data-depth="2"]{
+    margin-left:var(--h2);
+}
+.comment[data-depth="3"]{
+    margin-left:var(--h4);
+}
+.comment[data-depth="4"]{
+    margin-left:var(--h8);
+}
+.comment[data-depth="5"]{
+    margin-left:var(--h16);
+}
+.comment[data-depth="6"]{
+    margin-left:var(--h32);
+}
+.comment[data-depth="7"]{
+    margin-left:var(--h64);
+}
+
 .comment .date{
-    padding: var(--h1) var(--w2) var(--h1) var(--w2);
+    padding: var(--h-2) var(--w2) var(--h1) var(--w2);
     text-align: right;
     flex-grow: 1;
 }
-
 .comment:nth-child(odd) .date{
     background-color:var(--yellow);
     text-align: left;
 }
+.comment .button{
+    align-self: flex-start;
+    margin: 0;
+}
+.comment:nth-child(odd) .button{
+    align-self: flex-end;
+}
+
 .comment p{
     padding: 0px var(--w2) 0px var(--w2);
     font-size: 90%;

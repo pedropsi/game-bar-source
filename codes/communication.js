@@ -43,13 +43,14 @@ function AnonimiseBlank(name){
 
 var DESTINATION_GUESTBOOK={
 	url:DESTINATION_HOF.url,
-	headers:"[\"name\",\"identifier\",\"comment\"]",
+	headers:"[\"name\",\"identifier\",\"comment\",\"id\"]",
 	sheet:"Guestbook",
 	name:"Guestbook",
 	Data:function(qid){return {
 		identifier:pageTitle(),
 		comment:FindData("answer",qid),
-		name:AnonimiseBlank(FindData("name",qid))
+		name:AnonimiseBlank(FindData("name",qid)),
+		id:RequestMessageReply.currentid
 		}}
 	}
 
@@ -254,6 +255,22 @@ function RequestGuestbook(){
 		}
 	)
 }
+
+function RequestMessageReply(nid){
+	RequestMessageReply.currentid=nid;
+	RequestDataPack([
+		['answer',{
+			questionname:"Your polite reply",
+			qplaceholder:"I concur/beg to differ ...",
+			thanksmessage:"Your reply has been posted! Thank you."}],
+		['alias',{}]
+	],{
+		destination:'Guestbook'
+		/*,qonsubmit:function(DP){LaunchThanksModal(DP);RefreshData["guestbook-area"]()}*/
+		}
+	)
+}
+
 
 function commentAddress(e){
 	var f=1;
