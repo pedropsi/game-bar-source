@@ -457,6 +457,9 @@ li {
     height:calc(87vh);
     width: 100%;
 }
+.game-container:fullscreen #gameCanvas {
+    height:calc(96vh);
+}
 
 .post {
     padding: var(--h4) var(--w4) var(--h4) var(--w4);
