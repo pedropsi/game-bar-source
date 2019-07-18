@@ -1568,7 +1568,8 @@ function GameBar(){
 		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonOnClickHTML("Feedback",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
-		ButtonOnClickHTML("♫",'ToggleCurrentSong(this)')
+		ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),
+		ButtonOnClickHTML("◱",'ToggleFullscreen(".game-container",this)')
 	].join("")
 	
 	return ButtonBar(buttons,"GameBar");
