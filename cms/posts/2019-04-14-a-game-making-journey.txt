@@ -1,5 +1,5 @@
 ﻿<h2>Introduction</h2>
-<p>Here «I» share my game making journey, comprising 11 games designed as learning side-project, 7 of them programmed in 2018, including one commercial game launched in <a href="gravirinth.html">early 2019</a>. After a brief motivation, the challenges, achievements and lessons learned from each game are summarised, with the hope that they may inform fellow travellers.</p>
+<p>Here «I» share «MY» game making journey, comprising 11 games designed as learning side-project, 7 of them programmed in 2018, including one commercial game launched in <a href="gravirinth.html">early 2019</a>. After a brief motivation, the challenges, achievements and lessons learned from each game are summarised, with the hope that they may inform fellow travellers.</p>
 
 <h2>The journey</h2>
 <h3>Early seeds</h3>
@@ -22,7 +22,7 @@
 <h4>#2 Tetrastrophe - a twist on a classic</h4>
 <p>After a first disappointing attempt, «I» used simpler colours and gradually introduced the player to the different rules, in a new, already enjoyable puzzle named <a href="tetrastrophe.html">Tetrastrophe</a>, featuring a nice music soundtrack. Despite the obvious source of inspiration, this was an innovative game, combining puzzling elements with real time action.</p>
 <p>Unfortunately, this innovation made the game extremely hard for all players, prompting the release of a modified version at a slower pace. Sadly, this version was now too easy! Should a third version be released then? Thereafter the need to manage versions and the proliferation of links called for <a href="gist.github.com">github's gists</a>.</p>
-<p> After all this, «I» learned that my classic source of inspiration was still protected by copyright, so «I» questioned the implications. Given the substantially unique character of Tetrastrophe (interactions of player with falling blocks, different area geometries, game goals, variety in piece shapes, absence of scoring, etc...) it turns out there are none, but this should have been determined at the design stage.</p>
+<p> After all this, «I» learned that «MY» classic source of inspiration was still protected by copyright, so «I» questioned the implications. Given the substantially unique character of Tetrastrophe (interactions of player with falling blocks, different area geometries, game goals, variety in piece shapes, absence of scoring, etc...) it turns out there are none, but this should have been determined at the design stage.</p>
 
 <h5>Achievements</h5>
 <ul>
@@ -114,7 +114,7 @@
 <h4>#7 Play Mini Gemini Replay (PMGRP) - bold design</h4>
 <p><a href="pmgrp.html">PMGRP</a> is a bold game on many fronts: from an extremely long name and an exaggerated animated generative decorative circuitry to a completely original game mechanic - a future self repeats the movements of the present self, yet both interact in unexpected ways - guided by a pedagogical dialogue between an implicit master and a pupil (with extensive English idiomatic wordplay) and ending with an optimistic tone (help yourself, prepare your future, chase your dreams).</p>
 <p>Another interesting aspect is the ultra-minimal colour palette, with just 4 colours. Dark green (background and circuit animations), Green (walls), Yellow (past player, animated goal and respawn markers, moves' register) and orange (the player avatar, equal in all games).</p>
-<p> «I'm» quite proud of PMGRP because it got into the Puzzlescript gallery and was worthy of spontaneous appreciation by people «I» hadn't known before. Yet it was never perfect - the physics, animation and some levels had to be tweaked following feedback from a very enthusiastic fan. This made me realise that the more polished the game, the more exposure it gets, raising the bar and inviting further improvements (a potentially long process). In this line, the music track (by «AG-PRE»pmgrp«AG-POS») might have been too bold and short (to the point of annoyance).</p>
+<p> «I'm» quite proud of PMGRP because it got into the Puzzlescript gallery and was worthy of spontaneous appreciation by people «I» hadn't known before. Yet it was never perfect - the physics, animation and some levels had to be tweaked following feedback from a very enthusiastic fan. This made «ME» realise that the more polished the game, the more exposure it gets, raising the bar and inviting further improvements (a potentially long process). In this line, the music track (by «AG-PRE»pmgrp«AG-POS») might have been too bold and short (to the point of annoyance).</p>
 <p> Lastly, with PMGRP the integrated «HOF» was launched, eventually with an option to receive direct messages from winners - this flexibility is one of the benefits from using your own site. As «I» also had the game in other platforms but got tired of checking different sites «I» made the decision to limit releases to the «SITE-NAME».</p>
 
 <h5>Achievements</h5>
@@ -154,7 +154,7 @@
 <h4>#9 Tiaradventur - the long game </h4>
 <p>Encouraged by previous success, «I» felt ready to tackle the old, failed, puzzle-RPG project, despite initial fears. «I» planned the game carefully, coded the different interacting elements one by one after testing all edge cases, and mastered the <em>puzzlescript loop</em>. Suddenly ambition struck. A mere sequence of levels was no longer satisfying - <a href="tiaradventur.html">Tiaradventur</a> demanded an open map, allowing inter-level connections. Then, every level morphed into two levels (one easy level, to retrieve the broken Tiara, plus a hard level, to retrieve the unbroken Tiara) to cater for players of different skills. On top of this, the wolves and the princess were to behave smartly (using a pathfinding AI)! </p>
 <p> Given the dynamic levels (floating crates and burning trees open new paths; other paths are blocked by displacing crates and boulders), the above became the perfect debugging nightmare, but «I» persevered, for Tiaradventur would be special. How special? Beyond the challenging puzzles, whose new physics-inspired mechanics trump even experienced players, and part of which involve evading and fighting wolves with a sword, picked like any RPG item, the story is revealed by the princess as the game progresses, along with specific level hints. As the princess reveals more about her family and current situation, she may develop a relationship with the Hero (our avatar) - culminating with an hidden ending shall a secret item be found. In short, Tiaradventur would be a tough <b>puzzle</b> and a nice <b>RPG</b>...</p>
-<p>Or so «I» thought. A month after starting the project, having found an epic music playlist by «AG-PRE»tiaradventur«AG-POS» and a way to integrate it with the game, «I» felt it was taking too much time and rushed ahead with the release. This was a mistake, because some bugs were still unaddressed, which caused lukewarm first impressions. Later I've polished Tiaradventur and received tremendous feedback, but that didn't make for the wasted opportunity.</p>
+<p>Or so «I» thought. A month after starting the project, having found an epic music playlist by «AG-PRE»tiaradventur«AG-POS» and a way to integrate it with the game, «I» felt it was taking too much time and rushed ahead with the release. This was a mistake, because some bugs were still unaddressed, which caused lukewarm first impressions. Later «I»'ve polished Tiaradventur and received tremendous feedback, but that didn't make for the wasted opportunity.</p>
 
 <h5>Achievements</h5>
 <ul>
@@ -172,7 +172,7 @@
 <h5>Lessons</h5>
 <ul>
 	<li>Open world design is a whole new challenge - a good state mapping tool is needed;</li>
-	<li>Curating a good, attribution-licensed, thematic, music playlist is time-consuming – but <a href="https://soundcloud.com/search/sounds?&filter.license=to_modify_commercially">soundcloudhas a good search mode </a>;</li>
+	<li>Curating a good, attribution-licensed, thematic, music playlist is time-consuming – but <a href="https://soundcloud.com/search/sounds?&filter.license=to_modify_commercially">soundcloud has a good search mode </a>;</li>
 	<li>Never rush a release. Always Beta-test.</li>
 </ul>
 
@@ -180,7 +180,7 @@
 <p>Still recovering from Tiaradventur, it was time for another quick game, again with a pedagogical goal - to explore the question <em>"what is art, and why?"</em>. </p>
 <p> While reproducing famous abstract art paintings (using a new puzzle mechanic involving spilling lines of paint), the player becomes curious about the paintings, their authors and underlying ideas (some alluded to briefly as inter-level messages) in the historical context of the early nineties, reinforced by two classical music pieces from the period, by Camille Saint-Saëns and Gustav Holst.</p>
 <p>A positive side-effect of making this game, «I» learned much about abstract art, and appreciated the works of many artists while searching for suitable paintings to include. The complexities of copyright law in the art world came as a surprise challenge: depending on whose country an artist was born, lived, first presented an artwork, applicable artwork copyright laws change!</p>
-<p>This time, to avoid disappointment prior to the main release, a semi-private release on the thinky discord community enabled pre-emptive improvements to the game and its description. It was interesting to notice how art can be an emotional and controversial theme.</p>
+<p>This time, to avoid disappointment prior to the main release, a semi-private release on the ««P-PRE»THINKY«P-POS»» enabled pre-emptive improvements to the game and its description. It was interesting to notice how art can be an emotional and controversial theme.</p>
 
 <h5>Achievements</h5>
 <ul>
@@ -223,7 +223,7 @@
 	<li>Better open-world debugging tools are needed.</li>
 </ul>
 <h2>Conclusion</h2>
-<p>Over the course of this game-making journey «I»'ve released more than 10 games for free. Having learned much, to keep improving, «I» decided that the last one, Gravirinth, had to be commercial. Although I learned something from every single game, this last decision made me elevate the bar and learn tremendously more as a result. Overall, making games can be a fun way of honing skills in the domains of programming, business, design and art.</p>
+<p>Over the course of this game-making journey «I»'ve released more than 10 games for free. Having learned much, to keep improving, «I» decided that the last one, Gravirinth, had to be commercial. Although «I» learned something from every single game, this last decision made «ME» elevate the bar and learn tremendously more as a result. Overall, making games can be a fun way of honing skills in the domains of programming, business, design and art.</p>
 <p>Despite the good learning experience, delivering games on a structured basis is no longer an option. Why? Because to make a remarkable game, the time commitment to investigate competing games, to establish strong networks with fellow developers, to market «MY» games and to communicate with the fan base would absorb more than all «MY» free time. More importantly, «I» think the world wastes too much time nowadays with games and spares too little for the important things – especially the youngest generations. This situation may improve in the future, as more games move away from pure entertainment to become useful learning tools. Technological advances motivated by games and the medical applications of specially designed games are good trends; some games may even provide virtual worlds for precise large-scale studies of human behaviour and intelligence. </p>
 <p> Looking back at this journey, «I'm» happy to finish at this point. «MY» free games remain online to provide enjoyable eureka moments and good feelings for years to come, their source codes are open and <a href="11-lessons-from-11-games.html">11 lessons</a> were drawn to share with fellow travellers. <b>Onwards to greater challenges!</b></p>
 

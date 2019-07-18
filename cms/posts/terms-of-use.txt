@@ -1,8 +1,8 @@
 ﻿<h3>General rule</h3>
 <p>All content in «SITE-NAME» is, unless otherwise stated <b>«COPYRIGHT»</b>. This includes, in particular, the <a href="«LOGOPATH»" «BLANK»>logo</a>.</p>
 
-<h3>Content under CC BY-NC-SA 4.0 License</h3>
-<p>A large portion of the content is shared under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license. This applies at least to:</p>
+<h3>Content under «LICENSE-CC-BY-NC-SA-4.0»</h3>
+<p>A large portion of the content is shared under the license «LICENSE-CC-BY-NC-SA-4.0». This applies at least to:</p>
 <ul>
 	<li>«SITE-NAME» source code files, when therein stated</li>
 	<li><b><a href="tag-game.html">Game</a></b> source codes, when therein stated</li>

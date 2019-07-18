@@ -7,7 +7,7 @@
 	«LABELS»
 	<div id="guestbook-area">
 		<div class="section">
-			<iframe src="«GUESTBOOK-VIEW-LEGACY»" «IFRAME-SETTINGS»></iframe>
+			<iframe src="«GUESTBOOK-VIEW-LEGACY»" «IFRAME-OPTS»></iframe>
 		</div>
 		<script>
 			«GUESTBOOK-DISPLAY»

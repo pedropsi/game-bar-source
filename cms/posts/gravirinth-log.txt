@@ -7,7 +7,7 @@
 <h2>25-05-2019</h2>
 <h3>Playable demo</h3>
 <p>A tiny playable demo of Gravirinth was prepared today!</p>
-<div class="button"><a href="https://www.puzzlescript.net/play.html?p=2ba2748e4c910776fa456d6f226cbd6f" «BLANK»>Play demo!</a></div>
+<div class="button"><a href="«PUZZLESCRIPT-URL-PLAY»2ba2748e4c910776fa456d6f226cbd6f" «BLANK»>Play demo!</a></div>
 
 <h2>02-03-2019</h2>
 <h3>Gravirinth release!</h3>
@@ -21,7 +21,7 @@
 
 <h2>23-02-2019</h2>
 <h3>Trailer update</h3>
-<p>After some feedback from the thinky discord community, I've edited the Trailer to reduce the credits/text duration, remove the counterproductive statement, and introducing the mechanics more gradually. Overall the updated version feels much better! A major annoyance was youtube forbidding uploaded video edits - so next time I'll upload the trailer somewhere else.</p>
+<p>After some feedback from the ««P-PRE»THINKY«P-POS»», «I»'ve edited the Trailer to reduce the credits/text duration, remove the counterproductive statement, and introducing the mechanics more gradually. Overall the updated version feels much better! A major annoyance was youtube forbidding uploaded video edits - so next time «I»'ll upload the trailer somewhere else.</p>
 
 <h2>22-02-2019</h2>
 <h3>Full trailer</h3>
@@ -212,7 +212,7 @@
 	<h3>Why paid?</h3>
 		<p><b>Meaning.</b> When someone decides to pay, it means something special is received in return.</p>
 		<p><b>Learning.</b> Making a paid game requires a broader set set of skills (marketing, communication, processing payments, taxes, etc...) than required for free games. My primary goal with this project is to learn these broader skills in practice!</p>
-	<h3>What if I don't want to pay?</h3>
+	<h3>What if you don't want to pay?</h3>
 		<p> That's ok! You can still enjoy all <a href="games">free games</a>!</p>
 
 

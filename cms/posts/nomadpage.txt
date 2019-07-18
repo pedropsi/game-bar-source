@@ -11,7 +11,7 @@
 </ul> 
 <p>So what are you waiting for? <a href="«CONTENT»" «BLANK»>Try it!</a></p>
 
-<h2>How do I use «TITLE-BOLD»?</h2>
+<h2>How to use «TITLE-BOLD»?</h2>
 <p>Easily! Just <em>list your choices</em> (in the options menu, in the browser add-ons page), <em>hit save</em> and you're good to go!</p>
 
 «FIGURE-SIMPLE»

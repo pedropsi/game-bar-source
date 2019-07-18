@@ -8,9 +8,9 @@ Therefore, you are officially allowed to brag to your friends about your victori
 <h3>Are records permanent?</h3>
 <p>Yes, for as long as the «SITE-NAME» is live. Shall you want to remove or change your alias, please «CONTACT-TEXT-2».</p>
 
-<h3>I beat a puzzle but I can't find my record. Why?</h3>
+<h3>You beat a puzzle but you can't find your record. Why?</h3>
 <p>Most likely you have found a bug. If you solved a puzzle before «DATE», record-keeping hadn't yet begun. In either case, please «CONTACT-TEXT-1» to fix the situation and recover your glory!</p>
 <p>Any impolite aliases will be removed at discretion, without notice.</p>
 
-<h3>How should I prove that a (missing) record relates to me?</h3>
-<p>Just provide the date and (approximate) time when you solved the puzzle, plus the shape or name of the last level that you remember.</p>
+<h3>How can you prove that a (missing) record relates to you?</h3>
+<p>Just provide the date and (approximate) time when you solved the puzzle, plus your strategy for the last level.</p>
