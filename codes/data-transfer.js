@@ -748,7 +748,7 @@ function ButtonOnClickHTML(title,onclicktxt){
 }
 
 function ButtonLinkHTML(title){
-	return ButtonHTML({tag:"a",txt:title,attributes:{href:"#"+IDfy(title),onclick:"FullscreenClose()"}});
+	return ButtonHTML({tag:"a",txt:title,attributes:{href:'#'+IDfy(title),onclick:'FullscreenClose()'}});
 }
 
 function CloseButtonHTML(targetid){
@@ -926,9 +926,7 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		DP.qdisplay(DP);
 		
-		var firstquestion=document.querySelectorAll("#"+DP.qid+" textarea, "+"#"+DP.qid+" input");
-		if(firstquestion&&firstquestion[0])
-			firstquestion[0].focus();
+		FocusOn("#"+DP.qid+" textarea, "+"#"+DP.qid+" input"); //First question
 		
 		return DP;
 	}
@@ -1552,8 +1550,8 @@ PlaylistLoad();
 ///////////////////////////////////////////////////////////////////////////////
 //Fullscreen
 
-function FullScreenOpen(id){
-	var e = document.querySelector(id);
+function FullScreenOpen(selector){
+	var e = document.querySelector(selector);
 	if(e.requestFullscreen){
 		e.requestFullscreen();
 	} else if(e.mozRequestFullScreen){ /* Firefox */
@@ -1577,13 +1575,29 @@ function FullscreenClose(){
 			document.msExitFullscreen();
 		}
 	}
+	
 }
 
-function ToggleFullscreen(id,thi){
+function ToggleFullscreen(selector,thi){
 	if(thi)thi.classList.toggle("selected");
+	
 	if(document.fullscreenElement){
 		FullscreenClose();
 	}
 	else
-		FullScreenOpen(id);
+		FullScreenOpen(selector);
 };
+
+
+///////////////////////////////////////////////////////////////////////////////
+//Focus
+function FocusOn(selector){
+	var firstelement=document.querySelectorAll(selector);
+	if(firstelement&&firstelement[0])
+		firstelement[0].focus();
+}
+
+
+
+
+
