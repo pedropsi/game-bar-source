@@ -1028,12 +1028,8 @@ function LaunchBalloon(DP){
 }
 
 function BalloonHTML(avatarsrc,content,id){
-	return '\
-		<div class="balloon" id='+id+'>\
-			'+CloseButtonHTML(id)+'\
-			<img class="avatar" src="'+avatarsrc+'"/>\
-			<div class="subtitle">'+content+'</div>\
-		</div>';
+	var b='<div class="balloon" id='+id+'>'+CloseButtonHTML(id)+'<img class="avatar" src="'+avatarsrc+'"/><div class="subtitle">'+content+'</div></div>';
+	return b;
 }
 
 function OpenBalloon(content,id,targetid){
