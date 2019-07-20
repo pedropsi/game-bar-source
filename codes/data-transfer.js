@@ -437,12 +437,24 @@ function CMSItemCurrent(){
 	return undefined;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// DOM Manipulation
 
-// Add new element to page, under a parent element
-function AddElement(html,parentID){
+function MakeElement(html){
 	var e=document.createElement("div");
 	e.innerHTML=html;
-	document.getElementById(parentID).appendChild(e);
+	return e.firstChild;
+}
+
+// Add new element to page, under a parent element
+function AddElement(html,parentIDorSelector){
+	var e=MakeElement(html);
+
+	if(parentIDorSelector.replace(/^\..*/,"").replace(/^\#.*/,"")!==parentIDorSelector)
+		document.querySelector(parentIDorSelector).appendChild(e);
+	else
+		document.getElementById(parentIDorSelector).appendChild(e);
+
 };
 
 function PrependElement(html,parentID){
@@ -1446,7 +1458,10 @@ function ConsoleMessageHTML(message,mID){
 }
 
 function ConsoleAdd(messageHTML,duration){
-	ConsoleLoad();
+	
+	if(document.getElementById("Console")===null)
+		ConsoleLoad();
+	
 	var delay=duration?Math.max(1000,duration):9000;
 	var mID="c-"+GenerateId();//random id
 	AddElement(ConsoleMessageHTML(messageHTML,mID),"Console");
@@ -1457,9 +1472,10 @@ function ConsoleAdd(messageHTML,duration){
 	}
 }
 
-function ConsoleLoad(){
-	if(document.getElementById("Console")===null)
-		AddAfterElement('<div id="Console"></div>','.main')
+function ConsoleLoad(selector){
+	var selector=selector||'.main';
+	RemoveElement("Console");
+	AddElement('<div id="Console"></div>',selector);
 }
 
 //DataPack integration in console
@@ -1471,6 +1487,7 @@ function LaunchConsoleMessage(DP){
 ///////////////////////////////////////////////////////////////////////////////
 //Music Control
 
+//Playlist
 function Playlist(i){
 	if(typeof Playlist.p==="undefined"){
 		Playlist.p=document.getElementsByTagName('audio');
@@ -1493,26 +1510,19 @@ function PlaylistLoad(){
 
 function PlaylistStartPlay(){
 	document.removeEventListener('click',PlaylistStartPlay);
-	PlaySong(0);
+	PlaySong(Playlist(0));
 	console.log("Music on");
 }
 
-function PlaySong(i){
-	if(Playlist.l<1)
-		console.log("Empty Playlist...");
-	else{
-		var song=Playlist(i);
+
+//Song
+function PlaySong(song){
+	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		song.addEventListener('ended',PlayNextF(song));
-		console.log("Now playing: "+song);
-	}
-}
-
-function PlayNextF(song){
-	return function(){
-		PlaySong(Playlist.current+1);
-		song.removeEventListener('ended',PlayNextF);
-		console.log("Finished playing: "+song);
+		
+		window.addEventListener("blur", PlaylistSleep);
+		//console.log("Now playing: "+song);
 	}
 }
 
@@ -1520,31 +1530,74 @@ function PauseSong(song){
 	if((typeof song!=="undefined")&&!song.paused){
 		song.pause();
 		Playlist.ConsoleAdd("Music paused...");
+		
+		window.removeEventListener("blur", PlaylistSleep);
 	}
 }
 
 function ResumeSong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
-		var name=pageRelativePath(song.src).replace(/.*\//,"").replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"").replace(/\%20/g," ");
-		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+name);
+		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
+		
+		window.addEventListener("blur", PlaylistSleep);
 	}
 }
 
+function NameSong(song){
+	return pageRelativePath(song.src).replace(/.*\//,"").replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"").replace(/\%20/g," ");
+}
+
+function PlayNextF(song){
+	return function(){
+		PlaySong(Playlist(Playlist.current+1));
+		song.removeEventListener('ended',PlayNextF);
+		console.log("Finished playing: "+song);
+	}
+}
+
+
+//Player
+
+function CurrentSong(){
+	return Playlist.p[Playlist.current];
+}
+
 function ToggleCurrentSong(thi){
-	//Toggle button appearance
-	if(thi)thi.classList.toggle("selected");
-	//Toggle song
-	var song=Playlist.p[Playlist.current];
+
+	if(thi)thi.classList.remove("selected");
+
+	var song=CurrentSong();
 	if(typeof song==="undefined")
 		Playlist.ConsoleAdd("Error: can't find the jukebox...");
 	else if(song.paused){
 		ResumeSong(song);
 	}
-	else PauseSong(song);
+	else {
+		PauseSong(song);
+		if(thi)thi.classList.add("selected");
+	}
 }
 
+function PlaylistSleep(){
+	if(!Playlist.sleep){
+		Playlist.sleep=true;
+		PauseSong(CurrentSong());
+		window.addEventListener("focus", PlaylistAwaken);
+	}
+}
+
+function PlaylistAwaken(){
+	if(Playlist.sleep){
+		Playlist.sleep=false;
+		ResumeSong(CurrentSong());
+		window.removeEventListener("focus", PlaylistAwaken);
+	}
+}
+
+
 PlaylistLoad();
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1552,30 +1605,39 @@ PlaylistLoad();
 
 function FullScreenOpen(selector){
 	var e = document.querySelector(selector);
-	if(e.requestFullscreen){
+	var f;
+	if(f=e.requestFullscreen){
 		e.requestFullscreen();
-	} else if(e.mozRequestFullScreen){ /* Firefox */
+	} else if(f=e.mozRequestFullScreen){ /* Firefox */
 		e.mozRequestFullScreen();
-	} else if(e.webkitRequestFullscreen){ /* Chrome, Safari and Opera */
+	} else if(f=e.webkitRequestFullscreen){ /* Chrome, Safari and Opera */
 		e.webkitRequestFullscreen();
-	} else if(e.msRequestFullscreen){ /* IE/Edge */
+	} else if(f=e.msRequestFullscreen){ /* IE/Edge */
 		e.msRequestFullscreen();
 	}
+	
+	//Place the console correctly
+	if(f)
+		ConsoleLoad(selector);
 }
 
 function FullscreenClose(){
+	var f;
 	if(document.fullscreenElement){
-		if(document.exitFullscreen){
+		if(f=document.exitFullscreen){
 			document.exitFullscreen();
-		} else if(document.mozCancelFullScreen){ /* Firefox */
+		} else if(f=document.mozCancelFullScreen){ /* Firefox */
 			document.mozCancelFullScreen();
-		} else if(document.webkitExitFullscreen){ /* Chrome, Safari and Opera */
+		} else if(f=document.webkitExitFullscreen){ /* Chrome, Safari and Opera */
 			document.webkitExitFullscreen();
-		} else if(document.msExitFullscreen){ /* IE/Edge */
+		} else if(f=document.msExitFullscreen){ /* IE/Edge */
 			document.msExitFullscreen();
 		}
+		
+		//Place the console correctly
+		if(f)
+			ConsoleLoad();
 	}
-	
 }
 
 function ToggleFullscreen(selector,thi){
@@ -1584,8 +1646,9 @@ function ToggleFullscreen(selector,thi){
 	if(document.fullscreenElement){
 		FullscreenClose();
 	}
-	else
+	else{
 		FullScreenOpen(selector);
+	}
 };
 
 

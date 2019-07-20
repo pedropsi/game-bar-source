@@ -692,6 +692,7 @@ tbody tr:nth-child(odd) {
     background-color: var(--smokewhite);
      transition-duration: var(--duration);
 }
+
 tbody tr:hover{
    background-color: var(--lightyellow);
    color: var(--darkblue);
@@ -935,7 +936,6 @@ modal .closer {
     border-bottom-color: var(--yellow);
 }
 
-
 .comment[data-depth]{
     margin-left:var(--h64);
 }
@@ -970,6 +970,10 @@ modal .closer {
     background-color:var(--yellow);
     text-align: left;
 }
+.comment:nth-child(3n) .date{
+   filter: saturate(2) 
+}
+
 .comment .button{
     align-self: flex-start;
     margin: 0;
