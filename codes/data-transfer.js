@@ -1647,14 +1647,18 @@ function FullscreenClose(){
 }
 
 function ToggleFullscreen(selector,thi){
-	if(thi)thi.classList.toggle("selected");
+	if(FullscreenAllowed()){
+		if(thi)thi.classList.toggle("selected");
 	
-	if(document.fullscreenElement||document.webkitFullscreenElement){
-		FullscreenClose();
+		if(document.fullscreenElement||document.webkitFullscreenElement){
+			FullscreenClose();
+		}
+		else{
+			FullscreenOpen(selector);
+		}
 	}
-	else{
-		FullscreenOpen(selector);
-	}
+	else
+		Playlist.ConsoleAdd("Fullscreen: Please contact Pedro PSI to add your browser, not yet supported!");
 };
 
 

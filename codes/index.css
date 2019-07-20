@@ -457,7 +457,10 @@ li {
     height:calc(87vh);
     width: 100%;
 }
-.game-container:fullscreen #gameCanvas {
+.game-container:fullscreen #gameCanvas{
+    height:calc(96vh);
+}
+.game-container:full-screen #gameCanvas{
     height:calc(96vh);
 }
 
