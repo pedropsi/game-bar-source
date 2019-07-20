@@ -1603,6 +1603,9 @@ PlaylistLoad();
 ///////////////////////////////////////////////////////////////////////////////
 //Fullscreen
 
+function FullscreenAllowed(){
+	return (document.exitFullscreen||document.mozCancelFullScreen||document.webkitExitFullscreen||document.msExitFullscreen||(document.webkitFullscreenElement&&document.webkitExitFullscreen)||false)!==false;
+}
 
 function FullscreenOpen(selector){
 	var e = document.querySelector(selector);
