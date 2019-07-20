@@ -1344,8 +1344,7 @@ function GetDestination(dname){
 
 function ModalHTML(content,id,type){
 	var t=type?(" "+type):"";
-	return'\
-		<div class="modal'+t+'" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
+	return'<div class="modal'+t+'" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
 	        <div class="modal-content">\
 	        	'+CloseButtonHTML(id)+'\
 				'+content+'\
