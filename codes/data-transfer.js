@@ -1603,7 +1603,8 @@ PlaylistLoad();
 ///////////////////////////////////////////////////////////////////////////////
 //Fullscreen
 
-function FullScreenOpen(selector){
+
+function FullscreenOpen(selector){
 	var e = document.querySelector(selector);
 	var f;
 	if(f=e.requestFullscreen){
@@ -1614,7 +1615,7 @@ function FullScreenOpen(selector){
 		e.webkitRequestFullscreen();
 	} else if(f=e.msRequestFullscreen){ /* IE/Edge */
 		e.msRequestFullscreen();
-	}
+	} 
 	
 	//Place the console correctly
 	if(f)
@@ -1630,24 +1631,26 @@ function FullscreenClose(){
 			document.mozCancelFullScreen();
 		} else if(f=document.webkitExitFullscreen){ /* Chrome, Safari and Opera */
 			document.webkitExitFullscreen();
-		} else if(f=document.msExitFullscreen){ /* IE/Edge */
+		} else if(f=document.msExitFullscreen){ /* IE */
 			document.msExitFullscreen();
 		}
-		
-		//Place the console correctly
-		if(f)
-			ConsoleLoad();
 	}
+	if(document.webkitFullscreenElement&&document.webkitExitFullscreen){ /*Edge*/
+		document.webkitExitFullscreen();
+		f=true;
+	}
+	
+	if(f) ConsoleLoad();
 }
 
 function ToggleFullscreen(selector,thi){
 	if(thi)thi.classList.toggle("selected");
 	
-	if(document.fullscreenElement){
+	if(document.fullscreenElement||document.webkitFullscreenElement){
 		FullscreenClose();
 	}
 	else{
-		FullScreenOpen(selector);
+		FullscreenOpen(selector);
 	}
 };
 
