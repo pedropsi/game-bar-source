@@ -1,16 +1,8 @@
 <div class="container" >
-	<h1 class="title">Guestbook</h1>
+	<h1 class="title">«TITLE»</h1>
 	<div class="whiteboard">
 		<div class="text «STYLE» post" id="post">«POST»</div>
-		«SHARER»
 	</div>
 	«LABELS»
-	<div id="guestbook-area">
-		<div class="section">
-			<iframe src="«GUESTBOOK-VIEW-LEGACY»" «IFRAME-OPTS»></iframe>
-		</div>
-		<script>
-			«GUESTBOOK-DISPLAY»
-		</script>
-	</div>
+	«DISPLAY-EXTERNAL»
 </div>

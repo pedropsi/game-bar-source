@@ -27,8 +27,8 @@ LINK-URL	«SITE»/«LINK»
 LOGOPATH	images/logo.png
 CSS-NAME	<a href="«CSSPATH»">"Octaflower Theme"</a> by «NAME-LINK»
 CSSPATH	codes/index.css
-CSS-REL	<link href="«CSSPATH»" rel="stylesheet" type="text/css">
-CSS-ABS	<link href="«SITE»/«CSSPATH»" rel="stylesheet" type="text/css">
+CSS-REL	<link href="«CSSPATH»" rel="stylesheet" type="text/css"/>
+CSS-ABS	<link href="«SITE»/«CSSPATH»" rel="stylesheet" type="text/css"/>
 
 APPLEICON	images/splash.png
 FAVICON32	images/favicon-32x32.png
@@ -36,6 +36,11 @@ PLACEHOLDER-IMAGE	splash.png
 
 HTML-PREFIX	<html lang="«LANG»" xml:lang="«LANG»" prefix="og: http://ogp.me/ns#">
 LANG	en
+
+HEAD	<head>«HEAD-ITEMS»</head>
+HEAD-ITEMS	«HEAD-VIEWPORT»«HEAD-STYLE-ICONS»«HEAD-DATA-GRAPH»<script src="codes/data-transfer.js"></script>
+HEAD-VIEWPORT	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+HEAD-STYLE-ICONS	<link href="«FAVICON32»" rel="icon" type="image/png"/><link href="«FAVICON32»" rel="shortcut icon" type="image/x-icon"/><link href="«APPLEICON»" rel="apple-touch-icon"/>«CSS-REL»
 
 RSS-SITE-DESCRIPTION	Don't miss out on novelties from The «SITE-NAME»!
 RSS-LIMIT	9
@@ -49,21 +54,23 @@ SITEMAP	«XML»<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">«CONTEN
 SITEMAP-ITEM	<url><loc>«SITE»/«LINK»</loc><lastmod>«UP-DA-TE»</lastmod><changefreq>«FREQ»</changefreq></url>
 SITEMAP-PATH	sitemap.xml
 
-SHEET-URL-RECORD	«SHEET-URL»e/2PACX-1vQwd7CTU3k1HsrT4fPLljY9HSW5eWbOv118H3zn5nsRg6Uc1b_aTg577hjFoHLPCUbKAEmht603qmc7/pubhtml?gid=
 CONTACT-FORM-URL	«DOC-URL»/forms/d/e/1FAIpQLSc7pMuScBJIJesW4LMXdegzH2nJh5tbnwR8PmqZvyMhNrUl8A/viewform?embedded=true
-
-HALL-OF-FAME-VIEW-LEGACY	«SHEET-URL-RECORD»2116581279«SHEET-OPT»
-HALL-OF-FAME-URL	action="«MACRO-URL»AKfycbzgwZUKFmuNQin6Kq4-kTMBSZtz9TapE6kxpZyk7p2tRaanLD1w/exec"
-HALL-OF-FAME-SHEET	Hall of Fame
-HALL-OF-FAME-DISPLAY-URL	«MACRO-URL»AKfycbx3VJTScX-y6L3I4KMql10hVBx_MpjoDfocNHzhR9nuRAQkedFi/exec
-HALL-OF-FAME-DISPLAY	OverwriteData("«HALL-OF-FAME-DISPLAY-URL»","hall-of-fame-table",d=>MakeTable(JSON.parse(d)))
-
 CONTACT-FORM-CUSTOM	«MACRO-URL»AKfycbzJnrnkaamwSWZbNKhgNxX4bNRx53A14LpaRQcGWQ/exec
-GUESTBOOK-VIEW-LEGACY	«SHEET-URL-RECORD»2036979410«SHEET-OPT»
-CONTACTAREA	<iframe src="«CONTACT-FORM-URL»" width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+CONTACTAREA	<iframe src="«CONTACT-FORM-URL»" «IFRAME-OPTS»>Loading...</iframe>
 
+SHEET-URL-RECORD	«SHEET-URL»e/2PACX-1vQwd7CTU3k1HsrT4fPLljY9HSW5eWbOv118H3zn5nsRg6Uc1b_aTg577hjFoHLPCUbKAEmht603qmc7/pubhtml?gid=
+
+HALL-OF-FAME-DISPLAY-LEGACY	«SHEET-URL-RECORD»2116581279«SHEET-OPT»
+HALL-OF-FAME-DISPLAY-URL	«MACRO-URL»AKfycbx3VJTScX-y6L3I4KMql10hVBx_MpjoDfocNHzhR9nuRAQkedFi/exec
+HALL-OF-FAME-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",d=>MakeTable(JSON.parse(d)))
+
+GUESTBOOK-DISPLAY-LEGACY	«SHEET-URL-RECORD»2036979410«SHEET-OPT»
 GUESTBOOK-DISPLAY-URL	«MACRO-URL»AKfycbzbI9ht52-sWmNcVi4SpQvjhyTtEdSJxTPpfqwuSDTPlQfJJfc/exec
-GUESTBOOK-DISPLAY	OverwriteData("«GUESTBOOK-DISPLAY-URL»","guestbook-area",d=>MakeGuestbook(JSON.parse(d)))
+GUESTBOOK-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",d=>MakeGuestbook(JSON.parse(d)))
+
+DISPLAY-EXTERNAL	<div id="«LINK»-area">«DISPLAY-IFRAME»«DISPLAY-SCRIPT»</div>
+DISPLAY-SCRIPT	<script>««LINK»-DISPLAY»</script>
+DISPLAY-IFRAME	<div class="section"><iframe src="««LINK»-DISPLAY-LEGACY»" «IFRAME-OPTS»></iframe></div>
 
 SCRIPT-ASYNC-PRE	<script data-cfasync="false" src="
 SCRIPT-PRE	<script src="
@@ -73,7 +80,6 @@ BEACONS	«BEACON-ANALYTICS»«BEACON-COM»
 BEACON-ANALYTICS	«SCRIPT-ASYNC-PRE»codes/analytics.js«SCRIPT-POS»
 BEACON-COM	«SCRIPT-ASYNC-PRE»codes/communication.js«SCRIPT-POS»
 BEACON-TEST	«SCRIPT-ASYNC-PRE»codes/test.js«SCRIPT-POS»
-HONOURS-HOF	«SCRIPT-PRE»codes/game/honours-«TITLE».js«SCRIPT-POS»
 
 
 PAGE-IN-ARCHIVE	<div class="architem"><a href="«LINK».html"><h3>«TITLE»</h3></a><div class="date">«DATE»</div></div>
@@ -96,18 +102,21 @@ NAV-LINK	<a href="«LINK».html" class="nav-link" style="max-width: 728px;">«TITLE
 NAV-LOGO	<a href="index.html"><div class="logo">«LOGO-SVG»</div></a>
 RAINBOWLINE	<div class="rainbowline"></div>
 
-FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACONS»
+LOGO-DIMS	x="-5" y="-5" width="10" height="10"
+
+FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACONS»«POSTSCRIPT»
 
 PICTURE	<img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
 FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
 
-PUZZLE-SCRIPT	«PUZZLE-LOAD»«HONOURS-HOF»
+PUZZLE-SCRIPT	«PUZZLE-SCRIPT-PRE»«PUZZLE-LOAD»
+PUZZLE-SCRIPT-PRE	<script src="codes/game/puzzlescript-embed.js" type="text/javascript"></script>
 PUZZLE-LOAD	<script type="text/javascript">PuzzleScript.embed(document.getElementById('«PUZZLE-MARK»'),"«CONTENT»");</script>
 PUZZLE-MARK	puzzlescript-game
-PUZZLE-SCRIPT-PRE	<script src="codes/game/puzzlescript-embed.js" type="text/javascript"></script>
-OLD-PUZZLE-SCRIPT-PRE	<link href="codes/game/puzzlescript-mobile.css" rel="stylesheet" type="text/css"><script src="codes/game/puzzlescript-embed.js" type="text/javascript"></script>
+OLD-PUZZLE-SCRIPT-PRE	<link href="codes/game/puzzlescript-mobile.css" rel="stylesheet" type="text/css"/><script src="codes/game/puzzlescript-embed.js" type="text/javascript"></script>
+HONOURS	«SCRIPT-PRE»codes/game/honours-«TITLE».js«SCRIPT-POS»
 
 
 GUESTBOOK-ADD	<div class="button centered" onclick="RequestGuestbook()">Leave your message!</div>
@@ -185,7 +194,7 @@ PAGE-FULLSCREEN	«HTML-PRE»«POSTAREA»«HTML-POS»
 PAGE-BARE	«HTML-PRE»<div class="section">«CONTENT»</div>«HTML-POS»
 PAGE-FEATURED	«HTML-PRE»«SECTION-PRE»«FEATURED»«SECTION-POS»«HTML-POS»
 PAGE-FEATURED-EMPTY	«HTML-PRE»«SECTION-PRE»«FEATURED»«LABELS»«SECTION-POS»«HTML-POS»
-PAGE-POST-MD	«HTML-PRE»«POSTAREA»«HTML-POS»
+PAGE-POST	«HTML-PRE»«POSTAREA»«HTML-POS»
 
 HIGHLIGHTS	<h1 class="title">Highlights</h1><div class="featured">«FEATURED-ITEM-SUB|In:CMS|SortBy:{Date}|Unique:True|Filter:{Featured->Yes,Published->Yes,Day->_,Month->_,Year->_,Type->_}|Contain:True»
 </div>
@@ -217,7 +226,7 @@ POSTAREA-SHARE-POS	</div>«SHARER»</div>«LABELS»
 POSTAREA	«SECTION-PRE»«POST-PLUS-LABELS»«SECTION-POS»
 POSTAREA-PIC	«SECTION-PRE»«POSTAREA-PRE»«POST»</div><div>«PICTURE»«POSTAREA-POS»«SECTION-POS»
 POSTAREA-SIMPLE	«SECTION-PRE»«POSTAREA-PRE»«CONTENT»«POSTAREA-POS»«SECTION-POS»
-POST-PLUS-LABELS	«POSTAREA-PRE»«POST»«POSTAREA-SHARE-POS»
+POST-PLUS-LABELS	«POSTAREA-PRE»«POST»«POSTAREA-POS»
 
 STARSSHARE	<div class="starsshare">«STARS»«SHARER»</div>
 STARS-CONTAIN	«STARS-STAR|Split:---|Contain:True»

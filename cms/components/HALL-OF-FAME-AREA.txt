@@ -1,12 +1,5 @@
 <div class="container" >
-	<h1 class="title">Hall of fame</h1>
-	<div id="hall-of-fame-table">
-		<div class="section">
-			<iframe src="«HALL-OF-FAME-VIEW-LEGACY»" «IFRAME-OPTS»></iframe>
-		</div>
-		<script>
-			«HALL-OF-FAME-DISPLAY»
-		</script>
-	</div>
+	<h1 class="title">«TITLE»</h1>
+	«DISPLAY-EXTERNAL»
 	«POST-PLUS-LABELS»
 </div>

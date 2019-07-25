@@ -446,22 +446,31 @@ function MakeElement(html){
 	return e.firstChild;
 }
 
+HTMLTags=['!DOCTYPE','a','abbr','acronym','abbr','address','applet','embed','object','area','article','aside','audio','b','base','basefont','bdi','bdo','big','blockquote','body','br','button','canvas','caption','center','cite','code','col','colgroup','colgroup','data','datalist','dd','del','details','dfn','dialog','dir','ul','div','dl','dt','em','embed','fieldset','figcaption','figure','figure','font','footer','form','frame','frameset','h1','h6','head','header','hr','html','i','iframe','img','input','ins','kbd','label','input','legend','fieldset','li','link','main','map','mark','meta','meter','nav','noframes','noscript','object','ol','optgroup','option','output','p','param','picture','pre','progress','q','rp','rt','ruby','s','samp','script','section','select','small','source','video','audio','span','strike','del','s','strong','style','sub','summary','details','sup','svg','table','tbody','td','template','textarea','tfoot','th','thead','time','title','tr','track','video','audio','tt','u','ul','var','video','wbr'];
+
+function IsTagClassID(parentIDorSelector){
+	var classID=parentIDorSelector.replace(/^\..*/,"").replace(/^\#.*/,"")!==parentIDorSelector;
+	if(classID)
+		return true;
+	else
+		return HTMLTags.indexOf(parentIDorSelector)>=0;
+}
+
 // Add new element to page, under a parent element
 function AddElement(html,parentIDorSelector){
 	var e=MakeElement(html);
-
-	if(parentIDorSelector.replace(/^\..*/,"").replace(/^\#.*/,"")!==parentIDorSelector)
+	if(IsTagClassID(parentIDorSelector))
 		document.querySelector(parentIDorSelector).appendChild(e);
 	else
 		document.getElementById(parentIDorSelector).appendChild(e);
-
 };
 
-function PrependElement(html,parentID){
-	var e=document.createElement("div");
-	e.innerHTML=html;
-	var p=document.getElementById(parentID);
-	p.insertBefore(e,p.firstChild);
+function PrependElement(html,parentIDorSelector){
+	var e=MakeElement(html);
+	if(IsTagClassID(parentIDorSelector))
+		document.querySelector(parentIDorSelector).insertAdjacentElement('afterbegin', e);
+	else
+		document.getElementById(parentIDorSelector).insertAdjacentElement('afterbegin', e);
 };
 
 // Add new element to page, after a sibling element

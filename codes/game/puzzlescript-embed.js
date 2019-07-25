@@ -113,4 +113,6 @@ function clear_children(element){
 }
 
 if(typeof displayError==="undefined")
-	displayError=console.log
+	displayError=console.log;
+
+PrependElement('<div class="game-container"><div id="puzzlescript-game" class="game"></div></div>',"body");

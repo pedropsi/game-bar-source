@@ -90,6 +90,4 @@ This information is kept <b>private</b> in a <em>Google</em> account. </p>
 <p>Each game on the «SITE-NAME» uses cookies to save your progress. You can clear them (and your progress) by deleting the browser cache.</p>
 
 <h2>More...</h2>
-<p>At the bottom of many pages, the sharing buttons, adapted from <a href="https://sharingbuttons.io/" «BLANK»>sharingbuttons.io</a>, are javascript-free thus privacy-friendly.</p>
-
 <p><b>Suggestions for improvement of the «SITE-NAME»'s Privacy are always «CONTACT-TEXT-5»!</b></p>

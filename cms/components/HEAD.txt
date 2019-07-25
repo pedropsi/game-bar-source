@@ -1,3 +1,0 @@
-﻿<head>
-	«HEAD-ITEMS»
-</head>
