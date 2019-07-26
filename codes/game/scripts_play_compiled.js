@@ -1575,11 +1575,12 @@ function GameBar(){
 	return ButtonBar(buttons,"GameBar");
 }
 
-function AddGameBar(){
+function AddGameBar(idorselector){
+	var idorselector=idorselector||"#puzzlescript-game";
 	var bar=document.getElementById("GameBar");
 	if(bar!==null)
 		bar.parentNode.removeChild(bar);
-	AddAfterElement(GameBar(),"#puzzlescript-game")
+	AddAfterElement(GameBar(),idorselector)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
