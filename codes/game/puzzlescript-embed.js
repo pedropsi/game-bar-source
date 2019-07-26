@@ -59,8 +59,8 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 
 				var result = JSON.parse(githubHTTPClient.responseText);
 				var code = result["files"]["script.txt"]["content"];
-				compile(["restart"], code);
 				
+				compile(["restart"], code);
 				window.scrollTo(0,0);
 				/////////////////////////////////////////////////////////////////////////////////////
 				// Game bar
