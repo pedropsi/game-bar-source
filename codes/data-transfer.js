@@ -470,29 +470,33 @@ function MakeElement(html){
 
 HTMLTags=['!DOCTYPE','a','abbr','acronym','abbr','address','applet','embed','object','area','article','aside','audio','b','base','basefont','bdi','bdo','big','blockquote','body','br','button','canvas','caption','center','cite','code','col','colgroup','colgroup','data','datalist','dd','del','details','dfn','dialog','dir','ul','div','dl','dt','em','embed','fieldset','figcaption','figure','figure','font','footer','form','frame','frameset','h1','h6','head','header','hr','html','i','iframe','img','input','ins','kbd','label','input','legend','fieldset','li','link','main','map','mark','meta','meter','nav','noframes','noscript','object','ol','optgroup','option','output','p','param','picture','pre','progress','q','rp','rt','ruby','s','samp','script','section','select','small','source','video','audio','span','strike','del','s','strong','style','sub','summary','details','sup','svg','table','tbody','td','template','textarea','tfoot','th','thead','time','title','tr','track','video','audio','tt','u','ul','var','video','wbr'];
 
-function IsTagClassID(parentIDorSelector){
-	var classID=parentIDorSelector.replace(/^\..*/,"").replace(/^\#.*/,"")!==parentIDorSelector;
+function IsTagClassID(parentIDsel){
+	var classID=parentIDsel.replace(/^\..*/,"").replace(/^\#.*/,"")!==parentIDsel;
 	if(classID)
 		return true;
 	else
-		return HTMLTags.indexOf(parentIDorSelector)>=0;
+		return HTMLTags.indexOf(parentIDsel)>=0;
 }
 
 // Add new element to page, under a parent element
-function AddElement(html,parentIDorSelector){
-	var e=MakeElement(html);
-	if(IsTagClassID(parentIDorSelector))
-		document.querySelector(parentIDorSelector).appendChild(e);
+function GetElement(parentIDsel){
+	if(IsTagClassID(parentIDsel))
+		return document.querySelector(parentIDsel);
 	else
-		document.getElementById(parentIDorSelector).appendChild(e);
+		return document.getElementById(parentIDsel);
 };
 
-function PrependElement(html,parentIDorSelector){
+// Add new element to page, under a parent element
+function AddElement(html,parentIDsel){
 	var e=MakeElement(html);
-	if(IsTagClassID(parentIDorSelector))
-		document.querySelector(parentIDorSelector).insertAdjacentElement('afterbegin', e);
-	else
-		document.getElementById(parentIDorSelector).insertAdjacentElement('afterbegin', e);
+	var p=GetElement(parentIDsel);
+	p.appendChild(e);
+};
+
+function PrependElement(html,parentIDsel){
+	var e=MakeElement(html);
+	var p=GetElement(parentIDsel);
+	p.insertAdjacentElement('afterbegin', e);
 };
 
 // Add new element to page, after a sibling element
@@ -506,8 +510,9 @@ function AddAfterElement(html,selector){
 };
 
 // Replace parent element contents with new element
-function ReplaceElement(html,parentID){
-	document.getElementById(parentID).innerHTML=html;
+function ReplaceElement(html,parentIDsel){
+	var p=GetElement(parentIDsel);
+	p.innerHTML=html;
 };
 
 // Add HTML Data from external source to page
@@ -540,8 +545,8 @@ function RemoveChildren(parentID){
 }
 
 // Remove Element
-function RemoveElement(elementID){
-	var e=document.getElementById(elementID);
+function RemoveElement(elementIDsel){
+	var e=GetElement(elementIDsel);
 	if(e!==null){
 		e.parentNode.removeChild(e);
 	}
@@ -550,8 +555,8 @@ function RemoveElement(elementID){
 //////////////////////////////////////////////////
 // Scroll into
 
-function ScrollInto(elementSelector){
-  var e = document.querySelector(elementSelector);
+function ScrollInto(elementIDsel){
+  var e = GetElement(elementIDsel);
   e.scrollIntoView();
 }
 
@@ -651,7 +656,7 @@ function RefreshPost(){
 	var LOADID="markdown";
 	var UPDATEPATH="cms/updated/";
 	
-	if(document.getElementById(LOADID)!==null){
+	if(GetElement(LOADID)!==null){
 		var data=LoadData(UPDATEPATH+pageIdentifier()+".txt");
 		if( typeof data !=="undefined"){
 			StartCMS();
@@ -697,7 +702,7 @@ function GetPageEdit(){
 }
 
 function PageEditNode(){
-	return document.getElementById(LOADID);
+	return GetElement(LOADID);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1068,14 +1073,14 @@ function OpenBalloon(content,id,targetid){
 }
 
 function CloseBalloonIn(targetid){
-	var ballon=document.getElementById(targetid).querySelector(".balloon");
+	var ballon=GetElement(targetid).querySelector(".balloon");
 	if(ballon){
 		Close(ballon.id);
 	}
 }
 
 function HasBalloon(targetid){
-	var i=document.getElementById(targetid);
+	var i=GetElement(targetid);
 	return (i.querySelector(".balloon")!==null);
 }
 
@@ -1083,7 +1088,7 @@ function HasBalloon(targetid){
 // Toggling class & buttons
 
 function ToggleClass(selector,clas){
-	document.querySelector(selector).classList.toggle(clas);
+	GetElement(selector).classList.toggle(clas);
 }
 
 function ToggleThis(ev,thi){
@@ -1108,24 +1113,24 @@ function ToggleThisOnly(ev,thi){
 ////////////////////////////////////////////////////////////////////////////////
 // Closing functions
 
-function CloseElement(targetid){
-	var fading=document.getElementById(targetid);
+function CloseElement(targetIDsel){
+	var fading=GetElement(targetIDsel);
 	if(fading!==null){
 		fading.classList.add("closing");
 		setTimeout(function(){fading.remove();},1000);
 	}
 }
 
-function CloseElementNow(targetid){
-	var fading=document.getElementById(targetid);
+function CloseElementNow(targetIDsel){
+	var fading=GetElement(targetIDsel);
 	if(fading!==null){
 		fading.remove();
 	}
 }
 
-function CloseThis(ev,thi,targetid){
+function CloseThis(ev,thi,targetIDsel){
 	if(ev.target.id===thi.id)
-		Close(targetid);
+		Close(targetIDsel);
 }
 
 function Close(targetid){
@@ -1148,8 +1153,8 @@ function CloseAndContinue(DP){
 ////////////////////////////////////////////////////////////////////////////////
 // Focus functions
 
-function FocusElement(targetid){
-	var focussing=document.getElementById(targetid);
+function FocusElement(targetIDsel){
+	var focussing=GetElement(targetIDsel);
 	if(focussing!==null){
 		focussing.focus();	
 	}
@@ -1485,7 +1490,7 @@ function ConsoleMessageHTML(message,mID){
 
 function ConsoleAdd(messageHTML,duration){
 	
-	if(document.getElementById("Console")===null)
+	if(GetElement("Console")===null)
 		ConsoleLoad();
 	
 	var delay=duration?Math.max(1000,duration):9000;
@@ -1633,8 +1638,8 @@ function FullscreenAllowed(){
 	return (document.exitFullscreen||document.mozCancelFullScreen||document.webkitExitFullscreen||document.msExitFullscreen||(document.webkitFullscreenElement&&document.webkitExitFullscreen)||false)!==false;
 }
 
-function FullscreenOpen(selector){
-	var e = document.querySelector(selector);
+function FullscreenOpen(targetIDsel){
+	var e = GetElement(targetIDsel);
 	var f;
 	if(f=e.requestFullscreen){
 		e.requestFullscreen();
@@ -1648,7 +1653,7 @@ function FullscreenOpen(selector){
 	
 	//Place the console correctly
 	if(f)
-		ConsoleLoad(selector);
+		ConsoleLoad(targetIDsel);
 }
 
 function FullscreenClose(){
@@ -1672,7 +1677,7 @@ function FullscreenClose(){
 	if(f) ConsoleLoad();
 }
 
-function ToggleFullscreen(selector,thi){
+function ToggleFullscreen(targetIDsel,thi){
 	if(FullscreenAllowed()){
 		if(thi)thi.classList.toggle("selected");
 	
@@ -1680,7 +1685,7 @@ function ToggleFullscreen(selector,thi){
 			FullscreenClose();
 		}
 		else{
-			FullscreenOpen(selector);
+			FullscreenOpen(targetIDsel);
 		}
 	}
 	else
@@ -1690,8 +1695,8 @@ function ToggleFullscreen(selector,thi){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Focus
-function FocusOn(selector){
-	var firstelement=document.querySelectorAll(selector);
+function FocusOn(targetIDsel){
+	var firstelement=GetElement(targetIDsel);
 	if(firstelement&&firstelement[0])
 		firstelement[0].focus();
 }
