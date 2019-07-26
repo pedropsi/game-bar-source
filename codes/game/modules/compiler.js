@@ -2384,7 +2384,7 @@ function formatHomePage(state){
 	if (isColor(state.bgcolor)===false ){
 		logError("background_color in incorrect format - found "+state.bgcolor+", but I expect a color name (like 'pink') or hex-formatted color (like '#1412FA').")
 	}
-
+/*
 	if (canSetHTMLColors) {
 		
 		if ('background_color' in state.metadata)  {
@@ -2407,7 +2407,7 @@ function formatHomePage(state){
 			   h1Elements[i].style.color = state.fgcolor;
 			}
 		}
-	}
+	}*/
 
 	if ('homepage' in state.metadata) {
 		var url = state.metadata['homepage'];
