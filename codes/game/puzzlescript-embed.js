@@ -1,7 +1,35 @@
+// Add the game container to the page
+PrependElement('<div class="game-container"><div id="puzzlescript-game" class="game"><canvas id="gameCanvas"></canvas></div></div>',"body");
+
+// Load the puzzlescrpt engine
+var puzzlescriptModules=[
+/*Puzzlescript modules*/
+"globalVariables",
+"debug_off",
+"font",
+"rng",
+"riffwave",
+"sfxr",
+"codemirror",
+"colors",
+"graphics",
+"engine",
+"parser",
+"compiler",
+"inputoutput",
+"mobile",
+/*Extras*/
+"data-game-extras"
+]
+
+puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
+
+// Load the game
 (function()
 {
 	function embed(element, id, config)
 	{
+		/*
 		var canvas,
 			settings =
 			{
@@ -10,9 +38,9 @@
 
 		extend(settings, config);
 		clear_children(element);
-		canvas = create_game_canvas(element, settings);
+		canvas = create_game_canvas(element, settings);*/
 
-		return load_engine(element, id, settings, function(){
+		/*return load_engine(element, id, settings, function(){
 			window.canSetHTMLColors = false;
 			if (document.documentElement && document.documentElement.ontouchstart !== undefined){
 				canvas.onmousedown = function(){
@@ -25,9 +53,18 @@
 			else{
 				load_game(element, id, settings);
 			}
-		});
+		});*/
+		
+		var canvas=document.getElementById("gameCanvas");
+		canvas.onmousedown = function(){
+			canvas.onmousedown = null;
+			var gestureHandler = Mobile.enable(true);
+			gestureHandler.setFocusElement(canvas);
+		}
+		
+		return load_game(element, id);
 	}
-
+/*
 	function create_game_canvas(element, id, settings){
 		var canvas = document.createElement("canvas");
 		canvas.id = "gameCanvas";
@@ -42,8 +79,8 @@
 		document.body.appendChild(script);
 		return script;
 	}
-
-	function load_game(element, id, settings, callback){
+*/
+	function load_game(element, id){
 		var githubURL = 'https://api.github.com/gists/' + id;
 		var githubHTTPClient = new XMLHttpRequest();
 
@@ -80,7 +117,7 @@
 		githubHTTPClient.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		githubHTTPClient.send();
 	}
-
+/*
 	function extend(target, object){
 		if (typeof object !== 'undefined'){
 			for (var key in object){
@@ -89,7 +126,9 @@
 		}
 		return target;
 	}
+*/
 
+/*
 	function auto_embed(){
 		var element = document.querySelector("*[data-puzzlescript]");
 		if (element != null){
@@ -100,19 +139,24 @@
 			embed(element, element.dataset.puzzlescript, config);
 		}
 	}
-
+*/
 	window.PuzzleScript = window.PuzzleScript || { embed: embed };
+	
+/*
 	window.addEventListener("load", auto_embed);
+*/
 	
 })();
 
+/*
 function clear_children(element){
 	while (element.lastChild){
 		element.removeChild(element.lastChild);
 	}
 }
+*/
 
+/*
 if(typeof displayError==="undefined")
 	displayError=console.log;
-
-PrependElement('<div class="game-container"><div id="puzzlescript-game" class="game"></div></div>',"body");
+*/
