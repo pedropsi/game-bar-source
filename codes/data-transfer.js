@@ -300,6 +300,28 @@ function GenerateId(){
 };
 
 
+////////////////////////////////////////////////////////////////////////////////
+//Load scripts
+
+function LoadAsync(sourcename,folder){
+	var head= document.getElementsByTagName('head')[0];
+	var script= document.createElement('script');
+	var ext='.js';
+	var folder=((folder+"/").replace(/\/\//,"/"))||"codes/"
+	if(sourcename.replace(".txt","")!=sourcename){
+		ext="";
+	}
+	script.src= folder+sourcename+ext;
+	script.async= false;
+	
+	head.appendChild(script);
+}
+
+function LoaderInFolder(folder){
+	return function(sourcename){return LoadAsync(sourcename,folder)};
+}
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
