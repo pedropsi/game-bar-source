@@ -9,7 +9,7 @@ function DocumentURL(){
 	else
 		return pageNoTag(document.URL);
 }
-	
+
 function HasCheckpoint(){
 	return void 0!==localStorage[DocumentURL()+"_checkpoint"];
 }
@@ -55,6 +55,8 @@ function SaveCheckpoint(levelTarget,isReloading){
 	return SetCheckpointStack(newstack);
 }
 function SaveLevel(curlevel){
+	console.log("saved:"+curlevel);
+	console.log(SolvedLevelIndices());
 	localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelIndices());
 	return localStorage[DocumentURL()]=curlevel;
 };
@@ -68,6 +70,7 @@ function UnsaveLevel(){
 function UnsaveSave(){
 	return HasSave()&&(UnsaveLevel(),UnsaveCheckpoint())
 }
+
 
 function LoadLevel(){
 	SolvedLevelIndices.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
@@ -111,6 +114,264 @@ function LoadSave(){
 		return LoadLevel();}
 }
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Level navigation
+
+function GoToLevel(lvl){
+	SaveLevel(lvl);
+	winning=!1;
+	timer=0;
+	textMode=titleScreen=!1;
+	titleSelection=0<curlevel||null!==curlevelTarget?1:0;
+	messageselected=quittingTitleScreen=quittingMessageScreen=titleSelected=!1;
+	titleMode=0;
+	loadLevelFromState(state,lvl);
+	canvasResize();
+	clearInputHistory();
+};
+
+function isLevelMessage(lvl){
+	return typeof state.levels[lvl].message !=="undefined"
+}
+
+function LevelType(level){
+	return typeof level.message==="undefined";	
+}
+
+function LevelIndices(){
+	if(LevelIndices.l!==undefined)
+		return LevelIndices.l;
+	else{
+		var l=[];
+		var i;
+		for( i=0;i<state.levels.length;i++){
+			if(LevelType(state.levels[i]))
+				l.push(i);
+		}
+		return LevelIndices.l=l;
+	}
+}
+
+function InLevelIndices(curlevel){
+	return LevelIndices().indexOf(curlevel)!==-1;
+}
+
+function isLastLevel(curlevel){return LevelIndices()[LevelIndices().length-1]===curlevel};
+
+function SolvedLevelIndices(){
+	if(SolvedLevelIndices.levels===undefined){
+		SolvedLevelIndices.levels=[];
+	}
+	return SolvedLevelIndices.levels;
+}
+
+function SortNumber(a,b){return a-b};
+
+function AddToSolvedLevelIndices(curlevel){
+	if(!InSolvedLevelIndices(curlevel)){
+		SolvedLevelIndices.levels.push(Number(curlevel));
+		SolvedLevelIndices.levels=SolvedLevelIndices.levels.sort(SortNumber);
+	}
+	return SolvedLevelIndices();
+}
+
+function InSolvedLevelIndices(curlevel){
+	return SolvedLevelIndices().indexOf(curlevel)!==-1;
+}
+
+function UnSolvedLevelIndices(){
+	return LevelIndices().filter(function(l){return SolvedLevelIndices().indexOf(l)===-1});
+}
+
+function FirstUnsolvedLevel(curlevel){
+	if(UnSolvedLevelIndices().length===0)
+		return 1+LevelIndices()[LevelIndices().length-1];
+	else{
+		var c=LevelIndices().indexOf(UnSolvedLevelIndices()[0]);
+		if(c===0)
+			return 0;
+		else
+			return 1+LevelIndices()[c-1];
+	}
+}
+
+function NextUnsolvedLevel(curlevel){
+	var firstusolve=UnSolvedLevelIndices().filter(x=>x>=curlevel)[0];
+	var lastsolvebefore=LevelIndices().filter(x=>x<firstusolve);
+	return lastsolvebefore[lastsolvebefore.length-1]+1;
+}
+
+function ClearSolvedLevelIndices(){
+	console.log("levels solved cleared.");
+	return SolvedLevelIndices.levels=[];
+}
+
+function SolvedLevelsAll(){
+	return LevelIndices().every(l=>SolvedLevelIndices().indexOf(l)>=0);
+}
+
+function LevelNumber(curlevel){
+	return LevelIndices().filter(function(l){return l<curlevel}).length+1;
+}
+
+function MaxLevel(){
+	MaxLevel.max=MaxLevel.max?Math.max(curlevel,MaxLevel.max):Number(curlevel);
+	return MaxLevel.max;
+}
+
+function MaxCheckpoint(m){ 
+	if(m===undefined){  //Getter
+		var c=Number(curcheckpoint);
+		MaxCheckpoint.max=MaxCheckpoint.max?Math.max(c,MaxCheckpoint.max):c;
+	}
+	else				//Setter (m)
+		MaxCheckpoint.max=Number(m);
+	return MaxCheckpoint.max;
+}
+
+
+function RequestLevelSelector(){
+	if(!HasCheckpoint()){
+		var type="level";
+		var DPOpts={
+			questionname:"Access one of the "+LevelIndices().length+" levels",
+			qfield:"level",
+			qchoices:LevelIndices().map(l=>(LevelNumber(l)+(InSolvedLevelIndices(l)?"★":"")))
+		}
+	}
+	else{
+		var type="checkpoint";
+		var checkpointIndices=Object.keys(GetCheckpointStack());
+		var DPOpts={
+			questionname:"Reached checkpoints:",
+			qfield:"level",
+			qchoices:checkpointIndices.map(l=>(Number(l)+1)+"")
+		}
+	}
+	RequestDataPack([
+		['exclusivechoice',DPOpts]
+	],
+	{
+		actionvalid:LoadLevelFromDP,
+		actionText:"Go to "+type,
+		qonsubmit:Identity,
+		qdisplay:LaunchBalloon,
+		qtargetid:'puzzlescript-game'
+	});
+}
+
+function LoadLevelFromDP(DP){
+	var lvl=FindData('level',DP.qid).replace("★","");
+	lvl=Number(lvl);
+	if(!HasCheckpoint()){
+		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
+		var lvlpre=lvl<2?-1:LevelIndices()[lvl-2];
+		GoToLevel(lvlpre+1);
+	}
+	else{
+		GoToLevelCheckpoint(lvl-1);
+	}
+};
+
+/*
+function GoToLevelNext(){
+	if(HasCheckpoint()){
+		GoToLevelCheckpoint(curcheckpoint+1);
+	}
+	else{
+		if(curlevel<MaxLevel()){
+			GoToLevel(curlevel+1);
+			}
+		if(curlevel==(state.levels.length-1)&&isLevelMessage(curlevel)){
+			DoWin();
+		}
+	}
+}
+
+function GoToLevelPrev(){
+	if(HasCheckpoint()){
+		GoToLevelCheckpoint(curcheckpoint-1);
+	}
+	else{
+		if(curlevel>0){
+			GoToLevel(curlevel-1);
+		}
+	}
+}
+*/
+
+function GoToLevelCheckpoint(ncheckpoint){
+	if(HasCheckpoint()){
+		LoadCheckpoint(ncheckpoint);
+		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
+		canvasResize();
+}};
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// Game Bar
+
+function GameBar(){
+	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','checkKey({keyCode:85},!0)'):"";
+	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','checkKey({keyCode:82},!0)'):"";
+	
+	var buttons=[
+		ButtonLinkHTML("How to play?"),
+		undo,
+		restart,
+		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
+		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
+		ButtonOnClickHTML("Feedback",'RequestGameFeedback()'),
+		ButtonLinkHTML("Credits"),
+		ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),
+		ButtonOnClickHTML("◱",'ToggleFullscreen(".game-container",this)')
+	].join("")
+	
+	return ButtonBar(buttons,"GameBar");
+}
+
+function AddGameBar(idorselector){
+	var idorselector=idorselector||"#puzzlescript-game";
+	var bar=document.getElementById("GameBar");
+	if(bar!==null)
+		bar.parentNode.removeChild(bar);
+	AddAfterElement(GameBar(),idorselector)
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// Echo
+
+function EchoLevelWin(curlevel){
+	console.log("EchoLevelWin");
+	if(AnalyticsClearance()){
+		UpdateLevelData(curlevel);
+		echoPureData(leveldata,leveldataURL);
+	}
+}
+
+function EchoCheckpoint(){
+	if(AnalyticsClearance()){
+		UpdateLevelCheckpointData(curlevel,checkpointsaver);
+		echoPureData(leveldata,leveldataURL);
+	}
+	checkpointsaver++;
+}
+
+function EchoLevelClose(curlevel){
+	if(AnalyticsClearance()){
+		UpdateLevelData(curlevel);
+		leveldata["winsequence"]="";
+		leveldata["type"]="close";
+		echoPureData(leveldata,leveldataURL);
+	}
+}
+
+window.onunload=(function(){
+	EchoLevelClose(curlevel);
+})
 
 
 
@@ -613,270 +874,14 @@ function PlaylistBar(){
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
-// Level navigation
-
-function GoToLevel(lvl){
-	curlevel=lvl;
-	winning=!1;
-	timer=0;
-	textMode=titleScreen=!1;
-	titleSelection=0<curlevel||null!==curlevelTarget?1:0;
-	messageselected=quittingTitleScreen=quittingMessageScreen=titleSelected=!1;
-	titleMode=0;
-	loadLevelFromState(state,lvl);
-	canvasResize();
-	clearInputHistory();
-};
-
-function isLevelMessage(lvl){
-	return typeof state.levels[lvl].message !=="undefined"
-}
-
-function LevelType(level){
-	return typeof level.message==="undefined";	
-}
-
-function LevelIndices(){
-	if(LevelIndices.l!==undefined)
-		return LevelIndices.l;
-	else{
-		var l=[];
-		var i;
-		for( i=0;i<state.levels.length;i++){
-			if(LevelType(state.levels[i]))
-				l.push(i);
-		}
-		return LevelIndices.l=l;
-	}
-}
-
-function InLevelIndices(curlevel){
-	return LevelIndices().indexOf(curlevel)!==-1;
-}
-
-function isLastLevel(curlevel){return LevelIndices()[LevelIndices().length-1]===curlevel};
-
-function SolvedLevelIndices(){
-	if(SolvedLevelIndices.levels===undefined){
-		SolvedLevelIndices.levels=[];
-	}
-	return SolvedLevelIndices.levels;
-}
-
-function SortNumber(a,b){return a-b};
-
-function AddToSolvedLevelIndices(curlevel){
-	if(!InSolvedLevelIndices(curlevel)){
-		SolvedLevelIndices.levels.push(Number(curlevel));
-		SolvedLevelIndices.levels=SolvedLevelIndices.levels.sort(SortNumber);
-	}
-	return SolvedLevelIndices();
-}
-
-function InSolvedLevelIndices(curlevel){
-	return SolvedLevelIndices().indexOf(curlevel)!==-1;
-}
-
-function UnSolvedLevelIndices(){
-	return LevelIndices().filter(function(l){return SolvedLevelIndices().indexOf(l)===-1});
-}
-
-function FirstUnsolvedLevel(curlevel){
-	if(UnSolvedLevelIndices().length===0)
-		return 1+LevelIndices()[LevelIndices().length-1];
-	else{
-		var c=LevelIndices().indexOf(UnSolvedLevelIndices()[0]);
-		if(c===0)
-			return 0;
-		else
-			return 1+LevelIndices()[c-1];
-	}
-}
-
-function NextUnsolvedLevel(curlevel){
-	var firstusolve=UnSolvedLevelIndices().filter(x=>x>=curlevel)[0];
-	var lastsolvebefore=LevelIndices().filter(x=>x<firstusolve);
-	return lastsolvebefore[lastsolvebefore.length-1]+1;
-}
-
-function ClearSolvedLevelIndices(){
-	console.log("levels solved cleared.");
-	return SolvedLevelIndices.levels=[];
-}
-
-function SolvedLevelsAll(){
-	return LevelIndices().every(l=>SolvedLevelIndices().indexOf(l)>=0);
-}
-
-function LevelNumber(curlevel){
-	return LevelIndices().filter(function(l){return l<curlevel}).length+1;
-}
-
-function MaxLevel(){
-	MaxLevel.max=MaxLevel.max?Math.max(curlevel,MaxLevel.max):Number(curlevel);
-	return MaxLevel.max;
-}
-
-function MaxCheckpoint(m){ 
-	if(m===undefined){  //Getter
-		var c=Number(curcheckpoint);
-		MaxCheckpoint.max=MaxCheckpoint.max?Math.max(c,MaxCheckpoint.max):c;
-	}
-	else				//Setter (m)
-		MaxCheckpoint.max=Number(m);
-	return MaxCheckpoint.max;
-}
-
-
-function RequestLevelSelector(){
-	if(!HasCheckpoint()){
-		var type="level";
-		var DPOpts={
-			questionname:"Access one of the "+LevelIndices().length+" levels",
-			qfield:"level",
-			qchoices:LevelIndices().map(l=>(LevelNumber(l)+(InSolvedLevelIndices(l)?"★":"")))
-		}
-	}
-	else{
-		var type="checkpoint";
-		var checkpointIndices=Object.keys(GetCheckpointStack());
-		var DPOpts={
-			questionname:"Reached checkpoints:",
-			qfield:"level",
-			qchoices:checkpointIndices.map(l=>(Number(l)+1)+"")
-		}
-	}
-	RequestDataPack([
-		['exclusivechoice',DPOpts]
-	],
-	{
-		actionvalid:LoadLevelFromDP,
-		actionText:"Go to "+type,
-		qonsubmit:Identity,
-		qdisplay:LaunchBalloon,
-		qtargetid:'puzzlescript-game'
-	});
-}
-
-function LoadLevelFromDP(DP){
-	var lvl=FindData('level',DP.qid).replace("★","");
-	lvl=Number(lvl);
-	if(!HasCheckpoint()){
-		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
-		var lvlpre=lvl<2?-1:LevelIndices()[lvl-2];
-		GoToLevel(lvlpre+1);
-	}
-	else{
-		GoToLevelCheckpoint(lvl-1);
-	}
-};
-
-
-
-function GoToLevelNext(){
-	if(HasCheckpoint()){
-		GoToLevelCheckpoint(curcheckpoint+1);
-	}
-	else{
-		if(curlevel<MaxLevel()){
-			GoToLevel(curlevel+1);
-			}
-		if(curlevel==(state.levels.length-1)&&isLevelMessage(curlevel)){
-			DoWin();
-		}
-	}
-}
-
-function GoToLevelPrev(){
-	if(HasCheckpoint()){
-		GoToLevelCheckpoint(curcheckpoint-1);
-	}
-	else{
-		if(curlevel>0){
-			GoToLevel(curlevel-1);
-		}
-	}
-}
-
-
-function GameBar(){
-	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','checkKey({keyCode:85},!0)'):"";
-	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','checkKey({keyCode:82},!0)'):"";
-	
-	var buttons=[
-		ButtonLinkHTML("How to play?"),
-		undo,
-		restart,
-		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
-		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
-		ButtonOnClickHTML("Feedback",'RequestGameFeedback()'),
-		ButtonLinkHTML("Credits"),
-		ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),
-		ButtonOnClickHTML("◱",'ToggleFullscreen(".game-container",this)')
-	].join("")
-	
-	return ButtonBar(buttons,"GameBar");
-}
-
-function AddGameBar(idorselector){
-	var idorselector=idorselector||"#puzzlescript-game";
-	var bar=document.getElementById("GameBar");
-	if(bar!==null)
-		bar.parentNode.removeChild(bar);
-	AddAfterElement(GameBar(),idorselector)
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-/// Echo
-
-function EchoLevelWin(curlevel){
-	console.log("EchoLevelWin");
-	if(AnalyticsClearance()){
-		UpdateLevelData(curlevel);
-		echoPureData(leveldata,leveldataURL);
-	}
-}
-
-function EchoCheckpoint(){
-	if(AnalyticsClearance()){
-		UpdateLevelCheckpointData(curlevel,checkpointsaver);
-		echoPureData(leveldata,leveldataURL);
-	}
-	checkpointsaver++;
-}
-
-function EchoLevelClose(curlevel){
-	if(AnalyticsClearance()){
-		UpdateLevelData(curlevel);
-		leveldata["winsequence"]="";
-		leveldata["type"]="close";
-		echoPureData(leveldata,leveldataURL);
-	}
-}
-
-window.onunload=(function(){
-	EchoLevelClose(curlevel);
-})
-
-
-function GoToLevelCheckpoint(ncheckpoint){
-	if(HasCheckpoint()){
-		LoadCheckpoint(ncheckpoint);
-		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
-		canvasResize();
-}};
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //Overwrites
 
 function doSetupTitleScreenLevelContinue(){
-	try{
-		LoadSave()
-		}
+	try{LoadSave()}
 	catch(c){}}
+doSetupTitleScreenLevelContinue()
 
 function DoWin() {
 	console.log("won");
@@ -916,7 +921,7 @@ function nextLevel(){
 		curlevel=0;
 		curlevelTarget=null;
 		goToTitleScreen();
-		tryPlayEndGameSound()
+		tryPlayEndGameSound();
 	}
 	try{
 		if(HasSave())
@@ -928,6 +933,9 @@ function nextLevel(){
 	}
 	catch(c){}
 	void 0!==state&&void 0!==state.metadata.flickscreen&&(oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)]);
+	
+	SaveLevel(curlevel);
+	
 	canvasResize();
 	clearInputHistory();
 }
@@ -964,3 +972,75 @@ function checkKey(a,b){
 						4===c&&b&&!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=!0,messageselected=!1,timer=0,quittingTitleScreen=!0,generateTitleScreen(),canvasResize());
 					else if(4==c&&b)!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=!0,messageselected=!1,timer=0,quittingTitleScreen=!0,generateTitleScreen(),redraw());else{if(0===c||2===c)titleSelection=0===c?0:1,generateTitleScreen(),redraw()}else 4==c&&b&&(unitTesting?nextLevel():!1===messageselected&&(messageselected=!0,timer=0,quittingMessageScreen=!0,tryPlayCloseMessageSound(),titleScreen=!1,drawMessageScreen()))}else if(!againing&&0<=c)return 4===c&&"noaction"in state.metadata||(pushInput(c),processInput(c)&&redraw()),prevent(a)
 }}
+
+function processInput(a,b,c){
+	againing=!1;
+	verbose_logging&&(-1===a?consolePrint("Turn starts with no input."):(consolePrint("======================="),consolePrint("Turn starts with input of "+["up","left","down","right","action"][a]+".")));
+	var d=backupLevel(),e=[];
+	if(4>=a){
+		if(0<=a){
+			switch(a){
+				case 0:a=1;break;
+				case 1:a=4;break;
+				case 2:a=2;break;
+				case 3:a=8;break;
+				case 4:a=16
+			}
+		e=startMovement(a)
+		}
+		var g=0;
+		level.bannedGroup=[];
+		rigidBackups=[];
+		level.commandQueue=[];
+		var h=0,l=!1,p=commitPreservationState();
+		sfxCreateMask.setZero();
+		sfxDestroyMask.setZero();
+		seedsToPlay_CanMove=[];
+		seedsToPlay_CantMove=[];
+		calculateRowColMasks();
+		do l=!1,g++,verbose_logging&&consolePrint("applying rules"),applyRules(state.rules,state.loopPoint,h,level.bannedGroup),resolveMovements()?(l=!0,restorePreservationState(p)):(verbose_logging&&consolePrint("applying late rules"),applyRules(state.lateRules,state.lateLoopPoint,0)),h=0;
+		while(50>g&&l);
+		50<=g&&consolePrint("looped through 50 times, gave up.  too many loops!");
+		if(0<e.length&&void 0!==state.metadata.require_player_movement){
+			h=!1;
+			for(g=0;g<e.length;g++)
+				if(l=level.getCell(e[g]),state.playerMask.bitsClearInArray(l.data)){
+					h=!0;
+					break
+				}
+				if(!1===h)
+					return verbose_logging&&(consolePrint("require_player_movement set, but no player movement detected, so cancelling turn."),consoleCacheDump()),backups.push(d),DoUndo(!0,!1),!1
+		}
+		if(0<=level.commandQueue.indexOf("cancel"))
+			return verbose_logging&&(consoleCacheDump(),consolePrint("CANCEL command executed, cancelling turn.",!0)),backups.push(d),messagetext="",DoUndo(!0,!1),tryPlayCancelSound(),!1;
+		if(0<=level.commandQueue.indexOf("restart"))
+			return verbose_logging&&(consolePrint("RESTART command executed, reverting to restart state."),consoleCacheDump()),backups.push(d),messagetext="",DoRestart(!0),!0;
+		if(c&&0<=level.commandQueue.indexOf("win"))
+			return!0;
+		h=!1;
+		for(g=0;g<level.objects.length;g++)
+			if(level.objects[g]!==d.dat[g]){
+				if(c)
+					return verbose_logging&&consoleCacheDump(),backups.push(d),DoUndo(!0,!1),!0;-1!==a&&backups.push(d);
+				h=!0;
+				break
+			}
+		if(c)
+			return verbose_logging&&consoleCacheDump(),!1;
+		for(g=0;g<seedsToPlay_CantMove.length;g++)
+			playSound(seedsToPlay_CantMove[g]);
+		for(g=0;g<seedsToPlay_CanMove.length;g++)
+			playSound(seedsToPlay_CanMove[g]);
+		for(g=0;g<state.sfx_CreationMasks.length;g++)
+			a=state.sfx_CreationMasks[g],sfxCreateMask.anyBitsInCommon(a.objectMask)&&playSound(a.seed);
+		for(g=0;g<state.sfx_DestructionMasks.length;g++)
+			a=state.sfx_DestructionMasks[g],sfxDestroyMask.anyBitsInCommon(a.objectMask)&&playSound(a.seed);
+		for(g=0;g<level.commandQueue.length;g++)
+			a=level.commandQueue[g],"f"===a.charAt(1)&&tryPlaySimpleSound(a),!1===unitTesting?"message"===a&&showTempMessage():messagetext="";
+		!1!==textMode||void 0!==b&&!1!==b||(verbose_logging&&consolePrint("Checking win condition."),checkWin());
+		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(EchoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,SaveCheckpoint(restartTarget),SaveLevel(curlevel)),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
+	}
+	verbose_logging&&consoleCacheDump();
+	winning&&(againing=!1);
+	return h
+}
