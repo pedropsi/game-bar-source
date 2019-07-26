@@ -37,9 +37,15 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 			var gestureHandler = Mobile.enable(true);
 		}
 		
-		window.addEventListener('load',function(event){
-			 load_game(element, id);
-		});
+		//Try a fast load if possible
+		if(typeof compile!=="undefined"){
+			load_game(element, id);
+		}
+		else{
+			window.addEventListener('load',function(event){
+				load_game(element, id);
+			});
+		}
 	}
 
 	function load_game(element, id){
