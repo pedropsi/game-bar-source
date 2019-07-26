@@ -24,6 +24,8 @@ var puzzlescriptModules=[
 
 puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 
+
+
 // Load the game
 (function()
 {
@@ -35,7 +37,9 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 			var gestureHandler = Mobile.enable(true);
 		}
 		
-		return load_game(element, id);
+		window.addEventListener('load',function(event){
+			 load_game(element, id);
+		});
 	}
 
 	function load_game(element, id){
@@ -59,13 +63,13 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 
 				var result = JSON.parse(githubHTTPClient.responseText);
 				var code = result["files"]["script.txt"]["content"];
-				compile(["restart"], code);
 				
-				window.scrollTo(0,0);
-				/////////////////////////////////////////////////////////////////////////////////////
-				// Game bar
-				if(typeof AddGameBar!=="undefined")
+					console.log("started");
+					compile(["restart"], code);
+					window.scrollTo(0,0);
+					if(typeof AddGameBar!=="undefined")
 					AddGameBar();
+				
 			}
 		}
 		githubHTTPClient.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
