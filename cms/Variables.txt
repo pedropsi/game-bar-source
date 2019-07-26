@@ -137,6 +137,7 @@ COPYRIGHT	Copyright «NAME» «YEAR-SPAN», all rights reserved.
 COPYRIGHT-TEXT	© «NAME» «YEAR-START»-«YEAR-NOW».
 LICENSE	«LICENSE-CC-BY-4.0»
 
+LICENSE-MIT	<a href="https://opensource.org/licenses/MIT" «BLANK»>MIT</a>
 LICENSE-CC-BY-3.0	<a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>CC-BY 3.0</a>
 LICENSE-CC-BY-4.0	<a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>CC-BY 3.0</a>
 LICENSE-CC-BY-NC-SA-4.0	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>

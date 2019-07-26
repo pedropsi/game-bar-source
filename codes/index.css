@@ -1145,3 +1145,11 @@ modal .closer {
     position:absolute;
     width:100px;height:100px;
 }
+
+code{
+    font-family: Arial;
+    letter-spacing: var(--w-8);
+    background-color: var(--lightyellow);
+    padding: var(--h1) var(--w2) var(--h1) var(--w2);
+    line-height: var(--h4);
+}

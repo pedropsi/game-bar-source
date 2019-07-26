@@ -1,0 +1,358 @@
+/*	
+	Game Bar Theme (c) Pedro PSI 2019
+	MIT License 
+	///////////////////////////////////////////////////////
+	https://pedropsi.github.io/puzzlescript-game-bar#source
+	
+*/
+
+:root {
+    --t:0.95;
+    --white:rgba(255,255,255,var(--t));         /*#FFF*/
+    --smokewhite: rgba(241,241,241,var(--t))    /*#f1f1f1*/;
+    
+    --duration:1s;
+
+    --scaling:2;
+    --basis-width:calc(1vw);
+    --basis-height:calc(1vh);
+        
+    --w1 :var(--basis-width);
+    --w2 :calc(var(--w1)  * var(--scaling));
+    --w4 :calc(var(--w2)  * var(--scaling));
+    --w8 :calc(var(--w4)  * var(--scaling));
+    --w16:calc(var(--w8)  * var(--scaling));
+    --w32:calc(var(--w16) * var(--scaling));
+    --w64:calc(var(--w32) * var(--scaling));
+    --w-2:calc(var(--w1)  / var(--scaling));
+    --w-4:calc(var(--w-2) / var(--scaling));
+    --w-8:calc(var(--w-4) / var(--scaling));
+
+    --h1:var(--basis-height);
+    --h2 :calc(var(--h1)  * var(--scaling));
+    --h4 :calc(var(--h2)  * var(--scaling));
+    --h8 :calc(var(--h4)  * var(--scaling));
+    --h16:calc(var(--h8)  * var(--scaling));
+    --h32:calc(var(--h16) * var(--scaling));
+    --h64:calc(var(--h32) * var(--scaling));
+    --h-2:calc(var(--h1)  / var(--scaling));
+    --h-4:calc(var(--h-2) / var(--scaling));
+    --h-8:calc(var(--h-4) / var(--scaling));
+    
+    --sharesize:calc((100vw - 43px)/100 + 15px);    
+}
+
+body {
+    background-color:var(--smokewhite);
+    color: var(--darkblue); 
+    caret-color: var(--green);
+    border-color: currentColor;
+    padding:var(--w1);
+    margin:0;
+    font-family: Arial, sans-serif;
+    font-size: calc(10px + var(--w-2));
+    line-height: calc(12px + var(--w-2));  
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media only screen and (max-width: 200px) {
+    body {
+       word-break: break-all;
+    }
+} 
+
+div{  
+    --darkblue: rgba(7,0,112,var(--t))          /*#070070*/;
+    --blue: rgba(0,15,255,var(--t))             /*#000FFF*/;
+    --lightblue: rgba(25,130,237,var(--t))      /*#1982ed*/;
+    --turquoise: rgba(59,248,222,var(--t))      /*#3bf8de*/;
+    --green: rgba(70,244,111,var(--t))          /*#46f46f*/;
+    --yellow: rgba(240,248,175,var(--t))        /*#f0f8af*/;
+    --lightyellow: rgba(255,249,201,var(--t))   /*#fff9c9*/;
+
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-color: currentColor;
+    border-width: var(--h-2);
+    color:var(--darkblue);
+}
+
+
+.button:hover,.button:active,.button:focus,
+.button:hover a,.button:active a,.button:focus a,
+.text a:hover,.text a:active,.text a:focus,
+p a:hover,p a:active,p a:focus,
+.tag:hover,.tag:active,.tag:focus,
+
+.selected {
+    color: var(--turquoise);
+    text-decoration-color: currentColor;
+    text-decoration-style:solid ;
+    background-color: var(--darkblue);
+    transition-duration: var(--duration);
+    cursor:pointer;
+    outline: none;
+}
+
+
+.balloon h4 {
+    font-variant-caps: small-caps;
+    font-weight: bold;
+    max-width: 100%;
+    font-size: calc(130% * var(--scaling));
+    line-height: calc(110% + 20% * var(--scaling));
+    margin-bottom: calc(var(--w1) * var(--scaling));
+    margin-top: calc(var(--w2) * var(--scaling));
+    text-decoration: underline;
+
+    --scaling:0.85;
+    text-decoration-color: var(--lightblue);
+}
+
+
+@media only screen and (max-width: 250px) {
+    h1, h2, h3, h4, h5, h6, p, table {
+        word-break:break-all;
+    }
+}
+@media only screen and (max-width: 150px) {
+    .nav{
+        word-break:break-all;
+    }
+}
+
+img {
+    padding: 10px;
+    background-color: var(--smokewhite);
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 100%;
+}
+
+
+::-selection { 
+    background: var(--smokewhite);
+    color: var(--blue);
+}
+::-moz-selection { 
+    background: var(--smokewhite);
+    color: var(--blue);
+}
+
+@media only screen and (max-width: 350px) {
+    .buttonbar {
+       word-break: break-all;
+    }
+}
+
+.game-container{
+    align-items: center;
+    margin-bottom:var(--h1)
+}
+
+.game {
+    width: 100%;
+    touch-action: none;
+}
+
+#gameCanvas {
+    height:calc(87vh);
+    width: 100%;
+}
+.game-container:fullscreen #gameCanvas{
+    height:calc(96vh);
+}
+.game-container:full-screen #gameCanvas{
+    height:calc(96vh);
+}
+
+.button{
+    background-color: var(--smokewhite);
+    max-width:80%;
+    text-align: center;
+    color:var(--blue);
+    border-bottom-style: solid;
+    padding:var(--h-2) var(--w2) var(--h-2) var(--w2);
+    margin:var(--h1) var(--w2) var(--h1) var(--w1);
+    align-self: center;
+    font-weight: bold;  
+    transition-duration: var(--duration);
+}
+.button a {
+    text-decoration: none;
+    color: inherit;
+    transition-duration: var(--duration);
+}
+
+.button:hover a{
+    background-color: transparent;
+    transition-duration: var(--duration);
+}
+
+
+.modal {   
+    --t:0.5;
+    position: fixed;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--green);
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    animation: fadein var(--duration);
+    z-index:10;
+}
+
+.modal-content  {
+    --t:1;
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--lightyellow);
+    min-width: 70%;
+    color:var(--blue);
+    border-bottom: var(--h1) solid var(--green);
+    padding: var(--h2) var(--w2) var(--h2) var(--w2);
+    z-index: 11;
+}
+
+	
+.modal-content input{
+    max-width:80%;
+    background-color:var(--lightyellow);
+    text-align: center;
+}
+
+.modal .closer {
+    background-color: var(--lightyellow);
+    padding:var(--h2) var(--w2) var(--h2) var(--w2);
+}
+
+.modal .closer:hover,
+.modal .closer:active{
+    background-color: var(--darkblue);
+    color: var(--turquoise);
+}
+
+.balloon{
+    position:absolute;
+    bottom:var(--h16);
+    right:var(--w4);
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: var(--h1) solid var(--turquoise);
+    background-color: var(--white);
+    padding:var(--h2) var(--w2) var(--h2) var(--w2);
+    max-width: 80%;
+    animation: fadein var(--duration);
+}
+
+.balloon .avatar {
+    max-width:calc(var(--w4) + 30px);
+    background-color: var(--white);
+}
+
+.balloon .subtitle {
+	display: flex;
+    margin-left: var(--w1);
+    padding: var(--h1)  var(--w1)  var(--h1)  var(--w1);  
+    min-width: calc(var(--w4) + 30px);
+    background-color: var(--smokewhite);
+}
+
+.buttonrow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: var(--w4);
+    margin-right:var(--w4);
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+.buttonrow .button {
+    font-size: 100%;
+    margin:unset;
+    align-self: stretch;
+    background-color: var(--white);
+}
+
+.buttonrow .button:hover, .buttonrow .button:active{
+    background-color: var(--darkblue);
+    border-bottom-color: currentColor;
+    color:var(--turquoise);
+}
+
+.buttonbar{
+    margin-top: 0;
+    justify-content: space-evenly;
+    flex-wrap:nowrap;
+    background-color: var(--white);
+    width: 100%;
+}
+
+.buttonbar .button{
+    flex-grow: 1;
+}
+
+.selected.button {
+  	background-color: var(--blue);
+    border-color: currentColor;
+    color: var(--turquoise);   
+}
+
+.closer {
+    position: absolute;
+    top:calc(-1 * var(--h8) + var(--h1));
+    right:calc(-1 * var(--w2));
+    border: unset;
+    padding:var(--h2) var(--w2) var(--h2) var(--w2);
+    font-size: 300%;
+}
+
+
+#Console {
+    pointer-events: none;
+	position:fixed;
+	top:0;
+	margin-top: var(--h1);
+	width: 100%;
+	z-index: 1000;
+    align-items: center;
+}
+
+#Console .message{
+    pointer-events:all;
+    background-color: var(--lightyellow); 
+    color: var(--lightblue);
+    border-bottom:var(--h1) solid currentColor; 
+    margin-bottom:var(--h2);
+    padding: var(--h1) var(--w2) var(--h1) var(--w2);
+    font-weight: bold;
+}   
+
+.closing {
+  	opacity: 0;
+	transition: opacity var(--duration) ease-in-out;
+    -moz-transition: opacity var(--duration) ease-in-out;
+    -webkit-transition: opacity var(--duration) ease-in-out;
+    -o-transition: opacity var(--duration) ease-in-out;
+    -ms-transition: opacity var(--duration) ease-in-out;
+}
+
+.opening {
+  	opacity: 1;
+	transition: opacity var(--duration) ease-in-out;
+    -moz-transition: opacity var(--duration) ease-in-out;
+    -webkit-transition: opacity var(--duration) ease-in-out;
+    -o-transition: opacity var(--duration) ease-in-out;
+    -ms-transition: opacity var(--duration) ease-in-out;
+}
