@@ -59,7 +59,7 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 		canvas.onmousedown = function(){
 			canvas.onmousedown = null;
 			var gestureHandler = Mobile.enable(true);
-			gestureHandler.setFocusElement(canvas);
+			/*gestureHandler.setFocusElement(canvas);*/
 		}
 		
 		return load_game(element, id);
@@ -104,10 +104,6 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 				compile(["restart"], code);
 				
 				window.scrollTo(0,0);
-				/////////////////////////////////////////////////////////////////////////////////////
-				// Music hook
-				if(typeof OverrideMusic!=="undefined")
-					OverrideMusic();
 				/////////////////////////////////////////////////////////////////////////////////////
 				// Game bar
 				if(typeof AddGameBar!=="undefined")

@@ -4,19 +4,12 @@
 
 window.Mobile = {};
 
-//stolen from https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
 Mobile.hasTouch = function() {
     var bool;
-    if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch)     {
+	//https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
+    if(('ontouchstart' in window) ||  window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch)     {
       bool = true;
-    } else {
-      /*
-      //don't know what's happening with this, so commented it out
-      var query = ['@media (',prefixes.join('touch-enabled),    ('),'heartz',')','{#modernizr{top:9px;position:absolute}}'].join('');
-      testStyles(query, function( node ) {
-        bool = node.offsetTop === 9;
-      });*/
-    }
+    } else {}
     return bool;
 }
 
@@ -24,7 +17,7 @@ Mobile.enable = function (force) {
     if (force || Mobile.hasTouch() && !Mobile._instance) {
         Mobile._instance = new Mobile.GestureHandler();
         Mobile._instance.bindEvents();
-        Mobile._instance.bootstrap();
+        /*Mobile._instance.bootstrap();*/
     }
     return Mobile._instance;
 };
@@ -79,7 +72,7 @@ Mobile.debugDot = function (event) {
         restart: 82, // r
         quit:    27 // escape
     }
-
+/*
     var TAB_STRING = [
         '<div class="tab">',
         '  <div class="tab-affordance"></div>',
@@ -89,30 +82,30 @@ Mobile.debugDot = function (event) {
         '  </div>',
         '</div>'
     ].join("\n");
-
+*/
     /** Bootstrap Methods **/
 
     proto.initialize = function () {
         this.firstPos = { x: 0, y: 0 };
-        this.setTabAnimationRatio = this.setTabAnimationRatio.bind(this);
-        this.setMenuAnimationRatio = this.setMenuAnimationRatio.bind(this);
+        /*this.setTabAnimationRatio = this.setTabAnimationRatio.bind(this);
+        this.setMenuAnimationRatio = this.setMenuAnimationRatio.bind(this);*/
         this.repeatTick = this.repeatTick.bind(this);
         this.isFocused = true;
     };
-
+/*
     // assign the element that will allow tapping to toggle focus.
     proto.setFocusElement = function (focusElement) {
         this.focusElement = focusElement;
         this.isFocused = false;
         this.buildFocusIndicator();
     };
-
+*/
     proto.bindEvents = function () {
-        window.addEventListener('touchstart', this.onTouchStart.bind(this));
-        window.addEventListener('touchend', this.onTouchEnd.bind(this));
-        window.addEventListener('touchmove', this.onTouchMove.bind(this));
+        canvas.addEventListener('touchstart', this.onTouchStart.bind(this));
+        canvas.addEventListener('touchend', this.onTouchEnd.bind(this));
+        canvas.addEventListener('touchmove', this.onTouchMove.bind(this));
     };
-
+/*
     proto.bootstrap = function () {
         this.showTab();
         this.disableScrolling();
@@ -121,20 +114,20 @@ Mobile.debugDot = function (event) {
         }
         this.disableSelection();
     };
-
+*/
     /** Event Handlers **/
 
     proto.onTouchStart = function (event) {
         if (this.isTouching) {
             return;
         }
-
+/*
         // Handle focus changes used in editor.
         this.handleFocusChange(event);
         if (!this.isFocused) {
             return;
         }
-
+*/
         if (event.target.tagName.toUpperCase() === 'A') {
             return;
         }
@@ -192,7 +185,7 @@ Mobile.debugDot = function (event) {
         prevent(event);
         return false;
     };
-
+/*
     proto.handleFocusChange = function (event) {
         if (!this.focusElement) {
             return;
@@ -201,7 +194,7 @@ Mobile.debugDot = function (event) {
         this.isFocused = this.isTouchInsideFocusElement(event);
         this.setFocusIndicatorVisibility(this.isFocused);
     };
-
+*/
     proto.isTouchInsideFocusElement = function (event) {
         var canvasPosition;
 
@@ -440,7 +433,7 @@ Mobile.debugDot = function (event) {
             target: canvas
         });
     };
-
+/*
     proto.toggleMenu = function () {
         if (this.isMenuVisible) {
             this.hideMenu();
@@ -490,6 +483,7 @@ Mobile.debugDot = function (event) {
         }
         this.getAnimatables().tab.animateUp();
     };
+
 
     proto.buildTab = function () {
         var self = this;
@@ -675,9 +669,9 @@ Mobile.debugDot = function (event) {
 
         document.body.setAttribute('style', styleString)
     }
-
+*/
     /** Audio Methods **/
-
+/*
     proto.disableAudio = function () {
         // Overwrite the playseed function to disable it.
         window.playSeed = function () {};
@@ -701,15 +695,15 @@ Mobile.debugDot = function (event) {
 
         return isAudioSupported;
     };
-
+*/
     /** Other HTML5 Stuff **/
-
+/*
     proto.disableSelection = function () {
         var body;
         body = document.getElementsByTagName('body')[0];
         body.setAttribute('class', body.getAttribute('class') + ' disable-select');
     };
-
+*/
 }(window.Mobile.GestureHandler.prototype));
 
 window.Animator = function () {
