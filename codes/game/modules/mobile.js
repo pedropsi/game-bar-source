@@ -5,12 +5,7 @@
 window.Mobile = {};
 
 Mobile.hasTouch = function() {
-    var bool;
-	//https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
-    if(('ontouchstart' in window) ||  window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch)     {
-      bool = true;
-    } else {}
-    return bool;
+	return (('ontouchstart' in window)||window.TouchEvent||window.DocumentTouch && document instanceof DocumentTouch)||false;
 }
 
 Mobile.enable = function (force) {
@@ -24,28 +19,6 @@ Mobile.enable = function (force) {
 
 window.Mobile.GestureHandler = function () {
     this.initialize.apply(this, arguments);
-};
-
-Mobile.log = function (message) {
-    var h1;
-    h1 = document.getElementsByTagName('h1')[0];
-    h1.innerHTML = "" + Math.random().toString().substring(4, 1) + "-" + message;
-};
-
-Mobile.debugDot = function (event) {
-    var dot, body, style
-
-    style = 'border-radius: 50px;' +
-        'width: 5px;' +
-        'height: 5px;' +
-        'background: red;' +
-        'position: absolute;' +
-        'left: ' + event.touches[0].clientX + 'px;' +
-        'top: ' + event.touches[0].clientY + 'px;';
-    dot = document.createElement('div');
-    dot.setAttribute('style', style);
-    body = document.getElementsByTagName('body')[0];
-    body.appendChild(dot);
 };
 
 (function (proto) {
@@ -72,62 +45,28 @@ Mobile.debugDot = function (event) {
         restart: 82, // r
         quit:    27 // escape
     }
-/*
-    var TAB_STRING = [
-        '<div class="tab">',
-        '  <div class="tab-affordance"></div>',
-        '  <div class="tab-icon">',
-        '    <div class="slice"></div>',
-        '    <div class="slice"></div>',
-        '  </div>',
-        '</div>'
-    ].join("\n");
-*/
+
     /** Bootstrap Methods **/
 
     proto.initialize = function () {
         this.firstPos = { x: 0, y: 0 };
-        /*this.setTabAnimationRatio = this.setTabAnimationRatio.bind(this);
-        this.setMenuAnimationRatio = this.setMenuAnimationRatio.bind(this);*/
         this.repeatTick = this.repeatTick.bind(this);
         this.isFocused = true;
     };
-/*
-    // assign the element that will allow tapping to toggle focus.
-    proto.setFocusElement = function (focusElement) {
-        this.focusElement = focusElement;
-        this.isFocused = false;
-        this.buildFocusIndicator();
-    };
-*/
+
     proto.bindEvents = function () {
         canvas.addEventListener('touchstart', this.onTouchStart.bind(this));
         canvas.addEventListener('touchend', this.onTouchEnd.bind(this));
         canvas.addEventListener('touchmove', this.onTouchMove.bind(this));
     };
-/*
-    proto.bootstrap = function () {
-        this.showTab();
-        this.disableScrolling();
-        if (!this.isAudioSupported()) {
-            this.disableAudio();
-        }
-        this.disableSelection();
-    };
-*/
+
     /** Event Handlers **/
 
     proto.onTouchStart = function (event) {
         if (this.isTouching) {
             return;
         }
-/*
-        // Handle focus changes used in editor.
-        this.handleFocusChange(event);
-        if (!this.isFocused) {
-            return;
-        }
-*/
+
         if (event.target.tagName.toUpperCase() === 'A') {
             return;
         }
@@ -184,68 +123,6 @@ Mobile.debugDot = function (event) {
 
         prevent(event);
         return false;
-    };
-/*
-    proto.handleFocusChange = function (event) {
-        if (!this.focusElement) {
-            return;
-        }
-
-        this.isFocused = this.isTouchInsideFocusElement(event);
-        this.setFocusIndicatorVisibility(this.isFocused);
-    };
-*/
-    proto.isTouchInsideFocusElement = function (event) {
-        var canvasPosition;
-
-        if (!event.touches || !event.touches[0]) {
-            return false;
-        }
-        canvasPosition = this.absoluteElementPosition(this.focusElement);
-
-        if (event.touches[0].clientX < canvasPosition.left ||
-            event.touches[0].clientY < canvasPosition.top) {
-            return false;
-        }
-
-        if (event.touches[0].clientX > canvasPosition.left + this.focusElement.clientWidth ||
-            event.touches[0].clientY > canvasPosition.top + this.focusElement.clientHeight) {
-            return false;
-        }
-
-        return true;
-    };
-
-    proto.setFocusIndicatorVisibility = function (isVisible) {
-        var visibility;
-
-        visibility = 'visible';
-        if (!isVisible) {
-            visibility = 'hidden';
-        }
-        this.focusIndicator.setAttribute('style', 'visibility: ' + visibility + ';');
-    };
-
-    proto.absoluteElementPosition = function (element) {
-        var position, body;
-
-        position = {
-            top: element.offsetTop || 0,
-            left: element.offsetLeft || 0
-        };
-        body = document.getElementsByTagName('body')[0];
-        position.top -= body.scrollTop || 0;
-
-        while (true) {
-            element = element.offsetParent;
-            if (!element) {
-                break;
-            }
-            position.top += element.offsetTop || 0;
-            position.left += element.offsetLeft || 0;
-        }
-
-        return position;
     };
 
     proto.beginRepeatWatcher = function (event) {
@@ -433,277 +310,7 @@ Mobile.debugDot = function (event) {
             target: canvas
         });
     };
-/*
-    proto.toggleMenu = function () {
-        if (this.isMenuVisible) {
-            this.hideMenu();
-        } else {
-            this.showMenu();
-        }
-    };
 
-    proto.showMenu = function () {
-        if (!this.menuElem) {
-            this.buildMenu();
-        }
-        this.getAnimatables().menu.animateUp();
-        this.isMenuVisible = true;
-        this.hideTab();
-    };
-
-    proto.hideMenu = function () {
-        if (this.menuElem) {
-            this.getAnimatables().menu.animateDown();
-        }
-        this.isMenuVisible = false;
-        this.showTab();
-    };
-
-    proto.getAnimatables = function () {
-        var self = this;
-        if (!this._animatables) {
-            this._animatables = {
-                tab: Animatable('tab', 0.1, self.setTabAnimationRatio),
-                menu: Animatable('menu', 0.1, self.setMenuAnimationRatio)
-            }
-        }
-        return this._animatables;
-    };
-
-    proto.showTab = function () {
-        if (!this.tabElem) {
-            this.buildTab();
-        }
-        this.getAnimatables().tab.animateDown();
-    };
-
-    proto.hideTab = function () {
-        if (this.tabElem) {
-            this.tabElem.setAttribute('style', 'display: none;');
-        }
-        this.getAnimatables().tab.animateUp();
-    };
-
-
-    proto.buildTab = function () {
-        var self = this;
-        var tempElem, body;
-        var openCallback;
-        var tabElem;
-        var assemblyElem;
-
-        tempElem = document.createElement('div');
-        tempElem.innerHTML = TAB_STRING;
-        assemblyElem = tempElem.children[0];
-
-        openCallback = function (event) {
-            event.stopPropagation();
-            self.showMenu();
-        };
-        this.tabAffordance = assemblyElem.getElementsByClassName('tab-affordance')[0];
-        this.tabElem = assemblyElem.getElementsByClassName('tab-icon')[0];
-
-        this.tabAffordance.addEventListener('touchstart', openCallback);
-        this.tabElem.addEventListener('touchstart', openCallback);
-
-        body = document.getElementsByTagName('body')[0];
-        body.appendChild(assemblyElem);
-    };
-
-    proto.buildMenu = function () {
-        var self = this;
-        var tempElem, body;
-        var undo, restart, quit;
-        var closeTab;
-        var closeCallback;
-
-        tempElem = document.createElement('div');
-        tempElem.innerHTML = this.buildMenuString(state);
-        this.menuElem = tempElem.children[0];
-        this.closeElem = this.menuElem.getElementsByClassName('close')[0];
-
-        closeCallback = function (event) {
-            event.stopPropagation();
-            self.hideMenu();
-        };
-        this.closeAffordance = this.menuElem.getElementsByClassName('close-affordance')[0];
-        closeTab = this.menuElem.getElementsByClassName('close')[0];
-        this.closeAffordance.addEventListener('touchstart', closeCallback);
-        closeTab.addEventListener('touchstart', closeCallback);
-
-        undo = this.menuElem.getElementsByClassName('undo')[0];
-        if (undo) {
-            undo.addEventListener('touchstart', function (event) {
-                event.stopPropagation();
-                self.emitKeydown('undo');
-            });
-        }
-        restart = this.menuElem.getElementsByClassName('restart')[0];
-        if (restart) {
-            restart.addEventListener('touchstart', function (event) {
-                event.stopPropagation();
-                self.emitKeydown('restart');
-            });
-        }
-
-        quit = this.menuElem.getElementsByClassName('quit')[0];
-        quit.addEventListener('touchstart', function (event) {
-            event.stopPropagation();
-            self.emitKeydown('quit');
-        });
-
-        body = document.getElementsByTagName('body')[0];
-        body.appendChild(this.menuElem);
-    };
-
-    proto.buildMenuString = function (state) {
-    // Template for the menu.
-        var itemCount, menuLines;
-        var noUndo, noRestart;
-
-        noUndo = state.metadata.noundo;
-        noRestart = state.metadata.norestart;
-
-        itemCount = 3;
-        if (noUndo) {
-            itemCount -= 1;
-        }
-        if (noRestart) {
-            itemCount -= 1;
-        }
-
-        menuLines = [
-            '<div class="mobile-menu item-count-' + itemCount + '">',
-            '  <div class="close-affordance"></div>',
-            '  <div class="close">',
-            '    <div class="slice"></div>',
-            '    <div class="slice"></div>',
-            '  </div>'
-        ];
-
-        if (!noUndo) {
-            menuLines.push('  <div class="undo button">Undo</div>');
-        }
-        if (!noRestart) {
-            menuLines.push('  <div class="restart button">Restart</div>');
-        }
-        menuLines = menuLines.concat([
-            '  <div class="quit button">Quit to Menu</div>',
-            '  <div class="clear"></div>',
-            '</div>'
-        ]);
-
-        return menuLines.join("\n");
-    };
-
-    proto.buildFocusIndicator = function () {
-        var focusElementParent;
-        this.focusIndicator = document.createElement('DIV');
-        this.focusIndicator.setAttribute('class', 'tapFocusIndicator');
-        this.focusIndicator.setAttribute('style', 'visibility: hidden;');
-
-        focusElementParent = this.focusElement.parentNode;
-        focusElementParent.appendChild(this.focusIndicator);
-    };
-
-    proto.setTabAnimationRatio = function (ratio) {
-        var LEFT = 18;
-        var RIGHT = 48 + 18;
-        var size, opacityString;
-        var style;
-
-        // Round away any exponents that might appear.
-        ratio = Math.round((ratio) * 1000) / 1000;
-        if (ratio >= 0.999) {
-            this.tabAffordance.setAttribute('style', 'display: none;');
-        } else {
-            this.tabAffordance.setAttribute('style', 'display: block;');
-        }
-        size = RIGHT * ratio + LEFT * (1 - ratio);
-        opacityString = 'opacity: ' + (1 - ratio) + ';';
-        style = opacityString + ' ' +
-            'width: ' + size + 'px;';
-        this.tabElem.setAttribute('style', style);
-    };
-
-    proto.setMenuAnimationRatio = function (ratio) {
-        var LEFT = -48 - 18;
-        var RIGHT = -18;
-        var size, opacityString;
-        var style;
-
-        // Round away any exponents that might appear.
-        ratio = Math.round((ratio) * 1000) / 1000;
-
-        size = RIGHT * ratio + LEFT * (1 - ratio);
-        opacityString = 'opacity: ' + ratio + ';';
-        style = 'left: ' + (size - 4) + 'px; ' +
-            opacityString + ' ' +
-            'width: ' + (-size) + 'px;';
-        ratio = Math.round((ratio) * 1000) / 1000;
-
-        if (ratio <= 0.001) {
-            this.closeAffordance.setAttribute('style', 'display: none;');
-            opacityString="display:none;"
-        } else {
-            this.closeAffordance.setAttribute('style', 'display: block;');
-        }
-
-        this.closeElem.setAttribute('style', style);
-
-        this.menuElem.setAttribute('style', opacityString);
-    };
-
-    proto.disableScrolling = function() {
-        var style = {
-            height: "100%",
-            overflow: "hidden",
-            position: "fixed",
-            width: "100%"
-        }
-        
-        var styleString = "";
-        for (var key in style) {
-            styleString += key + ": " + style[key] + "; ";
-        }
-
-        document.body.setAttribute('style', styleString)
-    }
-*/
-    /** Audio Methods **/
-/*
-    proto.disableAudio = function () {
-        // Overwrite the playseed function to disable it.
-        window.playSeed = function () {};
-    };
-
-    proto.isAudioSupported = function () {
-        var isAudioSupported = true;
-
-        if (typeof webkitAudioContext !== 'undefined') {
-            // We may be on Mobile Safari, which throws up
-            // 'Operation not Supported' alerts when we attempt to
-            // play Audio elements with "data:audio/wav;base64"
-            // encoded HTML5 Audio elements.
-            //
-            // Switching to MP3 encoded audio may be the way we have
-            // to go to get Audio working on mobile devices.
-            //
-            // e.g. https://github.com/rioleo/webaudio-api-synthesizer
-            isAudioSupported = false;
-        }
-
-        return isAudioSupported;
-    };
-*/
-    /** Other HTML5 Stuff **/
-/*
-    proto.disableSelection = function () {
-        var body;
-        body = document.getElementsByTagName('body')[0];
-        body.setAttribute('class', body.getAttribute('class') + ' disable-select');
-    };
-*/
 }(window.Mobile.GestureHandler.prototype));
 
 window.Animator = function () {
