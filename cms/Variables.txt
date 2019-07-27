@@ -185,6 +185,8 @@ GUESTBOOK-POST-TEXT	<p>Enjoyed «TITLE-BOLD»? Add <b>your message</b> below to th
 GUESTBOOK-LINK	<b><a href="guestbook.html">guestbook</a></b>
 GUESTBOOK-MESSAGE	<h3>Guestbook</h3>«GUESTBOOK-POST-TEXT»«GUESTBOOK-ADD»
 
+FEEDBACK	<h2>Feedback</h2><h3>Problems? Suggestions?</h3><p>Please «CONTACT-TEXT-3» !</p><h3>Praise?</h3>«GUESTBOOK-POST-TEXT»«GUESTBOOK-ADD»
+
 HTML-PRE-MAIN-PRE	<!DOCTYPE html>«HTML-PREFIX»«HEAD»<body class="body" id="«LINK»">
 HTML-PRE-MAIN-POS	<div class="main">«NAVBAR»
 HTML-PRE	«HTML-PRE-MAIN-PRE»«HTML-PRE-MAIN-POS»

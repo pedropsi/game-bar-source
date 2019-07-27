@@ -1,0 +1,49 @@
+﻿<h2>About the «TITLE-BOLD»</h2>
+<p>All «NAME»'s <a href="games.html">puzzlescript games</a> make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:</p>
+
+«FIGURE-SIMPLE»
+
+<h2>How to use the «TITLE-BOLD» in your site</h2>
+<h3>Step 1: including the code</h3>
+<p>Include your game page the <b>javascript source</b> and the <b>stylesheet</b>:</p>
+<ul>
+	<li>The <b>javascript source</b>: <a href="public/GameBar/GameBar.js">GameBar.js</a></li>
+	<li>The <b>stylesheet</b>: <a href="public/GameBar/GameBar.css">GameBar.css</a></li>
+</ul>
+<p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector).</p>
+
+<h3>Step 2: selecting your game</h3>
+<p>Ensure the  <b>javascript source</b> can find your game, by editing the line (near the end):
+<code>var gameElementID="#gameCanvas";</code>.
+The selector named <code>"#gameCanvas"</code> should match the ID of your game canvas.</p>
+<p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selectors <code>div:fullscreen #gameCanvas</code> and <code>div:full-screen #gameCanvas</code>.</p>
+
+<h3>Step 3 (optional): adding music</h3>
+<p>To control music via the game bar, each music track should be added to the page inside <code> <span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
+<p> If you wish to delete the music button, simply delete the line <code>ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),</code>.</p>
+
+
+<h2>FAQ</h2>
+<h3>Can you use «TITLE-BOLD» for free?</h3>
+<p>Yes, it's under a «LICENSE-MIT» license.</p>
+
+<h3>Can't the music button control music added via the youtube keyword in the prelude?</h3>
+<p>No, sorry.</p>
+
+<h3>Are all «TITLE-BOLD»'s features available elsewhere?</h3>
+<p>The fullscreen button is new. The undo/reset and music buttons are found in Puzzlescript's default mobile menu and ««P-PRE»HAZELDEN«P-POS»» has made a custom level selector. Nevertheless, «NAME» found it useful to have a single bar with all important features.</p>
+
+<h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
+<p>Currently, yes, but only in games where among all levels, only a single level contains all checkpoints (e.g. a open world map). If multiple levels have checkpoints, it may not work correctly. See it in action in <a href="tiaradventur.html">Tiaradventur</a>.</p>
+
+<h3>Can the «TITLE-BOLD» be extended with custom buttons?</h3>
+<p>Yes. Search for the <code>function GameBar(targetIDsel)</code> and edit the <code> buttons </code> array inside that function. In particular, try uncommenting the commented lines and see it change.</p>
+
+<h3>How about the "Credits" and "How-to-play" buttons?</h3>
+<p>You can either make your own or add the default ones (by uncommenting the lines referred to in the previous question). In the latter case you'll also need to have two sections in your page explicitly labelled with ids: <code>Credits</code> and <code>How-to-play</code>.</p>
+
+<h2>Special thanks</h2>
+<p>To ««P-PRE»MINOTALEN«P-POS»» for suggesting the addition of the fullscreen button and requesting the code for the «TITLE-BOLD» be more accessible.</p>
+
+
+«FEEDBACK»

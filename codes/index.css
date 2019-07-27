@@ -1150,6 +1150,5 @@ code{
     font-family: Arial;
     letter-spacing: var(--w-8);
     background-color: var(--lightyellow);
-    padding: var(--h1) var(--w2) var(--h1) var(--w2);
-    line-height: var(--h4);
+    padding: 0 var(--w2) 0 var(--w2);
 }

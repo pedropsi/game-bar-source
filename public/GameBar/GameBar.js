@@ -38,29 +38,9 @@ function IDfy(s){
 //Unique random identifier
 
 function RandomInteger(n){return Math.floor(Math.random() * n)};
-function RandomChoice(v){return v[RandomInteger(v.length)]};
-
 
 function GenerateId(){
-	var preconsonants = "bcdfghjklmnpqrstvwxz";
-	var preconsonants2 = "hjlnrs";
-	var vowels = "aeiouyáéíóúàèìòùýäëïöüÿãõâêîôû";
-	var posconsonants2 = "pkstm";
-	var posconsonants = "bcdglmnrstxz";
-				
-	function PreSyllabe(){
-		return RandomInteger(5)<=3?RandomChoice(preconsonants)+(RandomInteger(5)<=1?RandomChoice(preconsonants2):""):"";
-	}
-	function PosSyllabe(){
-		return RandomInteger(5)<=3?RandomChoice(posconsonants)+(RandomInteger(5)<=1?RandomChoice(posconsonants2):""):"";
-	}
-	function MidSyllabe(){
-		return RandomChoice(vowels)+(RandomInteger(5)<=2?RandomChoice(vowels):"");
-	}
-	function Syllabe(){
-		return PreSyllabe()+MidSyllabe()+PosSyllabe();
-	}
-	return Syllabe()+Syllabe()+Syllabe()+Syllabe()+Syllabe();
+	return String(RandomInteger(999999999))
 };
 
 
@@ -73,15 +53,6 @@ function LoadStyle(sourcename){
 	styleelement.href= sourcename.replace(".css","")+".css";
 	styleelement.rel="stylesheet";
 	styleelement.type="text/css";
-	head.appendChild(styleelement);
-}
-
-function LoadStyleCode(sourcecode){
-	var head= document.getElementsByTagName('head')[0];
-	var styleelement= document.createElement('link');
-	styleelement.rel="stylesheet";
-	styleelement.type="text/css";
-	styleelement.innerHTML=sourcecode;
 	head.appendChild(styleelement);
 }
 
@@ -119,12 +90,6 @@ function AddElement(html,parentIDsel){
 	p.appendChild(e);
 };
 
-function PrependElement(html,parentIDsel){
-	var e=MakeElement(html);
-	var p=GetElement(parentIDsel);
-	p.insertAdjacentElement('afterbegin', e);
-};
-
 // Add new element to page, after a sibling element
 function AddAfterElement(html,selector){
 	var s=document.querySelectorAll(selector);
@@ -151,11 +116,6 @@ function OverwriteData(source,destinationID,Transform){
 	ReplaceElement(data,destinationID);
 };
 
-// Add HTML Data from external source to page
-function RefreshData(source,destinationID,Transform){	
-	RefreshData[destinationID]=function(){OverwriteData(source,destinationID,Transform)};
-	RefreshData[destinationID]();
-};
 
 // Remove Children
 function RemoveChildren(parentID){
@@ -170,13 +130,7 @@ function RemoveElement(elementIDsel){
 	}
 }
 
-//////////////////////////////////////////////////
-// Scroll into
 
-function ScrollInto(elementIDsel){
-  var e = GetElement(elementIDsel);
-  e.scrollIntoView();
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -283,13 +237,13 @@ function DefaultDataPack(){
 		destination:'Feedback',			//Name of data repository
 
 		action:'CheckSubmit', 			//action on submit :receives a qid
-		actionvalid:SubmitValidAnswer,	//action on valid submit: receives a DataPack
+		actionvalid:Identity,	//action on valid submit: receives a DataPack
 		actionText:'Submit',			//text to display instead of "Submit"
 		
 		qtargetid:document.body.id,		//Where to introduce form in page?
-		qdisplay:LaunchModal,			//Question display function :receives a DataPack
+		qdisplay:LaunchBalloon,			//Question display function :receives a DataPack
 
-		qonsubmit:LaunchThanksModal,	//Next modal on successful submit: receives a DataPack
+		qonsubmit:Identity,	//Next modal on successful submit: receives a DataPack
 		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
 		thanksmessage:"Submitted. Thank you!"
 	}
@@ -305,52 +259,11 @@ function DataFieldTypes(type){
 		plain:NewDataField({
 			qsubmittable:false
 		}),
-		message:NewDataField({
-			action:'Close',
-			destination:'',
-			qtype:LongAnswerHTML,
-			qdisplay:LaunchThanksModal}),
-		email:NewDataField({
-			qtype:ShortAnswerHTML,
-			qfield:"address",
-			qplaceholder:"_______@___.___",
-			qvalidator:EmailValidator,
-			}),
-		name:NewDataField({
-			qrequired:false,
-			qvalidator:NameValidator,
-			qfield:"name",
-			qtype:ShortAnswerHTML,
-			questionname:"Your name",
-			qplaceholder:"(optional)"}),
-		answer:NewDataField({
-			qfield:"answer",
-			qtype:LongAnswerHTML,
-			qvalidator:SomeTextValidator}),
 		exclusivechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which one?",
 			qchoices:["on","off"],
-			qtype:ExclusiveChoiceButtonRowHTML}),
-		multiplechoice:NewDataField({
-			qfield:'answer',
-			questionname:"Which ones?",
-			qchoices:["1","2","3","4","5"],
-			qtype:ChoicesButtonRowHTML}),
-		pass:NewDataField({
-			questionname:"What is the password?",
-			qfield:'answer',
-			qtype:ShortAnswerHTML,
-			qvalidator:SomeTextValidator,
-			qplaceholder:"(top-secret)"}),
-		snapshot:NewDataField({
-			questionname:"Attach a snapshot?",
-			qfield:'snapshot',
-			qtype:ExclusiveChoiceButtonRowHTML,
-			qchoices:["no","yes"]}),
-		secret:NewDataField({
-			questionname:"",
-			qsubmittable:false})
+			qtype:ExclusiveChoiceButtonRowHTML})
 	}
 	if(typeof type==="undefined")
 		return DFTypes;
@@ -398,7 +311,6 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		DP.qdisplay(DP);
 		
-		FocusOn("#"+DP.qid+" textarea, "+"#"+DP.qid+" input"); //First question
 		
 		return DP;
 	}
@@ -419,15 +331,6 @@ function ChoiceHTML(dataField,buttontype){
 	return '<div class="buttonrow" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
 }
 
-function ChoicesButtonRowHTML(dataField){
-	function ChoicesButtonHTML(choice,dataFiel,i){
-		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
-		return ButtonOnClickHTML(choice,'ToggleThis(event,this);ToggleData'+args);
-	};
-	//console.log(dataField.qfield);console.log(dataField.pid);console.log(GetDefaultData(dataField.qfield,dataField.pid));
-	ClearData(dataField.qfield,dataField.pid);
-	return ChoiceHTML(dataField,ChoicesButtonHTML)
-}
 
 function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
@@ -440,14 +343,6 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 	//console.log(dataField.qfield);console.log(dataField.pid);
 	ClearData(dataField.qfield,dataField.pid);
 	return ChoiceHTML(dataField,ExclusiveChoiceButtonHTML)
-}
-
-function ShortAnswerHTML(dataField){
-	return "<input data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></input>";
-}
-
-function LongAnswerHTML(dataField){
-	return "<textarea data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></textarea>";
 }
 
 function SubQuestionHTML(dataField){
@@ -477,11 +372,6 @@ function QuestionHTML(DP){
 ////////////////////////////////////////////////////////////////////////////////
 // Balloons
 
-function LaunchThanksBalloon(DP){
-	RequestDataPack(
-		[['plain',{questionname:DP.thanksmessage,destination:""}]],
-		{qtargetid:DP.qtargetid,qdisplay:LaunchBalloon});
-}
 
 function LaunchBalloon(DP){
 	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
@@ -545,18 +435,6 @@ function CloseElement(targetIDsel){
 	}
 }
 
-function CloseElementNow(targetIDsel){
-	var fading=GetElement(targetIDsel);
-	if(fading!==null){
-		fading.remove();
-	}
-}
-
-function CloseThis(ev,thi,targetIDsel){
-	if(ev.target.id===thi.id)
-		Close(targetIDsel);
-}
-
 function Close(targetid){
 	//First tries to find the next item to open, then closes
 	if(typeof GetDataPack(targetid)!=="undefined"){
@@ -587,40 +465,10 @@ function FocusElement(targetIDsel){
 ////////////////////////////////////////////////////////////////////////////////
 // Data submission in forms
 
-function SubmitData(dataObject,destination){
-	var data =dataObject;
-	data.formDataNameOrder=destination.headers;
-	data.formGoogleSendEmail="";
-	data.formGoogleSheetName=destination.sheet;
-	SUBMISSIONHISTORY.push(data);
-	echoPureData(data,destination.url);
-}
-
-function InvalidateAnswer(DF){
-	var validator=DF.qvalidator(DF);
-	var errorid="error-"+DF.qid;
-	CloseElementNow(errorid);
-	FocusElement(DF.qid);
-	var invalid=(DF.qrequired&&!validator.valid);
-	if(invalid)
-		AddAfterElement(ErrorHTML(validator.error,errorid),"#"+DF.qid);
-	return invalid;
-}
-
-
-function SubmitValidAnswer(DP){
-	var formtype=FindData("destination",DP.qid);
-	var destinationObject=GetDestination(formtype);
-	var dataObject=(destinationObject.Data)(DP.qid);
-	SubmitData(dataObject,destinationObject);
-}
-
 
 function SubmitAnswerSet(DP){
-	var invalidation=DP.fields.map(InvalidateAnswer);
-	if(!invalidation.some(x=>x===true)){
-		DP.actionvalid(DP),CloseAndContinue(DP);
-	}
+	DP.actionvalid(DP);
+	CloseAndContinue(DP);
 }
 
 function CheckSubmit(qid){
@@ -690,35 +538,6 @@ function NodeGetData(field,node){
 }
 
 
-function OverwriteDataField(field,id,newdata){
-	OverwriteDataInNode(field,document.getElementById(id),newdata);
-};
-
-function OverwriteDataInNode(type,node,newdata){
-	//console.log(node);
-	if(typeof node==="null")
-		return undefined;
-	else if(NodeHasData(type,node)){
-		return NodeOverwriteData(type,node,newdata);
-	}
-	else{
-		var children= node.childNodes;
-		var i=0;
-		while((typeof children[i]!=="undefined")){
-			if(typeof FindDataInNode(type,children[i])!=="undefined"){
-				return OverwriteDataInNode(type,children[i],newdata);}
-			i++;
-		}
-		return undefined
-	}
-}
-
-function NodeOverwriteData(field,node,newdata){
-	if((["INPUT","TEXTAREA"].indexOf(node.tagName)>=0)&&typeof node.dataset[field]!=="undefined")
-		return (node.value=newdata);
-	else
-		return (node.dataset[field]=newdata);
-}
 
 ///////////////////////
 
@@ -791,94 +610,14 @@ function SwitchData(field,value,id){
 	SetData(field,value,id);
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// Global Data Transmission Variables
-
-
-function GetDestination(dname){
-	return DESTINATIONS[dname];
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Modals
-
-function ModalHTML(content,id,type){
-	var t=type?(" "+type):"";
-	return'<div class="modal'+t+'" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
-	        <div class="modal-content">\
-	        	'+CloseButtonHTML(id)+'\
-				'+content+'\
-			</div>\
-		</div>';
-}
-
-function OpenModal(content,id,targetid){
-	AddElement(ModalHTML(content,id),targetid);
-}
-
-function OpenMessageModal(message,id,targetid){
-	var qid=id?id:GenerateId();
-	var targetid=targetid?targetid:document.body.id;
-	OpenModal(MessageHTML(message)+OkButtonHTML(qid),qid,targetid);
-}
-
-/*Modal self-laucher for questions (datapacks)*/
-function LaunchModal(DP){
-	OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
-}
-
-function LaunchThanksModal(DP){
-	RequestDataPack(
-		[['plain',{questionname:DP.thanksmessage,destination:""}]],
-		{qtargetid:DP.qtargetid,qdisplay:LaunchModal});
-	
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // Form Validators and Modifiers
 
-// Pattern Validator Generator
-function PatternValidatorGenerator(pattern,errormessage){
-	function ValidatorFunction(DF){
-		var string=FindData(DF.qfield,DF.qid);
-		if((typeof string!=="undefined")&&(string.match(pattern)!==null))
-			return {valid:true,error:"none"}
-		else if(DF.qerrorcustom!=='')
-			return {valid:false,error:DF.qerrorcustom}
-		else
-			return {valid:false,error:errormessage}
-		};
-	return ValidatorFunction;
-}
-
 // Form Validators
 
 function IdentityValidator(DF){return {valid:true,error:"no errors"};}
-
-function EmailValidator(DF){
-	var pattern=/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ig;
-	var errormessage="Please verify your e-mail address!";
-	return PatternValidatorGenerator(pattern,errormessage)(DF);
-}
-
-function SomeTextValidator(DF){
-	var pattern=/[\d\w]/;
-	var errormessage="Please write something!";
-	return PatternValidatorGenerator(pattern,errormessage)(DF);
-}
-
-function NameValidator(DF){
-	var pattern=/[\d\w][\d\w]+/;
-	var errormessage="Please write at least 2 alphanumerics!";
-	return PatternValidatorGenerator(pattern,errormessage)(DF);
-}
-
-// Utility
-function SomeTextValidate(name){
-	var pattern=/[\d\w]/;
-	return name.match(pattern)!==null;
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1105,15 +844,6 @@ function ToggleFullscreen(targetIDsel,thi){
 	else
 		Playlist.ConsoleAdd("Fullscreen: Please contact Pedro PSI to add your browser, not yet supported!");
 };
-
-
-///////////////////////////////////////////////////////////////////////////////
-//Focus
-function FocusOn(targetIDsel){
-	var firstelement=GetElement(targetIDsel);
-	if(firstelement&&firstelement[0])
-		firstelement[0].focus();
-}
 
 
 
@@ -1386,7 +1116,7 @@ function RequestLevelSelector(){
 		actionText:"Go to "+type,
 		qonsubmit:Identity,
 		qdisplay:LaunchBalloon,
-		qtargetid:'#game'
+		qtargetid:GetElement(gameElementID||"#gameCanvas").parentElement.id
 	});
 }
 
@@ -1437,7 +1167,7 @@ function AddGameBar(targetIDsel){
 	var bar=GetElement("GameBar");
 	if(bar!==null)
 		bar.parentNode.removeChild(bar);
-	AddAfterElement(GameBar(targetIDsel),targetIDsel)
+	AddAfterElement(GameBar(GetElement(targetIDsel).parentElement.id),targetIDsel)
 }
 
 
@@ -1604,8 +1334,8 @@ function processInput(a,b,c){
 /////////////////////////////////////////////////////////////////////////////////////
 // Initialise
 
-var containerID="#game";
-AddGameBar(containerID);
+var gameElementID="#gameCanvas";
+AddGameBar(gameElementID);
 LoadStyle("GameBar.css");
 
 

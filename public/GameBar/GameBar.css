@@ -39,15 +39,13 @@
     --h-4:calc(var(--h-2) / var(--scaling));
     --h-8:calc(var(--h-4) / var(--scaling));
     
-    --sharesize:calc((100vw - 43px)/100 + 15px);    
 }
 
-body {
+.balloon, .buttonrow, .buttonbar, #Console div {
     background-color:var(--smokewhite);
     color: var(--darkblue); 
     caret-color: var(--green);
     border-color: currentColor;
-    padding:var(--w1);
     margin:0;
     font-family: Arial, sans-serif;
     font-size: calc(10px + var(--w-2));
@@ -56,13 +54,8 @@ body {
     text-align: center;
 }
 
-@media only screen and (max-width: 200px) {
-    body {
-       word-break: break-all;
-    }
-} 
 
-div{  
+.buttonrow, .balloon, .buttonbar, #Console{  
     --darkblue: rgba(7,0,112,var(--t))          /*#070070*/;
     --blue: rgba(0,15,255,var(--t))             /*#000FFF*/;
     --lightblue: rgba(25,130,237,var(--t))      /*#1982ed*/;
@@ -83,10 +76,6 @@ div{
 
 .button:hover,.button:active,.button:focus,
 .button:hover a,.button:active a,.button:focus a,
-.text a:hover,.text a:active,.text a:focus,
-p a:hover,p a:active,p a:focus,
-.tag:hover,.tag:active,.tag:focus,
-
 .selected {
     color: var(--turquoise);
     text-decoration-color: currentColor;
@@ -114,17 +103,13 @@ p a:hover,p a:active,p a:focus,
 
 
 @media only screen and (max-width: 250px) {
-    h1, h2, h3, h4, h5, h6, p, table {
-        word-break:break-all;
-    }
-}
-@media only screen and (max-width: 150px) {
-    .nav{
+    * {
         word-break:break-all;
     }
 }
 
-img {
+
+.balloon img {
     padding: 10px;
     background-color: var(--smokewhite);
     vertical-align: middle;
@@ -148,24 +133,10 @@ img {
     }
 }
 
-.game-container{
-    align-items: center;
-    margin-bottom:var(--h1)
-}
-
-.game {
-    width: 100%;
-    touch-action: none;
-}
-
-#gameCanvas {
-    height:calc(87vh);
-    width: 100%;
-}
-.game-container:fullscreen #gameCanvas{
+div:fullscreen #gameCanvas{
     height:calc(96vh);
 }
-.game-container:full-screen #gameCanvas{
+div:full-screen #gameCanvas{
     height:calc(96vh);
 }
 
@@ -190,55 +161,6 @@ img {
 .button:hover a{
     background-color: transparent;
     transition-duration: var(--duration);
-}
-
-
-.modal {   
-    --t:0.5;
-    position: fixed;
-    align-items: center;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--green);
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-    animation: fadein var(--duration);
-    z-index:10;
-}
-
-.modal-content  {
-    --t:1;
-    position: absolute;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--lightyellow);
-    min-width: 70%;
-    color:var(--blue);
-    border-bottom: var(--h1) solid var(--green);
-    padding: var(--h2) var(--w2) var(--h2) var(--w2);
-    z-index: 11;
-}
-
-	
-.modal-content input{
-    max-width:80%;
-    background-color:var(--lightyellow);
-    text-align: center;
-}
-
-.modal .closer {
-    background-color: var(--lightyellow);
-    padding:var(--h2) var(--w2) var(--h2) var(--w2);
-}
-
-.modal .closer:hover,
-.modal .closer:active{
-    background-color: var(--darkblue);
-    color: var(--turquoise);
 }
 
 .balloon{
@@ -269,6 +191,7 @@ img {
 }
 
 .buttonrow {
+	align-self:center;
     flex-direction: row;
     flex-wrap: wrap;
     margin-left: var(--w4);
