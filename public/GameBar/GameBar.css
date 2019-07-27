@@ -133,6 +133,10 @@
     }
 }
 
+#gameCanvas {
+  position:unset;  
+} 
+
 div:fullscreen #gameCanvas{
     height:calc(96vh);
 }

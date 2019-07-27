@@ -643,8 +643,9 @@ function ConsoleMessageHTML(message,mID){
 
 function ConsoleAdd(messageHTML,duration){
 	
-	if(GetElement("Console")===null)
+	if(GetElement("Console")===null){
 		ConsoleLoad();
+	}
 	
 	var delay=duration?Math.max(1000,duration):9000;
 	var mID="c-"+GenerateId();//random id
@@ -657,7 +658,12 @@ function ConsoleAdd(messageHTML,duration){
 }
 
 function ConsoleLoad(selector){
-	var selector=selector||'.main';
+	if(!selector){
+		var parentElement=GetElement(gameElementID).parentElement;
+		if(!parentElement.id)
+			parentElement.id=GenerateId();
+		selector=parentElement.id;
+	}
 	RemoveElement("Console");
 	AddElement('<div id="Console"></div>',selector);
 }
@@ -744,7 +750,8 @@ function PlayNextF(song){
 //Player
 
 function CurrentSong(){
-	return Playlist.p[Playlist.current];
+	if(Playlist.p)
+		return Playlist.p[Playlist.current];
 }
 
 function ToggleCurrentSong(thi){
@@ -1167,7 +1174,10 @@ function AddGameBar(targetIDsel){
 	var bar=GetElement("GameBar");
 	if(bar!==null)
 		bar.parentNode.removeChild(bar);
-	AddAfterElement(GameBar(GetElement(targetIDsel).parentElement.id),targetIDsel)
+	var parentElement=GetElement(targetIDsel).parentElement;
+	if(!parentElement.id)
+		parentElement.id=GenerateId();
+	AddAfterElement(GameBar(parentElement.id),targetIDsel)
 }
 
 
@@ -1336,6 +1346,5 @@ function processInput(a,b,c){
 
 var gameElementID="#gameCanvas";
 AddGameBar(gameElementID);
-LoadStyle("GameBar.css");
 
 
