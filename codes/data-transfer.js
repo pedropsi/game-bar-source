@@ -1551,7 +1551,10 @@ function PlaySong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		song.addEventListener('ended',PlayNextF(song));
-		
+		var mutebutton=GetElement('MuteButton');
+		if(mutebutton){
+			mutebutton.classList.add("selected");
+		}
 		window.addEventListener("blur", PlaylistSleep);
 		//console.log("Now playing: "+song);
 	}
@@ -1561,7 +1564,10 @@ function PauseSong(song){
 	if((typeof song!=="undefined")&&!song.paused){
 		song.pause();
 		Playlist.ConsoleAdd("Music paused...");
-		
+		var mutebutton=GetElement('MuteButton');
+		if(mutebutton){
+			mutebutton.classList.remove("selected");
+		}
 		window.removeEventListener("blur", PlaylistSleep);
 	}
 }
@@ -1570,7 +1576,11 @@ function ResumeSong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
-		
+		var mutebutton=GetElement('MuteButton');
+		if(mutebutton){
+			mutebutton.classList.remove("selected");
+			mutebutton.classList.add("selected");
+		}
 		window.addEventListener("blur", PlaylistSleep);
 	}
 }
@@ -1594,10 +1604,11 @@ function CurrentSong(){
 	return Playlist.p[Playlist.current];
 }
 
+function HasSong(){
+	return (typeof Playlist.current)!=="undefined";
+}
+
 function ToggleCurrentSong(thi){
-
-	if(thi)thi.classList.remove("selected");
-
 	var song=CurrentSong();
 	if(typeof song==="undefined")
 		Playlist.ConsoleAdd("Error: can't find the jukebox...");
@@ -1606,7 +1617,6 @@ function ToggleCurrentSong(thi){
 	}
 	else {
 		PauseSong(song);
-		if(thi)thi.classList.add("selected");
 	}
 }
 

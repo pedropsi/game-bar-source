@@ -1,7 +1,26 @@
 /////////////////////////////////////////////////////////////////////////////////////
-// Save and Checkpoints
+// Save and Checkpoints, with permission
 
 var curcheckpoint=0;
+var savePermission=HasCheckpoint()||HasLevel()||false;//if saved data is present, allow, otherwise ask
+if (savePermission)
+	ConsoleAdd("Save file found in cookies. To erase them and stop saving locally, press 🖫.",4000);
+
+
+function ToggleSavePermission(thi){
+	if(thi)thi.classList.remove("selected");
+	if(savePermission){
+		savePermission=false;
+		UnsaveSave();
+		ConsoleAdd("Save cookies erased, no longer saving game progress.",3000);
+	}
+	else {
+		savePermission=true;
+		ConsoleAdd("Now saving game progress, using two cookies.",3000);
+		ConsoleAdd("Dislike cookies? To erase them and stop saving locally, press 🖫 again.",4000);
+		if(thi)thi.classList.add("selected");
+	}	
+}
 
 function DocumentURL(){
 	if (typeof pageNoTag==="undefined")
@@ -22,7 +41,10 @@ function HasSave(){
 
 function SetCheckpointStack(newstack){
 	MaxCheckpoint(newstack.length);
-	return localStorage[DocumentURL()+"_checkpoint"]=JSON.stringify(newstack);
+	if(savePermission)
+		return localStorage[DocumentURL()+"_checkpoint"]=JSON.stringify(newstack);
+	else
+		UnsaveCheckpoint();
 }
 function GetCheckpointStack(){
 	var stack= JSON.parse(localStorage[DocumentURL()+"_checkpoint"]);
@@ -55,10 +77,12 @@ function SaveCheckpoint(levelTarget,isReloading){
 	return SetCheckpointStack(newstack);
 }
 function SaveLevel(curlevel){
-	console.log("saved:"+curlevel);
-	console.log(SolvedLevelIndices());
-	localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelIndices());
-	return localStorage[DocumentURL()]=curlevel;
+	if(savePermission){
+		localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelIndices());
+		return localStorage[DocumentURL()]=curlevel;
+	}
+	else
+		UnsaveLevel();
 };
 
 function UnsaveCheckpoint(){
@@ -321,11 +345,12 @@ function GameBar(){
 		ButtonLinkHTML("How to play?"),
 		undo,
 		restart,
+		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this)',class:savePermission?'selected':''}}),
 		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
 		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonOnClickHTML("Feedback",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
-		ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),
+		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong()',id:'MuteButton'}}),
 		ButtonOnClickHTML("◱",'ToggleFullscreen(".game-container",this)')
 	].join("")
 	
@@ -340,6 +365,8 @@ function AddGameBar(idorselector){
 	AddAfterElement(GameBar(),idorselector)
 }
 
+////////////////////////////////////////////////////////////////////////////////
+/// Save permission
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Echo
@@ -431,7 +458,7 @@ function UnRegisterMove(){
 	if(recordingmoves){
 		winseq.pop();
 		moveseq.pop();
-		RemoveLastMovesPlaylist();
+		/*RemoveLastMovesPlaylist();*/
 	};
 }
 	
