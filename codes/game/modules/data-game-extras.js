@@ -4,7 +4,7 @@
 var curcheckpoint=0;
 var savePermission=HasCheckpoint()||HasLevel()||false;//if saved data is present, allow, otherwise ask
 if (savePermission)
-	ConsoleAdd("Save file found in cookies. To erase them and stop saving locally, press 🖫.",4000);
+	ConsoleAdd("Save file found in cookies. To erase them and stop saving locally, deselect 🖫.",4000);
 
 
 function ToggleSavePermission(thi){
@@ -17,7 +17,7 @@ function ToggleSavePermission(thi){
 	else {
 		savePermission=true;
 		ConsoleAdd("Now saving game progress, using two cookies.",3000);
-		ConsoleAdd("Dislike cookies? To erase them and stop saving locally, press 🖫 again.",4000);
+		ConsoleAdd("Dislike cookies? To erase them and stop saving locally, deselect 🖫.",4000);
 		if(thi)thi.classList.add("selected");
 	}	
 }
