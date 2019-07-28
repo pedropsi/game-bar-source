@@ -348,7 +348,7 @@ function GameBar(){
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this)',class:savePermission?'selected':''}}),
 		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
 		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
-		ButtonOnClickHTML("Feedback",'RequestGameFeedback()'),
+		ButtonOnClickHTML("✎__  ✉",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
 		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong()',id:'MuteButton'}}),
 		ButtonOnClickHTML("◱",'ToggleFullscreen(".game-container",this)')
