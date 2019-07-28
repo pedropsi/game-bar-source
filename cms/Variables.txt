@@ -151,7 +151,7 @@ GAME-EXTRAS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«NAVIGATION-TEXT»«HALL-OF-FAME
 NAVIGATION-TEXT	<h3>Level navigation</h3><p>Using the <em>Level Selector Menu</em> (below in the game bar) you can navigate freely «NAVOPTION»</p>
 NAVIGATION-TEXT-FREE	between all levels.
 NAVIGATION-TEXT-CHECKPOINT	 to previous checkpoints, or return to the most recent one. Please be aware that saving after going to a past checkpoint will erase your most recent checkpoint saves.
-TOUCHSCREEN-TEXT	<h3>Controls - touchscreen</h3><p><b>Tap</b> to simulate <em>pressing X</em> and <b>swipe</b> to simulate an <em>arrow keypress</em>.</p><p>Open the tab on the left beside the game to: «CONTROLS» <em>restart</em> and <em>return to menu</em>.</p>
+TOUCHSCREEN-TEXT	<h3>Controls - touchscreen</h3><p><b>Tap</b> to simulate <em>pressing X</em> and <b>swipe</b> to simulate an <em>arrow keypress</em>.
 UNDO-TOUCH-TEXT	<em>undo</em>, 
 UNDO-RESTART-TEXT	<p>«UNDO-TEXT» «RESTART-TEXT»</p>
 RESTART-TEXT	Press <b>R</b> to restart the level.
