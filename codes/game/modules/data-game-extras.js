@@ -2,9 +2,12 @@
 // Save and Checkpoints, with permission
 
 var curcheckpoint=0;
-var savePermission=HasCheckpoint()||HasLevel()||false;//if saved data is present, allow, otherwise ask
-if (savePermission)
-	ConsoleAdd("Save file found in cookies. To erase them and stop saving locally, deselect 🖫.",4000);
+var savePermission=true //HasCheckpoint()||HasLevel()||false;//if saved data is present, allow, otherwise ask
+ConsoleAdd("Autosave is on for "+pageTitle()+".",3000);
+ConsoleAdd("To stop saving and erase all 2 cookies, please deselect 🖫.",4000);
+GetElement("AutosaveButton")
+//if (savePermission)
+	//ConsoleAdd("Save file found in cookies. To erase them and stop saving locally, deselect 🖫.",4000);
 
 
 function ToggleSavePermission(thi){
@@ -12,12 +15,12 @@ function ToggleSavePermission(thi){
 	if(savePermission){
 		savePermission=false;
 		UnsaveSave();
-		ConsoleAdd("Save cookies erased, no longer saving game progress.",3000);
+		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": no longer saving game progress across sessions.",3000);
 	}
 	else {
 		savePermission=true;
-		ConsoleAdd("Now saving game progress, using two cookies.",3000);
-		ConsoleAdd("Dislike cookies? To erase them and stop saving locally, deselect 🖫.",4000);
+		ConsoleAdd("Autosave is on for "+pageTitle()+".",3000);
+		ConsoleAdd("To stop saving and erase all 2 cookies, please deselect 🖫.",4000);
 		if(thi)thi.classList.add("selected");
 	}	
 }
