@@ -480,10 +480,14 @@ function IsTagClassID(parentIDsel){
 
 // Add new element to page, under a parent element
 function GetElement(parentIDsel){
-	if(IsTagClassID(parentIDsel))
-		return document.querySelector(parentIDsel);
+	if(typeof parentIDsel==="string"){
+		if(IsTagClassID(parentIDsel))
+			return document.querySelector(parentIDsel);
+		else
+			return document.getElementById(parentIDsel);
+	}
 	else
-		return document.getElementById(parentIDsel);
+		return parentIDsel; //in case the actual element is given in the beginning
 };
 
 // Add new element to page, under a parent element
@@ -1087,26 +1091,47 @@ function HasBalloon(targetid){
 ////////////////////////////////////////////////////////////////////////////////
 // Toggling class & buttons
 
-function ToggleClass(selector,clas){
-	GetElement(selector).classList.toggle(clas);
-}
-
 function ToggleThis(ev,thi){
 	if(ev.target.id===thi.id)
-		thi.classList.toggle("selected");
+		Toggle(thi);
 }
 
 function ToggleThisOnly(ev,thi){
 	var siblings=thi.parentNode.childNodes;
 	var i=0;
 	while (i<siblings.length){
-		if(siblings[i]!==thi){
-		siblings[i].classList.remove("selected");}
-		else{
-		siblings[i].classList.remove("selected");
-		siblings[i].classList.toggle("selected");}
+		if(siblings[i]!==thi)
+			Deselect(siblings[i]);
+		else
+			Select(siblings[i]);
 		i++;
 	}
+}
+
+
+// Select, Deselect and Toggle - given selector or element itself
+
+function Select(selectorE,clas){
+	var clas=clas||'selected';
+	var e=GetElement(selectorE);
+	if(e){
+		e.classList.remove(clas);
+		e.classList.add(clas);
+	}
+}
+
+function Deselect(selectorE,clas){
+	var clas=clas||'selected';
+	var e=GetElement(selectorE);
+	if(e)
+		e.classList.remove(clas);
+}
+
+function Toggle(selectorE,clas){
+	var clas=clas||'selected';
+	var e=GetElement(selectorE);
+	if(e)
+		e.classList.toggle(clas);
 }
 
 
@@ -1551,10 +1576,7 @@ function PlaySong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		song.addEventListener('ended',PlayNextF(song));
-		var mutebutton=GetElement('MuteButton');
-		if(mutebutton){
-			mutebutton.classList.add("selected");
-		}
+		Select('MuteButton');
 		window.addEventListener("blur", PlaylistSleep);
 		//console.log("Now playing: "+song);
 	}
@@ -1564,10 +1586,7 @@ function PauseSong(song){
 	if((typeof song!=="undefined")&&!song.paused){
 		song.pause();
 		Playlist.ConsoleAdd("Music paused...");
-		var mutebutton=GetElement('MuteButton');
-		if(mutebutton){
-			mutebutton.classList.remove("selected");
-		}
+		Deselect('MuteButton');
 		window.removeEventListener("blur", PlaylistSleep);
 	}
 }
@@ -1576,11 +1595,7 @@ function ResumeSong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
-		var mutebutton=GetElement('MuteButton');
-		if(mutebutton){
-			mutebutton.classList.remove("selected");
-			mutebutton.classList.add("selected");
-		}
+		Select('MuteButton');
 		window.addEventListener("blur", PlaylistSleep);
 	}
 }
@@ -1689,8 +1704,7 @@ function FullscreenClose(){
 
 function ToggleFullscreen(targetIDsel,thi){
 	if(FullscreenAllowed()){
-		if(thi)thi.classList.toggle("selected");
-	
+		Toggle(thi);
 		if(document.fullscreenElement||document.webkitFullscreenElement){
 			FullscreenClose();
 		}
