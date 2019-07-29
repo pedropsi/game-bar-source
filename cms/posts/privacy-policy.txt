@@ -86,8 +86,8 @@ This information is kept <b>private</b> in a <em>Google</em> account. </p>
 </tbody>
 </table>
 
-<h2>Cookies</h2>
-<p>Each game on the «SITE-NAME» uses cookies to save your progress. You can clear them (and your progress) by deleting the browser cache.</p>
+<h2><b>Autosave</b> cookies</h2>
+<p>Each game on the «SITE-NAME» offers the <b>Autosave</b> option, which saves your progress across sessions using up to 2 cookies per game. Conveniently, <b>Autosave</b> is on by default (as stated in each game). However, those <b>cookies can be deleted simply</b> by deselecting the save icon (🖫).</p>
 
 <h2>More...</h2>
 <p><b>Suggestions for improvement of the «SITE-NAME»'s Privacy are always «CONTACT-TEXT-5»!</b></p>
