@@ -2,12 +2,12 @@
 // Save and Checkpoints, with permission
 
 var curcheckpoint=0;
-var savePermission=true //HasCheckpoint()||HasLevel()||false;//if saved data is present, allow, otherwise ask
-ConsoleAdd("Autosave is on for "+pageTitle()+".",3000);
-ConsoleAdd("To stop saving and erase all 2 cookies, please deselect 🖫.",4000);
+var savePermission=true;
+ConsoleAddMany([
+			"Autosave is on for "+pageTitle()+".",
+			"To stop saving and erase all 2 cookies, please deselect 🖫."
+			]);
 GetElement("AutosaveButton")
-//if (savePermission)
-	//ConsoleAdd("Save file found in cookies. To erase them and stop saving locally, deselect 🖫.",4000);
 
 
 function ToggleSavePermission(thi){
@@ -15,12 +15,14 @@ function ToggleSavePermission(thi){
 	if(savePermission){
 		savePermission=false;
 		UnsaveSave();
-		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": no longer saving game progress across sessions.",3000);
+		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": no longer saving game progress across sessions.");
 	}
 	else {
 		savePermission=true;
-		ConsoleAdd("Autosave is on for "+pageTitle()+".",3000);
-		ConsoleAdd("To stop saving and erase all 2 cookies, please deselect 🖫.",4000);
+		ConsoleAddMany([
+			"Autosave is on for "+pageTitle()+".",
+			"To stop saving and erase all 2 cookies, please deselect 🖫."
+			]);
 		if(thi)thi.classList.add("selected");
 	}	
 }
@@ -577,7 +579,7 @@ function ConsoleAddMPL(messageHTML){
 		if(document.getElementById("PlaylistBar")!==null)
 			ConsoleAddMPL.Playlist=true
 	}else
-		ConsoleAdd(messageHTML,1500);
+		ConsoleAdd(messageHTML);
 }
 
 var movesplaylist=[];

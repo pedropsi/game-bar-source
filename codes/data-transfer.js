@@ -1513,15 +1513,20 @@ function ConsoleMessageHTML(message,mID){
 	return '<div class="message" id='+mID+'>'+message+'</div>';
 }
 
-function ConsoleAdd(messageHTML,duration){
+function TextReadDuration(textstring){ //by counting number of words, 200ms per word (tagscount but won't hopefully have too many spaces)
+	return Math.min(Math.max(1000,(textstring.split(" ").length)*200),10000);
+}
+
+function ConsoleAdd(messageHTML,wait,duration){
 	
 	if(GetElement("Console")===null)
 		ConsoleLoad();
 	
-	var delay=duration?Math.max(1000,duration):9000;
+	var duration=duration?Math.max(1000,duration):TextReadDuration(messageHTML);
+	var wait=wait?wait:0;
 	var mID="c-"+GenerateId();//random id
-	AddElement(ConsoleMessageHTML(messageHTML,mID),"Console");
-	setTimeout(function(){CloseElement(mID)},duration);
+	setTimeout(function(){AddElement(ConsoleMessageHTML(messageHTML,mID),"Console")},wait)
+	setTimeout(function(){CloseElement(mID)},duration+wait);
 	consolebuffer.push(mID);
 	while(consolebuffer.length>consolemax){
 		ConsoleRemove(consolebuffer[0]);
@@ -1533,6 +1538,15 @@ function ConsoleLoad(selector){
 	RemoveElement("Console");
 	AddElement('<div id="Console"></div>',selector);
 }
+
+function ConsoleAddMany(messagesArray){
+	var delay=0;
+	for (var i=0;i<messagesArray.length;i++){
+		ConsoleAdd(messagesArray[i],delay);
+		delay=delay+TextReadDuration(messagesArray[i]);
+	}
+}
+
 
 //DataPack integration in console
 function LaunchConsoleMessage(DP){
@@ -1557,8 +1571,6 @@ function Playlist(i){
 		return Playlist.p[Playlist.current];
 	}
 }
-
-Playlist.ConsoleAdd=function(message){ConsoleAdd(message,1500)};
 
 function PlaylistLoad(){
 	document.addEventListener('click',PlaylistStartPlay);
@@ -1585,7 +1597,7 @@ function PlaySong(song){
 function PauseSong(song){
 	if((typeof song!=="undefined")&&!song.paused){
 		song.pause();
-		Playlist.ConsoleAdd("Music paused...");
+		ConsoleAdd("Music paused...");
 		Deselect('MuteButton');
 		window.removeEventListener("blur", PlaylistSleep);
 	}
@@ -1594,7 +1606,7 @@ function PauseSong(song){
 function ResumeSong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
-		Playlist.ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
+		ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
 		Select('MuteButton');
 		window.addEventListener("blur", PlaylistSleep);
 	}
@@ -1626,7 +1638,7 @@ function HasSong(){
 function ToggleCurrentSong(thi){
 	var song=CurrentSong();
 	if(typeof song==="undefined")
-		Playlist.ConsoleAdd("Error: can't find the jukebox...");
+		ConsoleAdd("Error: can't find the jukebox...");
 	else if(song.paused){
 		ResumeSong(song);
 	}
@@ -1729,7 +1741,7 @@ function ToggleFullscreen(targetIDsel){
 		}
 	}
 	else
-		ConsoleAdd("Fullscreen: Please inform Pedro PSI that your browser is not yet supported!",3000);
+		ConsoleAdd("Fullscreen: Please inform Pedro PSI that your browser is not yet supported!");
 };
 
 
