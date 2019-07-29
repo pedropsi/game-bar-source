@@ -1514,7 +1514,7 @@ function ConsoleMessageHTML(message,mID){
 }
 
 function TextReadDuration(textstring){ //by counting number of words, 200ms per word (tagscount but won't hopefully have too many spaces)
-	return Math.min(Math.max(1000,(textstring.split(" ").length)*200),10000);
+	return Math.min(Math.max(1000,(textstring.split(" ").length)*250),10000);
 }
 
 function ConsoleAdd(messageHTML,wait,duration){

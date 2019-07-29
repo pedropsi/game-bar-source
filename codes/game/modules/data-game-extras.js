@@ -4,7 +4,7 @@
 var curcheckpoint=0;
 var savePermission=true;
 ConsoleAddMany([
-			"Autosave is on for "+pageTitle()+".",
+			"Autosave is ON for "+pageTitle()+".",
 			"To stop saving and erase all 2 cookies, please deselect 🖫."
 			]);
 GetElement("AutosaveButton")
@@ -15,12 +15,12 @@ function ToggleSavePermission(thi){
 	if(savePermission){
 		savePermission=false;
 		UnsaveSave();
-		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": no longer saving game progress across sessions.");
+		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": Autosave is OFF across sessions.");
 	}
 	else {
 		savePermission=true;
 		ConsoleAddMany([
-			"Autosave is on for "+pageTitle()+".",
+			"Autosave is ON for "+pageTitle()+".",
 			"To stop saving and erase all 2 cookies, please deselect 🖫."
 			]);
 		if(thi)thi.classList.add("selected");
