@@ -842,6 +842,7 @@ modal .closer {
 
 .buttonbar .button{
     flex-grow: 1;
+    border-bottom-width: var(--h-2);
 }
 
 .selected.button {
