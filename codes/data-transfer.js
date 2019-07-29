@@ -1663,17 +1663,34 @@ function FullscreenAllowed(){
 	return (document.exitFullscreen||document.mozCancelFullScreen||document.webkitExitFullscreen||document.msExitFullscreen||(document.webkitFullscreenElement&&document.webkitExitFullscreen)||false)!==false;
 }
 
+function FullscreenActivate(browserprefix){
+	Select("FullscreenButton");
+	console.log("sel");
+	var F=function(){
+		Deselect("FullscreenButton");
+		console.log("desel");
+		document.removeEventListener(browserprefix,F);
+	}
+	setTimeout(function(){
+		document.addEventListener(browserprefix,F); 
+	},1000) //Delay 1 second
+};
+
 function FullscreenOpen(targetIDsel){
 	var e = GetElement(targetIDsel);
 	var f;
 	if(f=e.requestFullscreen){
 		e.requestFullscreen();
+		FullscreenActivate("fullscreenchange");
 	} else if(f=e.mozRequestFullScreen){ /* Firefox */
 		e.mozRequestFullScreen();
+		FullscreenActivate("mozfullscreenchange");
 	} else if(f=e.webkitRequestFullscreen){ /* Chrome, Safari and Opera */
 		e.webkitRequestFullscreen();
+		FullscreenActivate("webkitfullscreenchange");
 	} else if(f=e.msRequestFullscreen){ /* IE/Edge */
 		e.msRequestFullscreen();
+		FullscreenActivate("msfullscreenchange");
 	} 
 	
 	//Place the console correctly
@@ -1702,9 +1719,8 @@ function FullscreenClose(){
 	if(f) ConsoleLoad();
 }
 
-function ToggleFullscreen(targetIDsel,thi){
+function ToggleFullscreen(targetIDsel){
 	if(FullscreenAllowed()){
-		Toggle(thi);
 		if(document.fullscreenElement||document.webkitFullscreenElement){
 			FullscreenClose();
 		}
@@ -1713,7 +1729,7 @@ function ToggleFullscreen(targetIDsel,thi){
 		}
 	}
 	else
-		Playlist.ConsoleAdd("Fullscreen: Please contact Pedro PSI to add your browser, not yet supported!");
+		ConsoleAdd("Fullscreen: Please inform Pedro PSI that your browser is not yet supported!",3000);
 };
 
 
@@ -1724,8 +1740,5 @@ function FocusOn(targetIDsel){
 	if(firstelement&&firstelement[0])
 		firstelement[0].focus();
 }
-
-
-
 
 

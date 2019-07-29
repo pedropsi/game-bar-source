@@ -354,7 +354,7 @@ function GameBar(){
 		ButtonOnClickHTML("✉",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
 		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong()',id:'MuteButton'}}),
-		ButtonOnClickHTML("◱",'ToggleFullscreen(".game-container",this)')
+		ButtonHTML({txt:"◱",attributes:{onclick:'ToggleFullscreen(".game-container")',id:'FullscreenButton'}}),
 	].join("")
 	
 	return ButtonBar(buttons,"GameBar");
