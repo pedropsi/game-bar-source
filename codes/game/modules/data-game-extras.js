@@ -254,7 +254,7 @@ function NextUnsolvedScreen(curlevel){
 function LastScreen(){return state.levels.length-1;};
 
 function FinalLevelScreen(){
-	var li=SolvedScreens(); return li[li.length-1];
+	var li=Screens(); return li[li.length-1];
 };
 
 function ClearSolvedScreens(){
@@ -403,12 +403,12 @@ function AdvanceLevel(){
 	LoadLevelOrCheckpoint();
 }
 
-function AdvanceScreen(){
+function AdvanceUnsolvedScreen(){
 	if(ScreenMessage(curlevel)&&curlevel<LastScreen()){
 		console.log("from message");
 		curlevel++;
 	}
-	else if((FinalLevelScreen()===curlevel)||(curlevel>LastScreen()&&ScreenMessage(curlevel))){
+	else if(curlevel>=FinalLevelScreen()){
 		console.log("from last level");
 		curlevel=FirstUnsolvedScreen(curlevel);
 	}
@@ -463,7 +463,7 @@ function nextLevel(){
 		StartLevelFromTitle();
 	else {
 		if(!SolvedAllScreens())
-			AdvanceScreen();
+			AdvanceUnsolvedScreen();
 		else if(curlevel<LastScreen())
 			AdvanceEndScreen();
 		else{
