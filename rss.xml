@@ -17,6 +17,55 @@
 		</image>
 
 		<item>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>All Tutorials in the Creative Archive</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>All Resources in the Creative Archive</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>About the All Tutorials
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the All Tutorials in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Resource</category>
+<category>Tutorial</category>
+</item>
+<item>
 <title>Burokku Konekuta</title>
 <link>http://pedropsi.github.io/burokku-konekuta</link>
 <guid>http://pedropsi.github.io/burokku-konekuta</guid>
@@ -24,7 +73,374 @@
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
+		<p>About the All Resources
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the All Resources in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>About the Puzzlescript Game Bar
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the Puzzlescript Game Bar in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About the Burokku Konekuta
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the Burokku Konekuta in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>About the Platformer Template
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the Platformer Template in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+</item>
+<item>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>About the Classed as 'Learning'
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the Classed as 'Learning' in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About the A game-making journey
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the A game-making journey in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
+<item>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About the 11 Lessons from a 11-game-making journey
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the 11 Lessons from a 11-game-making journey in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About the Press kit
+All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
+
+
+
+How to use the Press kit in your site
+Step 1: including the co...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>About All Tutorials
+
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Tutorials, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Tutorials? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsAll Tutorials by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Resource</category>
+<category>Tutorial</category>
+</item>
+<item>
+<title>Burokku Konekuta</title>
+<link>http://pedropsi.github.io/burokku-konekuta</link>
+<guid>http://pedropsi.github.io/burokku-konekuta</guid>
+<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
+		<p>About All Resources
+
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Resources, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Resources? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsAll Resources by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>About Puzzlescript Game Bar
+
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Puzzlescript Game Bar, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Puzzlescript Game Bar? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsPuzzlescript Game Bar by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
+</item>
+<item>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p>About Burokku Konekuta
+Tidiness rules in All Tutorials. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
+Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>About Platformer Template
+Tidiness rules in All Resources. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
+Dawn2017ChillstepCC-BY 3.0
+Aurora2016ChillstepCC-BY 3.0
+A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+</item>
+<item>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>About Classed as 'Learning'
+Tidiness rules in Puzzlescript Game Bar. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
+</item>
+<item>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About A game-making journey
 Tidiness rules in Burokku Konekuta. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -32,30 +448,31 @@ Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
-Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
-<category>Game</category>
-<category>Puzzle</category>
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
 </item>
 <item>
-<title>Platformer Template</title>
-<link>http://pedropsi.github.io/platformer-template</link>
-<guid>http://pedropsi.github.io/platformer-template</guid>
-<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
+<pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
-		<p>About Platformer Template
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About 11 Lessons from a 11-game-making journey
 Tidiness rules in Platformer Template. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -63,33 +480,29 @@ Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
-Dawn2017ChillstepCC-BY 3.0
-Aurora2016ChillstepCC-BY 3.0
-A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
-<category>Game</category>
-<category>Platformer</category>
-<category>Puzzle</category>
+<category>Class</category>
 </item>
 <item>
-<title>Classed as 'Learning'</title>
-<link>http://pedropsi.github.io/tag-Learning</link>
-<guid>http://pedropsi.github.io/tag-Learning</guid>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Classed as 'Learning'
+		<p>About Press kit
 Tidiness rules in Classed as 'Learning'. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -97,28 +510,29 @@ Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
 <category>Class</category>
 </item>
 <item>
-<title>A game-making journey</title>
-<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
-<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
-<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
-		<p>About A game-making journey
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>About All Tutorials
 Tidiness rules in A game-making journey. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -126,32 +540,30 @@ Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Tutorials, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Tutorials? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Tutorials by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
-<category>Game</category>
-<category>Learning</category>
-<category>List</category>
-<category>Log</category>
-<category>Post</category>
+<category>Resource</category>
+<category>Tutorial</category>
 </item>
 <item>
-<title>11 Lessons from a 11-game-making journey</title>
-<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
-<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
-<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<title>Burokku Konekuta</title>
+<link>http://pedropsi.github.io/burokku-konekuta</link>
+<guid>http://pedropsi.github.io/burokku-konekuta</guid>
+<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
-		<p>About 11 Lessons from a 11-game-making journey
+		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
+		<p>About All Resources
 Tidiness rules in 11 Lessons from a 11-game-making journey. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -159,31 +571,30 @@ Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Resources, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Resources? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Resources by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
 <category>Game</category>
-<category>Learning</category>
-<category>List</category>
-<category>Post</category>
+<category>Puzzle</category>
 </item>
 <item>
-<title>Press kit</title>
-<link>http://pedropsi.github.io/press</link>
-<guid>http://pedropsi.github.io/press</guid>
-<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Press kit
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>About Puzzlescript Game Bar
 Tidiness rules in Press kit. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -191,118 +602,132 @@ Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Puzzlescript Game Bar, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Puzzlescript Game Bar? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPuzzlescript Game Bar by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
-<category>Creative-Archive</category>
-<category>Press</category>
-<category>Sitemap</category>
+<category>Game</category>
+<category>Platformer</category>
+<category>Puzzle</category>
 </item>
 <item>
-<title>Classed as 'Press'</title>
-<link>http://pedropsi.github.io/tag-Press</link>
-<guid>http://pedropsi.github.io/tag-Press</guid>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Classed as 'Press'
-Tidiness rules in Classed as 'Press'. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+		<p>About Burokku Konekuta
+All Tutorials is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Press' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
+Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
 <category>Class</category>
 </item>
 <item>
-<title>All Lists</title>
-<link>http://pedropsi.github.io/tag-List</link>
-<guid>http://pedropsi.github.io/tag-List</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About All Lists
-Tidiness rules in All Lists. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>About Platformer Template
+All Resources is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Lists, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Lists? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsAll Lists by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
+Dawn2017ChillstepCC-BY 3.0
+Aurora2016ChillstepCC-BY 3.0
+A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
 </item>
 <item>
-<title>Selected Puzzlescript Games 2014-2019</title>
-<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Selected Puzzlescript Games 2014-2019
-Tidiness rules in Selected Puzzlescript Games 2014-2019. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>About Classed as 'Learning'
+Puzzlescript Game Bar is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Selected Puzzlescript Games 2014-2019, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Selected Puzzlescript Games 2014-2019? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsSelected Puzzlescript Games 2014-2019 by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
+<category>Game</category>
+<category>Learning</category>
 <category>List</category>
 <category>Post</category>
 </item>
 <item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p>About Burokku Konekuta
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About A game-making journey
 Burokku Konekuta is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
@@ -310,15 +735,138 @@ Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
-Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
+<item>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About 11 Lessons from a 11-game-making journey
+Platformer Template is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About Press kit
+Classed as 'Learning' is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>About All Tutorials
+A game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Tutorials, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Tutorials? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsAll Tutorials by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
+	]]>
+	</description>
+
+<category>Resource</category>
+<category>Tutorial</category>
+</item>
+<item>
+<title>Burokku Konekuta</title>
+<link>http://pedropsi.github.io/burokku-konekuta</link>
+<guid>http://pedropsi.github.io/burokku-konekuta</guid>
+<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
+		<p>About All Resources
+11 Lessons from a 11-game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+
+How to playControls - keyboard
+Move with the arrow keys, and push blocks of different shapes.
+Level difficulty is shown by the number of stars (1 to 5).
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Resources, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Resources? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsAll Resources by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Featured in
+Blogs
+
+ Bart Bonte 's blog
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
@@ -333,25 +881,23 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
-		<p>About Platformer Template
-Platformer Template is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About Puzzlescript Game Bar
+Press kit is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Puzzlescript Game Bar, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Puzzlescript Game Bar? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
-Dawn2017ChillstepCC-BY 3.0
-Aurora2016ChillstepCC-BY 3.0
-A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPuzzlescript Game Bar by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
@@ -367,22 +913,24 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Classed as 'Learning'
-Classed as 'Learning' is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About Burokku Konekuta
+
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
+Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
@@ -396,22 +944,26 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
-		<p>About A game-making journey
-A game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About Platformer Template
+
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
+Dawn2017ChillstepCC-BY 3.0
+Aurora2016ChillstepCC-BY 3.0
+A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
@@ -429,22 +981,23 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
-		<p>About 11 Lessons from a 11-game-making journey
-11 Lessons from a 11-game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About Classed as 'Learning'
+
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
@@ -461,22 +1014,23 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Press kit
-Press kit is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About A game-making journey
+
 
 How to playControls - keyboard
 Move with the arrow keys, and push blocks of different shapes.
 Level difficulty is shown by the number of stars (1 to 5).
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Featured in
+Blogs
 
  Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Pedro PSIIF-ALIAS's フラシュ - 無料ゲー...</p>
 	]]>
 	</description>
 
@@ -485,92 +1039,86 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 <category>Sitemap</category>
 </item>
 <item>
-<title>Classed as 'Press'</title>
-<link>http://pedropsi.github.io/tag-Press</link>
-<guid>http://pedropsi.github.io/tag-Press</guid>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Classed as 'Press'
-Classed as 'Press' is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About All Tutorials
+
 
 How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
+Move with the arrow keys, which are used to interact with blocks of different shapes.
+Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Tutorials, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Tutorials? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Press' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Tutorials by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Special thanks
+« Hunkydory...</p>
 	]]>
 	</description>
 
 <category>Class</category>
 </item>
 <item>
-<title>All Lists</title>
-<link>http://pedropsi.github.io/tag-List</link>
-<guid>http://pedropsi.github.io/tag-List</guid>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About All Lists
-All Lists is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About All Resources
+
 
 How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
+Move with the arrow keys, which are used to interact with blocks of different shapes.
+Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Lists, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Lists? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Resources, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Resources? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsAll Lists by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Resources by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Special thanks
+« Hunkydory...</p>
 	]]>
 	</description>
 
 <category>Class</category>
 </item>
 <item>
-<title>Selected Puzzlescript Games 2014-2019</title>
-<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Selected Puzzlescript Games 2014-2019
-Selected Puzzlescript Games 2014-2019 is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>About Puzzlescript Game Bar
+
 
 How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
+Move with the arrow keys, which are used to interact with blocks of different shapes.
+Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Selected Puzzlescript Games 2014-2019, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Selected Puzzlescript Games 2014-2019? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Puzzlescript Game Bar, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Puzzlescript Game Bar? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsSelected Puzzlescript Games 2014-2019 by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPuzzlescript Game Bar by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Special thanks
+« Hunkydory...</p>
 	]]>
 	</description>
 
-<category>List</category>
-<category>Post</category>
+<category>Resource</category>
+<category>Tutorial</category>
 </item>
 <item>
 <title>Burokku Konekuta</title>
@@ -581,22 +1129,20 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
 		<p>About Burokku Konekuta
-
+Tidiness rules in All Tutorials. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
+Move with the arrow keys, which are used to interact with blocks of different shapes.
+Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
 
 CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
 Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Special thanks
+« Hunkydory...</p>
 	]]>
 	</description>
 
@@ -612,24 +1158,22 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
 		<p>About Platformer Template
-
+Tidiness rules in All Resources. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
+Move with the arrow keys, which are used to interact with blocks of different shapes.
+Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
 
 CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
 Dawn2017ChillstepCC-BY 3.0
 Aurora2016ChillstepCC-BY 3.0
 A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Special thanks
+« Hunkydory...</p>
 	]]>
 	</description>
 
@@ -646,21 +1190,19 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p>About Classed as 'Learning'
-
+Tidiness rules in Puzzlescript Game Bar. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
+Move with the arrow keys, which are used to interact with blocks of different shapes.
+Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
 
 CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
+Special thanks
+« Hunkydory...</p>
 	]]>
 	</description>
 
@@ -675,131 +1217,6 @@ Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
 		<p>About A game-making journey
-
-
-How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Learning</category>
-<category>List</category>
-<category>Log</category>
-<category>Post</category>
-</item>
-<item>
-<title>11 Lessons from a 11-game-making journey</title>
-<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
-<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
-<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
-		<p>About 11 Lessons from a 11-game-making journey
-
-
-How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Learning</category>
-<category>List</category>
-<category>Post</category>
-</item>
-<item>
-<title>Press kit</title>
-<link>http://pedropsi.github.io/press</link>
-<guid>http://pedropsi.github.io/press</guid>
-<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Press kit
-
-
-How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
-	]]>
-	</description>
-
-<category>Creative-Archive</category>
-<category>Press</category>
-<category>Sitemap</category>
-</item>
-<item>
-<title>Classed as 'Press'</title>
-<link>http://pedropsi.github.io/tag-Press</link>
-<guid>http://pedropsi.github.io/tag-Press</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Classed as 'Press'
-
-
-How to playControls - keyboard
-Move with the arrow keys, and push blocks of different shapes.
-Level difficulty is shown by the number of stars (1 to 5).
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsClassed as 'Press' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Featured in
-
- Bart Bonte 's blog
-Pedro PSIIF-ALIAS's フラシュ - 無料ゲーム blog...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Lists</title>
-<link>http://pedropsi.github.io/tag-List</link>
-<guid>http://pedropsi.github.io/tag-List</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Burokku Konekuta
 Tidiness rules in Burokku Konekuta. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -807,27 +1224,30 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
-Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
 </item>
 <item>
-<title>Selected Puzzlescript Games 2014-2019</title>
-<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<title>11 Lessons from a 11-game-making journey</title>
+<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
+<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Platformer Template
+		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
+		<p>About 11 Lessons from a 11-game-making journey
 Tidiness rules in Platformer Template. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -835,30 +1255,29 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
-Dawn2017ChillstepCC-BY 3.0
-Aurora2016ChillstepCC-BY 3.0
-A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
 	]]>
 	</description>
 
+<category>Game</category>
+<category>Learning</category>
 <category>List</category>
 <category>Post</category>
 </item>
 <item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p>About Classed as 'Learning'
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About Press kit
 Tidiness rules in Classed as 'Learning'. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -866,27 +1285,28 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
 	]]>
 	</description>
 
-<category>Game</category>
-<category>Puzzle</category>
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
 </item>
 <item>
-<title>Platformer Template</title>
-<link>http://pedropsi.github.io/platformer-template</link>
-<guid>http://pedropsi.github.io/platformer-template</guid>
-<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
+<pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
-		<p>About A game-making journey
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p>About All Tutorials
 Tidiness rules in A game-making journey. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -894,28 +1314,26 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Tutorials, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Tutorials? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Tutorials by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
 	]]>
 	</description>
 
-<category>Game</category>
-<category>Platformer</category>
-<category>Puzzle</category>
+<category>Class</category>
 </item>
 <item>
-<title>Classed as 'Learning'</title>
-<link>http://pedropsi.github.io/tag-Learning</link>
-<guid>http://pedropsi.github.io/tag-Learning</guid>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About 11 Lessons from a 11-game-making journey
+		<p>About All Resources
 Tidiness rules in 11 Lessons from a 11-game-making journey. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -923,9 +1341,9 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Resources, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Resources? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Resources by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -935,14 +1353,14 @@ Special thanks
 <category>Class</category>
 </item>
 <item>
-<title>A game-making journey</title>
-<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
-<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
-<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
-		<p>About Press kit
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>About Puzzlescript Game Bar
 Tidiness rules in Press kit. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
 
 How to playControls - keyboard
@@ -950,9 +1368,38 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Puzzlescript Game Bar, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Puzzlescript Game Bar? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPuzzlescript Game Bar by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+
+Special thanks
+« Hunkydory...</p>
+	]]>
+	</description>
+
+<category>Resource</category>
+<category>Tutorial</category>
+</item>
+<item>
+<title>Burokku Konekuta</title>
+<link>http://pedropsi.github.io/burokku-konekuta</link>
+<guid>http://pedropsi.github.io/burokku-konekuta</guid>
+<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
+		<p>About Burokku Konekuta
+All Tutorials is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+
+How to playControls - keyboard
+Move with the arrow keys, which are used to interact with blocks of different shapes.
+Your perception of the goal and game rules should evolve as the game progresses.
+
+Press Z to undo a move. Press R to restart the level.
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
+
+CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
+Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -960,30 +1407,30 @@ Special thanks
 	</description>
 
 <category>Game</category>
-<category>Learning</category>
-<category>List</category>
-<category>Log</category>
-<category>Post</category>
+<category>Puzzle</category>
 </item>
 <item>
-<title>11 Lessons from a 11-game-making journey</title>
-<link>http://pedropsi.github.io/11-lessons-from-11-games</link>
-<guid>http://pedropsi.github.io/11-lessons-from-11-games</guid>
-<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
+<title>Platformer Template</title>
+<link>http://pedropsi.github.io/platformer-template</link>
+<guid>http://pedropsi.github.io/platformer-template</guid>
+<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
-		<p>About Classed as 'Press'
-Tidiness rules in Classed as 'Press'. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
+		<p>About Platformer Template
+All Resources is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, which are used to interact with blocks of different shapes.
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Press' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
+Dawn2017ChillstepCC-BY 3.0
+Aurora2016ChillstepCC-BY 3.0
+A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -991,58 +1438,28 @@ Special thanks
 	</description>
 
 <category>Game</category>
-<category>Learning</category>
-<category>List</category>
-<category>Post</category>
+<category>Platformer</category>
+<category>Puzzle</category>
 </item>
 <item>
-<title>Press kit</title>
-<link>http://pedropsi.github.io/press</link>
-<guid>http://pedropsi.github.io/press</guid>
-<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About All Lists
-Tidiness rules in All Lists. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-How to playControls - keyboard
-Move with the arrow keys, which are used to interact with blocks of different shapes.
-Your perception of the goal and game rules should evolve as the game progresses.
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Lists, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Lists? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsAll Lists by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Special thanks
-« Hunkydory...</p>
-	]]>
-	</description>
-
-<category>Creative-Archive</category>
-<category>Press</category>
-<category>Sitemap</category>
-</item>
-<item>
-<title>Classed as 'Press'</title>
-<link>http://pedropsi.github.io/tag-Press</link>
-<guid>http://pedropsi.github.io/tag-Press</guid>
+<title>Classed as 'Learning'</title>
+<link>http://pedropsi.github.io/tag-Learning</link>
+<guid>http://pedropsi.github.io/tag-Learning</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Selected Puzzlescript Games 2014-2019
-Tidiness rules in Selected Puzzlescript Games 2014-2019. Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
+		<p>About Classed as 'Learning'
+Puzzlescript Game Bar is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, which are used to interact with blocks of different shapes.
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Selected Puzzlescript Games 2014-2019, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Selected Puzzlescript Games 2014-2019? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsSelected Puzzlescript Games 2014-2019 by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1052,14 +1469,14 @@ Special thanks
 <category>Class</category>
 </item>
 <item>
-<title>All Lists</title>
-<link>http://pedropsi.github.io/tag-List</link>
-<guid>http://pedropsi.github.io/tag-List</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>A game-making journey</title>
+<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
+<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
+<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Burokku Konekuta
+		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
+		<p>About A game-making journey
 Burokku Konekuta is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
@@ -1067,152 +1484,9 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
-Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Special thanks
-« Hunkydory...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Selected Puzzlescript Games 2014-2019</title>
-<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Platformer Template
-Platformer Template is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
-
-How to playControls - keyboard
-Move with the arrow keys, which are used to interact with blocks of different shapes.
-Your perception of the goal and game rules should evolve as the game progresses.
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
-Dawn2017ChillstepCC-BY 3.0
-Aurora2016ChillstepCC-BY 3.0
-A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Special thanks
-« Hunkydory...</p>
-	]]>
-	</description>
-
-<category>List</category>
-<category>Post</category>
-</item>
-<item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p>About Classed as 'Learning'
-Classed as 'Learning' is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
-
-How to playControls - keyboard
-Move with the arrow keys, which are used to interact with blocks of different shapes.
-Your perception of the goal and game rules should evolve as the game progresses.
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Special thanks
-« Hunkydory...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-</item>
-<item>
-<title>Platformer Template</title>
-<link>http://pedropsi.github.io/platformer-template</link>
-<guid>http://pedropsi.github.io/platformer-template</guid>
-<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
-		<p>About A game-making journey
-A game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
-
-How to playControls - keyboard
-Move with the arrow keys, which are used to interact with blocks of different shapes.
-Your perception of the goal and game rules should evolve as the game progresses.
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
 CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Special thanks
-« Hunkydory...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Platformer</category>
-<category>Puzzle</category>
-</item>
-<item>
-<title>Classed as 'Learning'</title>
-<link>http://pedropsi.github.io/tag-Learning</link>
-<guid>http://pedropsi.github.io/tag-Learning</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About 11 Lessons from a 11-game-making journey
-11 Lessons from a 11-game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
-
-How to playControls - keyboard
-Move with the arrow keys, which are used to interact with blocks of different shapes.
-Your perception of the goal and game rules should evolve as the game progresses.
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Special thanks
-« Hunkydory...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>A game-making journey</title>
-<link>http://pedropsi.github.io/2019-04-14-a-game-making-journey</link>
-<guid>http://pedropsi.github.io/2019-04-14-a-game-making-journey</guid>
-<pubDate>Sun, 14 Apr 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
-		<p>About Press kit
-Press kit is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
-
-How to playControls - keyboard
-Move with the arrow keys, which are used to interact with blocks of different shapes.
-Your perception of the goal and game rules should evolve as the game progresses.
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1233,17 +1507,17 @@ Special thanks
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
-		<p>About Classed as 'Press'
-Classed as 'Press' is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About 11 Lessons from a 11-game-making journey
+Platformer Template is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, which are used to interact with blocks of different shapes.
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Press' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1263,17 +1537,17 @@ Special thanks
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About All Lists
-All Lists is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About Press kit
+Classed as 'Learning' is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, which are used to interact with blocks of different shapes.
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Lists, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Lists? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsAll Lists by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1285,24 +1559,24 @@ Special thanks
 <category>Sitemap</category>
 </item>
 <item>
-<title>Classed as 'Press'</title>
-<link>http://pedropsi.github.io/tag-Press</link>
-<guid>http://pedropsi.github.io/tag-Press</guid>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Selected Puzzlescript Games 2014-2019
-Selected Puzzlescript Games 2014-2019 is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
+		<p>About All Tutorials
+A game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, which are used to interact with blocks of different shapes.
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Selected Puzzlescript Games 2014-2019, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Selected Puzzlescript Games 2014-2019? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Tutorials, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Tutorials? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsSelected Puzzlescript Games 2014-2019 by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Tutorials by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1312,25 +1586,24 @@ Special thanks
 <category>Class</category>
 </item>
 <item>
-<title>All Lists</title>
-<link>http://pedropsi.github.io/tag-List</link>
-<guid>http://pedropsi.github.io/tag-List</guid>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Burokku Konekuta
-
+		<p>About All Resources
+11 Lessons from a 11-game-making journey is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, which are used to interact with blocks of different shapes.
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat All Resources, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed All Resources? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
-Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsAll Resources by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1340,35 +1613,32 @@ Special thanks
 <category>Class</category>
 </item>
 <item>
-<title>Selected Puzzlescript Games 2014-2019</title>
-<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About Platformer Template
-
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>About Puzzlescript Game Bar
+Press kit is a puzzle about making puzzles. A meta-game that teaches players how to design a puzzle-platformer step by step.
 
 How to playControls - keyboard
 Move with the arrow keys, which are used to interact with blocks of different shapes.
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to: undo,  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Puzzlescript Game Bar, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Puzzlescript Game Bar? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
-Dawn2017ChillstepCC-BY 3.0
-Aurora2016ChillstepCC-BY 3.0
-A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPuzzlescript Game Bar by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
 	]]>
 	</description>
 
-<category>List</category>
-<category>Post</category>
+<category>Resource</category>
+<category>Tutorial</category>
 </item>
 <item>
 <title>Burokku Konekuta</title>
@@ -1378,7 +1648,7 @@ Special thanks
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p>About Classed as 'Learning'
+		<p>About Burokku Konekuta
 
 
 How to playControls - keyboard
@@ -1386,9 +1656,10 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Burokku Konekuta, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Burokku Konekuta? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsBurokku Konekuta by Pedro PSI, 2019.MusicBackground music by Ju-nya.TrackYearLicenseTraffic Information2012CC-BY 3.0
+Breeze2012CC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1406,7 +1677,7 @@ Special thanks
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
-		<p>About A game-making journey
+		<p>About Platformer Template
 
 
 How to playControls - keyboard
@@ -1414,9 +1685,12 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely between all levels.Hall of fameOnce you beat Platformer Template, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Platformer Template? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsPlatformer Template by Pedro PSI, 2019.MusicBackground music by Sappheiros.TrackYearGenreLicenseFading2017Drum & BassCC-BY 3.0
+Dawn2017ChillstepCC-BY 3.0
+Aurora2016ChillstepCC-BY 3.0
+A Tale of Unexplored Worlds2016ChillstepCC-BY 3.0Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1435,7 +1709,7 @@ Special thanks
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>About 11 Lessons from a 11-game-making journey
+		<p>About Classed as 'Learning'
 
 
 How to playControls - keyboard
@@ -1443,9 +1717,9 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat 11 Lessons from a 11-game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed 11 Lessons from a 11-game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Learning', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Learning'? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-Credits11 Lessons from a 11-game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsClassed as 'Learning' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1462,7 +1736,7 @@ Special thanks
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
-		<p>About Press kit
+		<p>About A game-making journey
 
 
 How to playControls - keyboard
@@ -1470,9 +1744,9 @@ Move with the arrow keys, which are used to interact with blocks of different sh
 Your perception of the goal and game rules should evolve as the game progresses.
 
 Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Press kit, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Press kit? Add your message below to the Creative Archive's guestbook!Leave your message!
+Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat A game-making journey, you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed A game-making journey? Add your message below to the Creative Archive's guestbook!Leave your message!
 
-CreditsPress kit by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
+CreditsA game-making journey by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
 
 Special thanks
 « Hunkydory...</p>
@@ -1493,49 +1767,20 @@ Special thanks
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
-		<p>About Classed as 'Press'
-
-
-How to playControls - keyboard
-Move with the arrow keys, which are used to interact with blocks of different shapes.
-Your perception of the goal and game rules should evolve as the game progresses.
-
-Press Z to undo a move. Press R to restart the level.
-Controls - touchscreenTap to simulate pressing X and swipe to simulate an arrow keypress.Open the tab on the left beside the game to:  restart and return to menu.Real-time feedbackPress F anytime to provide real-time feedback! Much appreciated!Level navigationUsing the Level Selector Menu (below in the game bar) you can navigate freely Hall of fameOnce you beat Classed as 'Press', you'll be invited to enter the Hall of Fame! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window t...CommunityGuestbookEnjoyed Classed as 'Press'? Add your message below to the Creative Archive's guestbook!Leave your message!
-
-CreditsClassed as 'Press' by Pedro PSI, 2019.MusicBackground music by .Game EngineMade with Puzzlescript.Inspect the source freely, but consider supporting the Creative Archive!
-
-Special thanks
-« Hunkydory...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Learning</category>
-<category>List</category>
-<category>Post</category>
-</item>
-<item>
-<title>Press kit</title>
-<link>http://pedropsi.github.io/press</link>
-<guid>http://pedropsi.github.io/press</guid>
-<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p>Classed as 'Learning' in the Creative Archive</p>
 	]]>
 	</description>
 
-<category>Creative-Archive</category>
-<category>Press</category>
-<category>Sitemap</category>
+<category>Game</category>
+<category>Learning</category>
+<category>List</category>
+<category>Post</category>
 </item>
 <item>
-<title>Classed as 'Press'</title>
-<link>http://pedropsi.github.io/tag-Press</link>
-<guid>http://pedropsi.github.io/tag-Press</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>Press kit</title>
+<link>http://pedropsi.github.io/press</link>
+<guid>http://pedropsi.github.io/press</guid>
+<pubDate>Sat, 02 Feb 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
@@ -1544,12 +1789,14 @@ Here I share my game making journey, comprising 11 games designed as learning si
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Creative-Archive</category>
+<category>Press</category>
+<category>Sitemap</category>
 </item>
 <item>
-<title>All Lists</title>
-<link>http://pedropsi.github.io/tag-List</link>
-<guid>http://pedropsi.github.io/tag-List</guid>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
@@ -1567,19 +1814,33 @@ What should players gain or learn from your game?
 <category>Class</category>
 </item>
 <item>
-<title>Selected Puzzlescript Games 2014-2019</title>
-<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
+<pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>PressWould you like....to write an article about Burokku Konekuta?to feature Burokku Konekuta in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about All Tutorials?to feature All Tutorials in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
-<category>List</category>
-<category>Post</category>
+<category>Class</category>
+</item>
+<item>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p>PressWould you like....to write an article about All Resources?to feature All Resources in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+	]]>
+	</description>
+
+<category>Resource</category>
+<category>Tutorial</category>
 </item>
 <item>
 <title>Burokku Konekuta</title>
@@ -1589,7 +1850,7 @@ What should players gain or learn from your game?
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p>PressWould you like....to write an article about Platformer Template?to feature Platformer Template in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about Puzzlescript Game Bar?to feature Puzzlescript Game Bar in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
@@ -1604,7 +1865,7 @@ What should players gain or learn from your game?
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
-		<p>PressWould you like....to write an article about Classed as 'Learning'?to feature Classed as 'Learning' in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about Burokku Konekuta?to feature Burokku Konekuta in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
@@ -1620,7 +1881,7 @@ What should players gain or learn from your game?
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>PressWould you like....to write an article about A game-making journey?to feature A game-making journey in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about Platformer Template?to feature Platformer Template in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
@@ -1634,7 +1895,7 @@ What should players gain or learn from your game?
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/2019-04-14-a-game-making-journey.png" height="200" align="left" hspace="5" alt="A game-making journey" title="A game-making journey"/>
-		<p>PressWould you like....to write an article about 11 Lessons from a 11-game-making journey?to feature 11 Lessons from a 11-game-making journey in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about Classed as 'Learning'?to feature Classed as 'Learning' in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
@@ -1652,7 +1913,7 @@ What should players gain or learn from your game?
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/11-lessons-from-11-games.png" height="200" align="left" hspace="5" alt="11 Lessons from a 11-game-making journey" title="11 Lessons from a 11-game-making journey"/>
-		<p>PressWould you like....to write an article about Press kit?to feature Press kit in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about A game-making journey?to feature A game-making journey in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
@@ -1669,7 +1930,7 @@ What should players gain or learn from your game?
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>PressWould you like....to write an article about Classed as 'Press'?to feature Classed as 'Press' in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about 11 Lessons from a 11-game-making journey?to feature 11 Lessons from a 11-game-making journey in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
@@ -1678,82 +1939,18 @@ What should players gain or learn from your game?
 <category>Sitemap</category>
 </item>
 <item>
-<title>Classed as 'Press'</title>
-<link>http://pedropsi.github.io/tag-Press</link>
-<guid>http://pedropsi.github.io/tag-Press</guid>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>PressWould you like....to write an article about All Lists?to feature All Lists in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
+		<p>PressWould you like....to write an article about Press kit?to feature Press kit in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
 	]]>
 	</description>
 
 <category>Class</category>
-</item>
-<item>
-<title>All Lists</title>
-<link>http://pedropsi.github.io/tag-List</link>
-<guid>http://pedropsi.github.io/tag-List</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>PressWould you like....to write an article about Selected Puzzlescript Games 2014-2019?to feature Selected Puzzlescript Games 2014-2019 in a curated collection?to record a playthrough video or livestream?Feel free to use and edit, for those purposes, all material on this page, including: text;screenshots and logo below;recorded gameplay footage;...as long as you provide appropriate credit and a direct link to this page.Screenshots & LogoDownload all screenshots and logo at once:download all (zip archive)Other inquiriesCheck also the Creative Archive's press kit or contact Pedro PSI for all unusual requests!</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Selected Puzzlescript Games 2014-2019</title>
-<link>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/2019-01-31-selected-puzzlescript-games</guid>
-<pubDate>Thu, 31 Jan 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>Classed as 'Press' in the Creative Archive</p>
-	]]>
-	</description>
-
-<category>List</category>
-<category>Post</category>
-</item>
-<item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p>All Lists in the Creative Archive</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-</item>
-<item>
-<title>Platformer Template</title>
-<link>http://pedropsi.github.io/platformer-template</link>
-<guid>http://pedropsi.github.io/platformer-template</guid>
-<pubDate>Mon, 22 Apr 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/platformer-template.png" height="200" align="left" hspace="5" alt="Platformer Template" title="Platformer Template"/>
-		<p>Purpose
-This is a short list of very good puzzlescript games, in my opinion. It serves as a personal, yet publicly shared, reference (to be updated whenever needed). 
-
-Criteria
-The list focusses on games released within the years 2014-2019, yet many during this period were overlooked. As long...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Platformer</category>
-<category>Puzzle</category>
 </item>
 		
 	</channel>
