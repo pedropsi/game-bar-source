@@ -19,7 +19,8 @@ var puzzlescriptModules=[
 "inputoutput",
 "mobile",
 /*Extras*/
-"data-game-extras"
+"data-game-extras",
+"data-game-moves"
 ]
 
 puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));

@@ -157,7 +157,7 @@ function RequestHallOfFame(){
 }
 
 function RequestModalWinnerMessage(previousDP){
-	if(ClearSolvedLevelIndices)ClearSolvedLevelIndices();
+	//if(ClearSolvedScreens)ClearSolvedScreens();
 	RequestDataPack([
 		['answer',{
 			questionname:"As a winner, what would you tell Pedro PSI?",
@@ -222,7 +222,7 @@ function RequestGameFeedback(){
 		DFsettingsObj.questionname="Any further comments?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
-	else if(!isLevelMessage(curlevel)){
+	else if(!ScreenMessage(curlevel)){
 		DFsettingsObj.questionname="What do you think of level "+LevelNumber(curlevel)+", so far?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
