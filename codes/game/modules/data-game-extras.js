@@ -78,6 +78,17 @@ function HasLevel(){
 	return CanSaveLocally()&&void 0!==localStorage[DocumentURL()];
 }
 
+// Checkpoint Save
+
+function MaxCheckpoint(m){ 
+	if(m===undefined){  //Getter
+		var c=Number(curcheckpoint);
+		MaxCheckpoint.max=MaxCheckpoint.max?Math.max(c,MaxCheckpoint.max):c;
+	}
+	else				//Setter (m)
+		MaxCheckpoint.max=Number(m);
+	return MaxCheckpoint.max;
+}
 
 function SetCheckpointStack(newstack){
 	MaxCheckpoint(newstack.length);
@@ -116,6 +127,7 @@ function SaveCheckpoint(levelTarget,isReloading){
 	curcheckpoint=newstack.length-1;
 	return SetCheckpointStack(newstack);
 }
+
 
 // Level Save
 function SaveLevel(curlevel){
@@ -218,19 +230,19 @@ function SolvedScreens(){
 
 function AddToSolvedScreens(curlevel){
 	function SortNumber(a,b){return a-b};
-	if(!LevelSolved(curlevel)){
+	if(!ScreenSolved(curlevel)){
 		SolvedScreens.levels.push(Number(curlevel));
 		SolvedScreens.levels=SolvedScreens.levels.sort(SortNumber);
 	}
 	return SolvedScreens();
 }
 
-function LevelSolved(curlevel){
+function ScreenSolved(curlevel){
 	return SolvedScreens().indexOf(curlevel)>=0
 }
 
 function UnSolvedScreens(){
-	return Screens().filter(function(l){return !LevelSolved(l)});
+	return Screens().filter(function(l){return !ScreenSolved(l)});
 }
 
 function FirstUnsolvedScreen(curlevel){
@@ -262,27 +274,14 @@ function ClearSolvedScreens(){
 }
 
 function SolvedAllScreens(){
-	return Screens().every(LevelSolved);
+	return Screens().every(ScreenSolved);
 }
 
 function LevelNumber(curlevel){
 	return Screens().filter(function(l){return l<curlevel}).length+1;
 }
 
-function MaxLevel(){
-	MaxLevel.max=MaxLevel.max?Math.max(curlevel,MaxLevel.max):Number(curlevel);
-	return MaxLevel.max;
-}
 
-function MaxCheckpoint(m){ 
-	if(m===undefined){  //Getter
-		var c=Number(curcheckpoint);
-		MaxCheckpoint.max=MaxCheckpoint.max?Math.max(c,MaxCheckpoint.max):c;
-	}
-	else				//Setter (m)
-		MaxCheckpoint.max=Number(m);
-	return MaxCheckpoint.max;
-}
 
 
 function RequestLevelSelector(){
@@ -316,7 +315,7 @@ function RequestLevelSelector(){
 }
 
 function StarLevel(l){
-	return LevelNumber(l)+(LevelSolved(l)?"★":"");
+	return LevelNumber(l)+(ScreenSolved(l)?"★":"");
 }
 function UnstarLevel(l){
 	return Number(l.replace("★",""));
@@ -349,29 +348,8 @@ function GoToLevel(lvl){
 
 
 
-
-
 ////////////////////////////////////////////////////////////////////////////////
-//Overwrites
-
-function doSetupTitleScreenLevelContinue(){
-	try{LoadSave()}
-	catch(c){}}
-doSetupTitleScreenLevelContinue()
-
-function DoWin() {
-	if (!winning) {
-		EchoLevelWin(curlevel);
-		AddToSolvedScreens(curlevel);
-		SaveLevel(curlevel);
-		if(typeof customLevelInfo!= "undefined")customLevelInfo();
-		if (againing = false, tryPlayEndLevelSound(), unitTesting){
-			ClearLevelRecord();
-			return void nextLevel();
-		}
-		winning = true, timer = 0
-	}
-}
+// Overwrite Helpers
 
 
 function StartLevelFromTitle(){
@@ -450,6 +428,28 @@ function RefreshCheckpoint(){
 function AdjustFlickscreen(){
 	if (state!==undefined && state.metadata.flickscreen!==undefined){
 		oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)];
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//Overwrites
+
+function doSetupTitleScreenLevelContinue(){
+	try{LoadSave()}
+	catch(c){}}
+doSetupTitleScreenLevelContinue()
+
+function DoWin() {
+	if (!winning) {
+		EchoLevelWin(curlevel);
+		AddToSolvedScreens(curlevel);
+		SaveLevel(curlevel);
+		if(typeof customLevelInfo!= "undefined")customLevelInfo();
+		if (againing = false, tryPlayEndLevelSound(), unitTesting){
+			ClearLevelRecord();
+			return void nextLevel();
+		}
+		winning = true, timer = 0
 	}
 }
 
