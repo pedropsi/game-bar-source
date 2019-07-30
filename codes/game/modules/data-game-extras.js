@@ -150,15 +150,14 @@ function LoadSave(){
 
 function GoToLevel(lvl){
 	SaveLevel(lvl);
-	winning=!1;
+	winning=false;
 	timer=0;
-	textMode=titleScreen=!1;
+	textMode=titleScreen=false;
 	titleSelection=0<curlevel||null!==curlevelTarget?1:0;
-	messageselected=quittingTitleScreen=quittingMessageScreen=titleSelected=!1;
+	messageselected=quittingTitleScreen=quittingMessageScreen=titleSelected=false;
 	titleMode=0;
 	loadLevelFromState(state,lvl);
 	canvasResize();
-	clearInputHistory();
 };
 
 function isLevelMessage(lvl){
@@ -168,6 +167,9 @@ function isLevelMessage(lvl){
 function LevelType(level){
 	return typeof level.message==="undefined";	
 }
+
+
+
 
 function LevelIndices(){
 	if(LevelIndices.l!==undefined)
@@ -187,7 +189,11 @@ function InLevelIndices(curlevel){
 	return LevelIndices().indexOf(curlevel)!==-1;
 }
 
-function isLastLevel(curlevel){return LevelIndices()[LevelIndices().length-1]===curlevel};
+function LastLevel(){
+	return LevelIndices()[LevelIndices().length-1];
+}
+
+function isLastLevel(curlevel){return LastLevel()===curlevel};
 
 function SolvedLevelIndices(){
 	if(SolvedLevelIndices.levels===undefined){
@@ -214,7 +220,7 @@ function UnSolvedLevelIndices(){
 	return LevelIndices().filter(function(l){return SolvedLevelIndices().indexOf(l)===-1});
 }
 
-function FirstUnsolvedLevel(curlevel){
+function FirstUnsolvedScreen(curlevel){
 	if(UnSolvedLevelIndices().length===0)
 		return 1+LevelIndices()[LevelIndices().length-1];
 	else{
@@ -226,18 +232,23 @@ function FirstUnsolvedLevel(curlevel){
 	}
 }
 
-function NextUnsolvedLevel(curlevel){
+function NextUnsolvedScreen(curlevel){
 	var firstusolve=UnSolvedLevelIndices().filter(x=>x>=curlevel)[0];
 	var lastsolvebefore=LevelIndices().filter(x=>x<firstusolve);
 	return lastsolvebefore[lastsolvebefore.length-1]+1;
 }
+
+function LastScreen(){return state.levels.length-1;};
+
+function LastSolvedLevel(){var li=SolvedLevelIndices(); return li[li.length-1];};
+
 
 function ClearSolvedLevelIndices(){
 	console.log("levels solved cleared.");
 	return SolvedLevelIndices.levels=[];
 }
 
-function SolvedLevelsAll(){
+function SolvedAllLevels(){
 	return LevelIndices().every(l=>SolvedLevelIndices().indexOf(l)>=0);
 }
 
@@ -304,32 +315,6 @@ function LoadLevelFromDP(DP){
 	}
 };
 
-/*
-function GoToLevelNext(){
-	if(HasCheckpoint()){
-		GoToLevelCheckpoint(curcheckpoint+1);
-	}
-	else{
-		if(curlevel<MaxLevel()){
-			GoToLevel(curlevel+1);
-			}
-		if(curlevel==(state.levels.length-1)&&isLevelMessage(curlevel)){
-			DoWin();
-		}
-	}
-}
-
-function GoToLevelPrev(){
-	if(HasCheckpoint()){
-		GoToLevelCheckpoint(curcheckpoint-1);
-	}
-	else{
-		if(curlevel>0){
-			GoToLevel(curlevel-1);
-		}
-	}
-}
-*/
 
 function GoToLevelCheckpoint(ncheckpoint){
 	if(HasCheckpoint()){
@@ -377,7 +362,6 @@ function AddGameBar(idorselector){
 /// Echo
 
 function EchoLevelWin(curlevel){
-	console.log("EchoLevelWin");
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
 		echoPureData(leveldata,leveldataURL);
@@ -916,60 +900,119 @@ function doSetupTitleScreenLevelContinue(){
 doSetupTitleScreenLevelContinue()
 
 function DoWin() {
-	console.log("won");
 	if (!winning) {
 		EchoLevelWin(curlevel);AddToSolvedLevelIndices(curlevel);SaveLevel(curlevel);
-		if(typeof customLevelInfo!= "undefined")customLevelInfo(); 
-		if (againing = !1, tryPlayEndLevelSound(), unitTesting)	return void nextLevel();
-		winning = !0, timer = 0
+		if(typeof customLevelInfo!= "undefined")customLevelInfo();
+		if (againing = false, tryPlayEndLevelSound(), unitTesting){
+			ClearLevelRecord();
+			return void nextLevel();
+		}
+		winning = true, timer = 0
 	}
 }
 
 
-function nextLevel(){
-	ClearLevelRecord();
-	againing=!1;
-	messagetext="";
-	state&&state.levels&&curlevel>state.levels.length&&(curlevel=state.levels.length-1);
-	if(titleScreen)
-		0===titleSelection&&(curlevel=0,curlevelTarget=null),null!==curlevelTarget?loadLevelFromStateTarget(state,curlevel,curlevelTarget):loadLevelFromState(state,curlevel);
-	else if(hasUsedCheckpoint&&(curlevelTarget=null,hasUsedCheckpoint=!1),(curlevel<state.levels.length-1)&&!SolvedLevelsAll()){
-		if(isLevelMessage(curlevel))
-			curlevel++;
-		else if(isLastLevel(curlevel))
-			curlevel=FirstUnsolvedLevel(curlevel);
-		else
-			curlevel=NextUnsolvedLevel(curlevel);
-		console.log("moved");
-		messageselected=quittingMessageScreen=titleScreen=textMode=!1;
-		null!==curlevelTarget?loadLevelFromStateTarget(state,curlevel,curlevelTarget):loadLevelFromState(state,curlevel);
+function StartLevelFromTitle(){
+	if (titleSelection===0){//new game
+		ResetLevel();
+	}
+	LoadLevelOrCheckpoint();
+}
+
+function ResetLevel(){
+	curlevel=0;
+	curlevelTarget=null;
+}
+
+function ResetGame(){
+	UnsaveSave();
+	ResetLevel();
+	goToTitleScreen();
+	tryPlayEndGameSound();
+}
+
+function AdvanceLevel(){
+	textMode=false;
+	titleScreen=false;
+	quittingMessageScreen=false;
+	messageselected=false;
+	SaveLevel(curlevel);
+	LoadLevelOrCheckpoint();
+}
+
+function AdvanceScreen(){
+	if(isLevelMessage(curlevel)&&curlevel<LastLevel()){
+		console.log("from message");
+		curlevel++;
+	}
+	else if(isLastLevel(curlevel)||(isLevelMessage(curlevel)&&curlevel>LastLevel())){
+		console.log("from last level");
+		curlevel=FirstUnsolvedScreen(curlevel);
 	}
 	else{
-		try{
-			UnsaveSave()
-		}
-		catch(a){}
-		if(SolvedLevelsAll()) RequestHallOfFame();
-		curlevel=0;
+		console.log("from anywhere in the middle");
+		curlevel=NextUnsolvedScreen(curlevel);
+	}		
+	AdvanceLevel();	
+}
+
+function AdvanceEndScreen(){
+	if(curlevel>=LastSolvedLevel())
+		curlevel++;
+	else
+		curlevel=LastSolvedLevel()+1;
+	
+	AdvanceLevel();		
+}
+
+function LoadLevelOrCheckpoint(){
+	if (curlevelTarget!==null){
+		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 		curlevelTarget=null;
-		goToTitleScreen();
-		tryPlayEndGameSound();
+		hasUsedCheckpoint=false;
 	}
-	try{
-		if(HasSave())
-			if(null!==curlevelTarget){
-				restartTarget=level4Serialization();
-				SaveCheckpoint(restartTarget,true)
-			}
-			else UnsaveCheckpoint()
+	else
+		loadLevelFromState(state,curlevel);
+}
+
+function RefreshCheckpoint(){
+	if(HasSave()){
+		if(null!==curlevelTarget){
+			restartTarget=level4Serialization();
+			SaveCheckpoint(restartTarget,true)
+		}
+		else UnsaveCheckpoint();
 	}
-	catch(c){}
-	void 0!==state&&void 0!==state.metadata.flickscreen&&(oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)]);
+}
+
+function AdjustFlickscreen(){
+	if (state!==undefined && state.metadata.flickscreen!==undefined){
+		oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)];
+	}
+}
+
+function nextLevel(){
+	againing=false;
+	messagetext="";
 	
-	SaveLevel(curlevel);
+	curlevel=Math.min(curlevel,LastScreen()?LastScreen():curlevel);
 	
+	if (titleScreen)
+		StartLevelFromTitle();
+	else {
+		if(!SolvedAllLevels())
+			AdvanceScreen();
+		else if(curlevel<LastScreen())
+			AdvanceEndScreen();
+		else{
+			RequestHallOfFame();
+			ResetGame();
+		}
+	}
+	
+	RefreshCheckpoint();
+	AdjustFlickscreen();
 	canvasResize();
-	clearInputHistory();
 }
 
 function checkKey(a,b){
@@ -1001,12 +1044,12 @@ function checkKey(a,b){
 			if(0!==state.levels.length)
 				if(titleScreen)
 					if(0===titleMode)
-						4===c&&b&&!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=!0,messageselected=!1,timer=0,quittingTitleScreen=!0,generateTitleScreen(),canvasResize());
-					else if(4==c&&b)!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=!0,messageselected=!1,timer=0,quittingTitleScreen=!0,generateTitleScreen(),redraw());else{if(0===c||2===c)titleSelection=0===c?0:1,generateTitleScreen(),redraw()}else 4==c&&b&&(unitTesting?nextLevel():!1===messageselected&&(messageselected=!0,timer=0,quittingMessageScreen=!0,tryPlayCloseMessageSound(),titleScreen=!1,drawMessageScreen()))}else if(!againing&&0<=c)return 4===c&&"noaction"in state.metadata||(pushInput(c),processInput(c)&&redraw()),prevent(a)
+						4===c&&b&&!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=true,messageselected=false,timer=0,quittingTitleScreen=true,generateTitleScreen(),canvasResize());
+					else if(4==c&&b)!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=true,messageselected=false,timer=0,quittingTitleScreen=true,generateTitleScreen(),redraw());else{if(0===c||2===c)titleSelection=0===c?0:1,generateTitleScreen(),redraw()}else 4==c&&b&&(unitTesting?nextLevel():!1===messageselected&&(messageselected=true,timer=0,quittingMessageScreen=true,tryPlayCloseMessageSound(),titleScreen=false,drawMessageScreen()))}else if(!againing&&0<=c)return 4===c&&"noaction"in state.metadata||(pushInput(c),processInput(c)&&redraw()),prevent(a)
 }}
 
 function processInput(a,b,c){
-	againing=!1;
+	againing=false;
 	verbose_logging&&(-1===a?consolePrint("Turn starts with no input."):(consolePrint("======================="),consolePrint("Turn starts with input of "+["up","left","down","right","action"][a]+".")));
 	var d=backupLevel(),e=[];
 	if(4>=a){
@@ -1024,20 +1067,20 @@ function processInput(a,b,c){
 		level.bannedGroup=[];
 		rigidBackups=[];
 		level.commandQueue=[];
-		var h=0,l=!1,p=commitPreservationState();
+		var h=0,l=false,p=commitPreservationState();
 		sfxCreateMask.setZero();
 		sfxDestroyMask.setZero();
 		seedsToPlay_CanMove=[];
 		seedsToPlay_CantMove=[];
 		calculateRowColMasks();
-		do l=!1,g++,verbose_logging&&consolePrint("applying rules"),applyRules(state.rules,state.loopPoint,h,level.bannedGroup),resolveMovements()?(l=!0,restorePreservationState(p)):(verbose_logging&&consolePrint("applying late rules"),applyRules(state.lateRules,state.lateLoopPoint,0)),h=0;
+		do l=false,g++,verbose_logging&&consolePrint("applying rules"),applyRules(state.rules,state.loopPoint,h,level.bannedGroup),resolveMovements()?(l=true,restorePreservationState(p)):(verbose_logging&&consolePrint("applying late rules"),applyRules(state.lateRules,state.lateLoopPoint,0)),h=0;
 		while(50>g&&l);
 		50<=g&&consolePrint("looped through 50 times, gave up.  too many loops!");
 		if(0<e.length&&void 0!==state.metadata.require_player_movement){
-			h=!1;
+			h=false;
 			for(g=0;g<e.length;g++)
 				if(l=level.getCell(e[g]),state.playerMask.bitsClearInArray(l.data)){
-					h=!0;
+					h=true;
 					break
 				}
 				if(!1===h)
@@ -1048,13 +1091,13 @@ function processInput(a,b,c){
 		if(0<=level.commandQueue.indexOf("restart"))
 			return verbose_logging&&(consolePrint("RESTART command executed, reverting to restart state."),consoleCacheDump()),backups.push(d),messagetext="",DoRestart(!0),!0;
 		if(c&&0<=level.commandQueue.indexOf("win"))
-			return!0;
-		h=!1;
+			returntrue;
+		h=false;
 		for(g=0;g<level.objects.length;g++)
 			if(level.objects[g]!==d.dat[g]){
 				if(c)
 					return verbose_logging&&consoleCacheDump(),backups.push(d),DoUndo(!0,!1),!0;-1!==a&&backups.push(d);
-				h=!0;
+				h=true;
 				break
 			}
 		if(c)
@@ -1069,10 +1112,10 @@ function processInput(a,b,c){
 			a=state.sfx_DestructionMasks[g],sfxDestroyMask.anyBitsInCommon(a.objectMask)&&playSound(a.seed);
 		for(g=0;g<level.commandQueue.length;g++)
 			a=level.commandQueue[g],"f"===a.charAt(1)&&tryPlaySimpleSound(a),!1===unitTesting?"message"===a&&showTempMessage():messagetext="";
-		!1!==textMode||void 0!==b&&!1!==b||(verbose_logging&&consolePrint("Checking win condition."),checkWin());
-		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(EchoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=!0,SaveCheckpoint(restartTarget),SaveLevel(curlevel)),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=!1,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=!0,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
+		false!==textMode||void 0!==b&&!1!==b||(verbose_logging&&consolePrint("Checking win condition."),checkWin());
+		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(EchoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=true,SaveCheckpoint(restartTarget),SaveLevel(curlevel)),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=false,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=true,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
 	}
 	verbose_logging&&consoleCacheDump();
-	winning&&(againing=!1);
+	winning&&(againing=false);
 	return h
 }
