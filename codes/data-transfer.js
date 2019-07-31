@@ -1625,7 +1625,6 @@ function LoadSounds(soundtrack,parentElement){
 }
 
 function PlaySound(soundname){
-	console.log(soundname);
 	GetElement(soundname).play();
 }
 
