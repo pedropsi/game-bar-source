@@ -56,18 +56,35 @@ Step 1: including the co..."/>
 <p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector).</p>
 
 <h3>Step 2: selecting your game</h3>
+<h4>In the <b>javascript source</b> </h4>
 <p>Ensure the  <b>javascript source</b> can find your game, by editing the line (near the end):
 <code>var gameElementID="#gameCanvas";</code>.
 The selector named <code>"#gameCanvas"</code> should match the ID of your game canvas.</p>
+<h4>In the <b>stylesheet</b></h4>
 <p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selectors <code>div:fullscreen #gameCanvas</code> and <code>div:full-screen #gameCanvas</code>.</p>
+<p>In case your game bar is misaligned with wih your game, please edit also the selector <code>.gameContainer</code> to match the <b>parent container</b> (outside) of your game canvas.</p>
 
 <h3>Step 3 (optional): adding music</h3>
 <p>To control music via the game bar, each music track should be added to the page inside <code> <span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
 <p> If you wish to delete the music button, simply delete the line <code>ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),</code>.</p>
 
+<h2>Customisation tips</h2>
+<h3>Changing the colours of the <b>Puzzlescript Game Bar</b></h3>
+<p>Edit the colours in the <code>:root</code> element of the <b>stylesheet</b> to change everything at once.</p>
+
+<h3>Changing the logo image in the level selector</h3>
+<h4>Easy way</h4>
+<p>Add a logo image named <code>"logo.png"</code> to the <code>images</code> folder in the root directory.</p>
+<h4>Hard way</h4> 
+<p>Edit the <code>function OpenBalloon</code> in the <b>javascript source</b>, specifically by changing the path string <code>"images/logo.png"</code> to wherever your logo may be located.</p>
+
+<h3>Changing the "solved level" ★ symbol</h3>
+<p>For now, Ctrl+F to search for <code>★</code>, which can be replaced by other symbols. More customisation options are planned.</p>
+
 <h2>Contributing</h2>
-<p>Love the <b>Puzzlescript Game Bar</b> and would like to improve it? Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" target='_blank'>Github Repository</a>, inspect the code and submit your ideas.</p>
+<p>Love the <b>Puzzlescript Game Bar</b> and would like to improve it? Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" target='_blank'>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
 <p>Or just <a href='contact.html'>contact Pedro PSI</a>, if you're so more inclined.</p>
+
 
 <h2>FAQ</h2>
 <h3>Can you use <b>Puzzlescript Game Bar</b> for free?</h3>
@@ -89,7 +106,7 @@ The selector named <code>"#gameCanvas"</code> should match the ID of your game c
 <p>You can either make your own or add the default ones (by uncommenting the lines referred to in the previous question). In the latter case you'll also need to have two sections in your page explicitly labelled with ids: <code>Credits</code> and <code>How-to-play</code>.</p>
 
 <h2>Special thanks</h2>
-<p>To <span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>Minotalen</a> </span> for suggesting the addition of the fullscreen button and requesting the code for the <b>Puzzlescript Game Bar</b> be more accessible.</p>
+<p>To <span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>Minotalen</a> </span> for suggesting the addition of the fullscreen button and requesting the code for the <b>Puzzlescript Game Bar</b> be more accessible; also for lots of testing and brainstorming.</p>
 
 
 <h2>Feedback</h2><h3>Problems? Suggestions?</h3><p>Please <a href='contact.html'>let me know</a> !</p><h3>Praise?</h3><p>Enjoyed <b>Puzzlescript Game Bar</b>? Add <b>your message</b> below to the Creative Archive's <b><a href="guestbook.html">guestbook</a></b>!</p><div class="button centered" onclick="RequestGuestbook()">Leave your message!</div></div></div><div class="tags buttonrow"><a class="tag button" href="posts-by-date.html">Saturday, 27/07/2019</a><a class="tag button" href="tag-Resource.html">Resource</a>

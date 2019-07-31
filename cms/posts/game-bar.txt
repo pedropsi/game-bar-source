@@ -19,7 +19,7 @@
 The selector named <code>"#gameCanvas"</code> should match the ID of your game canvas.</p>
 <h4>In the <b>stylesheet</b></h4>
 <p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selectors <code>div:fullscreen #gameCanvas</code> and <code>div:full-screen #gameCanvas</code>.</p>
-<p>In case your game bar is misaligned with wih your game, please edit also the selector <code>.gameContainer</code> to match the container of your game canvas.</p>
+<p>In case your game bar is misaligned with wih your game, please edit also the selector <code>.gameContainer</code> to match the <b>parent container</b> (outside) of your game canvas.</p>
 
 <h3>Step 3 (optional): adding music</h3>
 <p>To control music via the game bar, each music track should be added to the page inside <code> <span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
@@ -27,24 +27,21 @@ The selector named <code>"#gameCanvas"</code> should match the ID of your game c
 
 <h2>Customisation tips</h2>
 <h3>Changing the colours of the «TITLE-BOLD»</h3>
-<p>Edit the colours in the <code>:root<code> element of the <b>stylesheet</b> to change everything at once.</p>
+<p>Edit the colours in the <code>:root</code> element of the <b>stylesheet</b> to change everything at once.</p>
 
 <h3>Changing the logo image in the level selector</h3>
 <h4>Easy way</h4>
 <p>Add a logo image named <code>"logo.png"</code> to the <code>images</code> folder in the root directory.</p>
 <h4>Hard way</h4> 
-<p>Edit the <code>function OpenBalloon</code> in <b>javascript source</b>, specifically by changing the path string <code>"images/logo.png"</code> to wherever your logo may be located.</p>
+<p>Edit the <code>function OpenBalloon</code> in the <b>javascript source</b>, specifically by changing the path string <code>"images/logo.png"</code> to wherever your logo may be located.</p>
 
 <h3>Changing the "solved level" ★ symbol</h3>
 <p>For now, Ctrl+F to search for <code>★</code>, which can be replaced by other symbols. More customisation options are planned.</p>
 
-
-OpenBalloon(content,id,targetid){
-	AddElement(BalloonHTML("images/logo.png",content,id),targetid);
-
 <h2>Contributing</h2>
-<p>Love the «TITLE-BOLD» and would like to improve it? Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" «BLANK»>Github Repository</a>, inspect the code and submit your ideas.</p>
+<p>Love the «TITLE-BOLD» and would like to improve it? Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" «BLANK»>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
 <p>Or just «CONTACT-TEXT-1», if you're so more inclined.</p>
+
 
 <h2>FAQ</h2>
 <h3>Can you use «TITLE-BOLD» for free?</h3>
