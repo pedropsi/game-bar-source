@@ -55,11 +55,11 @@ function GetHonour(){
 var p="media/gravirinth/music/";
 var ps="media/gravirinth/sound/";
 var soundtracks={
-		1:{src:p+'Stellardrone - Light Years - 03 Eternity.mp3',volume:0.25,start:0,next:2,stopall:true},
+/*		1:{src:p+'Stellardrone - Light Years - 03 Eternity.mp3',volume:0.25,start:0,next:2,stopall:true},
 		2:{src:p+'Stellardrone - Light Years - 07 Comet Halley.mp3',volume:0.25,start:5,next:3,sfx:22586308,stopall:true,play:function(){PlayTrack(2)}},
 		3:{src:p+'Stellardrone - A Moment Of Stillness - 02 Billions And Billions.mp3',volume:0.25,start:5,next:4,stopall:true},
 		4:{src:p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',volume:0.25,start:5,next:5,stopall:true},
-		5:{src:p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',volume:0.25,start:5,next:1,stopall:true},
+		5:{src:p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',volume:0.25,start:5,next:1,stopall:true},*/
 		left:{src:ps+'left.mp3',volume:0.3,sfx:13614108,play:function(){PlayTrack("left")}},
 		up:{src:ps+'up.mp3',volume:0.3,sfx:25636708,play:function(){PlayTrack("up")}},
 		right:{src:ps+'right.mp3',volume:0.3,sfx:79636308,play:function(){PlayTrack("right")}},
@@ -71,72 +71,4 @@ var soundtracks={
 		undo:{src:ps+'undo.mp3',volume:0.1,sfx:85375308,play:function(){PlayTrack("undo")}},
 		restart:{src:ps+'restart.mp3',volume:0.1,sfx:35446108,play:function(){PlayTrack("restart")}}
 	/* 20449708 endplay */
-	}
-
-//Override SFX cache
-function OverrideSounds(){
-	sfxCache={};
-	for (var i in soundtracks){
-		if(soundtracks[i].sfx){
-			LoadTrack(i);
-			sfxCache[soundtracks[i].sfx]=soundtracks[i];};
-		}
-	console.log("Sounds overriden");
 }
- 
- function LoadTrack(id){
-	 if((typeof soundtracks!="undefined")&&(typeof soundtracks[id]!="undefined")){
-		if(typeof soundtracks[id].sound=="undefined"){
-			
-		var endf=function(){return;};
-		if((soundtracks[id].next)&&(soundtracks[soundtracks[id].next]))
-			endf=function(){PlayTrack(soundtracks[id].next)};
-			
-		soundtracks[id].sound=new Howl({
-										src: [soundtracks[id].src],
-										volume: soundtracks[id].volume,
-										onend:endf
-									});
-		
-		console.log("loaded "+soundtracks[id].src);
-		}
-	}
-};
-
- 
- function PlayTrack(id){
-	 if(typeof soundtracks!="undefined"){
-		 if(typeof soundtracks[id]!="undefined")
-			LoadTrack(id);
-		if(typeof soundtracks[id].start!="undefined")
-			soundtracks[id].sound.seek(soundtracks[id].start);
-		else
-			soundtracks[id].sound.seek(0);
-		if(soundtracks[id].stopall)
-			StopConcurrentTracks(id);	
-		if(soundtracks[id].stopsame)
-			soundtracks[id].sound.stop();	
-
-		soundtracks[id].sound.play();
-		//console.log("playing "+soundtracks[id].src);
-}};	
-
- function StopConcurrentTracks(id){
-	for (var i in soundtracks){
-		if((soundtracks[i].sound)&&(soundtracks[i].sound.playing()))
-			soundtracks[i].sound.stop();
- }};
-
-
-/*Music
-function PlaylistGravirinth(){
-	PlayTrack(1);
-	document.removeEventListener('click',PlaylistGravirinth);
-}
-
-function OverrideMusic(){
-	if(OverrideSounds)
-		OverrideSounds();
-	document.addEventListener('click',PlaylistGravirinth);
-};
-*/

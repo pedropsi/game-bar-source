@@ -432,7 +432,7 @@ function AdjustFlickscreen(){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//Overwrites
+//Overwritings
 
 function doSetupTitleScreenLevelContinue(){
 	try{LoadSave()}
@@ -580,4 +580,43 @@ function processInput(a,b,c){
 	verbose_logging&&consoleCacheDump();
 	winning&&(againing=false);
 	return h
+}
+
+
+//Sound Overwriting 
+
+function playSound(seed) {
+	if (!Muted()){
+		if(typeof seed ==="string")
+			PlaySound(seed);
+		else
+			PlaySound(FindSoundName(seed));
+	}
+}
+
+function FindSoundName(seed){
+	var seedname=String(seed);
+	if(!FindSoundName.names)
+		FindSoundName.names={};
+	var nameObj=FindSoundName.names;
+	if(nameObj[seedname])
+		return nameObj[seedname];
+	else{
+		var sounds=GetElements(".sound");
+		var found=false;
+		var i=0;
+		var nob={}
+		while(!found&&i<sounds.length){
+			if(sounds[i].dataset.sfx===seedname){
+				found=true;
+				nob[seedname]=sounds[i].id;
+				FindSoundName.names=FuseObjects(FindSoundName.names,nob);
+			};
+			i++;
+		}
+		if(found)
+			return sounds[i-1].id;
+		else
+			return "";
+	}
 }

@@ -1646,6 +1646,10 @@ function PlaylistStartPlay(){
 
 
 //Song
+function Muted(){
+	return !(GetElement("MuteButton").classList.contains("selected"));
+}
+
 function PlaySong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
