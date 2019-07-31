@@ -286,7 +286,7 @@ GALLERY-MUSIC	<table class="top-left">«MUSIC-TABLE-HEAD»«MUSIC-TABLE-BODY»</tabl
 MUSIC-CREDITS	<p>Background music by «MUSIC-CREDITS-AUTHORS».</p>«GALLERY-MUSIC»
 MUSIC-CREDITS-AUTHORS	«AUTHOR-FULL|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Track"}|Unique:True|Contain:True»
 
-AUDIO-TRACK	<audio src="media/«File-path»"></audio>
+AUDIO-TRACK	<audio class="music" src="media/«File-path»"></audio>
 GALLERY-AUDIO	«AUDIO-TRACK|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Track"}|Unique:True|SortBy:{N}|Contain:True»
 
 SUPPORT-LINK	2018-02-08-support-the-archive.html

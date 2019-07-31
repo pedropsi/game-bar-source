@@ -18,6 +18,17 @@ function FuseObjects(object,extrapropertiesobject){
 	return O;
 }
 
+function Datafy(object){
+	var O={};
+	var keys=Object.keys(object);
+	var datakey;
+	for(var k in keys){
+		datakey="data-"+(keys[k].replace("data-",""));
+		O[datakey]=object[keys[k]];
+	}
+	return O;
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //Regex
 function CombineMultiRegex(exprarray,joiner){
@@ -304,7 +315,7 @@ function GenerateId(){
 //Load scripts
 
 function LoadAsync(sourcename,folder){
-	var head= document.getElementsByTagName('head')[0];
+	var head= GetElements('head')[0];
 	var script= document.createElement('script');
 	var ext='.js';
 	var folder=((folder+"/").replace(/\/\//,"/"))||"codes/"
@@ -470,24 +481,40 @@ function MakeElement(html){
 
 HTMLTags=['!DOCTYPE','a','abbr','acronym','abbr','address','applet','embed','object','area','article','aside','audio','b','base','basefont','bdi','bdo','big','blockquote','body','br','button','canvas','caption','center','cite','code','col','colgroup','colgroup','data','datalist','dd','del','details','dfn','dialog','dir','ul','div','dl','dt','em','embed','fieldset','figcaption','figure','figure','font','footer','form','frame','frameset','h1','h6','head','header','hr','html','i','iframe','img','input','ins','kbd','label','input','legend','fieldset','li','link','main','map','mark','meta','meter','nav','noframes','noscript','object','ol','optgroup','option','output','p','param','picture','pre','progress','q','rp','rt','ruby','s','samp','script','section','select','small','source','video','audio','span','strike','del','s','strong','style','sub','summary','details','sup','svg','table','tbody','td','template','textarea','tfoot','th','thead','time','title','tr','track','video','audio','tt','u','ul','var','video','wbr'];
 
-function IsTagClassID(parentIDsel){
-	var classID=parentIDsel.replace(/^\..*/,"").replace(/^\#.*/,"")!==parentIDsel;
-	if(classID)
-		return true;
-	else
-		return HTMLTags.indexOf(parentIDsel)>=0;
+function IsTag(selector){
+	return HTMLTags.indexOf(selector)>=0;
+}
+function IsClass(selector){
+	return selector.replace(/^\./,"")!==selector;
+}
+function IsID(selector){
+	return selector.replace(/^\#/,"")!==selector;
 }
 
-// Add new element to page, under a parent element
-function GetElement(parentIDsel){
-	if(typeof parentIDsel==="string"){
-		if(IsTagClassID(parentIDsel))
-			return document.querySelector(parentIDsel);
+function IsQuerySelector(selector){
+	return IsID(selector)||IsClass(selector)||IsTag(selector);
+}
+
+// Get element based on selectors: .class, #id, idsring, or the element itself
+function GetElement(selector){
+	if(typeof selector==="string"){
+		if(IsQuerySelector(selector))
+			return document.querySelector(selector);
 		else
-			return document.getElementById(parentIDsel);
+			return document.getElementById(selector);
 	}
 	else
-		return parentIDsel; //in case the actual element is given in the beginning
+		return selector; //in case the actual element is given in the beginning
+};
+
+// Get element based on selectors: .class, tag, or the element itself
+function GetElements(selectorString){
+	var HTMLCollect;
+	if(IsClass(selectorString))
+		HTMLCollect=document.getElementsByClassName(selectorString.replace(/^\./,""));
+	else if (IsTag(selectorString))
+		HTMLCollect=document.getElementsByTagName(selectorString);
+	return Array.prototype.slice.call(HTMLCollect);
 };
 
 // Add new element to page, under a parent element
@@ -1554,13 +1581,48 @@ function LaunchConsoleMessage(DP){
 }
 
 
+
+
+///////////////////////////////////////////////////////////////////////////////
+//Sounds Control
+
+function MakeSound(sourcepath,data,id){
+	return ElementHTML({
+		tag:"audio",
+		txt:" ",
+		attributes:FuseObjects({'class':'sound',type:'audio/mpeg',preload:'auto','src':sourcepath,'id':(id?id:IDfy(sourcepath))},data?Datafy(data):{})
+	});
+}
+
+function LoadSound(soundpath,data,id,parentElement){
+	return AddElement(MakeSound(soundpath,data,id),parentElement);
+}
+
+function LS(soundobject,id,parentElement){
+		var src=soundobject.src;
+		var opts=FuseObjects(soundobject,{});
+		delete opts.src;
+		LoadSound(src,opts,id,parentElement);
+};
+
+function LoadSounds(soundtrack,parentElement){
+	var names=Object.keys(soundtrack);
+	for (var i=0;i<names.length;i++){
+		LS(soundtrack[names[i]],names[i],parentElement);
+	}
+}
+
+function PlaySound(soundname){
+	GetElement(soundname).play();
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //Music Control
 
 //Playlist
 function Playlist(i){
 	if(typeof Playlist.p==="undefined"){
-		Playlist.p=document.getElementsByTagName('audio');
+		Playlist.p=GetElements('.music');
 		Playlist.l=Playlist.p.length;
 	}
 	if(typeof i ==="undefined"){
