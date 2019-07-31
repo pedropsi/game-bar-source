@@ -1005,7 +1005,7 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		DP.qdisplay(DP);
 		
-		FocusOn("#"+DP.qid+" textarea, "+"#"+DP.qid+" input"); //First question
+		FocusElement("#"+DP.qid+" textarea, "+"#"+DP.qid+" input"); //First question
 		
 		return DP;
 	}
@@ -1211,6 +1211,18 @@ function FocusElement(targetIDsel){
 		focussing.focus();	
 	}
 };
+
+///////////////////////////////////////////////////////////////////////////////
+//Event Listeners
+
+function ListenOnce(ev,fun,target){
+	target=target?target:window; //Improve the defaults
+	function F(){
+		fun();
+		target.removeEventListener(ev,F)
+	}
+	target.addEventListener(ev,F);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Data submission in forms
@@ -1613,6 +1625,7 @@ function LoadSounds(soundtrack,parentElement){
 }
 
 function PlaySound(soundname){
+	console.log(soundname);
 	GetElement(soundname).play();
 }
 
@@ -1635,11 +1648,10 @@ function Playlist(i){
 }
 
 function PlaylistLoad(){
-	document.addEventListener('click',PlaylistStartPlay);
+	ListenOnce('click',PlaylistStartPlay);
 }
 
 function PlaylistStartPlay(){
-	document.removeEventListener('click',PlaylistStartPlay);
 	PlaySong(Playlist(0));
 	console.log("Music on");
 }
@@ -1811,12 +1823,6 @@ function ToggleFullscreen(targetIDsel){
 };
 
 
-///////////////////////////////////////////////////////////////////////////////
-//Focus
-function FocusOn(targetIDsel){
-	var firstelement=GetElement(targetIDsel);
-	if(firstelement&&firstelement[0])
-		firstelement[0].focus();
-}
+
 
 
