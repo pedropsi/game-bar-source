@@ -52,7 +52,7 @@ function GetHonour(){
 
 
 //Playlist
-var p="media/gravirinth/music/";
+/*var p="media/gravirinth/music/";*/
 var ps="media/gravirinth/sound/";
 var soundtracks={
 /*		1:{src:p+'Stellardrone - Light Years - 03 Eternity.mp3',volume:0.25,start:0,next:2,stopall:true},
@@ -60,15 +60,17 @@ var soundtracks={
 		3:{src:p+'Stellardrone - A Moment Of Stillness - 02 Billions And Billions.mp3',volume:0.25,start:5,next:4,stopall:true},
 		4:{src:p+'Stellardrone - A Moment Of Stillness - 05 Twilight.mp3',volume:0.25,start:5,next:5,stopall:true},
 		5:{src:p+'Stellardrone - Between The Rings - 05 Between The Rings.mp3',volume:0.25,start:5,next:1,stopall:true},*/
-		left:{src:ps+'left.mp3',volume:0.3,sfx:13614108,play:function(){PlayTrack("left")}},
-		up:{src:ps+'up.mp3',volume:0.3,sfx:25636708,play:function(){PlayTrack("up")}},
-		right:{src:ps+'right.mp3',volume:0.3,sfx:79636308,play:function(){PlayTrack("right")}},
-		down:{src:ps+'down.mp3',volume:0.3,sfx:76346108,play:function(){PlayTrack("down")}},
-		orb:{src:ps+'orb.mp3',volume:0.3,sfx:50758708,play:function(){PlayTrack("orb")}},
-		type:{src:ps+'type.mp3',volume:0.1,sfx:27763708,play:function(){PlayTrack("type")},stopsame:true},
-		light:{src:ps+'light.mp3',volume:0.3,sfx:40605508,play:function(){PlayTrack("light")}},
-		save:{src:ps+'save.mp3',volume:0.1,sfx:4002908,play:function(){PlayTrack("save")}},
-		undo:{src:ps+'undo.mp3',volume:0.1,sfx:85375308,play:function(){PlayTrack("undo")}},
-		restart:{src:ps+'restart.mp3',volume:0.1,sfx:35446108,play:function(){PlayTrack("restart")}}
+		left:	{src:ps+'left.mp3',		volume:0.3,sfx:13614108},
+		up:		{src:ps+'up.mp3',		volume:0.3,sfx:25636708},
+		right:	{src:ps+'right.mp3',	volume:0.3,sfx:79636308},
+		down:	{src:ps+'down.mp3',		volume:0.3,sfx:76346108},
+		orb:	{src:ps+'orb.mp3',		volume:0.3,sfx:50758708},
+		type:	{src:ps+'type.mp3',		volume:0.1,sfx:27763708},
+		light:	{src:ps+'light.mp3',	volume:0.3,sfx:40605508},
+		save:	{src:ps+'save.mp3',		volume:0.1,sfx:4002908},
+		undo:	{src:ps+'undo.mp3',		volume:0.1,sfx:85375308},
+		restart:{src:ps+'restart.mp3',	volume:0.1,sfx:35446108}
 	/* 20449708 endplay */
 }
+
+ListenOnce('load',function(){LoadSounds(soundtracks,"puzzlescript-game")});
