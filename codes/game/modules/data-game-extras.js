@@ -586,12 +586,8 @@ function processInput(a,b,c){
 //Sound Overwriting 
 
 function playSound(seed) {
-	if (!Muted()){
-		if(typeof seed ==="string")
-			PlaySound(seed);
-		else
-			PlaySound(FindSoundName(seed));
-	}
+	if (!Muted())
+		PlaySound(FindSoundName(seed));
 }
 
 function FindSoundName(seed){
@@ -617,6 +613,6 @@ function FindSoundName(seed){
 		if(found)
 			return sounds[i-1].id;
 		else
-			return "";
+			return seedname;
 	}
 }
