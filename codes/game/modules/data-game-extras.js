@@ -6,12 +6,12 @@ function GameBar(){
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','checkKey({keyCode:82},!0)'):"";
 	
 	var buttons=[
+		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this)',class:savePermission?'selected':''}}),
 		ButtonLinkHTML("How to play?"),
 		undo,
 		restart,
-		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this)',class:savePermission?'selected':''}}),
+		//ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
-		ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonOnClickHTML("✉",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
 		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong()',id:'MuteButton'}}),
