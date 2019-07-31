@@ -36,8 +36,8 @@ function CombineMultiRegex(exprarray,joiner){
 	if(joiner){
 		j=joiner;//kl="(";kr=")"
 	}
-	var regarray=exprarray.map(a=>new RegExp(a));
-	regarray=regarray.map(a=>a.source);
+	var regarray=exprarray.map(function(a){return new RegExp(a)});
+	regarray=regarray.map(function(a){return(a.source)});
 	var comb=new RegExp("("+regarray.join(j)+")","g");
 	return comb;
 }
@@ -63,9 +63,9 @@ function ForwardRegex(string){
 //EXTENSION 	.html
 //TAG			#etc
 var domains =["pedropsi.github.io","combinatura.github.io"];
-var predomainssoft=AlternateRegex(domains.map(d=>CombineRegex(/^[\d\D]*/,d)));
-var predomainshard=AlternateRegex(domains.map(d=>CombineRegex(/^(https?:\/\/)*/,d)));
-var posdomains=AlternateRegex(domains.map(d=>CombineRegex(d,/[\d\D]*$/)));
+var predomainssoft=AlternateRegex(domains.map(function(d){return CombineRegex(/^[\d\D]*/,d)}));
+var predomainshard=AlternateRegex(domains.map(function(d){return CombineRegex(/^(https?:\/\/)*/,d)}));
+var posdomains=AlternateRegex(domains.map(function(d){return CombineRegex(d,/[\d\D]*$/)}));
 var idomain=CombineRegex(/^/,AlternateRegex(domains));
 
 function Domains(){
@@ -252,7 +252,7 @@ function isAbsolutableLink(url){
 
 function MarkElements(selector,markfunction){
 	var elementNodes=Object.values(document.querySelectorAll(selector));
-	return elementNodes.map(t=>markfunction(t));
+	return elementNodes.map(markfunction);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -332,8 +332,27 @@ function LoaderInFolder(folder){
 	return function(sourcename){return LoadAsync(sourcename,folder)};
 }
 
+///////////////////////////////////////////////////////////////////////////////
+//Data Reception
 
-
+//Fetch data from url
+function LoadData(url){
+	var data;
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", url, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                data = rawFile.responseText;
+            }
+        }
+    }
+    rawFile.send(null);
+	return data;
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Data transmission - JSON, to a script in url "url"
@@ -354,121 +373,7 @@ function echoPureData(data,url){
 	xhr.send(encoded);	
 }
 
-///////////////////////////////////////////////////////////////////////////////
-//Data Reception
 
-//Fetch data from url
-function LoadData(url)
-{
-	var data;
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", url, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                data = rawFile.responseText;
-            }
-        }
-    }
-    rawFile.send(null);
-	return data;
-};
-
-//Load and Replace Variables
-
-var VARIABLES={};
-var VARIABLEKEYS=[];
-var REPLACEMENTS;
-
-function ClearVariables(){
-	VARIABLEKEYS=[];
-	VARIABLES={}
-}
-
-function LoadVariables(url){
-	var variables=LoadData(url).split("\r\n");
-	variables.shift();
-	variables=variables.map(x=>x.split("\t"));
-	for(var i in variables){
-		VARIABLES[variables[i][0]]=variables[i][1];
-		VARIABLEKEYS.push(variables[i][0]);
-	}
-	return VARIABLES;
-}
-
-function Replacements(){
-	function ReplaceVariable(variable){
-		return function(s){return s.replace(CombineRegex(CombineRegex(/\«/,variable),/\»/),VARIABLES[variable])};
-	}
-	REPLACEMENTS=VARIABLEKEYS.map(ReplaceVariable);
-}
-
-function TextReplaceOnce(txt){
-	var R=REPLACEMENTS.slice();
-	R.unshift(txt);
-	return R.reduce((txt, f) => f(txt));
-}
-
-function TextReplacerCMS(txt){
-	return txt.replace(/\«([^\»\«]+?)\:([^\»\«]+?)\»/g,function (match,param,action){
-		switch (action.toLowerCase()){
-			case "load":
-				return CMSItemProperty(CMSItemCurrent(),param);break;
-			default:
-				return match
-		}
-	})
-}
-
-function TextReplacerCombined(txt){
-	return TextReplacerCMS(TextReplaceOnce(txt))
-}
-
-function TextReplacer(txt){
-	var newtext= TextReplacerCombined(txt)
-	while(newtext!=TextReplacerCombined(newtext))
-		newtext=TextReplacerCombined(newtext);
-	return newtext;
-}
-
-// CMS
-
-var CMS_BODY;
-var CMS_HEAD;
-
-function LoadCMS(url){
-	var variables=LoadData(url).split("\r\n");
-	variables=variables.map(x=>x.split("\t"));
-	CMS_HEAD=variables[0];
-	CMS_HEAD=CMS_HEAD.map(x=>x.toLowerCase());
-	variables.shift();
-	CMS_BODY=variables;
-}
-
-//Obtain the Property by name of an item
-function CMSItemProperty(cmsitem, property){
-	var prop=property.toLowerCase();
-	var i=CMS_HEAD.indexOf(prop);
-	var p=cmsitem[i];
-/*    Switch[p,
-        "Date", ReadDate,
-        "Update", ReadRSSDate,
-        "Year" | "Month" | "Day", UnNumberer,
-        _, ToString]@
-       First[p]]]]];
-	 */
-	 return p;
-}
-
-function CMSItemCurrent(){
-	for(var i in CMS_BODY)
-		if(CMSItemProperty(CMS_BODY[i],"link")===pageIdentifier())
-			return CMS_BODY[i];
-	return undefined;
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 // DOM Manipulation
@@ -790,7 +695,8 @@ document.onkeydown=function(e){
 // Element Generator
 
 function ReadAttributes(attributesObj){
-	return Object.keys(attributesObj).map(k=>k+"='"+attributesObj[k]+"'").join(" ");
+	function Attrib(k){return k+"='"+attributesObj[k]+"'";};
+	return Object.keys(attributesObj).map(Attrib).join(" ");
 }
 
 function ElementHTML(optionsObj){
@@ -988,7 +894,8 @@ function NewDataPack(obj){
 }
 
 function NewDataPackFields(NamedFieldArray){
-	return {fields:NamedFieldArray.map(ndf=>CustomDataField(ndf[0],ndf[1]))};
+	function CusDaFiel(ndf){return CustomDataField(ndf[0],ndf[1])};
+	return {fields:NamedFieldArray.map(CusDaFiel)};
 }
 
 function RequestDataPack(NamedFieldArray,Options){
@@ -1074,7 +981,7 @@ function QuestionHTML(DP){
 	//!!! Outgrow for simple DP
 	var SubQuestions=Fields.map(SubQuestionHTML).join("");
 	var SubmissionButton="";
-	if(Fields.some(dp=>dp.qsubmittable))
+	if(Fields.some(function(dp){return dp.qsubmittable}))
 		SubmissionButton=SubmitButtonHTML(DP);
 	return '<div id="'+DP.qid+'">'+SubQuestions+SubmissionButton+"</div>";
 }
@@ -1258,7 +1165,7 @@ function SubmitValidAnswer(DP){
 
 function SubmitAnswerSet(DP){
 	var invalidation=DP.fields.map(InvalidateAnswer);
-	if(!invalidation.some(x=>x===true)){
+	if(!invalidation.some(function(x){return x===true})){
 		DP.actionvalid(DP),CloseAndContinue(DP);
 	}
 }
@@ -1273,7 +1180,7 @@ function CheckSubmit(qid){
 var SUBMISSIONHISTORY=[];
 
 function PreviousSubmission(field){
-	var s=SUBMISSIONHISTORY.filter(datasub=>((typeof datasub[field])!=="undefined"));
+	var s=SUBMISSIONHISTORY.filter(function(datasub){return ((typeof datasub[field])!=="undefined")});
 	if(s.length>0)
 		return s[s.length-1][field];
 	else
@@ -1397,7 +1304,7 @@ function ClearData(field,id){
 function GetField(field,parentid){
 	var DP=GetDataPack(parentid)
 	if(DP!==undefined){
-		var fis=DP.fields.filter(f=>(f.qfield===field));
+		var fis=DP.fields.filter(function(f){return (f.qfield===field)});
 		if(fis.length>0)
 			return fis[0];
 	}
@@ -1755,13 +1662,9 @@ function FullscreenAllowed(){
 function FullscreenActivate(browserprefix){
 	Select("FullscreenButton");
 	console.log("sel");
-	var F=function(){
-		Deselect("FullscreenButton");
-		console.log("desel");
-		document.removeEventListener(browserprefix,F);
-	}
+	function F(){Deselect("FullscreenButton");console.log("desel");}
 	setTimeout(function(){
-		document.addEventListener(browserprefix,F); 
+		ListenOnce(browserprefix,F,document)
 	},1000) //Delay 1 second
 };
 
@@ -1820,8 +1723,6 @@ function ToggleFullscreen(targetIDsel){
 	else
 		ConsoleAdd("Fullscreen: Please inform Pedro PSI that your browser is not yet supported!");
 };
-
-
 
 
 
