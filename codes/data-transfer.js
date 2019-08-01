@@ -712,6 +712,8 @@ function DefaultDataField(){
 		
 		qchoices:"",					//answer options list
 		executeChoice:Identity,			//immediate changes on toggle receives (id, choice)
+		defaultChoice:DefaultChoice,	//choice formatting, based on itself
+
 
 		qtype:PlainHTML,				//Format of question :receives a DataField
 		qplaceholder:"❤ Pedro PSI ❤",	//Placeholder answer
@@ -722,6 +724,8 @@ function DefaultDataField(){
 		qerrorcustom:''
 	}
 }
+
+function DefaultChoice(index,choicetxt){return index===0;}//choicetxt gives this function flexibility
 
 function DefaultDataPack(){
 	return {
@@ -883,7 +887,7 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 		var selected="";
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
-		if(i==='0')
+		if(dataFiel.defaultChoice(i,choice))
 			selected=' selected" onload="SetData'+args; //Default option
 		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData'+args+'">'+choice+'</div>';
 	};
@@ -1053,7 +1057,7 @@ function FocusElement(targetIDsel){
 	if(focussing!==null){
 		focussing.focus();	
 	}
-	console.log(focussing,document.activeElement);
+	//console.log(focussing,document.activeElement);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1497,7 +1501,7 @@ function Playlist(i){
 
 function PlaylistStartPlay(){
 	PlaySong(Playlist(0));
-	console.log("Music on");
+	//console.log("Music on");
 }
 
 
@@ -1542,7 +1546,7 @@ function PlayNextF(song){
 	return function(){
 		PlaySong(Playlist(Playlist.current+1));
 		song.removeEventListener('ended',PlayNextF);
-		console.log("Finished playing: "+song);
+		//console.log("Finished playing: "+song);
 	}
 }
 
@@ -1596,8 +1600,8 @@ function FullscreenAllowed(){
 
 function FullscreenActivate(browserprefix){
 	Select("FullscreenButton");
-	console.log("sel");
-	function F(){Deselect("FullscreenButton");console.log("desel");}
+	//console.log("sel");
+	function F(){Deselect("FullscreenButton");/*console.log("desel");*/}
 	setTimeout(function(){
 		ListenOnce(browserprefix,F,document)
 	},1000) //Delay 1 second

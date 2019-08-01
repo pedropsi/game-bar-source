@@ -300,7 +300,8 @@ function RequestLevelSelector(){
 		var DPOpts={
 			questionname:"Access one of the "+LevelScreens().length+" levels",
 			qfield:"level",
-			qchoices:LevelScreens().map(StarLevel)
+			qchoices:LevelScreens().map(StarLevel),
+			defaultChoice:function(i,c){return Number(c)===LevelNumber(curlevel)}
 		}
 	}
 	else{
@@ -309,7 +310,8 @@ function RequestLevelSelector(){
 		var DPOpts={
 			questionname:"Reached checkpoints:",
 			qfield:"level",
-			qchoices:checkpointIndices.map(l=>(Number(l)+1)+"")
+			qchoices:checkpointIndices.map(l=>(Number(l)+1)+""),
+			defaultChoice:function(i,c){return Number(c)===checkpointIndices.length}
 		}
 	}
 	
@@ -415,15 +417,15 @@ function AdvanceLevel(){
 
 function AdvanceUnsolvedScreen(){
 	if(ScreenMessage(curlevel)&&curlevel<FinalLevelScreen()){
-		console.log("from message");
+		//console.log("from message");
 		curlevel++;
 	}
 	else if(curlevel>=FinalLevelScreen()||!NextUnsolvedScreen(curlevel)){
-		console.log("from last level");
+		//console.log("from last level");
 		curlevel=FirstUnsolvedScreen(curlevel);
 	}
 	else{
-		console.log("from anywhere in the middle");
+		//console.log("from anywhere in the middle");
 		curlevel=NextUnsolvedScreen(curlevel);
 	}		
 	AdvanceLevel();	
