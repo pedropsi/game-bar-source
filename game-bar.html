@@ -48,14 +48,18 @@ Step 1: including the co..."/>
 
 <h2>How to use the <b>Puzzlescript Game Bar</b> in your site</h2>
 <h3>Step 1: including the code</h3>
-<p>Include your game page the <b>javascript source</b> and the <b>stylesheet</b>:</p>
+<p>Include your game page the <b>javascript source</b> and the <b>stylesheet</b> in a regular Puzzlescript export or in a custom page:</p>
 <ul>
-	<li>The <b>javascript source</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" target='_blank'>GameBar.js</a></li>
 	<li>The <b>stylesheet</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.css" target='_blank'>GameBar.css</a></li>
-</ul>
-<p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector).</p>
 
-<h3>Step 2: selecting your game</h3>
+	<li>The <b>javascript source</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" target='_blank'>GameBar.js</a></li>
+</ul>
+
+<p>The <b>stylesheet</b> can be added to the <code><span><</span>head<span>></span></code> via <code><span><</span>link rel="stylesheet" type="text/css" href="GameBar.css" media="screen"/ <span>></span></code>. </p>
+<p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector). So you can add to the end of the <code><span><</span>body<span>></span></code> this <code><span><</span>script type="text/javascript" src="GameBar.js"></script <span>></span></code>.</p>
+
+
+<h3>Step 2 (for custom pages): selecting your game</h3>
 <h4>In the <b>javascript source</b> </h4>
 <p>Ensure the  <b>javascript source</b> can find your game, by editing the line (near the end):
 <code>var gameElementID="#gameCanvas";</code>.
@@ -65,7 +69,7 @@ The selector named <code>"#gameCanvas"</code> should match the ID of your game c
 <p>In case your game bar is misaligned with wih your game, please edit also the selector <code>.gameContainer</code> to match the <b>parent container</b> (outside) of your game canvas.</p>
 
 <h3>Step 3 (optional): adding music</h3>
-<p>To control music via the game bar, each music track should be added to the page inside <code> <span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
+<p>To control music via the game bar, each music track should be added to the page inside <code><span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
 <p> If you wish to delete the music button, simply delete the line <code>ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),</code>.</p>
 
 <h2>Customisation tips</h2>
@@ -90,11 +94,17 @@ The selector named <code>"#gameCanvas"</code> should match the ID of your game c
 <h3>Can you use <b>Puzzlescript Game Bar</b> for free?</h3>
 <p>Yes, it's under a <a href="https://opensource.org/licenses/MIT" target='_blank'>MIT</a> license.</p>
 
-<h3>Can't the music button control music added via the youtube keyword in the prelude?</h3>
-<p>No, sorry.</p>
+<h3>How can the <b>Puzzlescript Game Bar</b> be used in the itch.io platform?</h3>
+<p>Please ensure that the <b>Puzzlescript Game Bar</b> <b>sources</b> are loaded from inside the <code><span><</span>iframe<span>></span></code> containing the game.</p>
 
 <h3>Are all <b>Puzzlescript Game Bar</b>'s features available elsewhere?</h3>
 <p>The fullscreen button is new. The undo/reset and music buttons are found in Puzzlescript's default mobile menu and <span class='Failed-to-load'> <a href="https://twitter.com/draknek" target='_blank'>Alan Hazelden</a> </span> has made a custom level selector. Nevertheless, Pedro PSI found it useful to have a single bar with all important features.</p>
+
+<h3>What are the differences between the shared <b>Puzzlescript Game Bar</b> and the one <b>live</b> at the Creative Archive?</h3>
+<p>The <b>live</b> <b>Puzzlescript Game Bar</b> at the Creative Archive is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official <b>Puzzlescript Game Bar</b> shared in this page. Any buttons that depend on the Creative Archive's infrastructure to work or that lack general interest won't be included into the official <b>Puzzlescript Game Bar</b>.</p>
+
+<h3>Can't the music button control music added via the youtube keyword in the prelude?</h3>
+<p>No, sorry.</p>
 
 <h3>Does the <b>Puzzlescript Game Bar</b> level selector handle checkpoints?</h3>
 <p>Currently, yes, but only in games where among all levels, only a single level contains all checkpoints (e.g. a open world map). If multiple levels have checkpoints, it may not work correctly. See it in action in <a href="tiaradventur.html">Tiaradventur</a>.</p>

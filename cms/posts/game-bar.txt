@@ -5,38 +5,42 @@
 
 <h2>How to use the «TITLE-BOLD» in your site</h2>
 <h3>Step 1: including the code</h3>
-<p>Include your game page the <b>javascript source</b> and the <b>stylesheet</b>:</p>
+<p>Include your game page the <b>javascript source</b> and the <b>stylesheet</b> in a regular Puzzlescript export or in a custom page:</p>
 <ul>
-	<li>The <b>javascript source</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" «BLANK»>GameBar.js</a></li>
 	<li>The <b>stylesheet</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.css" «BLANK»>GameBar.css</a></li>
-</ul>
-<p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector).</p>
 
-<h3>Step 2: selecting your game</h3>
+	<li>The <b>javascript source</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" «BLANK»>GameBar.js</a></li>
+</ul>
+
+<p>The <b>stylesheet</b> can be added to the «[<»head«>]» via «[<»link rel="stylesheet" type="text/css" href="GameBar.css" media="screen"/ «>]». </p>
+<p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector). So you can add to the end of the «[<»body«>]» this «[<»script type="text/javascript" src="GameBar.js"></script «>]».</p>
+
+
+<h3>Step 2 (for custom pages): selecting your game</h3>
 <h4>In the <b>javascript source</b> </h4>
 <p>Ensure the  <b>javascript source</b> can find your game, by editing the line (near the end):
-<code>var gameElementID="#gameCanvas";</code>.
-The selector named <code>"#gameCanvas"</code> should match the ID of your game canvas.</p>
+«[»var gameElementID="#gameCanvas";«]».
+The selector named «[»"#gameCanvas"«]» should match the ID of your game canvas.</p>
 <h4>In the <b>stylesheet</b></h4>
-<p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selectors <code>div:fullscreen #gameCanvas</code> and <code>div:full-screen #gameCanvas</code>.</p>
-<p>In case your game bar is misaligned with wih your game, please edit also the selector <code>.gameContainer</code> to match the <b>parent container</b> (outside) of your game canvas.</p>
+<p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selectors «[»div:fullscreen #gameCanvas«]» and «[»div:full-screen #gameCanvas«]».</p>
+<p>In case your game bar is misaligned with wih your game, please edit also the selector «[».gameContainer«]» to match the <b>parent container</b> (outside) of your game canvas.</p>
 
 <h3>Step 3 (optional): adding music</h3>
-<p>To control music via the game bar, each music track should be added to the page inside <code> <span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
-<p> If you wish to delete the music button, simply delete the line <code>ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),</code>.</p>
+<p>To control music via the game bar, each music track should be added to the page inside «[<»audio«>]» tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
+<p> If you wish to delete the music button, simply delete the line «[»ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),«]».</p>
 
 <h2>Customisation tips</h2>
 <h3>Changing the colours of the «TITLE-BOLD»</h3>
-<p>Edit the colours in the <code>:root</code> element of the <b>stylesheet</b> to change everything at once.</p>
+<p>Edit the colours in the «[»:root«]» element of the <b>stylesheet</b> to change everything at once.</p>
 
 <h3>Changing the logo image in the level selector</h3>
 <h4>Easy way</h4>
-<p>Add a logo image named <code>"logo.png"</code> to the <code>images</code> folder in the root directory.</p>
+<p>Add a logo image named «[»"logo.png"«]» to the «[»images«]» folder in the root directory.</p>
 <h4>Hard way</h4> 
-<p>Edit the <code>function OpenBalloon</code> in the <b>javascript source</b>, specifically by changing the path string <code>"images/logo.png"</code> to wherever your logo may be located.</p>
+<p>Edit the «[»function OpenBalloon«]» in the <b>javascript source</b>, specifically by changing the path string «[»"images/logo.png"«]» to wherever your logo may be located.</p>
 
 <h3>Changing the "solved level" ★ symbol</h3>
-<p>For now, Ctrl+F to search for <code>★</code>, which can be replaced by other symbols. More customisation options are planned.</p>
+<p>For now, Ctrl+F to search for «[»★«]», which can be replaced by other symbols. More customisation options are planned.</p>
 
 <h2>Contributing</h2>
 <p>Love the «TITLE-BOLD» and would like to improve it? Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" «BLANK»>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
@@ -47,20 +51,26 @@ The selector named <code>"#gameCanvas"</code> should match the ID of your game c
 <h3>Can you use «TITLE-BOLD» for free?</h3>
 <p>Yes, it's under a «LICENSE-MIT» license.</p>
 
-<h3>Can't the music button control music added via the youtube keyword in the prelude?</h3>
-<p>No, sorry.</p>
+<h3>How can the «TITLE-BOLD» be used in the itch.io platform?</h3>
+<p>Please ensure that the «TITLE-BOLD» <b>sources</b> are loaded from inside the «[<»iframe«>]» containing the game.</p>
 
 <h3>Are all «TITLE-BOLD»'s features available elsewhere?</h3>
 <p>The fullscreen button is new. The undo/reset and music buttons are found in Puzzlescript's default mobile menu and ««P-PRE»HAZELDEN«P-POS»» has made a custom level selector. Nevertheless, «NAME» found it useful to have a single bar with all important features.</p>
+
+<h3>What are the differences between the shared «TITLE-BOLD» and the one <b>live</b> at the «SITE-NAME»?</h3>
+<p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any buttons that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
+
+<h3>Can't the music button control music added via the youtube keyword in the prelude?</h3>
+<p>No, sorry.</p>
 
 <h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
 <p>Currently, yes, but only in games where among all levels, only a single level contains all checkpoints (e.g. a open world map). If multiple levels have checkpoints, it may not work correctly. See it in action in <a href="tiaradventur.html">Tiaradventur</a>.</p>
 
 <h3>Can the «TITLE-BOLD» be extended with custom buttons?</h3>
-<p>Yes. Search for the <code>function GameBar(targetIDsel)</code> and edit the <code> buttons </code> array inside that function. In particular, try uncommenting the commented lines and see it change.</p>
+<p>Yes. Search for the «[»function GameBar(targetIDsel)«]» and edit the «[» buttons «]» array inside that function. In particular, try uncommenting the commented lines and see it change.</p>
 
 <h3>How about the "Credits" and "How-to-play" buttons?</h3>
-<p>You can either make your own or add the default ones (by uncommenting the lines referred to in the previous question). In the latter case you'll also need to have two sections in your page explicitly labelled with ids: <code>Credits</code> and <code>How-to-play</code>.</p>
+<p>You can either make your own or add the default ones (by uncommenting the lines referred to in the previous question). In the latter case you'll also need to have two sections in your page explicitly labelled with ids: «[»Credits«]» and «[»How-to-play«]».</p>
 
 <h2>Special thanks</h2>
 <p>To ««P-PRE»MINOTALEN«P-POS»» for suggesting the addition of the fullscreen button and requesting the code for the «TITLE-BOLD» be more accessible; also for lots of testing and brainstorming.</p>
