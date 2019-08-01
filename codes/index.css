@@ -478,17 +478,7 @@ li {
      text-align: justify;
      text-indent:var(--w4);
 }
-.prose > p:last-child:after {
-    content:"";
-    display: inline-block;
-    margin-left:var(--w1);
-    background-image: var(--logo);
-    height: 20px;
-    width: 20px;
-    background-size: 14px;
-    background-position: 50% 100%;
-    background-repeat:no-repeat;
-}
+
 .poetry {
     text-indent:0;
     line-height: 200%; 
