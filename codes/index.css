@@ -782,7 +782,7 @@ modal .closer {
 
 .balloon .avatar {
     max-width:calc(var(--w4) + 30px);
-    background-color: var(--white);
+    background-color: var(--transparent);
 }
 
 .balloon .subtitle {

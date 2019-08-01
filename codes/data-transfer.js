@@ -943,7 +943,7 @@ function BalloonHTML(avatarsrc,content,id){
 }
 
 function OpenBalloon(content,id,targetid){
-	AddElement(BalloonHTML("images/logo.png",content,id),targetid);
+	AddElement(BalloonHTML("images/logo.svg",content,id),targetid);
 }
 
 function CloseBalloonIn(targetid){
