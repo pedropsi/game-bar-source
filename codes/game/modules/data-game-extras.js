@@ -132,7 +132,7 @@ function SaveCheckpoint(levelTarget,isReloading){
 // Level Save
 function SaveLevel(curlevel){
 	if(savePermission){
-		localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedScreens());
+		localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelScreens());
 		return localStorage[DocumentURL()]=curlevel;
 	}
 	else
@@ -151,7 +151,7 @@ function UnsaveSave(){
 
 
 function LoadLevel(){
-	SolvedScreens.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
+	SolvedLevelScreens.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
 	return curlevel=localStorage[DocumentURL()];
 }
 function LoadCheckpoint(n){
@@ -205,80 +205,76 @@ function ScreenType(level){
 	return typeof level.message==="undefined";	
 }
 
-function Screens(){
-	if(Screens.l!==undefined)
-		return Screens.l;
+function LevelScreens(){
+	if(LevelScreens.l!==undefined)
+		return LevelScreens.l;
 	else{
 		var l=[];
 		for(var i=0;i<state.levels.length;i++){
 			if(ScreenType(state.levels[i]))
 				l.push(i);
 		}
-		return Screens.l=l;
+		return LevelScreens.l=l;
 	}
 }
 
-function LastScreen(){
-	return Screens()[Screens().length-1];
-}
-
-function SolvedScreens(){
-	if(SolvedScreens.levels===undefined)
-		SolvedScreens.levels=[];
-	return SolvedScreens.levels;
+function SolvedLevelScreens(){
+	if(SolvedLevelScreens.levels===undefined)
+		SolvedLevelScreens.levels=[];
+	return SolvedLevelScreens.levels;
 }
 
 function AddToSolvedScreens(curlevel){
 	function SortNumber(a,b){return a-b};
-	if(!ScreenSolved(curlevel)){
-		SolvedScreens.levels.push(Number(curlevel));
-		SolvedScreens.levels=SolvedScreens.levels.sort(SortNumber);
+	if(!ScreenMessage(curlevel)&&!LevelScreenSolved(curlevel)){
+		SolvedLevelScreens.levels.push(Number(curlevel));
+		SolvedLevelScreens.levels=SolvedLevelScreens.levels.sort(SortNumber);
 	}
-	return SolvedScreens();
+	return SolvedLevelScreens();
 }
 
-function ScreenSolved(curlevel){
-	return SolvedScreens().indexOf(curlevel)>=0
+function LevelScreenSolved(curlevel){
+	return SolvedLevelScreens().indexOf(curlevel)>=0
 }
 
-function UnSolvedScreens(){
-	return Screens().filter(function(l){return !ScreenSolved(l)});
+function UnSolvedLevelScreens(){
+	return LevelScreens().filter(function(l){return !LevelScreenSolved(l)});
 }
 
 function FirstUnsolvedScreen(curlevel){
-	if(UnSolvedScreens().length===0)
-		return 1+Screens()[Screens().length-1];
+	if(UnSolvedLevelScreens().length===0)
+		return 1+LevelScreens()[LevelScreens().length-1];
 	else{
-		var c=Screens().indexOf(UnSolvedScreens()[0]);
+		var c=LevelScreens().indexOf(UnSolvedLevelScreens()[0]);
 		if(c===0)
 			return 0;
 		else
-			return 1+Screens()[c-1];
+			return 1+LevelScreens()[c-1];
 	}
 }
 
 function NextUnsolvedScreen(curlevel){
-	var firstusolve=UnSolvedScreens().filter(x=>x>=curlevel)[0];
-	var lastsolvebefore=Screens().filter(x=>x<firstusolve);
+	var firstusolve=UnSolvedLevelScreens().filter(x=>x>=curlevel)[0];
+	var lastsolvebefore=LevelScreens().filter(x=>x<firstusolve);
 	return lastsolvebefore[lastsolvebefore.length-1]+1;
 }
 
 function LastScreen(){return state.levels.length-1;};
 
 function FinalLevelScreen(){
-	var li=Screens(); return li[li.length-1];
+	var li=LevelScreens(); return li[li.length-1];
 };
 
-function ClearSolvedScreens(){
-	return SolvedScreens.levels=[];
+function ClearSolvedLevelScreens(){
+	return SolvedLevelScreens.levels=[];
 }
 
-function SolvedAllScreens(){
-	return Screens().every(ScreenSolved);
+function SolvedAllLevels(){
+	return LevelScreens().every(LevelScreenSolved);
 }
 
 function LevelNumber(curlevel){
-	return Screens().filter(function(l){return l<curlevel}).length+1;
+	return LevelScreens().filter(function(l){return l<curlevel}).length+1;
 }
 
 
@@ -288,9 +284,9 @@ function RequestLevelSelector(){
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
-			questionname:"Access one of the "+Screens().length+" levels",
+			questionname:"Access one of the "+LevelScreens().length+" levels",
 			qfield:"level",
-			qchoices:Screens().map(StarLevel)
+			qchoices:LevelScreens().map(StarLevel)
 		}
 	}
 	else{
@@ -315,7 +311,7 @@ function RequestLevelSelector(){
 }
 
 function StarLevel(l){
-	return LevelNumber(l)+(ScreenSolved(l)?"★":"");
+	return LevelNumber(l)+(LevelScreenSolved(l)?"★":"");
 }
 function UnstarLevel(l){
 	return Number(l.replace("★",""));
@@ -325,7 +321,7 @@ function LoadLevelFromDP(DP){
 	var lvl=UnstarLevel(FindData('level',DP.qid));
 	if(!HasCheckpoint()){
 		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
-		lvl=lvl<2?0:(Screens()[lvl-2]+1);
+		lvl=lvl<2?0:(LevelScreens()[lvl-2]+1);
 		GoToLevel(lvl);
 	}
 	else{
@@ -366,7 +362,7 @@ function ResetLevel(){
 
 function ResetGame(){
 	UnsaveSave();
-	ClearSolvedScreens();
+	ClearSolvedLevelScreens();
 	ResetLevel();
 	goToTitleScreen();
 	tryPlayEndGameSound();
@@ -382,11 +378,11 @@ function AdvanceLevel(){
 }
 
 function AdvanceUnsolvedScreen(){
-	if(ScreenMessage(curlevel)&&curlevel<LastScreen()){
+	if(ScreenMessage(curlevel)&&curlevel<FinalLevelScreen()){
 		console.log("from message");
 		curlevel++;
 	}
-	else if(curlevel>=FinalLevelScreen()){
+	else if(curlevel>=FinalLevelScreen()||!NextUnsolvedScreen(curlevel)){
 		console.log("from last level");
 		curlevel=FirstUnsolvedScreen(curlevel);
 	}
@@ -462,7 +458,7 @@ function nextLevel(){
 	if (titleScreen)
 		StartLevelFromTitle();
 	else {
-		if(!SolvedAllScreens())
+		if(!SolvedAllLevels())
 			AdvanceUnsolvedScreen();
 		else if(curlevel<LastScreen())
 			AdvanceEndScreen();
