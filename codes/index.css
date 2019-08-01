@@ -700,7 +700,6 @@ tbody tr:hover{
 .modal {   
     --t:0.5;
     position: fixed;
-    align-items: center;
     left: 0;
     top: 0;
     width: 100%;
@@ -712,46 +711,65 @@ tbody tr:hover{
     z-index:10;
 }
 
-.modal-content  {
+.modal-frame  {
     --t:1;
     position: absolute;
-    align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--lightyellow);
-    min-width: 70%;
-    color:var(--blue);
-    border-bottom: var(--h1) solid var(--green);
-    padding: var(--h2) var(--w2) var(--h2) var(--w2);
+ /*   min-width: 70%;
+    min-height: 30%;*/
     z-index: 11;
 }
 
-.gallery-video .modal-content  {
-    width: 80%;
-    height: 70%;
-    border-bottom:unset;
+.modal-content  {
+    align-items: center;
+    background-color: var(--lightyellow);
+    color:var(--blue);
+    border-bottom: var(--h1) solid var(--green);
+    padding: var(--h2) var(--w2) var(--h2) var(--w2);
+    margin: unset;
 }
 
-.gallery-video {
-    --t:0.4;
-    background-color: var(--darkblue);
+
+.closer {
+    width:100%;
+    flex-direction:row;
+    justify-content:flex-end;
 }
 
-	
+.closer .button{
+    border: unset;
+    padding:var(--h2) var(--w2) var(--h2) var(--w2);
+    margin: unset;
+    font-size: 300%;
+}
+
 .modal-content input{
     max-width:80%;
     background-color:var(--lightyellow);
     text-align: center;
 }
 
-modal .closer {
-    background-color: var(--lightyellow);
-    padding:var(--h2) var(--w2) var(--h2) var(--w2);
+.gallery-video {
+    background-color: var(--darkblue);
+}
+.gallery-video .modal-frame  {
+    border-bottom-color: var(--blue);
+}
+.gallery-video .modal-content  {
+    border-bottom-color: var(--blue);
+    min-height:var(--h64);
+    min-width:var(--w64);
 }
 
-.modal .closer:hover,
-.modal .closer:active{
+.modal .closer .button {
+    background-color: var(--lightyellow);
+   /* padding:var(--h2) var(--w2) var(--h2) var(--w2);*/
+}
+
+.modal .closer .button:hover,
+.modal .closer .button:active{
     background-color: var(--darkblue);
     color: var(--turquoise);
 }
@@ -760,24 +778,27 @@ modal .closer {
     position:absolute;
     bottom:var(--h16);
     right:var(--w4);
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    border-bottom: var(--h1) solid var(--turquoise);
-    background-color: var(--white);
-    padding:var(--h2) var(--w2) var(--h2) var(--w2);
     max-width: 80%;
     animation: fadein var(--duration);
 }
 
-.balloon .avatar {
+.baloon-content{
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: var(--white);
+    border-bottom: var(--h1) solid var(--turquoise);
+    padding:var(--h2) var(--w2) var(--h2) var(--w2);
+    align-items: center;
+    
+}
+
+.baloon-content .avatar {
     max-width:calc(var(--w4) + 30px);
     background-color: var(--transparent);
 }
 
-.balloon .subtitle {
-	display: flex;
-    margin-left: var(--w1);
+.baloon-content .subtitle {
+	margin-left: var(--w1);
     padding: var(--h1)  var(--w1)  var(--h1)  var(--w1);  
     min-width: calc(var(--w4) + 30px);
     background-color: var(--smokewhite);
@@ -841,14 +862,6 @@ modal .closer {
     color: var(--turquoise);   
 }
 
-.closer {
-    position: absolute;
-    top:calc(-1 * var(--h8) + var(--h1));
-    right:calc(-1 * var(--w2));
-    border: unset;
-    padding:var(--h2) var(--w2) var(--h2) var(--w2);
-    font-size: 300%;
-}
 
 .latest{
     flex-direction:row;
@@ -1069,30 +1082,6 @@ modal .closer {
     color: var(--lightblue);
     align-self: center;
 }
-
-.videoContainer video{
-    width: 100%;
-}
-
-.videoModal{
-    display: block;
-    z-index: 1;
-    margin-bottom: var(--h2);
-}
-
-.videoModal > div{
-  position: absolute;
-  width: 100%;
-  top:0;
-}
-
-.videoModal .button{
-    --t:0.5;
-    padding: var(--w2) var(--w8) var(--w2) var(--w8);
-    font-size: 130%;
-    background-color: var(--lightyellow);
-}
-
 
 #Console {
     pointer-events: none;

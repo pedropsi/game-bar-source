@@ -673,7 +673,7 @@ function ButtonLinkHTML(title){
 }
 
 function CloseButtonHTML(targetid){
-	return ButtonHTML({tag:"span",txt:"&times;",attributes:{class:"closer",onclick:'Close(\"'+targetid+'\")'}});
+	return "<div class='closer'>"+ButtonHTML({tag:"span",txt:"&times;",attributes:{onclick:'Close(\"'+targetid+'\")'}})+"</div>";
 	//return '<span class="button closer" onclick="Close(\''+targetid+'\')">&times;</span>'
 }
 
@@ -725,7 +725,7 @@ function DefaultDataField(){
 	}
 }
 
-function DefaultChoice(index,choicetxt){return index===0;}//choicetxt gives this function flexibility
+function DefaultChoice(index,choicetxt){return String(index)===String(0);}//choicetxt gives this function flexibility
 
 function DefaultDataPack(){
 	return {
@@ -887,6 +887,7 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 		var selected="";
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
+		console.log(i,choice,typeof i);
 		if(dataFiel.defaultChoice(i,choice))
 			selected=' selected" onload="SetData'+args; //Default option
 		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData'+args+'">'+choice+'</div>';
@@ -942,7 +943,7 @@ function LaunchBalloon(DP){
 }
 
 function BalloonHTML(avatarsrc,content,id){
-	var b='<div class="balloon" id='+id+'>'+CloseButtonHTML(id)+'<img class="avatar" src="'+avatarsrc+'"/><div class="subtitle">'+content+'</div></div>';
+	var b='<div class="balloon" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content"><img class="avatar" src="'+avatarsrc+'"/><div class="subtitle">'+content+'</div></div></div>';
 	return b;
 }
 
@@ -1296,9 +1297,11 @@ function GetDestination(dname){
 function ModalHTML(content,id,type){
 	var t=type?(" "+type):"";
 	return'<div class="modal'+t+'" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
-	        <div class="modal-content">\
-	        	'+CloseButtonHTML(id)+'\
-				'+content+'\
+	        <div class="modal-frame">\
+				'+CloseButtonHTML(id)+'\
+				<div class="modal-content">\
+					'+content+'\
+				</div>\
 			</div>\
 		</div>';
 }
