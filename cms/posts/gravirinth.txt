@@ -27,7 +27,7 @@
 <h2 class="trailer">Trailer</h2>
 «TRAILER-LAUNCHER»
 
-«PRESS»
+«PRESS-TEXT»
 
 <h2>How to play</h2>
 <p>Read the instructions below beforehand or skip them in favour of «TITLE-BOLD»'s interactive tutorial!</p>

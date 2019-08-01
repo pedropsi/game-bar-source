@@ -50,4 +50,4 @@
 </p>
 
 
-«PRESS»
+«PRESS-TEXT»

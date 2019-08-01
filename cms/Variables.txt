@@ -290,14 +290,14 @@ AUDIO-TRACK	<audio class="music" src="media/«File-path»"></audio>
 GALLERY-AUDIO	«AUDIO-TRACK|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Track"}|Unique:True|SortBy:{N}|Contain:True»
 
 SUPPORT-LINK	2018-02-08-support-the-archive.html
-PRESSKIT	<a href="press.html"><b>«SITE-NAME»'s press kit</b></a>
+PRESS-KIT	<a href="press.html"><b>«SITE-NAME»'s press kit</b></a>
 
-PRESS	«PRESS-INTRO»«PRESS-USAGE»«PRESS-SCREENSHOT-GALLERY»«OTHER-INQUIRIES»
+PRESS-TEXT	«PRESS-INTRO»«PRESS-USAGE»«PRESS-SCREENSHOT-GALLERY»«OTHER-INQUIRIES»
 PRESS-INTRO	<h2>Press</h2><p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p>
 PRESS-USAGE	<p>Feel free to use and edit, for those purposes, all material on this page, including:<ul> <li>text;</li><li>screenshots and logo below;</li><li>recorded gameplay footage;</li></ul>...as long as you provide appropriate credit and a direct link to this page.</p>
 PRESS-SCREENSHOT-GALLERY	<h3 class="images">Screenshots & Logo</h3><p>Download all screenshots and logo at once:<a class="download" title="Download all screenshots and logo" href="images/«LINK»/«LINK»-screenshots-logo.zip"><b>download all</b> (zip archive)</a></p>«GALLERY»
 
-OTHER-INQUIRIES	<h3>Other inquiries</h3><p class="centre">Check also the «PRESSKIT» or «CONTACT-TEXT-1» for all unusual requests!</p>
+OTHER-INQUIRIES	<h3>Other inquiries</h3><p class="centre">Check also the «PRESS-KIT» or «CONTACT-TEXT-1» for all unusual requests!</p>
 
 VIDEO-SRC	media/«LINK»/«LINK».mp4
 TRAILER-LAUNCHER	<img class="card" onclick='OpenVideoModal("«TRAILER»")' src="images/«TRAILER-IMAGE»" alt="«TITLE»'s trailer" title="«TITLELONG» (trailer)"/>
