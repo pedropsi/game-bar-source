@@ -626,70 +626,6 @@ function Download(data, filename, type){
     }
 }
 
-function SaveUpdatedPage(){
-	var edited=GetPageEdit();
-	Download(edited, pageIdentifier()+".txt","text/html");
-}
-
-function GetPageEdit(){
-	var edited=PageEditNode().innerHTML;
-	/*edited=edited.replace("</p>","</p>\n");*/
-	return edited;
-}
-
-function PageEditNode(){
-	return GetElement(LOADID);
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Edit Page Contents
-
-function OpenPageEditNode(){
-	PageEditNode().setAttribute("contenteditable",true);
-/*	var htmlAsText=document.createTextNode(GetPageEdit());
-	htmlAsText.data=htmlAsText.data.replace("/><","/>\n\n\n<");
-	var node = PageEditNode();
-	node.setAttribute("contenteditable",true);
-	node.innerHTML="";
-	node.appendChild(htmlAsText);*/
-}
-
-function ClosePageEditNode(){
-	PageEditNode().removeAttribute("contenteditable");
-	/*var node = PageEditNode();
-	node.removeAttribute("contenteditable");
-	node.innerHTML=DecodeHTML(GetPageEdit());*/
-}
-
-function DecodeHTML(encodedStr){
-	var parser = new DOMParser;
-	var dom = parser.parseFromString(
-		'<!doctype html><body>' + encodedStr,
-		'text/html');
-
-	return dom.body.textContent;
-}
-
-ToggleEdit=function(){
-	if(PageEditNode().contentEditable==="true"){
-		ClosePageEditNode();
-		SaveUpdatedPage();
-	}
-	else
-		OpenPageEditNode();
-}
-
-document.onkeydown=function(e){
-	 // Cmd + Q -> Save
-	 if(e.keyCode == 81 && e.ctrlKey){
-		  ToggleEdit();
-     }
-	 // Esc -> Don't save
-	 else if(e.keyCode == 27 ){
-		  ClosePageEditNode();
-     };
-};
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Element Generator
@@ -1125,7 +1061,7 @@ function FocusElement(targetIDsel){
 
 function ListenOnce(ev,fun,target){
 	target=target?target:window; //Improve the defaults
-	if(typeof ev==="string")
+	if(typeof ev==="string") //Defaults to array in case a single string is
 		ev=[ev];
 	function F(){
 		fun();
