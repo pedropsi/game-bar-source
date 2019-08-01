@@ -1,12 +1,22 @@
 ////////////////////////////////////////////////////////////////////////////////
+/// Game Pretaration
+function PrepareGame(){
+	window.scrollTo(0,0);
+	AddGameBar();
+	PlaylistStartPlay();
+	GameFocus();	
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 /// Game Bar
 
 function GameBar(){
-	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','checkKey({keyCode:85},!0)'):"";
-	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','checkKey({keyCode:82},!0)'):"";
+	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','checkKey({keyCode:85},!0);GameFocus();'):"";
+	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','checkKey({keyCode:82},!0);GameFocus();'):"";
 	
 	var buttons=[
-		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this)',class:savePermission?'selected':''}}),
+		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
 		ButtonLinkHTML("How to play?"),
 		undo,
 		restart,
@@ -14,8 +24,8 @@ function GameBar(){
 		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
 		ButtonOnClickHTML("✉",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
-		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong()',id:'MuteButton'}}),
-		ButtonHTML({txt:"◱",attributes:{onclick:'ToggleFullscreen(".game-container")',id:'FullscreenButton'}}),
+		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}}),
+		ButtonHTML({txt:"◱",attributes:{onclick:'ToggleFullscreen(".game-container");GameFocus();',id:'FullscreenButton'}}),
 	].join("")
 	
 	return ButtonBar(buttons,"GameBar");
@@ -29,6 +39,10 @@ function AddGameBar(idorselector){
 	AddAfterElement(GameBar(),idorselector)
 }
 
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Focus on Game Canvas
+function GameFocus(DP){window.Mobile.GestureHandler.prototype.fakeCanvasFocus();};
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Save permissions
@@ -304,7 +318,8 @@ function RequestLevelSelector(){
 	{
 		actionvalid:LoadLevelFromDP,
 		actionText:"Go to "+type,
-		qonsubmit:Identity,
+		qonsubmit:GameFocus,
+		qonclose:GameFocus,
 		qdisplay:LaunchBalloon,
 		qtargetid:'puzzlescript-game'
 	});

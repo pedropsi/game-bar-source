@@ -1117,6 +1117,7 @@ function FocusElement(targetIDsel){
 	if(focussing!==null){
 		focussing.focus();	
 	}
+	console.log(focussing,document.activeElement);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1124,12 +1125,15 @@ function FocusElement(targetIDsel){
 
 function ListenOnce(ev,fun,target){
 	target=target?target:window; //Improve the defaults
+	if(typeof ev==="string")
+		ev=[ev];
 	function F(){
 		fun();
-		target.removeEventListener(ev,F)
+		ev.map(function(e){target.removeEventListener(e,F)})
 	}
-	target.addEventListener(ev,F);
+	ev.map(function(e){target.addEventListener(e,F)})
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Data submission in forms
@@ -1499,7 +1503,9 @@ function LaunchConsoleMessage(DP){
 	ConsoleAdd(QuestionHTML(DP));
 }
 
-
+function LaunchConsoleThanks(DP){
+	ConsoleAdd(DP.thanksmessage);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1551,10 +1557,6 @@ function Playlist(i){
 		Playlist.current=i%Playlist.l;
 		return Playlist.p[Playlist.current];
 	}
-}
-
-function PlaylistLoad(){
-	ListenOnce('click',PlaylistStartPlay);
 }
 
 function PlaylistStartPlay(){
@@ -1646,9 +1648,6 @@ function PlaylistAwaken(){
 		window.removeEventListener("focus", PlaylistAwaken);
 	}
 }
-
-
-PlaylistLoad();
 
 
 

@@ -73,9 +73,8 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 				
 					console.log("started");
 					compile(["restart"], code);
-					window.scrollTo(0,0);
-					if(typeof AddGameBar!=="undefined")
-					AddGameBar();
+					
+					ListenOnce(['click','keydown'],PrepareGame);
 				
 			}
 		}

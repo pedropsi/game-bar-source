@@ -203,11 +203,13 @@ function RequestGameFeedback(){
 	function HasFeedback(curlevel){return RequestGameFeedback.requests.indexOf(curlevel)>=0;}
 	function RecordFeedback(curlevel){RequestGameFeedback.requests.push(curlevel);}
 	
-	function RecordAndLaunchThanksBalloon(DP){RecordFeedback(curlevel); return LaunchThanksBalloon(DP);};
+	function RecordAndLaunchThanksBalloon(DP){RecordFeedback(curlevel);LaunchConsoleThanks(DP);GameFocus();};
+	
 	var DPsettingsObj={
 		qtargetid:'puzzlescript-game',
 		qdisplay:LaunchBalloon,
 		qonsubmit:RecordAndLaunchThanksBalloon,
+		qonclose:GameFocus,
 		thanksmessage:"★ Thank you for your feedback! ★"
 		};
 	var DFsettingsObj={};
