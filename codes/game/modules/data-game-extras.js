@@ -348,8 +348,15 @@ function RequestLevelSelector(){
 	}
 }
 
+function MaxLevelDigits(){
+	if(MaxLevelDigits.m)
+		return MaxLevelDigits.m;
+	return MaxLevelDigits.m=Math.ceil(Math.log10(1+LevelScreens().length));
+};
 function StarLevel(l){
-	return LevelNumber(l)+(LevelScreenSolved(l)?"★":"");
+	var n=LevelNumber(l)+"";
+	var padding="0".repeat(MaxLevelDigits()-n.length);
+	return padding+n+(LevelScreenSolved(l)?"★":"");
 }
 function UnstarLevel(l){
 	return Number(l.replace("★",""));
