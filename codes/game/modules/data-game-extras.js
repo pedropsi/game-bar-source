@@ -312,17 +312,38 @@ function RequestLevelSelector(){
 			qchoices:checkpointIndices.map(l=>(Number(l)+1)+"")
 		}
 	}
-	RequestDataPack([
-		['exclusivechoice',DPOpts]
-	],
-	{
-		actionvalid:LoadLevelFromDP,
-		actionText:"Go to "+type,
-		qonsubmit:GameFocus,
-		qonclose:GameFocus,
-		qdisplay:LaunchBalloon,
-		qtargetid:'puzzlescript-game'
-	});
+	
+	function CloseLevelSelector(){
+		var i=RequestLevelSelector.id;
+		Close(i);
+		FocusAndReset();
+	}
+
+	function FocusAndReset(){
+		if(RequestLevelSelector.id)
+			RequestLevelSelector.id=undefined;
+		GameFocus();
+	};
+	
+	if(RequestLevelSelector.id) //Close on double click
+		CloseLevelSelector()
+	
+	else{
+		RequestLevelSelector.id=GenerateId();
+	
+		RequestDataPack([
+			['exclusivechoice',DPOpts]
+		],
+		{
+			actionvalid:LoadLevelFromDP,
+			actionText:"Go to "+type,
+			qid:RequestLevelSelector.id,
+			qonsubmit:FocusAndReset,
+			qonclose:FocusAndReset,
+			qdisplay:LaunchBalloon,
+			qtargetid:'puzzlescript-game'
+		});
+	}
 }
 
 function StarLevel(l){
