@@ -74,7 +74,7 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 					console.log("started");
 					compile(["restart"], code);
 					
-					ListenOnce(['click','keydown','keypress'],PrepareGame);
+					ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
 				
 			}
 		}
