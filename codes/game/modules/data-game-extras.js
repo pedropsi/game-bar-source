@@ -333,7 +333,7 @@ function RequestLevelSelector(){
 			});
 	}
 	
-	StopCapturingKeys();
+	//StopCapturingKeys();
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
 }
 
