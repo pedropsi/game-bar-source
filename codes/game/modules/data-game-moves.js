@@ -61,11 +61,12 @@ function RegisterMove(mov){
 	if(recordingmoves){
 		var move=mov;
 		switch(move){
-			case 1:move=37;break;//<
-			case 0:move=38;break;//^
-			case 3:move=39;break;//>
-			case 2:move=40;break;//v
-			case 4:move=88;break;//X
+			case 65:move=37;break;//<
+			case 87:move=38;break;//^
+			case 68:move=39;break;//>
+			case 83:move=40;break;//v
+			case 13:case 32:case 67:move=88;break;//X
+			case 90:move=85;break;//Z
 		}
 		var delta = ElapsedTime();
 		moveseq.push([move,delta]);

@@ -888,8 +888,10 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 		var selected="";
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
 		//console.log(i,choice,typeof i);
-		if(dataFiel.defaultChoice(i,choice))
+		if(dataFiel.defaultChoice(i,choice)){
 			selected=' selected" onload="SetData'+args; //Default option
+			SetData(dataFiel.qfield,choice,dataFiel.pid);//Actualy choose it
+		}
 		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData'+args+'">'+choice+'</div>';
 	};
 	//console.log(dataField.qfield);console.log(dataField.pid);
@@ -1261,6 +1263,7 @@ function GetDefaultData(field,id){
 };
 
 function SetData(field,value,id){
+	//console.log(field,value,id);
 	var DP=GetDataPack(id);
 	if(DP!==undefined)
 		GetDataPack(id)[field]=value;
@@ -1536,12 +1539,18 @@ function PlaylistStartPlay(){
 function Muted(){
 	return !(GetElement("MuteButton").classList.contains("selected"));
 }
+function Mute(){
+	Deselect("MuteButton");
+}
+function Unmute(){
+	Select("MuteButton");
+}
 
 function PlaySong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		song.addEventListener('ended',PlayNextF(song));
-		Select('MuteButton');
+		Unmute();
 		window.addEventListener("blur", PlaylistSleep);
 		//console.log("Now playing: "+song);
 	}
@@ -1551,7 +1560,7 @@ function PauseSong(song){
 	if((typeof song!=="undefined")&&!song.paused){
 		song.pause();
 		ConsoleAdd("Music paused...");
-		Deselect('MuteButton');
+		Mute();
 		window.removeEventListener("blur", PlaylistSleep);
 	}
 }
@@ -1560,7 +1569,7 @@ function ResumeSong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
 		ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
-		Select('MuteButton');
+		Unmute();
 		window.addEventListener("blur", PlaylistSleep);
 	}
 }
@@ -1588,7 +1597,7 @@ function HasSong(){
 	return (typeof Playlist.current)!=="undefined";
 }
 
-function ToggleCurrentSong(thi){
+function ToggleCurrentSong(){
 	var song=CurrentSong();
 	if(typeof song==="undefined")
 		ConsoleAdd("Error: can't find the jukebox...");

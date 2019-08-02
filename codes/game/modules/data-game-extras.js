@@ -12,8 +12,8 @@ function PrepareGame(){
 /// Game Bar
 
 function GameBar(){
-	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','checkKey({keyCode:85},!0);GameFocus();'):"";
-	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','checkKey({keyCode:82},!0);GameFocus();'):"";
+	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','CheckRegisterKey({keyCode:85});GameFocus();'):"";
+	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
@@ -42,7 +42,11 @@ function AddGameBar(idorselector){
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Focus on Game Canvas
-function GameFocus(DP){window.Mobile.GestureHandler.prototype.fakeCanvasFocus();};
+function GameFocus(DP){
+	window.Mobile.GestureHandler.prototype.fakeCanvasFocus();
+//	document.removeEventListener('keydown',OnKeyDown);
+	//document.addEventListener('keydown',OnKeyDown);
+};
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Save permissions
@@ -53,7 +57,6 @@ ConsoleAddMany([
 			"Autosave is ON for "+pageTitle()+".",
 			"To stop saving and erase all 2 cookies, please deselect 🖫."
 			]);
-GetElement("AutosaveButton")
 
 
 function ToggleSavePermission(thi){
@@ -456,14 +459,72 @@ function AdjustFlickscreen(){
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////
-//Overwritings
 
+//onKeyDown
+function CheckRegisterKey(event){
+	checkKey(event,true);
+	RegisterMove(event.keyCode);
+}
+
+function OnKeyDown(event) {
+	event = event || window.event;
+	var key=event.keyCode;
+
+	//console.log(event);
+	
+	//Not inside other elements, such as feedback forms, etc...
+	if(event.target.tagName!=="BODY")
+		return;
+	
+	//Prevent arrows/space from scrolling page
+	if (([32, 37, 38, 39, 40].indexOf(key) > -1)) {
+		prevent(event);
+	}
+
+	//Feedback
+	if (key===70){//F
+		RequestGameFeedback();
+		prevent(event);	//Avoid inputting F in the form
+		return;		
+	}
+
+	//Select Level
+	if (key===76){//L
+		RequestLevelSelector();
+		return;
+	}
+
+	//Pause/Unpause music
+	if (key===77){//M
+		ToggleCurrentSong();
+		return;
+	}
+
+	//Avoid repetition?
+    if (keybuffer.indexOf(key)>=0) {
+    	return;
+    }
+	
+	//Instruct the game
+    if(lastDownTarget === canvas /*|| (window.Mobile && (lastDownTarget === window.Mobile.focusIndicator) )*/ ){
+    	if (keybuffer.indexOf(key)===-1) {
+    		keybuffer.splice(keyRepeatIndex,0,key);
+	    	keyRepeatTimer=0;
+	    	CheckRegisterKey(event);
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//Overwritings - Level selector
+
+//doSetupTitleScreenLevelContinue - Level selector - start saving a stack of checkpoints
 function doSetupTitleScreenLevelContinue(){
 	try{LoadSave()}
 	catch(c){}}
 doSetupTitleScreenLevelContinue()
 
+//DoWin - Level selector - update
 function DoWin() {
 	if (!winning) {
 		EchoLevelWin(curlevel);
@@ -478,6 +539,7 @@ function DoWin() {
 	}
 }
 
+//nextLevel - Level selector - go to level
 function nextLevel(){
 	againing=false;
 	messagetext="";
@@ -502,36 +564,16 @@ function nextLevel(){
 	canvasResize();
 }
 
-function checkKey(a,b){
-	if(!winning){
-		var c=-1;
-		switch(a.keyCode){
-			case 65:case 37:c=1;RegisterMove(c);break;
-			case 38:case 87:c=0;RegisterMove(c);break;
-			case 68:case 39:c=3;RegisterMove(c);break;
-			case 83:case 40:c=2;RegisterMove(c);break;
-			case 13:case 32:case 67:case 88:if(!1===norepeat_action||b)c=4,RegisterMove(c);else return;break;
-			case 85:case 90:if(!1===textMode)return RegisterMove(85),pushInput("undo"),DoUndo(!1,!0),canvasResize(),prevent(a);break;
-			case 82:if(!1===textMode&&b)return RegisterMove(82),pushInput("restart"),DoRestart(),canvasResize(),prevent(a);break;
-			case 27:if(!1===titleScreen)return RegisterMove(27),goToTitleScreen(),tryPlayTitleSound(),canvasResize(),prevent(a);break;
-			case 69:if(canOpenEditor)return b&&(levelEditorOpened=!levelEditorOpened,!1===levelEditorOpened&&printLevel(),restartTarget=backupLevel(),canvasResize()),prevent(a);break;
-			case 48:case 49:case 50:case 51:case 52:case 53:case 54:case 55:case 56:case 57:if(levelEditorOpened&&b)return c=9,49<=a.keyCode&&(c=a.keyCode-49),c<glyphImages.length?glyphSelectedIndex=c:consolePrint("Trying to select tile outside of range in level editor.",!0),canvasResize(),prevent(a);break	
-			case 70:RequestGameFeedback();//F is for Feedback!
-			default:fdb=false;//F
-		}
-		if(throttle_movement&&0<=c&&3>=c){
-			if(lastinput==c&&input_throttle_timer<repeatinterval){
-				UnRegisterMove();return;}
-			lastinput=c;
-			input_throttle_timer=0
-		}
-		if(textMode){
-			if(0!==state.levels.length)
-				if(titleScreen)
-					if(0===titleMode)
-						4===c&&b&&!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=true,messageselected=false,timer=0,quittingTitleScreen=true,generateTitleScreen(),canvasResize());
-					else if(4==c&&b)!1===titleSelected&&(tryPlayStartGameSound(),titleSelected=true,messageselected=false,timer=0,quittingTitleScreen=true,generateTitleScreen(),redraw());else{if(0===c||2===c)titleSelection=0===c?0:1,generateTitleScreen(),redraw()}else 4==c&&b&&(unitTesting?nextLevel():!1===messageselected&&(messageselected=true,timer=0,quittingMessageScreen=true,tryPlayCloseMessageSound(),titleScreen=false,drawMessageScreen()))}else if(!againing&&0<=c)return 4===c&&"noaction"in state.metadata||(pushInput(c),processInput(c)&&redraw()),prevent(a)
-}}
+
+////////////////////////////////////////////////////////////////////////////////
+//Overwritings - Keyboard Input
+
+//onKeyDown - custom shortcuts and avoiding other input problems
+document.removeEventListener('keydown',onKeyDown);
+document.addEventListener('keydown',OnKeyDown);
+
+
+
 
 function processInput(a,b,c){
 	againing=false;
@@ -576,7 +618,7 @@ function processInput(a,b,c){
 		if(0<=level.commandQueue.indexOf("restart"))
 			return verbose_logging&&(consolePrint("RESTART command executed, reverting to restart state."),consoleCacheDump()),backups.push(d),messagetext="",DoRestart(!0),!0;
 		if(c&&0<=level.commandQueue.indexOf("win"))
-			returntrue;
+			return true;
 		h=false;
 		for(g=0;g<level.objects.length;g++)
 			if(level.objects[g]!==d.dat[g]){
@@ -606,14 +648,16 @@ function processInput(a,b,c){
 }
 
 
-//Sound Overwriting 
+////////////////////////////////////////////////////////////////////////////////
+//Overwritings - Sound 
 
+//playSound - custom sound effects, if available
 function playSound(seed) {
 	if (!Muted())
 		PlaySound(FindSoundName(seed));
 }
 
-function FindSoundName(seed){
+function FindSoundName(seed){ //Finds the sound name which overwrites the PS seed
 	var seedname=String(seed);
 	if(!FindSoundName.names)
 		FindSoundName.names={};
