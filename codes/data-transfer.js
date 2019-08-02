@@ -887,7 +887,7 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 		var selected="";
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
-		console.log(i,choice,typeof i);
+		//console.log(i,choice,typeof i);
 		if(dataFiel.defaultChoice(i,choice))
 			selected=' selected" onload="SetData'+args; //Default option
 		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData'+args+'">'+choice+'</div>';
@@ -962,6 +962,30 @@ function HasBalloon(targetid){
 	var i=GetElement(targetid);
 	return (i.querySelector(".balloon")!==null);
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// Opener & Closer Functions with focus option, 
+// -> to use within Datapack RequestFunctions
+function FocusAndResetFunction(RequestF,FocusF){
+	return function(){
+		if(RequestF.id)
+			RequestF.id=undefined;
+		FocusF();
+	};
+};
+
+function OpenerCloser(RequestF,ContinueF,FocusF){
+	if(RequestF.id){ //Close on second click
+		var i=RequestF.id; //Retrieves unique id for the request window/balloon/modal
+		Close(i);
+		FocusAndResetFunction(RequestF,FocusF)();
+	}
+	else{
+		RequestF.id=GenerateId(); //Generates unique id for the request window/balloon/modal
+		ContinueF();
+	}
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Toggling class & buttons

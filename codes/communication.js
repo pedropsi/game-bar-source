@@ -186,42 +186,39 @@ function RequestModalWinnerMessage(previousDP){
 //////////////////////////////////////////////////////
 // Real time Feedback Requests
 
-
-
-function UnRequestGameFeedback(){
-	var targetid="puzzlescript-game";
-	CloseBalloonIn(targetid);
-}
-
 function RequestGameFeedback(){
 
 	if(!RequestGameFeedback.requests)
 		RequestGameFeedback.requests=[];
-
-	function InTitleScreen(){return titleScreen}
-
-	function HasFeedback(curlevel){return RequestGameFeedback.requests.indexOf(curlevel)>=0;}
-	function RecordFeedback(curlevel){RequestGameFeedback.requests.push(curlevel);}
 	
-	function RecordAndLaunchThanksBalloon(DP){RecordFeedback(curlevel);LaunchConsoleThanks(DP);GameFocus();};
+  function RequestGameFeedbackIndeed(){
+	  
+	function RecordAndLaunchThanksBalloon(DP){
+		function RecordFeedback(curlevel){RequestGameFeedback.requests.push(curlevel);}
+		RecordFeedback(curlevel);
+		LaunchConsoleThanks(DP);
+		FocusAndResetFunction(RequestGameFeedback,GameFocus)();};
 	
 	var DPsettingsObj={
+		qid:RequestGameFeedback.id,
 		qtargetid:'puzzlescript-game',
 		qdisplay:LaunchBalloon,
 		qonsubmit:RecordAndLaunchThanksBalloon,
-		qonclose:GameFocus,
+		qonclose:FocusAndResetFunction(RequestGameFeedback,GameFocus),
 		thanksmessage:"★ Thank you for your feedback! ★"
 		};
 	var DFsettingsObj={};
 	var DFSnapshot=['snapshot',{}];
-
-  if(!HasBalloon(DPsettingsObj.qtargetid)){
+	  
+	function HasFeedback(curlevel){return RequestGameFeedback.requests.indexOf(curlevel)>=0;};
+	function InTitleScreen(){return titleScreen}
+	
 	if(InTitleScreen()){
 		DFsettingsObj.questionname="Your real-time feedback is much appreciated! As soon as you start the first level, press F or click the Feedback button below.";
 		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
 	else if(HasFeedback(curlevel)){
-		DFsettingsObj.questionname="Any further comments?";
+		DFsettingsObj.questionname="Any further comments on level"+LevelNumber(curlevel)+"?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
 	else if(!ScreenMessage(curlevel)){
@@ -229,13 +226,13 @@ function RequestGameFeedback(){
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
 	else{
-		DFsettingsObj.questionname="Any further comments?";
+		DFsettingsObj.questionname="Any other comments or ideas?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
   }
-  else{
-	  CloseBalloonIn(DPsettingsObj.qtargetid);
-  }
+  
+  OpenerCloser(RequestGameFeedback,RequestGameFeedbackIndeed,GameFocus);
+
 }
 
 function PrintGameState(){

@@ -293,7 +293,6 @@ function LevelNumber(curlevel){
 
 
 
-
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
 		var type="level";
@@ -315,37 +314,22 @@ function RequestLevelSelector(){
 		}
 	}
 	
-	function CloseLevelSelector(){
-		var i=RequestLevelSelector.id;
-		Close(i);
-		FocusAndReset();
-	}
-
-	function FocusAndReset(){
-		if(RequestLevelSelector.id)
-			RequestLevelSelector.id=undefined;
-		GameFocus();
-	};
-	
-	if(RequestLevelSelector.id) //Close on double click
-		CloseLevelSelector()
-	
-	else{
-		RequestLevelSelector.id=GenerateId();
-	
+	function RequestLevelSelectorIndeed(){
 		RequestDataPack([
-			['exclusivechoice',DPOpts]
-		],
-		{
-			actionvalid:LoadLevelFromDP,
-			actionText:"Go to "+type,
-			qid:RequestLevelSelector.id,
-			qonsubmit:FocusAndReset,
-			qonclose:FocusAndReset,
-			qdisplay:LaunchBalloon,
-			qtargetid:'puzzlescript-game'
-		});
+				['exclusivechoice',DPOpts]
+			],
+			{
+				actionvalid:LoadLevelFromDP,
+				actionText:"Go to "+type,
+				qid:RequestLevelSelector.id,
+				qonsubmit:FocusAndResetFunction(RequestLevelSelector,GameFocus),
+				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
+				qdisplay:LaunchBalloon,
+				qtargetid:'puzzlescript-game'
+			});
 	}
+	
+	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
 }
 
 function MaxLevelDigits(){
@@ -521,7 +505,6 @@ function nextLevel(){
 function checkKey(a,b){
 	if(!winning){
 		var c=-1;
-		var fdb=true;//F
 		switch(a.keyCode){
 			case 65:case 37:c=1;RegisterMove(c);break;
 			case 38:case 87:c=0;RegisterMove(c);break;
@@ -536,7 +519,6 @@ function checkKey(a,b){
 			case 70:RequestGameFeedback();//F is for Feedback!
 			default:fdb=false;//F
 		}
-		if(fdb)UnRequestGameFeedback();//F
 		if(throttle_movement&&0<=c&&3>=c){
 			if(lastinput==c&&input_throttle_timer<repeatinterval){
 				UnRegisterMove();return;}
