@@ -1,6 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
-/// Game Pretaration
+/// Game Preparation
 function PrepareGame(){
+	document.removeEventListener('keydown',onKeyDown);
+	ResumeCapturingKeys();
 	window.scrollTo(0,0);
 	AddGameBar();
 	PlaylistStartPlay();
@@ -44,8 +46,7 @@ function AddGameBar(idorselector){
 // Focus on Game Canvas
 function GameFocus(DP){
 	window.Mobile.GestureHandler.prototype.fakeCanvasFocus();
-//	document.removeEventListener('keydown',OnKeyDown);
-	//document.addEventListener('keydown',OnKeyDown);
+	ResumeCapturingKeys();
 };
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -332,6 +333,7 @@ function RequestLevelSelector(){
 			});
 	}
 	
+	StopCapturingKeys();
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
 }
 
@@ -515,6 +517,14 @@ function OnKeyDown(event) {
 	}
 }
 
+function StopCapturingKeys(){
+	document.removeEventListener('keydown',OnKeyDown);
+}
+function ResumeCapturingKeys(){
+	document.addEventListener('keydown',OnKeyDown);
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 //Overwritings - Level selector
 
@@ -569,8 +579,7 @@ function nextLevel(){
 //Overwritings - Keyboard Input
 
 //onKeyDown - custom shortcuts and avoiding other input problems
-document.removeEventListener('keydown',onKeyDown);
-document.addEventListener('keydown',OnKeyDown);
+
 
 
 

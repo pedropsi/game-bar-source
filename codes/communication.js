@@ -154,10 +154,12 @@ function RequestHallOfFame(){
 		qonclose:RequestModalWinnerMessage,
 		qonsubmit:RequestModalWinnerMessage
 	});
+	
+	StopCapturingKeys();
 }
 
 function RequestModalWinnerMessage(previousDP){
-	//if(ClearSolvedScreens)ClearSolvedScreens();
+	
 	RequestDataPack([
 		['answer',{
 			questionname:"As a winner, what would you tell Pedro PSI?",
@@ -177,9 +179,13 @@ function RequestModalWinnerMessage(previousDP){
 		}]
 	],
 	{
-		thanksmessage:"Thank you for your message."
+		thanksmessage:"Thank you for your message.",
+		qonclose:GameFocus,
+		qonsubmit:GameFocus
 	}
 	);
+	
+	StopCapturingKeys();
 }
 
 
@@ -231,6 +237,7 @@ function RequestGameFeedback(){
 	}
   }
   
+  StopCapturingKeys();
   OpenerCloser(RequestGameFeedback,RequestGameFeedbackIndeed,GameFocus);
 
 }
