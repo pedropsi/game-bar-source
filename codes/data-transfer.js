@@ -1635,13 +1635,14 @@ function FullscreenAllowed(){
 }
 
 function FullscreenActivate(browserprefix){
-	function F(){
+	function Deactivate(){
 		if(!(document.fullscreenElement||document.webkitFullscreenElement))
 			Deselect("FullscreenButton");
 		}
-	setTimeout(function(){
-		ListenOnce(browserprefix,F,document)
-	},1000) //Delay 1 second*/
+	//If a change is detected within the next 512 ms, trigger the button
+	[0,1,2,4,8,16,32,64,128,256,512].map(function(timedelay){
+		setTimeout(function(){ListenOnce(browserprefix,Deactivate,document)},timedelay);
+	});
 	return
 };
 
