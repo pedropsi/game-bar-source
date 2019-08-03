@@ -744,7 +744,14 @@ function DefaultDataPack(){
 
 		qonsubmit:LaunchThanksModal,	//Next modal on successful submit: receives a DataPack
 		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
-		thanksmessage:"Submitted. Thank you!"
+		thanksmessage:"Submitted. Thank you!",
+		
+		shortcuts:function(DP){return {
+			"escape":function(){Close(DP.qid);},
+			"enter":function(){CheckSubmit(DP.qid);},
+			"tab":function(){console.log("tab shortcut - TODO");}
+			}
+		}
 	}
 }
 
@@ -853,6 +860,8 @@ function RequestDataPack(NamedFieldArray,Options){
 		DP.qdisplay(DP);
 		
 		FocusElement("#"+DP.qid+" textarea, "+"#"+DP.qid+" input"); //First question
+		
+		SetDatapackShortcuts(DP);
 		
 		return DP;
 	}
@@ -1711,14 +1720,12 @@ function ToggleFullscreen(targetIDsel){
 ///////////////////////////////////////////////////////////////////////////////
 //Keyboard Shortcuts
 
-var keyActions={}
+var keyActions={}//By default, there are no shortcuts
 
 function OnKeyDownDefault(event) {
 	event = event || window.event;
-	//Not inside other elements, such as feedback forms, etc...
-	if(event.target.tagName!=="BODY")
-		return;
-	else if(keyActions[event.keyCode])
+
+	if(keyActions[event.keyCode])
 		keyActions[event.keyCode](event);
 }
 
@@ -1741,7 +1748,12 @@ function DeleteShortcut(key){
 	delete keyActions[key];
 }
 function SetShortcuts(keyActionsNew){
-	keyActions=FuseObjects(keyActions,keyActionsNew);
+	keyActions={};
+	var keys=Object.keys(keyActionsNew);
+	for(var k in keys){
+		console.log(keys[k],keyActionsNew[keys[k]].toSource());
+		SetShortcut(keys[k],keyActionsNew[keys[k]]);
+	}
 }
 
 function KeyLookup(key){
@@ -1816,3 +1828,7 @@ var KeyCodes={
 		'z':90
 }
 
+//Datapack Integration
+function SetDatapackShortcuts(DP){
+	SetShortcuts(DP.shortcuts(DP));
+}

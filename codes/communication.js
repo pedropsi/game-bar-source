@@ -142,6 +142,7 @@ DESTINATIONS[DESTINATION_PASS.name]=DESTINATION_PASS;
 //Hall of Fame
 
 function RequestHallOfFame(){
+	
 	RequestDataPack([
 	['alias',{
 		questionname:"Enter the Hall of Fame:",
@@ -155,7 +156,6 @@ function RequestHallOfFame(){
 		qonsubmit:RequestModalWinnerMessage
 	});
 	
-	StopCapturingKeys();
 }
 
 function RequestModalWinnerMessage(previousDP){
@@ -185,7 +185,6 @@ function RequestModalWinnerMessage(previousDP){
 	}
 	);
 	
-	StopCapturingKeys();
 }
 
 
@@ -236,8 +235,7 @@ function RequestGameFeedback(){
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
   }
-  
-  StopCapturingKeys();
+    
   OpenerCloser(RequestGameFeedback,RequestGameFeedbackIndeed,GameFocus);
 
 }
