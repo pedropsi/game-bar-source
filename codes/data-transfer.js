@@ -1635,12 +1635,14 @@ function FullscreenAllowed(){
 }
 
 function FullscreenActivate(browserprefix){
-	Select("FullscreenButton");
-	//console.log("sel");
-	function F(){Deselect("FullscreenButton");/*console.log("desel");*/}
+	function F(){
+		if(!(document.fullscreenElement||document.webkitFullscreenElement))
+			Deselect("FullscreenButton");
+		}
 	setTimeout(function(){
 		ListenOnce(browserprefix,F,document)
-	},1000) //Delay 1 second
+	},1000) //Delay 1 second*/
+	return
 };
 
 function FullscreenOpen(targetIDsel){
@@ -1661,8 +1663,10 @@ function FullscreenOpen(targetIDsel){
 	} 
 	
 	//Place the console correctly
-	if(f)
+	if(f){
+		Select("FullscreenButton");
 		ConsoleLoad(targetIDsel);
+	};	
 }
 
 function FullscreenClose(){
@@ -1683,7 +1687,10 @@ function FullscreenClose(){
 		f=true;
 	}
 	
-	if(f) ConsoleLoad();
+	if(f) {
+		Deselect("FullscreenButton");
+		ConsoleLoad();
+	};
 }
 
 function ToggleFullscreen(targetIDsel){
@@ -1700,4 +1707,111 @@ function ToggleFullscreen(targetIDsel){
 };
 
 
+///////////////////////////////////////////////////////////////////////////////
+//Keyboard Shortcuts
+
+var keyActions={}
+
+function OnKeyDownDefault(event) {
+	event = event || window.event;
+	//Not inside other elements, such as feedback forms, etc...
+	if(event.target.tagName!=="BODY")
+		return;
+	else if(keyActions[event.keyCode])
+		keyActions[event.keyCode](event);
+}
+
+function StopCapturingKeys(OnKeyDown){
+	var OnKeyDown=StopCapturingKeys.last?StopCapturingKeys.last:OnKeyDown;
+	document.removeEventListener('keydown',OnKeyDown);
+}
+function ResumeCapturingKeys(OnKeyDown){
+	var OnKeyDown=OnKeyDown?OnKeyDown:OnKeyDownDefault;
+	StopCapturingKeys.last=OnKeyDown;
+	document.addEventListener('keydown',OnKeyDown);
+}
+
+function SetShortcut(key,Action){
+	var key=(typeof key==="string")?KeyLookup(key):key;
+	keyActions[key]=Action;
+}
+function DeleteShortcut(key){
+	var key=(typeof key==="string")?KeyLookup(key):key;
+	delete keyActions[key];
+}
+function SetShortcuts(keyActionsNew){
+	keyActions=FuseObjects(keyActions,keyActionsNew);
+}
+
+function KeyLookup(key){
+	return KeyCodes[(""+key).toLowerCase()];
+}
+
+var KeyCodes={
+		'none':0,
+		'break':3,
+		'backspace':8,
+		'tab':9,
+		'clear':12,
+		'enter':13,
+		'shift':16,
+		'ctrl':17,
+		'alt':18,
+		'pause':19,
+		'caps lock':20,
+		'escape':27,
+		'spacebar':32,
+		'page up':33,
+		'page down':34,
+		'end':35,
+		'home':36,
+		'left':37,
+		'up':38,
+		'right':39,
+		'down':40,
+		'select':41,
+		'print':42,
+		'execute':43,
+		'print screen':44,
+		'insert':45,
+		'delete':46,
+		'help':47,
+		'0':48,
+		'1':49,
+		'2':50,
+		'3':51,
+		'4':52,
+		'5':53,
+		'6':54,
+		'7':55,
+		'8':56,
+		'9':57,
+		'ß':63,
+		'a':65,
+		'b':66,
+		'c':67,
+		'd':68,
+		'e':69,
+		'f':70,
+		'g':71,
+		'h':72,
+		'i':73,
+		'j':74,
+		'k':75,
+		'l':76,
+		'm':77,
+		'n':78,
+		'o':79,
+		'p':80,
+		'q':81,
+		'r':82,
+		's':83,
+		't':84,
+		'u':85,
+		'v':86,
+		'w':87,
+		'x':88,
+		'y':89,
+		'z':90
+}
 

@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// Game Preparation
 function PrepareGame(){
-	document.removeEventListener('keydown',onKeyDown);
-	ResumeCapturingKeys();
+	StopCapturingKeys(onKeyDown);ResumeCapturingKeys();
 	window.scrollTo(0,0);
 	AddGameBar();
 	PlaylistStartPlay();
@@ -461,47 +460,49 @@ function AdjustFlickscreen(){
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//Key capturing
 
-//onKeyDown
 function CheckRegisterKey(event){
 	checkKey(event,true);
 	RegisterMove(event.keyCode);
 }
 
-function OnKeyDown(event) {
-	event = event || window.event;
-	var key=event.keyCode;
-
-	//console.log(event);
-	
-	//Not inside other elements, such as feedback forms, etc...
-	if(event.target.tagName!=="BODY")
-		return;
-	
-	//Prevent arrows/space from scrolling page
-	if (([32, 37, 38, 39, 40].indexOf(key) > -1)) {
-		prevent(event);
-	}
-
-	//Feedback
-	if (key===70){//F
+keyActions={
+	//Arrows & Spacebar
+	32:function(ev){prevent(ev);InstructGame(ev)},
+	37:function(ev){prevent(ev);InstructGame(ev)},
+	38:function(ev){prevent(ev);InstructGame(ev)},
+	39:function(ev){prevent(ev);InstructGame(ev)},
+	40:function(ev){prevent(ev);InstructGame(ev)},
+	//WASD
+	65:function(ev){ev.keyCode=37;InstructGame(ev)},
+	87:function(ev){ev.keyCode=38;InstructGame(ev)},
+	68:function(ev){ev.keyCode=39;InstructGame(ev)},
+	83:function(ev){ev.keyCode=40;InstructGame(ev)},	
+	//Enter, C, X
+	13:function(ev){ev.keyCode=88;InstructGame(ev)},	
+	67:function(ev){ev.keyCode=88;InstructGame(ev)},	
+	88:function(ev){ev.keyCode=88;InstructGame(ev)},
+	// Z, U     
+	90:function(ev){ev.keyCode=85;InstructGame(ev)},	
+	85:InstructGame,	
+	// R
+	82:InstructGame,	
+	// Esc
+	27:InstructGame,
+	70:function(ev){				//F
 		RequestGameFeedback();
-		prevent(event);	//Avoid inputting F in the form
-		return;		
-	}
+		prevent(ev);//Avoid inputting the letter F in the form
+		},
+	76:RequestLevelSelector, 	//L
+	77:ToggleCurrentSong		//M
+}
 
-	//Select Level
-	if (key===76){//L
-		RequestLevelSelector();
-		return;
-	}
 
-	//Pause/Unpause music
-	if (key===77){//M
-		ToggleCurrentSong();
-		return;
-	}
-
+function InstructGame(event){
+	var key=event.keyCode;
+		
 	//Avoid repetition?
     if (keybuffer.indexOf(key)>=0) {
     	return;
@@ -517,12 +518,6 @@ function OnKeyDown(event) {
 	}
 }
 
-function StopCapturingKeys(){
-	document.removeEventListener('keydown',OnKeyDown);
-}
-function ResumeCapturingKeys(){
-	document.addEventListener('keydown',OnKeyDown);
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
