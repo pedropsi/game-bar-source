@@ -746,12 +746,8 @@ function DefaultDataPack(){
 		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
 		thanksmessage:"Submitted. Thank you!",
 		
-		shortcuts:function(DP){return {
-			"escape":function(){Close(DP.qid);},
-			"enter":function(){CheckSubmit(DP.qid);},
-			"tab":function(){console.log("tab shortcut - TODO");}
-			}
-		}
+		shortcuts:DPShortcutDefauts,	//Base shortcuts (all else is deleted)
+		shortcutExtras:function(DP){return {};}	//Extended shortcuts, to use ad-hoc
 	}
 }
 
@@ -1722,40 +1718,6 @@ function ToggleFullscreen(targetIDsel){
 
 var keyActions={}//By default, there are no shortcuts
 
-function OnKeyDownDefault(event) {
-	event = event || window.event;
-
-	if(keyActions[event.keyCode])
-		keyActions[event.keyCode](event);
-}
-
-function StopCapturingKeys(OnKeyDown){
-	var OnKeyDown=StopCapturingKeys.last?StopCapturingKeys.last:OnKeyDown;
-	document.removeEventListener('keydown',OnKeyDown);
-}
-function ResumeCapturingKeys(OnKeyDown){
-	var OnKeyDown=OnKeyDown?OnKeyDown:OnKeyDownDefault;
-	StopCapturingKeys.last=OnKeyDown;
-	document.addEventListener('keydown',OnKeyDown);
-}
-
-function SetShortcut(key,Action){
-	var key=(typeof key==="string")?KeyLookup(key):key;
-	keyActions[key]=Action;
-}
-function DeleteShortcut(key){
-	var key=(typeof key==="string")?KeyLookup(key):key;
-	delete keyActions[key];
-}
-function SetShortcuts(keyActionsNew){
-	keyActions={};
-	var keys=Object.keys(keyActionsNew);
-	for(var k in keys){
-		console.log(keys[k],keyActionsNew[keys[k]].toSource());
-		SetShortcut(keys[k],keyActionsNew[keys[k]]);
-	}
-}
-
 function KeyLookup(key){
 	return KeyCodes[(""+key).toLowerCase()];
 }
@@ -1828,7 +1790,57 @@ var KeyCodes={
 		'z':90
 }
 
+
+function OnKeyDownDefault(event) {
+	event = event || window.event;
+
+	if(keyActions[event.keyCode])
+		keyActions[event.keyCode](event);
+}
+
+function StopCapturingKeys(OnKeyDown){
+	var OnKeyDown=StopCapturingKeys.last?StopCapturingKeys.last:OnKeyDown;
+	document.removeEventListener('keydown',OnKeyDown);
+}
+function ResumeCapturingKeys(OnKeyDown){
+	var OnKeyDown=OnKeyDown?OnKeyDown:OnKeyDownDefault;
+	StopCapturingKeys.last=OnKeyDown;
+	document.addEventListener('keydown',OnKeyDown);
+}
+
+function SetShortcut(key,Action){
+	var key=(typeof key==="string")?KeyLookup(key):key;
+	keyActions[key]=Action;
+}
+function DeleteShortcut(key){
+	var key=(typeof key==="string")?KeyLookup(key):key;
+	delete keyActions[key];
+}
+
+//Multiple shortcuts
+function AddShortcuts(keyActionsNew){
+	var keys=Object.keys(keyActionsNew);
+	for(var k in keys){
+		//console.log(keys[k],keyActionsNew[keys[k]].toSource());
+		SetShortcut(keys[k],keyActionsNew[keys[k]]);
+	}
+}
+
+function OverwriteShortcuts(keyActionsNew){
+	keyActions={};
+	AddShortcuts(keyActionsNew);
+}
+
 //Datapack Integration
 function SetDatapackShortcuts(DP){
-	SetShortcuts(DP.shortcuts(DP));
+	OverwriteShortcuts(DP.shortcuts(DP));
+	AddShortcuts(DP.shortcutExtras(DP));
 }
+
+function DPShortcutDefauts(DP){
+	return {
+		"escape":function(){Close(DP.qid);},
+		"enter":function(){CheckSubmit(DP.qid);},
+		"tab":function(){console.log("tab shortcut - TODO");}
+	}
+};

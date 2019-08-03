@@ -328,12 +328,15 @@ function RequestLevelSelector(){
 				qonsubmit:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qdisplay:LaunchBalloon,
-				qtargetid:'puzzlescript-game'
+				qtargetid:'puzzlescript-game',
+				shortcutExtras:extraShortcutsF
 			});
 	}
 	
-	//StopCapturingKeys();
+	function extraShortcutsF(DP){return {"L":function(){Close(DP.qid)}}};
+	
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
+
 }
 
 function MaxLevelDigits(){

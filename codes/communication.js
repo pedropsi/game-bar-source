@@ -210,8 +210,14 @@ function RequestGameFeedback(){
 		qdisplay:LaunchBalloon,
 		qonsubmit:RecordAndLaunchThanksBalloon,
 		qonclose:FocusAndResetFunction(RequestGameFeedback,GameFocus),
-		thanksmessage:"★ Thank you for your feedback! ★"
-		};
+		thanksmessage:"★ Thank you for your feedback! ★",
+		shortcutExtras:extraShortcutsF
+	};
+	
+	function extraShortcutsF(DP){return {
+		"F":function(){Close(DP.qid)
+		}}}
+	
 	var DFsettingsObj={};
 	var DFSnapshot=['snapshot',{}];
 	  
