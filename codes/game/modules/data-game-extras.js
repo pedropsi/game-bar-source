@@ -52,6 +52,7 @@ function GameFocus(DP){
 // Save permissions
 
 var curcheckpoint=0;
+
 var savePermission=true;
 ConsoleAddMany([
 			"Localsave is ON for "+pageTitle()+".",
@@ -151,7 +152,7 @@ function LoadCheckpoint(n){
 	var stack=GetCheckpoints();
 
 	if(n<stack.length)
-		ConsoleAddOnce("Beware! Saving at a past checkpoint will erase future progress...");
+		ConsoleAddOnce("Beware! Saving at a past checkpoint will erase former future progress...");
 	
 	curcheckpoint=Math.min(Math.max(n-1,0),stack.length-1); //decrement 1 unit
 	return curlevelTarget=stack[curcheckpoint];
@@ -186,8 +187,9 @@ function PushSaveCheckpoint(levelTarget){
 
 function LoadGame(){
 	if(HasLevel()){
-		if(HasCheckpoint())
-			LoadCheckpoint(1);
+		if(HasCheckpoint()){
+			LoadLastCheckpoint();
+		}
 		return LoadLevel();
 	}
 }
@@ -410,6 +412,7 @@ function LoadLastCheckpoint(){
 function ResetCheckpoints(){
 	curcheckpoint=0;
 	EraseLocalsaveCheckpoints();
+	GetCheckpoints.stack=[];
 }
 
 function ResetGame(){
