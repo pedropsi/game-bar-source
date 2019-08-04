@@ -20,6 +20,7 @@ var puzzlescriptModules=[
 "mobile",
 /*Extras*/
 "data-game-extras",
+"data-game-overwrite",
 "data-game-moves"
 ]
 

@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-/// Game Preparation
+// Game Preparation
 function PrepareGame(){
 	StopCapturingKeys(onKeyDown);ResumeCapturingKeys(OnKeyDownGame);
 	window.scrollTo(0,0);
@@ -10,7 +10,7 @@ function PrepareGame(){
 
 
 ////////////////////////////////////////////////////////////////////////////////
-/// Game Bar
+// Game Bar
 
 function GameBar(){
 	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','CheckRegisterKey({keyCode:85});GameFocus();'):"";
@@ -54,7 +54,7 @@ function GameFocus(DP){
 var curcheckpoint=0;
 var savePermission=true;
 ConsoleAddMany([
-			"Autosave is ON for "+pageTitle()+".",
+			"Localsave is ON for "+pageTitle()+".",
 			"To stop saving and erase all 2 cookies, please deselect 🖫."
 			]);
 
@@ -63,13 +63,13 @@ function ToggleSavePermission(thi){
 	if(thi)thi.classList.remove("selected");
 	if(savePermission){
 		savePermission=false;
-		UnsaveSave();
-		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": Autosave is OFF across sessions.");
+		EraseLocalsave();
+		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": Localsave is OFF across sessions.");
 	}
 	else {
 		savePermission=true;
 		ConsoleAddMany([
-			"Autosave is ON for "+pageTitle()+".",
+			"Localsave is ON for "+pageTitle()+".",
 			"To stop saving and erase all 2 cookies, please deselect 🖫."
 			]);
 		if(thi)thi.classList.add("selected");
@@ -95,124 +95,125 @@ function HasLevel(){
 	return CanSaveLocally()&&void 0!==localStorage[DocumentURL()];
 }
 
-// Checkpoint Save
 
-function MaxCheckpoint(m){ 
-	if(m===undefined){  //Getter
-		var c=Number(curcheckpoint);
-		MaxCheckpoint.max=MaxCheckpoint.max?Math.max(c,MaxCheckpoint.max):c;
-	}
-	else				//Setter (m)
-		MaxCheckpoint.max=Number(m);
-	return MaxCheckpoint.max;
-}
-
-function SetCheckpointStack(newstack){
-	MaxCheckpoint(newstack.length);
-	if(savePermission)
-		return localStorage[DocumentURL()+"_checkpoint"]=JSON.stringify(newstack);
-	else
-		UnsaveCheckpoint();
-}
-function GetCheckpointStack(){
-	var stack= JSON.parse(localStorage[DocumentURL()+"_checkpoint"]);
-	MaxCheckpoint(stack.length-1);
-	return stack;
-}
-	
-function SaveCheckpoint(levelTarget,isReloading){
-	var newstack;
-	if (HasCheckpoint()){
-		var stack=GetCheckpointStack();
-		if(typeof stack.dat==="undefined"){
-			if(isReloading)
-				stack.pop();
-			newstack=EvacuateCheckpointStack(stack,curcheckpoint);
-			newstack=stack.concat([levelTarget]);
-		}
-		else{
-			if(isReloading)
-				newstack=[levelTarget];
-			else{
-				newstack=[stack,levelTarget];
-			}
-		}
-	}
-	else
-		newstack=[levelTarget];
-	
-	curcheckpoint=newstack.length-1;
-	return SetCheckpointStack(newstack);
-}
-
-
-// Level Save
-function SaveLevel(curlevel){
+// Localsave = save in local storage
+function LocalsaveLevel(curlevel){
 	if(savePermission){
 		localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelScreens());
 		return localStorage[DocumentURL()]=curlevel;
 	}
 	else
-		UnsaveLevel();
+		EraseLocalsaveLevel();
 };
 
-function UnsaveCheckpoint(){
-	return localStorage.removeItem(DocumentURL()+"_checkpoint");
-};
-function UnsaveLevel(){
+function LocalsaveCheckpoints(newstack){
+	if(savePermission)
+		return localStorage[DocumentURL()+"_checkpoint"]=JSON.stringify(newstack);
+	else
+		EraseLocalsaveCheckpoints();
+}
+
+function EraseLocalsaveLevel(){
 	return localStorage.removeItem(DocumentURL());
 };
-function UnsaveSave(){
-	return CanSaveLocally()&&(UnsaveLevel(),UnsaveCheckpoint());
+
+function EraseLocalsaveCheckpoints(){
+	return localStorage.removeItem(DocumentURL()+"_checkpoint");
+};
+
+function EraseLocalsave(){
+	return CanSaveLocally()&&(EraseLocalsaveLevel(),EraseLocalsaveCheckpoints());
 }
 
 
+// Load from memory
 function LoadLevel(){
 	SolvedLevelScreens.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
 	return curlevel=localStorage[DocumentURL()];
 }
-function LoadCheckpoint(n){
-	var stack=GetCheckpointStack();
-	if(typeof stack.dat=="undefined"){
-			if(typeof n==="undefined")
-				curcheckpoint=stack.length-1; //default to last checkpoint
-			else{
-				curcheckpoint=Math.min(Math.max(n-1,0),stack.length-1);
-				stack=EvacuateCheckpointStack(stack,curcheckpoint);
-		}
-		curlevelTarget=stack[curcheckpoint];
-	}
-	else{
-		curcheckpoint=0;
-		curlevelTarget=stack;
-	}
-	var a=[],b;
-	for(b in Object.keys(curlevelTarget.dat))
-		a[b]=curlevelTarget.dat[b];
-	return curlevelTarget.dat=new Int32Array(a)
+
+
+function LocalloadCheckpoints(){
+	var storeddata=localStorage[DocumentURL()+"_checkpoint"];
+	var sta=storeddata?JSON.parse(storeddata):[];
+	sta=sta.dat?[sta]:sta;	//data compatibility (converts single checkpoint to array if needed)
+	return sta;
 }
 
-function EvacuateCheckpointStack(stack,n){
-	var s=stack;
-	var i=s.length-1;
-	while(n<i){
-		i--;
-		s.pop();
-	}
-	return s;
-};
+function GetCheckpoints(){
+	if(GetCheckpoints.stack)
+		return GetCheckpoints.stack;
+	else
+		return GetCheckpoints.stack=LocalloadCheckpoints();
+}
 
-function LoadSave(){
+function LoadCheckpoint(n){
+	var stack=GetCheckpoints();
+
+	if(n<stack.length)
+		ConsoleAddOnce("Beware! Saving at a past checkpoint will erase future progress...");
+	
+	curcheckpoint=Math.min(Math.max(n-1,0),stack.length-1); //decrement 1 unit
+	return curlevelTarget=stack[curcheckpoint];
+}
+
+
+function PushSaveCheckpoint(levelTarget){
+	var stack=GetCheckpoints();
+	
+	function EvacuateCheckpoints(stack,n){
+		var s=stack;
+		var i=s.length-1;
+		while(n<i){
+			i--;
+			s.pop();
+		}
+		return s;
+	};
+	
+	if(curcheckpoint+1<stack.length){
+		stack=EvacuateCheckpoints(stack,curcheckpoint);
+		ConsoleAdd("Saved in a past checkpoint. Future progress erased.")
+	}
+	
+	stack=stack.concat([levelTarget]);
+	curcheckpoint=stack.length-1;
+	
+	return GetCheckpoints.stack=stack;
+}
+
+
+
+function LoadGame(){
 	if(HasLevel()){
 		if(HasCheckpoint())
-			LoadCheckpoint();
+			LoadCheckpoint(1);
 		return LoadLevel();
 	}
 }
 
 
+// Preserve original level save format (within checkpoint stack)
+
+function FormerLevel4Serialization() { //The original one
+	var ret = {
+		dat : Array.from(level.objects),
+		width : level.width,
+		height : level.height,
+		oldflickscreendat: oldflickscreendat.concat([]),
+		//New
+		lvl:curlevel
+	};
+	return ret;
+}
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Level/Message Screen navigation
+
+// Keep track of solved levels
 
 function ScreenMessage(lvl){
 	return typeof state.levels[lvl].message !=="undefined"
@@ -295,6 +296,7 @@ function LevelNumber(curlevel){
 }
 
 
+// Level Selector
 
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
@@ -308,7 +310,7 @@ function RequestLevelSelector(){
 	}
 	else{
 		var type="checkpoint";
-		var checkpointIndices=Object.keys(GetCheckpointStack());
+		var checkpointIndices=Object.keys(GetCheckpoints());
 		var DPOpts={
 			questionname:"Reached checkpoints:",
 			qfield:"level",
@@ -365,29 +367,30 @@ function LoadLevelFromDP(DP){
 	}
 };
 
-function GoToLevelCheckpoint(ncheckpoint){
+function GoToLevelCheckpoint(n){
 	if(HasCheckpoint()){
-		LoadCheckpoint(ncheckpoint);
+		LoadCheckpoint(n);
 		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 		canvasResize();
 }};
 
 function GoToLevel(lvl){
 	curlevel=lvl;
+	//ResetCheckpoints();
 	AdvanceLevel();
 	canvasResize();
 };
 
 
-
-////////////////////////////////////////////////////////////////////////////////
-// Overwrite Helpers
-
+// Level Progression
 
 function StartLevelFromTitle(){
 	if (titleSelection===0){//new game
 		ResetLevel();
+		//ResetCheckpoints();
 	}
+	
+	LoadLastCheckpoint();
 	LoadLevelOrCheckpoint();
 }
 
@@ -396,10 +399,26 @@ function ResetLevel(){
 	curlevelTarget=null;
 }
 
+
+function LoadLastCheckpoint(){
+	if(HasCheckpoint()){
+		var stack=GetCheckpoints();
+		curcheckpoint=stack.length-1;
+		curlevelTarget=stack[curcheckpoint];
+	}
+}
+
+/*function ResetCheckpoints(){
+	curcheckpoint=0;
+	GetCheckpoints.stack=[FormerLevel4Serialization()];
+	LocalsaveCheckpoints(GetCheckpoints.stack);
+}*/
+
 function ResetGame(){
-	UnsaveSave();
+	EraseLocalsave();
 	ClearSolvedLevelScreens();
 	ResetLevel();
+	//ResetCheckpoints();
 	goToTitleScreen();
 	tryPlayEndGameSound();
 }
@@ -409,7 +428,7 @@ function AdvanceLevel(){
 	titleScreen=false;
 	quittingMessageScreen=false;
 	messageselected=false;
-	SaveLevel(curlevel);
+	LocalsaveLevel(curlevel);
 	LoadLevelOrCheckpoint();
 }
 
@@ -441,21 +460,13 @@ function AdvanceEndScreen(){
 function LoadLevelOrCheckpoint(){
 	if (curlevelTarget!==null){
 		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
-		//curlevelTarget=null;
+		curlevelTarget=null;
 	}
 	else
 		loadLevelFromState(state,curlevel);
 }
 
-function RefreshCheckpoint(){
-	if(CanSaveLocally()){
-		if(null!==curlevelTarget){
-			restartTarget=level4Serialization();
-			SaveCheckpoint(restartTarget,true)
-		}
-		else UnsaveCheckpoint();
-	}
-}
+// Preserve this function
 
 function AdjustFlickscreen(){
 	if (state!==undefined && state.metadata.flickscreen!==undefined){
@@ -463,14 +474,11 @@ function AdjustFlickscreen(){
 	}
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////
 //Key capturing
 
-function CheckRegisterKey(event){
-	checkKey(event,true);
-	RegisterMove(event.keyCode);
-}
-
+//Game keybinding profile
 keyActionsGame={
 	//Arrows & Spacebar
 	32:function(ev){prevent(ev);InstructGame(ev)},
@@ -502,6 +510,12 @@ keyActionsGame={
 	77:ToggleCurrentSong		//M
 }
 
+//Execute key instructions
+function CheckRegisterKey(event){
+	checkKey(event,true);
+	RegisterMove(event.keyCode);
+}
+
 
 function InstructGame(event){
 	var key=event.keyCode;
@@ -531,142 +545,11 @@ function OnKeyDownGame(event) {
 		keyActions[event.keyCode](event);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-//Overwritings - Level selector
 
-//doSetupTitleScreenLevelContinue - Level selector - start saving a stack of checkpoints
-function doSetupTitleScreenLevelContinue(){
-	try{LoadSave()}
-	catch(c){}}
-doSetupTitleScreenLevelContinue()
-
-//DoWin - Level selector - update
-function DoWin() {
-	if (!winning) {
-		EchoLevelWin(curlevel);
-		AddToSolvedScreens(curlevel);
-		SaveLevel(curlevel);
-		if(typeof customLevelInfo!= "undefined")customLevelInfo();
-		if (againing = false, tryPlayEndLevelSound(), unitTesting){
-			ClearLevelRecord();
-			return void nextLevel();
-		}
-		winning = true, timer = 0
-	}
-}
-
-//nextLevel - Level selector - go to level
-function nextLevel(){
-	againing=false;
-	messagetext="";
-	
-	curlevel=Math.min(curlevel,LastScreen()?LastScreen():curlevel);
-	
-	if (titleScreen)
-		StartLevelFromTitle();
-	else {
-		if(!SolvedAllLevels())
-			AdvanceUnsolvedScreen();
-		else if(curlevel<LastScreen())
-			AdvanceEndScreen();
-		else{
-			RequestHallOfFame();
-			ResetGame();
-		}
-	}
-	
-	RefreshCheckpoint();
-	AdjustFlickscreen();
-	canvasResize();
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
-//Overwritings - Keyboard Input
-
-
-
-function processInput(a,b,c){
-	againing=false;
-	verbose_logging&&(-1===a?consolePrint("Turn starts with no input."):(consolePrint("======================="),consolePrint("Turn starts with input of "+["up","left","down","right","action"][a]+".")));
-	var d=backupLevel(),e=[];
-	if(4>=a){
-		if(0<=a){
-			switch(a){
-				case 0:a=1;break;
-				case 1:a=4;break;
-				case 2:a=2;break;
-				case 3:a=8;break;
-				case 4:a=16
-			}
-		e=startMovement(a)
-		}
-		var g=0;
-		level.bannedGroup=[];
-		rigidBackups=[];
-		level.commandQueue=[];
-		var h=0,l=false,p=commitPreservationState();
-		sfxCreateMask.setZero();
-		sfxDestroyMask.setZero();
-		seedsToPlay_CanMove=[];
-		seedsToPlay_CantMove=[];
-		calculateRowColMasks();
-		do l=false,g++,verbose_logging&&consolePrint("applying rules"),applyRules(state.rules,state.loopPoint,h,level.bannedGroup),resolveMovements()?(l=true,restorePreservationState(p)):(verbose_logging&&consolePrint("applying late rules"),applyRules(state.lateRules,state.lateLoopPoint,0)),h=0;
-		while(50>g&&l);
-		50<=g&&consolePrint("looped through 50 times, gave up.  too many loops!");
-		if(0<e.length&&void 0!==state.metadata.require_player_movement){
-			h=false;
-			for(g=0;g<e.length;g++)
-				if(l=level.getCell(e[g]),state.playerMask.bitsClearInArray(l.data)){
-					h=true;
-					break
-				}
-				if(!1===h)
-					return verbose_logging&&(consolePrint("require_player_movement set, but no player movement detected, so cancelling turn."),consoleCacheDump()),backups.push(d),DoUndo(!0,!1),!1
-		}
-		if(0<=level.commandQueue.indexOf("cancel"))
-			return verbose_logging&&(consoleCacheDump(),consolePrint("CANCEL command executed, cancelling turn.",!0)),backups.push(d),messagetext="",DoUndo(!0,!1),tryPlayCancelSound(),!1;
-		if(0<=level.commandQueue.indexOf("restart"))
-			return verbose_logging&&(consolePrint("RESTART command executed, reverting to restart state."),consoleCacheDump()),backups.push(d),messagetext="",DoRestart(!0),!0;
-		if(c&&0<=level.commandQueue.indexOf("win"))
-			return true;
-		h=false;
-		for(g=0;g<level.objects.length;g++)
-			if(level.objects[g]!==d.dat[g]){
-				if(c)
-					return verbose_logging&&consoleCacheDump(),backups.push(d),DoUndo(!0,!1),!0;-1!==a&&backups.push(d);
-				h=true;
-				break
-			}
-		if(c)
-			return verbose_logging&&consoleCacheDump(),!1;
-		for(g=0;g<seedsToPlay_CantMove.length;g++)
-			playSound(seedsToPlay_CantMove[g]);
-		for(g=0;g<seedsToPlay_CanMove.length;g++)
-			playSound(seedsToPlay_CanMove[g]);
-		for(g=0;g<state.sfx_CreationMasks.length;g++)
-			a=state.sfx_CreationMasks[g],sfxCreateMask.anyBitsInCommon(a.objectMask)&&playSound(a.seed);
-		for(g=0;g<state.sfx_DestructionMasks.length;g++)
-			a=state.sfx_DestructionMasks[g],sfxDestroyMask.anyBitsInCommon(a.objectMask)&&playSound(a.seed);
-		for(g=0;g<level.commandQueue.length;g++)
-			a=level.commandQueue[g],"f"===a.charAt(1)&&tryPlaySimpleSound(a),!1===unitTesting?"message"===a&&showTempMessage():messagetext="";
-		false!==textMode||void 0!==b&&!1!==b||(verbose_logging&&consolePrint("Checking win condition."),checkWin());
-		winning||(0<=level.commandQueue.indexOf("checkpoint")&&(EchoCheckpoint(),verbose_logging&&consolePrint("CHECKPOINT command executed, saving current state to the restart state."),restartTarget=level4Serialization(),hasUsedCheckpoint=true,SaveCheckpoint(restartTarget),SaveLevel(curlevel)),0<=level.commandQueue.indexOf("again")&&h&&(b=verbose_logging,g=messagetext,verbose_logging=false,processInput(-1,!0,!0)?((verbose_logging=b)&&consolePrint("AGAIN command executed, with changes detected - will execute another turn."),againing=true,timer=0):(verbose_logging=b)&&consolePrint("AGAIN command not executed, it wouldn't make any changes."),verbose_logging=b,messagetext=g));level.commandQueue=[]
-	}
-	verbose_logging&&consoleCacheDump();
-	winning&&(againing=false);
-	return h
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-//Overwritings - Sound 
-
-//playSound - custom sound effects, if available
-function playSound(seed) {
-	if (!Muted())
-		PlaySound(FindSoundName(seed));
-}
+// Custom sounds 
 
 function FindSoundName(seed){ //Finds the sound name which overwrites the PS seed
 	var seedname=String(seed);
