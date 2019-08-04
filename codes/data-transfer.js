@@ -1472,6 +1472,17 @@ function ConsoleAddMany(messagesArray){
 	}
 }
 
+function ConsoleAddOnce(messageHTML,wait,duration){
+	
+	if(!ConsoleAddOnce.messages)
+		ConsoleAddOnce.messages=[];
+	
+	if(ConsoleAddOnce.messages.indexOf(messageHTML)<0){
+		ConsoleAdd(messageHTML,wait,duration)
+		ConsoleAddOnce.messages.push(messageHTML);
+	}	
+}
+
 
 //DataPack integration in console
 function LaunchConsoleMessage(DP){
