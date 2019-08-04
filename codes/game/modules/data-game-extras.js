@@ -376,7 +376,6 @@ function GoToLevelCheckpoint(n){
 
 function GoToLevel(lvl){
 	curlevel=lvl;
-	//ResetCheckpoints();
 	AdvanceLevel();
 	canvasResize();
 };
@@ -387,7 +386,7 @@ function GoToLevel(lvl){
 function StartLevelFromTitle(){
 	if (titleSelection===0){//new game
 		ResetLevel();
-		//ResetCheckpoints();
+		ResetCheckpoints();
 	}
 	
 	LoadLastCheckpoint();
@@ -408,17 +407,16 @@ function LoadLastCheckpoint(){
 	}
 }
 
-/*function ResetCheckpoints(){
+function ResetCheckpoints(){
 	curcheckpoint=0;
-	GetCheckpoints.stack=[FormerLevel4Serialization()];
-	LocalsaveCheckpoints(GetCheckpoints.stack);
-}*/
+	EraseLocalsaveCheckpoints();
+}
 
 function ResetGame(){
 	EraseLocalsave();
 	ClearSolvedLevelScreens();
 	ResetLevel();
-	//ResetCheckpoints();
+	ResetCheckpoints();
 	goToTitleScreen();
 	tryPlayEndGameSound();
 }
