@@ -1,20 +1,18 @@
 <!DOCTYPE html><html lang="en" xml:lang="en" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="images/favicon-32x32.png" rel="icon" type="image/png"/><link href="images/favicon-32x32.png" rel="shortcut icon" type="image/x-icon"/><link href="images/splash.png" rel="apple-touch-icon"/><link href="codes/index.css" rel="stylesheet" type="text/css"/><title>Puzzlescript Game Bar</title>
 <meta name="description" content="About the Puzzlescript Game Bar
-All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
 
+This is the "game bar" found in all Pedro PSI's puzzlescript games. It features for instance undo/reset buttons, a beautiful level selector, a fullscreen button and an optional music button. Sounds useful? Well you too can use it!
 
-
-How to use the Puzzlescript Game Bar in your site
-Step 1: including the co..."/>
+This is how the Puzzlescript Game Bar looks like:
+«FI..."/>
 
 <meta property="og:title" 		content="Puzzlescript Game Bar"/>
 <meta property="og:description"	content="About the Puzzlescript Game Bar
-All Pedro PSI's puzzlescript games make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:
 
+This is the "game bar" found in all Pedro PSI's puzzlescript games. It features for instance undo/reset buttons, a beautiful level selector, a fullscreen button and an optional music button. Sounds useful? Well you too can use it!
 
-
-How to use the Puzzlescript Game Bar in your site
-Step 1: including the co..."/>
+This is how the Puzzlescript Game Bar looks like:
+«FI..."/>
 <meta property="og:url"			content="https://pedropsi.github.io/game-bar.html"/>
 <meta property="og:image"		content="https://pedropsi.github.io/images/game-bar.png"/>
 
@@ -42,13 +40,18 @@ Step 1: including the co..."/>
 <a href="games.html" class="nav-link" style="max-width: 728px;">Games</a>
 <a href="hall-of-fame.html" class="nav-link" style="max-width: 728px;">Hall of Fame</a>
 <a href="subscribe.html" class="nav-link" style="max-width: 728px;">Subscribe</a></nav><div class="rainbowline"></div></div><div class="section"><div class="container"><h1 class="title">Puzzlescript Game Bar</h1><div class="whiteboard"><div class="text prose post" id="post"><h2>About the <b>Puzzlescript Game Bar</b></h2>
-<p>All Pedro PSI's <a href="games.html">puzzlescript games</a> make use of a "game bar" with features such as a undo/reset buttons, level selector, a music on/off button and a fullscreen button. This is how it looks like:</p>
 
+<p>This is the "game bar" found in all Pedro PSI's <a href="games.html">puzzlescript games</a>. It features for instance undo/reset buttons, a beautiful level selector, a fullscreen button and an optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
+
+<p>This is how the <b>Puzzlescript Game Bar</b> looks like:</p>
 <div class="figure"><img src="images/game-bar.png" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/></div>
 
-<h2>How to use the <b>Puzzlescript Game Bar</b> in your site</h2>
-<h3>Step 1: including the code</h3>
-<p>Include your game page the <b>javascript source</b> and the <b>stylesheet</b> in a regular Puzzlescript export or in a custom page:</p>
+<h3>Current version</h3>
+<p><b>v1.0:</b>05/08/2019 - tested on <a href="http://www.draknek.org/games/puzzlescript/mirrors.php">1</a>, <a href="https://www.puzzlescript.net/play.html?p=235bd81d5e1b4bff727cbf09dbf18df3">2</a> and <a href="https://v6p9d9t4.ssl.hwcdn.net/html/818696/index.html?v=1542787374">3</a>.</p>
+
+<h2>How to add the <b>Puzzlescript Game Bar</b> to your own game</h2>
+<h3>Step 1: include the code</h3>
+<p>Include the <b>javascript source</b> and the <b>stylesheet</b> in a regular Puzzlescript export or in a custom page:</p>
 <ul>
 	<li>The <b>stylesheet</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.css" target='_blank'>GameBar.css</a></li>
 
@@ -59,35 +62,41 @@ Step 1: including the co..."/>
 <p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector). So you can add to the end of the <code><span><</span>body<span>></span></code> this <code><span><</span>script type="text/javascript" src="GameBar.js"></script <span>></span></code>.</p>
 
 
-<h3>Step 2 (for custom pages): selecting your game</h3>
+<h3>Step 2: select your game (custom pages only)</h3>
 <h4>In the <b>javascript source</b> </h4>
 <p>Ensure the  <b>javascript source</b> can find your game, by editing the line (near the end):
-<code>var gameElementID="#gameCanvas";</code>.
+<code>var gameSelector="#gameCanvas";</code>.
 The selector named <code>"#gameCanvas"</code> should match the ID of your game canvas.</p>
 <h4>In the <b>stylesheet</b></h4>
-<p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selectors <code>div:fullscreen #gameCanvas</code> and <code>div:full-screen #gameCanvas</code>.</p>
+<p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selector <code>#gameCanvas</code> (first line) </p>
 <p>In case your game bar is misaligned with wih your game, please edit also the selector <code>.gameContainer</code> to match the <b>parent container</b> (outside) of your game canvas.</p>
 
 <h3>Step 3 (optional): adding music</h3>
-<p>To control music via the game bar, each music track should be added to the page inside <code><span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
-<p> If you wish to delete the music button, simply delete the line <code>ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),</code>.</p>
+<p>To control a music playlist via the game bar, each music track should be added to the page inside <code><span><</span>audio<span>></span></code> tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
+<p> To reveal the music button (hidden by default), simply uncomment the line <code>//ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),</code> by deleting the <code>//</code>.</p>
 
 <h2>Customisation tips</h2>
-<h3>Changing the colours of the <b>Puzzlescript Game Bar</b></h3>
-<p>Edit the colours in the <code>:root</code> element of the <b>stylesheet</b> to change everything at once.</p>
+<h3>Colours</h3>
+<p>Edit the colours variables in the <code>:root</code> element of the <b>stylesheet</b>.</p>
 
-<h3>Changing the logo image in the level selector</h3>
+<h3>Font</h3>
+<p>Edit the font variable (right after the colours) in the <b>stylesheet</b>.</p>
+
+<h3>Logo image beside the level selector</h3>
 <h4>Easy way</h4>
 <p>Add a logo image named <code>"logo.png"</code> to the <code>images</code> folder in the root directory.</p>
 <h4>Hard way</h4> 
 <p>Edit the <code>function OpenBalloon</code> in the <b>javascript source</b>, specifically by changing the path string <code>"images/logo.png"</code> to wherever your logo may be located.</p>
 
-<h3>Changing the "solved level" ★ symbol</h3>
+<h3>"Solved level" ★ symbol</h3>
 <p>For now, Ctrl+F to search for <code>★</code>, which can be replaced by other symbols. More customisation options are planned.</p>
 
-<h2>Contributing</h2>
-<p>Love the <b>Puzzlescript Game Bar</b> and would like to improve it? Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" target='_blank'>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
-<p>Or just <a href='contact.html'>contact Pedro PSI</a>, if you're so more inclined.</p>
+<h2>Contributions</h2>
+<h3>Special thanks</h3>
+<p>To <span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>Minotalen</a> </span> for very active ongoing collaboration!</p>
+
+<h3>Would you like to contribute?</h3>
+<p>Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" target='_blank'>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
 
 
 <h2>FAQ</h2>
@@ -103,21 +112,17 @@ The selector named <code>"#gameCanvas"</code> should match the ID of your game c
 <h3>What are the differences between the shared <b>Puzzlescript Game Bar</b> and the one <b>live</b> at the Creative Archive?</h3>
 <p>The <b>live</b> <b>Puzzlescript Game Bar</b> at the Creative Archive is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official <b>Puzzlescript Game Bar</b> shared in this page. Any buttons that depend on the Creative Archive's infrastructure to work or that lack general interest won't be included into the official <b>Puzzlescript Game Bar</b>.</p>
 
-<h3>Can't the music button control music added via the youtube keyword in the prelude?</h3>
-<p>No, sorry.</p>
-
 <h3>Does the <b>Puzzlescript Game Bar</b> level selector handle checkpoints?</h3>
-<p>Currently, yes, but only in games where among all levels, only a single level contains all checkpoints (e.g. a open world map). If multiple levels have checkpoints, it may not work correctly. See it in action in <a href="tiaradventur.html">Tiaradventur</a>.</p>
+<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">actually need it</a>.</p>
 
-<h3>Can the <b>Puzzlescript Game Bar</b> be extended with custom buttons?</h3>
-<p>Yes. Search for the <code>function GameBar(targetIDsel)</code> and edit the <code> buttons </code> array inside that function. In particular, try uncommenting the commented lines and see it change.</p>
+<h3>Why can't the music button control music added via the youtube keyword in the prelude?</h3>
+<p>Because this keyword is dubious.</p>
 
-<h3>How about the "Credits" and "How-to-play" buttons?</h3>
+<h3>How to extend the <b>Puzzlescript Game Bar</b> with custom buttons?</h3>
+<p>Search for the <code>function GameBar(targetIDsel)</code> and edit the <code> buttons </code> array inside that function. In particular, try uncommenting the commented lines and see it change.</p>
+
+<h4>How about the "Credits" and "How-to-play" buttons?</h4>
 <p>You can either make your own or add the default ones (by uncommenting the lines referred to in the previous question). In the latter case you'll also need to have two sections in your page explicitly labelled with ids: <code>Credits</code> and <code>How-to-play</code>.</p>
-
-<h2>Special thanks</h2>
-<p>To <span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>Minotalen</a> </span> for suggesting the addition of the fullscreen button and requesting the code for the <b>Puzzlescript Game Bar</b> be more accessible; also for lots of testing and brainstorming.</p>
-
 
 <h2>Feedback</h2><h3>Problems? Suggestions?</h3><p>Please <a href='contact.html'>let me know</a> !</p><h3>Praise?</h3><p>Enjoyed <b>Puzzlescript Game Bar</b>? Add <b>your message</b> below to the Creative Archive's <b><a href="guestbook.html">guestbook</a></b>!</p><div class="button centered" onclick="RequestGuestbook()">Leave your message!</div></div></div><div class="tags buttonrow"><a class="tag button" href="posts-by-date.html">Saturday, 27/07/2019</a><a class="tag button" href="tag-Resource.html">Resource</a>
 <a class="tag button" href="tag-Tutorial.html">Tutorial</a></div></div></div></div><div class="footer"><p>© Pedro PSI 2010-2019. <a href='terms-of-use.html'>Terms of Use.</a> <a href='privacy-policy.html'>Privacy Policy.</a> <a href='press.html'>Press kit.</a></p><p><span id="NightMode" onclick='toggleNightMode()'> Darken</span>. <a href='2018-02-08-support-the-archive.html'>Support the Creative Archive!</a> <a href="subscribe.html">Subscribe!</a></p></div><script data-cfasync="false" src="codes/analytics.js"></script><script data-cfasync="false" src="codes/communication.js"></script></body></html>

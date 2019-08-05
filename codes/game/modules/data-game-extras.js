@@ -12,7 +12,7 @@ function PrepareGame(){
 ////////////////////////////////////////////////////////////////////////////////
 // Game Bar
 
-function GameBar(){
+function GameBar(targetIDsel){
 	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','CheckRegisterKey({keyCode:85});GameFocus();'):"";
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
@@ -26,19 +26,23 @@ function GameBar(){
 		ButtonOnClickHTML("✉",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
 		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}}),
-		ButtonHTML({txt:"◱",attributes:{onclick:'ToggleFullscreen(".game-container");GameFocus();',id:'FullscreenButton'}}),
-	].join("")
+		ButtonHTML({txt:"◱",attributes:{onclick:'ToggleFullscreen("'+targetIDsel+'");GameFocus();',id:'FullscreenButton'}}),
+	].join("");
 	
 	return ButtonBar(buttons,"GameBar");
 }
 
-function AddGameBar(idorselector){
-	var idorselector=idorselector||"#puzzlescript-game";
-	var bar=document.getElementById("GameBar");
+function AddGameBar(targetIDsel){
+	var targetIDsel=targetIDsel||"#puzzlescript-game";
+	var bar=GetElement("GameBar");
 	if(bar!==null)
 		bar.parentNode.removeChild(bar);
-	AddAfterElement(GameBar(),idorselector)
+	var parentElement=GetElement(targetIDsel).parentElement;
+	if(!parentElement.id)
+		parentElement.id=GenerateId();
+	AddAfterElement(GameBar(parentElement.id),targetIDsel)
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -459,7 +463,7 @@ function AdvanceEndScreen(){
 }
 
 function LoadLevelOrCheckpoint(){
-	if (curlevelTarget!==null){
+	if ((typeof curlevelTarget!=="undefined")&&(curlevelTarget!==null)){
 		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 		curlevelTarget=null;
 	}

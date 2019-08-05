@@ -332,6 +332,17 @@ function LoaderInFolder(folder){
 	return function(sourcename){return LoadAsync(sourcename,folder)};
 }
 
+//Load styles
+
+function LoadStyle(sourcename){
+	var head= document.getElementsByTagName('head')[0];
+	var styleelement= document.createElement('link');
+	styleelement.href= sourcename.replace(".css","")+".css";
+	styleelement.rel="stylesheet";
+	styleelement.type="text/css";
+	head.appendChild(styleelement);
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //Data Reception
 
@@ -714,7 +725,6 @@ function DefaultDataField(){
 		executeChoice:Identity,			//immediate changes on toggle receives (id, choice)
 		defaultChoice:DefaultChoice,	//choice formatting, based on itself
 
-
 		qtype:PlainHTML,				//Format of question :receives a DataField
 		qplaceholder:"❤ Pedro PSI ❤",	//Placeholder answer
 
@@ -856,7 +866,6 @@ function RequestDataPack(NamedFieldArray,Options){
 		DP.qdisplay(DP);
 		
 		FocusElement("#"+DP.qid+" textarea, "+"#"+DP.qid+" input"); //First question
-		
 		SetDatapackShortcuts(DP);
 		
 		return DP;
