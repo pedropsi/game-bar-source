@@ -48,18 +48,26 @@
 
 
 <h2>Troubleshoting</h2>
-<h3>You've added the script at the end of the body, but nothing shows.</h3>
+<h3>You've added the script at the end of the body, but nothing shows...</h3>
 <p>Most likely the <b>javascript source</b> cannot find your game in the page. </p>
 <p>If the ID of your game «[»canvas«]» differs from the default PS export ID (named «[»"#gameCanvas"«]» ) you'll have to edit the following line, near the end of the <b>javascript source</b>: «[»var gameSelector="#gameCanvas";«]» to match your game ID.</p>
 
-<h3>You are hosting your game at the itch.io platform and nothing shows.</h3>
+<h3>You are hosting your game at the itch.io platform and nothing shows...</h3>
 <p>Please ensure that the «TITLE-BOLD» <b>javascript source</b> is loaded from within the «[<»iframe«>]» containing the game, rather than from the main itch page.</p>
 
-<h3>You dislike the level navigation imposed by the «TITLE-BOLD».</h3>
+<h3>You dislike the level navigation imposed by the «TITLE-BOLD»...</h3>
 <p>In the <b>javascript source</b>, delete the «[»function nextLevel()«]», effectively preventing the overwriting of the default PS function.</p>
 
-<h3>You use a modified version of Puzzlescript.</h3>
-<p>Not all Puzzlescript versions were tested, so please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">file your issue so it can be taken a look at</a>.</p>
+<h3>You use a modified version of Puzzlescript, now broken...</h3>
+<p>The «TITLE-BOLD» overwrites exactly <b>4</b> puzzlescript functions:</p>
+<ul>
+<li>«[»function doWin()«]»</li>
+<li>«[»function nextLevel()«]»</li>
+<li>«[»function doSetupTitleScreenLevelContinue()«]»</li>
+<li>«[»function level4Serialization()«]»</li>
+</ul>
+
+<p>If your Puzzlescript version relies on changes to any of these functions, it's likely those particular changes be erased. You're welcome to <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">file your issue so it can be taken a look at</a>.</p>
 
 <h3>You found a different problem.</h3>
 <p>Please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">report your problem</a> so it can be fixed sooner.</p>
