@@ -9,32 +9,13 @@
 <p><b>v1.0:</b>05/08/2019 - tested on <a href="http://www.draknek.org/games/puzzlescript/mirrors.php">1</a>, <a href="https://www.puzzlescript.net/play.html?p=235bd81d5e1b4bff727cbf09dbf18df3">2</a> and <a href="https://v6p9d9t4.ssl.hwcdn.net/html/818696/index.html?v=1542787374">3</a>.</p>
 
 <h2>How to add the «TITLE-BOLD» to your own game</h2>
-<h3>Step 1: include the code</h3>
-<p>Include the <b>javascript source</b> and the <b>stylesheet</b> in a regular Puzzlescript export or in a custom page:</p>
-<ul>
-	<li>The <b>stylesheet</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.css" «BLANK»>GameBar.css</a></li>
-
-	<li>The <b>javascript source</b>: <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" «BLANK»>GameBar.js</a></li>
-</ul>
-
-<p>The <b>stylesheet</b> can be added to the «[<»head«>]» via «[<»link rel="stylesheet" type="text/css" href="GameBar.css" media="screen"/ «>]». </p>
-<p>The <b>javascript source</b> must be loaded <b>after</b> the game loads completely, because a few of the original game functions are overwritten (mostly because of the level selector). So you can add to the end of the «[<»body«>]» this «[<»script type="text/javascript" src="GameBar.js"></script «>]».</p>
-
-
-<h3>Step 2: select your game (custom pages only)</h3>
-<h4>In the <b>javascript source</b> </h4>
-<p>Ensure the  <b>javascript source</b> can find your game, by editing the line (near the end):
-«[»var gameSelector="#gameCanvas";«]».
-The selector named «[»"#gameCanvas"«]» should match the ID of your game canvas.</p>
-<h4>In the <b>stylesheet</b></h4>
-<p>Likewise, ensure the  <b>stylesheet</b> can find your game in fullscreen, by editing the selector «[»#gameCanvas«]» (first line) </p>
-<p>In case your game bar is misaligned with wih your game, please edit also the selector «[».gameContainer«]» to match the <b>parent container</b> (outside) of your game canvas.</p>
-
-<h3>Step 3 (optional): adding music</h3>
-<p>To control a music playlist via the game bar, each music track should be added to the page inside «[<»audio«>]» tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
-<p> To reveal the music button (hidden by default), simply uncomment the line «[»//ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),«]» by deleting the «[»//«]».</p>
+<h3>Just include the <b>javascript source code</b>!</h3>
+<p>Include the <b>javascript source</b> <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" «BLANK»>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
+<p>To ensure the «TITLE-BOLD» overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the «[<»body«>]» the snippet «[<»script type="text/javascript" src="GameBar.js"«>]».</p>
 
 <h2>Customisation tips</h2>
+<p>The «TITLE-BOLD» <b>stylesheet</b> can be found (inlined) inside the <b>javascript source</b> as a large block of text assigned to the variable  «[»stylesheet«]».</p>
+
 <h3>Colours</h3>
 <p>Edit the colours variables in the «[»:root«]» element of the <b>stylesheet</b>.</p>
 
@@ -50,6 +31,41 @@ The selector named «[»"#gameCanvas"«]» should match the ID of your game canv
 <h3>"Solved level" ★ symbol</h3>
 <p>For now, Ctrl+F to search for «[»★«]», which can be replaced by other symbols. More customisation options are planned.</p>
 
+<h3>Music</h3>
+<h4>Add music files</h4>
+<p>To control a music playlist via the game bar, each music track should be added to the page inside «[<»audio«>]» tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
+<h4>Reveal the music button</h4>
+<p> To show the music button (hidden by default) simply uncomment the line «[»//ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),«]» by deleting the two slashes («[»//«]»).</p>
+
+<h3>"Credits" and "How-to-play" buttons</h3>
+<h4>Reveal the buttons</h4>
+<p>Search for the «[»function GameBar(targetIDsel)«]» and edit the «[» buttons «]» array inside that function, by uncommenting the commented lines containing «[»Credits«]» and «[»How-to-play«]» strings.</p>
+<h4>Activate the buttons</h4>
+<p>If you have sections in your page explicitly labelled with ids «[»Credits«]» and «[»How-to-play«]», clicking each button will scroll the page to that section. You may want instead to add a custom function to each button.</p>
+
+<h3>Custom buttons</h3>
+<p>Within the «[»function GameBar(targetIDsel)«]», edit the «[» buttons «]» array at will!</p>
+
+
+<h2>Troubleshoting</h2>
+<h3>You've added the script at the end of the body, but nothing shows.</h3>
+<p>Most likely the <b>javascript source</b> cannot find your game in the page. </p>
+<p>If the ID of your game «[»canvas«]» differs from the default PS export ID (named «[»"#gameCanvas"«]» ) you'll have to edit the following line, near the end of the <b>javascript source</b>: «[»var gameSelector="#gameCanvas";«]» to match your game ID.</p>
+
+<h3>You are hosting your game at the itch.io platform and nothing shows.</h3>
+<p>Please ensure that the «TITLE-BOLD» <b>javascript source</b> is loaded from within the «[<»iframe«>]» containing the game, rather than from the main itch page.</p>
+
+<h3>You dislike the level navigation imposed by the «TITLE-BOLD».</h3>
+<p>In the <b>javascript source</b>, delete the «[»function nextLevel()«]», effectively preventing the overwriting of the default PS function.</p>
+
+<h3>You use a modified version of Puzzlescript.</h3>
+<p>Not all Puzzlescript versions were tested, so please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">file your issue so it can be taken a look at</a>.</p>
+
+<h3>You found a different problem.</h3>
+<p>Please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">report your problem</a> so it can be fixed sooner.</p>
+
+
+
 <h2>Contributions</h2>
 <h3>Special thanks</h3>
 <p>To ««P-PRE»MINOTALEN«P-POS»» for very active ongoing collaboration!</p>
@@ -62,25 +78,17 @@ The selector named «[»"#gameCanvas"«]» should match the ID of your game canv
 <h3>Can you use «TITLE-BOLD» for free?</h3>
 <p>Yes, it's under a «LICENSE-MIT» license.</p>
 
-<h3>How can the «TITLE-BOLD» be used in the itch.io platform?</h3>
-<p>Please ensure that the «TITLE-BOLD» <b>sources</b> are loaded from inside the «[<»iframe«>]» containing the game.</p>
-
-<h3>Are all «TITLE-BOLD»'s features available elsewhere?</h3>
-<p>The fullscreen button is new. The undo/reset and music buttons are found in Puzzlescript's default mobile menu and ««P-PRE»HAZELDEN«P-POS»» has made a custom level selector. Nevertheless, «NAME» found it useful to have a single bar with all important features.</p>
-
 <h3>What are the differences between the shared «TITLE-BOLD» and the one <b>live</b> at the «SITE-NAME»?</h3>
 <p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any buttons that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
 
-<h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
-<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">actually need it</a>.</p>
+<h3>Are all «TITLE-BOLD»'s features available elsewhere?</h3>
+<p>The fullscreen button is new. The undo/reset and music buttons are found in Puzzlescript's default mobile menu and ««P-PRE»HAZELDEN«P-POS»» has made a custom level selector, but the «TITLE-BOLD» has a more complex level navigation scheme.</p>
+<p>In any case, «NAME» found it useful to have a single bar with all important features.</p>
 
 <h3>Why can't the music button control music added via the youtube keyword in the prelude?</h3>
 <p>Because this keyword is dubious.</p>
 
-<h3>How to extend the «TITLE-BOLD» with custom buttons?</h3>
-<p>Search for the «[»function GameBar(targetIDsel)«]» and edit the «[» buttons «]» array inside that function. In particular, try uncommenting the commented lines and see it change.</p>
-
-<h4>How about the "Credits" and "How-to-play" buttons?</h4>
-<p>You can either make your own or add the default ones (by uncommenting the lines referred to in the previous question). In the latter case you'll also need to have two sections in your page explicitly labelled with ids: «[»Credits«]» and «[»How-to-play«]».</p>
+<h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
+<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">actually need it</a>.</p>
 
 «FEEDBACK»
