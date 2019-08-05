@@ -1,5 +1,5 @@
 ﻿User-agent: *
-Disallow: /images
 Disallow: /codes
 Disallow: /media
+Disallow: /Puzzlescript
 Sitemap: «SITE»/«SITEMAP-PATH»
