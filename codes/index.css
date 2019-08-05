@@ -1099,3 +1099,9 @@ code{
     background-color: var(--lightyellow);
     padding: 0 var(--w2) 0 var(--w2);
 }
+
+.button.pulsating,
+.button.pulsating:hover, .button.pulsating:active, .button.pulsating:focus{
+    background-color: var(--blue);
+    --duration:0.001s;
+}

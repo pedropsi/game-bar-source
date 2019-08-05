@@ -665,6 +665,10 @@ function ButtonHTML(optionsObj){
 	else
 		o.attributes['class']=o.attributes['class'].replace(/\s*button/g,"")+" button";
 	o.txt=o.txt?o.txt:"???";
+	
+	var ao=o.attributes['onclick'];
+	o.attributes['onclick']="PulseSelect(this);"+(ao?ao:"");
+		
 	return ElementHTML(o)
 };
 
@@ -1026,13 +1030,18 @@ function ToggleThisOnly(ev,thi){
 
 // Select, Deselect and Toggle - given selector or element itself
 
-function Select(selectorE,clas){
+function SelectSimple(selectorE,clas){
 	var clas=clas||'selected';
 	var e=GetElement(selectorE);
 	if(e){
 		e.classList.remove(clas);
 		e.classList.add(clas);
 	}
+}
+
+function Select(selectorE,clas){ //With Pulse by default
+	SelectSimple(selectorE,clas);
+	PulseSelect(selectorE);
 }
 
 function Deselect(selectorE,clas){
@@ -1049,6 +1058,13 @@ function Toggle(selectorE,clas){
 		e.classList.toggle(clas);
 }
 
+// Select Pulse
+
+function PulseSelect(selectorE){
+	var clas="pulsating";
+	SelectSimple(selectorE,clas);
+	setTimeout(function(){Deselect(selectorE,clas);},100);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Closing functions

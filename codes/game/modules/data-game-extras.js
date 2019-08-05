@@ -305,6 +305,7 @@ function LevelNumber(curlevel){
 // Level Selector
 
 function RequestLevelSelector(){
+	
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
