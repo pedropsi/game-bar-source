@@ -44,7 +44,6 @@
     --h-4:calc(var(--h-2) / var(--scaling));
     --h-8:calc(var(--h-4) / var(--scaling));
     
-    --sharesize:calc((100vw - 43px)/100 + 15px);    
 }
 
 body {
@@ -558,45 +557,6 @@ li {
 [contenteditable=true]::-moz-selection { 
     background: var(--blue);
     color: var(--lightyellow);
-}
-
-
-.sharer{
-    flex-direction: row;
-    color:var(--blue);
-    align-items:center;
-    text-align: right;
-    align-self: center;
-    border-bottom-style: solid;
-    padding:0 var(--w1) 0 var(--w1);
-}
-
-
-.sharer > div{
-	flex-direction: row;
-	flex-wrap: wrap;
-    align-items: left;
-	margin: 0  var(--w2) 0 var(--w2);
-}
-
-
-.sharing-button svg {
-    fill:var(--white);
-    stroke:var(--blue);
-    stroke-width: 1;
-    width:var(--sharesize);
-    height:var(--sharesize);
-    padding: var(--h2) var(--w1) var(--h2) var(--w1);
-    vertical-align:middle;
-    transition: var(--duration);
-}
-
-.sharing-button svg:hover,.sharing-button svg:active {
-    fill:var(--turquoise);
-    stroke:var(--darkblue);
-    margin-top:calc(-1 * var(--h1));
-    border-bottom: var(--h1) solid var(--turquoise);
-    transition: var(--duration);
 }
 
 input, textarea{
