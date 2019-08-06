@@ -4,14 +4,14 @@
 function EchoLevelWin(curlevel){
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
-		echoPureData(leveldata,leveldataURL);
+		EchoData(leveldata,leveldataURL);
 	}
 }
 
 function EchoCheckpoint(){
 	if(AnalyticsClearance()){
 		UpdateLevelCheckpointData(curlevel,checkpointsaver);
-		echoPureData(leveldata,leveldataURL);
+		EchoData(leveldata,leveldataURL);
 	}
 	checkpointsaver++;
 }
@@ -21,7 +21,7 @@ function EchoLevelClose(curlevel){
 		UpdateLevelData(curlevel);
 		leveldata["winsequence"]="";
 		leveldata["type"]="close";
-		echoPureData(leveldata,leveldataURL);
+		EchoData(leveldata,leveldataURL);
 	}
 }
 
@@ -486,7 +486,8 @@ function RequestPlaylist(){
 		actionvalid:LoadPlaylistFromDP,
 		qdisplay:LaunchBalloon,
 		qtargetid:'puzzlescript-game',
-		qonsubmit:Identity
+		qonsubmit:Identity,
+		requireConnection:false
 	});
 }
 

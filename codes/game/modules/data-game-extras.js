@@ -338,7 +338,8 @@ function RequestLevelSelector(){
 				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qdisplay:LaunchBalloon,
 				qtargetid:'puzzlescript-game',
-				shortcutExtras:extraShortcutsF
+				shortcutExtras:extraShortcutsF,
+				requireConnection:false
 			});
 	}
 	

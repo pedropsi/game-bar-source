@@ -368,7 +368,7 @@ function LoadData(url){
 ///////////////////////////////////////////////////////////////////////////////
 // Data transmission - JSON, to a script in url "url"
 
-function echoPureData(data,url){
+function EchoPureData(data,url){
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST',url);
 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
@@ -384,7 +384,54 @@ function echoPureData(data,url){
 	xhr.send(encoded);	
 }
 
+function EchoData(data,url){
+	if(Connection.online)
+		EchoPureData(data,url);
+	else
+		BufferData(data,url);	
+}
 
+function EchoDataBuffer(){
+	while(Connection.queue.length>0){
+		EchoPureData(Connection.queue[0][0],Connection.queue[0][1]);
+		Connection.queue.shift();
+	}
+};
+
+function BufferData(data,url){
+	Connection.queue.push([data,url]);
+}
+
+function DataBufferEmpty(){
+	return Connection.queue.length<1;
+}
+
+//Network status
+
+function Connection(){
+	if(!Connection.queue)
+		Connection.queue=[];
+  
+  function MonitorConnection(ev) {
+	Connection.online=navigator.onLine;
+    if(Connection.online){
+		var message="Network status:<b>Online</b>";
+		if(!DataBufferEmpty()){
+			message=message+" re-sending data...";
+			EchoDataBuffer();
+		}
+		ListenOnce('offline',MonitorConnection);
+	}else{
+		var message="Network status:<b>Offline</b>";
+		ListenOnce('online',MonitorConnection);
+	}
+    ConsoleAdd(message);
+  }
+
+  ListenOnce('offline', MonitorConnection);
+}
+
+ListenOnce('load',Connection);
 
 ///////////////////////////////////////////////////////////////////////////////
 // DOM Manipulation
@@ -748,6 +795,7 @@ function DefaultDataPack(){
 		qid:GenerateId(),				//id
 		
 		destination:'Feedback',			//Name of data repository
+		requireConnection:true,			//Does it need a connection?
 
 		action:'CheckSubmit', 			//action on submit :receives a qid
 		actionvalid:SubmitValidAnswer,	//action on valid submit: receives a DataPack
@@ -955,7 +1003,9 @@ function QuestionHTML(DP){
 function LaunchThanksBalloon(DP){
 	RequestDataPack(
 		[['plain',{questionname:DP.thanksmessage,destination:""}]],
-		{qtargetid:DP.qtargetid,qdisplay:LaunchBalloon});
+		{qtargetid:DP.qtargetid,
+		qdisplay:LaunchBalloon,
+		requireConnection:false});
 }
 
 function LaunchBalloon(DP){
@@ -1141,7 +1191,7 @@ function SubmitData(dataObject,destination){
 	data.formGoogleSendEmail="";
 	data.formGoogleSheetName=destination.sheet;
 	SUBMISSIONHISTORY.push(data);
-	echoPureData(data,destination.url);
+	EchoData(data,destination.url);
 }
 
 function InvalidateAnswer(DF){
@@ -1174,9 +1224,12 @@ function SubmitAnswerSet(DP){
 function CheckSubmit(qid){
 	var DP=GetDataPack(qid);
 	if(typeof DP!=="undefined"){
+		if(DP.requireConnection&&!Connection.online)
+			ConsoleAdd("<b>Network offline...</b>Submission saved - will be re-sent when back online.");
 		SubmitAnswerSet(DP);
-	};
-}
+	}
+};
+
 
 var SUBMISSIONHISTORY=[];
 
@@ -1381,7 +1434,9 @@ function LaunchModal(DP){
 function LaunchThanksModal(DP){
 	RequestDataPack(
 		[['plain',{questionname:DP.thanksmessage,destination:""}]],
-		{qtargetid:DP.qtargetid,qdisplay:LaunchModal});
+		{qtargetid:DP.qtargetid,
+		qdisplay:LaunchModal,
+		requireConnection:false});
 	
 }
 
@@ -1880,3 +1935,5 @@ function DPShortcutDefauts(DP){
 		"tab":function(){console.log("tab shortcut - TODO");}
 	}
 };
+
+

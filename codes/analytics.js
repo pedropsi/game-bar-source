@@ -71,7 +71,7 @@ function FingerprintLink(ref){
 // Echoes
  
 function EchoAnalytics(data){
-	echoPureData(data,analyticsURL);	
+	EchoData(data,analyticsURL);	
 }
  
 function RegisterOpen(){
@@ -82,9 +82,6 @@ function RegisterLink(l){
 };
 function RegisterElementClicked(b){
 	EchoAnalytics(FingerprintAction("Click",b.innerText));	
-}
-function RegisterContentShared(b){
-	EchoAnalytics(FingerprintAction("Share",b.parentElement.id.replace("share-","")));
 }
 function RegisterMosaicToggled(b){ //Mosaic change
 	EchoAnalytics(FingerprintAction("BG toggle","---"));	
@@ -154,7 +151,6 @@ function AnalyticsInnerClearance(title){
 if(AnalyticsClearance()){
 	document.addEventListener('DOMContentLoaded', RegisterOpen, false);
 	MarkElements(".button",ElementClicked);
-	MarkElements(".sharing-button",ContentShared);
 	MarkElements(".mosaic",MosaicToggled);
 	MarkElements(".gameNav",LevelNavigated);
 	MarkElements("#NightMode",NightModeToggled);
@@ -169,7 +165,6 @@ else{
 // Analytics: custom actions
 
 function ElementClicked(b){b.addEventListener("click", function(){RegisterElementClicked(this)}); return b};
-function ContentShared(b){b.addEventListener("click", function(){RegisterContentShared(this)}); return b};
 function MosaicToggled(b){b.addEventListener("click", function(){RegisterMosaicToggled(this)}); return b};
 function NightModeToggled(b){b.addEventListener("click", function(){RegisterNightModeToggled(this)}); return b};
 function LevelNavigated(b){b.addEventListener("click", function(){RegisterLevelNavigated(this)}); return b};
