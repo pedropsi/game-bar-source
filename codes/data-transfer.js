@@ -399,7 +399,6 @@ function EchoDataBuffer(){
 
 function BufferData(data,url){
 	Connection.queue.push([data,url]);
-	console.log(Connection.queue);
 }
 
 function DataBufferEmpty(){

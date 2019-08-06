@@ -25,10 +25,7 @@ function EchoLevelClose(curlevel){
 	}
 }
 
-window.onunload=(function(){
-	EchoLevelClose(curlevel);
-})
-
+ListenOnce("unload",function(){EchoLevelClose(curlevel)});
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -125,6 +122,7 @@ function UpdateLevelData(curlevel){
 	}
 	
 	leveldata["type"]="win";
+	return leveldata;
 }
 
 function UpdateLevelCheckpointData(curlevel,checkpointsaver){
@@ -201,7 +199,7 @@ function UnParseMove(n){
 
 function ConsoleAddMPL(messageHTML){
 	if(ConsoleAddMPL.Playlist===undefined){
-		if(document.getElementById("PlaylistBar")!==null)
+		if(GetElement("PlaylistBar"))
 			ConsoleAddMPL.Playlist=true
 	}else
 		ConsoleAdd(messageHTML);
@@ -511,7 +509,7 @@ function DownLoadPlaylist(movesplaylist){
 }
 
 function LoadPlaylistControls(){
-	if(document.getElementById("PlaylistBar")===null)
+	if(GetElement("PlaylistBar"))
 		AddAfterElement(PlaylistBar(),"#GameBar");
 }
 
