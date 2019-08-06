@@ -27,62 +27,73 @@ var puzzlescriptModules=[
 puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 
 
-
 // Load the game
-(function()
-{
-	function embed(element, id, config)
-	{
-		var canvas=document.getElementById("gameCanvas");
-		canvas.onmousedown = function(){
-			canvas.onmousedown = null;
-			var gestureHandler = Mobile.enable(true);
+(function(){
+	
+	function embed(element, id){
+		
+		ListenOnce('mousedown',function(){var gestureHandler = Mobile.enable(true);},GetElement("gameCanvas"));
+		
+		function LoadGame(){load_game(id);}
+		
+		function FastLoad(){
+			if(typeof compile!=="undefined")
+				LoadGame();
+			else
+				ListenOnce('load',LoadGame);
 		}
 		
-		//Try a fast load if possible
-		if(typeof compile!=="undefined"){
-			load_game(element, id);
-		}
+		function SlowLoad(){setTimeout(LoadGame,1000);}
+		
+		if(Online())
+			FastLoad();
 		else{
-			window.addEventListener('load',function(event){
-				load_game(element, id);
-			});
+			ConsoleAdd(pageTitle()+" will load as soon as back online.");
+			ListenOnce("online",SlowLoad)
 		}
 	}
-
-	function load_game(element, id){
+	
+	
+	function load_game(id){
 		var githubURL = 'https://api.github.com/gists/' + id;
 		var githubHTTPClient = new XMLHttpRequest();
-
 		githubHTTPClient.open('GET', githubURL);
-		githubHTTPClient.onreadystatechange = function () {
-			if (githubHTTPClient.readyState != 4) {
+		githubHTTPClient.onreadystatechange = function (){
+			if (githubHTTPClient.readyState != 4){
 				return;
 			}
-			var result = JSON.parse(githubHTTPClient.responseText);
-			if (githubHTTPClient.status === 403) {
-				console.log("forbidden");
-				displayError(403,result.message);
-			} else if (githubHTTPClient.status !== 200 && githubHTTPClient.status !== 201) {
-				console.log("not ok, not created");
-				displayError(200,"HTTP Error " + githubHTTPClient.status + ' - ' + githubHTTPClient.statusText);
-			} else {
-				console.log("loaded");
-
-				var result = JSON.parse(githubHTTPClient.responseText);
-				var code = result["files"]["script.txt"]["content"];
-				
-					console.log("started");
+			var result = githubHTTPClient.responseText;
+			
+			function LoadOnline(){
+				if (githubHTTPClient.status === 403){
+					ConsoleAdd("Error loading the game: <b>forbidden</b>");
+					console.log(403,result.message);
+				}
+				else if (githubHTTPClient.status !== 200 && githubHTTPClient.status !== 201){
+					ConsoleAdd("Error loading the game: <b>not created</b>");
+					console.log(200,"HTTP Error " + githubHTTPClient.status + ' - ' + githubHTTPClient.statusText);
+				}
+				else{
+					result = JSON.parse(result);
+					var code = result["files"]["script.txt"]["content"];
+					ConsoleAdd(pageTitle()+" loaded.");				
 					compile(["restart"], code);
 					
 					ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
-				
+				}
 			}
+			
+			if(result===""){
+				ConsoleAdd("Offline! Please reconnect, then refresh the page!");
+			}
+			else
+				LoadOnline();
+						
 		}
 		githubHTTPClient.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		githubHTTPClient.send();
 	}
 
-	window.PuzzleScript = window.PuzzleScript || { embed: embed };
+	window.PuzzleScript = window.PuzzleScript ||{ embed: embed };
 
 })();

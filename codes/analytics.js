@@ -149,7 +149,7 @@ function AnalyticsInnerClearance(title){
 }
 
 if(AnalyticsClearance()){
-	document.addEventListener('DOMContentLoaded', RegisterOpen, false);
+	ListenOnce('DOMContentLoaded', RegisterOpen);
 	MarkElements(".button",ElementClicked);
 	MarkElements(".mosaic",MosaicToggled);
 	MarkElements(".gameNav",LevelNavigated);

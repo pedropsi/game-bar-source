@@ -4,8 +4,14 @@ function PrepareGame(){
 	StopCapturingKeys(onKeyDown);ResumeCapturingKeys(OnKeyDownGame);
 	window.scrollTo(0,0);
 	AddGameBar();
+	ConsoleAddMany([
+			"Localsave is ON for "+pageTitle()+".",
+			"To stop saving and erase all 2 cookies, please deselect 🖫."
+			]);
 	PlaylistStartPlay();
-	GameFocus();	
+	GameFocus();
+	
+	
 }
 
 
@@ -58,12 +64,6 @@ function GameFocus(DP){
 var curcheckpoint=0;
 
 var savePermission=true;
-ConsoleAddMany([
-			"Localsave is ON for "+pageTitle()+".",
-			"To stop saving and erase all 2 cookies, please deselect 🖫."
-			]);
-
-
 function ToggleSavePermission(thi){
 	if(thi)thi.classList.remove("selected");
 	if(savePermission){

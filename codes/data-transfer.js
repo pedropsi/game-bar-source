@@ -271,8 +271,7 @@ function IndexTitles(){
 	return ["h1","h2","h3","h4","h5","h6"].map(IndexTag);
 }
 
-document.addEventListener('DOMContentLoaded', IndexTitles, false);
-
+ListenOnce('DOMContentLoaded',IndexTitles);
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -385,7 +384,7 @@ function EchoPureData(data,url){
 }
 
 function EchoData(data,url){
-	if(Connection.online)
+	if(Online())
 		EchoPureData(data,url);
 	else
 		BufferData(data,url);	
@@ -408,13 +407,11 @@ function DataBufferEmpty(){
 
 //Network status
 
-function Connection(){
-	if(!Connection.queue)
-		Connection.queue=[];
-  
-  function MonitorConnection(ev) {
-	Connection.online=navigator.onLine;
-    if(Connection.online){
+function Online(){return navigator.onLine};
+function Offline(){return !Online()};
+
+function MonitorConnection() {
+	if(Online()){
 		var message="Network status:<b>Online</b>";
 		if(!DataBufferEmpty()){
 			message=message+" re-sending data...";
@@ -426,12 +423,16 @@ function Connection(){
 		ListenOnce('online',MonitorConnection);
 	}
     ConsoleAdd(message);
-  }
+ }
 
-  ListenOnce('offline', MonitorConnection);
+function Connection(){
+	if(!Connection.queue)
+		Connection.queue=[];
+
+ListenOnce('offline', MonitorConnection);
 }
 
-ListenOnce('load',Connection);
+Connection();
 
 ///////////////////////////////////////////////////////////////////////////////
 // DOM Manipulation
@@ -1224,7 +1225,7 @@ function SubmitAnswerSet(DP){
 function CheckSubmit(qid){
 	var DP=GetDataPack(qid);
 	if(typeof DP!=="undefined"){
-		if(DP.requireConnection&&!Connection.online)
+		if(DP.requireConnection&&!Online())
 			ConsoleAdd("<b>Network offline...</b>Submission saved - will be re-sent when back online.");
 		SubmitAnswerSet(DP);
 	}
@@ -1645,7 +1646,7 @@ function Unmute(){
 function PlaySong(song){
 	if((typeof song!=="undefined")&&song.paused){
 		song.play();
-		song.addEventListener('ended',PlayNextF(song));
+		ListenOnce('ended',PlayNextF(song),song);
 		Unmute();
 		window.addEventListener("blur", PlaylistSleep);
 		//console.log("Now playing: "+song);
