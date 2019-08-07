@@ -74,6 +74,13 @@
 <h3>You found a different problem.</h3>
 <p>Please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">report your problem</a> so it can be fixed sooner.</p>
 
+<h2>Examples</h2>
+<p>Here are some games that use he «TITLE-BOLD»:</p>
+<ul>
+<li>««P-PRE»MINOTALEN«P-POS»»'s <a href="https://minotalen.github.io/multiban.html">Multiban</a>;</li>
+<li>All «NAME»'s <a href="games.html">games</a>.</li>
+</ul>
+<p>Would you like to add your game to the list? Please «CONTACT-TEXT-3»!</p>
 
 
 <h2>Contributions</h2>
@@ -95,7 +102,6 @@
 <li>Non-linear level navigation (e.g. the game won't finish before all levels are completed);</li>
 <li>Mute/unmute control for a BGM playlist.</li>
 </ul>
-
 
 <h3>Can you use «TITLE-BOLD» for free?</h3>
 <p>Yes, it's under a «LICENSE-MIT» license.</p>
