@@ -1,5 +1,6 @@
 // Add the game container to the page
 PrependElement('<div class="game-container"><div id="puzzlescript-game" class="game"><canvas id="gameCanvas"></canvas></div></div>',"body");
+ConsoleAdd("Loading "+pageTitle()+"...");
 
 // Load the Puzzlescript engine
 var puzzlescriptModules=[
