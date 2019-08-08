@@ -952,14 +952,18 @@ function ChoicesButtonRowHTML(dataField){
 
 function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
-		var selected="";
-		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
+		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\")';
+		var buAttribs={'onclick':'ToggleThisOnly(event,this);SwitchData'+args};
+		var bu;
 		//console.log(i,choice,typeof i);
 		if(dataFiel.defaultChoice(i,choice)){
-			selected=' selected" onload="SetData'+args; //Default option
+			bu=ButtonHTML({txt:choice,attributes:FuseObjects(buAttribs,{class:"selected",onload:'SetData'+args})});
 			SetData(dataFiel.qfield,choice,dataFiel.pid);//Actualy choose it
 		}
-		return '<div class="button'+selected+'" onclick="ToggleThisOnly(event,this);SwitchData'+args+'">'+choice+'</div>';
+		else 
+			bu=ButtonHTML({txt:choice,attributes:buAttribs});
+		console.log(bu);
+		return bu;
 	};
 	//console.log(dataField.qfield);console.log(dataField.pid);
 	ClearData(dataField.qfield,dataField.pid);
