@@ -143,6 +143,11 @@ function RGB_HSL(HSL){
 
 
 //Colour Manipulation
+function ColourExtract(rgbatxt){
+		var ntxt=rgbatxt.match(/([\d]+\,)+([\d]+)/);
+		var RGBAorHSL=ntxt[0].split(",").map(Number);
+		return RGBAorHSL;
+}
 
 function Colour(colour){
 	if(!colour){
@@ -153,8 +158,15 @@ function Colour(colour){
   }
   else if(!colour.space){
 		var c=colour.colour;
-		if(typeof c==="string")
-			return {space:'HEX',colour:CompelHEX(c)};
+		if(typeof c==="string"){
+			c=c.toLowerCase();
+			if(c.replace("rgb","")!==c)
+				return {space:'RGB',colour:CompelRGB(ColourExtract(c))};
+			else if(c.replace("hsl","")!==c){
+				return {space:'HSL',colour:CompelHSL(ColourExtract(c))};
+			}else
+				return {space:'HEX',colour:CompelHEX(c)};
+		}
 		else if(typeof c==="object"){
 			c.push[0];c.push[0];c.push[0];
 			if(c[0]>=0&&c[1]>=0&&c[2]>=0&&c[0]<360&&c[1]<=1&&c[2]<=1)
