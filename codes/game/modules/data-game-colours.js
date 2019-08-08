@@ -46,11 +46,24 @@ function ToHexadecimal(deci){
 
 //HSL
 function Lightness(R,G,B){//256
+	if(typeof G==="undefined"){
+		var colour=RGB(R).colour;
+		var R=colour[0];
+		var G=colour[1];
+		var B=colour[2];
+	}
 	var L=(Math.max(R,G,B)+Math.min(R,G,B))/2/256;
   return (L*1000-(L*1000)%1)/1000;
 }
 
 function Hue(R,G,B){//256
+	if(typeof G==="undefined"){
+		var colour=RGB(R).colour;
+		var R=colour[0];
+		var G=colour[1];
+		var B=colour[2];
+	}
+
 	if((R==B)&&(G==B))
 		return 0;
 	if(((R>G)&&(G>=B))||((R>=G)&&(G>B)))
@@ -70,10 +83,22 @@ function Hue(R,G,B){//256
 }
 
 function Chroma(R,G,B){
+	if(typeof G==="undefined"){
+		var colour=RGB(R).colour;
+		var R=colour[0];
+		var G=colour[1];
+		var B=colour[2];
+	}
   return (Math.max(R,G,B)-Math.min(R,G,B));
 }
 
 function Saturation(R,G,B){//256
+	if(typeof G==="undefined"){
+		var colour=RGB(R).colour;
+		var R=colour[0];
+		var G=colour[1];
+		var B=colour[2];
+	}
 	var  L=Lightness(R,G,B);
 	if(0<L&&L<1){
     var S=Chroma(R,G,B)/256/(1-Math.abs(2*L-1));
@@ -248,6 +273,14 @@ function LightenTo(colour,n){
   var colour=HSL(colour);
   var c=colour.colour;
   c[2]=Math.min(Math.max(n,0),1);
+  colour.colour=c;
+  return colour;
+} 
+
+function DarkenTo(colour,n){
+  var colour=HSL(colour);
+  var c=colour.colour;
+  c[2]=1-Math.min(Math.max(n,0),1);
   colour.colour=c;
   return colour;
 } 

@@ -367,7 +367,7 @@ li {
     transition-duration: var(--duration);
     background-color: var(--white);
 }
-.logo:hover {
+.nav .logo:hover {
     background-color: var(--darkblue);
     transition-duration: var(--duration);
 }
@@ -397,25 +397,25 @@ li {
     fill: var(--lightyellow);
 }
 
-.logo:hover .logo-1{
+.nav .logo:hover .logo-1{
     fill: var(--turquoise);
 }
-.logo:hover .logo-2{
+.nav .logo:hover .logo-2{
     fill: var(--turquoise);
 }
-.logo:hover .logo-3{
+.nav .logo:hover .logo-3{
     fill: var(--turquoise);
 }
-.logo:hover .logo-4{
+.nav .logo:hover .logo-4{
     fill: var(--darkblue);
 }
-.logo:hover .logo-5{
+.nav .logo:hover .logo-5{
     fill: var(--darkblue);
 }
-.logo:hover .logo-6{
+.nav .logo:hover .logo-6{
     fill: var(--darkblue);
 }
-.logo:hover .logo-7{
+.nav .logo:hover .logo-7{
     fill: var(--turquoise);
 }
 .rainbowline {

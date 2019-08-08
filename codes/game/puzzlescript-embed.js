@@ -20,6 +20,7 @@ var puzzlescriptModules=[
 "inputoutput",
 "mobile",
 /*Extras*/
+"data-game-colours",
 "data-game-extras",
 "data-game-overwrite",
 "data-game-moves"

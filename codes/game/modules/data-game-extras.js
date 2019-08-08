@@ -4,14 +4,14 @@ function PrepareGame(){
 	StopCapturingKeys(onKeyDown);ResumeCapturingKeys(OnKeyDownGame);
 	window.scrollTo(0,0);
 	AddGameBar();
+	AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
 	ConsoleAddMany([
 			"Localsave is ON for "+pageTitle()+".",
 			"To stop saving and erase all 2 cookies, please deselect 🖫."
 			]);
 	PlaylistStartPlay();
 	GameFocus();
-	
-	
+		
 }
 
 
@@ -584,3 +584,65 @@ function FindSoundName(seed){ //Finds the sound name which overwrites the PS see
 			return seedname;
 	}
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//Colorise game bar
+
+var stylesheet="#GameBar,#puzzlescript-game{\
+    --white:rgba(255,255,255,var(--t));         /*#FFF*/\
+    --smokewhite:rgba(241,241,241,var(--t))    /*#f1f1f1*/;\
+    --darkblue:rgba(7,0,112,var(--t))          /*#070070*/;\
+    --blue:rgba(0,15,255,var(--t))             /*#000FFF*/;\
+    --lightblue:rgba(25,130,237,var(--t))      /*#1982ed*/;\
+    --turquoise:rgba(59,248,222,var(--t))      /*#3bf8de*/;\
+    --green: rgba(70,244,111,var(--t))          /*#46f46f*/;\
+    --yellow: rgba(240,248,175,var(--t))        /*#f0f8af*/;\
+    --lightyellow:rgba(255,249,201,var(--t))   /*#fff9c9*/;\
+}";
+
+function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
+	var styleSheet=stylesheet;
+
+	var PrimaryDark=ForegroundColour;
+	var PrimaryLight=BackgroundColour;
+	// Pick the most saturated colour as text colour
+	if(Saturation(BackgroundColour)===0){
+		PrimaryLight=ForegroundColour;
+	}
+	if(Saturation(ForegroundColour)===0){
+		var PrimaryDark=BackgroundColour;
+	}
+	
+	//Background
+	var Lmax=Lightness(BackgroundColour);
+	styleSheet=styleSheet.replace("rgba(255,255,255,var(--t))",	HEX(LightenTo(PrimaryLight,Lmax+0.050)).colour);
+	styleSheet=styleSheet.replace("rgba(241,241,241,var(--t))",	HEX(LightenTo(PrimaryLight,Lmax+0.025)).colour);
+	
+	//Invert in case of dark background
+	if(Lmax<Lightness(ForegroundColour)){
+		styleSheet=styleSheet.replace("rgba(7,0,112,var(--t))",		HEX(DarkenTo(PrimaryDark,(-Lmax*0.22+0.22))).colour);
+		styleSheet=styleSheet.replace("rgba(0,15,255,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.40+0.40))).colour);
+		styleSheet=styleSheet.replace("rgba(25,130,237,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.51+0.51))).colour);
+		styleSheet=styleSheet.replace("rgba(59,248,222,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.89+0.89))).colour);
+		styleSheet=styleSheet.replace("rgba(70,244,111,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.91+0.91))).colour);
+		styleSheet=styleSheet.replace("rgba(240,248,175,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.93+0.93))).colour);
+		styleSheet=styleSheet.replace("rgba(255,249,201,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.95+0.95))).colour);
+	}
+	else{
+		styleSheet=styleSheet.replace("rgba(7,0,112,var(--t))",		HEX(LightenTo(PrimaryDark,(Lmax*0.22))).colour);
+		styleSheet=styleSheet.replace("rgba(0,15,255,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.40))).colour);
+		styleSheet=styleSheet.replace("rgba(25,130,237,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.51))).colour);
+		styleSheet=styleSheet.replace("rgba(59,248,222,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.92))).colour);
+		styleSheet=styleSheet.replace("rgba(70,244,111,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.93))).colour);
+		styleSheet=styleSheet.replace("rgba(240,248,175,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.94))).colour);
+		styleSheet=styleSheet.replace("rgba(255,249,201,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.95))).colour);
+	}
+		
+	return styleSheet;
+}
+
+
+
+
