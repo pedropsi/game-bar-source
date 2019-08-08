@@ -278,8 +278,8 @@ function FirstUnsolvedScreen(curlevel){
 }
 
 function NextUnsolvedScreen(curlevel){
-	var firstusolve=UnSolvedLevelScreens().filter(x=>x>=curlevel)[0];
-	var lastsolvebefore=LevelScreens().filter(x=>x<firstusolve);
+	var firstusolve=UnSolvedLevelScreens().filter(function(x){return x>=curlevel;})[0];
+	var lastsolvebefore=LevelScreens().filter(function(x){return x<firstusolve;});
 	return lastsolvebefore[lastsolvebefore.length-1]+1;
 }
 
@@ -321,7 +321,7 @@ function RequestLevelSelector(){
 		var DPOpts={
 			questionname:"Reached checkpoints:",
 			qfield:"level",
-			qchoices:checkpointIndices.map(l=>(Number(l)+1)+""),
+			qchoices:checkpointIndices.map(function(l){return (Number(l)+1)+"";}),
 			defaultChoice:function(i,c){return Number(c)===checkpointIndices.length}
 		}
 	}
