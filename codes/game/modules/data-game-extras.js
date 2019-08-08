@@ -133,7 +133,9 @@ function EraseLocalsave(){
 
 // Load from memory
 function LoadLevel(){
-	SolvedLevelScreens.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
+	var sls=localStorage[DocumentURL()+"_solvedlevels"];
+	if(sls)
+		SolvedLevelScreens.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
 	return curlevel=localStorage[DocumentURL()];
 }
 
