@@ -110,7 +110,7 @@ function UpdateLevelData(curlevel){
 	var ws=winseq;
 	var ms=moveseq;
 	
-	leveldata["timing"]=Math.floor(ms.reduce((x,y)=>(x+y[1]),0)/1000);
+	leveldata["timing"]=Math.floor(ms.reduce(function(x,y){return (x+y[1])},0)/1000);
 	leveldata["level"]=LevelNumber(curlevel);
 
 	leveldata["moves"]=JSON.stringify(ms);
@@ -179,8 +179,8 @@ function ParseMoves(movestring){
 
 function ParseTextualMoves(string){
 	var movements=string.match(/(left|up|right|down|undo|restart|quit|[LURDRZXQ<\^V>])/ig);
-	movements=movements.map(m=>m.replace(/quit|Q/ig,"27").replace(/undo|Z/ig,"85").replace(/left|</ig,"37").replace(/up|\^/ig,"38").replace(/right|>/ig,"39").replace(/down|v/ig,"40").replace(/restart|R/ig,"82"));
-	movements=movements.map(n=>[Number(n),200]);
+	movements=movements.map(function(m){return m.replace(/quit|Q/ig,"27").replace(/undo|Z/ig,"85").replace(/left|</ig,"37").replace(/up|\^/ig,"38").replace(/right|>/ig,"39").replace(/down|v/ig,"40").replace(/restart|R/ig,"82")});
+	movements=movements.map(function(n){return [Number(n),200]});
 	return movements;
 }
 
@@ -292,9 +292,9 @@ function PushMovesPlaylist(mpi,movesplaylist){
 
 //MovesPlaylist: State
 function MovesPlaylistState(movesplaylist){
-	if(movesplaylist.some(mpi=>mpi.state==="scheduled"))
+	if(movesplaylist.some(function(mpi){mpi.state==="scheduled"}))
 		return "scheduled";
-	else if(movesplaylist.every(mpi=>(mpi.state==="played")||(mpi.state==="skipped")))
+	else if(movesplaylist.every(function(mpi){(mpi.state==="played")||(mpi.state==="skipped")}))
 		return "ended";
 	else
 		return "paused";
@@ -525,6 +525,6 @@ function PlaylistBar(){
 			['⏪︎','PreviousMovesPlaylist(movesplaylist)'],
 	/*⏏️*/	['⏏','DownLoadPlaylist(movesplaylist)']
 		];
-	buttons=buttons.map(b=>ButtonOnClickHTML(b[0],b[1])).join("");
+	buttons=buttons.map(function(b){return ButtonOnClickHTML(b[0],b[1])}).join("");
 	return ButtonBar(buttons,"PlaylistBar");
 }
