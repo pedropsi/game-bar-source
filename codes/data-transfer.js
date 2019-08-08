@@ -734,7 +734,10 @@ function ButtonHTML(optionsObj){
 	
 	var ao=o.attributes['onclick'];
 	o.attributes['onclick']="PulseSelect(this);"+(ao?ao:"");
-		
+	o.attributes['onkeydown']="ExecuteShortcut(this,event)";
+	
+	o.attributes['tabindex']="0";
+	
 	return ElementHTML(o)
 };
 
@@ -961,7 +964,10 @@ function ChoiceHTML(dataField,buttontype){
 function ChoicesButtonRowHTML(dataField){
 	function ChoicesButtonHTML(choice,dataFiel,i){
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
-		return ButtonOnClickHTML(choice,'ToggleThis(event,this);ToggleData'+args);
+		var SelectF='ToggleThis(event,this);ToggleData'+args;
+		var buAttribs={'onclick':SelectF,'onfocus':SelectF};
+		
+		return ButtonHTML({txt:choice,attributes:buAttribs});
 	};
 	//console.log(dataField.qfield);console.log(dataField.pid);console.log(GetDefaultData(dataField.qfield,dataField.pid));
 	ClearData(dataField.qfield,dataField.pid);
@@ -971,7 +977,8 @@ function ChoicesButtonRowHTML(dataField){
 function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\")';
-		var buAttribs={'onclick':'ToggleThisOnly(event,this);SwitchData'+args};
+		var SelectF='ToggleThisOnly(event,this);SwitchData'+args;
+		var buAttribs={'onclick':SelectF,'onfocus':SelectF};
 		var bu;
 		//console.log(i,choice,typeof i);
 		if(dataFiel.defaultChoice(i,choice)){
@@ -980,7 +987,6 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 		}
 		else 
 			bu=ButtonHTML({txt:choice,attributes:buAttribs});
-		console.log(bu);
 		return bu;
 	};
 	//console.log(dataField.qfield);console.log(dataField.pid);
@@ -1837,77 +1843,76 @@ function KeyLookup(key){
 }
 
 var KeyCodes={
-		'none':0,
-		'break':3,
-		'backspace':8,
-		'tab':9,
-		'clear':12,
-		'enter':13,
-		'shift':16,
-		'ctrl':17,
-		'alt':18,
-		'pause':19,
-		'caps lock':20,
-		'escape':27,
-		'spacebar':32,
-		'page up':33,
-		'page down':34,
-		'end':35,
-		'home':36,
-		'left':37,
-		'up':38,
-		'right':39,
-		'down':40,
-		'select':41,
-		'print':42,
-		'execute':43,
-		'print screen':44,
-		'insert':45,
-		'delete':46,
-		'help':47,
-		'0':48,
-		'1':49,
-		'2':50,
-		'3':51,
-		'4':52,
-		'5':53,
-		'6':54,
-		'7':55,
-		'8':56,
-		'9':57,
-		'ß':63,
-		'a':65,
-		'b':66,
-		'c':67,
-		'd':68,
-		'e':69,
-		'f':70,
-		'g':71,
-		'h':72,
-		'i':73,
-		'j':74,
-		'k':75,
-		'l':76,
-		'm':77,
-		'n':78,
-		'o':79,
-		'p':80,
-		'q':81,
-		'r':82,
-		's':83,
-		't':84,
-		'u':85,
-		'v':86,
-		'w':87,
-		'x':88,
-		'y':89,
-		'z':90
+	'none':0,
+	'break':3,
+	'backspace':8,
+	'tab':9,
+	'clear':12,
+	'enter':13,
+	'shift':16,
+	'ctrl':17,
+	'alt':18,
+	'pause':19,
+	'caps lock':20,
+	'escape':27,
+	'spacebar':32,
+	'page up':33,
+	'page down':34,
+	'end':35,
+	'home':36,
+	'left':37,
+	'up':38,
+	'right':39,
+	'down':40,
+	'select':41,
+	'print':42,
+	'execute':43,
+	'print screen':44,
+	'insert':45,
+	'delete':46,
+	'help':47,
+	'0':48,
+	'1':49,
+	'2':50,
+	'3':51,
+	'4':52,
+	'5':53,
+	'6':54,
+	'7':55,
+	'8':56,
+	'9':57,
+	'ß':63,
+	'a':65,
+	'b':66,
+	'c':67,
+	'd':68,
+	'e':69,
+	'f':70,
+	'g':71,
+	'h':72,
+	'i':73,
+	'j':74,
+	'k':75,
+	'l':76,
+	'm':77,
+	'n':78,
+	'o':79,
+	'p':80,
+	'q':81,
+	'r':82,
+	's':83,
+	't':84,
+	'u':85,
+	'v':86,
+	'w':87,
+	'x':88,
+	'y':89,
+	'z':90
 }
 
 
 function OnKeyDownDefault(event) {
 	event = event || window.event;
-
 	if(keyActions[event.keyCode])
 		keyActions[event.keyCode](event);
 }
@@ -1930,6 +1935,12 @@ function DeleteShortcut(key){
 	var key=(typeof key==="string")?KeyLookup(key):key;
 	delete keyActions[key];
 }
+function ExecuteShortcut(thi,ev){
+	var key=KeyLookup(ev.key);
+	if(keyActions[key])
+		keyActions[key](thi);
+}
+
 
 //Multiple shortcuts
 function AddShortcuts(keyActionsNew){
@@ -1955,7 +1966,6 @@ function DPShortcutDefauts(DP){
 	return {
 		"escape":function(){Close(DP.qid);},
 		"enter":function(){CheckSubmit(DP.qid);},
-		"tab":function(){console.log("tab shortcut - TODO");}
 	}
 };
 
