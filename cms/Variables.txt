@@ -316,9 +316,8 @@ REDACTED	<s>Redacted</s>
 [<	<code><span><</span>
 >]	<span>></span></code>
 
-GAME-TABLE-ROW	<tr><td><a href=""«GAME-LINK»"" «BLANK»>«TITLE»</a></td><td>«Author»</td><td>«YEAR»</td><td>«TAGS»</td></tr>
-GAME-LIST-ITEM	«GAME-TABLE-ROW|Filter:{Title->_}|Contain:True»
-GAME-TABLE-BODY	<tbody>«GAME-LIST-ITEM|In:NiceGames|Filter:{Year->_?(NumberSelector[2014,2018])|Contain:True}»</tbody>
+GAME-TABLE-ITEM	<tr><td><a href="«GAME-LINK»" «BLANK»>«TITLE»</a></td><td>«Author»</td><td>«YEAR»</td><td>«TAGS»</td></tr>
+GAME-TABLE-BODY	<tbody>«GAME-TABLE-ITEM|In:NiceGames|Filter:{"Year"->_}|Contain:True»</tbody>
 GAME-TABLE-HEAD	<thead><tr><th>Title</th><th>Author</th><th>Year</th><th>Tags</th></tr></thead>
 GAME-LIST	<table class=""top-left"">«GAME-TABLE-HEAD»«GAME-TABLE-BODY»</table>
 
