@@ -29,6 +29,9 @@ CSS-NAME	<a href="«CSSPATH»">"Octaflower Theme"</a> by «NAME-LINK»
 CSSPATH	codes/index.css
 CSS-REL	<link href="«CSSPATH»" rel="stylesheet" type="text/css"/>
 CSS-ABS	<link href="«SITE»/«CSSPATH»" rel="stylesheet" type="text/css"/>
+CODES-PATH	«SITE»/codes/
+
+
 
 APPLEICON	images/splash.png
 FAVICON32	images/favicon-32x32.png
@@ -72,14 +75,22 @@ DISPLAY-EXTERNAL	<div id="«LINK»-area">«DISPLAY-IFRAME»«DISPLAY-SCRIPT»</div>
 DISPLAY-SCRIPT	<script>««LINK»-DISPLAY»</script>
 DISPLAY-IFRAME	<div class="section"><iframe src="««LINK»-DISPLAY-LEGACY»" «IFRAME-OPTS»></iframe></div>
 
-SCRIPT-ASYNC-PRE	<script data-cfasync="false" src="
+SCRIPT-TYPE	type="text/javascript"
+SCRIPT-ASYNC	data-cfasync="false"
+TYPE-ASYNC	«SCRIPT-TYPE» «SCRIPT-ASYNC»
+SCRIPT-ASYNC-PRE	<script «TYPE-ASYNC» src="
+SCRIPT-ABS-PRE	«SCRIPT-ASYNC-PRE»«CODES-PATH»
 SCRIPT-PRE	<script src="
 SCRIPT-POS	"></script>
+
 
 BEACONS	«BEACON-ANALYTICS»«BEACON-COM»
 BEACON-ANALYTICS	«SCRIPT-ASYNC-PRE»codes/analytics.js«SCRIPT-POS»
 BEACON-COM	«SCRIPT-ASYNC-PRE»codes/communication.js«SCRIPT-POS»
 BEACON-TEST	«SCRIPT-ASYNC-PRE»codes/test.js«SCRIPT-POS»
+
+BEACONS-ABSOLUTE	«CSS-ABS»«BEACONS-ABSOLUTE-SCRIPTS»<script «TYPE-ASYNC»>absolutiseLinks()</script>
+BEACONS-ABSOLUTE-SCRIPTS	«SCRIPT-ABS-PRE»data-transfer.js«SCRIPT-POS»«SCRIPT-ABS-PRE»analytics.js«SCRIPT-POS»«SCRIPT-ABS-PRE»communication.js«SCRIPT-POS»
 
 
 PAGE-IN-ARCHIVE	<div class="architem"><a href="«LINK».html"><h3>«TITLE»</h3></a><div class="date">«DATE»</div></div>
@@ -148,7 +159,7 @@ BLANK	target='_blank'
 ABOUT-TEXT	<h2>About «TITLE-BOLD»</h2>
 HOWTO-TEXT	«FIGURE-SIMPLE»<h2>How to play</h2><h3>Controls - keyboard</h3>
 GAME-EXTRAS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«NAVIGATION-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
-NAVIGATION-TEXT	<h3>Level navigation</h3><p>Using the <em>Level Selector Menu</em> (below in the game bar) you can navigate freely «NAVOPTION»</p>
+NAVIGATION-TEXT	<h3>Level navigation</h3><p>Press <b>L</b> or click <em>Select level</em> in the game bar to navigate freely «NAVOPTION».</p><p><b>Tab</b> or <b>Click</b> to <em>switch level</em>, <b>Enter</b> or <b>Double click</b> to <em>confirm</em>, <b>Esc</b> or <b>L</b> to <em>cancel</em>.</p>
 NAVIGATION-TEXT-FREE	between all levels.
 NAVIGATION-TEXT-CHECKPOINT	 to previous checkpoints, or return to the most recent one. Please be aware that saving after going to a past checkpoint will erase your most recent checkpoint saves.
 TOUCHSCREEN-TEXT	<h3>Controls - touchscreen</h3><p><b>Tap</b> to simulate <em>pressing X</em> and <b>swipe</b> to simulate an <em>arrow keypress</em>.
@@ -164,7 +175,7 @@ CREDITS-AUTHORSHIP	<p><a href="«LINK-URL».html">«TITLE-BOLD»</a> by «NAME-LINK»,
 CREDITS-MUSIC	«MUSIC-CREDITS»«GALLERY-AUDIO»
 CREDITS-ENGINE-SUPPORT	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT»«SOURCE-TEXT»
 CREDITS-ENGINE-CLOSED	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT» The source will be available some time after the release.
-PUZZLESCRIPT-TEXT	<p>Made with <a «BLANK» href='http://puzzlescript.net'>Puzzlescript</a>.</p>
+PUZZLESCRIPT-TEXT	<p>Made with <a «BLANK» href='http://puzzlescript.net'>Puzzlescript</a> and <a href="game-bar.html">«NAME»'s game bar</a>!</p>
 SOURCE-TEXT	<p>Inspect the <a «BLANK» href='http://puzzlescript.net/editor.html?hack=«CONTENT»'><b>source</b></a> freely, but consider <a «BLANK» href='«DONATE-LINK»'><b>supporting the «SITE-NAME»</b></a>!</p>
 
 DONATE-LINK	2018-02-08-support-the-archive.html
@@ -319,8 +330,4 @@ REDACTED	<s>Redacted</s>
 GAME-TABLE-ITEM	<tr><td><a href="«GAME-LINK»" «BLANK»>«TITLE»</a></td><td>«Author»</td><td>«YEAR»</td><td>«TAGS»</td></tr>
 GAME-TABLE-BODY	<tbody>«GAME-TABLE-ITEM|In:NiceGames|Filter:{"Year"->_}|Contain:True»</tbody>
 GAME-TABLE-HEAD	<thead><tr><th>Title</th><th>Author</th><th>Year</th><th>Tags</th></tr></thead>
-GAME-LIST	<table class=""top-left"">«GAME-TABLE-HEAD»«GAME-TABLE-BODY»</table>
-
-ABSOLUTES	«CSS-ABS»«SCRIPTS-ABS»<«SCRIPTJ»>absolutiseLinks()</script>
-SCRIPTS-ABS	<«SCRIPTJ»  src=""«SITE»/codes/data-transfer.js""></script><«SCRIPTJ»  src=""«SITE»/codes/analytics.js""></script><«SCRIPTJ»  src=""«SITE»/codes/communication.js""></script>
-SCRIPTJ	script data-cfasync="false" type="text/javascript"
+GAME-LIST	<table class="top-left">«GAME-TABLE-HEAD»«GAME-TABLE-BODY»</table>
