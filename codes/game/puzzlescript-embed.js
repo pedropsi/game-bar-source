@@ -78,9 +78,8 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 				else{
 					result = JSON.parse(result);
 					var code = result["files"]["script.txt"]["content"];
-					ConsoleAdd(pageTitle()+" loaded.");				
+					//ConsoleAdd(pageTitle()+" loaded.");				
 					compile(["restart"], code);
-					
 					ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
 				}
 			}
