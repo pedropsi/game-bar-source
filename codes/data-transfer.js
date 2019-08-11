@@ -758,7 +758,6 @@ function ButtonLinkHTML(title){
 
 function CloseButtonHTML(targetid){
 	return "<div class='closer'>"+ButtonHTML({tag:"span",txt:"&times;",attributes:{onclick:'Close(\"'+targetid+'\")'}})+"</div>";
-	//return '<span class="button closer" onclick="Close(\''+targetid+'\')">&times;</span>'
 }
 
 function OkButtonHTML(targetid){
@@ -939,7 +938,7 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		DP.qdisplay(DP);
 		
-		FocusElement("#"+DP.qid+" textarea, "+"#"+DP.qid+" input"); //First question
+		FocusInside("#"+DP.qid); //Focus on first question
 		SetDatapackShortcuts(DP);
 		
 		return DP;
@@ -1145,6 +1144,12 @@ function PulseSelect(selectorE){
 	setTimeout(function(){Deselect(selectorE,clas);},100);
 }
 
+//Has Class
+function HasClass(selectorE,clas){
+	var e=GetElement(selectorE);
+	return e.classList.contains(clas);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Closing functions
 
@@ -1194,6 +1199,35 @@ function FocusElement(targetIDsel){
 		focussing.focus();	
 	}
 	//console.log(focussing,document.activeElement);
+};
+
+function Focusable(e){
+	return (["TEXTAREA","INPUT"].indexOf(e.tagName)>=0)||HasClass(e,"button");//List of element and classes
+}
+function UnFocusable(e){
+	return HasClass(e,"closer")||HasClass(e,"logo");
+}
+
+function FocusInside(targetIDsel){
+	var e=GetElement(targetIDsel);
+	if(Focusable(e)){
+		e.focus();
+		console.log(e);
+		return true;
+	} else {	
+		var children=e.children;
+		var found=false;
+		var i=0;
+		while(!found&&i<children.length){
+			if(UnFocusable(children[i])){
+				found=false;
+			} else {
+				found=FocusInside(children[i]);
+			}
+			i++;
+		}
+		return found;
+	}
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1662,7 +1696,7 @@ function PlaylistStartPlay(){
 
 //Song
 function Muted(){
-	return !(GetElement("MuteButton").classList.contains("selected"));
+	return !HasClass(GetElement("MuteButton"),"selected");
 }
 function Mute(){
 	Deselect("MuteButton");
@@ -1861,9 +1895,13 @@ var KeyCodes={
 	'end':35,
 	'home':36,
 	'left':37,
+	'arrowleft':37,
 	'up':38,
+	'arrowup':38,
 	'right':39,
+	'arrowright':39,
 	'down':40,
+	'arrowdown':40,
 	'select':41,
 	'print':42,
 	'execute':43,
@@ -1913,6 +1951,7 @@ var KeyCodes={
 
 function OnKeyDownDefault(event) {
 	event = event || window.event;
+	console.log(event,event.ctrlKey);
 	if(keyActions[event.keyCode])
 		keyActions[event.keyCode](event);
 }
@@ -1937,6 +1976,7 @@ function DeleteShortcut(key){
 }
 function ExecuteShortcut(thi,ev){
 	var key=KeyLookup(ev.key);
+	console.log(ev);
 	if(keyActions[key])
 		keyActions[key](thi);
 }
@@ -1966,7 +2006,46 @@ function DPShortcutDefauts(DP){
 	return {
 		"escape":function(){Close(DP.qid);},
 		"enter":function(){CheckSubmit(DP.qid);},
+		"ctrl+enter":function(){CheckSubmit(DP.qid);},
+		//"ctrl+enter":function(){CheckSubmit(DP.qid);},   //even in inputs, etc...
+	}
+};
+
+function DPShortcutExtrasButtonRow(DP){
+	return {
+		"ctrl+enter":function(){CheckSubmit(DP.qid);},
+		"left":ClickPrev,
+		"right":ClickNext
+	}
+};
+
+function DPShortcutExtrasInput(DP){
+	return {
+		"escape":function(){Close(DP.qid);},
+		"ctrl+enter":function(){CheckSubmit(DP.qid);},
 	}
 };
 
 
+//Clicks
+function ClickPrev(){
+	var prev=document.activeElement.previousSibling;
+	if(prev===null)
+		prev=document.activeElement.parentElement.lastChild;
+	console.log(prev);
+	FocusElement(prev);
+	var Click=prev.onclick;
+	if(Click)
+		Click();
+}
+
+function ClickNext(){
+	var next=document.activeElement.nextSibling;
+	if(next===null)
+		next=document.activeElement.parentElement.firstChild;
+	console.log(next);
+	FocusElement(next);
+	var Click=next.onclick;
+	if(Click)
+		Click();
+}
