@@ -478,12 +478,18 @@ function IsQuerySelector(selector){
 }
 
 // Get element based on selectors: .class, #id, idsring, or the element itself
-function GetElement(selector){
+function GetElement(selector,pSelector){
+	if(pSelector){
+		pSelector=GetElement(pSelector);
+	} else {
+		pSelector=document;
+	}	
+	
 	if(typeof selector==="string"){
 		if(IsQuerySelector(selector))
-			return document.querySelector(selector);
+			return pSelector.querySelector(selector);
 		else
-			return document.getElementById(selector);
+			return pSelector.getElementById(selector);
 	}
 	else
 		return selector; //in case the actual element is given in the beginning
@@ -1138,6 +1144,13 @@ function Deselect(selectorE,clas){
 		e.classList.remove(clas);
 }
 
+function Classed(selectorE,clas){
+	var clas=clas||'selected';
+	var e=GetElement(selectorE);
+	return e&&e.classList.contains(clas);
+}
+
+
 function Toggle(selectorE,clas){
 	var clas=clas||'selected';
 	var e=GetElement(selectorE);
@@ -1153,11 +1166,7 @@ function PulseSelect(selectorE){
 	setTimeout(function(){Deselect(selectorE,clas);},100);
 }
 
-//Has Class
-function HasClass(selectorE,clas){
-	var e=GetElement(selectorE);
-	return e.classList.contains(clas);
-}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Closing functions
@@ -1211,19 +1220,21 @@ function FocusElement(targetIDsel){
 };
 
 function Focusable(e){
-	return (["TEXTAREA","INPUT"].indexOf(e.tagName)>=0)||HasClass(e,"button");//List of element and classes
+	return (["TEXTAREA","INPUT"].indexOf(e.tagName)>=0)||Classed(e,"button");//List of element and classes
 }
 function UnFocusable(e){
-	return HasClass(e,"closer")||HasClass(e,"logo");
+	return Classed(e,"closer")||Classed(e,"logo");
 }
 
 function FocusInside(targetIDsel){
 	var e=GetElement(targetIDsel);
 	if(Focusable(e)){
 		e.focus();
-		//console.log(e);
 		return true;
-	} else {	
+	} else if(Classed(GetElement(".selected",targetIDsel),"selected")){
+		GetElement(".selected",targetIDsel).focus();
+		return true;
+	}else{	
 		var children=e.children;
 		var found=false;
 		var i=0;
@@ -1721,7 +1732,7 @@ function PlaylistStartPlay(){
 
 //Song
 function Muted(){
-	return !HasClass(GetElement("MuteButton"),"selected");
+	return !Classed(GetElement("MuteButton"),"selected");
 }
 function Mute(){
 	Deselect("MuteButton");
