@@ -244,6 +244,10 @@ function LevelScreens(){
 	}
 }
 
+function Levels(){
+	return LevelScreens().map(LevelNumber);
+}
+
 function LevelScreen(n){
 	return LevelScreens()[n-1];
 }
@@ -316,6 +320,26 @@ function LevelNumber(curlevel){
 }
 
 
+var LevelLookahead=0;
+function UnlockedLevels(){
+	if(LevelLookahead<1){
+		return Levels();
+	}else{
+		var showlevels=SolvedLevelScreens().map(LevelNumber);
+		var lvl=LevelNumber(FirstUnsolvedScreen());
+		var lookahead=1;
+		while(lookahead<=LevelLookahead&&lvl<=Levels().length){
+			if(!LevelSolved(lvl)){
+				showlevels=showlevels.concat(lvl);
+				lookahead++;
+			}
+			lvl++;
+		}
+		console.log(showlevels);
+		return showlevels.sort(function(a,b){return a>b;});
+	}
+}
+
 // Level Selector
 
 function RequestLevelSelector(){
@@ -323,9 +347,9 @@ function RequestLevelSelector(){
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
-			questionname:"Access one of the "+LevelScreens().length+" levels",
+			questionname:"Access "+UnlockedLevels().length+" out of "+LevelScreens().length+" levels",
 			qfield:"level",
-			qchoices:LevelScreens().map(StarLevel),
+			qchoices:UnlockedLevels().map(StarLevelNumber),
 			defaultChoice:function(i,c){return Number(c)===LevelNumber(curlevel)}
 		}
 	}
@@ -378,7 +402,6 @@ function RequestLevelSelector(){
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
 }
 
-
 function MaxLevelDigits(){
 	if(MaxLevelDigits.m)
 		return MaxLevelDigits.m;
@@ -428,7 +451,7 @@ function GoToScreen(lvl){
 	canvasResize();
 };
 
-// Keyboard to Pick Level - records multiple digits within a 3000 ms timeframe to select the level
+// Keyboard to Pick Level - records multiple digits within a 2000 ms timeframe to select the level
 
 function IsLevel(n){
 	return LevelNumbers().indexOf(Number(n))>=0;
