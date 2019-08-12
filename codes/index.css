@@ -1136,3 +1136,15 @@ code{
     background-color: var(--blue);
     --duration:0.001s;
 }
+
+.button.disabled{
+    color: var(--white);
+    background-color: var(--smokewhite);
+}
+.button.disabled:hover,
+.button.disabled:active,
+.button.disabled:focus{
+    color: var(--smokewhite);
+    background-color: var(--white);
+    cursor:context-menu;
+}
