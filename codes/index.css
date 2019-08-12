@@ -242,8 +242,8 @@ nav {
 .text a {
     color: inherit;
     text-decoration-line:underline;
-    text-decoration-style:dotted;
-    text-decoration-color: var(--darkblue);
+    text-decoration-style:double;
+    text-decoration-color: var(--lightblue);
     transition-duration: var(--duration);
 }
 
@@ -277,7 +277,6 @@ p a:focus ,
 .selected {
     color: var(--turquoise);
     text-decoration-color: currentColor;
-    text-decoration-style:solid ;
     background-color: var(--darkblue);
     transition-duration: var(--duration);
     cursor:pointer;
