@@ -1221,7 +1221,7 @@ function FocusInside(targetIDsel){
 	var e=GetElement(targetIDsel);
 	if(Focusable(e)){
 		e.focus();
-		console.log(e);
+		//console.log(e);
 		return true;
 	} else {	
 		var children=e.children;
@@ -1238,6 +1238,22 @@ function FocusInside(targetIDsel){
 		return found;
 	}
 };
+
+function FocusPrev(F){
+	var prev=document.activeElement.previousSibling;
+	if(prev===null)
+		prev=document.activeElement.parentElement.lastChild;
+	FocusElement(prev);
+	F(prev);
+}
+
+function FocusNext(F){
+	var next=document.activeElement.nextSibling;
+	if(next===null)
+		next=document.activeElement.parentElement.firstChild;
+	FocusElement(next);
+	F(next);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Event Listeners
@@ -1960,7 +1976,7 @@ var KeyCodes={
 
 function OnKeyDownDefault(event) {
 	event = event || window.event;
-	console.log(event,event.ctrlKey);
+	//console.log(event,event.ctrlKey);
 	if(keyActions[event.keyCode])
 		keyActions[event.keyCode](event);
 }
@@ -1985,7 +2001,7 @@ function DeleteShortcut(key){
 }
 function ExecuteShortcut(thi,ev){
 	var key=KeyLookup(ev.key);
-	console.log(ev,key);
+	//console.log(ev,key);
 	if(keyActions[key])
 		keyActions[key](thi);
 }
@@ -2031,37 +2047,9 @@ function KeyActionsDP(DP){return{
 		//"ctrl+enter":function(){CheckSubmit(DP.qid);},   //even in inputs, etc...
 	};
 }
-function KeyActionsChoices(DP){return{
-		"ctrl+enter":function(){CheckSubmit(DP.qid);},
-		37:ClickPrev,
-		39:ClickNext
-	};
-}
+
 function keyActionsAnswer(DP){return{
 		27:function(){Close(DP.qid);},
 		"ctrl+enter":function(){CheckSubmit(DP.qid);},
 	};
-}
-
-
-
-//Clicks
-function ClickPrev(){
-	var prev=document.activeElement.previousSibling;
-	if(prev===null)
-		prev=document.activeElement.parentElement.lastChild;
-	FocusElement(prev);
-	var Click=prev.onclick;
-	if(Click)
-		Click();
-}
-
-function ClickNext(){
-	var next=document.activeElement.nextSibling;
-	if(next===null)
-		next=document.activeElement.parentElement.firstChild;
-	FocusElement(next);
-	var Click=next.onclick;
-	if(Click)
-		Click();
 }

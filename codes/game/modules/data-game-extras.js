@@ -360,6 +360,8 @@ function RequestLevelSelector(){
 	function extraShortcutsF(DP){
 		return {
 			"L":function(){Close(DP.qid)},
+			"left":function(){ FocusPrev(function(bu){SelectLevel(bu.innerHTML)})},
+			"right":function(){FocusNext(function(bu){SelectLevel(bu.innerHTML)})},
 			"1":function(){DelayLevel(1)},
 			"2":function(){DelayLevel(2)},
 			"3":function(){DelayLevel(3)},
@@ -374,8 +376,8 @@ function RequestLevelSelector(){
 	};
 	
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
-
 }
+
 
 function MaxLevelDigits(){
 	if(MaxLevelDigits.m)
