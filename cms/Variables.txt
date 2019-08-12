@@ -254,7 +254,7 @@ SHARER-BUTTON	<a href="«ACTION»" target="_«TARGET»" id="share-«SERVICE»"><div cl
 LOG-LINK	<b><a href="«LINK»-log.html">«TITLE-BOLD»'s log</a></b>
 LOG-COMMENTS	<script>AddAfterElement('«BUTTON-COMMENT»',"h2")</script>
 
-SUBSCRIBE-ANNOUNCEMENT	<div class="announce"><p>Learn first-hand about «NAME»'s next project!</p>«BUTTON-SUBSCRIBE»</div>
+SUBSCRIBE-ANNOUNCEMENT	<div class="section"><div class="container"><div class="announce"><p>Learn first-hand about «NAME»'s next project!</p>«BUTTON-SUBSCRIBE»</div></div></div>
 SUBSCRIBE-RSS	<a href="«SITE»/«RSS-PATH»" id="rss">Subscribe to RSS feed.</a>
 SUBSCRIBE-EMAIL	<a onclick="OpenModalSubscribe()">Subscribe to email alerts.</a>
 SUBSCRIBE-LINK	<a href="subscribe.html">Subscribe!</a>

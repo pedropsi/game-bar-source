@@ -209,6 +209,7 @@ nav {
     height: 100%;
     transition-duration: var(--duration);
     word-break: break-word;
+    margin:var(--h-2) var(--w-2) var(--h-2) var(--w-2);
 }
 
 .card img {
@@ -255,9 +256,6 @@ nav {
 .nav-link:hover ,
 .nav-link:active,
 .nav-link:focus ,
-.text a:hover ,
-.text a:active,
-.text a:focus ,
 p a:hover ,
 p a:active,
 p a:focus ,
@@ -1067,9 +1065,10 @@ tbody tr:hover{
     font-weight: bold;
     font-size: 120%;
     color: var(--white);
-    padding: var(--h2) var(--w4) var(--h2) var(--w4);
-    margin: var(--h8) 0 var(--h4) 0;
+    padding: var(--h2) 0 var(--h2) 0;
+    margin: var(--h1) 0 var(--h1) 0;
     align-items: center;
+    width: 100%;
 }
 
 .error{
