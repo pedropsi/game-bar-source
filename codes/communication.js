@@ -113,21 +113,6 @@ var DESTINATION_PASS={
 		type:FindData("type",qid)
 		}}
 	}
-	
-/*
-var DESTINATION_RATING={
-	url:DESTINATION_FEEDBACK.url,
-	headers:"[\"identifier\",\"rating\"]",
-	sheet:"Rating",
-	name:"Rating",
-	Data:function(qid){
-		return{
-			identifier:pageTitle(),
-			rating:document.querySelector("#"+qid+" #rate-it").value
-			}}
-}
-DESTINATIONS[DESTINATION_RATING.name]=DESTINATION_RATING;
-*/
 
 DESTINATIONS[DESTINATION_HOF.name]=DESTINATION_HOF;
 DESTINATIONS[DESTINATION_GUESTBOOK.name]=DESTINATION_GUESTBOOK;
