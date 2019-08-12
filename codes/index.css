@@ -453,10 +453,13 @@ li {
 ::-selection { 
     background: var(--smokewhite);
     color: var(--blue);
+    text-decoration-color: var(--blue);
+    
 }
 ::-moz-selection { 
     background: var(--smokewhite);
     color: var(--blue);
+    text-decoration-color: var(--blue);
 }
 
 @media only screen and (max-width: 350px) {
@@ -561,21 +564,25 @@ li {
 [contenteditable=true] div::-selection { 
     background: var(--blue);
     color: var(--lightyellow);
+    text-decoration-color: var(--lightyellow);
 }
 
 [contenteditable=true] div::-moz-selection { 
     background: var(--blue);
     color: var(--lightyellow);
+    text-decoration-color: var(--lightyellow);
 }
 
 [contenteditable=true]::-selection { 
     background: var(--blue);
     color: var(--lightyellow);
+    text-decoration-color: var(--lightyellow);
 }
 
 [contenteditable=true]::-moz-selection { 
     background: var(--blue);
     color: var(--lightyellow);
+    text-decoration-color: var(--lightyellow);
 }
 
 input, textarea{
