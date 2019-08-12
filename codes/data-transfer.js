@@ -800,6 +800,8 @@ function DefaultDataField(){
 		qtype:PlainHTML,				//Format of question :receives a DataField
 		qplaceholder:"❤ Pedro PSI ❤",	//Placeholder answer
 
+		shortcuts:Identity,				//Special shortcuts
+
 		qsubmittable:true, 				//whether the element expects submission (true) or merely presents information (false)
 		qrequired:true,					
 		qvalidator:IdentityValidator,	//Receives a DataField
@@ -810,6 +812,13 @@ function DefaultDataField(){
 function DefaultChoice(index,choicetxt){return String(index)===String(0);}//choicetxt gives this function flexibility
 
 function DefaultDataPack(){
+	function DPShortcutDefaults(DP){return {
+			"escape":function(){Close(DP.qid);},
+			"enter":function(){CheckSubmit(DP.qid);}
+			//"ctrl+enter":function(){CheckSubmit(DP.qid);},   //even in inputs, etc...
+		};
+	};
+	
 	return {
 		fields:[],
 
@@ -829,9 +838,10 @@ function DefaultDataPack(){
 		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
 		thanksmessage:"Submitted. Thank you!",
 		
-		shortcuts:DPShortcutDefauts,	//Base shortcuts (all else is deleted)
+		shortcuts:DPShortcutDefaults,	//Base shortcuts (all else is deleted)
 		shortcutExtras:function(DP){return {};}	//Extended shortcuts, to use ad-hoc
 	}
+	
 }
 
 function NewDataField(obj){
@@ -853,8 +863,7 @@ function DataFieldTypes(type){
 			qtype:ShortAnswerHTML,
 			qfield:"address",
 			qplaceholder:"_______@___.___",
-			qvalidator:EmailValidator,
-			}),
+			qvalidator:EmailValidator}),
 		name:NewDataField({
 			qrequired:false,
 			qvalidator:NameValidator,
@@ -964,7 +973,7 @@ function ChoicesButtonRowHTML(dataField){
 	function ChoicesButtonHTML(choice,dataFiel,i){
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
 		var SelectF='ToggleThis(event,this);ToggleData'+args;
-		var buAttribs={'onclick':SelectF,'onfocus':SelectF};
+		var buAttribs={'onclick':SelectF,'onfocus':SelectF,id:"choice-"+choice};
 		
 		return ButtonHTML({txt:choice,attributes:buAttribs});
 	};
@@ -977,7 +986,7 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\")';
 		var SelectF='ToggleThisOnly(event,this);SwitchData'+args;
-		var buAttribs={'onclick':SelectF,'onfocus':SelectF,'ondblclick':SelectF+';CheckSubmit(\"'+dataFiel.pid+'\")'};
+		var buAttribs={'onclick':SelectF,'onfocus':SelectF,'ondblclick':SelectF+';CheckSubmit(\"'+dataFiel.pid+'\")',id:"choice-"+choice};
 		var bu;
 		//console.log(i,choice,typeof i);
 		if(dataFiel.defaultChoice(i,choice)){
@@ -1976,7 +1985,7 @@ function DeleteShortcut(key){
 }
 function ExecuteShortcut(thi,ev){
 	var key=KeyLookup(ev.key);
-	console.log(ev);
+	console.log(ev,key);
 	if(keyActions[key])
 		keyActions[key](thi);
 }
@@ -1991,6 +2000,14 @@ function AddShortcuts(keyActionsNew){
 	}
 }
 
+function RemoveShortcuts(keyActionsNew){
+	var keys=Object.keys(keyActionsNew);
+	for(var k in keys){
+		//console.log(keys[k],keyActionsNew[keys[k]].toSource());
+		DeleteShortcut(keys[k]);
+	}
+}
+
 function OverwriteShortcuts(keyActionsNew){
 	keyActions={};
 	AddShortcuts(keyActionsNew);
@@ -1999,32 +2016,33 @@ function OverwriteShortcuts(keyActionsNew){
 //Datapack Integration
 function SetDatapackShortcuts(DP){
 	OverwriteShortcuts(DP.shortcuts(DP));
-	AddShortcuts(DP.shortcutExtras(DP));
+	if(SetDatapackShortcuts.extras){
+		RemoveShortcuts(SetDatapackShortcuts.extras);
+	}
+	SetDatapackShortcuts.extras=DP.shortcutExtras(DP);
+	AddShortcuts(SetDatapackShortcuts.extras);
 }
 
-function DPShortcutDefauts(DP){
-	return {
-		"escape":function(){Close(DP.qid);},
-		"enter":function(){CheckSubmit(DP.qid);},
+
+function KeyActionsDP(DP){return{
+		27:function(){Close(DP.qid);},
+		13:function(){CheckSubmit(DP.qid);},
 		"ctrl+enter":function(){CheckSubmit(DP.qid);},
 		//"ctrl+enter":function(){CheckSubmit(DP.qid);},   //even in inputs, etc...
-	}
-};
-
-function DPShortcutExtrasButtonRow(DP){
-	return {
+	};
+}
+function KeyActionsChoices(DP){return{
 		"ctrl+enter":function(){CheckSubmit(DP.qid);},
-		"left":ClickPrev,
-		"right":ClickNext
-	}
-};
-
-function DPShortcutExtrasInput(DP){
-	return {
-		"escape":function(){Close(DP.qid);},
+		37:ClickPrev,
+		39:ClickNext
+	};
+}
+function keyActionsAnswer(DP){return{
+		27:function(){Close(DP.qid);},
 		"ctrl+enter":function(){CheckSubmit(DP.qid);},
-	}
-};
+	};
+}
+
 
 
 //Clicks
@@ -2032,7 +2050,6 @@ function ClickPrev(){
 	var prev=document.activeElement.previousSibling;
 	if(prev===null)
 		prev=document.activeElement.parentElement.lastChild;
-	console.log(prev);
 	FocusElement(prev);
 	var Click=prev.onclick;
 	if(Click)
@@ -2043,7 +2060,6 @@ function ClickNext(){
 	var next=document.activeElement.nextSibling;
 	if(next===null)
 		next=document.activeElement.parentElement.firstChild;
-	console.log(next);
 	FocusElement(next);
 	var Click=next.onclick;
 	if(Click)

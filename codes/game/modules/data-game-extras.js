@@ -244,6 +244,14 @@ function LevelScreens(){
 	}
 }
 
+function LevelScreen(n){
+	return LevelScreens()[n-1];
+}
+
+function LevelNumbers(){
+	return LevelScreens().map(LevelNumber);
+}
+
 function SolvedLevelScreens(){
 	if(SolvedLevelScreens.levels===undefined)
 		SolvedLevelScreens.levels=[];
@@ -257,6 +265,10 @@ function AddToSolvedScreens(curlevel){
 		SolvedLevelScreens.levels=SolvedLevelScreens.levels.sort(SortNumber);
 	}
 	return SolvedLevelScreens();
+}
+
+function LevelSolved(n){
+	return LevelScreenSolved(LevelScreen(n));
 }
 
 function LevelScreenSolved(curlevel){
@@ -345,7 +357,21 @@ function RequestLevelSelector(){
 			});
 	}
 	
-	function extraShortcutsF(DP){return {"L":function(){Close(DP.qid)}}};
+	function extraShortcutsF(DP){
+		return {
+			"L":function(){Close(DP.qid)},
+			"1":function(){DelayLevel(1)},
+			"2":function(){DelayLevel(2)},
+			"3":function(){DelayLevel(3)},
+			"4":function(){DelayLevel(4)},
+			"5":function(){DelayLevel(5)},
+			"6":function(){DelayLevel(6)},
+			"7":function(){DelayLevel(7)},
+			"8":function(){DelayLevel(8)},
+			"9":function(){DelayLevel(9)},
+			"0":function(){DelayLevel(0)}
+		}
+	};
 	
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
 
@@ -356,10 +382,16 @@ function MaxLevelDigits(){
 		return MaxLevelDigits.m;
 	return MaxLevelDigits.m=Math.ceil(Math.log10(1+LevelScreens().length));
 };
+
+function StarLevelNumber(n){
+	var m=n+"";
+	var padding="0".repeat(MaxLevelDigits()-m.length);
+	return padding+m+(LevelSolved(n)?"★":"");
+}
+
 function StarLevel(l){
-	var n=LevelNumber(l)+"";
-	var padding="0".repeat(MaxLevelDigits()-n.length);
-	return padding+n+(LevelScreenSolved(l)?"★":"");
+	var n=LevelNumber(l);
+	return StarLevelNumber(n);
 }
 function UnstarLevel(l){
 	return Number(l.replace("★",""));
@@ -367,29 +399,62 @@ function UnstarLevel(l){
 
 function LoadLevelFromDP(DP){
 	var lvl=UnstarLevel(FindData('level',DP.qid));
+	SelectLevel(lvl);
+};
+
+function SelectLevel(lvl){
 	if(!HasCheckpoint()){
 		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
 		lvl=lvl<2?0:(LevelScreens()[lvl-2]+1);
-		GoToLevel(lvl);
+		GoToScreen(lvl);
 	}
 	else{
-		GoToLevelCheckpoint(lvl);
+		GoToScreenCheckpoint(lvl);
 	}
 };
 
-function GoToLevelCheckpoint(n){
+function GoToScreenCheckpoint(n){
 	if(HasCheckpoint()){
 		LoadCheckpoint(n);
 		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 		canvasResize();
 }};
 
-function GoToLevel(lvl){
+function GoToScreen(lvl){
 	curlevel=lvl;
 	AdvanceLevel();
 	canvasResize();
 };
 
+// Keyboard to Pick Level - records multiple digits within a 3000 ms timeframe to select the level
+
+function IsLevel(n){
+	return LevelNumbers().indexOf(Number(n))>=0;
+}
+
+function DelayLevel(n){
+	clearTimeout(DelayLevel.timer);
+	var t=Date.now();
+	if((!DelayLevel.lastTime)||(t-DelayLevel.lastTime>2000)||!IsLevel(DelayLevel.level+""+n)){ //Restart
+		DelayLevel.level=""+n;
+		DelayLevel.lastTime=Date.now();
+		var n=Number(DelayLevel.level);
+	}
+	else{
+		DelayLevel.level=DelayLevel.level+""+n;
+		DelayLevel.lastTime=Date.now();
+		var n=Number(DelayLevel.level);
+	}
+	
+	FocusElement("choice-"+StarLevelNumber(n));
+	
+	DelayLevel.timer=setTimeout(function(){
+		SelectLevel(n);
+		DelayLevel.lastTime=undefined;
+		DelayLevel.level="";
+	},2000);
+}	
+	
 
 // Level Progression
 
