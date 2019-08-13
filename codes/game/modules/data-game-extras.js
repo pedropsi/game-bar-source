@@ -276,7 +276,7 @@ function LevelSolved(n){
 }
 
 function LevelScreenSolved(curlevel){
-	return SolvedLevelScreens().indexOf(curlevel)>=0
+	return In(SolvedLevelScreens(),curlevel);
 }
 
 function UnSolvedLevelScreens(){
@@ -297,15 +297,16 @@ function FirstUnsolvedScreen(curlevel){
 
 function NextUnsolvedScreen(curlevel){
 	var firstusolve=UnSolvedLevelScreens().filter(function(x){return x>=curlevel;})[0];
-	var lastsolvebefore=LevelScreens().filter(function(x){return x<firstusolve;});
+	var lastsolvebefore=UnlockedLevelScreens().filter(function(x){return x<firstusolve;});
 	return lastsolvebefore[lastsolvebefore.length-1]+1;
 }
 
 function LastScreen(){return state.levels.length-1;};
 
 function FinalLevelScreen(){
-	var li=LevelScreens(); return li[li.length-1];
+	var li=UnlockedLevelScreens(); return li[li.length-1];
 };
+
 
 function ClearSolvedLevelScreens(){
 	return SolvedLevelScreens.levels=[];
@@ -320,7 +321,9 @@ function LevelNumber(curlevel){
 }
 
 
-var LevelLookahead=0;
+var LevelLookahead=0;	//How many unsolved levels are shown
+var bossLevels=[]; 		//Require beating all previous levels to show up; all previous levels + itself to show levels afterwards
+
 function UnlockedLevels(){
 	if(LevelLookahead<1){
 		return Levels();
@@ -329,15 +332,24 @@ function UnlockedLevels(){
 		var lvl=LevelNumber(FirstUnsolvedScreen());
 		var lookahead=1;
 		while(lookahead<=LevelLookahead&&lvl<=Levels().length){
-			if(!LevelSolved(lvl)){
+			if(In(bossLevels,lvl)&&lookahead>1) //Don't reveal boss level until all previous levels are solved
+				break;
+			else if(!LevelSolved(lvl)){
 				showlevels=showlevels.concat(lvl);
-				lookahead++;
+				if(In(bossLevels,lvl))          //Don't reveal more levels while boss level unolved
+					break;
+				else
+					lookahead++;
 			}
 			lvl++;
 		}
-		console.log(showlevels);
+		//console.log(showlevels);
 		return showlevels.sort(function(a,b){return a>b;});
 	}
+}
+
+function UnlockedLevelScreens(){
+	return UnlockedLevels().map(LevelScreen);
 }
 
 // Level Selector
@@ -384,8 +396,8 @@ function RequestLevelSelector(){
 	function extraShortcutsF(DP){
 		return {
 			"L":function(){Close(DP.qid)},
-			"left":function(){ FocusPrev(function(bu){SelectLevel(bu.innerHTML)})},
-			"right":function(){FocusNext(function(bu){SelectLevel(bu.innerHTML)})},
+			"left":function(){ FocusPrev(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
+			"right":function(){FocusNext(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
 			"1":function(){DelayLevel(1)},
 			"2":function(){DelayLevel(2)},
 			"3":function(){DelayLevel(3)},
@@ -454,7 +466,7 @@ function GoToScreen(lvl){
 // Keyboard to Pick Level - records multiple digits within a 2000 ms timeframe to select the level
 
 function IsLevel(n){
-	return LevelNumbers().indexOf(Number(n))>=0;
+	return In(LevelNumbers(),Number(n));
 }
 
 function DelayLevel(n){
@@ -496,6 +508,7 @@ function StartLevelFromTitle(){
 function ResetLevel(){
 	curlevel=0;
 	curlevelTarget=null;
+	SolvedLevelScreens.levels=[];
 }
 
 
@@ -620,13 +633,13 @@ function InstructGame(event){
 	var key=event.keyCode;
 		
 	//Avoid repetition?
-    if (keybuffer.indexOf(key)>=0) {
+    if (In(keybuffer,key)){
     	return;
     }
 	
 	//Instruct the game
     if(lastDownTarget === canvas /*|| (window.Mobile && (lastDownTarget === window.Mobile.focusIndicator) )*/ ){
-    	if (keybuffer.indexOf(key)===-1) {
+    	if (!In(keybuffer,key)){
     		keybuffer.splice(keyRepeatIndex,0,key);
 	    	keyRepeatTimer=0;
 	    	CheckRegisterKey(event);
