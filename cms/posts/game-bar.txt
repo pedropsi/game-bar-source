@@ -6,7 +6,7 @@
 «FIGURE-SIMPLE»
 
 <h3>Current version</h3>
-<p><b>v1.0:</b>05/08/2019 - tested on <a href="http://www.draknek.org/games/puzzlescript/mirrors.php">1</a>, <a href="https://www.puzzlescript.net/play.html?p=235bd81d5e1b4bff727cbf09dbf18df3">2</a> and <a href="https://v6p9d9t4.ssl.hwcdn.net/html/818696/index.html?v=1542787374">3</a>.</p>
+<p><b>v1.1:</b>13/08/2019</p>
 
 <h2>How to add the «TITLE-BOLD» to your own game</h2>
 <h3>Just include the <b>javascript source code</b>!</h3>
@@ -79,6 +79,7 @@
 <ul>
 <li>««P-PRE»MINOTALEN«P-POS»»'s <a href="https://minotalen.github.io/multiban.html">Multiban</a>;</li>
 <li>All «NAME»'s <a href="games.html">games</a>.</li>
+<li>««P-PRE»GAHR«P-POS»»'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
 </ul>
 <p>Would you like to add your game to the list? Please «CONTACT-TEXT-3»!</p>
 
@@ -97,10 +98,36 @@
 
 <p>Although the undo/reset and music buttons can be found in Puzzlescript's default mobile menu and ««P-PRE»HAZELDEN«P-POS»» has made a <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">custom level selector</a>, «NAME» found it useful to have a single bar with all important features, including:</p>
 <ul>
-<li>Fullscreen capability;</li>
-<li>Keyboard shortcuts (e.g. L to level select);</li>
-<li>Non-linear level navigation (e.g. the game won't finish before all levels are completed);</li>
-<li>Mute/unmute control for a BGM playlist.</li>
+<li>A level selector;</li>
+<li>Fullscreen mode;</li>
+<li>Mute/unmute control for a BGM playlist (optional);</li>
+<li>Non-linear level navigation:
+	<ul>
+		<li>All levels must be completed (no matter the order) before the game finishes;</li>
+		<li>Level unlocking:
+			<ul>
+			<li><b>N-level lookahead</b>: players can access up the following N unsolved levels, further levels are "locked";</li>
+			<li>Multiple <b>Boss levels</b>: boss levels only show up after all previous levels were beaten and lock further levels;</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li>Keyboard shortcuts (in game):
+	<ul>
+		<li><b>L</b>: Open the Level Selector;</li>
+		<li>in level selector:
+			<ul>
+			<li><b>1,2,3,4,5,6,7,8,9,0</b>: Pick a level;</li>
+			<li><b>Left/Right arrows</b>: next/previous level;</li>
+			<li><b>Enter</b>: Go to picked level;</li>
+			<li><b>Esc/L</b>: Close the level selector;</li>
+			</ul>
+		</li>
+		<li><b>F</b>: Toggle Fullscreen</li>
+		<li><b>M</b>: Pause/Resume BGM playlist</li>
+		<li><b>Tab/Shift+Tab</b>: next/previous menu item.</li>
+	</ul>
+</li>
 </ul>
 
 <h3>Can you use «TITLE-BOLD» for free?</h3>
