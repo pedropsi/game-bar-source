@@ -145,7 +145,7 @@ function AnalyticsClearance(){
 }
 
 function AnalyticsInnerClearance(title){
-	return clearancePages.indexOf(title)<0; //Special pages without internal analytics
+	return !In(clearancePages,title); //Special pages without internal analytics
 }
 
 if(AnalyticsClearance()){

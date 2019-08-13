@@ -24,6 +24,10 @@ var LOGO='<?xml version="1.0"?>\
 function Identity(){return;};
 
 ///////////////////////////////////////////////////////////////////////////////
+//Find in Array
+function In(array,n){return array.indexOf(n)>=0;};
+
+///////////////////////////////////////////////////////////////////////////////
 //Join Objects, overwriting conflicting properties
 function FuseObjects(object,extrapropertiesobject){
 	var O=object;
@@ -464,7 +468,7 @@ function MakeElement(html){
 HTMLTags=['!DOCTYPE','a','abbr','acronym','abbr','address','applet','embed','object','area','article','aside','audio','b','base','basefont','bdi','bdo','big','blockquote','body','br','button','canvas','caption','center','cite','code','col','colgroup','colgroup','data','datalist','dd','del','details','dfn','dialog','dir','ul','div','dl','dt','em','embed','fieldset','figcaption','figure','figure','font','footer','form','frame','frameset','h1','h6','head','header','hr','html','i','iframe','img','input','ins','kbd','label','input','legend','fieldset','li','link','main','map','mark','meta','meter','nav','noframes','noscript','object','ol','optgroup','option','output','p','param','picture','pre','progress','q','rp','rt','ruby','s','samp','script','section','select','small','source','video','audio','span','strike','del','s','strong','style','sub','summary','details','sup','svg','table','tbody','td','template','textarea','tfoot','th','thead','time','title','tr','track','video','audio','tt','u','ul','var','video','wbr'];
 
 function IsTag(selector){
-	return HTMLTags.indexOf(selector)>=0;
+	return In(HTMLTags,selector);
 }
 function IsClass(selector){
 	return selector.replace(/^\./,"")!==selector;
@@ -1219,8 +1223,11 @@ function FocusElement(targetIDsel){
 	//console.log(focussing,document.activeElement);
 };
 
+function FocusableInput(e){
+	return In(["INPUT","TEXTAREA"],e.tagName);
+}
 function Focusable(e){
-	return (["TEXTAREA","INPUT"].indexOf(e.tagName)>=0)||Classed(e,"button");//List of element and classes
+	return FocusableInput(e)||Classed(e,"button");//List of element and classes
 }
 function UnFocusable(e){
 	return Classed(e,"closer")||Classed(e,"logo");
@@ -1383,7 +1390,7 @@ function NodeHasData(field,node){
 }
 
 function NodeGetData(field,node){
-	if((["INPUT","TEXTAREA"].indexOf(node.tagName)>=0)&&typeof node.dataset[field]!=="undefined")
+	if(FocusableInput(node)&&typeof node.dataset[field]!=="undefined")
 		return (node.value)
 	else
 		return (node.dataset[field]);
@@ -1414,7 +1421,7 @@ function OverwriteDataInNode(type,node,newdata){
 }
 
 function NodeOverwriteData(field,node,newdata){
-	if((["INPUT","TEXTAREA"].indexOf(node.tagName)>=0)&&typeof node.dataset[field]!=="undefined")
+	if(FocusableInput(node)&&typeof node.dataset[field]!=="undefined")
 		return (node.value=newdata);
 	else
 		return (node.dataset[field]=newdata);
@@ -1656,7 +1663,7 @@ function ConsoleAddOnce(messageHTML,wait,duration){
 	if(!ConsoleAddOnce.messages)
 		ConsoleAddOnce.messages=[];
 	
-	if(ConsoleAddOnce.messages.indexOf(messageHTML)<0){
+	if(!In(ConsoleAddOnce.messages,messageHTML)){
 		ConsoleAdd(messageHTML,wait,duration)
 		ConsoleAddOnce.messages.push(messageHTML);
 	}	

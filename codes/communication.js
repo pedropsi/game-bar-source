@@ -206,7 +206,7 @@ function RequestGameFeedback(){
 	var DFsettingsObj={};
 	var DFSnapshot=['snapshot',{}];
 	  
-	function HasFeedback(curlevel){return RequestGameFeedback.requests.indexOf(curlevel)>=0;};
+	function HasFeedback(curlevel){return In(RequestGameFeedback.requests,curlevel);};
 	function InTitleScreen(){return titleScreen}
 	
 	if(InTitleScreen()){
