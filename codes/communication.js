@@ -200,7 +200,7 @@ function RequestGameFeedback(){
 	};
 	
 	function extraShortcutsF(DP){return {
-		"F":function(){Close(DP.qid)
+		"E":function(){Close(DP.qid)
 		}}}
 	
 	var DFsettingsObj={};
@@ -210,7 +210,7 @@ function RequestGameFeedback(){
 	function InTitleScreen(){return titleScreen}
 	
 	if(InTitleScreen()){
-		DFsettingsObj.questionname="Your real-time feedback is much appreciated! As soon as you start the first level, press F or click the Feedback button below.";
+		DFsettingsObj.questionname="Your real-time feedback is much appreciated! As soon as you start the first level, press E or click the E-mail button below.";
 		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
 	else if(HasFeedback(curlevel)){

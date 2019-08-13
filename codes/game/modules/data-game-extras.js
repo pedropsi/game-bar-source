@@ -32,7 +32,7 @@ function GameBar(targetIDsel){
 		ButtonOnClickHTML("✉",'RequestGameFeedback()'),
 		ButtonLinkHTML("Credits"),
 		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}}),
-		ButtonHTML({txt:"◱",attributes:{onclick:'ToggleFullscreen("'+targetIDsel+'");GameFocus();',id:'FullscreenButton'}}),
+		ButtonHTML({txt:"◱",attributes:{onclick:'FullscreenToggle("'+targetIDsel+'");GameFocus();',id:'FullscreenButton'}}),
 	].join("");
 	
 	return ButtonBar(buttons,"GameBar");
@@ -50,7 +50,6 @@ function AddGameBar(targetIDsel){
 }
 
 
-
 /////////////////////////////////////////////////////////////////////////////////////
 // Focus on Game Canvas
 function GameFocus(DP){
@@ -62,8 +61,8 @@ function GameFocus(DP){
 // Save permissions
 
 var curcheckpoint=0;
-
 var savePermission=true;
+
 function ToggleSavePermission(thi){
 	if(thi)thi.classList.remove("selected");
 	if(savePermission){
@@ -135,7 +134,7 @@ function EraseLocalsave(){
 function LoadLevel(){
 	var sls=localStorage[DocumentURL()+"_solvedlevels"];
 	if(sls)
-		SolvedLevelScreens.levels=JSON.parse(localStorage[DocumentURL()+"_solvedlevels"]).map(Number);
+		SolvedLevelScreens.levels=JSON.parse(sls).map(Number);
 	return curlevel=localStorage[DocumentURL()];
 }
 
@@ -252,10 +251,6 @@ function LevelScreen(n){
 	return LevelScreens()[n-1];
 }
 
-function LevelNumbers(){
-	return LevelScreens().map(LevelNumber);
-}
-
 function SolvedLevelScreens(){
 	if(SolvedLevelScreens.levels===undefined)
 		SolvedLevelScreens.levels=[];
@@ -307,7 +302,6 @@ function FinalLevelScreen(){
 	var li=UnlockedLevelScreens(); return li[li.length-1];
 };
 
-
 function ClearSolvedLevelScreens(){
 	return SolvedLevelScreens.levels=[];
 }
@@ -321,7 +315,7 @@ function LevelNumber(curlevel){
 }
 
 
-var LevelLookahead=0;	//How many unsolved levels are shown
+var LevelLookahead=0;	//Max number of unsolved levels shown, in linear progression: 0 = all  /
 var bossLevels=[]; 		//Require beating all previous levels to show up; all previous levels + itself to show levels afterwards
 
 function UnlockedLevels(){
@@ -336,7 +330,7 @@ function UnlockedLevels(){
 				break;
 			else if(!LevelSolved(lvl)){
 				showlevels=showlevels.concat(lvl);
-				if(In(bossLevels,lvl))          //Don't reveal more levels while boss level unolved
+				if(In(bossLevels,lvl))          //Don't reveal more levels while boss level unsolved
 					break;
 				else
 					lookahead++;
@@ -355,7 +349,6 @@ function UnlockedLevelScreens(){
 // Level Selector
 
 function RequestLevelSelector(){
-	
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
@@ -425,7 +418,6 @@ function StarLevelNumber(n){
 	var padding="0".repeat(MaxLevelDigits()-m.length);
 	return padding+m+(LevelSolved(n)?"★":"");
 }
-
 function StarLevel(l){
 	var n=LevelNumber(l);
 	return StarLevelNumber(n);
@@ -466,7 +458,7 @@ function GoToScreen(lvl){
 // Keyboard to Pick Level - records multiple digits within a 2000 ms timeframe to select the level
 
 function IsLevel(n){
-	return In(LevelNumbers(),Number(n));
+	return In(Levels(),Number(n));
 }
 
 function DelayLevel(n){
@@ -614,9 +606,10 @@ keyActionsGame={
 	82:InstructGame,	
 	// Esc
 	27:InstructGame,
-	70:function(ev){				//F
+	70:FullscreenToggle,		//F
+	69:function(ev){			//E
 		RequestGameFeedback();
-		prevent(ev);//Avoid inputting the letter F in the form
+		prevent(ev);//Avoid inputting the shortcut letter in the form
 		},
 	76:RequestLevelSelector, 	//L
 	77:ToggleCurrentSong		//M
@@ -627,7 +620,6 @@ function CheckRegisterKey(event){
 	checkKey(event,true);
 	RegisterMove(event.keyCode);
 }
-
 
 function InstructGame(event){
 	var key=event.keyCode;

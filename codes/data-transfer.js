@@ -1068,18 +1068,6 @@ function OpenBalloon(content,id,targetid){
 	AddElement(BalloonHTML('<div class="logo avatar">'+LOGO+'</div>',content,id),targetid);
 }
 
-function CloseBalloonIn(targetid){
-	var ballon=GetElement(targetid).querySelector(".balloon");
-	if(ballon){
-		Close(ballon.id);
-	}
-}
-
-function HasBalloon(targetid){
-	var i=GetElement(targetid);
-	return (i.querySelector(".balloon")!==null);
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 // Opener & Closer Functions with focus option, 
 // -> to use within Datapack RequestFunctions
@@ -1154,7 +1142,6 @@ function Classed(selectorE,clas){
 	return e&&e.classList.contains(clas);
 }
 
-
 function Toggle(selectorE,clas){
 	var clas=clas||'selected';
 	var e=GetElement(selectorE);
@@ -1169,7 +1156,6 @@ function PulseSelect(selectorE){
 	SelectSimple(selectorE,clas);
 	setTimeout(function(){Deselect(selectorE,clas);},100);
 }
-
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1220,7 +1206,6 @@ function FocusElement(targetIDsel){
 	if(focussing!==null){
 		focussing.focus();	
 	}
-	//console.log(focussing,document.activeElement);
 };
 
 function FocusableInput(e){
@@ -1659,7 +1644,6 @@ function ConsoleAddMany(messagesArray){
 }
 
 function ConsoleAddOnce(messageHTML,wait,duration){
-	
 	if(!ConsoleAddOnce.messages)
 		ConsoleAddOnce.messages=[];
 	
@@ -1896,7 +1880,7 @@ function FullscreenClose(){
 	};
 }
 
-function ToggleFullscreen(targetIDsel){
+function FullscreenToggle(targetIDsel){
 	if(FullscreenAllowed()){
 		if(document.fullscreenElement||document.webkitFullscreenElement){
 			FullscreenClose();
@@ -1994,7 +1978,7 @@ var KeyCodes={
 
 function OnKeyDownDefault(event) {
 	event = event || window.event;
-	//console.log(event,event.ctrlKey);
+	
 	if(keyActions[event.keyCode])
 		keyActions[event.keyCode](event);
 }
@@ -2019,7 +2003,6 @@ function DeleteShortcut(key){
 }
 function ExecuteShortcut(thi,ev){
 	var key=KeyLookup(ev.key);
-	//console.log(ev,key);
 	if(keyActions[key])
 		keyActions[key](thi);
 }
@@ -2057,7 +2040,7 @@ function SetDatapackShortcuts(DP){
 	AddShortcuts(SetDatapackShortcuts.extras);
 }
 
-
+/*
 function KeyActionsDP(DP){return{
 		27:function(){Close(DP.qid);},
 		13:function(){CheckSubmit(DP.qid);},
@@ -2071,3 +2054,4 @@ function keyActionsAnswer(DP){return{
 		"ctrl+enter":function(){CheckSubmit(DP.qid);},
 	};
 }
+*/
