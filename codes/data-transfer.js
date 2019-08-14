@@ -467,8 +467,10 @@ function MakeElement(html){
 
 HTMLTags=['!DOCTYPE','a','abbr','acronym','abbr','address','applet','embed','object','area','article','aside','audio','b','base','basefont','bdi','bdo','big','blockquote','body','br','button','canvas','caption','center','cite','code','col','colgroup','colgroup','data','datalist','dd','del','details','dfn','dialog','dir','ul','div','dl','dt','em','embed','fieldset','figcaption','figure','figure','font','footer','form','frame','frameset','h1','h6','head','header','hr','html','i','iframe','img','input','ins','kbd','label','input','legend','fieldset','li','link','main','map','mark','meta','meter','nav','noframes','noscript','object','ol','optgroup','option','output','p','param','picture','pre','progress','q','rp','rt','ruby','s','samp','script','section','select','small','source','video','audio','span','strike','del','s','strong','style','sub','summary','details','sup','svg','table','tbody','td','template','textarea','tfoot','th','thead','time','title','tr','track','video','audio','tt','u','ul','var','video','wbr'];
 
+HTMLTags=HTMLTags.map(function(s){return s.toUpperCase()});
+
 function IsTag(selector){
-	return In(HTMLTags,selector);
+	return In(HTMLTags,selector.toUpperCase());
 }
 function IsClass(selector){
 	return selector.replace(/^\./,"")!==selector;
@@ -482,14 +484,10 @@ function IsQuerySelector(selector){
 }
 
 // Get element based on selectors: .class, #id, idsring, or the element itself
-function GetElement(selector,pSelector){
-	if(pSelector){
-		pSelector=GetElement(pSelector);
-	} else {
-		var pSelector=document;
-	}	
-	
-	if(typeof selector==="string"){
+function GetElementIn(selector,pSelector){
+	if(pSelector===null)
+		return null;
+	else if(typeof selector==="string"){
 		if(IsQuerySelector(selector))
 			return pSelector.querySelector(selector);
 		else
@@ -499,12 +497,33 @@ function GetElement(selector,pSelector){
 		return selector; //in case the actual element is given in the beginning
 };
 
-//Inside
-
-function Inside(parentSelector,selector){
-	return GetElement(selector,parentSelector)!==null;
+function GetElement(selector,pSelector){
+	if(!pSelector)
+		return GetElementIn(selector,document)
+	else{
+		if(typeof pSelector==="string"){
+			return GetElementIn(selector,GetElementIn(pSelector,document));
+		}
+		else
+			return GetElementIn(selector,pSelector);
+	}
 }
 
+//Inside
+
+function InsideAt(parentSelector,selector){
+	var pelem=GetElement(parentSelector);
+	return Inside(parentSelector,selector)||(pelem===GetElement(selector));
+}
+
+function Inside(parentSelector,selector){
+	var elem=GetElement(selector,parentSelector);
+	return (elem!==null);
+}
+
+function Outside(parentSelector,selector){
+	return !InsideAt(parentSelector,selector);
+}
 
 // Get element based on selectors: .class, tag, or the element itself
 function GetElements(selectorString){
@@ -1284,6 +1303,7 @@ function ListenOnce(ev,fun,target,requireSuccess){
 	}
 	ev.map(function(e){target.addEventListener(e,F)})
 }
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
