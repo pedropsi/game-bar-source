@@ -484,41 +484,33 @@ function IsQuerySelector(selector){
 }
 
 // Get element based on selectors: .class, #id, idsring, or the element itself
-function GetElementIn(selector,pSelector){
-	if(pSelector===null)
-		return null;
-	else if(typeof selector==="string"){
+function GetElement(selector,pSelector){
+	if(pSelector){
+		pSelector=GetElement(pSelector);
+	} else {
+		pSelector=document;
+	}	
+	
+	if(typeof selector==="string"){
 		if(IsQuerySelector(selector))
 			return pSelector.querySelector(selector);
 		else
-			return pSelector.querySelector("#"+selector.replace("#",""));
+			return pSelector.getElementById(selector);
 	}
 	else
 		return selector; //in case the actual element is given in the beginning
 };
 
-function GetElement(selector,pSelector){
-	if(!pSelector)
-		return GetElementIn(selector,document)
-	else{
-		if(typeof pSelector==="string"){
-			return GetElementIn(selector,GetElementIn(pSelector,document));
-		}
-		else
-			return GetElementIn(selector,pSelector);
-	}
-}
+
 
 //Inside
 
 function InsideAt(parentSelector,selector){
-	var pelem=GetElement(parentSelector);
-	return Inside(parentSelector,selector)||(pelem===GetElement(selector));
+	return Inside(parentSelector,selector)||GetElement(parentSelector).isEqualNode(GetElement(selector));
 }
 
 function Inside(parentSelector,selector){
-	var elem=GetElement(selector,parentSelector);
-	return (elem!==null);
+	return GetElement(parentSelector).contains(GetElement(selector));
 }
 
 function Outside(parentSelector,selector){
@@ -987,6 +979,8 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		Select(DP.buttonSelector);		//Activate button
 		FocusInside("#"+DP.qid); 		//Focus on first question
+		
+		setTimeout(function(){ListenOutside("click",function(){Close(DP.qid)},DP.qid)},500); //Click outside to close
 		SetDatapackShortcuts(DP);
 		
 		return DP;
@@ -1293,18 +1287,28 @@ function FocusNext(F){
 ///////////////////////////////////////////////////////////////////////////////
 //Event Listeners
 
-function ListenOnce(ev,fun,target,requireSuccess){
+function ListenOnce(ev,fun,target){
 	target=target?target:window; //Improve the defaults
 	if(typeof ev==="string") //Defaults to array in case a single string is
 		ev=[ev];
 	function F(){
-		if(fun()||!requireSuccess);
-			ev.map(function(e){target.removeEventListener(e,F)})
+		fun();
+		ev.map(function(e){target.removeEventListener(e,F)})
 	}
 	ev.map(function(e){target.addEventListener(e,F)})
 }
 
-
+function ListenOutside(ev,fun,targe){
+	if(typeof ev==="string") //Defaults to array in case a single string is
+		ev=[ev];
+	function F(eve){
+		if(Outside(targe,eve.target)){
+			fun();
+			ev.map(function(e){window.removeEventListener(e,F)})
+		}
+	}
+	ev.map(function(e){window.addEventListener(e,F)})
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Data submission in forms
