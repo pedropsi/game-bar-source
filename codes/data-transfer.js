@@ -1263,7 +1263,7 @@ function FocusInside(targetIDsel){
 	if(Focusable(e)){
 		e.focus();
 		return true;
-	} else if(Classed(GetElement(".selected",targetIDsel),"selected")){
+	}else if(Classed(GetElement(".selected",targetIDsel),"selected")&&GetElement(".selected",targetIDsel).parentNode.isEqualNode(GetElement(targetIDsel))){
 		GetElement(".selected",targetIDsel).focus();
 		return true;
 	}else{	
