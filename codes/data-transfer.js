@@ -484,28 +484,42 @@ function IsQuerySelector(selector){
 }
 
 // Get element based on selectors: .class, #id, idsring, or the element itself
-function GetElement(selector,pSelector){
-	if(pSelector){
-		pSelector=GetElement(pSelector);
-	} else {
-		pSelector=document;
-	}	
-	
-	if(typeof selector==="string"){
-		if(IsQuerySelector(selector))
-			return pSelector.querySelector(selector);
-		else
-			return pSelector.getElementById(selector);
+function GetElementFromTextSelector(selector,parentElement){
+	if(parentElement===null)
+		return null;
+	if(!IsQuerySelector(selector)){
+		selector=selector.replace(/^\#/,"");
+		selector="#"+selector;
 	}
+	return parentElement.querySelector(selector);
+};
+
+function GetElementIn(selector,parentElement){
+	if(typeof selector==="string")
+		return GetElementFromTextSelector(selector,parentElement)
 	else
 		return selector; //in case the actual element is given in the beginning
 };
+
+function GetElement(selector,pSelector){
+	var parentElement;
+	if(!pSelector)
+		parentElement=document;
+	else{
+		if(typeof pSelector==="string")
+			parentElement=GetElementIn(pSelector,document);
+		else
+			parentElement=pSelector;
+	}		
+	return GetElementIn(selector,parentElement)
+}
 
 
 
 //Inside
 
 function InsideAt(parentSelector,selector){
+	console.log(GetElement(parentSelector),GetElement(selector));
 	return Inside(parentSelector,selector)||GetElement(parentSelector).isEqualNode(GetElement(selector));
 }
 
