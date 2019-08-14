@@ -196,7 +196,8 @@ function RequestGameFeedback(){
 		qonsubmit:RecordAndLaunchThanksBalloon,
 		qonclose:FocusAndResetFunction(RequestGameFeedback,GameFocus),
 		thanksmessage:"★ Thank you for your feedback! ★",
-		shortcutExtras:extraShortcutsF
+		shortcutExtras:extraShortcutsF,
+		buttonSelector:"FeedbackButton",
 	};
 	
 	function extraShortcutsF(DP){return {

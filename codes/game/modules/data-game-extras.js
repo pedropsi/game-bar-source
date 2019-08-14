@@ -28,8 +28,8 @@ function GameBar(targetIDsel){
 		undo,
 		restart,
 		//ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
-		ButtonOnClickHTML("Select level",'RequestLevelSelector()'),
-		ButtonOnClickHTML("✉",'RequestGameFeedback()'),
+		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
+		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
 		ButtonLinkHTML("Credits"),
 		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}}),
 		ButtonHTML({txt:"◱",attributes:{onclick:'FullscreenToggle("'+targetIDsel+'");GameFocus();',id:'FullscreenButton'}}),
@@ -383,7 +383,8 @@ function RequestLevelSelector(){
 				qdisplay:LaunchBalloon,
 				qtargetid:'puzzlescript-game',
 				shortcutExtras:extraShortcutsF,
-				requireConnection:false
+				requireConnection:false,
+				buttonSelector:"LevelSelectorButton"
 			});
 	}
 	

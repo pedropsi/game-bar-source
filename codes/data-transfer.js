@@ -849,7 +849,9 @@ function DefaultDataPack(){
 		thanksmessage:"Submitted. Thank you!",
 		
 		shortcuts:DPShortcutDefaults,	//Base shortcuts (all else is deleted)
-		shortcutExtras:function(DP){return {};}	//Extended shortcuts, to use ad-hoc
+		shortcutExtras:function(DP){return {};},	//Extended shortcuts, to use ad-hoc
+		
+		buttonSelector:"none"						//Selector for button requesting the datapack
 	}
 	
 }
@@ -957,7 +959,8 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		DP.qdisplay(DP);
 		
-		FocusInside("#"+DP.qid); //Focus on first question
+		Select(DP.buttonSelector);		//Activate button
+		FocusInside("#"+DP.qid); 		//Focus on first question
 		SetDatapackShortcuts(DP);
 		
 		return DP;
@@ -1183,16 +1186,19 @@ function CloseThis(ev,thi,targetIDsel){
 
 function Close(targetid){
 	//First tries to find the next item to open, then closes
-	if(typeof GetDataPack(targetid)!=="undefined"){
-		var ClosingF=FindData("qonclose",targetid);
+	var DP=GetDataPack(targetid);
+	if(typeof DP!=="undefined"){
+		Deselect(DP.buttonSelector);
+		var ClosingF=DP.qonclose;
 		if(typeof ClosingF!=="undefined")
-			ClosingF(GetDataPack(targetid));
+			ClosingF(DP);
 	}
 	CloseElement(targetid);
 }
 
 function CloseAndContinue(DP){
 	var NextF=DP.qonsubmit;
+	Deselect(DP.buttonSelector);
 	if(typeof NextF!=="undefined")
 		NextF(DP);
 	CloseElement(DP.qid);
