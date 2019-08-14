@@ -53,6 +53,7 @@ function AddGameBar(targetIDsel){
 /////////////////////////////////////////////////////////////////////////////////////
 // Focus on Game Canvas
 function GameFocus(DP){
+	document.activeElement.blur();
 	window.Mobile.GestureHandler.prototype.fakeCanvasFocus();
 	keyActions=keyActionsGame;
 };
