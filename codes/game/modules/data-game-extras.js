@@ -349,11 +349,18 @@ function UnlockedLevelScreens(){
 
 // Level Selector
 
+function LevelSelectorTitle(){
+	if(UnlockedLevels().length!==LevelScreens().length)
+		return "Access "+UnlockedLevels().length+" out of "+LevelScreens().length+" levels";
+	else
+		return "Access one of the "+LevelScreens().length+" levels"
+}
+
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
-			questionname:"Access "+UnlockedLevels().length+" out of "+LevelScreens().length+" levels",
+			questionname:LevelSelectorTitle(),
 			qfield:"level",
 			qchoices:UnlockedLevels().map(StarLevelNumber),
 			defaultChoice:function(i,c){return Number(c)===LevelNumber(curlevel)}
