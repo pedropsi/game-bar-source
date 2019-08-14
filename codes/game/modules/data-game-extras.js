@@ -606,7 +606,7 @@ keyActionsGame={
 	82:InstructGame,	
 	// Esc
 	27:InstructGame,
-	70:function(){FullscreenToggle(ParentSelector(gameSelector))},		//F
+	70:function(){FullscreenToggle(".game-container")},		//F
 	69:function(ev){			//E
 		RequestGameFeedback();
 		prevent(ev);//Avoid inputting the shortcut letter in the form
