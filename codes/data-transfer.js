@@ -486,18 +486,25 @@ function GetElement(selector,pSelector){
 	if(pSelector){
 		pSelector=GetElement(pSelector);
 	} else {
-		pSelector=document;
+		var pSelector=document;
 	}	
 	
 	if(typeof selector==="string"){
 		if(IsQuerySelector(selector))
 			return pSelector.querySelector(selector);
 		else
-			return pSelector.getElementById(selector);
+			return pSelector.querySelector("#"+selector.replace("#",""));
 	}
 	else
 		return selector; //in case the actual element is given in the beginning
 };
+
+//Inside
+
+function Inside(parentSelector,selector){
+	return GetElement(selector,parentSelector)!==null;
+}
+
 
 // Get element based on selectors: .class, tag, or the element itself
 function GetElements(selectorString){
@@ -1267,13 +1274,13 @@ function FocusNext(F){
 ///////////////////////////////////////////////////////////////////////////////
 //Event Listeners
 
-function ListenOnce(ev,fun,target){
+function ListenOnce(ev,fun,target,requireSuccess){
 	target=target?target:window; //Improve the defaults
 	if(typeof ev==="string") //Defaults to array in case a single string is
 		ev=[ev];
 	function F(){
-		fun();
-		ev.map(function(e){target.removeEventListener(e,F)})
+		if(fun()||!requireSuccess);
+			ev.map(function(e){target.removeEventListener(e,F)})
 	}
 	ev.map(function(e){target.addEventListener(e,F)})
 }
