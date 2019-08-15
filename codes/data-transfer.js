@@ -483,6 +483,13 @@ function IsQuerySelector(selector){
 	return IsID(selector)||IsClass(selector)||IsTag(selector);
 }
 
+function ParentSelector(targetIDsel){
+	var parentElement=GetElement(targetIDsel).parentElement;
+	if(!parentElement.id)
+		parentElement.id=GenerateId();
+	return parentElement.id;
+}
+
 // Get element based on selectors: .class, #id, idsring, or the element itself
 function GetElementFromTextSelector(selector,parentElement){
 	if(parentElement===null)
