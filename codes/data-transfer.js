@@ -526,7 +526,6 @@ function GetElement(selector,pSelector){
 //Inside
 
 function InsideAt(parentSelector,selector){
-	console.log(GetElement(parentSelector),GetElement(selector));
 	return Inside(parentSelector,selector)||GetElement(parentSelector).isEqualNode(GetElement(selector));
 }
 
