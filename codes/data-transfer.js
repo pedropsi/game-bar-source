@@ -487,7 +487,7 @@ function ParentSelector(targetIDsel){
 	var parentElement=GetElement(targetIDsel).parentElement;
 	if(!parentElement.id)
 		parentElement.id=GenerateId();
-	return parentElement.id;
+	return "#"+parentElement.id;
 }
 
 // Get element based on selectors: .class, #id, idsring, or the element itself

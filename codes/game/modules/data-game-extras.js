@@ -1,5 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
+
+var gameSelector='#puzzlescript-game';
+
 function PrepareGame(){
 	StopCapturingKeys(onKeyDown);ResumeCapturingKeys(OnKeyDownGame);
 	window.scrollTo(0,0);
@@ -39,7 +42,7 @@ function GameBar(targetIDsel){
 }
 
 function AddGameBar(targetIDsel){
-	var targetIDsel=targetIDsel||"#puzzlescript-game";
+	var targetIDsel=targetIDsel||gameSelector;
 	var bar=GetElement("GameBar");
 	if(bar!==null)
 		bar.parentNode.removeChild(bar);
@@ -388,7 +391,7 @@ function RequestLevelSelector(){
 				qonsubmit:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qdisplay:LaunchBalloon,
-				qtargetid:'puzzlescript-game',
+				qtargetid:gameSelector,
 				shortcutExtras:extraShortcutsF,
 				requireConnection:false,
 				buttonSelector:"LevelSelectorButton"
@@ -615,7 +618,7 @@ keyActionsGame={
 	82:InstructGame,	
 	// Esc
 	27:InstructGame,
-	70:function(){FullscreenToggle(".game-container")},		//F
+	70:function(){FullscreenToggle(ParentSelector(gameSelector))},		//F
 	69:function(ev){			//E
 		RequestGameFeedback();
 		prevent(ev);//Avoid inputting the shortcut letter in the form
@@ -696,7 +699,7 @@ function FindSoundName(seed){ //Finds the sound name which overwrites the PS see
 ////////////////////////////////////////////////////////////////////////////////
 //Colorise game bar
 
-var stylesheet="#GameBar,#puzzlescript-game{\
+var stylesheet="#GameBar,"+gameSelector+"{\
     --white:rgba(255,255,255,var(--t));         /*#FFF*/\
     --smokewhite:rgba(241,241,241,var(--t))    /*#f1f1f1*/;\
     --darkblue:rgba(7,0,112,var(--t))          /*#070070*/;\
