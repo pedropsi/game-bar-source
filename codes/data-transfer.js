@@ -335,6 +335,13 @@ function GenerateId(){
 ////////////////////////////////////////////////////////////////////////////////
 //Load scripts
 
+function LoadScript(sourcecode){
+	var head= GetElements('head')[0];
+	var script= document.createElement('script');
+	script.innerHTML=sourcecode;
+	head.appendChild(script);
+}
+
 function LoadAsync(sourcename,folder){
 	var head= GetElements('head')[0];
 	var script= document.createElement('script');
@@ -385,6 +392,10 @@ function LoadData(url){
     rawFile.send(null);
 	return data;
 };
+
+function LoadExternalScript(url){
+	LoadScript(LoadData(url));
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Data transmission - JSON, to a script in url "url"
