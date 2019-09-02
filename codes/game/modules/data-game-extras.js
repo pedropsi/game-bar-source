@@ -440,8 +440,15 @@ function UnstarLevel(l){
 
 function LoadLevelFromDP(DP){
 	var lvl=UnstarLevel(FindData('level',DP.qid));
-	SelectLevel(lvl);
+	SelectUnlockedLevel(lvl);
 };
+
+function SelectUnlockedLevel(lvl){
+	if(In(UnlockedLevels(),lvl))
+		SelectLevel(lvl);
+	else
+		console.log("Level "+lvl+" locked!");
+}
 
 function SelectLevel(lvl){
 	if(!HasCheckpoint()){
@@ -453,6 +460,7 @@ function SelectLevel(lvl){
 		GoToScreenCheckpoint(lvl);
 	}
 };
+
 
 function GoToScreenCheckpoint(n){
 	if(HasCheckpoint()){
@@ -469,14 +477,14 @@ function GoToScreen(lvl){
 
 // Keyboard to Pick Level - records multiple digits within a 2000 ms timeframe to select the level
 
-function IsLevel(n){
-	return In(Levels(),Number(n));
+function IsUnlockedLevel(n){
+	return In(UnlockedLevels(),Number(n));
 }
 
 function DelayLevel(n){
 	clearTimeout(DelayLevel.timer);
 	var t=Date.now();
-	if((!DelayLevel.lastTime)||(t-DelayLevel.lastTime>2000)||!IsLevel(DelayLevel.level+""+n)){ //Restart
+	if((!DelayLevel.lastTime)||(t-DelayLevel.lastTime>2000)||!IsUnlockedLevel(DelayLevel.level+""+n)){ //Restart
 		DelayLevel.level=""+n;
 		DelayLevel.lastTime=Date.now();
 		var n=Number(DelayLevel.level);
@@ -490,7 +498,7 @@ function DelayLevel(n){
 	FocusElement("choice-"+StarLevelNumber(n));
 	
 	DelayLevel.timer=setTimeout(function(){
-		SelectLevel(n);
+		SelectUnlockedLevel(n);
 		DelayLevel.lastTime=undefined;
 		DelayLevel.level="";
 	},2000);
