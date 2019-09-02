@@ -6,7 +6,16 @@
 «FIGURE-SIMPLE»
 
 <h3>Current version</h3>
-<p><b>v1.1:</b>13/08/2019</p>
+<p><b><span id="version-number">v1.1</span>:</b><span id="version-date">13/08/2019</span></p>
+
+<script>
+var v=LoadData("https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js");
+var vn=v.match(/(v(\d+\.)*\d+)/)[0];
+var vd=v.match(/((\d+\/)+\d+)/)[0];
+ReplaceElement(vn,"version-number");
+ReplaceElement(vd,"version-date");
+</script>
+
 <p>Older versions can be found <a href="https://github.com/pedropsi/puzzlescript-game-bar/tree/master/Versions">in the archive</a>.</p>
 
 <h2>How to add the «TITLE-BOLD» to your own game</h2>
