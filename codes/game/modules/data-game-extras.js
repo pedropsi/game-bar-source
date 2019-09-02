@@ -24,7 +24,10 @@ function GameBar(targetIDsel){
 	var undo=!state.metadata.noundo?ButtonHTML({txt:'↶',attributes:{
 		onclick:'UndoAndFocus();',
 		onmousedown:'AutoRepeat(UndoAndFocus,250);',
+		ontouchstart:'AutoRepeat(UndoAndFocus,250);',
 		onmouseup:'AutoStop(UndoAndFocus);',
+		ontouchend:'AutoStop(UndoAndFocus);',
+		ontouchcancel:'AutoStop(UndoAndFocus);'
 		}}):"";
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
