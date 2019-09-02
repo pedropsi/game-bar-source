@@ -78,7 +78,7 @@ function ToggleSavePermission(thi){
 		savePermission=true;
 		ConsoleAddMany([
 			"Localsave is ON for "+pageTitle()+".",
-			"To stop saving and erase all 2 cookies, please deselect 🖫."
+			"To stop localsaving and erase all 2 cookies, please deselect 🖫."
 			]);
 		if(thi)thi.classList.add("selected");
 	}	
