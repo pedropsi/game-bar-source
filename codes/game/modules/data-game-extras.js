@@ -17,12 +17,15 @@ function PrepareGame(){
 		
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // Game Bar
 
 function GameBar(targetIDsel){
-	var undo=!state.metadata.noundo?ButtonOnClickHTML('↶','CheckRegisterKey({keyCode:85});GameFocus();'):"";
+	var undo=!state.metadata.noundo?ButtonHTML({txt:'↶',attributes:{
+		onclick:'UndoAndFocus();',
+		onmousedown:'AutoRepeat(UndoAndFocus,250);',
+		onmouseup:'AutoStop(UndoAndFocus);',
+		}}):"";
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
 	var buttons=[
@@ -60,6 +63,11 @@ function GameFocus(DP){
 	window.Mobile.GestureHandler.prototype.fakeCanvasFocus();
 	keyActions=keyActionsGame;
 };
+
+function UndoAndFocus(){
+	CheckRegisterKey({keyCode:85});
+	GameFocus();
+}
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Save permissions

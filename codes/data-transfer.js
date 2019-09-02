@@ -28,6 +28,12 @@ function Identity(){return;};
 function In(array,n){return array.indexOf(n)>=0;};
 
 ///////////////////////////////////////////////////////////////////////////////
+//Get Function Name as a string
+function FunctionName(FunctionF){
+	return FunctionF.toString().replace(/\(.*/,"").replace("function ","");
+}
+
+///////////////////////////////////////////////////////////////////////////////
 //Join Objects, overwriting conflicting properties
 function FuseObjects(object,extrapropertiesobject){
 	var O=object;
@@ -2123,3 +2129,22 @@ function keyActionsAnswer(DP){return{
 	};
 }
 */
+
+
+///////////////////////////////////////////////////////////////////////////////
+// AutoRepeat and AutoStop functions
+
+function AutoRepeat(RepeatF,delay){
+	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
+	AutoRepeat[FunctionName(RepeatF)]=setTimeout(function(){
+		RepeatF();
+		AutoRepeat(RepeatF,delay);
+	},delay);
+}
+
+function AutoStop(RepeatF,delay){
+	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
+	setTimeout(function(){
+		clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
+	},delay);
+}
