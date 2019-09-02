@@ -20,7 +20,7 @@ function PrepareGame(){
 ////////////////////////////////////////////////////////////////////////////////
 // Game Bar
 
-function GameBar(targetIDsel){
+function UndoButton(){
 	var undo=!state.metadata.noundo?ButtonHTML({txt:'↶',attributes:{
 		onclick:'UndoAndFocus();',
 		onmousedown:'AutoRepeat(UndoAndFocus,250);',
@@ -29,12 +29,17 @@ function GameBar(targetIDsel){
 		ontouchend:'AutoStop(UndoAndFocus);',
 		ontouchcancel:'AutoStop(UndoAndFocus);'
 		}}):"";
+	return undo;
+}
+
+function GameBar(targetIDsel){
+	
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
 		ButtonLinkHTML("How to play?"),
-		undo,
+		UndoButton(),
 		restart,
 		//ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
