@@ -1,24 +1,30 @@
+level 1 (this line is an optional line, as any line starting with "level" will be ignored)
 1 Walk with the <b>arrow keys</b>.
 1 Your goal is to the right.
 1 Notice the winning animation.
 
+
+level 2 (level blocks should be separated by at least one empty line)
 2 You've fallen. Can you climb?
 2 Press <b>up</b> then <b>right</b> to climb a step.
 2 Observe the winning animation.
 
-3 Gravity affects both players and blocks.
+level 3 (numbers before each hints are optional, it is the order that counts)
+3.1 Gravity affects both players and blocks.
 3 Push the block rightwards.
-3 Watch the winning animation closely.
+Watch the winning animation closely.
 
-4 Falling through a goal means you have not reached it.
-4 Luckily, blocks can be carried and dropped.
-4 Press <b>down</b> to pick a block below, and <b>up</b> to drop it under yourself.
-4 After dropping the block on the left side, you can step on it even higher!
+level 4 (any number of hints can be provided per level)
+4.1 Falling through a goal means you have not reached it.
+4.2 Luckily, blocks can be carried and dropped.
+4.3 Press <b>down</b> to pick a block below, and <b>up</b> to drop it under yourself.
+4.4 After dropping the block on the left side, you can step on it even higher!
 
 5 To drop a block, you need space to be in tall position...
 5 ... but blocks can also be dropped sideways if a wall prevents them being carried along with you.
 5 Push the carried block against the left corner to drop it, then push it towards the pit.
 
+level 6 (external images can be referenced directly by providing a path)
 6 Carried blocks can be thrown sideways.
 6 hints/platformer-template/sideways.png
 6 Blocks can also be pushed from a tall position.
