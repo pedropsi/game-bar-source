@@ -2201,44 +2201,57 @@ function AutoStop(RepeatF,delay){
 
 ///////////////////////////////////////////////////////////////////////////////
 // Cycle Once
-function CycleOnce(array,n,bounded){
+
+function ArrayHash(array){
+	return "hash"+JSON.stringify(array).replace(/[^\w]|\d/g,"");
+}
+
+function CyclePosition(array){
+	var arrayhash=ArrayHash(array);
+	if(!Cycle.hashArray||!In(Cycle.hashArray,arrayhash))
+		return 0;
+	else
+		return Cycle.hashArray[arrayhash];
+}
+
+function Cycle(array,n,bounded){
 	var arrayhash="hash"+JSON.stringify(array).replace(/[^\w]|\d/g,"");
-	if(!CycleOnce.hashArray)
-		CycleOnce.hashArray={};
+	if(!Cycle.hashArray)
+		Cycle.hashArray={};
 	
-	if(!In(CycleOnce.hashArray,arrayhash))
-		CycleOnce.hashArray[arrayhash]=0;
+	if(!In(Cycle.hashArray,arrayhash))
+		Cycle.hashArray[arrayhash]=0;
 	else{
-		var i=(CycleOnce.hashArray[arrayhash]+n);
+		var i=(Cycle.hashArray[arrayhash]+n);
 		
 		if(bounded===true)
 			i=Math.max(Math.min(i,array.length-1),0);
 		else
 			i=i%(array.length);
 		
-		CycleOnce.hashArray[arrayhash]=i;
+		Cycle.hashArray[arrayhash]=i;
 	}
-	return array[CycleOnce.hashArray[arrayhash]];	
+	return array[Cycle.hashArray[arrayhash]];	
 }
 
 function CycleStay(array){
-	return CycleOnce(array,0);
+	return Cycle(array,0);
 }
 
 function CycleNext(array){
-	return CycleOnce(array,1);
+	return Cycle(array,1);
 }
 
 function CyclePrev(array){
-	return CycleOnce(array,-1);
+	return Cycle(array,-1);
 }
 
 function CycleNextBounded(array){
-	return CycleOnce(array,1,true);
+	return Cycle(array,1,true);
 }
 
 function CyclePrevBounded(array){
-	return CycleOnce(array,-1,true);
+	return Cycle(array,-1,true);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
