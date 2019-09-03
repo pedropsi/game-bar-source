@@ -2261,12 +2261,23 @@ function CyclePrevBounded(array){
 ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
 
 function LoadImage(fullpath){
-	var loaded=LoadData(fullpath)!==undefined;
-	if(loaded)
-		return ImageHTML({attributes:{src:fullpath}});
+	var hash=ArrayHash([fullpath]);
+	if(!LoadImage.cache)
+		LoadImage.cache={};
+	
+	if(In(LoadImage.cache,hash)){
+		return LoadImage.cache[hash];
+	}
 	else{
-		console.log("no image found at: ",fullpath);
-		return "";
+		var loaded=LoadData(fullpath)!==undefined;
+		if(loaded)
+			loaded=ImageHTML({attributes:{src:fullpath}});
+		else{
+			console.log("no image found at: ",fullpath);
+			loaded="";
+		}
+		LoadImage.cache[hash]=loaded;
+		return loaded;
 	}
 }
 
