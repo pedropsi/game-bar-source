@@ -802,8 +802,23 @@ function ElementHTML(optionsObj){
 	return "<"+tag+attributes+">"+txt+"</"+tag+">"		//txt and tag
 };
 
+function SingleElementHTML(optionsObj){
+	var tag=optionsObj.tag?optionsObj.tag:"div";
+	var attributes=(optionsObj.attributes)?' '+ReadAttributes(optionsObj.attributes):'';	//attributes is an Object
+	return "<"+tag+attributes+"/>"
+};
+
 
 // Basic Elements
+
+function ImageHTML(optionsObj){
+	var o=optionsObj?optionsObj:{};
+	o.tag="img";
+	if(!o.attributes)
+		o.attributes={src:"images/splash.png"}
+	return SingleElementHTML(o)
+};
+
 function ButtonHTML(optionsObj){
 	var o=optionsObj?optionsObj:{};
 	o.tag=o.tag?o.tag:"div";			//defaults to div
@@ -2213,4 +2228,22 @@ function CycleNextBounded(array){
 
 function CyclePrevBounded(array){
 	return CycleOnce(array,-1,true);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//Image
+ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
+
+function LoadImage(fullpath){
+	var loaded=LoadData(fullpath)!==undefined;
+	if(loaded)
+		return ImageHTML({attributes:{src:fullpath}});
+	else{
+		console.log("no image found at: ",fullpath);
+		return "";
+	}
+}
+
+function IsImageReference(ref){
+	return ImageExtensions.some(function(ext){return ref.replace(ext,"")!==ref});
 }

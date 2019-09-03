@@ -804,14 +804,24 @@ function Hints(){
 	return Hints.hints;
 }
 
-Hints.path="https://pedropsi.github.io/hints/"+pageIdentifier()+".txt";
+Hints.path="https://pedropsi.github.io/hints/";
 	
 function LoadHintsFile(){
 	if(!LoadHintsFile.loaded){
 		LoadHintsFile.loaded=true;
-		LoadHintsFile.file=LoadData(Hints.path);
+		LoadHintsFile.file=LoadData(Hints.path+pageIdentifier()+".txt");
 	}
 	return LoadHintsFile.file;
+}
+
+function HintDisplay(reference){
+	var fullpath=Hints.path+pageIdentifier()+"/"+reference.replace(/\s*/,"");
+	if(IsImageReference(fullpath)){
+		var img=LoadImage(fullpath);
+		if(img!=="")
+			return img;
+	}
+	return reference;
 }
 
 function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
@@ -913,7 +923,9 @@ function RequestHint(){
 		var DPOpts={questionname:"<b>General tip:</b> "+tip};
 	}
 	else{
-		var DPOpts={questionname:CycleStay(CurrentLevelHints())};
+		var tip=CycleStay(CurrentLevelHints());
+		tip=HintDisplay(tip);
+		var DPOpts={questionname:tip};
 		HintShortcutsF=HintShortcutsLevelF;
 	}
 	

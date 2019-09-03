@@ -26,7 +26,7 @@ level 4 (any number of hints can be provided per level)
 
 level 6 (external images can be referenced directly by providing a path)
 6 Carried blocks can be thrown sideways.
-6 hints/platformer-template/sideways.png
+6 sideways.png
 6 Blocks can also be pushed from a tall position.
 
 7 You can push multiple blocks.
