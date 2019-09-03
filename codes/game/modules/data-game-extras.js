@@ -828,7 +828,12 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 		return hintline.replace(/^(\d+)(\.\d+)*\s*/,"")
 	}
 	
-	return hintsperlevel.map(ParseHintParagraph);
+	hintsperlevel=hintsperlevel.map(ParseHintParagraph);
+	
+	for(var i=hintsperlevel.length;i<Levels().length;i++)
+		hintsperlevel[i]=["Sorry! No hints for this level.","You can do it!"];
+	
+	return hintsperlevel
 }
 
 
