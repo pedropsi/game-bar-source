@@ -328,10 +328,8 @@ function OpenModalPreOrder(campaigntext){
 //News
 function News(){
 	if(pageIdentifier()!=="burokku-konekuta"&&!inConfig("📰»"))
-		RequestDataPack([["plain",{
-		questionname:"<b>Pedro PSI's <em>news service</em>:</b><a href='burokku-konekuta.html' target='_blank'> Burokku Konekuta がリリースされました!</a>"}]],{
-			qdisplay:LaunchConsoleMessage});
-		activateConfig("📰»");
+		ConsoleAdd("<b>Pedro PSI's <em>news service</em>:</b><a href='burokku-konekuta.html' target='_blank'> Burokku Konekuta がリリースされました!</a>");
+	activateConfig("📰»");
 };
 
 News();
