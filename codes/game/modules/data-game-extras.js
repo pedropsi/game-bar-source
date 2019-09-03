@@ -39,6 +39,7 @@ function GameBar(targetIDsel){
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
 		ButtonLinkHTML("How to play?"),
+		HintButton(),
 		UndoButton(),
 		restart,
 		//ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
@@ -408,15 +409,15 @@ function RequestLevelSelector(){
 				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qdisplay:LaunchBalloon,
 				qtargetid:gameSelector,
-				shortcutExtras:extraShortcutsF,
+				shortcutExtras:ShortcutsLevelSelectorF,
 				requireConnection:false,
 				buttonSelector:"LevelSelectorButton"
 			});
 	}
 	
-	function extraShortcutsF(DP){
-		return {
-			"L":function(){Close(DP.qid)},
+	function ShortcutsLevelSelectorF(DP){
+		return FuseObjects(
+			ShortcutsBasicF(DP),{
 			"left":function(){ FocusPrev(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
 			"right":function(){FocusNext(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
 			"1":function(){DelayLevel(1)},
@@ -429,7 +430,7 @@ function RequestLevelSelector(){
 			"8":function(){DelayLevel(8)},
 			"9":function(){DelayLevel(9)},
 			"0":function(){DelayLevel(0)}
-		}
+		})
 	};
 	
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
@@ -642,14 +643,29 @@ keyActionsGame={
 	82:InstructGame,	
 	// Esc
 	27:InstructGame,
-	70:function(){FullscreenToggle(ParentSelector(gameSelector))},		//F
 	69:function(ev){			//E
 		RequestGameFeedback();
 		prevent(ev);//Avoid inputting the shortcut letter in the form
 		},
+	70:RequestFullscreen,		//F
+	72:RequestHint, 			//H
 	76:RequestLevelSelector, 	//L
 	77:ToggleCurrentSong		//M
 }
+
+function RequestFullscreen(){
+	FullscreenToggle(ParentSelector(gameSelector));
+}
+
+function ShortcutsBasicF(DP){
+	return {
+		"H":function(){Close(DP.qid)},
+		"E":RequestGameFeedback,
+		"F":RequestFullscreen,
+		"L":RequestLevelSelector,
+		"M":ToggleCurrentSong
+	}
+};
 
 //Execute key instructions
 function CheckRegisterKey(event){
@@ -781,6 +797,133 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 	return styleSheet;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//Hints
+
+function Hints(){
+	return Hints.hints;
+}
+
+Hints.path="https://pedropsi.github.io/hints/"+pageIdentifier()+".txt";
+	
+function LoadHintsFile(){
+	if(!LoadHintsFile.loaded){
+		LoadHintsFile.loaded=true;
+		LoadHintsFile.file=LoadData(Hints.path);
+	}
+	return LoadHintsFile.file;
+}
+
+function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
+	var hintstxt=hintstxt.replace(/(?:^level.*)/gim,"\n\n");
+	var hintsperlevel=hintstxt.split(/(?:\n\s*)(?:\n\s*)+/); //Two or more newlines separate level items. Lines starting by level... are ignored
+	hintsperlevel=hintsperlevel.filter(function(h){return h!=="";}); //ignore empty blocks
+	
+	function ParseHintParagraph(hintparagraph){ //One hint per line
+		var hintslines=hintparagraph.split(/\n\s*/);
+		return hintslines.map(ParseHintLine);
+	}
+	
+	function ParseHintLine(hintline){ //Remove numeric indicators, optionally split by full stops
+		return hintline.replace(/^(\d+)(\.\d+)*\s*/,"")
+	}
+	
+	return hintsperlevel.map(ParseHintParagraph);
+}
 
 
+function Hints(){
+	if(!Hints.cached)
+		Hints.cached=ParseHintsFile(LoadHintsFile());
+	return Hints.cached;
+}
 
+function LevelHints(lvl){
+	return Hints()[lvl-1];
+}
+
+function CurrentLevelHints(){
+	return LevelHints(LevelNumber(curlevel));
+}
+
+function HintsCount(n){
+	if(HintsCount.cached===undefined)
+		HintsCount.cached=0;
+	if(n!==undefined)
+		HintsCount.cached=HintsCount.cached=+n;
+	return HintsCount.cached;
+}
+
+function HintButton(){
+	if(Hints()===undefined)
+		return "";
+	else
+		return ButtonHTML({txt:"⚿",attributes:{onclick:'RequestHint();',id:'HintButton'}});	
+}
+
+
+function NextHint(){
+	CycleNextBounded(CurrentLevelHints());
+	RequestHint();	
+}
+
+function PrevHint(){
+	CyclePrevBounded(CurrentLevelHints());
+	RequestHint();	
+}
+
+
+function RequestHint(){
+	
+	function HintShortcutsLevelF(DP){
+		return FuseObjects(ShortcutsBasicF(DP),{
+			"left":function(){Close(DP.qid);PrevHint()},
+			"up":function(){Close(DP.qid);NextHint()},
+			"right":function(){Close(DP.qid);NextHint()},
+			"down":function(){Close(DP.qid);PrevHint()}
+		});
+	};
+	
+	var HintShortcutsF=ShortcutsBasicF;
+	
+	if(!RequestHint.requested||titleScreen){
+		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
+		var tip=CycleNextBounded([
+			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press ⚿ again in any level to reveal a hint!</p>",
+			"You got this! Now go ahead and play!"
+			]);
+		var DPOpts={questionname:tip};
+	}
+	else if(ScreenMessage(curlevel)){
+		var tip=CycleNext([
+		"Just relax and have fun!",
+		"Send Pedro PSI feedback by pressing ✉, anytime!",
+		"Remember to pause once in a while!",
+		"If you like this game, share it with your friends!"]);
+		var DPOpts={questionname:"<b>General tip:</b> "+tip};
+	}
+	else{
+		var DPOpts={questionname:CycleStay(CurrentLevelHints())};
+		HintShortcutsF=HintShortcutsLevelF;
+	}
+	
+	function RequestHintIndeed(){
+		RequestDataPack([
+				['plain',DPOpts]
+			],
+			{
+				actionvalid:Identity,
+				actionText:"Got it!",
+				qid:RequestHint.id,
+				qonsubmit:FocusAndResetFunction(RequestHint,GameFocus),
+				qonclose:FocusAndResetFunction(RequestHint,GameFocus),
+				qdisplay:LaunchBalloon,
+				qtargetid:gameSelector,
+				shortcutExtras:HintShortcutsF,
+				requireConnection:false,
+				buttonSelector:"HintButton"
+			});
+	}
+	
+	OpenerCloser(RequestHint,RequestHintIndeed,GameFocus);
+}

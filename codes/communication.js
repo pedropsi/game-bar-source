@@ -196,13 +196,15 @@ function RequestGameFeedback(){
 		qonsubmit:RecordAndLaunchThanksBalloon,
 		qonclose:FocusAndResetFunction(RequestGameFeedback,GameFocus),
 		thanksmessage:"★ Thank you for your feedback! ★",
-		shortcutExtras:extraShortcutsF,
+		shortcutExtras:FeedbackShortcutsF,
 		buttonSelector:"FeedbackButton",
 	};
 	
-	function extraShortcutsF(DP){return {
-		"E":function(){Close(DP.qid)
-		}}}
+	function FeedbackShortcutsF(DP){
+		return FuseObjects(ShortcutsBasicF(DP),{
+			"E":function(){Close(DP.qid)}
+			});
+	}
 	
 	var DFsettingsObj={};
 	var DFSnapshot=['snapshot',{}];
