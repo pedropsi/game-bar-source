@@ -877,6 +877,8 @@ function PrevHint(){
 
 
 function RequestHint(){
+	if(!Hints())
+		return console.log("hints file not found");
 	
 	function HintShortcutsLevelF(DP){
 		return FuseObjects(ShortcutsBasicF(DP),{
