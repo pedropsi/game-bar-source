@@ -833,8 +833,11 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 
 
 function Hints(){
-	if(!Hints.cached)
-		Hints.cached=ParseHintsFile(LoadHintsFile());
+	if(!Hints.cached){
+		Hints.cached=LoadHintsFile();
+		if(Hints.cached)
+			Hints.cached=ParseHintsFile(Hints.cached);
+	}
 	return Hints.cached;
 }
 
