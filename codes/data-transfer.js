@@ -24,13 +24,31 @@ var LOGO='<?xml version="1.0"?>\
 function Identity(){return;};
 
 ///////////////////////////////////////////////////////////////////////////////
+//Distinguish Objects and Arrays
+function IsArray(array){
+	return FunctionName(array.constructor)==="Array";
+}
+
+function IsObject(array){
+	return FunctionName(array.constructor)==="Object";
+}
+
+///////////////////////////////////////////////////////////////////////////////
 //Find in Array
-function In(array,n){return array.indexOf(n)>=0;};
+function In(array,n){
+	if(IsArray(array))
+		return array.indexOf(n)>=0;
+	else if(IsObject(array))
+		return Object.keys(array).indexOf(n)>=0;
+	else
+		return false;
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 //Get Function Name as a string
 function FunctionName(FunctionF){
-	return FunctionF.toString().replace(/\(.*/,"").replace("function ","");
+	var name=FunctionF.toString().replace(/\(.*/,"").replace("function ","");
+	return name.replace(/\s.*/gm,"");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2152,4 +2170,47 @@ function AutoStop(RepeatF,delay){
 	setTimeout(function(){
 		clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
 	},delay);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Cycle Once
+function CycleOnce(array,n,bounded){
+	var arrayhash="hash"+JSON.stringify(array).replace(/[^\w]|\d/g,"");
+	if(!CycleOnce.hashArray)
+		CycleOnce.hashArray={};
+	
+	if(!In(CycleOnce.hashArray,arrayhash))
+		CycleOnce.hashArray[arrayhash]=0;
+	else{
+		var i=(CycleOnce.hashArray[arrayhash]+n);
+		
+		if(bounded===true)
+			i=Math.max(Math.min(i,array.length-1),0);
+		else
+			i=i%(array.length);
+		
+		CycleOnce.hashArray[arrayhash]=i;
+	}
+	return array[CycleOnce.hashArray[arrayhash]];	
+}
+
+function CycleStay(array){
+	return CycleOnce(array,0);
+}
+
+function CycleNext(array){
+	return CycleOnce(array,1);
+}
+
+function CyclePrev(array){
+	return CycleOnce(array,-1);
+}
+
+function CycleNextBounded(array){
+	return CycleOnce(array,1,true);
+}
+
+function CyclePrevBounded(array){
+	return CycleOnce(array,-1,true);
 }
