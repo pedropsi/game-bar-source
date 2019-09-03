@@ -561,11 +561,20 @@ function GetElement(selector,pSelector){
 //Inside
 
 function InsideAt(parentSelector,selector){
-	return Inside(parentSelector,selector)||GetElement(parentSelector).isEqualNode(GetElement(selector));
+	var p=GetElement(parentSelector);
+	if(p===null)
+		return false; //see below
+	return Inside(parentSelector,selector)||p.isEqualNode(s);
 }
 
 function Inside(parentSelector,selector){
-	return GetElement(parentSelector).contains(GetElement(selector));
+	var p=GetElement(parentSelector);
+	if(p===null)
+		return false; //no thing fits inside the infinitely small
+	var s=GetElement(selector);
+	if(s===null)
+		return true; //the infinitely small fits inside anything
+	return p.contains(s);
 }
 
 function Outside(parentSelector,selector){
@@ -1321,6 +1330,8 @@ function UnFocusable(e){
 
 function FocusInside(targetIDsel){
 	var e=GetElement(targetIDsel);
+	if(!e)
+		return false;
 	if(Focusable(e)){
 		e.focus();
 		return true;
