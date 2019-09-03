@@ -564,7 +564,7 @@ function InsideAt(parentSelector,selector){
 	var p=GetElement(parentSelector);
 	if(p===null)
 		return false; //see below
-	return Inside(parentSelector,selector)||p.isEqualNode(s);
+	return Inside(parentSelector,selector)||p.isEqualNode(GetElement(selector));
 }
 
 function Inside(parentSelector,selector){
