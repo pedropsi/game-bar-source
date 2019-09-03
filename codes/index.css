@@ -948,6 +948,7 @@ tbody tr:hover{
 }
 .comment[data-depth="1"]{
     margin-left:unset;
+    margin-top: var(--h8);
 }
 .comment[data-depth="2"]{
     margin-left:var(--h2);
