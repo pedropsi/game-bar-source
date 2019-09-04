@@ -880,14 +880,14 @@ function HintButton(){
 }
 
 
-function NextHint(){
+function RequestNextHint(){
 	CycleNextBounded(CurrentLevelHints());
-	RequestHint();	
+	setTimeout(RequestHint,500);
 }
 
-function PrevHint(){
+function RequestPrevHint(){
 	CyclePrevBounded(CurrentLevelHints());
-	RequestHint();	
+	setTimeout(RequestHint,500);	
 }
 
 
@@ -897,10 +897,10 @@ function RequestHint(){
 	
 	function HintShortcutsLevelF(DP){
 		return FuseObjects(ShortcutsBasicF(DP),{
-			"left":function(){Close(DP.qid);PrevHint()},
-			"up":function(){Close(DP.qid);NextHint()},
-			"right":function(){Close(DP.qid);NextHint()},
-			"down":function(){Close(DP.qid);PrevHint()}
+			"left":function(){FocusPrev();Close(DP.qid);RequestPrevHint()},
+			"up":function(){FocusNext();Close(DP.qid);RequestNextHint()},
+			"right":function(){FocusNext();Close(DP.qid);RequestNextHint()},
+			"down":function(){FocusPrev();Close(DP.qid);RequestPrevHint()}
 		});
 	};
 	
@@ -949,16 +949,18 @@ function RequestHint(){
 						RequestNextHint();
 						break;
 						default:
+						Close(RequestHint.id);
+					};
+				}
+			
+			}]
+		];
 		HintShortcutsF=HintShortcutsLevelF;
 	}
 	
 	function RequestHintIndeed(){
-		RequestDataPack([
-				['plain',DPOpts]
-			],
+		RequestDataPack(DPFields,
 			{
-				actionvalid:Identity,
-				actionText:"Got it!",
 				qid:RequestHint.id,
 				qonsubmit:FocusAndResetFunction(RequestHint,GameFocus),
 				qonclose:FocusAndResetFunction(RequestHint,GameFocus),
@@ -968,7 +970,8 @@ function RequestHint(){
 				requireConnection:false,
 				buttonSelector:"HintButton"
 			});
-	}
+	};
 	
 	OpenerCloser(RequestHint,RequestHintIndeed,GameFocus);
+	
 }
