@@ -560,7 +560,7 @@ function GetElement(selector,pSelector){
 
 //Inside
 
-function InsideAt(parentSelector,selector){
+/* function InsideAt(parentSelector,selector){
 	var p=GetElement(parentSelector);
 	if(p===null)
 		return false; //see below
@@ -578,6 +578,24 @@ function Inside(parentSelector,selector){
 }
 
 function Outside(parentSelector,selector){
+	return !InsideAt(parentSelector,selector);
+} */
+
+function InsideAt(parentSelector,selector){
+	if(GetElement(parentSelector)===null||GetElement(selector)===null)
+		return undefined; //see below
+	return Inside(parentSelector,selector)||GetElement(parentSelector).isEqualNode(GetElement(selector));
+}
+
+function Inside(parentSelector,selector){
+	if(GetElement(parentSelector)===null||GetElement(selector)===null)
+		return undefined; //see below
+	return GetElement(parentSelector).contains(GetElement(selector));
+}
+
+function Outside(parentSelector,selector){
+	if(GetElement(parentSelector)===null||GetElement(selector)===null)
+		return undefined; //see below
 	return !InsideAt(parentSelector,selector);
 }
 
