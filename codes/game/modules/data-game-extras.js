@@ -919,7 +919,6 @@ function RequestHint(){
 			"down":function(){FocusPrev();Close(DP.qid);RequestPrevHint()}
 		});
 		
-		console.log(shorts);
 		return shorts;
 	};
 	

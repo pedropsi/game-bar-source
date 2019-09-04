@@ -560,27 +560,6 @@ function GetElement(selector,pSelector){
 
 //Inside
 
-/* function InsideAt(parentSelector,selector){
-	var p=GetElement(parentSelector);
-	if(p===null)
-		return false; //see below
-	return Inside(parentSelector,selector)||p.isEqualNode(GetElement(selector));
-}
-
-function Inside(parentSelector,selector){
-	var p=GetElement(parentSelector);
-	if(p===null)
-		return false; //no thing fits inside the infinitely small
-	var s=GetElement(selector);
-	if(s===null)
-		return true; //the infinitely small fits inside anything
-	return p.contains(s);
-}
-
-function Outside(parentSelector,selector){
-	return !InsideAt(parentSelector,selector);
-} */
-
 function InsideAt(parentSelector,selector){
 	if(GetElement(parentSelector)===null||GetElement(selector)===null)
 		return undefined; //see below
@@ -953,6 +932,7 @@ function DefaultDataPack(){
 		fields:[],
 
 		qid:GenerateId(),				//id
+		qclass:"",						//class
 		
 		destination:'Feedback',			//Name of data repository
 		requireConnection:true,			//Does it need a connection?
@@ -1019,6 +999,7 @@ function DataFieldTypes(type){
 			qtype:ChoicesButtonRowHTML}),
 		navi:NewDataField({
 			qfield:"navi",
+			qclass:"nowrap",
 			questionname:"",
 			qchoices:["◀","OK","▶"],
 			qtype:ExclusiveChoiceButtonRowHTML,
@@ -1108,7 +1089,7 @@ function ChoiceHTML(dataField,buttontype){
 	var clear='onload="ClearData(\''+dataField.qfield+'\',\''+dataField.pid+'\')" ';
 	for(var i in dataField.qchoices)
 		choi=choi+buttontype(dataField.qchoices[i],dataField,i);
-	return '<div class="buttonrow" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
+	return '<div class="buttonrow '+dataField.qclass+'" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
 }
 
 function ChoicesButtonRowHTML(dataField){

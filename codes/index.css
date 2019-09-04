@@ -1154,3 +1154,7 @@ code{
     background-color: var(--white);
     cursor:context-menu;
 }
+
+.nowrap{
+    flex-wrap: nowrap;
+}
