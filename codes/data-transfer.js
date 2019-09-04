@@ -999,6 +999,13 @@ function DataFieldTypes(type){
 			questionname:"Which ones?",
 			qchoices:["1","2","3","4","5"],
 			qtype:ChoicesButtonRowHTML}),
+		navi:NewDataField({
+			qfield:"navi",
+			questionname:"",
+			qchoices:["◀","OK","▶"],
+			qtype:ExclusiveChoiceButtonRowHTML,
+			defaultChoice:function(i,txt){return txt==="OK";},
+			qsubmittable:false}),
 		pass:NewDataField({
 			questionname:"What is the password?",
 			qfield:'answer',
