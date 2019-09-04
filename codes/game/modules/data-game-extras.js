@@ -415,9 +415,11 @@ function RequestLevelSelector(){
 			});
 	}
 	
-	function ShortcutsLevelSelectorF(DP){
+	function LevelSelectorShortcutsF(DP){
 		return FuseObjects(
-			ShortcutsBasicF(DP),{
+			ShortcutsBasicF(DP),
+			{
+			"L":function(){Close(DP.qid)},
 			"left":function(){ FocusPrev(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
 			"right":function(){FocusNext(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
 			"1":function(){DelayLevel(1)},
@@ -647,22 +649,29 @@ keyActionsGame={
 		RequestGameFeedback();
 		prevent(ev);//Avoid inputting the shortcut letter in the form
 		},
-	70:RequestFullscreen,		//F
+	70:RequestGameFullscreen,	//F
 	72:RequestHint, 			//H
 	76:RequestLevelSelector, 	//L
 	77:ToggleCurrentSong		//M
 }
 
-function RequestFullscreen(){
+function RequestGameFullscreen(){
 	FullscreenToggle(ParentSelector(gameSelector));
 }
 
+function CloseBeforeF(DP,F){
+	return function(){
+		Close(DP.qid);
+		F()
+	}
+};
+
 function ShortcutsBasicF(DP){
+	
 	return {
-		"H":function(){Close(DP.qid)},
-		"E":RequestGameFeedback,
-		"F":RequestFullscreen,
-		"L":RequestLevelSelector,
+		"H":CloseBeforeF(DP,RequestHint),
+		"F":RequestGameFullscreen,
+		"L":CloseBeforeF(DP,RequestLevelSelector),
 		"M":ToggleCurrentSong
 	}
 };
@@ -821,7 +830,7 @@ function HintDisplay(reference){
 		if(img!=="")
 			return img;
 	}
-	return reference;
+	return "<p>"+reference+"</p>";
 }
 
 function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
@@ -841,7 +850,7 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 	hintsperlevel=hintsperlevel.map(ParseHintParagraph);
 	
 	for(var i=hintsperlevel.length;i<Levels().length;i++)
-		hintsperlevel[i]=["Sorry! No hints for this level.","You can do it!"];
+		hintsperlevel[i]=["Sorry! No hints for this level... but you can do it!"];
 	
 	return hintsperlevel
 }
@@ -895,16 +904,26 @@ function RequestHint(){
 	if(!Hints())
 		return console.log("hints file not found");
 	
-	function HintShortcutsLevelF(DP){
+	function HintShortcutsBasicF(DP){
 		return FuseObjects(ShortcutsBasicF(DP),{
+		"H":function(){Close(DP.qid)}
+		})
+	};
+	
+	function HintShortcutsLevelF(DP){
+		
+		var shorts=FuseObjects(HintShortcutsBasicF(DP),{
 			"left":function(){FocusPrev();Close(DP.qid);RequestPrevHint()},
 			"up":function(){FocusNext();Close(DP.qid);RequestNextHint()},
 			"right":function(){FocusNext();Close(DP.qid);RequestNextHint()},
 			"down":function(){FocusPrev();Close(DP.qid);RequestPrevHint()}
 		});
+		
+		console.log(shorts);
+		return shorts;
 	};
 	
-	var HintShortcutsF=ShortcutsBasicF;
+	var HintShortcutsF=HintShortcutsBasicF;
 	
 	if(!RequestHint.requested||titleScreen){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
@@ -932,7 +951,7 @@ function RequestHint(){
 		var navichoices=["◀","OK","▶"];
 		if(p===0)
 			navichoices.shift();
-		if((p+1)===CurrentLevelHints().length)
+		if(p===CurrentLevelHints().length-1)
 			navichoices.pop();
 		
 		var DFOpts={questionname:tip};
