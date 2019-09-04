@@ -1107,13 +1107,20 @@ function ChoicesButtonRowHTML(dataField){
 
 function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
-		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\")';
-		var SelectF='ToggleThisOnly(event,this);SetData'+args;
-		var buAttribs={'onclick':SelectF,'onfocus':SelectF,'ondblclick':SelectF+';CheckSubmit(\"'+dataFiel.pid+'\")',id:"choice-"+choice};
+		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\");';
+		var SetF='SetData'+args;
+		var ExecuteF='ExecuteChoice'+args;
+		var SelectF='ToggleThisOnly(event,this);'+SetF;
+		//var ExecuteF=SelectF+'CheckSubmit(\"'+dataFiel.pid+'\");';
+		var buAttribs={
+			'onfocus':SelectF,
+			'onclick':ExecuteF,
+			'ondblclick':ExecuteF,
+			id:"choice-"+choice};
 		var bu;
 		//console.log(i,choice,typeof i);
 		if(dataFiel.defaultChoice(i,choice)){
-			bu=ButtonHTML({txt:choice,attributes:FuseObjects(buAttribs,{class:"selected",onload:'SetData'+args})});
+			bu=ButtonHTML({txt:choice,attributes:FuseObjects(buAttribs,{class:"selected",onload:SetF})});
 			SetData(dataFiel.qfield,choice,dataFiel.pid);//Actualy choose it
 		}
 		else 
@@ -1577,7 +1584,7 @@ function ClearData(field,id){
 };
 
 function GetField(field,parentid){
-	var DP=GetDataPack(parentid)
+	var DP=GetDataPack(parentid);
 	if(DP!==undefined){
 		var fis=DP.fields.filter(function(f){return (f.qfield===field)});
 		if(fis.length>0)
@@ -1591,12 +1598,17 @@ function GetFieldValue(field,parentid){
 		return	fi.qvalue;
 }
 
-function ChoiceExecute(field,value,id){
+function ExecuteChoice(field,value,pid){
+	GetField(field,pid).executeChoice(value,pid); //Not dynamically updated. And why should it be?
+};
+
+/*
+function ExecuteChoice(field,value,id){
 	GetField(field,id).executeChoice(id,value); //Not dynamically updated. And why should it be?
 };
 
 function ToggleData(field,value,id){
-	ChoiceExecute(field,value,id);
+	ExecuteChoice(field,value,id);
 	var data=GetDefaultData(field,id);
 	if(typeof data==="undefined")
 		SetData(field,value,id);
@@ -1609,9 +1621,9 @@ function ToggleData(field,value,id){
 }
 
 function SwitchData(field,value,id){
-	ChoiceExecute(field,value,id);
+	ExecuteChoice(field,value,id);
 	SetData(field,value,id);
-}
+}*/
 
 ///////////////////////////////////////////////////////////////////////////////
 // Global Data Transmission Variables

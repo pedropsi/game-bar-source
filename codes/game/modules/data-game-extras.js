@@ -383,6 +383,7 @@ function RequestLevelSelector(){
 			questionname:LevelSelectorTitle(),
 			qfield:"level",
 			qchoices:UnlockedLevels().map(StarLevelNumber),
+			executeChoice:ChooseLevelClose,
 			defaultChoice:function(i,c){return Number(c)===LevelNumber(curlevel)}
 		}
 	}
@@ -393,6 +394,7 @@ function RequestLevelSelector(){
 			questionname:"Reached checkpoints:",
 			qfield:"level",
 			qchoices:checkpointIndices.map(function(l){return (Number(l)+1)+"";}),
+			executeChoice:ChooseLevelClose,
 			defaultChoice:function(i,c){return Number(c)===checkpointIndices.length}
 		}
 	}
@@ -420,8 +422,8 @@ function RequestLevelSelector(){
 			ShortcutsBasicF(DP),
 			{
 			"L":function(){Close(DP.qid)},
-			"left":function(){ FocusPrev(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
-			"right":function(){FocusNext(function(bu){SelectLevel(UnstarLevel(bu.innerHTML))})},
+			"left":function(){ FocusPrev()},
+			"right":function(){FocusNext()},
 			"1":function(){DelayLevel(1)},
 			"2":function(){DelayLevel(2)},
 			"3":function(){DelayLevel(3)},
@@ -437,6 +439,7 @@ function RequestLevelSelector(){
 	
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
 }
+
 
 function MaxLevelDigits(){
 	if(MaxLevelDigits.m)
@@ -458,8 +461,16 @@ function UnstarLevel(l){
 }
 
 function LoadLevelFromDP(DP){
-	var lvl=UnstarLevel(FindData('level',DP.qid));
-	SelectLevel(lvl);
+	ChooseLevel(FindData('level',DP.qid));
+};
+
+function ChooseLevelClose(choice,pid){
+	ChooseLevel(choice);
+	Close(pid);
+};
+
+function ChooseLevel(choice){
+	SelectLevel(UnstarLevel(choice))
 };
 
 function SelectLevel(lvl){
