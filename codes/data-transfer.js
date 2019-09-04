@@ -1366,8 +1366,7 @@ function FocusPrev(F){
 	if(prev===null)
 		prev=document.activeElement.parentElement.lastChild;
 	FocusElement(prev);
-	if(F)
-		F(prev);
+	if(F){F(prev)};
 }
 
 function FocusNext(F){
@@ -1375,8 +1374,7 @@ function FocusNext(F){
 	if(next===null)
 		next=document.activeElement.parentElement.firstChild;
 	FocusElement(next);
-	if(F)
-		F(next);
+	if(F){F(next)};
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2209,7 +2207,7 @@ function AutoStop(RepeatF,delay){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Cycle Once
+// Cycle
 
 function ArrayHash(array){
 	return "hash"+JSON.stringify(array).replace(/[^\w]|\d/g,"");
