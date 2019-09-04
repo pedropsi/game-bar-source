@@ -907,7 +907,7 @@ function DefaultDataField(){
 		
 		qchoices:"",					//answer options list
 		executeChoice:Identity,			//immediate changes on toggle receives (id, choice)
-		defaultChoice:DefaultChoice,	//choice formatting, based on itself
+		defaultChoice:DefaultChoice,	//choice formatting, based on itself, receives (index,choicetxt)
 
 		qtype:PlainHTML,				//Format of question :receives a DataField
 		qplaceholder:"❤ Pedro PSI ❤",	//Placeholder answer
