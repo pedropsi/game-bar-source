@@ -912,7 +912,8 @@ function RequestHint(){
 			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press ⚿ again in any level to reveal a hint!</p>",
 			"You got this! Now go ahead and play!"
 			]);
-		var DPOpts={questionname:tip};
+		var DFOpts={questionname:tip};
+		var DPFields=[['plain',DFOpts]];
 	}
 	else if(ScreenMessage(curlevel)){
 		var tip=CycleNext([
@@ -920,12 +921,34 @@ function RequestHint(){
 		"Send Pedro PSI feedback by pressing ✉, anytime!",
 		"Remember to pause once in a while!",
 		"If you like this game, share it with your friends!"]);
-		var DPOpts={questionname:"<b>General tip:</b> "+tip};
+		var DFOpts={questionname:"<b>General tip:</b> "+tip};
+		var DPFields=[['plain',DFOpts]];
 	}
 	else{
 		var tip=CycleStay(CurrentLevelHints());
 		tip=HintDisplay(tip);
-		var DPOpts={questionname:tip};
+		
+		var p=CyclePosition(CurrentLevelHints());
+		var navichoices=["◀","OK","▶"];
+		if(p===0)
+			navichoices.shift();
+		if((p+1)===CurrentLevelHints().length)
+			navichoices.pop();
+		
+		var DFOpts={questionname:tip};
+		var DPFields=[
+			['plain',DFOpts],
+			['navi',{
+				qchoices:navichoices,
+				executeChoice:function(id){
+					switch(id){
+						case "choice-◀":
+						RequestPrevHint();
+						break;
+						case "choice-▶":
+						RequestNextHint();
+						break;
+						default:
 		HintShortcutsF=HintShortcutsLevelF;
 	}
 	
