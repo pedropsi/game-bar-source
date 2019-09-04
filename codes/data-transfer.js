@@ -1109,7 +1109,7 @@ function ChoicesButtonRowHTML(dataField){
 function ExclusiveChoiceButtonRowHTML(dataField){
 	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\")';
-		var SelectF='ToggleThisOnly(event,this);SwitchData'+args;
+		var SelectF='ToggleThisOnly(event,this);SetData'+args;
 		var buAttribs={'onclick':SelectF,'onfocus':SelectF,'ondblclick':SelectF+';CheckSubmit(\"'+dataFiel.pid+'\")',id:"choice-"+choice};
 		var bu;
 		//console.log(i,choice,typeof i);
