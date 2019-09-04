@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
 
-var gameSelector='#puzzlescript-game';
+var gameSelector='#gameCanvas';
 
 function PrepareGame(){
 	StopCapturingKeys(onKeyDown);ResumeCapturingKeys(OnKeyDownGame);
@@ -54,7 +54,7 @@ function GameBar(targetIDsel){
 }
 
 function AddGameBar(targetIDsel){
-	var targetIDsel=targetIDsel||gameSelector;
+	var targetIDsel=targetIDsel||ParentSelector(gameSelector);
 	var bar=GetElement("GameBar");
 	if(bar!==null)
 		bar.parentNode.removeChild(bar);
@@ -408,8 +408,8 @@ function RequestLevelSelector(){
 				qonsubmit:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qdisplay:LaunchBalloon,
-				qtargetid:gameSelector,
-				shortcutExtras:ShortcutsLevelSelectorF,
+				qtargetid:ParentSelector(gameSelector),
+				shortcutExtras:LevelSelectorShortcutsF,
 				requireConnection:false,
 				buttonSelector:"LevelSelectorButton"
 			});
@@ -739,7 +739,7 @@ function FindSoundName(seed){ //Finds the sound name which overwrites the PS see
 ////////////////////////////////////////////////////////////////////////////////
 //Colorise game bar
 
-var stylesheet="#GameBar,"+gameSelector+"{\
+var stylesheet="#GameBar,"+ParentSelector(gameSelector)+"{\
     --white:rgba(255,255,255,var(--t));         /*#FFF*/\
     --smokewhite:rgba(241,241,241,var(--t))    /*#f1f1f1*/;\
     --darkblue:rgba(7,0,112,var(--t))          /*#070070*/;\
@@ -965,7 +965,7 @@ function RequestHint(){
 				qonsubmit:FocusAndResetFunction(RequestHint,GameFocus),
 				qonclose:FocusAndResetFunction(RequestHint,GameFocus),
 				qdisplay:LaunchBalloon,
-				qtargetid:gameSelector,
+				qtargetid:ParentSelector(gameSelector),
 				shortcutExtras:HintShortcutsF,
 				requireConnection:false,
 				buttonSelector:"HintButton"
