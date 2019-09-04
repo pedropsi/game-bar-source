@@ -485,6 +485,7 @@ function SelectUnlockedLevel(lvl){
 		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
 		lvl=lvl<2?0:(LevelScreens()[lvl-2]+1);
 		GoToScreen(lvl);
+		//Add guard to avoid new reload of same level
 	}
 	else{
 		GoToScreenCheckpoint(lvl);
@@ -901,12 +902,16 @@ function HintButton(){
 
 
 function RequestNextHint(){
+	console.log("!>>");
 	CycleNextBounded(CurrentLevelHints());
+	RequestHint();//Close
 	setTimeout(RequestHint,500);
 }
 
 function RequestPrevHint(){
+	console.log("!");
 	CyclePrevBounded(CurrentLevelHints());
+	RequestHint();//Close
 	setTimeout(RequestHint,500);	
 }
 
@@ -969,19 +974,16 @@ function RequestHint(){
 			['plain',DFOpts],
 			['navi',{
 				qchoices:navichoices,
-				executeChoice:function(id){
-					switch(id){
-						case "choice-◀":
-						RequestPrevHint();
-						break;
-						case "choice-▶":
-						RequestNextHint();
-						break;
-						default:
-						Close(RequestHint.id);
+				executeChoice:function(choice,pid){
+					var actions={
+						"◀":RequestPrevHint,
+						"▶":RequestNextHint,
+						"OK":function(){Close(RequestHint.id)}
 					};
+					if(In(actions,choice))
+						actions[choice]();
 				}
-			
+
 			}]
 		];
 		HintShortcutsF=HintShortcutsLevelF;
