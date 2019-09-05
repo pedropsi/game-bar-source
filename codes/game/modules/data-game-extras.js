@@ -335,6 +335,10 @@ function LevelNumber(curlevel){
 	return LevelScreens().filter(function(l){return l<curlevel}).length+1;
 }
 
+function CurLevelNumber(){
+	return LevelNumber(curlevel);
+}
+
 
 var LevelLookahead=0;	//Max number of unsolved levels shown, in linear progression: 0 = all  /
 var bossLevels=[]; 		//Require beating all previous levels to show up; all previous levels + itself to show levels afterwards
@@ -384,7 +388,7 @@ function RequestLevelSelector(){
 			qfield:"level",
 			qchoices:UnlockedLevels().map(StarLevelNumber),
 			executeChoice:ChooseLevelClose,
-			defaultChoice:function(i,c){return UnstarLevel(c)===LevelNumber(curlevel)}
+			defaultChoice:function(i,c){return UnstarLevel(c)===CurLevelNumber()}
 		}
 	}
 	else{
@@ -452,14 +456,17 @@ function MaxLevelDigits(){
 function StarLevelNumber(n){
 	var m=n+"";
 	var padding="0".repeat(MaxLevelDigits()-m.length);
-	return padding+m+(LevelSolved(n)?"★":"");
+	var star="★";
+	if(Hints()&&UsedHints(n)!==0)
+		star="☆";
+	return padding+m+(LevelSolved(n)?star:"");
 }
 function StarLevel(l){
 	var n=LevelNumber(l);
 	return StarLevelNumber(n);
 }
 function UnstarLevel(l){
-	return Number(l.replace("★",""));
+	return Number(l.replace("★","").replace("☆",""));
 }
 
 function LoadLevelFromDP(DP){
@@ -485,7 +492,7 @@ function SelectLevel(lvl){
 function SelectUnlockedLevel(lvl){
 	if(!HasCheckpoint()){
 		//Guards against returning to same level
-		if(lvl===LevelNumber(curlevel)&&!titleScreen)
+		if(lvl===CurLevelNumber()&&!titleScreen)
 			return console.log("stay in lvl ",lvl);
 		
 		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
@@ -827,13 +834,19 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 ////////////////////////////////////////////////////////////////////////////////
 //Hints
 
-function Hints(){
+function Hints(lvl){
 	if(!Hints.cached){
 		Hints.cached=LoadHintsFile();
-		if(Hints.cached)
+		if(Hints.cached){
 			Hints.cached=ParseHintsFile(Hints.cached);
+			Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
+		}
 	}
-	return Hints.cached;
+	
+	if(lvl===undefined)
+		return Hints.cached;
+	else
+		return Hints.cached[lvl-1];
 }
 
 Hints.path="https://pedropsi.github.io/hints/";
@@ -873,28 +886,36 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 	hintsperlevel=hintsperlevel.map(ParseHintParagraph);
 	
 	for(var i=hintsperlevel.length;i<Levels().length;i++)
-		hintsperlevel[i]=["Sorry! No hints for this level... but you can do it!"];
+		hintsperlevel[i]=[];
 	
 	return hintsperlevel
 }
 
 
 
-function LevelHints(lvl){
-	return Hints()[lvl-1];
-}
-
 function CurrentLevelHints(){
-	return LevelHints(LevelNumber(curlevel));
+	return Hints(CurLevelNumber());
 }
 
-function HintsCount(n){
-	if(HintsCount.cached===undefined)
-		HintsCount.cached=0;
-	if(n!==undefined)
-		HintsCount.cached=HintsCount.cached=+n;
-	return HintsCount.cached;
+function SeeHint(lvl,hintN){
+	if(UsedHints(lvl)<hintN&&Hints(lvl).length>=hintN)
+		Hints.used[lvl-1]=hintN;
 }
+
+function AvailableHints(lvl){
+	if(lvl===undefined) //Global
+		return Levels().map(AvailableHints).reduce(Accumulate);
+	else				//In particular level
+		return	Hints(lvl).length;
+}
+
+function UsedHints(lvl){
+	if(lvl===undefined) //Global
+		return Levels().map(UsedHints).reduce(Accumulate);
+	else				//In particular level
+		return	Hints.used[lvl-1];
+}
+
 
 function HintButton(){
 	if(Hints()===undefined)
@@ -961,10 +982,17 @@ function RequestHint(){
 		var DPFields=[['plain',DFOpts]];
 	}
 	else{
-		var tip=CycleStay(CurrentLevelHints());
+		var curlevelHints=CurrentLevelHints();
+		
+		if(curlevelHints.length===0) //Substitute for no hints
+			curlevelHints=["Sorry! No hints for this level... but you can do it!"];
+		
+		var tip=CycleStay(curlevelHints);
 		tip=HintDisplay(tip);
 		
-		var p=CyclePosition(CurrentLevelHints());
+		var p=CyclePosition(curlevelHints);
+		SeeHint(CurLevelNumber(),p+1);
+		
 		var navichoices=["◀","OK","▶"];
 		var naviactions={
 			"◀":RequestPrevHint,
@@ -976,7 +1004,7 @@ function RequestHint(){
 			navichoices.shift();
 			delete naviactions["◀"];
 		}
-		if(p===CurrentLevelHints().length-1){
+		if(p===curlevelHints.length-1){
 			navichoices.pop();
 			delete naviactions["▶"];
 		}
@@ -1013,4 +1041,22 @@ function RequestHint(){
 	
 	OpenerCloser(RequestHint,RequestHintIndeed,GameFocus);
 	
+}
+
+//Hints Honours
+	
+function HintsHonour(){
+	if(!Hints())
+		return "";
+	else if(UsedHints()===0)
+		return "★★★ no hints ★★★";
+	else{
+		var h=UsedHints();
+		if(h===1)
+			return "☆ 1 hint ☆";
+		else if(h<=AvailableHints()/7)
+			return "☆ "+h+" hints ☆";
+		else
+			return "  "+h+" hints  ";
+	}
 }

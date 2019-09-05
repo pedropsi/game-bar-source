@@ -13,8 +13,9 @@ var DESTINATION_HOF={
 		}}
 	}
 
-if (typeof(GetHonour)==="undefined"){
-	function GetHonour(){return " ";} //function to be overriden (customised for) in each game, otherwise blank
+// Honour
+if (!GetHonour){
+	function GetHonour(){return HintsHonour()}; ///function to be overriden (customised for) in each game, otherwise blank
 }
 
 var who=UserId();	
