@@ -562,19 +562,19 @@ function GetElement(selector,pSelector){
 
 function InsideAt(parentSelector,selector){
 	if(GetElement(parentSelector)===null||GetElement(selector)===null)
-		return undefined; //see below
+		return undefined;
 	return Inside(parentSelector,selector)||GetElement(parentSelector).isEqualNode(GetElement(selector));
 }
 
 function Inside(parentSelector,selector){
 	if(GetElement(parentSelector)===null||GetElement(selector)===null)
-		return undefined; //see below
+		return undefined;
 	return GetElement(parentSelector).contains(GetElement(selector));
 }
 
 function Outside(parentSelector,selector){
 	if(GetElement(parentSelector)===null||GetElement(selector)===null)
-		return undefined; //see below
+		return undefined;
 	return !InsideAt(parentSelector,selector);
 }
 
