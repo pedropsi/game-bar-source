@@ -948,7 +948,7 @@ function RequestHint(){
 	if(!RequestHint.requested||titleScreen){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
 		var tip=CycleNextBounded([
-			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press ⚿ again in any level to reveal a hint!</p>",
+			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <b>H</b> anytime to reveal a hint!</p>",
 			"You got this! Now go ahead and play!"
 			]);
 		var DFOpts={questionname:tip};
