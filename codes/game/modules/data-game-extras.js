@@ -484,10 +484,13 @@ function SelectLevel(lvl){
 
 function SelectUnlockedLevel(lvl){
 	if(!HasCheckpoint()){
+		//Guards against returning to same level
+		if(lvl===LevelNumber(curlevel)&&!titleScreen)
+			return console.log("stay in lvl ",lvl);
+		
 		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
 		lvl=lvl<2?0:(LevelScreens()[lvl-2]+1);
 		GoToScreen(lvl);
-		//Add guard to avoid new reload of same level
 	}
 	else{
 		GoToScreenCheckpoint(lvl);
