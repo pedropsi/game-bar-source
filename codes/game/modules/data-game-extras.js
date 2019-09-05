@@ -47,7 +47,7 @@ function GameBar(targetIDsel){
 		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
 		ButtonLinkHTML("Credits"),
 		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}}),
-		ButtonHTML({txt:"◱",attributes:{onclick:'FullscreenToggle("'+targetIDsel+'");GameFocus();',id:'FullscreenButton'}}),
+		ButtonHTML({txt:"◱",attributes:{onclick:'RequestGameFullscreen();GameFocus();',id:'FullscreenButton'}}),
 	].join("");
 	
 	return ButtonBar(buttons,"GameBar");
@@ -673,7 +673,7 @@ keyActionsGame={
 }
 
 function RequestGameFullscreen(){
-	FullscreenToggle(ParentSelector(gameSelector));
+	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
 }
 
 function CloseBeforeF(DP,F){
