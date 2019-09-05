@@ -900,43 +900,42 @@ function HintButton(){
 		return ButtonHTML({txt:"⚿",attributes:{onclick:'RequestHint();',id:'HintButton'}});	
 }
 
+function CloseHint(){
+	Close(RequestHint.id);
+}
 
 function RequestNextHint(){
-	console.log("!>>");
 	CycleNextBounded(CurrentLevelHints());
-	RequestHint();//Close
+	CloseHint();
 	setTimeout(RequestHint,500);
 }
 
 function RequestPrevHint(){
-	console.log("!");
 	CyclePrevBounded(CurrentLevelHints());
-	RequestHint();//Close
+	CloseHint();
 	setTimeout(RequestHint,500);	
 }
 
+function HintShortcutsBasicF(DP){
+	return FuseObjects(ShortcutsBasicF(DP),{
+		"H":function(){Close(DP.qid)}
+	})
+};
+	
+	
+function HintShortcutsLevelF(DP){
+		
+	return FuseObjects(HintShortcutsBasicF(DP),{
+		"left":ClickPrevBounded,
+		"up":ClickNextBounded,
+		"right":ClickNextBounded,
+		"down":ClickPrevBounded
+	});
+};
 
 function RequestHint(){
 	if(!Hints())
 		return console.log("hints file not found");
-	
-	function HintShortcutsBasicF(DP){
-		return FuseObjects(ShortcutsBasicF(DP),{
-		"H":function(){Close(DP.qid)}
-		})
-	};
-	
-	function HintShortcutsLevelF(DP){
-		
-		var shorts=FuseObjects(HintShortcutsBasicF(DP),{
-			"left":function(){FocusPrev();Close(DP.qid);RequestPrevHint()},
-			"up":function(){FocusNext();Close(DP.qid);RequestNextHint()},
-			"right":function(){FocusNext();Close(DP.qid);RequestNextHint()},
-			"down":function(){FocusPrev();Close(DP.qid);RequestPrevHint()}
-		});
-		
-		return shorts;
-	};
 	
 	var HintShortcutsF=HintShortcutsBasicF;
 	
@@ -964,10 +963,20 @@ function RequestHint(){
 		
 		var p=CyclePosition(CurrentLevelHints());
 		var navichoices=["◀","OK","▶"];
-		if(p===0)
+		var naviactions={
+			"◀":RequestPrevHint,
+			"▶":RequestNextHint,
+			"OK":CloseHint
+		};
+
+		if(p===0){
 			navichoices.shift();
-		if(p===CurrentLevelHints().length-1)
+			delete naviactions["◀"];
+		}
+		if(p===CurrentLevelHints().length-1){
 			navichoices.pop();
+			delete naviactions["▶"];
+		}
 		
 		var DFOpts={questionname:tip};
 		var DPFields=[
@@ -975,17 +984,12 @@ function RequestHint(){
 			['navi',{
 				qchoices:navichoices,
 				executeChoice:function(choice,pid){
-					var actions={
-						"◀":RequestPrevHint,
-						"▶":RequestNextHint,
-						"OK":function(){Close(RequestHint.id)}
-					};
-					if(In(actions,choice))
-						actions[choice]();
+					if(In(naviactions,choice))
+						naviactions[choice]();
 				}
-
 			}]
 		];
+		
 		HintShortcutsF=HintShortcutsLevelF;
 	}
 	
@@ -993,6 +997,7 @@ function RequestHint(){
 		RequestDataPack(DPFields,
 			{
 				qid:RequestHint.id,
+				actionvalid:CloseHint,
 				qonsubmit:FocusAndResetFunction(RequestHint,GameFocus),
 				qonclose:FocusAndResetFunction(RequestHint,GameFocus),
 				qdisplay:LaunchBalloon,
