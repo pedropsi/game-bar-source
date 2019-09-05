@@ -422,8 +422,10 @@ function RequestLevelSelector(){
 			ShortcutsBasicF(DP),
 			{
 			"L":function(){Close(DP.qid)},
-			"left":function(){ FocusPrev()},
-			"right":function(){FocusNext()},
+			"left":FocusPrev,
+			"up":FocusNext,
+			"right":FocusNext,
+			"down":FocusPrev,
 			"1":function(){DelayLevel(1)},
 			"2":function(){DelayLevel(2)},
 			"3":function(){DelayLevel(3)},
@@ -528,11 +530,11 @@ function DelayLevel(n){
 	
 	FocusElement("choice-"+StarLevelNumber(n));
 	
-	DelayLevel.timer=setTimeout(function(){
+	/*DelayLevel.timer=setTimeout(function(){
 		SelectUnlockedLevel(n);
 		DelayLevel.lastTime=undefined;
 		DelayLevel.level="";
-	},2000);
+	},2000);*/
 }	
 	
 

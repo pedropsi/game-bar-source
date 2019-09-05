@@ -1368,6 +1368,8 @@ function FocusInside(targetIDsel){
 };
 
 function FocusPrev(F,bounded){
+	if(F===undefined||typeof F!=="function")
+		var F=Identity;
 	var prev=document.activeElement.previousSibling;
 	if(prev===null)
 		if(bounded===true)
@@ -1375,10 +1377,12 @@ function FocusPrev(F,bounded){
 		else
 			prev=document.activeElement.parentElement.lastChild;
 	FocusElement(prev);
-	if(F){F(prev)};
+	F(prev);
 }
 
 function FocusNext(F,bounded){
+	if(F===undefined||typeof F!=="function")
+		var F=Identity;
 	var next=document.activeElement.nextSibling;
 	if(next===null)
 		if(bounded===true)
@@ -1386,7 +1390,7 @@ function FocusNext(F,bounded){
 		else
 		next=document.activeElement.parentElement.firstChild;
 	FocusElement(next);
-	if(F){F(next)};
+	F(next);
 }
 
 function FocusPrevBounded(F){
@@ -2324,3 +2328,4 @@ function LoadImage(fullpath){
 function IsImageReference(ref){
 	return ImageExtensions.some(function(ext){return ref.replace(ext,"")!==ref});
 }
+
