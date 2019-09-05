@@ -384,7 +384,7 @@ function RequestLevelSelector(){
 			qfield:"level",
 			qchoices:UnlockedLevels().map(StarLevelNumber),
 			executeChoice:ChooseLevelClose,
-			defaultChoice:function(i,c){return Number(c)===LevelNumber(curlevel)}
+			defaultChoice:function(i,c){console.log(i,c);return UnstarLevel(c)===LevelNumber(curlevel)}
 		}
 	}
 	else{
