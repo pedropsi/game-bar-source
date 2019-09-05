@@ -2329,3 +2329,7 @@ function IsImageReference(ref){
 	return ImageExtensions.some(function(ext){return ref.replace(ext,"")!==ref});
 }
 
+///////////////////////////////////////////////////////////////////////////////
+//Reduce
+
+function Accumulate(acc,val){return acc+val};
