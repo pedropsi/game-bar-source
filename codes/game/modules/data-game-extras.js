@@ -684,6 +684,7 @@ function ShortcutsBasicF(DP){
 	
 	return {
 		"H":CloseBeforeF(DP,RequestHint),
+		"E":CloseBeforeF(DP,RequestGameFeedback),
 		"F":RequestGameFullscreen,
 		"L":CloseBeforeF(DP,RequestLevelSelector),
 		"M":ToggleCurrentSong
