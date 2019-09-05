@@ -828,11 +828,16 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 //Hints
 
 function Hints(){
-	return Hints.hints;
+	if(!Hints.cached){
+		Hints.cached=LoadHintsFile();
+		if(Hints.cached)
+			Hints.cached=ParseHintsFile(Hints.cached);
+	}
+	return Hints.cached;
 }
 
 Hints.path="https://pedropsi.github.io/hints/";
-	
+
 function LoadHintsFile(){
 	if(!LoadHintsFile.loaded){
 		LoadHintsFile.loaded=true;
@@ -874,14 +879,6 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 }
 
 
-function Hints(){
-	if(!Hints.cached){
-		Hints.cached=LoadHintsFile();
-		if(Hints.cached)
-			Hints.cached=ParseHintsFile(Hints.cached);
-	}
-	return Hints.cached;
-}
 
 function LevelHints(lvl){
 	return Hints()[lvl-1];
