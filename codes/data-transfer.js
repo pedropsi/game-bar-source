@@ -1367,21 +1367,45 @@ function FocusInside(targetIDsel){
 	}
 };
 
-function FocusPrev(F){
+function FocusPrev(F,bounded){
 	var prev=document.activeElement.previousSibling;
 	if(prev===null)
-		prev=document.activeElement.parentElement.lastChild;
+		if(bounded===true)
+			return console.log("beginning reached");
+		else
+			prev=document.activeElement.parentElement.lastChild;
 	FocusElement(prev);
 	if(F){F(prev)};
 }
 
-function FocusNext(F){
+function FocusNext(F,bounded){
 	var next=document.activeElement.nextSibling;
 	if(next===null)
+		if(bounded===true)
+			return console.log("end reached");
+		else
 		next=document.activeElement.parentElement.firstChild;
 	FocusElement(next);
 	if(F){F(next)};
 }
+
+function FocusPrevBounded(F){
+	FocusPrev(F,true)
+}
+
+function FocusNextBounded(F){
+	FocusNext(F,true)
+}
+
+//Click
+function ClickPrevBounded(){
+	FocusPrev(function(elem){elem.click()},true)
+}
+
+function ClickNextBounded(){
+	FocusNext(function(elem){elem.click()},true)
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //Event Listeners
