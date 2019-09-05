@@ -960,7 +960,7 @@ function RequestHint(){
 		"Send Pedro PSI feedback by pressing ✉, anytime!",
 		"Remember to pause once in a while!",
 		"If you like this game, share it with your friends!"]);
-		var DFOpts={questionname:"<b>General tip:</b> "+tip};
+		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
 		var DPFields=[['plain',DFOpts]];
 	}
 	else{
