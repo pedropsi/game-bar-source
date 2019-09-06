@@ -52,7 +52,7 @@ ReplaceElement(vd,"version-date");
 <li>if the first line in a hint group starts with the word «[»level«]», the hint group will ignore this line. 
 	<ul><li>Thus a group consisting of the single line «[»level ...«]» will be interpreted as containing zero hints;</li></ul></li>
 <li>digits at the start of any hint line will be ignored;</li>
-<li>hint lines consisting solely of a <a href="#adding-hint-images">reference to an image</a> will display that image.</li>
+<li>hint lines consisting solely of a reference to an image (see section below) will display that image.</li>
 <li><b>Important:</b>hint groups are assigned to each level by the order in which they appear;</li>
 </o>
 </p>
