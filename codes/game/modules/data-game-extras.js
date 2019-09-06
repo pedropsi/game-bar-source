@@ -85,7 +85,7 @@ var curcheckpoint=0;
 var savePermission=true;
 
 function ToggleSavePermission(thi){
-	if(thi)thi.classList.remove("selected");
+	Deselect(thi);
 	if(savePermission){
 		savePermission=false;
 		EraseLocalsave();
@@ -93,11 +93,12 @@ function ToggleSavePermission(thi){
 	}
 	else {
 		savePermission=true;
+		Localsave();
 		ConsoleAddMany([
 			"Localsave is ON for "+pageTitle()+".",
 			"To stop localsaving and erase all 2 cookies, please deselect 🖫."
 			]);
-		if(thi)thi.classList.add("selected");
+		Select(thi);
 	}	
 }
 
@@ -139,11 +140,18 @@ function LocalsaveCheckpoints(newstack){
 }
 
 function LocalsaveHints(){
-	if(savePermission)
+	if(savePermission&&Hints())
 		localStorage[DocumentURL()+"_hintsused"]=JSON.stringify(Hints.used);
 }
 	
+function Localsave(){
+	LocalsaveLevel(curlevel);
+	LocalsaveHints();
+	//LocalsaveCheckpoints();
+}	
+	
 function EraseLocalsaveLevel(){
+	localStorage.removeItem(DocumentURL()+"_solvedlevels");
 	return localStorage.removeItem(DocumentURL());
 };
 
