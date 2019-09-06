@@ -1,55 +1,51 @@
-level 1 ---------------------------------------------------------------(this line optional - lines starting with "level" will be ignored)
+level 1 -----------------------------------(this is a hint group, composed of three hints, one per line)
 Walk with the <b>arrow keys</b>.
 Your goal is to the right.
 Go for it!
 
-level 2 ---------------------------------------------------------------(level blocks should be separated by at least one empty line)
+level 2 -----------------------------------(this is another hint groups, with just 2 hints)
 After a fall, can you climb?
 Press <b>up</b> then <b>right</b> to climb a step.
 
 
 
-level 3 ---------------------------------------------------------------(numbers before each hints are ignored, it is the order that counts)
-1 Gravity affects both players and blocks.
-3 Push the block rightwards and watch the important winning animation.
+level 3 -----------------------------------(this hint group is separated by more than one empty line)
+Gravity affects both players and blocks.
+Push the block rightwards and watch the important winning animation.
 
-level 4 ---------------------------------------------------------------(any number of hints can be provided per level)
-Does "falling through a goal" mean you haven't reached it?
-Press <b>down</b> to pick a block below, carry it leftwards, then press <b>up</b> to drop it.
-After dropping the block below the goal, you can finally reach it!
+level 4 -----------------------------------(all numbers at the start of each hint line, below, are ignored)
+4 Does "falling through a goal" mean you haven't reached it?
+3 Press <b>down</b> to pick a block below, carry it leftwards, then press <b>up</b> to drop it.
+2.1 After dropping the block below the goal, you can finally reach it!
 
+level 5 -----------------------------------(the image "sidedrop.png" is located at "hints/platformer-template/sidedrop.png")
 To drop a block, you need space to be in upright position...
 ... but blocks can also be dropped sideways if a wall prevents them being carried along with you:
 sidedrop.png
 
-level 6 ---------------------------------------------------------------(external images can be referenced directly by providing a path)
+level 6 -----------------------------------(the "level X" line will be supressed from now on, except in level 11)
 Carried blocks can be thrown sideways.
 sideways.png
 Blocks can also be pushed from upright position.
 
-level 7 
-You can push multiple blocks.
+7 You can push multiple blocks.
 That pit on the right seems too deep. Can you fill it?
 Can you save the first block and use the other two to fill the pit?
 
-level 8
-When you push a block, everything on top is pushed along too.
+8 When you push a block, everything on top is pushed along too.
 Don't push everything too far!
 
-level 9
-You can carry many blocks together!
+9 You can carry many blocks together!
 You can drop carried blocks one by one (press up successively).
 Drop all blocks in the middle of the screen.
 
-level 10
-The block on the right is completely stuck, so a three-block tower is impossible.
+10 The block on the right is completely stuck, so a three-block tower is impossible.
 Use the sideways throw to place a block on top of the right wall, then push it further to the right...
 ...now pick the top-right block, and repeat previous steps towards the left.
 
-level 11 ---------------------------------------------------------------(this is a level without hints!)
+level 11 -----------------------------------(this is an empty hint group, meaning that level 11 has with zero hints!)
 
-level 12 ---------------------------------------------------------------(this line is supressed from now on)
-To make a player tower, start by separating both players far apart.
+12 To make a player tower, start by separating both players far apart.
 The player furthest from the centre should be upright. Then, the other player should come together, after crossing the middle ridge.
 
 13 Make a player tower, then press <b>up</b> or <b>down</b> a couple times to see what happens!

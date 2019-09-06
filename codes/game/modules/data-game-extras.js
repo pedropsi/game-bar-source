@@ -895,12 +895,13 @@ function HintDisplay(reference){
 }
 
 function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
-	var hintstxt=hintstxt.replace(/(?:^level.*)/gim,"\n\n");
 	var hintsperlevel=hintstxt.split(/(?:\n\s*)(?:\n\s*)+/); //Two or more newlines separate level items. Lines starting by level... are ignored
 	hintsperlevel=hintsperlevel.filter(function(h){return h!=="";}); //ignore empty blocks
 	
 	function ParseHintParagraph(hintparagraph){ //One hint per line
-		var hintslines=hintparagraph.split(/\n\s*/);
+		var hintslines=hintparagraph.replace(/(?:^level.*)/i,"");
+		hintslines=hintslines.split(/\n\s*/);
+		
 		return hintslines.map(ParseHintLine);
 	}
 	

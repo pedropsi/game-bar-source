@@ -1,12 +1,12 @@
 ﻿<h2>About the «TITLE-BOLD»</h2>
 
-<p>This is the "game bar" found in all «NAME»'s <a href="games.html">puzzlescript games</a>. It features for instance undo/reset buttons, a beautiful level selector, a fullscreen button and an optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
+<p>This is the "game bar" found in all «NAME»'s <a href="games.html">puzzlescript games</a>. It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
 
 <p>This is how the «TITLE-BOLD» looks like:</p>
 «FIGURE-SIMPLE»
 
 <h3>Current version</h3>
-<p><b><span id="version-number">v1.1</span>:</b><span id="version-date">13/08/2019</span></p>
+<p><b><span id="version-number">v2.1</span>:</b><span id="version-date">06/09/2019</span></p>
 
 <script>
 var v=LoadData("https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js");
@@ -30,7 +30,6 @@ ReplaceElement(vd,"version-date");
 <p>Just edit the colours variables in the «[»:root«]» element of the <b>stylesheet</b>.</p>
 <p>If you wish to use the original «NAME» colours, please delete the line «[»var replaceColours=true;«]» (near the source end).</p>
 
-
 <h3>Font</h3>
 <p>Edit the font variable (right after the colours) in the <b>stylesheet</b>.</p>
 
@@ -40,8 +39,35 @@ ReplaceElement(vd,"version-date");
 <h4>Hard way</h4> 
 <p>Edit the «[»function OpenBalloon«]» in the <b>javascript source</b>, specifically by changing the path string «[»"images/logo.png"«]» to wherever your logo may be located.</p>
 
-<h3>"Solved level" ★ symbol</h3>
-<p>For now, Ctrl+F to search for «[»★«]», which can be replaced by other symbols. More customisation options are planned.</p>
+<h2>Adding hints</h2>
+<p> Create a folder named «[»hints«]», where you'll drop a <b>hints file</b> containing all hints. The <b>hints file</b> should be named exactly like the matching game «[».html«]» page file, but with the «[».txt«]» extension.</p>
+<p>If you have several game pages, you can drop one <b>hints file</b> per game into the common «[»hints«]» folder.</p>
+
+<h3><b>hints file</b> text standard</h3>
+<p>The <b>hints file</b> textual format follows 7 rules:
+<ol>
+<li>Each hint ocupies exactly one line;</li>
+<li>hints belonging to the same level (hint groups) are placed in successive contiguous lines;</li>
+<li>hint groups are separated by one or more empty lines;</li>
+<li>if the first line in a hint group starts with the word «[»level«]», the hint group will ignore this line. 
+	<ul><li>Thus a group consisting of the single line «[»level ...«]» will be interpreted as containing zero hints;</li></ul></li>
+<li>digits at the start of any hint line will be ignored;</li>
+<li>hint lines consisting solely of a <a href="#adding-hint-images">reference to an image</a> will display that image.</li>
+<li><b>Important:</b>hint groups are assigned to each level by the order in which they appear;</li>
+</o>
+</p>
+
+<p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the <a href="platformer-template.html">platformer template</a> game page.</p>
+
+<h3>Adding hint images</h3>
+<p>To add hint images to one game:
+	<ol>
+		<li>Inside the «[»hints/«]» folder, make a new subfolder named like your <b>hints file</b> without the «[».txt«]» extension.</li>
+		<li>Drop all hint images into this new subfolder.</li>
+		<li>Reference each image, amidst the hints, by its relative path inside this subfolder.</li>
+	</ol>
+</p>	
+<p>For multiple games, each game must have its own subfolder inside the the «[»hints/«]» folder.</p>
 
 <h3>Music</h3>
 <h4>Add music files</h4>
@@ -127,12 +153,19 @@ ReplaceElement(vd,"version-date");
 <li>Keyboard shortcuts (in game):
 	<ul>
 		<li><b>L</b>: Open the Level Selector;</li>
+		<li><b>H</b>: Toggle Hints</li>
 		<li>in level selector:
 			<ul>
 			<li><b>1,2,3,4,5,6,7,8,9,0</b>: Pick a level;</li>
 			<li><b>Left/Right arrows</b>: next/previous level;</li>
 			<li><b>Enter</b>: Go to picked level;</li>
 			<li><b>Esc/L</b>: Close the level selector;</li>
+			</ul>
+		</li>
+		<li>in hint balloon:
+			<ul>
+			<li><b>Left/Right arrows</b>: next/previous hint;</li>
+			<li><b>Esc/Enter/H</b>: Close the level selector;</li>
 			</ul>
 		</li>
 		<li><b>F</b>: Toggle Fullscreen</li>
@@ -150,5 +183,8 @@ ReplaceElement(vd,"version-date");
 
 <h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
 <p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">actually need it</a>.</p>
+
+<h3>Does the «TITLE-BOLD» hint system handle checkpoints?</h3>
+<p>No, sorry! But if this would make a difference, <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">please let us know</a>.</p>
 
 «FEEDBACK»
