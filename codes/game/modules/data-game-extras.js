@@ -138,6 +138,11 @@ function LocalsaveCheckpoints(newstack){
 		EraseLocalsaveCheckpoints();
 }
 
+function LocalsaveHints(){
+	if(savePermission)
+		localStorage[DocumentURL()+"_hintsused"]=JSON.stringify(Hints.used);
+}
+	
 function EraseLocalsaveLevel(){
 	return localStorage.removeItem(DocumentURL());
 };
@@ -146,25 +151,36 @@ function EraseLocalsaveCheckpoints(){
 	return localStorage.removeItem(DocumentURL()+"_checkpoint");
 };
 
+function EraseLocalsaveHints(){
+	return localStorage.removeItem(DocumentURL()+"_hintsused");
+}
+
 function EraseLocalsave(){
-	return CanSaveLocally()&&(EraseLocalsaveLevel(),EraseLocalsaveCheckpoints());
+	return CanSaveLocally()&&(EraseLocalsaveLevel(),EraseLocalsaveCheckpoints(),EraseLocalsaveHints());
 }
 
 
 // Load from memory
 function LoadLevel(){
+	
 	var sls=localStorage[DocumentURL()+"_solvedlevels"];
 	if(sls)
 		SolvedLevelScreens.levels=JSON.parse(sls).map(Number);
+	
 	return curlevel=localStorage[DocumentURL()];
 }
-
 
 function LocalloadCheckpoints(){
 	var storeddata=localStorage[DocumentURL()+"_checkpoint"];
 	var sta=storeddata?JSON.parse(storeddata):[];
 	sta=sta.dat?[sta]:sta;	//data compatibility (converts single checkpoint to array if needed)
 	return sta;
+}
+
+function LoadHints(){
+	var h=localStorage[DocumentURL()+"_hintsused"];
+	if(h)
+		return Hints.used=JSON.parse(h).map(Number);
 }
 
 function GetCheckpoints(){
@@ -839,7 +855,8 @@ function Hints(lvl){
 		Hints.cached=LoadHintsFile();
 		if(Hints.cached){
 			Hints.cached=ParseHintsFile(Hints.cached);
-			Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
+			if(!LoadHints())
+				Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
 		}
 	}
 	
@@ -898,8 +915,10 @@ function CurrentLevelHints(){
 }
 
 function SeeHint(lvl,hintN){
-	if(UsedHints(lvl)<hintN&&Hints(lvl).length>=hintN)
+	if(UsedHints(lvl)<hintN&&Hints(lvl).length>=hintN){
 		Hints.used[lvl-1]=hintN;
+		LocalsaveHints();
+	}
 }
 
 function AvailableHints(lvl){
