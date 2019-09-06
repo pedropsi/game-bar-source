@@ -902,7 +902,12 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 		var hintslines=hintparagraph.replace(/(?:^level.*)/i,"");
 		hintslines=hintslines.split(/\n\s*/);
 		
-		return hintslines.map(ParseHintLine);
+		hintslines=hintslines.map(ParseHintLine);
+		
+		if(hintslines[0]==="")
+			hintslines.shift();
+			
+		return hintslines;
 	}
 	
 	function ParseHintLine(hintline){ //Remove numeric indicators, optionally split by full stops
