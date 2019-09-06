@@ -399,22 +399,28 @@ function LoadStyle(sourcename){
 //Data Reception
 
 //Fetch data from url
-function LoadData(url){
+function LoadDataMaybe(url){
 	var data;
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", url, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
+    rawFile.onreadystatechange = function (){
+        if(rawFile.readyState === 4){
+            if(rawFile.status === 200 || rawFile.status == 0){
                 data = rawFile.responseText;
             }
         }
     }
     rawFile.send(null);
 	return data;
+};
+
+function LoadData(url){
+	try{
+		return LoadDataMaybe(url)
+	}
+	catch(errorDummy){
+		return undefined;
+	}
 };
 
 function LoadExternalScript(url){
