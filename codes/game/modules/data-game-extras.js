@@ -889,9 +889,9 @@ function HintDisplay(reference){
 	if(IsImageReference(fullpath)){
 		var img=LoadImage(fullpath);
 		if(img!=="")
-			return img;
+			return "<div class='hint'>"+img+"</div>";
 	}
-	return "<p>"+reference+"</p>";
+	return "<div class='hint'><p>"+reference+"</p></div>";
 }
 
 function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
