@@ -2,11 +2,11 @@
 «ONE-LINER»
 
 «HOWTO-TEXT»
-<p><em>Move</em> with the <b>arrow keys</b>, which are used to interact with blocks of different shapes.</p>
+<p><em>Move</em> with the «ARROWKEYS», which are used to interact with blocks of different shapes.</p>
 <p>Your perception of the goal and game rules should evolve as the game progresses.</p>
 
 «UNDO-RESTART-TEXT»
-«GAME-EXTRAS-TEXT»
+«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«HINTS-TEXT»«NAVIGATION-TEXT»«FULLSCREEN-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
 
 «CREDITS»
 

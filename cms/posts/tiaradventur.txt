@@ -31,9 +31,9 @@
 <p><b>Torches</b> will <em>ignite</em> <b>trees</b> when <em>pushed</em> towards them and won't <em>float</em> on <b>water</b>.</p>
 
 «HOWTO-TEXT»
-<p><em>Move</em> with the <b>arrow keys</b>.</p>
+<p><em>Move</em> with the «ARROWKEYS».</p>
 <p>Come towards the <b>Princess</b> to <em>talk</em> to her. She is a great storyteller and on occasion may provide useful <b>hints</b>. You may <em>give</em> her certain <b>obtainables</b>.</p>
-<p><em>Use</em> the <b>sword</b>, once obtained, by pressing <b>X</b>. You'll <em>swipe</em> it instinctively when dangerously close to a <b>wolf</b>.</p>
+<p><em>Use</em> the <b>sword</b>, once obtained, by pressing <kbd>X</kbd>. You'll <em>swipe</em> it instinctively when dangerously close to a <b>wolf</b>.</p>
 «UNDO-RESTART-TEXT»
 <p>The game <em>saves automatically</em> whenever the <b>Princess</b> <em>safely</em> enters an area containing a new <b>tiara</b>.</p>
 «GAME-EXTRAS-TEXT»

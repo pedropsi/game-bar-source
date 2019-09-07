@@ -37,10 +37,10 @@
 		<div>
 			<img src="images/gravirinth/gravirinth-tutorial-1.gif" alt="Gravirinth tutorial 1:move and switch gravity" title="Gravirinth tutorial 1:move and switch gravity"/>
 		</div>
-		<p>Navigate the «TITLE-BOLD» with the <b>arrow keys</b>. Step on <em>gravity beacons</em> to change your <em>specific gravity</em>! The controls change accordingly.</p>
+		<p>Navigate the «TITLE-BOLD» with the «ARROWKEYS». Step on <em>gravity beacons</em> to change your <em>specific gravity</em>! The controls change accordingly.</p>
 	</div>
 	<div class="right">
-		<p>Pick any number of <em>blocks</em> with the <b>downward arrow key</b>. Place them strategically  with the <b>upward arrow key</b> to overcome obstacles!</p>
+		<p>Pick any number of <em>blocks</em> with «DOWNKEY». Place them strategically  with «UPKEY» to overcome obstacles!</p>
 		<div>
 			<img src="images/gravirinth/gravirinth-tutorial-2.gif" alt="Gravirinth tutorial 2:pick and carry blocks" title="Gravirinth tutorial 1:pick and carry blocks"/>
 		</div>
@@ -77,10 +77,10 @@
 		<div>
 			<img src="images/gravirinth/gravirinth-tutorial-7.gif" alt="Gravirinth tutorial 7: undo" title="Gravirinth tutorial 7: undo"/>
 		</div>
-		<p>Your progress is reported continuously to base, so you may retrace your steps whenever you've done anything wrong. <b>Press Z</b> on your exopad.</p>
+		<p>Your progress is reported continuously to base, so you may retrace your steps whenever you've done anything wrong. Press <kbd>Z</kbd> on your exopad.</p>
 	</div>
 	<div class="right">
-		<p>A special record of your progress is created whenever you reach a save point. <b>Press R</b> on your exopad to go back in time! This should work even if you quit the game for a while.</p>
+		<p>A special record of your progress is created whenever you reach a save point. Press <kbd>R</kbd> on your exopad to go back in time! This should work even if you quit the game for a while.</p>
 		<div>
 			<img src="images/gravirinth/gravirinth-tutorial-8.png" alt="Gravirinth tutorial 8:save" title="Gravirinth tutorial 8:save"/>
 		</div>
@@ -89,7 +89,7 @@
 		<div>
 			<img src="images/gravirinth/gravirinth-tutorial-9.png" alt="Gravirinth tutorial 9:rescue" title="Gravirinth tutorial 9:rescue"/>
 		</div>
-		<p>At the end of the expedition, <b>Press X</b> on your exopad to call rescue, unless you prefer to collect any still accessible <em>fourfold orbs</em>...</p>
+		<p>At the end of the expedition, Press <kbd>X</kbd> on your exopad to call rescue, unless you prefer to collect any still accessible <em>fourfold orbs</em>...</p>
 	</div>
 </div>
 

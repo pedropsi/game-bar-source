@@ -3,8 +3,8 @@
 
 
 «HOWTO-TEXT»
-<p><b>Press X</b> to let a <em>block</em> fall from the sky.</p>
-<p>Steer each <em>block</em> using the <b>arrow keys</b> to unlock the path to safety.</p>
+<p>Press <kbd>X</kbd> to let a <em>block</em> fall from the sky.</p>
+<p>Steer each <em>block</em> using the «ARROWKEYS» to unlock the path to safety.</p>
 «AVATAR-TEXT»  
 <p>«RESTART-TEXT»</p>
 

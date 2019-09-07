@@ -2,7 +2,7 @@
 «ONE-LINER»
 
 «HOWTO-TEXT»
-<p><em>Move</em> with the <b>arrow keys</b>, and push blocks of different shapes.</p>
+<p><em>Move</em> with the «ARROWKEYS», and push blocks of different shapes.</p>
 <p>Level difficulty is shown by the number of stars (1 to 5).</p>
 
 «UNDO-RESTART-TEXT»

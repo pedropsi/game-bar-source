@@ -2,10 +2,10 @@
 «ONE-LINER»
 
 «HOWTO-TEXT»
-<p>The goal is marked by an <b>X</b>.</p>
-<p>Move your <em>avatar</em> by pressing <b>Left</b> or <b>Right</b>. You may also <em>push blocks</em>. <em>Gravity</em> pulls <em>all down</em>.</p>  
-<p>Press <b>Up</b> to rotate the puzzle <em>clockwise</em> and <b>Down</b> to rotate <em>counterclockwise</em>.</p>
-<p>Press <b>X</b> to enter <b>Preview mode</b>, in which you may rotate <em>clockwise</em> by pressing <b>Right</b> and <em>counterclockwise</em> by pressing <b>Left</b>. In <b>Preview mode</b>, nothing falls until you confirm, by pressing <b>X</b> again.</p>
+<p>The goal is marked by an <em>X</em>.</p>
+<p>Move your <em>avatar</em> by pressing «LEFTKEY» or «RIGHTKEY». You may also <em>push blocks</em>. <em>Gravity</em> pulls <em>all downwards</em>.</p>  
+<p>Press «UPKEY» to rotate the puzzle <em>clockwise</em> and «DOWNKEY» to rotate it <em>counterclockwise</em>.</p>
+<p>Press <kbd>X</kbd> to enter <em>Preview Mode</em>, in which you may rotate <em>clockwise</em> by pressing «RIGHTKEY» and <em>counterclockwise</em> by pressing «LEFTKEY». In <em>Preview Mode</em>, nothing falls until you confirm, by pressing <kbd>X</kbd> again.</p>
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
 

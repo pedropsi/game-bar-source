@@ -3,7 +3,7 @@
 
 «HOWTO-TEXT»
 <p>Your goal is to reproduce on the left-hand side canvas the abstract painting shown on the right-hand-side.</p>
-<p><em>Move</em> with the <b>arrow keys</b>. <em>Stepping towards</em> a coloured square will launch a <em>straight line of colour</em> onto the canvas all the way to the frame.</p>
+<p><em>Move</em> with the «ARROWKEYS». <em>Stepping towards</em> a coloured square will launch a <em>straight line of colour</em> onto the canvas all the way to the frame.</p>
 
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
