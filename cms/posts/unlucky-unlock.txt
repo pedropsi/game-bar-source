@@ -3,7 +3,7 @@
 
 
 «HOWTO-TEXT»
-<p>Move and push blocks with the «ARROWKEYS».</p>
+<p>Move and push blocks with «ARROWKEYS».</p>
 «UNDO-RESTART-TEXT»
 «GAME-EXTRAS-TEXT»
 

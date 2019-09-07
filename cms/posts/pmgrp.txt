@@ -3,7 +3,7 @@
 
 «HOWTO-TEXT»
 <h4>Play mode</h4>
-<p>Move with the «ARROWKEYS». When the bar becomes full, you run out of moves.</p>
+<p>Move with «ARROWKEYS». When the bar becomes full, you run out of moves.</p>
 <p>Press «DOWNKEY» when standing on an <em>object</em> (either a <em>crate</em> or your <em>other self</em>) to pick it. Press «DOWNKEY» again to drop it. Press <b>against an edge</b> to throw the <em>object</em> sideways over it.</p>
 <h4>Replay mode</h4>
 <p>Press <kbd>X</kbd> to enter <em>Replay Mode</em>. Your <em>future self</em> will now replay all your moves... then you return into <em>Play Mode</em>.</p>
