@@ -889,9 +889,9 @@ function HintDisplay(reference){
 	if(IsImageReference(fullpath)){
 		var img=LoadImage(fullpath);
 		if(img!=="")
-			return img;
+			return "<div class='hint'>"+img+"</div>";
 	}
-	return "<p>"+reference+"</p>";
+	return "<div class='hint'><p>"+reference+"</p></div>";
 }
 
 function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
@@ -999,7 +999,7 @@ function RequestHint(){
 	if(!RequestHint.requested||titleScreen){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
 		var tip=CycleNextBounded([
-			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <b>H</b> anytime to reveal a hint!</p>",
+			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
 			"You got this! Now go ahead and play!"
 			]);
 		var DFOpts={questionname:tip};
@@ -1008,7 +1008,7 @@ function RequestHint(){
 	else if(ScreenMessage(curlevel)){
 		var tip=CycleNext([
 		"Just relax and have fun!",
-		"Send Pedro PSI feedback by pressing ✉, anytime!",
+		"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
 		"Remember to pause once in a while!",
 		"If you like this game, share it with your friends!"]);
 		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
