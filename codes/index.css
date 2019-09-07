@@ -66,6 +66,11 @@ body {
     }
 } 
 
+@media only screen and (max-width: 250px) {
+    .avatar {
+        display:none;
+    }
+} 
 
 .nightmode div, .nightmode{
   --white: rgba(0,0,0,var(--t));
@@ -1154,6 +1159,12 @@ code{
 
 .nowrap{
     flex-wrap: nowrap;
+}
+
+.hint img{
+    max-height: var(--h32);
+    max-width: calc(var(--w32) + var(--w16));
+}
 
 kbd {
     border: var(--w-8) solid var(--darkblue);
