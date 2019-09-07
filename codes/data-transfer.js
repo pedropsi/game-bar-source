@@ -1399,6 +1399,14 @@ function FocusNext(F,bounded){
 	F(next);
 }
 
+function FocusStay(F){
+	if(F===undefined||typeof F!=="function")
+		var F=Identity;
+	var stay=document.activeElement;
+	FocusElement(stay);
+	F(stay);
+}
+
 function FocusPrevBounded(F){
 	FocusPrev(F,true)
 }
@@ -1416,6 +1424,9 @@ function ClickNextBounded(){
 	FocusNext(function(elem){elem.click()},true)
 }
 
+function ClickStay(){
+	FocusStay(function(elem){elem.click()},true)
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Event Listeners
