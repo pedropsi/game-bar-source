@@ -1154,4 +1154,13 @@ code{
 
 .nowrap{
     flex-wrap: nowrap;
+
+kbd {
+    border: var(--w-8) solid var(--darkblue);
+    border-bottom-width: var(--h-2);
+    border-top-width: var(--h-8);
+    padding: var(--h-4) var(--w-2) var(--h-4) var(--w-2);
+    font-weight: bold;
+    line-height: calc(12px + var(--w-2) + var(--h2) + var(--h1));
+    font-family: Arial;
 }
