@@ -214,7 +214,7 @@ function RequestGameFeedback(){
 	function InTitleScreen(){return titleScreen}
 	
 	if(InTitleScreen()){
-		DFsettingsObj.questionname="Your real-time feedback is much appreciated! As soon as you start the first level, press E or click the E-mail button below.";
+		DFsettingsObj.questionname="<p>Press ✉ or <kbd>E</kbd> as soon as you start the game to Email Pedro PSI real-time feedback. Much appreciated!</p>";
 		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
 	else if(HasFeedback(curlevel)){
@@ -226,7 +226,7 @@ function RequestGameFeedback(){
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
 	else{
-		DFsettingsObj.questionname="Any other comments or ideas?";
+		DFsettingsObj.questionname="Comments or ideas?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
   }

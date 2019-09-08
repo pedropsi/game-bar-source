@@ -1,11 +1,11 @@
 level 1 -----------------------------------(this is a hint group, composed of three hints, one per line)
-Walk with the <b>arrow keys</b>.
+Walk with the <kbd>arrow keys</kbd>.
 Your goal is to the right.
 Go for it!
 
 level 2 -----------------------------------(this is another hint groups, with just 2 hints)
 After a fall, can you climb?
-Press <b>up</b> then <b>right</b> to climb a step.
+Press <kbd>up</kbd> then <kbd>right</kbd> to climb a step.
 
 
 
@@ -15,7 +15,7 @@ Push the block rightwards and watch the important winning animation.
 
 level 4 -----------------------------------(all numbers at the start of each hint line, below, are ignored)
 4 Does "falling through a goal" mean you haven't reached it?
-3 Press <b>down</b> to pick a block below, carry it leftwards, then press <b>up</b> to drop it.
+3 Press <kbd>down</kbd> to pick a block below, carry it leftwards, then press <kbd>up</kbd> to drop it.
 2.1 After dropping the block below the goal, you can finally reach it!
 
 level 5 -----------------------------------(the image "sidedrop.png" is located at "hints/platformer-template/sidedrop.png")
@@ -48,14 +48,14 @@ level 11 -----------------------------------(this is an empty hint group, meanin
 12 To make a player tower, start by separating both players far apart.
 The player furthest from the centre should be upright. Then, the other player should come together, after crossing the middle ridge.
 
-13 Make a player tower, then press <b>up</b> or <b>down</b> a couple times to see what happens!
+13 Make a player tower, then press <kbd>up</kbd> or <kbd>down</kbd> a couple times to see what happens!
 
 14 How far apart need players be before you can make a tower?
 The answer is 2 squares.
 With players 2 squares apart, lift the leftmost player, before bringing the rightmost player leftwards.
 
 15 Towers can mix players and blocks freely!
-In a mixed tower, press <b>up</b> or <b>down</b> a few times to change the positions of players and blocks!
+In a mixed tower, press <kbd>up</kbd> or <kbd>down</kbd> a few times to change the positions of players and blocks!
 
 16 Timing is everything.
 Just because you're starting to win, don't waste precious blocks!
@@ -70,7 +70,7 @@ alignment.png
 
 19 Some goals are higher than others.
 Clear the two top goals before the two bottom goals.
-Manage the player tower with <b>up</b> or <b>down</b> to avoid eliminating players prematurely!
+Manage the player tower with <kbd>up</kbd> or <kbd>down</kbd> to avoid eliminating players prematurely!
 
 20 Such a deep abyss... is there a way to cross it?
 Place the first block halfway into the chasm, then push the second block over it.
