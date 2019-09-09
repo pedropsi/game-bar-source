@@ -34,14 +34,25 @@ function IsObject(array){
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-//Find in Array
-function In(array,n){
-	if(IsArray(array))
-		return array.indexOf(n)>=0;
-	else if(IsObject(array))
-		return Object.keys(array).indexOf(n)>=0;
-	else
-		return false;
+//Find in Array or Object
+
+function ApplyArrayObject(arrayOrObj,F){
+	if(IsArray(arrayOrObj))
+		return F(arrayOrObj);
+	else if(IsObject(arrayOrObj))
+		return F(Object.keys(arrayOrObj));
+	else{
+		console.log("error, nor array nor object");
+		return undefined
+	}
+};
+
+// Does element exist?
+function In(arrayOrObj,n){
+	function F(ao){return ao.indexOf(n)>=0;};
+	return ApplyArrayObject(arrayOrObj,F)||false;
+};
+
 };
 
 ///////////////////////////////////////////////////////////////////////////////
