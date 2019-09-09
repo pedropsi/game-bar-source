@@ -577,6 +577,11 @@ function GetElement(selector,pSelector){
 	return GetElementIn(selector,parentElement)
 }
 
+//MatchElement
+function MatchElement(elem,selector){
+	selector=MakeQuerySelector(selector);
+	return document.querySelector(selector)===elem;
+}
 
 
 //Inside
