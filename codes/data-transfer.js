@@ -53,8 +53,6 @@ function In(arrayOrObj,n){
 	return ApplyArrayObject(arrayOrObj,F)||false;
 };
 
-};
-
 
 ///////////////////////////////////////////////////////////////////////////////
 //Get Function Name as a string
