@@ -697,10 +697,7 @@ keyActionsGame={
 	82:InstructGame,	
 	// Esc
 	27:InstructGame,
-	69:function(ev){			//E
-		RequestGameFeedback();
-		prevent(ev);//Avoid inputting the shortcut letter in the form
-		},
+	69:RequestGameFeedback,
 	70:RequestGameFullscreen,	//F
 	72:RequestHint, 			//H
 	76:RequestLevelSelector, 	//L
