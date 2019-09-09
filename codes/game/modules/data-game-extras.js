@@ -979,7 +979,8 @@ function RequestPrevHint(){
 
 function HintShortcutsBasicF(DP){
 	return FuseObjects(ShortcutsBasicF(DP),{
-		"H":function(){Close(DP.qid)}
+		"H":function(){Close(DP.qid)},
+		"spacebar":function(){Close(DP.qid)}
 	})
 };
 	
