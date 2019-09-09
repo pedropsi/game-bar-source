@@ -34,15 +34,27 @@ function IsObject(array){
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-//Find in Array
-function In(array,n){
-	if(IsArray(array))
-		return array.indexOf(n)>=0;
-	else if(IsObject(array))
-		return Object.keys(array).indexOf(n)>=0;
-	else
-		return false;
+//Find in Array or Object
+
+function ApplyArrayObject(arrayOrObj,F){
+	if(IsArray(arrayOrObj))
+		return F(arrayOrObj);
+	else if(IsObject(arrayOrObj))
+		return F(Object.keys(arrayOrObj));
+	else{
+		console.log("error, nor array nor object");
+		return undefined
+	}
 };
+
+// Does element exist?
+function In(arrayOrObj,n){
+	function F(ao){return ao.indexOf(n)>=0;};
+	return ApplyArrayObject(arrayOrObj,F)||false;
+};
+
+};
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //Get Function Name as a string
@@ -535,16 +547,20 @@ function ParentSelector(targetIDsel){
 function GetElementFromTextSelector(selector,parentElement){
 	if(parentElement===null)
 		return null;
-	if(!IsQuerySelector(selector)){
-		selector=selector.replace(/^\#/,"");
-		selector="#"+selector;
-	}
+	selector=MakeQuerySelector(selector);
 	return parentElement.querySelector(selector);
 };
 
+function MakeQuerySelector(selector){
+	if(IsQuerySelector(selector))
+		return selector;
+	else
+		return "#"+(selector.replace(/^\#/,""));
+}
+
 function GetElementIn(selector,parentElement){
 	if(typeof selector==="string")
-		return GetElementFromTextSelector(selector,parentElement)
+		return GetElementFromTextSelector(selector,parentElement);
 	else
 		return selector; //in case the actual element is given in the beginning
 };
@@ -562,6 +578,11 @@ function GetElement(selector,pSelector){
 	return GetElementIn(selector,parentElement)
 }
 
+//MatchElement
+function MatchElement(elem,selector){
+	selector=MakeQuerySelector(selector);
+	return document.querySelector(selector)===elem;
+}
 
 
 //Inside

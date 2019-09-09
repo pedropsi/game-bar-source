@@ -669,34 +669,35 @@ function AdjustFlickscreen(){
 ////////////////////////////////////////////////////////////////////////////////
 //Key capturing
 
+function InstructGameKeyF(newkey){
+	return function(ev){ev.keyCode=newkey;InstructGame(ev)}
+}
+
 //Game keybinding profile
 keyActionsGame={
 	//Arrows & Spacebar
-	32:function(ev){prevent(ev);InstructGame(ev)},
-	37:function(ev){prevent(ev);InstructGame(ev)},
-	38:function(ev){prevent(ev);InstructGame(ev)},
-	39:function(ev){prevent(ev);InstructGame(ev)},
-	40:function(ev){prevent(ev);InstructGame(ev)},
+	32:InstructGame,
+	37:InstructGame,
+	38:InstructGame,
+	39:InstructGame,
+	40:InstructGame,
 	//WASD
-	65:function(ev){ev.keyCode=37;InstructGame(ev)},
-	87:function(ev){ev.keyCode=38;InstructGame(ev)},
-	68:function(ev){ev.keyCode=39;InstructGame(ev)},
-	83:function(ev){ev.keyCode=40;InstructGame(ev)},	
+	65:InstructGameKeyF(37),
+	87:InstructGameKeyF(38),
+	68:InstructGameKeyF(39),
+	83:InstructGameKeyF(40),	
 	//Enter, C, X
-	13:function(ev){ev.keyCode=88;InstructGame(ev)},	
-	67:function(ev){ev.keyCode=88;InstructGame(ev)},	
-	88:function(ev){ev.keyCode=88;InstructGame(ev)},
+	13:InstructGameKeyF(88),	
+	67:InstructGameKeyF(88),	
+	88:InstructGameKeyF(88),
 	// Z, U     
-	90:function(ev){ev.keyCode=85;InstructGame(ev)},	
+	90:InstructGameKeyF(85),	
 	85:InstructGame,	
 	// R
 	82:InstructGame,	
 	// Esc
 	27:InstructGame,
-	69:function(ev){			//E
-		RequestGameFeedback();
-		prevent(ev);//Avoid inputting the shortcut letter in the form
-		},
+	69:RequestGameFeedback,
 	70:RequestGameFullscreen,	//F
 	72:RequestHint, 			//H
 	76:RequestLevelSelector, 	//L
@@ -975,7 +976,8 @@ function RequestPrevHint(){
 
 function HintShortcutsBasicF(DP){
 	return FuseObjects(ShortcutsBasicF(DP),{
-		"H":function(){Close(DP.qid)}
+		"H":function(){Close(DP.qid)},
+		"spacebar":function(){Close(DP.qid)}
 	})
 };
 	
