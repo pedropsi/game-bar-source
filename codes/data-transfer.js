@@ -546,16 +546,20 @@ function ParentSelector(targetIDsel){
 function GetElementFromTextSelector(selector,parentElement){
 	if(parentElement===null)
 		return null;
-	if(!IsQuerySelector(selector)){
-		selector=selector.replace(/^\#/,"");
-		selector="#"+selector;
-	}
+	selector=MakeQuerySelector(selector);
 	return parentElement.querySelector(selector);
 };
 
+function MakeQuerySelector(selector){
+	if(IsQuerySelector(selector))
+		return selector;
+	else
+		return "#"+(selector.replace(/^\#/,""));
+}
+
 function GetElementIn(selector,parentElement){
 	if(typeof selector==="string")
-		return GetElementFromTextSelector(selector,parentElement)
+		return GetElementFromTextSelector(selector,parentElement);
 	else
 		return selector; //in case the actual element is given in the beginning
 };
