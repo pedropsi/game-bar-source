@@ -11,7 +11,7 @@
 		<tr><td>Website:</td>
 			<td>«SITE-LINK-SELF»</td></tr>
 		<tr><td>Social media:</td>
-			<td>None.</td></tr>
+			<td>Not particularly active.</td></tr>
 		<tr><td>Releases:</td>
 			<td>«TITLE-YEAR|«SELECTION»»</td>
 		</table>
@@ -20,9 +20,13 @@
 		<p>«SITE-NAME» is an archive of «NAME»'s personal projects - notably «NAME»'s puzzles - with a triple purpose: record «NAME»'s learning journey, make it useful to others and become a stepping stone to something greater. Surpassing all expectations, a growing community of enthusiasts find joy in «NAME»'s unique challenges and often learn something new.</p>
 
 <h2 id="history">History</h2>
+	<h3>Phase I</h3>
 	<p>Many years elapsed since «NAME»'s first hit, the mini puzzle <a href="unlucky-unlock.html">Unlucky Unlock</a>, and the birth of the «SITE-NAME», just before 2018. Fast-forward a year, and five intriguing puzzles (<a href="whirlpuzzle.html">whirlpuzzle</a>, <a href="pmgrp.html">pmgrp</a>, <a href="hastefulll.html">hastefulll</a>, <a href="tiaradventur.html">tiaradventur</a>, <a href="abxtract-tractx.html">abxtract-tractx</a>), came into being, each a stepping stone for the next project.</p>
-	<p>«NAME»'s game-making adventure reaches a major milestone in 2019: «NAME»'s first and probably puzzlescript's first fully commercial game. Enter the <a href="gravirinth.html">Gravirinth</a> - a mysteriously puzzling exoarcheology expedition.</p>
-	
+	<p>«NAME»'s game-making adventure reaches a major milestone in 2019: «NAME»'s first and probably puzzlescript's first fully commercial game. Enter the <a href="gravirinth.html">Gravirinth</a> - a mysteriously puzzling exoarcheology expedition (now available for free).</p>
+	<h3>Phase II</h3>
+	<p> As <a href="2019-04-14-a-game-making-journey.html">a game-making cycle</a> came to a close, «NAME»'s goals widened. Mastering puzzle-making became secondary to helping the <a href="2019-01-31-selected-puzzlescript-games.html">puzzle-making community</a> by providing useful tools and <a href="11-lessons-from-11-games.html">advice</a>. Thus was born <a href="platformer-template.html">Platformer template</a>, tripling as a game, game-design tutorial and testing ground for... the <a href="game-bar.html">puzzlescript game bar!</a>
+	<p>The <b>puzzlescript game bar</b> emerged as a collaborative open-source effort to provide puzzlescript <em>developers</em> and <em>players</em> with a better experience, including useful new features such as a level selector, background music manager and a hint system. This being the current focus, interspersing  <b>game bar</b> upgrades with short occasional hits like <a href="burokku-konekuta.html">Burokku Konekuta</a> may nevertheless prove irresistible...</p>
+		
 <h2 id="projects" >Projects</h2>
 	«SNIPPET|«SELECTION»»
 	<h3>Other Projects</h3>
