@@ -32,6 +32,11 @@ function UndoButton(){
 	return undo;
 }
 
+function MuteButton(){
+	canYoutube=false;
+	return ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}})
+}
+
 function GameBar(targetIDsel){
 	
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
@@ -46,7 +51,7 @@ function GameBar(targetIDsel){
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
 		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
 		ButtonLinkHTML("Credits"),
-		ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}}),
+		MuteButton(),
 		ButtonHTML({txt:"◱",attributes:{onclick:'RequestGameFullscreen();GameFocus();',id:'FullscreenButton'}}),
 	].join("");
 	
