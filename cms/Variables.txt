@@ -130,11 +130,11 @@ OLD-PUZZLE-SCRIPT-PRE	<link href="codes/game/puzzlescript-mobile.css" rel="style
 HONOURS	«SCRIPT-PRE»codes/game/honours-«TITLE».js«SCRIPT-POS»
 
 
-GUESTBOOK-ADD	<div class="button centered" onclick="RequestGuestbook()">Leave your message!</div>
-BUTTON-GET	<div class="button centered buy" >Get it now!</div>
-BUTTON-PREORDER	<div class="button centered buy" >Preorder now!</div>
-BUTTON-COMMENT	<div class="button button-comment" onclick="RequestComment(\'«TITLE»\',this)">Comment!</div>
-BUTTON-SUBSCRIBE	<div class="button centered">«SUBSCRIBE-LINK»</div>
+GUESTBOOK-ADD	<div class="button centered" onclick="RequestGuestbook()" tabindex="0">Leave your message!</div>
+BUTTON-GET	<div class="button centered buy" tabindex="0">Get it now!</div>
+BUTTON-PREORDER	<div class="button centered buy" tabindex="0">Preorder now!</div>
+BUTTON-COMMENT	<div class="button button-comment" onclick="RequestComment(\'«TITLE»\',this)" tabindex="0">Comment!</div>
+BUTTON-SUBSCRIBE	<div class="button centered" tabindex="0">«SUBSCRIBE-LINK»</div>
 
 CONTACT-TEXT-1	<a href='contact.html'>contact «NAME»</a>
 CONTACT-TEXT-2	<a href='contact.html'>get in touch</a>
@@ -257,12 +257,12 @@ POST-PLUS-LABELS	«POSTAREA-PRE»«POST»«POSTAREA-POS»
 
 STARSSHARE	<div class="starsshare">«STARS»«SHARER»</div>
 STARS-CONTAIN	«STARS-STAR|Split:---|Contain:True»
-STARS-STAR	<button name="rate-«ENUM-1-5»" id="rate-«ENUM-1-5»" onclick="starry(this,'«ENUM-1-5»');" class="star-b"></button><label class="label-on" for="rate-«ENUM-1-5»"></label> 
+STARS-STAR	<button name="rate-«ENUM-1-5»" id="rate-«ENUM-1-5»" onclick="starry(this,'«ENUM-1-5»');" class="star-b" tabindex="0"></button><label class="label-on" for="rate-«ENUM-1-5»"></label> 
 ENUM-1-5	5---4---3---2---1
 
 SHARER	<div class="sharer"><p><strong>Share it:</strong></p><div>«SHARER-SUB»</div></div>
 SHARER-SUB	«SHARER-BUTTON|In:Share|With:{LINK->«LINK»,TITLE->«TITLE»,YEAR->«YEAR»}|Contain:True»
-SHARER-BUTTON	<a href="«ACTION»" target="_«TARGET»" id="share-«SERVICE»"><div class="sharing-button"><svg viewBox="0 0 «DIM» «DIM»"><path «STROKE» d="«SVG»"/></svg></div></a>
+SHARER-BUTTON	<a href="«ACTION»" target="_«TARGET»" id="share-«SERVICE»"><div class="sharing-button" tabindex="0"><svg viewBox="0 0 «DIM» «DIM»"><path «STROKE» d="«SVG»"/></svg></div></a>
 
 LOG-LINK	<b><a href="«LINK»-log.html">«TITLE-BOLD»'s log</a></b>
 LOG-COMMENTS	<script>AddAfterElement('«BUTTON-COMMENT»',"h2")</script>
