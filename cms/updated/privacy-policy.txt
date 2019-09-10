@@ -80,14 +80,18 @@ This information is kept <b>private</b> in a <em>Google</em> account. </p>
 		<th>to see how many attempts per level are made and whether previously unknown solutions were found.<th>
 	</tr>
 	<tr>
+		<th>hints used (if available)</th>
+		<th>to see whether and when players need help.<th>
+	</tr>
+	<tr>
 		<th>player feedback</th>
 		<th>to improve the game.<th>
 	</tr>
 </tbody>
 </table>
 
-<h2><b>Autosave</b> cookies</h2>
-<p>Each game on the «SITE-NAME» offers the <b>Autosave</b> option, which saves your progress across sessions using up to 2 cookies per game. Conveniently, <b>Autosave</b> is on by default (as stated in each game). However, those <b>cookies can be deleted simply</b> by deselecting the save icon (floppy disk).</p>
+<h2><b>Localsave</b> cookies</h2>
+<p>Each game on the «SITE-NAME» offers the <b>Localsave</b> option, which saves your progress across sessions using up to 3 cookies per game. Conveniently, <b>Localsave</b> is on by default (as stated in each game). However, those <b>cookies can be deleted simply</b> by deselecting the save icon (floppy disk).</p>
 
 <h2>More...</h2>
 <p><b>Suggestions for improvement of the «SITE-NAME»'s Privacy are always «CONTACT-TEXT-5»!</b></p>
