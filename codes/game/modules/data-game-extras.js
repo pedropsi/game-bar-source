@@ -761,8 +761,10 @@ function OnKeyDownGame(event) {
 	//Not inside other elements, such as feedback forms, etc...
 	if(event.target.tagName!=="BODY")
 		return;
-	else if(keyActions[event.keyCode])
+	else if(keyActions[event.keyCode]){
+		event.preventDefault();
 		keyActions[event.keyCode](event);
+	}
 }
 
 
