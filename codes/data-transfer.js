@@ -1386,11 +1386,11 @@ function FocusNextBounded(F){
 
 //Click
 function ClickPrevBounded(){
-	FocusPrev(function(elem){elem.click()},true)
+	FocusPrevBounded(function(elem){elem.click()},true)
 }
 
 function ClickNextBounded(){
-	FocusNext(function(elem){elem.click()},true)
+	FocusNextBounded(function(elem){elem.click()},true)
 }
 
 function ClickStay(){
