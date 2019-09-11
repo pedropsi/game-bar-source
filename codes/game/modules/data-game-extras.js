@@ -9,9 +9,9 @@ function PrepareGame(){
 	AddGameBar();
 	AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
 	ConsoleAddMany([
-			"Localsave is ON for "+pageTitle()+".",
-			"To stop saving and erase all 2 cookies, please deselect 🖫."
-			]);
+		"Localsave is ON for "+pageTitle()+".",
+		"To stop saving and erase all 2 cookies, please deselect 🖫."
+	]);
 	PlaylistStartPlay();
 	GameFocus();
 		
