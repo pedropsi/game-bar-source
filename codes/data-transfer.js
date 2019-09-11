@@ -1351,7 +1351,7 @@ function FocusPrev(F,bounded){
 			return console.log("beginning reached");
 		else
 			prev=document.activeElement.parentElement.lastChild;
-	FocusElement(prev);
+	FocusInside(prev);
 	F(prev);
 }
 
@@ -1364,7 +1364,7 @@ function FocusNext(F,bounded){
 			return console.log("end reached");
 		else
 		next=document.activeElement.parentElement.firstChild;
-	FocusElement(next);
+	FocusInside(next);
 	F(next);
 }
 
