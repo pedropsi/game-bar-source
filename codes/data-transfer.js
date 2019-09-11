@@ -2160,6 +2160,7 @@ function StopCapturingKeys(OnKeyDown){
 function ResumeCapturingKeys(OnKeyDown){
 	var OnKeyDown=OnKeyDown?OnKeyDown:OnKeyDownDefault;
 	StopCapturingKeys.last=OnKeyDown;
+	document.removeEventListener('keydown',OnKeyDown);
 	document.addEventListener('keydown',OnKeyDown);
 }
 
