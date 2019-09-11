@@ -1026,12 +1026,6 @@ function CustomDataField(type,obj){
 	return FuseObjects(DF,obj);
 }
 
-var DATAPACKHISTORY=[];
-
-function DPHistoryAdd(DF){
-	DATAPACKHISTORY.push(DF);
-}
-
 function UpdateDataPack(DP,obj){
 	return FuseObjects(DP,obj);
 }
@@ -1055,7 +1049,10 @@ function RequestDataPack(NamedFieldArray,Options){
 		var DP=NewDataPack(NewDataPackFields(NamedFieldArray));
 		DP=UpdateDataPack(DP,o);
 		DP.fields=DP.fields.map(function(f){var fi=f;fi.pid=DP.qid;return fi});
-		DPHistoryAdd(DP);
+		
+		if(!GetDataPack.history)
+			GetDataPack.history=[];
+		GetDataPack.history.push(DP);
 		
 		DP.qdisplay(DP);
 		
@@ -1448,7 +1445,7 @@ function SubmitData(dataObject,destination){
 	data.formDataNameOrder=destination.headers;
 	data.formGoogleSendEmail="";
 	data.formGoogleSheetName=destination.sheet;
-	SUBMISSIONHISTORY.push(data);
+	PreviousSubmission.history.push(data);
 	EchoData(data,destination.url);
 }
 
@@ -1488,10 +1485,12 @@ function CheckSubmit(qid){
 };
 
 
-var SUBMISSIONHISTORY=[];
-
 function PreviousSubmission(field){
-	var s=SUBMISSIONHISTORY.filter(function(datasub){return ((typeof datasub[field])!=="undefined")});
+	if(!PreviousSubmission.history)
+		PreviousSubmission.history=[];
+	
+	var s=PreviousSubmission.history.filter(function(datasub){return ((typeof datasub[field])!=="undefined")});
+	
 	if(s.length>0)
 		return s[s.length-1][field];
 	else
@@ -1581,12 +1580,12 @@ function NodeOverwriteData(field,node,newdata){
 ///////////////////////
 
 function GetDataPack(id){
-	var i=0;
-	while(i<DATAPACKHISTORY.length){
-		if(DATAPACKHISTORY[i].qid===id)
-			return DATAPACKHISTORY[i];
-		i++}
-	return undefined
+	if(!GetDataPack.history)
+		GetDataPack.history=[];
+	
+	return GetDataPack.history.find(
+		function(DP){return DP.qid===id;}
+		);
 };
 
 function GetDefaultData(field,id){
