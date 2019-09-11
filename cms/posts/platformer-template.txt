@@ -12,6 +12,7 @@
 
 <h3>Special thanks</h3>
 <p>««P-PRE»HUNKYDORY«P-POS»» and ««P-PRE»ZABEL«P-POS»» for spotting two rare yet important bugs.</p>
+<p>««P-PRE»MINOTALEN«P-POS»» for suggesting the addition of hints and for several hint suggestions and improvements.</p>
 
 <h2>F.A.Q.</h2>
 <h3>Is «TITLE-BOLD» a real game or a game template?</h3>
@@ -28,6 +29,9 @@
 
 
 <h2>Changelog</h2>
+<h3>09/2019</h3>
+<p>Hints added to most levels!</p>
+
 <h3>06/2019</h3>
 <p>Level tweaks:
 <li>
@@ -48,6 +52,5 @@
 <ul><b>level 50:</b> remotion of one single dash causing one unintended solution.</ul>
 </li>
 </p>
-
 
 «PRESS-TEXT»

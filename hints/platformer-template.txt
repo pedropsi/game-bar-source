@@ -3,13 +3,13 @@ Walk with the <kbd>arrow keys</kbd>.
 Your goal is to the right.
 Go for it!
 
-level 2 -----------------------------------(this is another hint groups, with just 2 hints)
+level 2 -----------------------------------(this is another hint group, with just 2 hints)
 After a fall, can you climb?
 Press <kbd>up</kbd> then <kbd>right</kbd> to climb a step.
 
 
 
-level 3 -----------------------------------(this hint group is separated by more than one empty line)
+level 3 -----------------------------------(this hint group is separated from the previous one by more than one empty line)
 Gravity affects both players and blocks.
 Push the block rightwards and watch the important winning animation.
 
@@ -19,14 +19,14 @@ level 4 -----------------------------------(all numbers at the start of each hin
 2.1 After dropping the block below the goal, you can finally reach it!
 
 level 5 -----------------------------------(the image "sidedrop.png" is located at "hints/platformer-template/sidedrop.png")
-To drop a block, you need space to be in upright position...
+To drop a block, you need space to be in tall position...
 ... but blocks can also be dropped sideways if a wall prevents them being carried along with you:
 sidedrop.png
 
 level 6 -----------------------------------(the "level X" line will be supressed from now on, except in level 11)
 Carried blocks can be thrown sideways.
 sideways.png
-Blocks can also be pushed from upright position.
+Blocks can also be pushed from tall position.
 
 7 You can push multiple blocks.
 That pit on the right seems too deep. Can you fill it?
@@ -40,22 +40,25 @@ You can drop carried blocks one by one (press up successively).
 Drop all blocks in the middle of the screen.
 
 10 The block on the right is completely stuck, so a three-block tower is impossible.
-Use the sideways throw to place a block on top of the right wall, then push it further to the right...
-...now pick the top-right block, and repeat previous steps towards the left.
+Place a block on top of the right single wall, then push it on top of the rightmost block...
+...now climb over the wall, pick the block again and push it left to make a 2-block tower in the middle.
 
-level 11 -----------------------------------(this is an empty hint group, meaning that level 11 has with zero hints!)
+level 11 -----------------------------------(this is an empty hint group, meaning that level 11 has zero hints!)
 
 12 To make a player tower, start by separating both players far apart.
-The player furthest from the centre should be upright. Then, the other player should come together, after crossing the middle ridge.
+The player furthest from the centre should be tall and beside a wall. Only then should the other player come closer.
 
 13 Make a player tower, then press <kbd>up</kbd> or <kbd>down</kbd> a couple times to see what happens!
+The rightmost gap can only be passed by also making a player tower there.
+twoplayertower.png
 
-14 How far apart need players be before you can make a tower?
-The answer is 2 squares.
-With players 2 squares apart, lift the leftmost player, before bringing the rightmost player leftwards.
+14 A tall player that tries to move into a wall will stay tall.
+What is the greatest distance possible between both players?
+With players 3 units apart horizontally (i.e. with 2 spaces between them), lodge the leftmost player against a wall, then bring the rightmost player next to it. Then make a tower!
 
 15 Towers can mix players and blocks freely!
-In a mixed tower, press <kbd>up</kbd> or <kbd>down</kbd> a few times to change the positions of players and blocks!
+In a mixed tower, press <kbd>up</kbd> or <kbd>down</kbd> a few times to learn how to change the positions of players and blocks!
+Both players must enter the goal at the same time.
 
 16 Timing is everything.
 Just because you're starting to win, don't waste precious blocks!
@@ -64,9 +67,9 @@ Move the bottom player leftwards as soon as the winning animation starts to save
 17 No one wins alone.
 Before you clear the top goal, make sure the bottommost player can reach the top.
 
-18 All players must be aligned. But where?
-Are you sure you want to know?
-alignment.png
+18 Placing one player at a top goal is easy. But how to you place another one?
+Start by aligning all three players vertically...
+...then clear the first goal while preserving a standing 2-player tower. 
 
 19 Some goals are higher than others.
 Clear the two top goals before the two bottom goals.
