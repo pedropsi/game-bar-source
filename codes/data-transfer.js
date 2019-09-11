@@ -1,4 +1,3 @@
-var CONTEXT="";
 var DESTINATIONS={};
 
 var LOGO='<?xml version="1.0"?>\
@@ -541,6 +540,13 @@ function ParentSelector(targetIDsel){
 	return "#"+parentElement.id;
 }
 
+function MakeQuerySelector(selector){
+	if(IsQuerySelector(selector))
+		return selector;
+	else
+		return "#"+(selector.replace(/^\#/,""));
+}
+
 // Get element based on selectors: .class, #id, idsring, or the element itself
 function GetElementFromTextSelector(selector,parentElement){
 	if(parentElement===null)
@@ -548,13 +554,6 @@ function GetElementFromTextSelector(selector,parentElement){
 	selector=MakeQuerySelector(selector);
 	return parentElement.querySelector(selector);
 };
-
-function MakeQuerySelector(selector){
-	if(IsQuerySelector(selector))
-		return selector;
-	else
-		return "#"+(selector.replace(/^\#/,""));
-}
 
 function GetElementIn(selector,parentElement){
 	if(typeof selector==="string")
@@ -714,6 +713,9 @@ function MakeTable(dataarray){
 	return "<table><tbody>\n"+dataarray.map(EnRow).join("\n")+"</tbody></table>";
 }
 
+
+//////////////////////////////////////////////////
+// Guestbook 
 function MakeGuestbook(dataarray){
 	function MakeComment(dataline){
 		if(dataline[0]==="") return "";
@@ -733,6 +735,8 @@ function MakeGuestbook(dataarray){
 	return "<table><tbody>\n"+dataarray.sort(function(dl1,dl2){return CompareId(SafeString(dl1[4]),SafeString(dl2[4]))}).map(MakeComment).join("\n")+"</tbody></table>";
 }
 
+
+// Comment tree system
 function CompareId(a,b){
 	if(a===b)
 		return 0;
@@ -762,60 +766,6 @@ function NextReplyMessageId(id,dataarray){
 	return id+"»"+String(childrenThreadIds.length+1);
 }
 
-
-
-//Update Page with most recent edit
-
-function UpdatePost(UPDATEPATH,LOADID){
-	OverwriteData(UPDATEPATH+pageIdentifier()+".txt",LOADID,TextReplacer);
-}
-
-function StartCMS(){
-	ClearVariables();
-	LoadCMS("cms/CMS.txt");
-	LoadVariables("cms/Text.txt");
-	LoadVariables("cms/Variables.txt");
-	Replacements();
-}
-
-
-function RefreshPost(){
-	var LOADID="markdown";
-	var UPDATEPATH="cms/updated/";
-	
-	if(GetElement(LOADID)!==null){
-		var data=LoadData(UPDATEPATH+pageIdentifier()+".txt");
-		if( typeof data !=="undefined"){
-			StartCMS();
-			UpdatePost(UPDATEPATH,LOADID);
-		}
-	}
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Save Data
-
-LOADID="markdown";
-
-// Download
-// https://stackoverflow.com/questions/13405129/javascript-create-and-save-file
-function Download(data, filename, type){
-    var file = new Blob([data], {type: type});
-    if(window.navigator.msSaveOrOpenBlob) // IE10+
-        window.navigator.msSaveOrOpenBlob(file, filename);
-    else { // Others
-        var a = document.createElement("a"),
-                url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function(){
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);  
-        }, 0); 
-    }
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -2338,7 +2288,7 @@ function CyclePrevBounded(array){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Image
-ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
+var ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
 
 function LoadImage(fullpath){
 	var hash=ArrayHash([fullpath]);
