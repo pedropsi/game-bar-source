@@ -306,8 +306,7 @@ function isAbsolutableLink(url){
 //Page traversal
 
 function MarkElements(selector,markfunction){
-	var elementNodes=Object.values(document.querySelectorAll(selector));
-	return elementNodes.map(markfunction);
+	return QueryAll(selector).map(markfunction);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -575,11 +574,29 @@ function GetElement(selector,pSelector){
 	return GetElementIn(selector,parentElement)
 }
 
-//MatchElement
-function MatchElement(elem,selector){
-	selector=MakeQuerySelector(selector);
-	return document.querySelector(selector)===elem;
+//Match Element to selector
+function QueryAll(selector){
+	return Array.from(document.querySelectorAll(MakeQuerySelector(selector)));
 }
+
+function Match(elem,selector){
+	return In(QueryAll(selector),elem);
+}
+
+//Find first Element matching selector
+function FindFirstMatch(selectorArray,elem){
+		
+	function F(a){
+		return a.find(function(sel){return Match(elem,sel)})
+	};
+		
+	var item=ApplyArrayObject(selectorArray,F);
+	if(IsObject(selectorArray))
+		return selectorArray[item];
+	else 
+		return item;
+}
+
 
 
 //Inside
