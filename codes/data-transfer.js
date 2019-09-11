@@ -1435,6 +1435,13 @@ function SubmitData(dataObject,destination){
 	EchoData(data,destination.url);
 }
 
+function SubmitValidAnswer(DP){
+	var formtype=FindData("destination",DP.qid);
+	var destinationObject=GetDestination(formtype);
+	var dataObject=(destinationObject.Data)(DP.qid);
+	SubmitData(dataObject,destinationObject);
+}
+
 function InvalidateAnswer(DF){
 	var validator=DF.qvalidator(DF);
 	var errorid="error-"+DF.qid;
@@ -1444,14 +1451,6 @@ function InvalidateAnswer(DF){
 	if(invalid)
 		AddAfterElement(ErrorHTML(validator.error,errorid),"#"+DF.qid);
 	return invalid;
-}
-
-
-function SubmitValidAnswer(DP){
-	var formtype=FindData("destination",DP.qid);
-	var destinationObject=GetDestination(formtype);
-	var dataObject=(destinationObject.Data)(DP.qid);
-	SubmitData(dataObject,destinationObject);
 }
 
 
