@@ -2211,21 +2211,7 @@ function SetDatapackShortcuts(DP){
 	AddShortcuts(SetDatapackShortcuts.extras);
 }
 
-/*
-function KeyActionsDP(DP){return{
-		27:function(){Close(DP.qid);},
-		13:function(){CheckSubmit(DP.qid);},
-		"ctrl+enter":function(){CheckSubmit(DP.qid);},
-		//"ctrl+enter":function(){CheckSubmit(DP.qid);},   //even in inputs, etc...
-	};
-}
 
-function keyActionsAnswer(DP){return{
-		27:function(){Close(DP.qid);},
-		"ctrl+enter":function(){CheckSubmit(DP.qid);},
-	};
-}
-*/
 
 
 ///////////////////////////////////////////////////////////////////////////////

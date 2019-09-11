@@ -454,7 +454,7 @@ function RequestLevelSelector(){
 		return FuseObjects(
 			ShortcutsBasicF(DP),
 			{
-			"L":function(){Close(DP.qid)},
+			"l":function(){Close(DP.qid)},
 			"left":FocusPrev,
 			"up":FocusNext,
 			"right":FocusNext,
@@ -723,11 +723,11 @@ function CloseBeforeF(DP,F){
 function ShortcutsBasicF(DP){
 	
 	return {
-		"H":CloseBeforeF(DP,RequestHint),
-		"E":CloseBeforeF(DP,RequestGameFeedback),
-		"F":RequestGameFullscreen,
-		"L":CloseBeforeF(DP,RequestLevelSelector),
-		"M":ToggleCurrentSong
+		"h":CloseBeforeF(DP,RequestHint),
+		"e":CloseBeforeF(DP,RequestGameFeedback),
+		"f":RequestGameFullscreen,
+		"l":CloseBeforeF(DP,RequestLevelSelector),
+		"m":ToggleCurrentSong
 	}
 };
 
@@ -981,8 +981,8 @@ function RequestPrevHint(){
 
 function HintShortcutsBasicF(DP){
 	return FuseObjects(ShortcutsBasicF(DP),{
-		"H":function(){Close(DP.qid)},
-		"spacebar":function(){Close(DP.qid)}
+		"h":function(){Close(DP.qid)},
+		"space":function(){console.log("SPACE");Close(DP.qid)}
 	})
 };
 	
