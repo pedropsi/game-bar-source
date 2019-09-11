@@ -357,32 +357,3 @@ function RequestMediaPass(){
 		)
 }
 
-
-//////////////////////////////////////////////////////////////////////
-//Analytics
-
-function RequestAnalytics(){
-	var yes="Yes. Let Pedro PSI learn (and find bugs) faster.";
-	var no ="No. Pedro PSI must learn by other means.";
-	RequestDataPack([
-		['exclusivechoice',{
-			questionname:"Would you share (anonymous) gameplay analytics with Pedro PSI?",
-			qfield:"answer2",
-			qchoices:[no,yes]
-		}]
-	],
-	{
-		action:'Close',
-		destination:'',
-		executeChoice:function(id,choice){
-			if(choice===yes){
-				AnalyticsClearance=function(){return true;};
-				console.log("yes!!!");
-			}
-			else {
-				AnalyticsClearance=function(){return false;} //Default option
-				console.log("noooo!");
-			}
-		}
-	});
-}
