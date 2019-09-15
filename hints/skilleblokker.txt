@@ -10,16 +10,15 @@ Sometimes, to move one step forward, you must first move backwards.
 
 
 level 3 -----------------------------------(this hint group is separated from the previous one by more than one empty line)
-Try preserving the level symmetry...
+Try preserving level symmetry...
  
-level 4 -----------------------------------(all numbers at the start of each hint line, below, are ignored)
-4 The smaller blocks are trapped...
-3 ... so where should you place the U-shaped blocks?
-
-level 5 -----------------------------------
+level 4 -----------------------------------
 Contiguous blocks lodged against a wall can no longer be split...
 ... so which part of the L-shaped blocks may touch the wall safely?
 
+level 5 -----------------------------------(all numbers at the start of each hint line, below, are ignored)
+4 The smaller blocks are trapped...
+3 ... so where should you place the U-shaped blocks?
 
 level 6 -----------------------------------(the "level X" line will be supressed from now on)
 Sticky blocks are thicker on the sticky side!
