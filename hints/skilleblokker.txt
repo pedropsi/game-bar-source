@@ -1,0 +1,31 @@
+level 1 -----------------------------------(this is a hint group, composed of three hints, one per line)
+Slide with the <kbd>arrow keys</kbd>.
+Your goal is to split the blocks.
+Try first pushing both blocks against a wall!
+
+level 2 -----------------------------------(this is another hint group, with just 2 hints)
+Every block pair must be split.
+Sometimes, to move one step forward, you must first move backwards.
+ 
+
+
+level 3 -----------------------------------(this hint group is separated from the previous one by more than one empty line)
+Try preserving the level symmetry...
+ 
+level 4 -----------------------------------(all numbers at the start of each hint line, below, are ignored)
+4 The smaller blocks are trapped...
+3 ... so where should you place the U-shaped blocks?
+
+level 5 -----------------------------------
+Contiguous blocks lodged against a wall can no longer be split...
+... so which part of the L-shaped blocks may touch the wall safely?
+
+
+level 6 -----------------------------------(the "level X" line will be supressed from now on)
+Sticky blocks are thicker on the sticky side!
+When two blocks stick together, they form one single block!
+
+7 You can push multiple blocks.
+How are the two trapped block pairs different?
+How many sticky blocks can free each trapped pair?
+Can you make a hook?
