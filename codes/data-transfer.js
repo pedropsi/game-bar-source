@@ -1445,7 +1445,11 @@ function SubmitData(dataObject,destination){
 	data.formDataNameOrder=destination.headers;
 	data.formGoogleSendEmail="";
 	data.formGoogleSheetName=destination.sheet;
+	
+	if(!PreviousSubmission.history)
+		PreviousSubmission.history=[];
 	PreviousSubmission.history.push(data);
+	
 	EchoData(data,destination.url);
 }
 
