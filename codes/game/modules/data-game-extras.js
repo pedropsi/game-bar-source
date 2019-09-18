@@ -370,7 +370,7 @@ function CurLevelNumber(){
 
 
 var LevelLookahead=0;	//Max number of unsolved levels shown, in linear progression: 0 = all  /
-var bossLevels=[]; 		//Require beating all previous levels to show up; all previous levels + itself to show levels afterwards
+var gateLevels=[]; 		//Require beating all previous levels to show up; all previous levels + itself to show levels afterwards
 
 function UnlockedLevels(){
 	if(LevelLookahead<1){
@@ -380,11 +380,11 @@ function UnlockedLevels(){
 		var lvl=LevelNumber(FirstUnsolvedScreen());
 		var lookahead=1;
 		while(lookahead<=LevelLookahead&&lvl<=Levels().length){
-			if(In(bossLevels,lvl)&&lookahead>1) //Don't reveal boss level until all previous levels are solved
+			if(In(gateLevels,lvl)&&lookahead>1) //Don't reveal gate level until all previous levels are solved
 				break;
 			else if(!LevelSolved(lvl)){
 				showlevels=showlevels.concat(lvl);
-				if(In(bossLevels,lvl))          //Don't reveal more levels while boss level unsolved
+				if(In(gateLevels,lvl))          //Don't reveal more levels while gate level unsolved
 					break;
 				else
 					lookahead++;
