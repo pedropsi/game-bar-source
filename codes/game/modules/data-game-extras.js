@@ -33,8 +33,12 @@ function UndoButton(){
 }
 
 function MuteButton(){
-	canYoutube=false;
-	return ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}})
+	if(Playlist().length<1)
+		return "";
+	else{
+		canYoutube=false;
+		return ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}});
+	}
 }
 
 function GameBar(targetIDsel){

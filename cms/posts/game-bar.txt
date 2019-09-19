@@ -6,7 +6,7 @@
 «FIGURE-SIMPLE»
 
 <h3>Current version</h3>
-<p><b><span id="version-number">v2.1</span>:</b><span id="version-date">06/09/2019</span></p>
+<p><b><span id="version-number">v2.1</span>:</b><span id="version-date">19/09/2019</span></p>
 
 <script>
 var v=LoadData("https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js");
@@ -80,9 +80,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 
 <h3>Music</h3>
 <h4>Add music files</h4>
-<p>To control a music playlist via the game bar, each music track should be added to the page inside «[<»audio«>]» tags, placed anywhere. If no audio tags are found, when pressing the music button, the message "Error: can't find the Jukebox" will be displayed.</p>
-<h4>Reveal the music button</h4>
-<p> To show the music button (hidden by default) simply uncomment the line «[»//ButtonOnClickHTML("♫",'ToggleCurrentSong(this)'),«]» by deleting the two slashes («[»//«]»).</p>
+<p>To control a music playlist via the game bar, each music track should be added to the page inside «[<»audio class="music"«>]» tags, placed anywhere in the page. If these tags are detected, a music button will be revealed automatically.</p>
 
 <h3>"Credits" and "How-to-play" buttons</h3>
 <h4>Reveal the buttons</h4>
