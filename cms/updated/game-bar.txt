@@ -18,13 +18,14 @@ ReplaceElement(vd,"version-date");
 
 <p>Older versions can be found <a href="https://github.com/pedropsi/puzzlescript-game-bar/tree/master/Versions">in the archive</a>.</p>
 
-<h2><b>Players:</b> How to add the «TITLE-BOLD» to any puzzlescript game</h2>
-<p>Just bookmark this <a href="javascript:
+<h2>Bookmarklet«NEW»</h2>
+<p>The «TITLE-BOLD» can now be added to any online puzzlescript game with this <a href="javascript:
 var jsCode=document.createElement('script');
 jsCode.setAttribute('src','https://pedropsi.github.io/puzzlescript-game-bar/GameBar/GameBar.js');
 jsCode.setAttribute('type','text/javascript');
 document.body.appendChild(jsCode);
-console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>, which you can then run on top of most online puzlescript games.</p>
+console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
+<p> Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet to add the «TITLE-BOLD» to that particular game.</p>
 
 <h2><b>Makers:</b> How to add the <b>Puzzlescript Game Bar</b> to your own game</h2>
 <h3>Just include the <b>javascript source code</b>!</h3>
