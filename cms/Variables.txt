@@ -344,3 +344,5 @@ GAME-TABLE-ITEM	<tr><td><a href="«GAME-LINK»" «BLANK»>«TITLE»</a></td><td>«Autho
 GAME-TABLE-BODY	<tbody>«GAME-TABLE-ITEM|In:NiceGames|Filter:{"Year"->_}|Contain:True»</tbody>
 GAME-TABLE-HEAD	<thead><tr><th>Title</th><th>Author</th><th>Year</th><th>Tags</th></tr></thead>
 GAME-LIST	<table class="top-left">«GAME-TABLE-HEAD»«GAME-TABLE-BODY»</table>
+
+NEW!	<div class="new"><span>New</span></div>

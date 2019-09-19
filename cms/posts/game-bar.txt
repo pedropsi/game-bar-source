@@ -18,7 +18,7 @@ ReplaceElement(vd,"version-date");
 
 <p>Older versions can be found <a href="https://github.com/pedropsi/puzzlescript-game-bar/tree/master/Versions">in the archive</a>.</p>
 
-<h2>Bookmarklet«NEW»</h2>
+<h2>Bookmarklet</h2>
 <p>The «TITLE-BOLD» can now be added to any online puzzlescript game with this <a href="javascript:
 var jsCode=document.createElement('script');
 jsCode.setAttribute('src','https://pedropsi.github.io/puzzlescript-game-bar/GameBar/GameBar.js');
