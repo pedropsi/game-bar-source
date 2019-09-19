@@ -18,7 +18,15 @@ ReplaceElement(vd,"version-date");
 
 <p>Older versions can be found <a href="https://github.com/pedropsi/puzzlescript-game-bar/tree/master/Versions">in the archive</a>.</p>
 
-<h2>How to add the «TITLE-BOLD» to your own game</h2>
+<h2><b>Players:</b> How to add the «TITLE-BOLD» to any puzzlescript game</h2>
+<p>Just bookmark this <a href="javascript:
+var jsCode=document.createElement('script');
+jsCode.setAttribute('src','https://pedropsi.github.io/puzzlescript-game-bar/GameBar/GameBar.js');
+jsCode.setAttribute('type','text/javascript');
+document.body.appendChild(jsCode);
+console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>, which you can then run on top of most online puzlescript games.</p>
+
+<h2><b>Makers:</b> How to add the <b>Puzzlescript Game Bar</b> to your own game</h2>
 <h3>Just include the <b>javascript source code</b>!</h3>
 <p>Include the <b>javascript source</b> <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" «BLANK»>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
 <p>To ensure the «TITLE-BOLD» overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the «[<»body«>]» the snippet «[<»script type="text/javascript" src="GameBar.js"«>]»«[<»/script«>]».</p>
@@ -145,7 +153,7 @@ ReplaceElement(vd,"version-date");
 		<li>Level unlocking:
 			<ul>
 			<li><b>N-level lookahead</b>: players can access up the following N unsolved levels, further levels are "locked";</li>
-			<li>Multiple <b>Boss levels</b>: boss levels only show up after all previous levels were beaten and lock further levels;</li>
+			<li>Multiple <b>Gate levels</b>: gate levels only show up after all previous levels were beaten and lock further levels;</li>
 			</ul>
 		</li>
 	</ul>
