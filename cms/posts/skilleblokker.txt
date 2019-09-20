@@ -10,6 +10,15 @@
 
 «CREDITS»
 
+<h2>F.A.Q.</h2>
+
+<h3>How is «TITLE-BOLD» related to Burokku Konekuta?</h3>
+<p>«TITLE-BOLD» is the sequel and opposite twin of <a href="burokku-konekuta.html">Burokku Konekuta</a>, following similar level structures and design conventions, but with an inverted goal and some extra twists, mostly relating to <b>sliding on ice</b>!</p>
+
+<h3>Why is «TITLE-BOLD» in norwegian?</h3>
+<p>The norwegian culture is marked by a colder climate.</p>
+
+
 <h2>Changelog</h2>
 <h3>09/2019</h3>
 <p>«TITLE-BOLD» was published!</p>
