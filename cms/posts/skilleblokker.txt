@@ -1,0 +1,17 @@
+«ABOUT-TEXT»
+«ONE-LINER»
+
+«HOWTO-TEXT»
+<p><em>Slide</em> with «ARROWKEYS», and push apart blocks of different shapes.</p>
+<p>Level difficulty is shown by the number of stars (1 to 5).</p>
+
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»
+
+<h2>Changelog</h2>
+<h3>09/2019</h3>
+<p>«TITLE-BOLD» was published!</p>
+
+«PRESS-TEXT»

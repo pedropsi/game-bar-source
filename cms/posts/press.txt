@@ -30,7 +30,7 @@
 <h2 id="projects" >Projects</h2>
 	«SNIPPET|«SELECTION»»
 	<h3>Other Projects</h3>
-	<p>See <a href="games.html">all games</a>.</p>
+	<p>See the <a href="news.html">news</a> for concise updates on the most recent projects.</p>
 
 <h2 class="images">Images & Logo</h2>
 	<p>Download all images + logo <a class="download" title="Download all images and logo" 
