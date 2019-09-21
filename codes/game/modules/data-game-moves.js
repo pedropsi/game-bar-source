@@ -17,6 +17,13 @@ function EchoCheckpoint(){
 	checkpointsaver++;
 }
 
+function EchoHint(lvl,hintN){
+	if(AnalyticsClearance()){
+		var hintdata=UpdateHintData(lvl,hintN);
+		EchoData(hintdata,leveldataURL);
+	}
+}
+
 function EchoLevelClose(curlevel){
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
@@ -108,6 +115,19 @@ function ElapsedTime(){
 	return elapsedtime;
 }
 
+function LevelTime(){
+	if(!LevelTime.start){
+		ResetLevelTime();
+		return 0;
+	}
+	else
+		return Date.now()-LevelTime.start; //Time difference in ms
+}
+
+function ResetLevelTime(){
+	LevelTime.start=Date.now();
+}
+
 function UpdateLevelData(curlevel){
 	var ws=winseq;
 	var ms=moveseq;
@@ -134,8 +154,16 @@ function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 	ClearMoves();
 }
 
+function UpdateHintData(lvl,hintN){
+	UpdateHintData.data={};
+	UpdateHintData.data["type"]="hint";	
+	UpdateHintData.data["level"]=lvl;
+	UpdateHintData.data["timing"]=LevelTime();
+	UpdateHintData.data["moves"]=hintN;
+	UpdateHintData.data["winsequence"]=="---";
 
-
+	return UpdateHintData.data;
+}
 
 function ResumeRecordingMovesPlaylist(){
 	if(recordingmoves!==true){

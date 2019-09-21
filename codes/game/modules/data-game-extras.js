@@ -944,6 +944,7 @@ function SeeHint(lvl,hintN){
 	if(UsedHints(lvl)<hintN&&Hints(lvl).length>=hintN){
 		Hints.used[lvl-1]=hintN;
 		LocalsaveHints();
+		EchoHint(lvl,hintN);
 	}
 }
 
