@@ -439,7 +439,10 @@ function LoadExternalScript(url){
 // Data transmission - JSON, to a script in url "url"
 
 function EchoPureData(data,url){
-	var data=data.slice();
+	var encoded = Object.keys(data).map(function(k){
+		return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+	}).join('&');
+
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST',url);
 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
@@ -449,9 +452,7 @@ function EchoPureData(data,url){
 		return;
 	};
 	// url encode form data for sending as post data
-	var encoded = Object.keys(data).map(function(k){
-		return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-	}).join('&')
+
 	xhr.send(encoded);	
 }
 
