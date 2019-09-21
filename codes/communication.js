@@ -328,8 +328,8 @@ function OpenModalPreOrder(campaigntext){
 //////////////////////////////////////////////////////////////////////
 //News
 function News(){
-	if(pageIdentifier()!=="burokku-konekuta"&&!inConfig("📰»"))
-		ConsoleAdd("<b>Pedro PSI's <em>news service</em>:</b><a href='burokku-konekuta.html' target='_blank'> Burokku Konekuta がリリースされました!</a>");
+	if(pageIdentifier()!=="skilleblokker"&&!inConfig("📰»"))
+		ConsoleAdd("<b>Pedro PSI's <em>news service</em>:<a href='skilleblokker.html' target='_blank'>Skilleblokker</a> spillet utgitt!");
 	activateConfig("📰»");
 };
 
