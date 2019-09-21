@@ -160,7 +160,7 @@ function UpdateHintData(lvl,hintN){
 	UpdateHintData.data["level"]=lvl;
 	UpdateHintData.data["timing"]=LevelTime();
 	UpdateHintData.data["moves"]=hintN;
-	UpdateHintData.data["winsequence"]=="---";
+	UpdateHintData.data["winsequence"]="---";
 
 	return UpdateHintData.data;
 }
