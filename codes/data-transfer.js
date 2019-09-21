@@ -439,6 +439,7 @@ function LoadExternalScript(url){
 // Data transmission - JSON, to a script in url "url"
 
 function EchoPureData(data,url){
+	var data=data.slice();
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST',url);
 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
