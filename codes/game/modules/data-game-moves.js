@@ -5,7 +5,7 @@ function EchoLevelWin(curlevel){
 	if(AnalyticsClearance()){
 		UpdateLevelData(curlevel);
 		EchoData(leveldata,leveldataURL);
-		ClearLevelRecord();
+	//	ClearLevelRecord();
 	}
 }
 
@@ -23,7 +23,7 @@ function EchoLevelClose(curlevel){
 		leveldata["winsequence"]="";
 		leveldata["type"]="close";
 		EchoData(leveldata,leveldataURL);
-		ClearLevelRecord();
+	//	ClearLevelRecord();
 	}
 }
 
