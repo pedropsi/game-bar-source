@@ -155,14 +155,13 @@ function UpdateLevelCheckpointData(curlevel,checkpointsaver){
 }
 
 function UpdateHintData(lvl,hintN){
-	UpdateHintData.data={};
-	UpdateHintData.data["type"]="hint";	
-	UpdateHintData.data["level"]=lvl;
-	UpdateHintData.data["timing"]=LevelTime();
-	UpdateHintData.data["moves"]=hintN;
-	UpdateHintData.data["winsequence"]="---";
-
-	return UpdateHintData.data;
+	return FuseObjects(leveldata,
+	{	"type":"hint",
+		"level":lvl,
+		"timing":LevelTime(),
+		"moves":hintN,
+		"winsequence":"---"
+	});
 }
 
 function ResumeRecordingMovesPlaylist(){
