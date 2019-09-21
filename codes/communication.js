@@ -154,7 +154,8 @@ function RequestModalWinnerMessage(previousDP){
 			questionname:"",
 			qfield:"whence",
 			qchoices:["Private message","Public message in Guestbook"],
-			executeChoice:function(id,choice){
+			executeChoice:function(choice,id){
+				console.log(id,choice);
 				if(choice==="Public message in Guestbook"){
 					SetData("destination","Guestbook",id);
 				}

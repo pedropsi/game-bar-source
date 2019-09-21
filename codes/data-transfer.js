@@ -1637,28 +1637,6 @@ function ExecuteChoice(field,value,pid){
 	GetField(field,pid).executeChoice(value,pid); //Not dynamically updated. And why should it be?
 };
 
-/*
-function ExecuteChoice(field,value,id){
-	GetField(field,id).executeChoice(id,value); //Not dynamically updated. And why should it be?
-};
-
-function ToggleData(field,value,id){
-	ExecuteChoice(field,value,id);
-	var data=GetDefaultData(field,id);
-	if(typeof data==="undefined")
-		SetData(field,value,id);
-	else{
-		if(data.replace(" "+value,"").replace(value,"")===data)
-			SetData(field,data+" "+value,id)
-		else
-			SetData(field,data.replace(" "+value,"").replace(value,""),id)
-	}
-}
-
-function SwitchData(field,value,id){
-	ExecuteChoice(field,value,id);
-	SetData(field,value,id);
-}*/
 
 ///////////////////////////////////////////////////////////////////////////////
 // Global Data Transmission Variables
