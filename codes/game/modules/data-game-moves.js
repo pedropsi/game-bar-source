@@ -20,7 +20,6 @@ function EchoCheckpoint(){
 function EchoHint(lvl,hintN){
 	if(AnalyticsClearance()){
 		var hintdata=UpdateHintData(lvl,hintN);
-		console.log(hintdata);
 		EchoData(hintdata,leveldataURL);
 	}
 }
@@ -161,7 +160,7 @@ function UpdateHintData(lvl,hintN){
 	UpdateHintData.data["level"]=lvl;
 	UpdateHintData.data["timing"]=LevelTime();
 	UpdateHintData.data["moves"]=hintN;
-	UpdateHintData.data["winsequence"]="---";
+	UpdateHintData.data["winsequence"]=="---";
 
 	return UpdateHintData.data;
 }
