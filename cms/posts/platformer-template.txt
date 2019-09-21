@@ -6,7 +6,7 @@
 <p>Your perception of the goal and game rules should evolve as the game progresses.</p>
 
 «UNDO-RESTART-TEXT»
-«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«HINTS-TEXT»«NAVIGATION-TEXT»«FULLSCREEN-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
+«GAME-EXTRAS-HINTS-TEXT»
 
 «CREDITS»
 

@@ -6,7 +6,7 @@
 <p>Level difficulty is shown by the number of stars (1 to 5).</p>
 
 «UNDO-RESTART-TEXT»
-«GAME-EXTRAS-TEXT»
+«GAME-EXTRAS-HINTS-TEXT»
 
 «CREDITS»
 
