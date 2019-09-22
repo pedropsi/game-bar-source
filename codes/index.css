@@ -1175,3 +1175,7 @@ kbd {
     line-height: calc(12px + var(--w-2) + var(--h2) + var(--h1));
     font-family: Arial;
 }
+
+.hideCursor{
+    cursor:none;
+}
