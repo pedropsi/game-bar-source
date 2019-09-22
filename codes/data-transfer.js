@@ -1424,7 +1424,9 @@ function ListenOnce(ev,fun,target){
 		fun();
 		ev.map(function(e){target.removeEventListener(e,F)})
 	}
-	ev.map(function(e){target.addEventListener(e,F)})
+	ev.map(function(e){target.addEventListener(e,F)});
+	
+	return {"ev":ev,"F":F,"target":target};
 }
 
 function ListenOutside(ev,fun,targe){
@@ -1436,8 +1438,17 @@ function ListenOutside(ev,fun,targe){
 			ev.map(function(e){window.removeEventListener(e,F)})
 		}
 	}
-	ev.map(function(e){window.addEventListener(e,F)})
+	ev.map(function(e){window.addEventListener(e,F)});
+	
+	return {"ev":ev,"F":F,"target":target};
 }
+
+function ListenNoMore(evObj){
+	evObj["ev"].map(function(e){evObj["target"].removeEventListener(e,evObj["F"])});
+}
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Data submission in forms
@@ -1976,9 +1987,11 @@ function FullscreenAllowed(){
 
 function FullscreenActivate(browserprefix){
 	function Deactivate(){
-		if(!(document.fullscreenElement||document.webkitFullscreenElement))
+		if(!(document.fullscreenElement||document.webkitFullscreenElement)){
 			Deselect("FullscreenButton");
+			FreeFullscreenCursor();
 		}
+	}
 	//If a change is detected within the next 512 ms, trigger the button
 	[0,1,2,4,8,16,32,64,128,256,512].map(function(timedelay){
 		setTimeout(function(){ListenOnce(browserprefix,Deactivate,document)},timedelay);
@@ -2007,6 +2020,7 @@ function FullscreenOpen(targetIDsel){
 	if(f){
 		Select("FullscreenButton");
 		ConsoleLoad(targetIDsel);
+		ShowFullscreenCursor();
 	};	
 }
 
@@ -2030,6 +2044,7 @@ function FullscreenClose(){
 	
 	if(f) {
 		Deselect("FullscreenButton");
+		FreeFullscreenCursor();
 		ConsoleLoad();
 	};
 }
@@ -2046,6 +2061,27 @@ function FullscreenToggle(targetIDsel){
 	else
 		ConsoleAdd("Fullscreen: Please inform Pedro PSI that your browser is not yet supported!");
 };
+
+
+//Fullscreen cursor
+function HiddenFullscreenCursor(){
+	return Classed(GetElement(gameSelector),"hideCursor");
+}
+function HideFullscreenCursor(){
+	if(!HiddenFullscreenCursor()){
+		Select(GetElement(gameSelector),"hideCursor");
+		HideFullscreenCursor.last=ListenOnce('mousemove',ShowFullscreenCursor,GetElement(gameSelector));
+	}
+}
+function ShowFullscreenCursor(){
+	Deselect(GetElement(gameSelector),"hideCursor");
+	FreeFullscreenCursor.timeout=setTimeout(HideFullscreenCursor,3000);
+}
+function FreeFullscreenCursor(){
+	Deselect(GetElement(gameSelector),"hideCursor");
+	clearTimeout(FreeFullscreenCursor.timeout);	
+	ListenNoMore(HideFullscreenCursor.last);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
