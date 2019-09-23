@@ -1164,6 +1164,7 @@ code{
 .hint img{
     max-height: var(--h32);
     max-width: calc(var(--w32) + var(--w16));
+    object-fit:scale-down;
 }
 
 kbd {
