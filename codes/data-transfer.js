@@ -1274,7 +1274,7 @@ function PulseSelect(selectorE){
 
 function CloseElement(targetIDsel){
 	var fading=GetElement(targetIDsel);
-	if(fading!==null){
+	if(fading){
 		fading.classList.add("closing");
 		setTimeout(function(){fading.remove();},1000);
 	}
@@ -2253,7 +2253,6 @@ function AutoStop(RepeatF,delay){
 		clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
 	},delay);
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Cycle
