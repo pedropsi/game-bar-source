@@ -1096,14 +1096,14 @@ function HintsHonour(){
 	if(!Hints())
 		return "";
 	else if(UsedHints()===0)
-		return "★★★ no hints ★★★";
+		return "no hints ★";
 	else{
 		var h=UsedHints();
 		if(h===1)
-			return "☆ 1 hint ☆";
+			return "1 hint ☆";
 		else if(h<=AvailableHints()/7)
-			return "☆ "+h+" hints ☆";
+			return h+" hints ☆";
 		else
-			return "  "+h+" hints  ";
+			return h+" hints  ";
 	}
 }
