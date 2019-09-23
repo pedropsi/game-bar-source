@@ -12,6 +12,7 @@ Sometimes, to move one step forward, you must first move backwards.
 level 3 -----------------------------------(this hint group is separated from the previous one by more than one empty line)
 Don't let the apparent chaos startle you, focus on the longer blocks instead.
 First, move the rightmost longer block down.
+right-longer-block.gif
 The rest is up to you!
  
 level 4 -----------------------------------
