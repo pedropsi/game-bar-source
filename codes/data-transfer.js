@@ -1417,36 +1417,38 @@ function ClickStay(){
 //Event Listeners
 
 function ListenOnce(ev,fun,target){
-	target=target?target:window; //Improve the defaults
-	if(typeof ev==="string") //Defaults to array in case a single string is
-		ev=[ev];
-	function F(){
-		fun();
-		ev.map(function(e){target.removeEventListener(e,F)})
-	}
-	ev.map(function(e){target.addEventListener(e,F)});
-	
-	return {"ev":ev,"F":F,"target":target};
+	return ListenF(ev,fun,target?target:window,function(eve){return true;});
 }
 
-function ListenOutside(ev,fun,targe){
-	if(typeof ev==="string") //Defaults to array in case a single string is
-		ev=[ev];
-	function F(eve){
-		if(Outside(targe,eve.target)){
-			fun();
-			ev.map(function(e){window.removeEventListener(e,F)})
-		}
-	}
-	ev.map(function(e){window.addEventListener(e,F)});
-	
-	return {"ev":ev,"F":F,"target":target};
+function ListenOutside(ev,fun,target){
+	return ListenF(ev,fun,window,function(eve){return Outside(target,eve.target);});
+}
+
+function ListenF(ev,fun,target,ConditionF){
+		var evObj={
+			"ev":IsArray(ev)?ev:[ev],
+			"F":F,
+			"target":GetElement(target)
+		};
+			
+		function F(eve){
+			if(ConditionF(eve)){
+				fun();
+				ListenNoMore(evObj);
+			}
+		};
+		
+		ListenIndeed(evObj);
+		return evObj;
 }
 
 function ListenNoMore(evObj){
 	evObj["ev"].map(function(e){evObj["target"].removeEventListener(e,evObj["F"])});
 }
 
+function ListenIndeed(evObj){
+	evObj["ev"].map(function(e){evObj["target"].addEventListener(e,evObj["F"])});
+}
 
 
 
