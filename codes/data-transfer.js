@@ -423,10 +423,20 @@ function LoadDataMaybe(url){
 };
 
 function LoadData(url){
-	try{
-		return LoadDataMaybe(url)
+	if(LoadData[url]){
+		console.log("(cached data:",url,")");
+		return LoadData[url];
 	}
-	catch(errorDummy){
+	if(Online()){
+		try{
+			return LoadData[url]=LoadDataMaybe(url);
+		}
+		catch(errorDummy){
+			return undefined;
+		}
+	}
+	else{
+		console.log("Offline - couldn't load:",url)
 		return undefined;
 	}
 };
