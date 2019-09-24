@@ -1180,3 +1180,6 @@ kbd {
 .hideCursor{
     cursor:none;
 }
+.hidden{
+    display: none;
+}
