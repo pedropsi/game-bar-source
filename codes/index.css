@@ -1161,10 +1161,20 @@ code{
     flex-wrap: nowrap;
 }
 
-.hint img{
-    max-height: var(--h32);
-    max-width: calc(var(--w32) + var(--w16));
+.hint {
+    margin: var(--w-2) var(--h-2) var(--w-2) var(--h-2);
+    align-items: center;
+}
+
+.hint img,
+.hint canvas{
+    max-height: var(--w32);
+    max-width: var(--w32);
     object-fit:scale-down;
+    padding: 0;
+    margin: var(--w-4) var(--h-4) var(--w-4) var(--h-4);
+    background-color: var(--darkblue);
+    color: var(--white);
 }
 
 kbd {

@@ -646,6 +646,7 @@ function AddElement(html,parentIDsel){
 	var e=MakeElement(html);
 	var p=GetElement(parentIDsel);
 	p.appendChild(e);
+	return e;
 };
 
 function PrependElement(html,parentIDsel){
@@ -1278,6 +1279,15 @@ function PulseSelect(selectorE){
 	setTimeout(function(){Deselect(selectorE,clas);},100);
 }
 
+// Show/Hide
+
+function Show(selectorE){
+	Deselect(selectorE,"hidden");
+}
+
+function Hide(selectorE){
+	SelectSimple(selectorE,"hidden");
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Closing functions
@@ -2264,6 +2274,15 @@ function AutoStop(RepeatF,delay){
 	},delay);
 }
 
+function Monitor(MonitorF,delay,DisplayF){
+	var DisplayF=DisplayF?DisplayF:console.log;
+	function M(){
+		DisplayF(MonitorF());
+	}
+	AutoRepeat(M,delay);
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 // Cycle
 
@@ -2319,33 +2338,153 @@ function CyclePrevBounded(array){
 	return Cycle(array,-1,true);
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////
 //Image
 var ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
 
 function LoadImage(fullpath){
-	var hash=ArrayHash([fullpath]);
-	if(!LoadImage.cache)
-		LoadImage.cache={};
-	
-	if(In(LoadImage.cache,hash)){
-		return LoadImage.cache[hash];
+	var loaded=LoadData(fullpath)!==undefined;
+	if(loaded){
+		if(IsGif){
+			gifID=GenerateId();
+			loaded=ImageHTML({attributes:{id:gifID,src:fullpath,onload:'StartGIF('+gifID+')'}});
+		}
+		else
+			loaded=ImageHTML({attributes:{src:fullpath}});
 	}
 	else{
-		var loaded=LoadData(fullpath)!==undefined;
-		if(loaded)
-			loaded=ImageHTML({attributes:{src:fullpath}});
-		else{
-			console.log("no image found at: ",fullpath);
-			loaded="";
-		}
-		LoadImage.cache[hash]=loaded;
-		return loaded;
+		console.log("no image found at: ",fullpath);
+		loaded="";
 	}
+	return loaded;
 }
 
 function IsImageReference(ref){
-	return ImageExtensions.some(function(ext){return ref.replace(ext,"")!==ref});
+	return ImageExtensions.some(function(ext){return ref.replace("."+ext,"")!==ref});
+}
+
+//GIF Pause Support
+function IsGif(ref){
+	return ref.replace(".gif","")!==ref;
+}
+
+function StartGIF(gid){
+	var g=GetElement(gid);
+	
+	RemoveElement(GetElementIn("CANVAS",g.parentElement));
+	var c=AddElement("<canvas></canvas>",g.parentElement);
+	
+	Hide(g);	
+	ResizeGIF();
+	c.addEventListener('resize',ResizeGIF);	
+	ListenOnce('click',PlayGif(c,gid),c);
+	
+	function ResizeGIF(){
+		var g=GetElement(gid);
+		var c=g.nextSibling;
+		var ctx=c.getContext('2d');
+		var w=g.width;
+		var h=g.height;
+		c.width=w;
+		c.height=h;
+		DrawImage({
+			"elem":g,
+			"width":w,
+			"height":h
+		})(ctx);
+		
+		var s=(w*h)**0.5/3;
+				
+		DrawPolygon({
+			"size":s/2,
+			"fillColor":getComputedStyle(c)["color"],
+			"strokeColor":getComputedStyle(c)["background-color"],
+			"lineWidth":s/20,
+			"n":1,
+			x:w/2,
+			y:h/2
+		})(ctx);
+		
+		DrawPolygon({
+			"size":s/2*0.8,
+			"fillColor":getComputedStyle(c)["background-color"],
+			"n":3,
+			x:w/2,
+			y:h/2
+		})(ctx);
+		
+	}
+	
+}
+
+function PlayGif(c,gid){
+	return function(){
+		var g=GetElement(gid);
+		function SG(){
+			return StartGIF(gid)
+		}
+		ListenOnce('click',SG,g);
+		Show(g);
+		Hide(c);
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Canvas Drawing
+
+function DrawImage(txtObj){
+	if(!txtObj.elem)
+		return console.log("no image element in",txtObj);
+	
+	var elem=txtObj.elem;
+	var x=txtObj.x?txtObj.x:0;
+	var y=txtObj.y?txtObj.y:0;
+	var width=txtObj.width?txtObj.width:100; //Improve these defaults
+	var height=txtObj.height?txtObj.height:100;
+		
+	return function(ctx){
+		ctx.drawImage(elem,x,y,width,height);
+	}		
+}
+
+function DrawPolygon(txtObj){
+	var strokeColor=txtObj.strokeColor?txtObj.strokeColor:getComputedStyle(document.body)["strokeColor"];
+	var fillColor=txtObj.fillColor?txtObj.fillColor:getComputedStyle(document.body)["background-strokeColor"];
+		
+	var x=txtObj.x?txtObj.x:0;
+	var y=txtObj.y?txtObj.y:0;
+	var size=txtObj.size?txtObj.size:100;
+	
+	var lineWidth=txtObj.lineWidth?txtObj.lineWidth:size/20;
+	
+	var n=txtObj.n?txtObj.n:3;				//Number of sides
+	var startAngle=txtObj.startAngle?txtObj.startAngle:0;		//StartAngle
+		
+	return function(ctx){
+		ctx.beginPath();
+		if(n>=3){
+			for (var i=0;i<n;i++){
+				var angle=startAngle+i*Math.PI*2/n;
+				var xpos=x+size*Math.cos(angle);
+				var ypos=y+size*Math.sin(angle);
+				ctx.lineTo(xpos,ypos);
+			}
+		}
+		else{
+			ctx.arc(x,y,size,0,Math.PI*2);
+		}
+		ctx.closePath();
+		ctx.fillStyle=fillColor;
+		ctx.fill();
+
+		if(txtObj.lineWidth){
+			ctx.lineWidth = lineWidth;
+			ctx.strokeStyle=strokeColor;
+			ctx.stroke();			
+		}			
+	}		
 }
 
 ///////////////////////////////////////////////////////////////////////////////
