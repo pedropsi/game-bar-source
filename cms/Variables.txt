@@ -306,7 +306,7 @@ GALLERY	<div class="featured">«PICTURE-GALLERY|In:Asset|Filter:{"Context-id"->«L
 
 MUSIC-TABLE-HEAD	<thead>«ROW|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Info"}|Contain:True»</thead>
 MUSIC-TABLE-BODY	<tbody>«ROW|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Track"}|Contain:True»</tbody>
-GALLERY-MUSIC	<table class="top-left">«MUSIC-TABLE-HEAD»«MUSIC-TABLE-BODY»</table>
+GALLERY-MUSIC	<table class="top-left"><caption>Music tracks in «TITLE»</caption>«MUSIC-TABLE-HEAD»«MUSIC-TABLE-BODY»</table>
 
 MUSIC-CREDITS	<p>Background music by «MUSIC-CREDITS-AUTHORS».</p>«GALLERY-MUSIC»
 MUSIC-CREDITS-AUTHORS	«AUTHOR-FULL|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Track"}|Unique:True|Contain:True»
@@ -341,9 +341,11 @@ REDACTED	<s>Redacted</s>
 [<	<code><span><</span>
 >]	<span>></span></code>
 
+TH	<th scope="col">
+
 GAME-TABLE-ITEM	<tr><td><a href="«GAME-LINK»" «BLANK»>«TITLE»</a></td><td>«Author»</td><td>«YEAR»</td><td>«TAGS»</td></tr>
 GAME-TABLE-BODY	<tbody>«GAME-TABLE-ITEM|In:NiceGames|Filter:{"Year"->_}|Contain:True»</tbody>
-GAME-TABLE-HEAD	<thead><tr><th>Title</th><th>Author</th><th>Year</th><th>Tags</th></tr></thead>
-GAME-LIST	<table class="top-left">«GAME-TABLE-HEAD»«GAME-TABLE-BODY»</table>
+GAME-TABLE-HEAD	<thead><tr>«TH»Title</th>«TH»Author</th>«TH»Year</th>«TH»Tags</th></tr></thead>
+GAME-LIST	<table class="top-left"><caption>«NAME»'s selected puzzlescript games</caption>«GAME-TABLE-HEAD»«GAME-TABLE-BODY»</table>
 
 NEW!	<div class="new"><span>New</span></div>
