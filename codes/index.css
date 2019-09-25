@@ -58,13 +58,8 @@ body {
     line-height: calc(12px + var(--w-2));  
     justify-content: space-between;
     text-align: center;
+    word-wrap:break-word;
 }
-
-@media only screen and (max-width: 500px) {
-    body {
-       word-break: break-all;
-    }
-} 
 
 @media only screen and (max-width: 250px) {
     .avatar {
@@ -168,6 +163,10 @@ nav {
 @media only screen and (max-width:330px) {
     .main {
         flex-direction:column;
+        word-break: break-all;
+    }
+    .nav-link{
+        padding: var(--h-2) var(--w4) var(--h-2) var(--w4);
     }
 }
 
@@ -210,7 +209,6 @@ nav {
     justify-content:flex-end;
     height: 100%;
     transition-duration: var(--duration);
-    word-break: break-word;
     margin:var(--h-2) var(--w-2) var(--h-2) var(--w-2);
 }
 
@@ -354,17 +352,6 @@ h6 {
     color:var(--blue);
 }
 
-@media only screen and (max-width: 250px) {
-    h1, h2, h3, h4, h5, h6, p, table {
-        word-break:break-all;
-    }
-}
-@media only screen and (max-width: 150px) {
-    .nav{
-        word-break:break-all;
-    }
-}
-
 img {
     padding: 10px;
     background-color: var(--smokewhite);
@@ -473,12 +460,6 @@ li {
     background: var(--smokewhite);
     color: var(--blue);
     text-decoration-color: var(--blue);
-}
-
-@media only screen and (max-width: 350px) {
-    .buttonbar {
-       word-break: break-all;
-    }
 }
 
 .game-container{
@@ -735,8 +716,6 @@ td{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
- /*   min-width: 70%;
-    min-height: 30%;*/
     z-index: 11;
 }
 
@@ -783,7 +762,6 @@ td{
 
 .modal .closer .button {
     background-color: var(--lightyellow);
-   /* padding:var(--h2) var(--w2) var(--h2) var(--w2);*/
 }
 
 .modal .closer .button:hover,
