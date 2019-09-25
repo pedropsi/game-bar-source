@@ -207,7 +207,7 @@ nav {
     align-items: center;
     background-color: var(--white);
     flex-grow: 1;
-    justify-content: space-between;
+    justify-content:flex-end;
     height: 100%;
     transition-duration: var(--duration);
     word-break: break-word;
