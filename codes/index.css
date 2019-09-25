@@ -222,18 +222,23 @@ nav {
     transition-duration: var(--duration);
 }
 
-*:hover > img,
-*:active > img,
-*:focus > img{
+.card:hover img,
+.card:active img,
+.card:focus img{
     opacity: 1;
+    background-color: var(--turquoise);
     transition-duration: var(--duration);
+    margin: unset;
 }
 
 .card h3 {
     max-width: var(--w16);
-    margin-bottom: 0;
     line-height: 1;
     transition-duration: var(--duration);
+    text-decoration:none;
+    padding:var(--h-2) var(--w-2) var(--h-2) var(--w-2);
+    line-height: var(--h2);
+    margin: var(--h2) var(--w2) var(--h2) var(--w2);
 }
 
 .current {
