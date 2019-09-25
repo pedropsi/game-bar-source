@@ -222,11 +222,10 @@ nav {
     transition-duration: var(--duration);
 }
 
-.card:hover img,
-.card:active img,
-.card:focus img{
+*:hover > img,
+*:active > img,
+*:focus > img{
     opacity: 1;
-    background-color: var(--turquoise);
     transition-duration: var(--duration);
 }
 
@@ -273,9 +272,15 @@ p a:focus ,
 .mini:hover ,
 .mini:active,
 .mini:focus ,
+a:hover .card,
+a:focus .card,
+a:active .card,
 .card:hover ,
 .card:active,
-.card:focus ,
+.card:focus,
+a:hover .card img,
+a:focus .card img,
+a:active .card img,
 .selected {
     color: var(--turquoise);
     text-decoration-color: currentColor;
@@ -284,6 +289,7 @@ p a:focus ,
     cursor:pointer;
     outline: none;
 }
+
 
 .mini .tag:hover {
      background-color: var(--white);
