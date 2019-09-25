@@ -711,6 +711,10 @@ tbody tr:hover{
     transition-duration: var(--duration);
 }
 
+td{
+    min-width: var(--w16)
+}
+
 .modal {   
     --t:0.5;
     position: fixed;
