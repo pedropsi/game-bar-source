@@ -231,11 +231,9 @@ nav {
 
 .card h3 {
     max-width: var(--w16);
-    line-height: 1;
     transition-duration: var(--duration);
     text-decoration:none;
     padding:var(--h-2) var(--w-2) var(--h-2) var(--w-2);
-    line-height: var(--h2);
     margin: var(--h2) var(--w2) var(--h2) var(--w2);
 }
 
