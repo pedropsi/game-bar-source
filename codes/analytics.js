@@ -2,7 +2,6 @@
 // Analytics and Actions
 var analyticsURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec";
 var clearance = "test";
-var clearancePages = [""];
 
 function DataUnit(){
 	return {
@@ -142,10 +141,6 @@ function absolutiseLinks(){
 
 function AnalyticsClearance(){
 	return (pageTag()!==clearance)&&!isFileLink(pageURL());
-}
-
-function AnalyticsInnerClearance(title){
-	return !In(clearancePages,title); //Special pages without internal analytics
 }
 
 if(AnalyticsClearance()){

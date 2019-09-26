@@ -10,10 +10,6 @@ function EchoLevelWin(curlevel){
 }
 
 function EchoCheckpoint(){
-	if(AnalyticsClearance()){
-		UpdateLevelCheckpointData(curlevel,checkpointsaver);
-		EchoData(leveldata,leveldataURL);
-	}
 	checkpointsaver++;
 }
 
