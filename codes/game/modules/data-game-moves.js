@@ -94,7 +94,7 @@ function RegisterMove(move){
 		RegisterMove.winseq=[];
 	
 	switch(move){
-		case 82:RegisterMove.winseq=[];break;//R
+		case 82:RegisterMove.winseq=[];break;//Restart
 		case 85:RegisterMove.winseq.pop();break;//Z
 		case 27:RegisterMove.winseq=["Q"];break;//Q
 		default:RegisterMove.winseq.push([ReadMove(move),delta]);break
@@ -108,7 +108,7 @@ function ReadMove(move){
 		case 38:return "U";break;
 		case 39:return "R";break;
 		case 40:return "D";break;
-		case 82:return "R";break;
+		case 82:return "S";break;
 		case 88:return "X";break;
 		case 85:return "Z";break;
 		default: return move;break;
