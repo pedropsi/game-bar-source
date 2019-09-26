@@ -530,8 +530,10 @@ function SelectUnlockedLevel(lvl){
 		return console.log("stay in lvl ",lvl);
 		
 	//Go to exactly after the level prior to the chosen one, to read all useful messages, including level title
-	lvl=lvl<2?0:(LevelScreens()[lvl-2]+1);
-	GoToScreen(lvl);
+	var n=lvl<2?0:(LevelScreens()[lvl-2]+1);
+	GoToScreen(n);
+	
+	EchoSelect(lvl,"level");
 };
 
 
@@ -539,6 +541,8 @@ function GoToScreenCheckpoint(n){
 	LoadCheckpoint(n);
 	loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 	canvasResize();
+	
+	EchoSelect(n,"checkpoint");
 };
 
 function GoToScreen(lvl){
@@ -569,11 +573,6 @@ function DelayLevel(n){
 	
 	FocusElement("choice-"+StarLevelNumber(n));
 	
-	/*DelayLevel.timer=setTimeout(function(){
-		SelectUnlockedLevel(n);
-		DelayLevel.lastTime=undefined;
-		DelayLevel.level="";
-	},2000);*/
 }	
 	
 
@@ -593,6 +592,7 @@ function ResetLevel(){
 	curlevel=0;
 	curlevelTarget=null;
 	SolvedLevelScreens.levels=[];
+	ClearLevelRecord();
 }
 
 
@@ -617,6 +617,7 @@ function ResetGame(){
 	ResetCheckpoints();
 	goToTitleScreen();
 	tryPlayEndGameSound();
+	ClearLevelRecord();
 }
 
 function AdvanceLevel(){
@@ -626,6 +627,7 @@ function AdvanceLevel(){
 	messageselected=false;
 	LocalsaveLevel(curlevel);
 	LoadLevelOrCheckpoint();
+	ClearLevelRecord();
 }
 
 function AdvanceUnsolvedScreen(){

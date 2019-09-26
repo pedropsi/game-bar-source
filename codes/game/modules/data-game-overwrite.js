@@ -11,7 +11,6 @@ function DoWin() {
 		LocalsaveLevel(curlevel);
 		if(typeof customLevelInfo!= "undefined")customLevelInfo();
 		if (againing = false, tryPlayEndLevelSound(), unitTesting){
-			ClearLevelRecord();
 			return void nextLevel();
 		}
 		winning = true, timer = 0
@@ -40,7 +39,6 @@ function nextLevel(){
 	
 	AdjustFlickscreen();
 	canvasResize();
-	ClearLevelData();
 }
 
 

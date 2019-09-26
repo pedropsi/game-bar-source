@@ -19,6 +19,12 @@ function EchoCheckpoint(){
 	ClearLevelRecord();
 }
 
+function EchoSelect(lvlch,type){
+	var selectdata=UpdateSelectData(lvlch,type);
+	EchoLevelData(selectdata);
+	ClearLevelRecord();
+}
+
 function EchoHint(lvl,hintN){
 	var hintdata=UpdateHintData(lvl,hintN);
 	EchoLevelData(hintdata);
@@ -54,11 +60,6 @@ function LevelData(){
 
 var leveldataURL="https://script.google.com/macros/s/AKfycbwuyyGb7XP7H91GH_8tZrXh6y_fjbZg4vSxl6S8xvAAEdyoIHcS/exec";
 
-function ClearLevelData(){
-	ClearLevelRecord();
-	ResetCheckpointIncrement();
-}
-
 function UpdateLevelData(curlevel){
 	return FuseObjects(LevelData(),{
 		"timing":LevelTime(),//Math.floor(ms.reduce(function(x,y){return (x+y[1])},0)/1000),
@@ -87,7 +88,7 @@ function RegisterMove(move){
 	
 	if(!RegisterMove.moveseq)
 		RegisterMove.moveseq=[];
-	RegisterMove.moveseq.push([move,delta]);
+	RegisterMove.moveseq.push([ReadMove(move),delta]);
 	
 	if(!RegisterMove.winseq)
 		RegisterMove.winseq=[];
@@ -96,7 +97,21 @@ function RegisterMove(move){
 		case 82:RegisterMove.winseq=[];break;//R
 		case 85:RegisterMove.winseq.pop();break;//Z
 		case 27:RegisterMove.winseq=["Q"];break;//Q
-		default:RegisterMove.winseq.push([move,delta]);break
+		default:RegisterMove.winseq.push([ReadMove(move),delta]);break
+	}
+}
+
+function ReadMove(move){
+	switch (move) {
+		case 27:return "Q";break;
+		case 37:return "L";break;
+		case 38:return "U";break;
+		case 39:return "R";break;
+		case 40:return "D";break;
+		case 82:return "R";break;
+		case 88:return "X";break;
+		case 85:return "Z";break;
+		default: return move;break;
 	}
 }
 
@@ -129,26 +144,14 @@ function ResetLevelTime(){
 }
 
 //Checkpoint
-function CheckpointIncrement(){
-	if(!CheckpointIncrement.n)
-		ResetCheckpointIncrement();
-	CheckpointIncrement.n++;
-	return CheckpointIncrement.n;
-}
-
-function CheckpointString(curlevel){
-	return String(curlevel)+"»"+String(CheckpointIncrement.n);
-}
-
-function ResetCheckpointIncrement(){
-	return CheckpointIncrement.n=0;
+function CheckpointString(curlevel,curcheckpoint){
+	return String(curlevel)+"»"+String(curcheckpoint);
 }
 
 function UpdateLevelCheckpointData(curlevel){
-	CheckpointIncrement();
 	return FuseObjects(UpdateLevelData(curlevel),{
 		"type":"checkpoint",
-		"level":CheckpointString(curlevel)
+		"level":CheckpointString(curlevel,curcheckpoint+1)
 	});
 }
 
@@ -159,6 +162,14 @@ function UpdateHintData(lvl,hintN){
 		"level":lvl,
 		"timing":LevelTime(),
 		"moves":hintN,
-		"winsequence":"---"
+	});
+}
+
+//Select
+function UpdateSelectData(lvlch,type){
+	return FuseObjects(LevelData(),{
+		"type":"goto-"+type,
+		"level":(type==="checkpoint")?CheckpointString(curlevel,lvlch):lvlch,
+		"timing":LevelTime(),
 	});
 }
