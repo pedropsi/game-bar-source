@@ -2072,6 +2072,7 @@ function FullscreenClose(){
 }
 
 function FullscreenToggle(targetIDsel){
+	FullscreenElement.selector=targetIDsel;
 	if(FullscreenAllowed()){
 		if(document.fullscreenElement||document.webkitFullscreenElement){
 			FullscreenClose();
@@ -2084,23 +2085,26 @@ function FullscreenToggle(targetIDsel){
 		ConsoleAdd("Fullscreen: Please inform Pedro PSI that your browser is not yet supported!");
 };
 
+function FullscreenElement(){
+	return GetElement(FullscreenElement.selector);
+}
 
 //Fullscreen cursor
 function HiddenFullscreenCursor(){
-	return Classed(GetElement(gameSelector),"hideCursor");
+	return Classed(FullscreenElement(),"hideCursor");
 }
 function HideFullscreenCursor(){
 	if(!HiddenFullscreenCursor()){
-		Select(GetElement(gameSelector),"hideCursor");
-		HideFullscreenCursor.last=ListenOnce('mousemove',ShowFullscreenCursor,GetElement(gameSelector));
+		Select(FullscreenElement(),"hideCursor");
+		HideFullscreenCursor.last=ListenOnce('mousemove',ShowFullscreenCursor,FullscreenElement());
 	}
 }
 function ShowFullscreenCursor(){
-	Deselect(GetElement(gameSelector),"hideCursor");
+	Deselect(FullscreenElement(),"hideCursor");
 	FreeFullscreenCursor.timeout=setTimeout(HideFullscreenCursor,3000);
 }
 function FreeFullscreenCursor(){
-	Deselect(GetElement(gameSelector),"hideCursor");
+	Deselect(FullscreenElement(),"hideCursor");
 	clearTimeout(FreeFullscreenCursor.timeout);
 	if(HideFullscreenCursor.last)
 		ListenNoMore(HideFullscreenCursor.last);
