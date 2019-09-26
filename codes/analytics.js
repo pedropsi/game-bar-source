@@ -88,10 +88,6 @@ function RegisterMosaicToggled(b){ //Mosaic change
 function RegisterNightModeToggled(b){
 	EchoAnalytics(FingerprintAction("NM toggle",b.innerText));	
 }
-function RegisterLevelNavigated(b){
-	EchoAnalytics(FingerprintAction("Level Navigated",b.innerText));	
-}
-
 
 
 
@@ -147,7 +143,6 @@ if(AnalyticsClearance()){
 	ListenOnce('DOMContentLoaded', RegisterOpen);
 	MarkElements(".button",ElementClicked);
 	MarkElements(".mosaic",MosaicToggled);
-	MarkElements(".gameNav",LevelNavigated);
 	MarkElements("#NightMode",NightModeToggled);
 	outLinks();
 }
@@ -162,7 +157,7 @@ else{
 function ElementClicked(b){b.addEventListener("click", function(){RegisterElementClicked(this)}); return b};
 function MosaicToggled(b){b.addEventListener("click", function(){RegisterMosaicToggled(this)}); return b};
 function NightModeToggled(b){b.addEventListener("click", function(){RegisterNightModeToggled(this)}); return b};
-function LevelNavigated(b){b.addEventListener("click", function(){RegisterLevelNavigated(this)}); return b};
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Inter-page memory via configs
