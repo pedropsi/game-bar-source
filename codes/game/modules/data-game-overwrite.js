@@ -40,6 +40,7 @@ function nextLevel(){
 	
 	AdjustFlickscreen();
 	canvasResize();
+	ClearLevelData();
 }
 
 
