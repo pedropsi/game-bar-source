@@ -24,4 +24,6 @@
 	<li><b>Optimism:</b> no negative feelings, at the end of the game;</li>
 </ul>
 
+<p><b>NB:</b> To add a <em>level selector</em> and <em>fullscreen</em> option to any of these games on the fly, just use the <a href="game-bar.html#Bookmarklet">puzzlescript game bar bookmarklet</a>!</p>
+
 «GAME-LIST»

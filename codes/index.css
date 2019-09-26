@@ -694,6 +694,11 @@ td{
     min-width: var(--w16)
 }
 
+table caption{
+    color: var(--darkblue);
+    font-style:italic;
+}
+
 .modal {   
     --t:0.5;
     position: fixed;
