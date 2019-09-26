@@ -516,34 +516,30 @@ function ChooseLevel(choice){
 };
 
 function SelectLevel(lvl){
-	if(In(UnlockedLevels(),lvl))
+	if(HasCheckpoint())
+		GoToScreenCheckpoint(lvl);
+	else if(In(UnlockedLevels(),lvl))
 		SelectUnlockedLevel(lvl);
 	else
 		console.log("Level "+lvl+" locked!");
 }
 
 function SelectUnlockedLevel(lvl){
-	if(!HasCheckpoint()){
-		//Guards against returning to same level
-		if(lvl===CurLevelNumber()&&!titleScreen)
-			return console.log("stay in lvl ",lvl);
+	//Don't return to same level
+	if(lvl===CurLevelNumber()&&!titleScreen)
+		return console.log("stay in lvl ",lvl);
 		
-		//Goes to exactly after the level prior to the chosen one, to read all useful messages, including level title
-		lvl=lvl<2?0:(LevelScreens()[lvl-2]+1);
-		GoToScreen(lvl);
-	}
-	else{
-		GoToScreenCheckpoint(lvl);
-	}
+	//Go to exactly after the level prior to the chosen one, to read all useful messages, including level title
+	lvl=lvl<2?0:(LevelScreens()[lvl-2]+1);
+	GoToScreen(lvl);
 };
 
 
 function GoToScreenCheckpoint(n){
-	if(HasCheckpoint()){
-		LoadCheckpoint(n);
-		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
-		canvasResize();
-}};
+	LoadCheckpoint(n);
+	loadLevelFromStateTarget(state,curlevel,curlevelTarget);
+	canvasResize();
+};
 
 function GoToScreen(lvl){
 	curlevel=lvl;
