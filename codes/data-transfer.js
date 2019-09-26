@@ -2101,8 +2101,9 @@ function ShowFullscreenCursor(){
 }
 function FreeFullscreenCursor(){
 	Deselect(GetElement(gameSelector),"hideCursor");
-	clearTimeout(FreeFullscreenCursor.timeout);	
-	ListenNoMore(HideFullscreenCursor.last);
+	clearTimeout(FreeFullscreenCursor.timeout);
+	if(HideFullscreenCursor.last)
+		ListenNoMore(HideFullscreenCursor.last);
 }
 
 
