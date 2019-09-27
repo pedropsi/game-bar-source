@@ -758,20 +758,6 @@ function InstructGame(event){
 }
 
 
-function OnKeyDownGame(event) {
-	event = event || window.event;
-	//Not inside other elements, such as feedback forms, etc...
-	if(event.target.tagName!=="BODY")
-		return;
-	else if(keyActions[event.keyCode]){
-		event.preventDefault();
-		keyActions[event.keyCode](event);
-	}
-}
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////
 // Custom sounds 
 
