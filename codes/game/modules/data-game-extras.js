@@ -678,34 +678,39 @@ function AdjustFlickscreen(){
 
 //Game keybinding profile
 keyActionsGame={
-	//Arrows & Spacebar
-	32:InstructGame,
-	37:InstructGame,
-	38:InstructGame,
-	39:InstructGame,
-	40:InstructGame,
+	//Arrows
+	"left"			:InstructGameKeyF(37),
+	"up"			:InstructGameKeyF(38),
+	"right"		:InstructGameKeyF(39),
+	"down"		:InstructGameKeyF(40),
 	//WASD
-	65:InstructGameKeyF(37),
-	87:InstructGameKeyF(38),
-	68:InstructGameKeyF(39),
-	83:InstructGameKeyF(40),	
-	//Enter, C, X
-	13:InstructGameKeyF(88),	
-	67:InstructGameKeyF(88),	
-	88:InstructGameKeyF(88),
+	"W":InstructGameKeyF(37),
+	"A":InstructGameKeyF(38),
+	"S":InstructGameKeyF(39),
+	"D":InstructGameKeyF(40),
+	//Enter, C, X, Spacebar
+	"enter":InstructGameKeyF(88),
+	"C":InstructGameKeyF(88),	
+	"X":InstructGameKeyF(88),
+	"spacebar":InstructGameKeyF(88),
 	// Z, U     
-	90:InstructGameKeyF(85),	
-	85:InstructGame,	
+	"Z":InstructGameKeyF(85),	
+	"U":InstructGameKeyF(85),	
 	// R
-	82:InstructGame,	
-	// Esc
-	27:InstructGame,
-	69:RequestGameFeedback,
-	70:RequestGameFullscreen,	//F
-	72:RequestHint, 			//H
-	76:RequestLevelSelector, 	//L
-	77:ToggleCurrentSong		//M
+	"R":InstructGameKeyF(82),	
+	// Esc, backspace
+	"escape":InstructGameKeyF(82),
+	// Game bar menus
+	"E":RequestGameFeedback,
+	"F":RequestGameFullscreen,
+	"H":RequestHint, 				
+	"L":RequestLevelSelector, 
+	"M":ToggleCurrentSong		
 }
+
+//Keybind to game element
+OverwriteShortcuts(gameSelector,keyActionsGame);
+
 
 function RequestGameFullscreen(){
 	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
