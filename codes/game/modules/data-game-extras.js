@@ -676,10 +676,6 @@ function AdjustFlickscreen(){
 ////////////////////////////////////////////////////////////////////////////////
 //Key capturing
 
-function InstructGameKeyF(newkey){
-	return function(ev){ev.keyCode=newkey;InstructGame(ev)}
-}
-
 //Game keybinding profile
 keyActionsGame={
 	//Arrows & Spacebar
@@ -737,6 +733,12 @@ function ShortcutsBasicF(DP){
 function CheckRegisterKey(event){
 	checkKey(event,true);
 	RegisterMove(event.keyCode);
+}
+
+
+
+function InstructGameKeyF(newkey){
+	return function(ev){ev.keyCode=newkey;InstructGame(ev)}
 }
 
 function InstructGame(event){
