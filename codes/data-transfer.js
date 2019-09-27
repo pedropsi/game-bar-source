@@ -1335,11 +1335,28 @@ function CloseAndContinue(DP){
 ////////////////////////////////////////////////////////////////////////////////
 // Focus functions
 
+// Spotlight (context shifting)
+function Spotlight(){
+	if(!Spotlight.s)
+		Spotlight.s=[document.body];
+	return Spotlight.s[Spotlight.s.length-1];
+}
+
+function AddSpotlight(element){
+	if(Spotlight()!==element){
+		Spotlight.s.push(element);
+	}
+	return element;
+}
+
+// Focus management
 function FocusElement(targetIDsel){
 	var focussing=GetElement(targetIDsel);
-	if(focussing!==null){
+	if(focussing){
 		focussing.focus();	
+		AddSpotlight(focussing);
 	}
+	return focussing;
 };
 
 function FocusableInput(e){
@@ -1356,25 +1373,31 @@ function FocusInside(targetIDsel){
 	var e=GetElement(targetIDsel);
 	if(!e)
 		return false;
+	
 	if(Focusable(e)){
-		e.focus();
+		FocusElement(e);
 		return true;
-	}else if(Classed(GetElement(".selected",targetIDsel),"selected")&&GetElement(".selected",targetIDsel).parentNode.isEqualNode(GetElement(targetIDsel))){
-		GetElement(".selected",targetIDsel).focus();
+	}
+	
+	var selElem=GetElement(".selected",targetIDsel);
+		
+	if(Classed(selElem,"selected")&&selElem.parentNode.isEqualNode(GetElement(targetIDsel))){
+		FocusElement(selElem);
 		return true;
-	}else{	
-		var children=e.children;
-		var found=false;
-		var i=0;
-		while(!found&&i<children.length){
-			if(UnFocusable(children[i])){
-				found=false;
-			} else {
-				found=FocusInside(children[i]);
+	}
+	else {	
+			var children=e.children;
+			var found=false;
+			var i=0;
+			while(!found&&i<children.length){
+				if(UnFocusable(children[i])){
+					found=false;
+				} else {
+					found=FocusInside(children[i]);
+				}
+				i++;
 			}
-			i++;
-		}
-		return found;
+			return found;
 	}
 };
 
