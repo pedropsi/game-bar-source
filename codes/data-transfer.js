@@ -2336,24 +2336,29 @@ var KeyCodes={
 }
 
 
-function OnKeyDownDefault(event) {
+//Key Capturing
+function CaptureComboKey(event) {
 	event = event || window.event;
-	
-	if(keyActions[event.keyCode])
-		keyActions[event.keyCode](event);
+	var keystring=EventKeystring(event);
+	var context=Context();
+	if(In(context,keystring)){ //TODO make context shortcuts always canonical, regardless of coder's own input.
+		event.preventDefault;
+		context[keystring](event); //TODO see whether sending an event is appropriate
+	}
 }
 
+//Key Capturing Setters
 function StopCapturingKeys(OnKeyDown){
-	var OnKeyDown=StopCapturingKeys.last?StopCapturingKeys.last:OnKeyDown;
-	document.removeEventListener('keydown',OnKeyDown);
+	document.removeEventListener('keydown',OnKeyDown); // TODO improve
 }
-function ResumeCapturingKeys(OnKeyDown){
-	var OnKeyDown=OnKeyDown?OnKeyDown:OnKeyDownDefault;
-	StopCapturingKeys.last=OnKeyDown;
-	document.removeEventListener('keydown',OnKeyDown);
+function ResumeCapturingKeys(OnKeyDown){ // TODO improve
+	StopCapturingKeys(OnKeyDown);
 	document.addEventListener('keydown',OnKeyDown);
 }
 
+
+
+/* 
 function SetShortcut(key,Action){
 	var key=(typeof key==="string")?KeyLookup(key):key;
 	keyActions[key]=Action;
