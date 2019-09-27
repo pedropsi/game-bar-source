@@ -2230,8 +2230,24 @@ function ElementContext(targetSelector){
 }
 
 function SubContext(elem){
-	return FindFirstMatch(ContextualShortcuts,elem);
-	//May need to apply the functions directly to the element that pulled them
+	var keyActions=FindFirstMatch(ContextualShortcuts,elem);
+	if(keyActions)
+		return UpdateKeys(keyActions,ComboKeystring);
+	else
+		return undefined;
+}
+
+
+//Add Shortcuts
+function OverwriteShortcuts(selector,keyActions){
+	var keyActions=UpdateKeys(Clone(keyActions),ComboKeystring);
+	
+	if(!ContextualShortcuts[selector])
+		ContextualShortcuts[selector]=keyActions;
+	else
+		ContextualShortcuts[selector]=FuseObjects(keyActions,UpdateKeys(ContextualShortcuts[selector],ComboKeystring));
+
+	return ContextualShortcuts[selector];
 }
 
 
