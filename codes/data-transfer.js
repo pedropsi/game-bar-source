@@ -613,7 +613,8 @@ function Match(elem,selector){
 
 //Find first Element matching selector
 function FindFirstMatch(selectorArray,elem){
-		
+	var elem=GetElement(elem);
+	
 	function F(a){
 		return a.find(function(sel){return Match(elem,sel)})
 	};
@@ -2210,13 +2211,14 @@ function Context(targetSelector){
 	
 function ElementContext(targetSelector){
 	var e=GetElement(targetSelector);
-	if(e===null){
+	if(!e){
 		return console.log("no element  for context",targetSelector); //Add last context
 	}
 	
 	var context=SubContext(e);
 	var subcontext;
-	while(e.parentElement!==null){
+		
+	while(e.parentElement){
 		e=e.parentElement;
 		subcontext=SubContext(e);
 		if(subcontext)
@@ -2380,11 +2382,12 @@ function CaptureComboKey(event) {
 	event = event || window.event;
 	var keystring=EventKeystring(event);
 	var context=Context();
-	if(In(context,keystring)){ //TODO make context shortcuts always canonical, regardless of coder's own input.
+	if(In(context,keystring)){
 		event.preventDefault;
 		context[keystring](event); //TODO see whether sending an event is appropriate
 	}
 }
+
 
 //Key Capturing Setters
 function StopCapturingKeys(OnKeyDown){
