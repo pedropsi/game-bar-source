@@ -85,6 +85,10 @@ function FuseObjects(object,extrapropertiesobject){
 	return O;
 }
 
+function Clone(Obj){
+	return FuseObjects({},Obj);
+}
+
 function Datafy(object){
 	var O={};
 	var keys=Object.keys(object);
