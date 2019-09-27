@@ -85,30 +85,31 @@ function ClearMoves(){
 
 function RegisterMove(move){
 	var delta = DeltaTime();
+	var move=ReadMove(move);
 	
 	if(!RegisterMove.moveseq)
 		RegisterMove.moveseq=[];
-	RegisterMove.moveseq.push([ReadMove(move),delta]);
+	RegisterMove.moveseq.push([move,delta]);
 	
 	if(!RegisterMove.winseq)
 		RegisterMove.winseq=[];
 	
 	switch(move){
-		case 82:RegisterMove.winseq=[];break;//Restart
-		case 85:RegisterMove.winseq.pop();break;//Z
-		case 27:RegisterMove.winseq=["Q"];break;//Q
-		default:RegisterMove.winseq.push([ReadMove(move),delta]);break
+		case "R":RegisterMove.winseq=[];break;//Restart
+		case "Z":RegisterMove.winseq.pop();break;//Z
+		//case "Q":RegisterMove.winseq=["Q"];break;//Q
+		default:RegisterMove.winseq.push([move,delta]);break
 	}
 }
 
 function ReadMove(move){
 	switch (move) {
 		case 27:return "Q";break;
-		case 37:return "L";break;
-		case 38:return "U";break;
-		case 39:return "R";break;
-		case 40:return "D";break;
-		case 82:return "S";break;
+		case 37:return "A";break;
+		case 38:return "W";break;
+		case 39:return "D";break;
+		case 40:return "S";break;
+		case 82:return "R";break;
 		case 88:return "X";break;
 		case 85:return "Z";break;
 		default: return move;break;
