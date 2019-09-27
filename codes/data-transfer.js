@@ -35,7 +35,7 @@ function IsObject(array){
 ///////////////////////////////////////////////////////////////////////////////
 //Find in Array or Object
 
-function ApplyArrayObject(arrayOrObj,F){
+function Apply(arrayOrObj,F){
 	if(IsArray(arrayOrObj))
 		return F(arrayOrObj);
 	else if(IsObject(arrayOrObj))
@@ -49,7 +49,7 @@ function ApplyArrayObject(arrayOrObj,F){
 // Does element exist?
 function In(arrayOrObj,n){
 	function F(ao){return ao.indexOf(n)>=0;};
-	return ApplyArrayObject(arrayOrObj,F)||false;
+	return Apply(arrayOrObj,F)||false;
 };
 
 
@@ -602,7 +602,7 @@ function FindFirstMatch(selectorArray,elem){
 		return a.find(function(sel){return Match(elem,sel)})
 	};
 		
-	var item=ApplyArrayObject(selectorArray,F);
+	var item=Apply(selectorArray,F);
 	if(IsObject(selectorArray))
 		return selectorArray[item];
 	else 
