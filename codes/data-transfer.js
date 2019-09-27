@@ -52,6 +52,18 @@ function In(arrayOrObj,n){
 	return Apply(arrayOrObj,F)||false;
 };
 
+//Update Object Keys
+function UpdateKeys(Obj,F){
+	var keys=Object.keys(Obj);
+	for (var i in keys){
+		if(Obj.hasOwnProperty(keys[i])){
+			Obj[F(keys[i])]=Obj[keys[i]];
+			if(F(keys[i])!==keys[i])
+				delete  Obj[keys[i]];
+		}
+	}
+	return Obj;
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 //Get Function Name as a string
