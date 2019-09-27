@@ -2195,11 +2195,72 @@ function SubContext(elem){
 
 
 
+///////////////////////////////////////////////////////////////////////////////
+//Keyboard input - TODO collapse everything in a nicer function by storing the regex as object.
+function UnCtrlKeyString(keystring){
+	return keystring.replace(/co?n?tro?l/i,"").replace(/co?mm?a?n?d/i,"");
+}
+function UnShiftKeyString(keystring){
+	return keystring.replace(/sh?i?ft?/i,"");
+}
+function UnAltKeyString(keystring){
+	return keystring.replace(/alt/i,"");
+}
+function UnEnterKeyString(keystring){
+	return keystring.replace(/ente?r/i,"").replace(/re?tu?rn/i,"");
+}
 
-var keyActions={}//By default, there are no shortcuts
+function CtrlKey(keystring){
+	return keystring!==UnCtrlKeyString(keystring);
+}
+function ShiftKey(keystring){
+	return keystring!==UnShiftKeyString(keystring);
+}
+function AltKey(keystring){
+	return keystring!==UnAltKeyString(keystring);
+}
+function EnterKey(keystring){
+	return keystring!==UnEnterKeyString(keystring);
+}
 
-function KeyLookup(key){
-	return KeyCodes[(""+key).toLowerCase()];
+//Canonical Keystring Combo
+function EventKeystring(event){
+	var keystring=
+	(event.ctrlKey? "ctrl " :"")+
+	(event.altKey?  "alt "  :"")+
+	(event.shiftKey?"shift ":"")+
+	KeyNumberLookup(event.keyCode);
+	return ComboKeystring(keystring);
+}
+
+function ComboKeystring(key){
+	if(typeof key==="number")
+		return ComboKeystring(KeyNumberLookup(key));
+	else {//reduce to one space, lowercase, order: ctrl alt shift
+		var keystring=key.toLowerCase();
+		keystring=UnEnterKeyString(UnCtrlKeyString(UnAltKeyString(UnShiftKeyString(keystring))));
+		keystring=keystring.replace(/[\+\.\-\ ]*/g,"");
+
+		if(EnterKey(key))
+			keystring="enter "+keystring;		
+		if(ShiftKey(key))
+			keystring="shift "+keystring;
+		if(AltKey(key))
+			keystring="alt "+keystring;
+		if(CtrlKey(key))
+			keystring="ctrl "+keystring;
+		
+		return keystring;
+	}
+}
+
+function KeyNumberLookup(keynumber){
+	for(var i in KeyCodes){
+		if(KeyCodes[i]===keynumber)
+			return i;
+	}
+	console.log("no key for number:",keynumber);
+	return "";
 }
 
 var KeyCodes={
