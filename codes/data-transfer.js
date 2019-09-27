@@ -2112,7 +2112,89 @@ function FreeFullscreenCursor(){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-//Keyboard Shortcuts
+//Contextual Shortcuts
+
+var ContextualShortcuts={
+	"BODY":{
+		"left":FocusPrev,
+		"right":FocusNext,
+	},
+	".modal":{
+		"escape":function(ev){CloseElement(".modal")},
+		"ctrl w":function(ev){CloseElement(".modal")},
+		"ctrl enter":function(ev){SubmitInside(".modal")},
+	},
+	".balloon":{
+		"escape":function(ev){CloseElement(".balloon")},
+		"ctrl w":function(ev){CloseElement(".balloon")},
+		"ctrl enter":function(ev){SubmitInside(".modal")},
+	},
+	".navi":{
+		"enter":ClickStay,
+		"left":ClickPrevBounded,
+		"up":ClickNextBounded,
+		"right":ClickNextBounded,
+		"down":ClickPrevBounded
+	},
+	".buttonrow":{
+		"enter":ClickStay,
+		"left":FocusPrev,
+		"up":FocusNext,
+		"right":FocusNext,
+		"down":FocusPrev
+	},
+	".button":{
+		"enter":ClickStay,
+		"space":ClickStay
+	},
+	"A":{
+		"space":ClickStay
+	},
+	"INPUT":{
+		"enter":FocusNext
+	},
+	"TEXTAREA":{
+		"enter":FocusNext
+	}
+}
+
+
+//Context finding
+function Context(targetSelector){
+	if(typeof targetSelector==="undefined")
+		return ElementContext(Spotlight());
+	else
+		return ElementContext(targetSelector);
+}
+
+
+	
+function ElementContext(targetSelector){
+	var e=GetElement(targetSelector);
+	if(e===null){
+		return console.log("no element  for context",targetSelector); //Add last context
+	}
+	
+	var context=SubContext(e);
+	var subcontext;
+	while(e.parentElement!==null){
+		e=e.parentElement;
+		subcontext=SubContext(e);
+		if(subcontext)
+			context=FuseObjects(subcontext,context);
+		//Add blocking rules or references
+	}
+	
+	return 	context;
+}
+
+function SubContext(elem){
+	return FindFirstMatch(ContextualShortcuts,elem);
+	//May need to apply the functions directly to the element that pulled them
+}
+
+
+
 
 var keyActions={}//By default, there are no shortcuts
 
