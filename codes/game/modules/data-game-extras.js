@@ -4,8 +4,8 @@
 var gameSelector='#gameCanvas';
 
 function PrepareGame(){
-	StopCapturingKeys(onKeyDown);ResumeCapturingKeys(OnKeyDownGame);
-	window.scrollTo(0,0);
+	StopCapturingKeys(onKeyDown);ResumeCapturingKeys(CaptureComboKey);
+	ScrollInto(gameSelector);
 	AddGameBar();
 	AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
 	ConsoleAddMany([
