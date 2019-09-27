@@ -724,7 +724,6 @@ function CloseBeforeF(DP,F){
 };
 
 function ShortcutsBasicF(DP){
-	
 	return {
 		"h":CloseBeforeF(DP,RequestHint),
 		"e":CloseBeforeF(DP,RequestGameFeedback),
@@ -747,8 +746,9 @@ function InstructGameKeyF(newkey){
 }
 
 function InstructGame(event){
+	event.preventDefault();
 	var key=event.keyCode;
-		
+
 	//Avoid repetition?
     if (In(keybuffer,key)){
     	return;
