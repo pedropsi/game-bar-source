@@ -23,6 +23,8 @@ var LOGO='<?xml version="1.0"?>\
 function Identity(){return;};
 
 ///////////////////////////////////////////////////////////////////////////////
+// Array or Object
+
 //Distinguish Objects and Arrays
 function IsArray(array){
 	return FunctionName(array.constructor)==="Array";
@@ -32,9 +34,7 @@ function IsObject(array){
 	return FunctionName(array.constructor)==="Object";
 }
 
-///////////////////////////////////////////////////////////////////////////////
-//Find in Array or Object
-
+//Apply function to Array or Object
 function Apply(arrayOrObj,F){
 	if(IsArray(arrayOrObj))
 		return F(arrayOrObj);
@@ -2207,8 +2207,6 @@ function Context(targetSelector){
 		return ElementContext(targetSelector);
 }
 
-
-	
 function ElementContext(targetSelector){
 	var e=GetElement(targetSelector);
 	if(!e){
@@ -2249,6 +2247,7 @@ function OverwriteShortcuts(selector,keyActions){
 
 	return ContextualShortcuts[selector];
 }
+
 
 
 
@@ -2465,8 +2464,7 @@ function SetDatapackShortcuts(DP){
 	SetDatapackShortcuts.extras=DP.shortcutExtras(DP);
 	AddShortcuts(SetDatapackShortcuts.extras);
 }
-
-
+ 
 
 
 ///////////////////////////////////////////////////////////////////////////////
