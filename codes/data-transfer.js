@@ -2307,6 +2307,8 @@ function ComboKeystring(key){
 		if(CtrlKey(key))
 			keystring="ctrl "+keystring;
 		
+		keystring=keystring.replace(/\s*$/,"")
+		
 		return keystring;
 	}
 }
