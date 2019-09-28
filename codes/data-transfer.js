@@ -66,6 +66,57 @@ function UpdateKeys(Obj,F){
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+//Repetitive functions
+
+// Fold
+function FoldM(F,x0,xArray){
+	if(xArray.length<1){
+		return x0;
+	}else if(xArray.length===1){
+		return F(x0,xArray[0]);
+	}else{
+		var x1=xArray[0];
+		xArray.shift();
+		return FoldM(F,F(x0,x1),xArray);
+	}
+}
+
+function Fold(F,x0,xArray){
+	return FoldM(F,x0,xArray.slice());
+}
+
+// Fixed point
+function FixedPoint(F,x){
+	var i=x;
+	while(i!==F(i)){
+		i=F(i);
+	}
+	return i;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// String Replace
+function StringReplace(string,rules){
+	if(typeof rules==="string")
+		return string.replace(rules,"");
+	else if(IsObject(rules)){
+		var ks=Object.keys(rules);
+		var rules=ks.map(function(k){return [k,rules[k]];});
+		return StringReplace(string,rules);
+	}
+	else if(IsArray(rules)){
+		function Replace(string,rule){
+			return string.replace(rule[0],rule[1]);
+		}
+		return Fold(Replace,string,rules);
+	}
+	else {
+		console.log("error: can't make string rule from",r);
+		return string;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
 //Get Function Name as a string
 function FunctionName(FunctionF){
 	var name=FunctionF.toString().replace(/\(.*/,"").replace("function ","");
