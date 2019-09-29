@@ -714,10 +714,10 @@ function RequestGameFullscreen(){
 }
 
 var ShortcutsBasic={
-	"h":SequenceF(CloseDP,RequestHint),
-	"e":SequenceF(CloseDP,RequestGameFeedback),
+	"h":RequestHint,
+	"e":RequestGameFeedback,
 	"f":RequestGameFullscreen,
-	"l":SequenceF(CloseDP,RequestLevelSelector),
+	"l":RequestLevelSelector,
 	"m":ToggleCurrentSong
 };
 
