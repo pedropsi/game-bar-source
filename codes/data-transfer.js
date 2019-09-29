@@ -1261,7 +1261,7 @@ function LaunchBalloon(DP){
 }
 
 function BalloonHTML(avatarHTML,content,id){
-	var b='<div class="balloon" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content">'+avatarHTML+'<div class="subtitle">'+content+'</div></div></div>';
+	var b='<div class="balloon window" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content">'+avatarHTML+'<div class="subtitle">'+content+'</div></div></div>';
 	return b;
 }
 
@@ -1800,7 +1800,7 @@ function GetDestination(dname){
 
 function ModalHTML(content,id,type){
 	var t=type?(" "+type):"";
-	return'<div class="modal'+t+'" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
+	return'<div class="modal window'+t+'" id="'+id+'" onclick="CloseThis(event,this,\''+id+'\')">\
 	        <div class="modal-frame">\
 				'+CloseButtonHTML(id)+'\
 				<div class="modal-content">\
@@ -2235,15 +2235,10 @@ var ContextualShortcuts={
 		"left":FocusPrev,
 		"right":FocusNext,
 	},
-	".modal":{
-		"escape":function(ev){CloseElement(".modal")},
-		"ctrl w":function(ev){CloseElement(".modal")},
-		"ctrl enter":function(ev){SubmitInside(".modal")},
-	},
-	".balloon":{
-		"escape":function(ev){CloseElement(".balloon")},
-		"ctrl w":function(ev){CloseElement(".balloon")},
-		"ctrl enter":function(ev){SubmitInside(".modal")},
+	".window":{
+		"escape":CloseDP,
+		"ctrl w":CloseDP,
+		"ctrl enter":function(ev){SubmitInside(ev.target)}
 	},
 	".navi":{
 		"enter":ClickStay,
@@ -2300,26 +2295,7 @@ function ElementContext(targetSelector){
 			context=FuseObjects(subcontext,context);
 		//Add blocking rules or references
 	}
-	
-function ElementContext(targetSelector){
-	var e=GetElement(targetSelector);
-	if(!e)
-		return console.log("no element  for context",targetSelector); //Add last context
-	
-	var context=SubContext(e);
-	var subcontext;
-	
-	function UpdateContext(e){
-		subcontext=SubContext(e);
-		if(subcontext)
-			context=FuseObjects(subcontext,context);
-	};
-	
-	function HasParent(e){return e.parentElement!==null;};
-	
-	Escalate(e,HasParent,UpdateContext);
-	
-	return 	context;
+	return context
 }
 
 
