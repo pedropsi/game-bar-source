@@ -1490,6 +1490,7 @@ function FocusInside(targetIDsel){
 			}
 			i++;
 		}
+		return found;
 	}
 };
 
