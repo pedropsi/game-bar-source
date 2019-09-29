@@ -1139,8 +1139,13 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		if(!GetDataPack.history)
 			GetDataPack.history=[];
-		GetDataPack.history.push(DP);
 		
+		if(GetDataPack.history.length>0){
+			var last=GetDataPack.history[GetDataPack.history.length-1].qid;
+			Close(last);
+		}
+		
+		GetDataPack.history.push(DP);
 		DP.qdisplay(DP);
 		
 		Select(DP.buttonSelector);		//Activate button
