@@ -1411,6 +1411,14 @@ function CloseAndContinue(DP){
 	CloseElement(DP.qid);
 }
 
+// Current Datapack
+function CurrentDatapack(){
+	var c=GetElement(".closer");
+	if(c)
+		return GetDataPack(c.parentElement.id);
+	else
+		return undefined;
+}
 
 function CloseCurrentDatapack(){
 	Close(CurrentDatapack().qid);
