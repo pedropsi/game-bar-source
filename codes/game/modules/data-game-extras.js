@@ -448,21 +448,15 @@ function RequestLevelSelector(){
 				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
 				qdisplay:LaunchBalloon,
 				qtargetid:ParentSelector(gameSelector),
-				shortcutExtras:LevelSelectorShortcutsF,
+				shortcutExtras:LevelSelectorShortcuts,
 				requireConnection:false,
 				buttonSelector:"LevelSelectorButton"
 			});
 	}
 	
-	function LevelSelectorShortcutsF(DP){
-		return FuseObjects(
-			ShortcutsBasicF(DP),
+	var LevelSelectorShortcuts=FuseObjects(
+			ShortcutsBasic,
 			{
-			"l":function(){Close(DP.qid)},
-			"left":FocusPrev,
-			"up":FocusNext,
-			"right":FocusNext,
-			"down":FocusPrev,
 			"1":function(){DelayLevel(1)},
 			"2":function(){DelayLevel(2)},
 			"3":function(){DelayLevel(3)},
@@ -473,8 +467,7 @@ function RequestLevelSelector(){
 			"8":function(){DelayLevel(8)},
 			"9":function(){DelayLevel(9)},
 			"0":function(){DelayLevel(0)}
-		})
-	};
+		});
 	
 	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
 }
@@ -724,14 +717,12 @@ function CloseBeforeF(DP,F){
 	}
 };
 
-function ShortcutsBasicF(DP){
-	return {
-		"h":CloseBeforeF(DP,RequestHint),
-		"e":CloseBeforeF(DP,RequestGameFeedback),
-		"f":RequestGameFullscreen,
-		"l":CloseBeforeF(DP,RequestLevelSelector),
-		"m":ToggleCurrentSong
-	}
+var ShortcutsBasic={
+	"h":CloseBeforeF(RequestHint),
+	"e":CloseBeforeF(RequestGameFeedback),
+	"f":RequestGameFullscreen,
+	"l":CloseBeforeF(RequestLevelSelector),
+	"m":ToggleCurrentSong
 };
 
 //Execute key instructions
@@ -977,29 +968,23 @@ function RequestPrevHint(){
 	setTimeout(RequestHint,500);	
 }
 
-function HintShortcutsBasicF(DP){
-	return FuseObjects(ShortcutsBasicF(DP),{
-		"h":function(){Close(DP.qid)},
-		"space":function(){console.log("SPACE");Close(DP.qid)}
-	})
-};
+var HintShortcutsBasic=FuseObjects(ShortcutsBasic,{
+	"space":CloseDP
+});
 	
 	
-function HintShortcutsLevelF(DP){
-		
-	return FuseObjects(HintShortcutsBasicF(DP),{
-		"left":ClickPrevBounded,
-		"up":ClickNextBounded,
-		"right":ClickNextBounded,
-		"down":ClickPrevBounded
-	});
-};
+var HintShortcutsLevel=FuseObjects(HintShortcutsBasic,{
+	"left":ClickPrevBounded,
+	"up":ClickNextBounded,
+	"right":ClickNextBounded,
+	"down":ClickPrevBounded
+});
 
 function RequestHint(){
 	if(!Hints())
 		return console.log("hints file not found");
 	
-	var HintShortcutsF=HintShortcutsBasicF;
+	var HintShortcuts=HintShortcutsBasic;
 	
 	if(!RequestHint.requested||titleScreen){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
@@ -1059,7 +1044,7 @@ function RequestHint(){
 			}]
 		];
 		
-		HintShortcutsF=HintShortcutsLevelF;
+		HintShortcutsF=HintShortcutsLevel;
 	}
 	
 	function RequestHintIndeed(){
@@ -1071,7 +1056,7 @@ function RequestHint(){
 				qonclose:FocusAndResetFunction(RequestHint,GameFocus),
 				qdisplay:LaunchBalloon,
 				qtargetid:ParentSelector(gameSelector),
-				shortcutExtras:HintShortcutsF,
+				shortcutExtras:HintShortcuts,
 				requireConnection:false,
 				buttonSelector:"HintButton"
 			});

@@ -1022,7 +1022,7 @@ function DefaultDataPack(){
 		thanksmessage:"Submitted. Thank you!",
 		
 		shortcuts:DPShortcutDefaults,	//Base shortcuts (all else is deleted)
-		shortcutExtras:function(DP){return {};},	//Extended shortcuts, to use ad-hoc
+		shortcutExtras:{},				//Extended context, to use ad-hoc
 		
 		buttonSelector:"none"						//Selector for button requesting the datapack
 	}
@@ -2502,52 +2502,9 @@ function ResumeCapturingKeys(OnKeyDown){ // TODO improve
 
 
 
-/* 
-function SetShortcut(key,Action){
-	var key=(typeof key==="string")?KeyLookup(key):key;
-	keyActions[key]=Action;
-}
-function DeleteShortcut(key){
-	var key=(typeof key==="string")?KeyLookup(key):key;
-	delete keyActions[key];
-}
-function ExecuteShortcut(thi,ev){
-	var key=KeyLookup(ev.key);
-	if(keyActions[key])
-		keyActions[key](thi);
-}
-
-
-//Multiple shortcuts
-function AddShortcuts(keyActionsNew){
-	var keys=Object.keys(keyActionsNew);
-	for(var k in keys){
-		//console.log(keys[k],keyActionsNew[keys[k]].toSource());
-		SetShortcut(keys[k],keyActionsNew[keys[k]]);
-	}
-}
-
-function RemoveShortcuts(keyActionsNew){
-	var keys=Object.keys(keyActionsNew);
-	for(var k in keys){
-		//console.log(keys[k],keyActionsNew[keys[k]].toSource());
-		DeleteShortcut(keys[k]);
-	}
-}
-
-function OverwriteShortcuts(keyActionsNew){
-	keyActions={};
-	AddShortcuts(keyActionsNew);
-}
-
 //Datapack Integration
 function SetDatapackShortcuts(DP){
-	OverwriteShortcuts(DP.shortcuts(DP));
-	if(SetDatapackShortcuts.extras){
-		RemoveShortcuts(SetDatapackShortcuts.extras);
-	}
-	SetDatapackShortcuts.extras=DP.shortcutExtras(DP);
-	AddShortcuts(SetDatapackShortcuts.extras);
+	return OverwriteShortcuts("#"+DP.qid,DP.shortcutExtras);
 }
  
 
