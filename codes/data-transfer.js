@@ -2320,6 +2320,14 @@ function UnAltKeyString(keystring){
 function UnEnterKeyString(keystring){
 	return keystring.replace(/ente?r/i,"").replace(/re?tu?rn/i,"");
 }
+/*
+function UnBackspaceKeyString(keystring){
+	return keystring.replace(/ba?c?k?spa?c?e?/i,"");
+}
+*/
+function UnSpaceKeyString(keystring){
+	return keystring.replace(/spa?ce?b?a?r?/i,"");
+}
 
 function CtrlKey(keystring){
 	return keystring!==UnCtrlKeyString(keystring);
@@ -2333,6 +2341,13 @@ function AltKey(keystring){
 function EnterKey(keystring){
 	return keystring!==UnEnterKeyString(keystring);
 }
+/*function BackspaceKey(keystring){
+	return keystring!==UnBackspaceKeyString(keystring);
+}*/
+function SpaceKey(keystring){
+	return keystring!==UnSpaceKeyString(keystring);
+}
+
 
 //Canonical Keystring Combo
 function EventKeystring(event){
@@ -2349,9 +2364,14 @@ function ComboKeystring(key){
 		return ComboKeystring(KeyNumberLookup(key));
 	else {//reduce to one space, lowercase, order: ctrl alt shift
 		var keystring=key.toLowerCase();
-		keystring=UnEnterKeyString(UnCtrlKeyString(UnAltKeyString(UnShiftKeyString(keystring))));
+		keystring=UnSpaceKeyString(UnEnterKeyString(UnCtrlKeyString(UnAltKeyString(UnShiftKeyString(keystring)))));
 		keystring=keystring.replace(/[\+\.\-\ ]*/g,"");
 
+		/*if(BackspaceKey(key))
+			keystring="back "+keystring;
+		else*/
+		if(SpaceKey(key))
+			keystring="space "+keystring;	
 		if(EnterKey(key))
 			keystring="enter "+keystring;		
 		if(ShiftKey(key))
