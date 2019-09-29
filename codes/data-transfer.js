@@ -1466,7 +1466,7 @@ function FocusElement(targetIDsel){
 };
 
 function FocusableInput(e){
-	return In(["INPUT","TEXTAREA"],e.tagName);
+	return Classed(e,"input")||In(["INPUT","TEXTAREA"],e.tagName);
 }
 function Focusable(e){
 	return FocusableInput(e)||Classed(e,"button");//List of element and classes
