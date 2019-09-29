@@ -502,6 +502,7 @@ function LoadLevelFromDP(DP){
 function ChooseLevelClose(choice,pid){
 	ChooseLevel(choice);
 	Close(pid);
+	setTimeout(GameFocus,100);
 };
 
 function ChooseLevel(choice){
