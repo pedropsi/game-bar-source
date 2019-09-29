@@ -1326,6 +1326,10 @@ function Deselect(selectorE,clas){
 		e.classList.remove(clas);
 }
 
+function Selected(selectorE){
+	return Classed(selectorE,"selected");
+}
+
 function Classed(selectorE,clas){
 	var clas=clas||'selected';
 	var e=GetElement(selectorE);
@@ -1449,7 +1453,7 @@ function FocusInside(targetIDsel){
 	
 	var selElem=GetElement(".selected",targetIDsel);
 		
-	if(Classed(selElem,"selected")&&selElem.parentNode.isEqualNode(GetElement(targetIDsel))){
+	if(Selected(selElem)&&selElem.parentNode.isEqualNode(GetElement(targetIDsel))){
 		FocusElement(selElem);
 		return true;
 	}
@@ -2001,7 +2005,7 @@ function PlaylistStartPlay(){
 
 //Song
 function Muted(){
-	return !Classed(GetElement("MuteButton"),"selected");
+	return !Selected(GetElement("MuteButton"));
 }
 function Mute(){
 	Deselect("MuteButton");
