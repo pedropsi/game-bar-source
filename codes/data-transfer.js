@@ -1421,6 +1421,15 @@ function AddSpotlight(element){
 	return element;
 }
 
+function FocusSpotlight(elem){
+	var elem=GetElement(elem);
+	var f=FocusInside(elem);
+	if(!f)
+		FocusElement(elem);
+}
+
+window.addEventListener('click',function(ev){FocusSpotlight(ev.target);});
+
 // Focus management
 function FocusElement(targetIDsel){
 	var focussing=GetElement(targetIDsel);
