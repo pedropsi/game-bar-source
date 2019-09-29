@@ -1400,6 +1400,7 @@ function Close(targetid){
 	var DP=GetDataPack(targetid);
 	if(typeof DP!=="undefined"){
 		Deselect(DP.buttonSelector);
+		DeleteShortcuts(DP.qid);
 		var ClosingF=DP.qonclose;
 		if(typeof ClosingF!=="undefined")
 			ClosingF(DP);
