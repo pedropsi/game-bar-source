@@ -711,18 +711,11 @@ function RequestGameFullscreen(){
 	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
 }
 
-function CloseBeforeF(DP,F){
-	return function(){
-		Close(DP.qid);
-		F()
-	}
-};
-
 var ShortcutsBasic={
-	"h":CloseBeforeF(RequestHint),
-	"e":CloseBeforeF(RequestGameFeedback),
+	"h":SequenceF(CloseDP,RequestHint),
+	"e":SequenceF(CloseDP,RequestGameFeedback),
 	"f":RequestGameFullscreen,
-	"l":CloseBeforeF(RequestLevelSelector),
+	"l":SequenceF(CloseDP,RequestLevelSelector),
 	"m":ToggleCurrentSong
 };
 

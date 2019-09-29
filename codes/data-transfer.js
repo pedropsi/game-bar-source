@@ -94,6 +94,13 @@ function FixedPoint(F,x){
 	return i;
 }
 
+function SequenceF(f1,f2){
+	return function(){
+	f1();
+	f2();
+	};
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // String Replace
 function StringReplace(string,rules){
