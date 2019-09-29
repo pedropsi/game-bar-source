@@ -23,11 +23,21 @@ var puzzlescriptModules=[
 "data-game-colours",
 "data-game-extras",
 "data-game-overwrite",
-"data-game-moves"
+"data-game-moves",
+"data-game-example"
 ]
 
 puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 
+
+// Compile the game
+function CompileGame(sourceCode){
+	compile(["restart"], sourceCode);
+	ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
+}
+
+// Load an offline example
+function LoadGameExample(){CompileGame(sourceCodeExample);};
 
 // Load the game
 (function(){
@@ -36,7 +46,7 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 		
 		ListenOnce('mousedown',function(){var gestureHandler = Mobile.enable(true);},GetElement("gameCanvas"));
 		
-		function LoadGame(){load_game(id);}
+		function LoadGame(){load_game(id);};
 		
 		function FastLoad(){
 			if(typeof compile!=="undefined")
@@ -78,14 +88,13 @@ puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 				else{
 					result = JSON.parse(result);
 					var code = result["files"]["script.txt"]["content"];
-					//ConsoleAdd(pageTitle()+" loaded.");				
-					compile(["restart"], code);
-					ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
+					CompileGame(code);
 				}
 			}
 			
 			if(result===""){
-				ConsoleAdd("Offline! Please reconnect, then refresh the page!");
+				ConsoleAdd("Offline! Loading a local game example, for testing...");
+				LoadGameExample();
 			}
 			else
 				LoadOnline();
