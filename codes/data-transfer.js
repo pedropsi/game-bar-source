@@ -1001,12 +1001,6 @@ function DefaultDataField(){
 function DefaultChoice(index,choicetxt){return String(index)===String(0);}//choicetxt gives this function flexibility
 
 function DefaultDataPack(){
-	function DPShortcutDefaults(DP){return {
-			"escape":function(){Close(DP.qid);},
-			"ctrl enter":function(){CheckSubmit(DP.qid);}
-		};
-	};
-	
 	return {
 		fields:[],
 
