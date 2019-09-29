@@ -2312,6 +2312,11 @@ function OverwriteShortcuts(selector,keyActions){
 	return ContextualShortcuts[selector];
 }
 
+function DeleteShortcuts(selector){
+	if(ContextualShortcuts[selector])
+		delete ContextualShortcuts[selector];
+	return ContextualShortcuts;
+}
 
 
 
