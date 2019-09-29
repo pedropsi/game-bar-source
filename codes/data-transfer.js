@@ -2475,7 +2475,7 @@ function CaptureComboKey(event) {
 	var keystring=EventKeystring(event);
 	var context=Context();
 	if(In(context,keystring)){
-		event.preventDefault;
+		event.preventDefault();
 		context[keystring](event); //TODO see whether sending an event is appropriate
 	}
 }
