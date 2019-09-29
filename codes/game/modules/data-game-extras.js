@@ -1012,10 +1012,10 @@ function RequestHint(){
 	}
 	else if(ScreenMessage(curlevel)){
 		var tip=CycleNext([
-		"Just relax and have fun!",
-		"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
-		"Remember to pause once in a while!",
-		"If you like this game, share it with your friends!"]);
+			"Just relax and have fun!",
+			"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
+			"Remember to pause once in a while!",
+			"If you like this game, share it with your friends!"]);
 		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
 		var DPFields=[['plain',DFOpts]];
 	}
