@@ -679,33 +679,34 @@ function AdjustFlickscreen(){
 //Game keybinding profile
 keyActionsGame={
 	//Arrows
-	"left"			:InstructGameKeyF(37),
-	"up"			:InstructGameKeyF(38),
+	"left"		:InstructGameKeyF(37),
+	"up"		:InstructGameKeyF(38),
 	"right"		:InstructGameKeyF(39),
 	"down"		:InstructGameKeyF(40),
-	//WASD
-	"W":InstructGameKeyF(37),
-	"A":InstructGameKeyF(38),
-	"S":InstructGameKeyF(39),
-	"D":InstructGameKeyF(40),
-	//Enter, C, X, Spacebar
-	"enter":InstructGameKeyF(88),
-	"C":InstructGameKeyF(88),	
-	"X":InstructGameKeyF(88),
-	"spacebar":InstructGameKeyF(88),
-	// Z, U     
-	"Z":InstructGameKeyF(85),	
-	"U":InstructGameKeyF(85),	
-	// R
-	"R":InstructGameKeyF(82),	
-	// Esc, backspace
-	"escape":InstructGameKeyF(82),
+	"W"			:InstructGameKeyF(37),
+	"A"			:InstructGameKeyF(38),
+	"S"			:InstructGameKeyF(39),
+	"D"			:InstructGameKeyF(40),
+	//Action / Select
+	"enter"		:InstructGameKeyF(88),
+	"C"			:InstructGameKeyF(88),
+	"X"			:InstructGameKeyF(88),
+	"spacebar"	:InstructGameKeyF(88),
+	// Undo     
+	"Z"			:InstructGameKeyF(85),
+	"U"			:InstructGameKeyF(85),
+	/*"backspace"	:InstructGameKeyF(85),*/
+	// Restart
+	"R"			:InstructGameKeyF(82),
+	// Quit
+	"escape"	:InstructGameKeyF(27),
+	"Q"			:InstructGameKeyF(27),
 	// Game bar menus
-	"E":RequestGameFeedback,
-	"F":RequestGameFullscreen,
-	"H":RequestHint, 				
-	"L":RequestLevelSelector, 
-	"M":ToggleCurrentSong		
+	"E"			:RequestGameFeedback,
+	"F"			:RequestGameFullscreen,
+	"H"			:RequestHint,
+	"L"			:RequestLevelSelector, 
+	"M"			:ToggleCurrentSong
 }
 
 //Keybind to game element
@@ -750,9 +751,8 @@ function InstructGame(event){
 	var key=event.keyCode;
 
 	//Avoid repetition?
-    if (In(keybuffer,key)){
+    if (In(keybuffer,key))
     	return;
-    }
 	
 	//Instruct the game
     if(lastDownTarget === canvas /*|| (window.Mobile && (lastDownTarget === window.Mobile.focusIndicator) )*/ ){
