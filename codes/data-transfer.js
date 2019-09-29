@@ -911,7 +911,7 @@ function ButtonHTML(optionsObj){
 	
 	var ao=o.attributes['onclick'];
 	o.attributes['onclick']="PulseSelect(this);"+(ao?ao:"");
-	o.attributes['onkeydown']="ExecuteShortcut(this,event)";
+	//o.attributes['onkeydown']="ExecuteShortcut(this,event)";
 
 	//Context Menu and Select prevention
 	o.attributes['oncontextmenu']="(function(e){e.preventDefault()})(event);";
