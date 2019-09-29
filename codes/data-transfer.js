@@ -1467,18 +1467,17 @@ function FocusInside(targetIDsel){
 		return true;
 	}
 	else {	
-			var children=e.children;
-			var found=false;
-			var i=0;
-			while(!found&&i<children.length){
-				if(UnFocusable(children[i])){
-					found=false;
-				} else {
-					found=FocusInside(children[i]);
-				}
-				i++;
+		var children=e.children;
+		var found=false;
+		var i=0;
+		while(!found&&i<children.length){
+			if(UnFocusable(children[i])){
+				found=false;
+			} else {
+				found=FocusInside(children[i]);
 			}
-			return found;
+			i++;
+		}
 	}
 };
 
