@@ -2263,10 +2263,12 @@ var ContextualShortcuts={
 		"space":ClickStay
 	},
 	"INPUT":{
-		"enter":FocusNext
+		"enter":FocusNext,
+		"ctrl enter":function(ev){SubmitInside(ev.target)}
 	},
 	"TEXTAREA":{
-		"enter":FocusNext
+		"enter":FocusNext,
+		"ctrl enter":function(ev){SubmitInside(ev.target)}
 	}
 }
 
@@ -2288,7 +2290,7 @@ function ElementContext(targetSelector){
 	var context=SubContext(e);
 	var subcontext;
 		
-	while(e.parentElement){
+	while(e.parentElement&&!ContextBlocker(e)){
 		e=e.parentElement;
 		subcontext=SubContext(e);
 		if(subcontext)
@@ -2298,6 +2300,9 @@ function ElementContext(targetSelector){
 	return context
 }
 
+function ContextBlocker(e){
+	return Classed(e,"window");//FocusableInput(e)||
+}
 
 function SubContext(elem){
 	var keyActions=FindFirstMatch(ContextualShortcuts,elem);
