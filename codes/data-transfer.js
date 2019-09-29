@@ -777,17 +777,6 @@ function RemoveElement(elementIDsel){
 }
 
 //////////////////////////////////////////////////
-// DOM Traversal
-function Escalate(e,Condition,Update){
-	var r;
-	while(Condition(e)){
-		e=e.parentElement;
-		r=Update(e);
-	}	
-	return r;
-}
-
-//////////////////////////////////////////////////
 // Scroll into
 
 function ScrollInto(elementIDsel){
