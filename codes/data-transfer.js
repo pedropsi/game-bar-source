@@ -777,6 +777,17 @@ function RemoveElement(elementIDsel){
 }
 
 //////////////////////////////////////////////////
+// DOM Traversal
+function Escalate(e,Condition,Update){
+	var r;
+	while(Condition(e)){
+		e=e.parentElement;
+		r=Update(e);
+	}	
+	return r;
+}
+
+//////////////////////////////////////////////////
 // Scroll into
 
 function ScrollInto(elementIDsel){
@@ -2288,8 +2299,27 @@ function ElementContext(targetSelector){
 		//Add blocking rules or references
 	}
 	
+function ElementContext(targetSelector){
+	var e=GetElement(targetSelector);
+	if(!e)
+		return console.log("no element  for context",targetSelector); //Add last context
+	
+	var context=SubContext(e);
+	var subcontext;
+	
+	function UpdateContext(e){
+		subcontext=SubContext(e);
+		if(subcontext)
+			context=FuseObjects(subcontext,context);
+	};
+	
+	function HasParent(e){return e.parentElement!==null;};
+	
+	Escalate(e,HasParent,UpdateContext);
+	
 	return 	context;
 }
+
 
 function SubContext(elem){
 	var keyActions=FindFirstMatch(ContextualShortcuts,elem);
