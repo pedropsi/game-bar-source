@@ -946,14 +946,14 @@ function ButtonLinkHTML(title){
 }
 
 function CloseButtonHTML(targetid){
-	return "<div class='closer'>"+ButtonHTML({tag:"span",txt:"&times;",attributes:{onclick:'Close(\"'+targetid+'\")'}})+"</div>";
+	return "<div class='closer'>"+ButtonHTML({tag:"span",txt:"&times;",attributes:{onclick:'CloseCurrentDatapack()'}})+"</div>";
 }
 
 function OkButtonHTML(targetid){
 	return ButtonOnClickHTML("OK",'Close(\"'+targetid+'\")');
 }
 function SubmitButtonHTML(DP){
-	return ButtonOnClickHTML(DP.actionText,DP.action+"(\""+DP.qid+"\")");
+	return ButtonOnClickHTML(DP.actionText,FunctionName(DP.action)+"(\""+DP.qid+"\")");
 }
 
 function MessageHTML(message){
@@ -1016,7 +1016,7 @@ function DefaultDataPack(){
 		destination:'Feedback',			//Name of data repository
 		requireConnection:true,			//Does it need a connection?
 
-		action:'CheckSubmit', 			//action on submit :receives a qid
+		action:CheckSubmit, 			//action on submit :receives a qid
 		actionvalid:SubmitValidAnswer,	//action on valid submit: receives a DataPack
 		actionText:'Submit',			//text to display instead of "Submit"
 		
@@ -1046,7 +1046,7 @@ function DataFieldTypes(type){
 			qsubmittable:false
 		}),
 		message:NewDataField({
-			action:'Close',
+			action:Close,
 			destination:'',
 			qtype:LongAnswerHTML,
 			qdisplay:LaunchThanksModal}),
@@ -1412,9 +1412,13 @@ function CloseAndContinue(DP){
 }
 
 
-function CloseDP(){
-	var e=GetElement(".closer .button");
-	e.click();
+function CloseCurrentDatapack(){
+	Close(CurrentDatapack().qid);
+}
+
+function SubmitCurrentDatapack(){
+	var DP=CurrentDatapack();
+	DP.action(DP.qid);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -2237,9 +2241,9 @@ var ContextualShortcuts={
 		"right":FocusNext,
 	},
 	".window":{
-		"escape":CloseDP,
-		"ctrl w":CloseDP,
-		"ctrl enter":function(ev){SubmitInside(ev.target)}
+		"escape":CloseCurrentDatapack,
+		"ctrl w":CloseCurrentDatapack,
+		"ctrl enter":SubmitCurrentDatapack
 	},
 	".navi":{
 		"left":ClickPrevBounded,

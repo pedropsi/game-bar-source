@@ -442,7 +442,8 @@ function RequestLevelSelector(){
 				['exclusivechoice',DPOpts]
 			],
 			{
-				actionvalid:LoadLevelFromDP,
+//				actionvalid:LoadLevelFromDP,
+				action:LoadFromLevelSelectorButton,
 				actionText:"Go to "+type,
 				qid:RequestLevelSelector.id,
 				qonsubmit:FocusAndResetFunction(RequestLevelSelector,GameFocus),
@@ -496,9 +497,10 @@ function UnstarLevel(l){
 	return Number(l.replace("★","").replace("☆",""));
 }
 
-function LoadLevelFromDP(DP){
-	ChooseLevel(FindData('level',DP.qid));
-};
+function LoadFromLevelSelectorButton(qid){
+	var levelChoice=FindData("level",qid);
+	ChooseLevelClose(levelChoice,qid);
+}
 
 function ChooseLevelClose(choice,pid){
 	ChooseLevel(choice);
@@ -964,7 +966,7 @@ function RequestPrevHint(){
 }
 
 var HintShortcutsBasic=FuseObjects(ShortcutsBasic,{
-	"space":CloseDP
+	"space":CloseCurrentDatapack
 });
 	
 	
