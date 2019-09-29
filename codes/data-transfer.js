@@ -1209,11 +1209,11 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 }
 
 function ShortAnswerHTML(dataField){
-	return "<input data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></input>";
+	return "<input class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></input>";
 }
 
 function LongAnswerHTML(dataField){
-	return "<textarea data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></textarea>";
+	return "<textarea class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></textarea>";
 }
 
 function SubQuestionHTML(dataField){
@@ -2265,13 +2265,12 @@ var ContextualShortcuts={
 	"A":{
 		"space":ClickStay
 	},
-	"INPUT":{
+	".input":{
+		"escape":CloseCurrentDatapack,
 		"enter":FocusNext,
-		"ctrl enter":function(ev){SubmitInside(ev.target)}
-	},
-	"TEXTAREA":{
-		"enter":FocusNext,
-		"ctrl enter":function(ev){SubmitInside(ev.target)}
+		"tab":FocusNext,
+		"shift tab":FocusPrev,
+		"ctrl enter":SubmitCurrentDatapack
 	}
 }
 
@@ -2304,7 +2303,7 @@ function ElementContext(targetSelector){
 }
 
 function ContextBlocker(e){
-	return Classed(e,"window");//FocusableInput(e)||
+	return FocusableInput(e)||Classed(e,"window");
 }
 
 function SubContext(elem){
