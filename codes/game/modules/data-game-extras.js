@@ -79,7 +79,7 @@ function AddGameBar(targetIDsel){
 function GameFocus(DP){
 	document.activeElement.blur();
 	window.Mobile.GestureHandler.prototype.fakeCanvasFocus();
-	FocusElement(gameSelector);
+	FocusSpotlight(gameSelector);
 };
 
 function UndoAndFocus(){
