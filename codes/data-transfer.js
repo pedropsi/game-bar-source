@@ -1411,6 +1411,12 @@ function CloseAndContinue(DP){
 	CloseElement(DP.qid);
 }
 
+
+function CloseDP(){
+	var e=GetElement(".closer .button");
+	e.click();
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Focus functions
 
