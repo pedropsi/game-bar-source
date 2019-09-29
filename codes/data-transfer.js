@@ -2240,7 +2240,8 @@ var ContextualShortcuts={
 	},
 	".button":{
 		"enter":ClickStay,
-		"space":ClickStay
+		"space":ClickStay,
+		"X":ClickStay
 	},
 	"A":{
 		"space":ClickStay
