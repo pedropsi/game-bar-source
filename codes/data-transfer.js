@@ -1021,10 +1021,10 @@ function DefaultDataPack(){
 		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
 		thanksmessage:"Submitted. Thank you!",
 		
-		shortcuts:DPShortcutDefaults,	//Base shortcuts (all else is deleted)
-		shortcutExtras:{},				//Extended context, to use ad-hoc
+		shortcutExtras:{},				//Extended shortcuts, to use ad-hoc
+		spotlight:Spotlight(),			//Spotlight at the moment of calling
 		
-		buttonSelector:"none"						//Selector for button requesting the datapack
+		buttonSelector:"none"			//Selector for button requesting the datapack
 	}
 	
 }
