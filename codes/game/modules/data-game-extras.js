@@ -512,7 +512,7 @@ function ChooseLevelClose(choice,pid){
 };
 
 function ChooseLevel(choice){
-	SelectLevel(UnstarLevel(choice))
+	SelectLevel(UnstarLevel(choice));
 };
 
 function SelectLevel(lvl){
