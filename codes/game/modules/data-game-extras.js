@@ -442,7 +442,6 @@ function RequestLevelSelector(){
 				['exclusivechoice',DPOpts]
 			],
 			{
-//				actionvalid:LoadLevelFromDP,
 				action:LoadFromLevelSelectorButton,
 				actionText:"Go to "+type,
 				qid:RequestLevelSelector.id,
