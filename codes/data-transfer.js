@@ -996,8 +996,7 @@ function DefaultChoice(index,choicetxt){return String(index)===String(0);}//choi
 function DefaultDataPack(){
 	function DPShortcutDefaults(DP){return {
 			"escape":function(){Close(DP.qid);},
-			"enter":function(){CheckSubmit(DP.qid);}
-			//"ctrl+enter":function(){CheckSubmit(DP.qid);},   //even in inputs, etc...
+			"ctrl enter":function(){CheckSubmit(DP.qid);}
 		};
 	};
 	
@@ -2230,14 +2229,12 @@ var ContextualShortcuts={
 		"ctrl enter":function(ev){SubmitInside(ev.target)}
 	},
 	".navi":{
-		"enter":ClickStay,
 		"left":ClickPrevBounded,
 		"up":ClickNextBounded,
 		"right":ClickNextBounded,
 		"down":ClickPrevBounded
 	},
 	".buttonrow":{
-		"enter":ClickStay,
 		"left":FocusPrev,
 		"up":FocusNext,
 		"right":FocusNext,
