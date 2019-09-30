@@ -183,7 +183,6 @@ function RequestGameFeedback(){
 	if(!RequestGameFeedback.requests)
 		RequestGameFeedback.requests=[];
 	
-  function RequestGameFeedbackIndeed(){
 	  
 	function RecordAndLaunchThanksBalloon(DP){
 		function RecordFeedback(curlevel){RequestGameFeedback.requests.push(curlevel);}
@@ -192,11 +191,11 @@ function RequestGameFeedback(){
 		FocusAndResetFunction(RequestGameFeedback,GameFocus)();};
 	
 	var DPsettingsObj={
-		qid:RequestGameFeedback.id,
 		qtargetid:'puzzlescript-game',
 		qdisplay:LaunchBalloon,
 		qonsubmit:RecordAndLaunchThanksBalloon,
 		qonclose:FocusAndResetFunction(RequestGameFeedback,GameFocus),
+		shortcutExtras:FuseObjects(keyActionsGameBar,{"E":CloseFeedback}),
 		thanksmessage:"★ Thank you for your feedback! ★",
 		buttonSelector:"FeedbackButton",
 	};
@@ -207,7 +206,9 @@ function RequestGameFeedback(){
 	function HasFeedback(curlevel){return In(RequestGameFeedback.requests,curlevel);};
 	function InTitleScreen(){return titleScreen}
 	
-	if(InTitleScreen()){
+	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="FeedbackButton")
+		CloseCurrentDatapack();
+	else if(InTitleScreen()){
 		DFsettingsObj.questionname="<p>Press ✉ or <kbd>E</kbd> as soon as you start the game to Email Pedro PSI real-time feedback. Much appreciated!</p>";
 		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
@@ -223,10 +224,13 @@ function RequestGameFeedback(){
 		DFsettingsObj.questionname="Comments or ideas?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
-  }
-    
-  OpenerCloser(RequestGameFeedback,RequestGameFeedbackIndeed,GameFocus);
 
+}
+
+function CloseFeedback(){
+	if(CurrentDatapack().buttonSelector==="FeedbackButton")
+		CloseCurrentDatapack();
+	GameFocus();
 }
 
 function PrintGameState(){
