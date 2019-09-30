@@ -1453,9 +1453,7 @@ function AddSpotlight(element){
 //Focus clicked items (also to escape focus by clicking in unfocusable parents)
 window.addEventListener("click",function(e){FocusElement(e.target)});
 
-}
 
-}
 
 /*ACTIVATE LINKS; NAV; ETC::: window.addEventListener("focus",console.log);*/
 
