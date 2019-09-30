@@ -1336,7 +1336,7 @@ function Selected(selectorE){
 function Classed(selectorE,clas){
 	var clas=clas||'selected';
 	var e=GetElement(selectorE);
-	return e&&e.classList.contains(clas);
+	return e&&e.classList&&e.classList.contains(clas);
 }
 
 function Toggle(selectorE,clas){
