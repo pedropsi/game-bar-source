@@ -1450,7 +1450,12 @@ function FocusSpotlight(elem){
 		FocusElement(elem);
 }
 
-window.addEventListener('click',function(ev){FocusSpotlight(ev.target);});
+function FocusSpotlightEvent(ev){
+	FocusSpotlight(ev.target);
+}
+
+
+window.addEventListener('click',FocusSpotlightEvent);
 
 // Focus management
 function FocusElement(targetIDsel){
