@@ -1137,7 +1137,7 @@ function RequestDataPack(NamedFieldArray,Options){
 		
 		DP.qdisplay(DP);
 		Select(DP.buttonSelector);		//Activate button
-		FocusInside("#"+DP.qid); 		//Focus on first question
+		setTimeout(function(){FocusInside("#"+DP.qid);},100);		//Focus on first question
 		
 		setTimeout(function(){ListenOutside("click",function(){Close(DP.qid)},DP.qid)},500); //Click outside to close
 		SetDatapackShortcuts(DP);
