@@ -28,7 +28,7 @@ var DESTINATION_FEEDBACK={
 		return{
 			identifier:document.body.id,
 			context:String(LevelNumber(curlevel)),
-			question:FindData("questionname",qid),
+			question:GetElement(".question",qid).innerHTML,
 			answer:FindData("answer",qid),
 			name:who,
 			state:FindData("snapshot",qid)?PrintGameState():"---"
