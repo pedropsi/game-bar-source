@@ -1488,8 +1488,8 @@ function FocusInside(targetIDsel){
 	}
 	
 	var selElem=GetElement(".selected",targetIDsel);
-		
-	if(Selected(selElem)&&selElem.parentNode.isEqualNode(GetElement(targetIDsel))){
+	
+	if(Selected(selElem)&&selElem.parentNode.isEqualNode(e)){
 		FocusElement(selElem);
 		return true;
 	}
