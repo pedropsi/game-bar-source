@@ -415,6 +415,7 @@ function LevelSelectorTitle(){
 }
 
 function RequestLevelSelector(){
+	
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
@@ -437,40 +438,44 @@ function RequestLevelSelector(){
 		}
 	}
 	
-	function RequestLevelSelectorIndeed(){
+	var LevelSelectorShortcuts=FuseObjects(keyActionsGameBar,{
+		"L":CloseLevelSelector,
+		"1":function(){DelayLevel(1)},
+		"2":function(){DelayLevel(2)},
+		"3":function(){DelayLevel(3)},
+		"4":function(){DelayLevel(4)},
+		"5":function(){DelayLevel(5)},
+		"6":function(){DelayLevel(6)},
+		"7":function(){DelayLevel(7)},
+		"8":function(){DelayLevel(8)},
+		"9":function(){DelayLevel(9)},
+		"0":function(){DelayLevel(0)}
+	});
+	
+	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="LevelSelectorButton")
+		CloseCurrentDatapack();
+	else
 		RequestDataPack([
 				['exclusivechoice',DPOpts]
 			],
 			{
 				action:LoadFromLevelSelectorButton,
 				actionText:"Go to "+type,
-				qid:RequestLevelSelector.id,
-				qonsubmit:FocusAndResetFunction(RequestLevelSelector,GameFocus),
-				qonclose:FocusAndResetFunction(RequestLevelSelector,GameFocus),
+				qonsubmit:CloseLevelSelector,
+				qonclose:GameFocus,
 				qdisplay:LaunchBalloon,
 				qtargetid:ParentSelector(gameSelector),
 				shortcutExtras:LevelSelectorShortcuts,
 				requireConnection:false,
-				buttonSelector:"LevelSelectorButton"
-			});
-	}
-	
-	var LevelSelectorShortcuts=FuseObjects(
-			ShortcutsBasic,
-			{
-			"1":function(){DelayLevel(1)},
-			"2":function(){DelayLevel(2)},
-			"3":function(){DelayLevel(3)},
-			"4":function(){DelayLevel(4)},
-			"5":function(){DelayLevel(5)},
-			"6":function(){DelayLevel(6)},
-			"7":function(){DelayLevel(7)},
-			"8":function(){DelayLevel(8)},
-			"9":function(){DelayLevel(9)},
-			"0":function(){DelayLevel(0)}
+				buttonSelector:"LevelSelectorButton",
+				spotlight:gameSelector
 		});
-	
-	OpenerCloser(RequestLevelSelector,RequestLevelSelectorIndeed,GameFocus);
+}
+
+function CloseLevelSelector(){
+	if(CurrentDatapack().buttonSelector==="LevelSelectorButton")
+		CloseCurrentDatapack();
+	GameFocus();
 }
 
 
@@ -672,8 +677,17 @@ function AdjustFlickscreen(){
 ////////////////////////////////////////////////////////////////////////////////
 //Key capturing
 
+var keyActionsGameBar={
+	// Game bar menus
+	"E"			:RequestGameFeedback,
+	"F"			:RequestGameFullscreen,
+	"H"			:RequestHint,
+	"L"			:RequestLevelSelector, 
+	"M"			:ToggleCurrentSong
+}
+
 //Game keybinding profile
-keyActionsGame={
+var keyActionsGame=FuseObjects({
 	//Arrows
 	"left"		:InstructGameKeyF(37),
 	"up"		:InstructGameKeyF(38),
@@ -696,14 +710,11 @@ keyActionsGame={
 	"R"			:InstructGameKeyF(82),
 	// Quit
 	"escape"	:InstructGameKeyF(27),
-	"Q"			:InstructGameKeyF(27),
-	// Game bar menus
-	"E"			:RequestGameFeedback,
-	"F"			:RequestGameFullscreen,
-	"H"			:RequestHint,
-	"L"			:RequestLevelSelector, 
-	"M"			:ToggleCurrentSong
-}
+	"Q"			:InstructGameKeyF(27)
+},
+	keyActionsGameBar
+);
+
 
 //Keybind to game element
 OverwriteShortcuts(gameSelector,keyActionsGame);
@@ -713,13 +724,6 @@ function RequestGameFullscreen(){
 	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
 }
 
-var ShortcutsBasic={
-	"h":RequestHint,
-	"e":RequestGameFeedback,
-	"f":RequestGameFullscreen,
-	"l":RequestLevelSelector,
-	"m":ToggleCurrentSong
-};
 
 //Execute key instructions
 function CheckRegisterKey(event){
@@ -742,13 +746,11 @@ function InstructGame(event){
     	return;
 	
 	//Instruct the game
-    if(lastDownTarget === canvas /*|| (window.Mobile && (lastDownTarget === window.Mobile.focusIndicator) )*/ ){
-    	if (!In(keybuffer,key)){
-    		keybuffer.splice(keyRepeatIndex,0,key);
-	    	keyRepeatTimer=0;
-	    	CheckRegisterKey(event);
+   	if (!In(keybuffer,key)){
+   		keybuffer.splice(keyRepeatIndex,0,key);
+	   	keyRepeatTimer=0;
+	   	CheckRegisterKey(event);
 		}
-	}
 }
 
 
@@ -949,7 +951,9 @@ function HintButton(){
 }
 
 function CloseHint(){
-	Close(RequestHint.id);
+	if(CurrentDatapack().buttonSelector==="HintButton")
+		CloseCurrentDatapack();
+	GameFocus();
 }
 
 function RequestNextHint(){
@@ -964,23 +968,10 @@ function RequestPrevHint(){
 	setTimeout(RequestHint,500);	
 }
 
-var HintShortcutsBasic=FuseObjects(ShortcutsBasic,{
-	"space":CloseCurrentDatapack
-});
-	
-	
-var HintShortcutsLevel=FuseObjects(HintShortcutsBasic,{
-	"left":ClickPrevBounded,
-	"up":ClickNextBounded,
-	"right":ClickNextBounded,
-	"down":ClickPrevBounded
-});
 
 function RequestHint(){
 	if(!Hints())
 		return console.log("hints file not found");
-	
-	var HintShortcuts=HintShortcutsBasic;
 	
 	if(!RequestHint.requested||titleScreen){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
@@ -1040,27 +1031,25 @@ function RequestHint(){
 			}]
 		];
 		
-		HintShortcutsF=HintShortcutsLevel;
 	}
 	
-	function RequestHintIndeed(){
-		RequestDataPack(DPFields,
-			{
-				qid:RequestHint.id,
-				actionvalid:CloseHint,
-				qonsubmit:FocusAndResetFunction(RequestHint,GameFocus),
-				qonclose:FocusAndResetFunction(RequestHint,GameFocus),
-				qdisplay:LaunchBalloon,
-				qtargetid:ParentSelector(gameSelector),
-				shortcutExtras:HintShortcuts,
-				requireConnection:false,
-				buttonSelector:"HintButton"
-			});
-	};
 	
-	OpenerCloser(RequestHint,RequestHintIndeed,GameFocus);
-	
+	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="HintButton")
+		CloseCurrentDatapack();
+	else
+		RequestDataPack(DPFields,{
+			actionvalid:CloseHint,
+			qonsubmit:CloseHint,
+			qonclose:GameFocus,
+			qdisplay:LaunchBalloon,
+			qtargetid:ParentSelector(gameSelector),
+			requireConnection:false,
+			shortcutExtras:FuseObjects(keyActionsGameBar,{"H":CloseHint}),
+			buttonSelector:"HintButton",
+			spotlight:gameSelector
+		});
 }
+
 
 //Hints Honours
 	

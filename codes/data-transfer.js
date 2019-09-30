@@ -1020,7 +1020,8 @@ function DefaultDataPack(){
 		thanksmessage:"Submitted. Thank you!",
 		
 		shortcutExtras:{},				//Extended shortcuts, to use ad-hoc
-		spotlight:Spotlight(),			//Spotlight at the moment of calling
+		spotlight:document.body,		//Spotlight after closing
+		closed:false,
 		
 		buttonSelector:"none"			//Selector for button requesting the datapack
 	}
@@ -1128,18 +1129,13 @@ function RequestDataPack(NamedFieldArray,Options){
 		var DP=NewDataPack(NewDataPackFields(NamedFieldArray));
 		DP=UpdateDataPack(DP,o);
 		DP.fields=DP.fields.map(function(f){var fi=f;fi.pid=DP.qid;return fi});
-		
+
+		CloseCurrentDatapack();
 		if(!GetDataPack.history)
 			GetDataPack.history=[];
-		
-		if(GetDataPack.history.length>0){
-			var last=GetDataPack.history[GetDataPack.history.length-1].qid;
-			Close(last);
-		}
-		
 		GetDataPack.history.push(DP);
-		DP.qdisplay(DP);
 		
+		DP.qdisplay(DP);
 		Select(DP.buttonSelector);		//Activate button
 		FocusInside("#"+DP.qid); 		//Focus on first question
 		
@@ -1206,11 +1202,11 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 }
 
 function ShortAnswerHTML(dataField){
-	return "<input class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></input>";
+	return "<input class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"' tabindex='0'></input>";
 }
 
 function LongAnswerHTML(dataField){
-	return "<textarea class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"'></textarea>";
+	return "<textarea class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"' tabindex='0'></textarea>";
 }
 
 function SubQuestionHTML(dataField){
@@ -1299,8 +1295,10 @@ function ToggleThisOnly(ev,thi){
 	while (i<siblings.length){
 		if(siblings[i]!==thi)
 			Deselect(siblings[i]);
-		else
+		else{
 			Select(siblings[i]);
+			//FocusElement(siblings[i]);
+		}
 		i++;
 	}
 }
@@ -1390,35 +1388,44 @@ function CloseThis(ev,thi,targetIDsel){
 function Close(targetid){
 	//First tries to find the next item to open, then closes
 	var DP=GetDataPack(targetid);
-	if(typeof DP!=="undefined"){
+	if(DP){
 		Deselect(DP.buttonSelector);
 		DeleteShortcuts(DP.qid);
-		var ClosingF=DP.qonclose;
-		if(typeof ClosingF!=="undefined")
-			ClosingF(DP);
+		DP.closed=true;
+		if(DP.qonclose)
+			DP.qonclose(DP);
+		if(DP.spotlight)
+			FocusSpotlight(DP.spotlight);
 	}
 	CloseElement(targetid);
 }
 
 function CloseAndContinue(DP){
-	var NextF=DP.qonsubmit;
 	Deselect(DP.buttonSelector);
-	if(typeof NextF!=="undefined")
-		NextF(DP);
+	if(DP.qonsubmit)
+		DP.qonsubmit(DP);
 	CloseElement(DP.qid);
 }
 
 // Current Datapack
 function CurrentDatapack(){
-	var c=GetElement(".closer");
-	if(c)
-		return GetDataPack(c.parentElement.id);
+	var h=GetDataPack.history;
+	if(h&&h.length>0){
+		var DP=h[h.length-1];
+		if(DP.closed)
+			return undefined;
+		else
+			return DP;
+	}
 	else
 		return undefined;
 }
 
 function CloseCurrentDatapack(){
-	Close(CurrentDatapack().qid);
+	var DP=CurrentDatapack();
+	if(DP){
+		Close(DP.qid);
+	}
 }
 
 function SubmitCurrentDatapack(){
@@ -1445,17 +1452,13 @@ function AddSpotlight(element){
 
 function FocusSpotlight(elem){
 	var elem=GetElement(elem);
-	var f=FocusInside(elem);
-	if(!f)
-		FocusElement(elem);
+	if(elem)
+		return FocusElement(elem);
 }
 
 function FocusSpotlightEvent(ev){
-	FocusSpotlight(ev.target);
+	return FocusSpotlight(ev.target);
 }
-
-
-window.addEventListener('click',FocusSpotlightEvent);
 
 // Focus management
 function FocusElement(targetIDsel){
@@ -1471,7 +1474,7 @@ function FocusableInput(e){
 	return Classed(e,"input")||In(["INPUT","TEXTAREA"],e.tagName);
 }
 function Focusable(e){
-	return FocusableInput(e)||Classed(e,"button");//List of element and classes
+	return FocusableInput(e)||Classed(e,"button")||e.tagName==="A";//List of element and classes
 }
 function UnFocusable(e){
 	return Classed(e,"closer")||Classed(e,"logo");
@@ -1497,7 +1500,7 @@ function FocusInside(targetIDsel){
 		var children=e.children;
 		var found=false;
 		var i=0;
-		while(!found&&i<children.length){
+		while(!found&&children&&i<children.length){
 			if(UnFocusable(children[i])){
 				found=false;
 			} else {
@@ -1835,7 +1838,7 @@ function OpenMessageModal(message,id,targetid){
 	OpenModal(MessageHTML(message)+OkButtonHTML(qid),qid,targetid);
 }
 
-/*Modal self-laucher for questions (datapacks)*/
+//Modal self-laucher for questions (datapacks)
 function LaunchModal(DP){
 	OpenModal(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
@@ -2267,6 +2270,12 @@ var ContextualShortcuts={
 		"right":FocusNext,
 		"down":FocusPrev
 	},
+/*"NAV":{
+		"left":FocusPrev,
+		"up":FocusPrev,
+		"right":FocusNext,
+		"down":FocusNext
+	},*/
 	".button":{
 		"enter":ClickStay,
 		"space":ClickStay,
@@ -2278,8 +2287,6 @@ var ContextualShortcuts={
 	".input":{
 		"escape":CloseCurrentDatapack,
 		"enter":FocusNext,
-		"tab":FocusNext,
-		"shift tab":FocusPrev,
 		"ctrl enter":SubmitCurrentDatapack
 	}
 }
