@@ -438,7 +438,7 @@ function RequestLevelSelector(){
 		}
 	}
 	
-	var LevelSelectorShortcuts=FuseObjects(keyActionsGameBar,{
+	var LevelSelectorShortcuts=FuseObjects(KeyActionsGameBar(),{
 		"L":CloseLevelSelector,
 		"1":function(){DelayLevel(1)},
 		"2":function(){DelayLevel(2)},
@@ -677,17 +677,19 @@ function AdjustFlickscreen(){
 ////////////////////////////////////////////////////////////////////////////////
 //Key capturing
 
-var keyActionsGameBar={
+function KeyActionsGameBar(){
+	return {
 	// Game bar menus
 	"E"			:RequestGameFeedback,
 	"F"			:RequestGameFullscreen,
 	"H"			:RequestHint,
 	"L"			:RequestLevelSelector, 
 	"M"			:ToggleCurrentSong
-}
+	};
+};
 
 //Game keybinding profile
-var keyActionsGame=FuseObjects({
+var keyActionsGame=FuseObjects(KeyActionsGameBar(),{
 	//Arrows
 	"left"		:InstructGameKeyF(37),
 	"up"		:InstructGameKeyF(38),
@@ -711,8 +713,7 @@ var keyActionsGame=FuseObjects({
 	// Quit
 	"escape"	:InstructGameKeyF(27),
 	"Q"			:InstructGameKeyF(27)
-},
-	keyActionsGameBar
+	}
 );
 
 
@@ -1044,7 +1045,7 @@ function RequestHint(){
 			qdisplay:LaunchBalloon,
 			qtargetid:ParentSelector(gameSelector),
 			requireConnection:false,
-			shortcutExtras:FuseObjects(keyActionsGameBar,{"H":CloseHint}),
+			shortcutExtras:FuseObjects(KeyActionsGameBar(),{"H":CloseHint}),
 			buttonSelector:"HintButton",
 			spotlight:gameSelector
 		});
