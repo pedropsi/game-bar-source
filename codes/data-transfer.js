@@ -631,6 +631,10 @@ function GetElementFromTextSelector(selector,parentElement){
 	if(parentElement===null)
 		return null;
 	selector=MakeQuerySelector(selector);
+	
+	if(!parentElement||!parentElement.querySelector)
+		var parentElement=document.body;
+	
 	return parentElement.querySelector(selector);
 };
 
