@@ -1456,9 +1456,15 @@ function FocusSpotlight(elem){
 		return FocusElement(elem);
 }
 
-function FocusSpotlightEvent(ev){
-	return FocusSpotlight(ev.target);
+function AlignSpotlightFocus(ev){
+	var e=ev.target;
+	console.log(e);
+	if(e===window||(e&&!e.isEqualNode(Spotlight())))
+		AddSpotlight(document.activeElement);
+	return Spotlight();
 }
+
+/*ACTIVATE LINKS; NAV; ETC::: window.addEventListener("focus",console.log);*/
 
 // Focus management
 function FocusElement(targetIDsel){
