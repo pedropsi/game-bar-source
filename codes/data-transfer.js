@@ -1297,7 +1297,6 @@ function ToggleThisOnly(ev,thi){
 			Deselect(siblings[i]);
 		else{
 			Select(siblings[i]);
-			//FocusElement(siblings[i]);
 		}
 		i++;
 	}
@@ -1395,7 +1394,7 @@ function Close(targetid){
 		if(DP.qonclose)
 			DP.qonclose(DP);
 		if(DP.spotlight)
-			FocusSpotlight(DP.spotlight);
+			FocusElement(DP.spotlight);
 	}
 	CloseElement(targetid);
 }
@@ -1450,18 +1449,8 @@ function AddSpotlight(element){
 	return element;
 }
 
-function FocusSpotlight(elem){
-	var elem=GetElement(elem);
-	if(elem)
-		return FocusElement(elem);
 }
 
-function AlignSpotlightFocus(ev){
-	var e=ev.target;
-	console.log(e);
-	if(e===window||(e&&!e.isEqualNode(Spotlight())))
-		AddSpotlight(document.activeElement);
-	return Spotlight();
 }
 
 /*ACTIVATE LINKS; NAV; ETC::: window.addEventListener("focus",console.log);*/
@@ -1472,6 +1461,7 @@ function FocusElement(targetIDsel){
 	if(focussing){
 		focussing.focus();	
 		AddSpotlight(focussing);
+		//ListenOnce('blur',FocusActive,focussing);
 	}
 	return focussing;
 };
