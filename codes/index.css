@@ -256,28 +256,6 @@ textarea:focus, input:focus{
 
 
 
-thead th{
-    background-color: var(--darkblue);
-    color: var(--white);
-    text-align: center;
-    text-emphasis: bold;
-     transition-duration: var(--duration);
-}
-
-thead th:hover {
-    color: var(--lightyellow);
-    background-color: var(--darkblue);
-    transition-duration: var(--duration);
-}
-
-tbody tr{
-    background-color: var(--white);
-     transition-duration: var(--duration);
-}
-tbody tr:nth-child(odd) {
-    background-color: var(--smokewhite);
-     transition-duration: var(--duration);
-}
 
 
 
