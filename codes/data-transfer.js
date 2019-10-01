@@ -2535,7 +2535,7 @@ function KeyNumberLookup(keynumber){
 		if(KeyCodes[i]===keynumber)
 			return i;
 	}
-	console.log("no key for number:",keynumber);
+	//console.log("no key for number:",keynumber);
 	return "";
 }
 
