@@ -166,11 +166,9 @@ textarea:focus, input:focus{
     padding:var(--h1) var(--w1) var(--h1) var(--w1);
     transition-duration: var(--duration);
 }
-
- textarea:hover, input:hover,  textarea:active, input:active{
-    border-bottom-width: var(--h1);
-    padding:var(--h1) var(--w1) var(--h1) var(--w1);
-    transition-duration: var(--duration);
+@media only screen and (max-width:350px){
+    .buttonbar{
+       word-break:break-all;
     }
 }
 
