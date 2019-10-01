@@ -337,45 +337,6 @@ li {
     margin-bottom: var(--h8);
 }
 
-.prose {
-    text-align: left;
-}
-
-.prose p{
-     text-align: justify;
-     text-indent:var(--w4);
-     margin-left: var(--w4);
-}
-
-.poetry {
-    text-indent:0;
-    line-height: 200%; 
-    text-rendering: optimizeLegibility;
-    font-family: Cambria, Serif;
-}
-
-.prose .figure {
-   width: 100%;
-}
-
-.figure{
-   align-items: center;
-}
-
-.figure img{
-  max-width:50%;
-}
-
-.legend p{
-    border-bottom: var(--h1) solid;
-    border-top: var(--h1) solid;  
-    margin-top:var(--h4);
-    padding: var(--h2) var(--w4) var(--h2) var(--w4);
-    line-height: 166%;
-    text-align: justify;
-    color:var(--darkblue);
-    background-color: var(--smokewhite);
-}
 
 [contenteditable=true]{
     --t:0.4;
