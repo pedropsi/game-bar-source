@@ -255,8 +255,11 @@ h4{
 }
 
 #Console {
+    display: flex;
+    flex-direction: column;
     pointer-events: none;
 	position:fixed;
+    align-items: center;
 	top:0;
 	margin-top: var(--h1);
 	width: 100%;
@@ -271,6 +274,7 @@ h4{
     margin-bottom:var(--h2);
 	padding:var(--h1) var(--w2) var(--h1) var(--w2);
     font-weight:bold;
+    width: 75%;
 }
 .closing {
   	opacity: 0;
