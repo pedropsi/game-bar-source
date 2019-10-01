@@ -95,10 +95,6 @@ body{
     color:var(--darkblue);
 }
 
-
-a div:hover img {
-    background-color: var(--lightyellow);
-    transition-duration: var(--duration);
 .button:hover,.button:active,.button:focus,
 .button:hover a,.button:active a,.button:focus a,
 .selected{
