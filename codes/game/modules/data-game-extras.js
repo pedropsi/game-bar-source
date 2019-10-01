@@ -66,7 +66,7 @@ function GameBar(targetIDsel){
 }
 
 function AddGameBar(targetIDsel){
-	var targetIDsel=targetIDsel||ParentSelector(gameSelector);
+	var targetIDsel=targetIDsel||gameSelector;
 	var bar=GetElement("GameBar");
 	if(bar!==null)
 		bar.parentNode.removeChild(bar);
