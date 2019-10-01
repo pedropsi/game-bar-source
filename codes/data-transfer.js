@@ -916,7 +916,6 @@ function ButtonHTML(optionsObj){
 	
 	var ao=o.attributes['onclick'];
 	o.attributes['onclick']="PulseSelect(this);"+(ao?ao:"");
-	//o.attributes['onkeydown']="ExecuteShortcut(this,event)";
 
 	//Context Menu and Select prevention
 	o.attributes['oncontextmenu']="(function(e){e.preventDefault()})(event);";
@@ -1456,10 +1455,7 @@ function AddSpotlight(element){
 window.addEventListener("click",function(e){FocusElement(e.target)});
 
 
-
-/*ACTIVATE LINKS; NAV; ETC::: window.addEventListener("focus",console.log);*/
-
-// Focus management
+// Focus Element
 function FocusElement(targetIDsel){
 	var focussing=GetElement(targetIDsel);
 	if(focussing){
@@ -1470,6 +1466,8 @@ function FocusElement(targetIDsel){
 	return focussing;
 };
 
+
+// Which elements are focusable?
 function FocusableInput(e){
 	return Classed(e,"input")||In(["INPUT","TEXTAREA"],e.tagName);
 }
@@ -1480,91 +1478,126 @@ function UnFocusable(e){
 	return Classed(e,"closer")||Classed(e,"logo");
 }
 
-function FocusInside(targetIDsel){
+// Focus Inside Element, looking for focusables
+function FocusInside(targetIDsel,backward){
 	var e=GetElement(targetIDsel);
 	if(!e)
 		return false;
 	
+	if(!backward)
+		var backward=false;
+	
 	if(Focusable(e)){
-		FocusElement(e);
-		return true;
+		return FocusElement(e); //doubles as true
 	}
 	
 	var selElem=GetElement(".selected",targetIDsel);
 	
 	if(Selected(selElem)&&selElem.parentNode.isEqualNode(e)){
-		FocusElement(selElem);
-		return true;
+		return FocusElement(selElem); //doubles as true
 	}
 	else {	
 		var children=e.children;
 		var found=false;
 		var i=0;
+		var j,c;
 		while(!found&&children&&i<children.length){
-			if(UnFocusable(children[i])){
+			j=backward?(children.length-1-i):i;
+			c=children[j];
+			if(UnFocusable(c))
 				found=false;
-			} else {
-				found=FocusInside(children[i]);
-			}
+			else 
+				found=FocusInside(c,backward);
 			i++;
 		}
 		return found;
 	}
 };
 
-function FocusPrev(F,bounded){
-	if(F===undefined||typeof F!=="function")
-		var F=Identity;
-	var prev=document.activeElement.previousSibling;
-	if(prev===null)
-		if(bounded===true)
-			return console.log("beginning reached");
+
+function FocusAdjacentElement(elem,backward,bounded){
+
+	if(!backward)
+		var backward=false;
+	
+	if(!elem)
+		return FocusInside(document.body,backward);
+	
+	var next=backward?elem.previousSibling:elem.nextSibling;
+	
+	if(!next){
+		if(bounded)
+			return false;
 		else
-			prev=document.activeElement.parentElement.lastChild;
-	FocusInside(prev);
-	F(prev);
+			return FocusAdjacentElement(elem.parentElement,backward);
+	}
+	
+	var f=false;
+	while(next&&!f){
+		f=FocusInside(next,backward);
+		next=backward?next.previousSibling:next.nextSibling;
+	}
+	
+	if(f)
+		return f;
+	else
+		return FocusAdjacentElement(elem.parentElement,backward);
 }
 
-function FocusNext(F,bounded){
-	if(F===undefined||typeof F!=="function")
-		var F=Identity;
-	var next=document.activeElement.nextSibling;
-	if(next===null)
-		if(bounded===true)
-			return console.log("end reached");
-		else
-		next=document.activeElement.parentElement.firstChild;
-	FocusInside(next);
-	F(next);
+
+//Focus Next, Prev, Stay: bounded or not
+function FocusNext(F){
+	var e=FocusAdjacentElement(document.activeElement,false);
+	if(F&&typeof F==="function")
+		F(e);
+	return e;
+}
+
+function FocusPrev(F){
+	var e=FocusAdjacentElement(document.activeElement,true);
+	if(F&&typeof F==="function")
+		F(e);
+	return e;
 }
 
 function FocusStay(F){
-	if(F===undefined||typeof F!=="function")
-		var F=Identity;
-	var stay=document.activeElement;
-	FocusElement(stay);
-	F(stay);
-}
-
-function FocusPrevBounded(F){
-	FocusPrev(F,true)
+	var e=document.activeElement;
+	if(F&&typeof F==="function")
+		F(e);
+	return e;
 }
 
 function FocusNextBounded(F){
-	FocusNext(F,true)
+	var e=FocusAdjacentElement(document.activeElement,false,true);
+	if(F&&typeof F==="function")
+		F(e);
+	return e;
 }
 
+function FocusPrevBounded(F){
+	var e=FocusAdjacentElement(document.activeElement,true,true);
+	if(F)
+		F(e);
+	return e;
+}
+
+
 //Click
+function ClickElement(elem){
+	var elem=GetElement(elem);
+	elem.click();
+}
+
 function ClickPrevBounded(){
-	FocusPrevBounded(function(elem){elem.click()},true)
+	FocusPrevBounded(ClickElement)
 }
 
 function ClickNextBounded(){
-	FocusNextBounded(function(elem){elem.click()},true)
+	FocusNextBounded(ClickElement)
 }
 
 function ClickStay(){
-	FocusStay(function(elem){elem.click()},true)
+	FocusStay(ClickElement)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2274,12 +2307,6 @@ var ContextualShortcuts={
 		"right":FocusNext,
 		"down":FocusPrev
 	},
-/*"NAV":{
-		"left":FocusPrev,
-		"up":FocusPrev,
-		"right":FocusNext,
-		"down":FocusNext
-	},*/
 	".button":{
 		"enter":ClickStay,
 		"space":ClickStay,
