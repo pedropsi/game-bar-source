@@ -527,21 +527,6 @@ tbody tr:nth-child(odd) {
     color:var(--turquoise);
 }
 
-.buttonrow .tag {
-    color: var(--darkblue);
-    border-color: currentColor;
-    margin:0;
-}
-
-.buttonrow .tag:first-of-type {
-    background-color:var(--lightyellow);
-}
-
-.buttonrow.tags {
-    justify-content: flex-end;
-    flex-wrap:wrap;
-	width: 100%;
-}
 
 .buttonbar{
     margin-top: 0;
