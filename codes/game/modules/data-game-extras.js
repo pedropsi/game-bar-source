@@ -729,7 +729,6 @@ function RequestGameFullscreen(){
 //Execute key instructions
 function CheckRegisterKey(event){
 	checkKey(event,true);
-	RegisterMove(event.keyCode);
 }
 
 
