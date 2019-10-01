@@ -1,10 +1,9 @@
 /*
-												*/
-:root {
   Game Bar Theme by Pedro PSI
   https://pedropsi.github.io/puzzlescript-game-bar#source
   ///////////////////////////////////////////////////////////////////////////////
   MIT License
+*/
 #gameCanvas{
     position:unset;
     max-height:96vh;
@@ -36,6 +35,7 @@
 	top:93%;
 	bottom:7%;
 }
+:root{
     --t:0.90;
     --white:rgba(255,255,255,var(--t));         /*#FFF*/
     --smokewhite: rgba(241,241,241,var(--t))    /*#f1f1f1*/;
@@ -107,6 +107,7 @@ body{
     outline:none;
 }
 
+h4{
     font-variant-caps: small-caps;
     font-weight: bold;
     max-width: 100%;
@@ -115,13 +116,11 @@ body{
     margin-bottom: calc(var(--h2) * var(--scaling));
     margin-top: calc(var(--h4) * var(--scaling));
     text-decoration: underline;
-}
-h4{
     --scaling:0.85;
     text-decoration-color:var(--lightblue);
 }
 @media only screen and (max-width:250px){
-    h1, h2, h3, h4, h5, h6, p, table{
+    h4{
         word-break:break-all;
     }
 }
@@ -154,9 +153,9 @@ h4{
     text-decoration: none;
     color: inherit;
     transition-duration: var(--duration);
-}
     background-color: transparent;
     transition-duration: var(--duration);
+}
 .button:hover a
 .button:active a
 .button:focus a{
@@ -270,7 +269,9 @@ h4{
     color: var(--lightblue);
     border-bottom:var(--h1) solid currentColor; 
     margin-bottom:var(--h2);
-
+	padding:var(--h1) var(--w2) var(--h1) var(--w2);
+    font-weight:bold;
+}
 .closing {
   	opacity: 0;
 	transition: opacity var(--duration) ease-in-out;
@@ -289,10 +290,7 @@ h4{
     -ms-transition: opacity var(--duration) ease-in-out;
 }
 
-    padding:var(--h1) var(--w2) var(--h1) var(--w2);
-    font-weight:bold;
-}
-}
+
 .button.pulsating,
 .button.pulsating:hover,
 .button.pulsating:active,
