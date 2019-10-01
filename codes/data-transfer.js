@@ -1371,10 +1371,24 @@ function PulseSelect(selectorE){
 // Show/Hide
 
 function Show(selectorE){
+	var e=GetElement(selectorE);
+	
+	//Restore tabindex
+	if(e&&e.dataset.tabindex)
+		e.tabindex=e.dataset.tabindex;
+	
 	Deselect(selectorE,"hidden");
 }
 
 function Hide(selectorE){
+	var e=GetElement(selectorE);
+	
+	//Hide tabindex
+	if(e&&e.tabindex){
+		e.removeAttribute(tabindex);
+		e.dataset.tabindex=e.tabindex;
+	}
+	
 	SelectSimple(selectorE,"hidden");
 }
 
@@ -1488,7 +1502,7 @@ function FocusableInput(e){
 	return Classed(e,"input")||In(["INPUT","TEXTAREA"],e.tagName);
 }
 function Focusable(e){
-	return FocusableInput(e)||Classed(e,"button")||e.tagName==="A";//List of element and classes
+	return FocusableInput(e)||Classed(e,"button")||Classed(e,"gif")||e.tagName==="A";//List of element and classes
 }
 function UnFocusable(e){
 	return Classed(e,"closer")||Classed(e,"logo");
@@ -2354,6 +2368,11 @@ var ContextualShortcuts={
 		"ctrl enter":SubmitCurrentDatapack,
 		"tab":FocusNext,
 		"shift tab":FocusPrev
+	},
+	".gif":{
+		"space":PlayPauseGif,
+		"enter":PlayPauseGif,
+		"X":PlayPauseGif
 	}
 }
 
@@ -2700,7 +2719,7 @@ function LoadImage(fullpath){
 	if(loaded){
 		if(IsGif){
 			gifID=GenerateId();
-			loaded=ImageHTML({attributes:{id:gifID,src:fullpath,onload:'StartGIF('+gifID+')'}});
+			loaded=ImageHTML({attributes:{id:gifID,src:fullpath,onload:'StartGIF('+gifID+')',tabindex:'0',class:"gif"}});
 		}
 		else
 			loaded=ImageHTML({attributes:{src:fullpath}});
@@ -2725,11 +2744,12 @@ function StartGIF(gid){
 	var g=GetElement(gid);
 	
 	RemoveElement(GetElementIn("CANVAS",g.parentElement));
-	var c=AddElement("<canvas></canvas>",g.parentElement);
+	var c=AddElement("<canvas class='gif' tabindex='0'></canvas>",g.parentElement);
 	
 	Hide(g);	
 	ResizeGIF();
-	c.addEventListener('resize',ResizeGIF);	
+	c.addEventListener('resize',ResizeGIF);
+	StartGIF.e=c;
 	ListenOnce('click',PlayGif(c,gid),c);
 	
 	function ResizeGIF(){
@@ -2776,12 +2796,17 @@ function PlayGif(c,gid){
 		function SG(){
 			return StartGIF(gid)
 		}
+		StartGIF.e=g;
 		ListenOnce('click',SG,g);
 		Show(g);
 		Hide(c);
 	}
 }
 
+function PlayPauseGif(){
+	if(StartGIF.e)
+		StartGIF.e.click();
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Canvas Drawing
