@@ -946,37 +946,11 @@ function DataFieldTypes(type){
 		plain:NewDataField({
 			qsubmittable:false
 		}),
-		message:NewDataField({
-			action:Close,
-			destination:'',
-			qtype:LongAnswerHTML,
-			qdisplay:LaunchThanksModal}),
-		email:NewDataField({
-			qtype:ShortAnswerHTML,
-			qfield:"address",
-			qplaceholder:"_______@___.___",
-			qvalidator:EmailValidator}),
-		name:NewDataField({
-			qrequired:false,
-			qvalidator:NameValidator,
-			qfield:"name",
-			qtype:ShortAnswerHTML,
-			questionname:"Your name",
-			qplaceholder:"(optional)"}),
-		answer:NewDataField({
-			qfield:"answer",
-			qtype:LongAnswerHTML,
-			qvalidator:SomeTextValidator}),
 		exclusivechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which one?",
 			qchoices:["on","off"],
 			qtype:ExclusiveChoiceButtonRowHTML}),
-		multiplechoice:NewDataField({
-			qfield:'answer',
-			questionname:"Which ones?",
-			qchoices:["1","2","3","4","5"],
-			qtype:ChoicesButtonRowHTML}),
 		navi:NewDataField({
 			qfield:"navi",
 			qclass:"nowrap",
@@ -984,20 +958,6 @@ function DataFieldTypes(type){
 			qchoices:["◀","OK","▶"],
 			qtype:ExclusiveChoiceButtonRowHTML,
 			defaultChoice:function(i,txt){return txt==="OK";},
-			qsubmittable:false}),
-		pass:NewDataField({
-			questionname:"What is the password?",
-			qfield:'answer',
-			qtype:ShortAnswerHTML,
-			qvalidator:SomeTextValidator,
-			qplaceholder:"(top-secret)"}),
-		snapshot:NewDataField({
-			questionname:"Attach a snapshot?",
-			qfield:'snapshot',
-			qtype:ExclusiveChoiceButtonRowHTML,
-			qchoices:["no","yes"]}),
-		secret:NewDataField({
-			questionname:"",
 			qsubmittable:false})
 	}
 	if(typeof type==="undefined")
