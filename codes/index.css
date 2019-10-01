@@ -126,8 +126,6 @@ a:active .card img,
     outline: none;
 }
 
-.nav-link:hover {text-decoration-line: none;}
-.nav-link {text-decoration-line: none;}
 
 a div:hover img {
     background-color: var(--lightyellow);
