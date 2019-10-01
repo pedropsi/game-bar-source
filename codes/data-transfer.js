@@ -1005,7 +1005,8 @@ function DefaultDataPack(){
 		qid:GenerateId(),				//id
 		qclass:"",						//class
 		
-		destination:'Feedback',			//Name of data repository
+		destination:'Feedback',			//Name of data repository (default)
+		findDestination:FindDestination,//Get Destination
 		requireConnection:true,			//Does it need a connection?
 
 		action:CheckSubmit, 			//action on submit :receives a qid
@@ -1027,6 +1028,8 @@ function DefaultDataPack(){
 	}
 	
 }
+
+function FindDestination(DP){return FindData("destination",DP.qid)};
 
 function NewDataField(obj){
 	var DF=DefaultDataField();
@@ -1145,7 +1148,6 @@ function RequestDataPack(NamedFieldArray,Options){
 		return DP;
 	}
 };
-
 
 // DataField HTML Components
 
@@ -1621,8 +1623,8 @@ function SubmitData(dataObject,destination){
 }
 
 function SubmitValidAnswer(DP){
-	var formtype=FindData("destination",DP.qid);
-	var destinationObject=GetDestination(formtype);
+	var formDestination=DP.findDestination(DP);
+	var destinationObject=GetDestination(formDestination);
 	var dataObject=(destinationObject.Data)(DP.qid);
 	SubmitData(dataObject,destinationObject);
 }

@@ -146,6 +146,13 @@ function RequestHallOfFame(){
 
 function RequestModalWinnerMessage(previousDP){
 	
+	function DestinationChoice(choice){
+		if(choice==="Public message in Guestbook")
+			return "Guestbook";
+		else
+			return "Feedback";
+	}
+	
 	RequestDataPack([
 		['answer',{
 			questionname:"As a winner, what would you tell Pedro PSI?",
@@ -155,20 +162,15 @@ function RequestModalWinnerMessage(previousDP){
 			qfield:"whence",
 			qchoices:["Private message","Public message in Guestbook"],
 			executeChoice:function(choice,id){
-				console.log(id,choice);
-				if(choice==="Public message in Guestbook"){
-					SetData("destination","Guestbook",id);
-				}
-				else {
-					SetData("destination","Feedback",id);
-				}
+				SetData("destination",DestinationChoice(choice),id);
 			}
 		}]
 	],
 	{
 		thanksmessage:"Thank you for your message.",
 		qonclose:GameFocus,
-		qonsubmit:GameFocus
+		qonsubmit:GameFocus,
+		findDestination:function(DP){return DestinationChoice(FindData("whence",DP.qid));}
 	}
 	);
 	
