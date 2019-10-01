@@ -6,3 +6,11 @@ var puzzlescriptModules=[
 ]
 
 puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
+
+function GameBarLoad(){
+	RemoveElement(".tab");
+	PrepareGame();
+}
+
+ListenOnce('load',GameBarLoad);
+
