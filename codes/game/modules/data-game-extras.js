@@ -719,7 +719,7 @@ OverwriteShortcuts(gameSelector,keyActionsGame);
 
 
 function RequestGameFullscreen(){
-	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
+	FullscreenToggle(ParentSelector(gameSelector));
 }
 
 

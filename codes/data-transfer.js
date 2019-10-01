@@ -1880,7 +1880,7 @@ function ConsoleAdd(messageHTML,wait,duration){
 }
 
 function ConsoleLoad(selector){
-	var selector=selector||'.main';
+	var selector=selector||ParentSelector(gameSelector);
 	RemoveElement("Console");
 	AddElement('<div id="Console"></div>',selector);
 }
