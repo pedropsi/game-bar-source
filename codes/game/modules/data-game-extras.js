@@ -535,8 +535,7 @@ function SelectUnlockedLevel(lvl){
 	//Go to exactly after the level prior to the chosen one, to read all useful messages, including level title
 	var n=lvl<2?0:(LevelScreens()[lvl-2]+1);
 	GoToScreen(n);
-	
-	EchoSelect(lvl,"level");
+
 };
 
 
@@ -545,7 +544,6 @@ function GoToScreenCheckpoint(n){
 	loadLevelFromStateTarget(state,curlevel,curlevelTarget);
 	canvasResize();
 	
-	EchoSelect(n,"checkpoint");
 };
 
 function GoToScreen(lvl){
@@ -927,7 +925,6 @@ function SeeHint(lvl,hintN){
 	if(UsedHints(lvl)<hintN&&Hints(lvl).length>=hintN&&!LevelSolved(lvl)){
 		Hints.used[lvl-1]=hintN;
 		LocalsaveHints();
-		EchoHint(lvl,hintN);
 	}
 }
 
@@ -1051,23 +1048,4 @@ function RequestHint(){
 			buttonSelector:"HintButton",
 			spotlight:gameSelector
 		});
-}
-
-
-//Hints Honours
-	
-function HintsHonour(){
-	if(!Hints())
-		return "";
-	else if(UsedHints()===0)
-		return "no hints ★";
-	else{
-		var h=UsedHints();
-		if(h===1)
-			return "1 hint ☆";
-		else if(h<=AvailableHints()/7)
-			return h+" hints ☆";
-		else
-			return h+" hints  ";
-	}
 }
