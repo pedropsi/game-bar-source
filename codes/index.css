@@ -216,6 +216,7 @@ textarea:focus, input:focus{
     border-bottom-width: var(--h1);
     padding:var(--h1) var(--w1) var(--h1) var(--w1);
     transition-duration: var(--duration);
+    }
 }
 
 
