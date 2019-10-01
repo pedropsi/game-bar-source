@@ -2,8 +2,7 @@
 var puzzlescriptModules=[
 "data-game-colours",
 "data-game-extras",
-"data-game-overwrite",
-"data-game-moves"
+"data-game-overwrite"
 ]
 
 puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
