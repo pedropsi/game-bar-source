@@ -48,6 +48,8 @@ function Apply(arrayOrObj,F){
 
 // Does element exist?
 function In(arrayOrObj,n){
+	if(!arrayOrObj)
+		return false;
 	function F(ao){return ao.indexOf(n)>=0;};
 	return Apply(arrayOrObj,F)||false;
 };
@@ -2555,7 +2557,7 @@ function CaptureComboKey(event) {
 	var context=Context();
 	if(In(context,keystring)){
 		event.preventDefault();
-		context[keystring](event); //TODO see whether sending an event is appropriate
+		context[keystring](event);
 	}
 }
 
