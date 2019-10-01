@@ -1,23 +1,3 @@
-var DESTINATIONS={};
-
-var LOGO='<?xml version="1.0"?>\
-<svg viewBox="-8 -8 16 16" xmlns="http://www.w3.org/2000/svg">\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-1" fill="#070070"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-1" fill="#070070" transform="rotate(45)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-2" fill="#000fff" transform="scale(0.765367) rotate(22.5)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-2" fill="#000fff" transform="scale(0.765367) rotate(67.5)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-3" fill="#1982ed" transform="scale(0.585786) rotate(0)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-3" fill="#1982ed" transform="scale(0.585786) rotate(45)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-4" fill="#3bf8de" transform="scale(0.448342) rotate(22.5)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-4" fill="#3bf8de" transform="scale(0.448342) rotate(67.5)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-5" fill="#46f46f" transform="scale(0.343146) rotate(0)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-5" fill="#46f46f" transform="scale(0.343146) rotate(45)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-6" fill="#f0f8af" transform="scale(0.262632) rotate(22.5)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-6" fill="#f0f8af" transform="scale(0.262632) rotate(67.5)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-7" fill="#fff9c9" transform="scale(0.201010) rotate(0)"></rect>\
-  <rect x="-5" y="-5" width="10" height="10" class="logo-7" fill="#fff9c9" transform="scale(0.201010) rotate(45)"></rect>\
-</svg>'
-
 ///////////////////////////////////////////////////////////////////////////////
 //Do nothing
 function Identity(){return;};
@@ -690,29 +670,7 @@ function ReplaceElement(html,parentIDsel){
 	p.innerHTML=html;
 };
 
-// Add HTML Data from external source to page
-function InjectData(source,destinationID,Transform){	
-	var data = LoadData(source);
-	if(Transform){
-		data = Transform(data);
-	}
-	AddElement(data,destinationID);
-};
 
-// Add HTML Data from external source to page
-function OverwriteData(source,destinationID,Transform){	
-	var data = LoadData(source);
-	if(Transform){
-		data = Transform(data);
-	}
-	ReplaceElement(data,destinationID);
-};
-
-// Add HTML Data from external source to page
-function RefreshData(source,destinationID,Transform){	
-	RefreshData[destinationID]=function(){OverwriteData(source,destinationID,Transform)};
-	RefreshData[destinationID]();
-};
 
 // Remove Children
 function RemoveChildren(parentID){
@@ -1199,7 +1157,7 @@ function BalloonHTML(avatarHTML,content,id){
 }
 
 function OpenBalloon(content,id,targetid){
-	AddElement(BalloonHTML('<div class="logo avatar">'+LOGO+'</div>',content,id),targetid);
+	AddElement(BalloonHTML(content,id),targetid);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
