@@ -2404,7 +2404,7 @@ function DeleteShortcuts(selector){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-//Keyboard input - TODO collapse everything in a nicer function by storing the regex as object.
+//Keyboard input
 function UnCtrlKeyString(keystring){
 	return keystring.replace(/co?n?tro?l/i,"").replace(/co?mm?a?n?d/i,"");
 }
@@ -2417,11 +2417,8 @@ function UnAltKeyString(keystring){
 function UnEnterKeyString(keystring){
 	return keystring.replace(/ente?r/i,"").replace(/re?tu?rn/i,"");
 }
-/*
-function UnBackspaceKeyString(keystring){
-	return keystring.replace(/ba?c?k?spa?c?e?/i,"");
-}
-*/
+
+
 function UnSpaceKeyString(keystring){
 	return keystring.replace(/spa?ce?b?a?r?/i,"");
 }
@@ -2438,9 +2435,6 @@ function AltKey(keystring){
 function EnterKey(keystring){
 	return keystring!==UnEnterKeyString(keystring);
 }
-/*function BackspaceKey(keystring){
-	return keystring!==UnBackspaceKeyString(keystring);
-}*/
 function SpaceKey(keystring){
 	return keystring!==UnSpaceKeyString(keystring);
 }
@@ -2461,12 +2455,15 @@ function ComboKeystring(key){
 		return ComboKeystring(KeyNumberLookup(key));
 	else {//reduce to one space, lowercase, order: ctrl alt shift
 		var keystring=key.toLowerCase();
-		keystring=UnSpaceKeyString(UnEnterKeyString(UnCtrlKeyString(UnAltKeyString(UnShiftKeyString(keystring)))));
+		
+		keystring=UnShiftKeyString(keystring);
+		keystring=UnAltKeyString(keystring);
+		keystring=UnCtrlKeyString(keystring);
+		keystring=UnEnterKeyString(keystring);
+		keystring=UnSpaceKeyString(keystring);
+		
 		keystring=keystring.replace(/[\+\.\-\ ]*/g,"");
 
-		/*if(BackspaceKey(key))
-			keystring="back "+keystring;
-		else*/
 		if(SpaceKey(key))
 			keystring="space "+keystring;	
 		if(EnterKey(key))
