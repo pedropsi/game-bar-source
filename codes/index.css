@@ -202,13 +202,6 @@ h4{
     font-size: 300%;
 }
 
-.modal .closer .button:hover,
-.modal .closer .button:active,
-.modal .closer .button:focus{
-    background-color: var(--darkblue);
-    color: var(--turquoise);
-}
-
 .balloon{
     position:absolute;
     bottom:var(--h16);
