@@ -89,8 +89,10 @@ body{
     max-height:100%;
     display:flex;
     flex-direction:column;
-
-
+    align-items:stretch;
+    border-color:currentColor;
+    border-width:var(--h-2);
+    color:var(--darkblue);
 }
 
 
