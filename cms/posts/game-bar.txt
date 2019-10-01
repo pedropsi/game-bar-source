@@ -1,0 +1,197 @@
+﻿<h2>About the «TITLE-BOLD»</h2>
+
+<p>This is the "game bar" found in all «NAME»'s <a href="games.html">puzzlescript games</a>. It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
+
+<p>This is how the «TITLE-BOLD» looks like:</p>
+«FIGURE-SIMPLE»
+
+<h3>Current version</h3>
+<p><b><span id="version-number">v2.1</span>:</b><span id="version-date">19/09/2019</span></p>
+
+<script>
+var v=LoadData("https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js");
+var vn=v.match(/(v(\d+\.)*\d+)/)[0];
+var vd=v.match(/((\d+\/)+\d+)/)[0];
+ReplaceElement(vn,"version-number");
+ReplaceElement(vd,"version-date");
+</script>
+
+<p>Older versions can be found <a href="https://github.com/pedropsi/puzzlescript-game-bar/tree/master/Versions">in the archive</a>.</p>
+
+<h2>Bookmarklet</h2>
+<p>The «TITLE-BOLD» can now be added to any online puzzlescript game with this <a href="javascript:
+var jsCode=document.createElement('script');
+jsCode.setAttribute('src','https://pedropsi.github.io/puzzlescript-game-bar/GameBar/GameBar.js');
+jsCode.setAttribute('type','text/javascript');
+document.body.appendChild(jsCode);
+console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
+<p> Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet to add the «TITLE-BOLD» to that <a href="2019-01-31-selected-puzzlescript-games.html">particular game</a>.</p>
+
+<h2>How to add the <b>Puzzlescript Game Bar</b> to your own game</h2>
+<h3>Just include the <b>javascript source code</b>!</h3>
+<p>Include the <b>javascript source</b> <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" «BLANK»>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
+<p>To ensure the «TITLE-BOLD» overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the «[<»body«>]» the snippet «[<»script type="text/javascript" src="GameBar.js"«>]»«[<»/script«>]».</p>
+
+<h2>Customisation tips</h2>
+<p>The «TITLE-BOLD» <b>stylesheet</b> can be found (inlined) inside the <b>javascript source</b> as a large block of text assigned to the variable  «[»stylesheet«]».</p>
+
+<h3>Colours</h3>
+<p>Just edit the colours variables in the «[»:root«]» element of the <b>stylesheet</b>.</p>
+<p>If you wish to use the original «NAME» colours, please delete the line «[»var replaceColours=true;«]» (near the source end).</p>
+
+<h3>Font</h3>
+<p>Edit the font variable (right after the colours) in the <b>stylesheet</b>.</p>
+
+<h3>Logo image beside the level selector</h3>
+<h4>Easy way</h4>
+<p>Add a logo image named «[»"logo.png"«]» to the «[»images«]» folder in the root directory.</p>
+<h4>Hard way</h4> 
+<p>Edit the «[»function OpenBalloon«]» in the <b>javascript source</b>, specifically by changing the path string «[»"images/logo.png"«]» to wherever your logo may be located.</p>
+
+<h2>Adding hints</h2>
+<p> Create a folder named «[»hints«]», where you'll drop a <b>hints file</b> containing all hints. The <b>hints file</b> should be named exactly like the matching game «[».html«]» page file, but with the «[».txt«]» extension.</p>
+<p>If you have several game pages, you can drop one <b>hints file</b> per game into the common «[»hints«]» folder.</p>
+
+<h3><b>hints file</b> text standard</h3>
+<p>The <b>hints file</b> textual format follows 7 rules:
+<ol>
+<li>Each hint ocupies exactly one line;</li>
+<li>hints belonging to the same level (hint groups) are placed in successive contiguous lines;</li>
+<li>hint groups are separated by one or more empty lines;</li>
+<li>if the first line in a hint group starts with the word «[»level«]», the hint group will ignore this line. 
+	<ul><li>Thus a group consisting of the single line «[»level ...«]» will be interpreted as containing zero hints;</li></ul></li>
+<li>digits at the start of any hint line will be ignored;</li>
+<li>hint lines consisting solely of a reference to an image (see section below) will display that image.</li>
+<li><b>Important:</b>hint groups are assigned to each level by the order in which they appear;</li>
+</o>
+</p>
+
+<p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the <a href="platformer-template.html">platformer template</a> game page.</p>
+
+<h3>Adding hint images</h3>
+<p>To add hint images to one game:
+	<ol>
+		<li>Inside the «[»hints/«]» folder, make a new subfolder named like your <b>hints file</b> without the «[».txt«]» extension.</li>
+		<li>Drop all hint images into this new subfolder.</li>
+		<li>Reference each image, amidst the hints, by its relative path inside this subfolder.</li>
+	</ol>
+</p>	
+<p>For multiple games, each game must have its own subfolder inside the the «[»hints/«]» folder.</p>
+
+<h3>Music</h3>
+<h4>Add music files</h4>
+<p>To control a music playlist via the game bar, each music track should be added to the page inside «[<»audio class="music"«>]» tags, placed anywhere in the page. If these tags are detected, a music button will be revealed automatically.</p>
+
+<h3>"Credits" and "How-to-play" buttons</h3>
+<h4>Reveal the buttons</h4>
+<p>Search for the «[»function GameBar(targetIDsel)«]» and edit the «[» buttons «]» array inside that function, by uncommenting the commented lines containing «[»Credits«]» and «[»How-to-play«]» strings.</p>
+<h4>Activate the buttons</h4>
+<p>If you have sections in your page explicitly labelled with ids «[»Credits«]» and «[»How-to-play«]», clicking each button will scroll the page to that section. You may want instead to add a custom function to each button.</p>
+
+<h3>Custom buttons</h3>
+<p>Within the «[»function GameBar(targetIDsel)«]», edit the «[» buttons «]» array at will!</p>
+
+
+<h2>Troubleshoting</h2>
+<h3>You've added the script at the end of the body, but nothing shows...</h3>
+<p>Most likely the <b>javascript source</b> cannot find your game in the page. </p>
+<p>If the ID of your game «[»canvas«]» differs from the default PS export ID (named «[»"#gameCanvas"«]» ) you'll have to edit the following line, near the end of the <b>javascript source</b>: «[»var gameSelector="#gameCanvas";«]» to match your game ID.</p>
+
+<h3>You are hosting your game at the itch.io platform and nothing shows...</h3>
+<p>Please ensure that the «TITLE-BOLD» <b>javascript source</b> is loaded from within the «[<»iframe«>]» containing the game, rather than from the main itch page.</p>
+
+<h3>You dislike the level navigation imposed by the «TITLE-BOLD»...</h3>
+<p>In the <b>javascript source</b>, delete the «[»function nextLevel()«]», effectively preventing the overwriting of the default PS function.</p>
+
+<h3>You use a modified version of Puzzlescript, now broken...</h3>
+<p>The «TITLE-BOLD» overwrites exactly <b>4</b> puzzlescript functions:</p>
+<ul>
+<li>«[»function doWin()«]»</li>
+<li>«[»function nextLevel()«]»</li>
+<li>«[»function doSetupTitleScreenLevelContinue()«]»</li>
+<li>«[»function level4Serialization()«]»</li>
+</ul>
+
+<p>If your Puzzlescript version relies on changes to any of these functions, it's likely those particular changes be erased. You're welcome to <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">file your issue so it can be taken a look at</a>.</p>
+
+<h3>You found a different problem.</h3>
+<p>Please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">report your problem</a> so it can be fixed sooner.</p>
+
+<h2>Examples</h2>
+<p>Here are some games that use he «TITLE-BOLD»:</p>
+<ul>
+<li>««P-PRE»MINOTALEN«P-POS»»'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
+<li>All «NAME»'s <a href="games.html">games</a>.</li>
+<li>««P-PRE»GAHR«P-POS»»'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
+<li>««P-PRE»CUBESTUDIO«P-POS»»'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
+
+</ul>
+<p>Would you like to add your game to the list? Please «CONTACT-TEXT-3»!</p>
+
+
+<h2>Contributions</h2>
+<h3>Special thanks</h3>
+<p>To ««P-PRE»MINOTALEN«P-POS»» for very active ongoing collaboration!</p>
+
+<h3>Would you like to contribute?</h3>
+<p>Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" «BLANK»>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
+
+
+<h2>FAQ</h2>
+<h3>How is «TITLE-BOLD»'s different from available alternatives?</h3>
+<p> «TITLE-BOLD» was designed to be <b>a 1-step install</b>, <b>beautiful</b>, <b>intuitive</b> and <b>customisable</b>.</p>
+
+<p>Although the undo/reset and music buttons can be found in Puzzlescript's default mobile menu and ««P-PRE»HAZELDEN«P-POS»» has made a <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">custom level selector</a>, «NAME» found it useful to have a single bar with all important features, including:</p>
+<ul>
+<li>A level selector;</li>
+<li>Fullscreen mode;</li>
+<li>Mute/unmute control for a BGM playlist (optional);</li>
+<li>Non-linear level navigation:
+	<ul>
+		<li>All levels must be completed (no matter the order) before the game finishes;</li>
+		<li>Level unlocking:
+			<ul>
+			<li><b>N-level lookahead</b>: players can access up the following N unsolved levels, further levels are "locked";</li>
+			<li>Multiple <b>Gate levels</b>: gate levels only show up after all previous levels were beaten and lock further levels;</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li>Keyboard shortcuts (in game):
+	<ul>
+		<li><kbd>L</kbd>: open the level selector;</li>
+		<li><kbd>H</kbd>: toggle Hints;</li>
+		<li>in level selector:
+			<ul>
+			<li>«NUMKEYS»: pick a level;</li>
+			<li><kbd>Left</kbd>/<kbd>Right</kbd>: next/previous level;</li>
+			<li><kbd>Enter</kbd>: select level;</li>
+			<li><kbd>Esc</kbd> or <kbd>L</kbd>: close the level selector;</li>
+			</ul>
+		</li>
+		<li>in hint balloon:
+			<ul>
+			<li><kbd>Left</kbd>/<kbd>Right</kbd>: next/previous hint;</li>
+			<li><kbd>Esc</kbd>/<kbd>Enter</kbd>/<kbd>H</kbd>: close the hint balloon;</li>
+			</ul>
+		</li>
+		<li><kbd>F</kbd>: Toggle Fullscreen</li>
+		<li><kbd>M</kbd>: Pause/Resume BGM playlist</li>
+		<li><kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd>: next/previous menu item.</li>
+	</ul>
+</li>
+</ul>
+
+<h3>Can you use «TITLE-BOLD» for free?</h3>
+<p>Yes, it's under a «LICENSE-MIT» license.</p>
+
+<h3>What are the differences between the shared «TITLE-BOLD» and the one <b>live</b> at the «SITE-NAME»?</h3>
+<p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any buttons that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
+
+<h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
+<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">actually need it</a>.</p>
+
+<h3>Does the «TITLE-BOLD» hint system handle checkpoints?</h3>
+<p>No, sorry! But if this would make a difference, <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">please let us know</a>.</p>
+
+«FEEDBACK»

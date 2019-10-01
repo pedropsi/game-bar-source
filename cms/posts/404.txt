@@ -1,0 +1,7 @@
+﻿<h2>Page not found...</h2>
+<p>Is this a bug? Please «CONTACT-TEXT-3»!<p>
+<p>All pages are listed below for your convenience.</p>
+
+«ARCHIVE-BY-YEAR»
+
+«BEACONS-ABSOLUTE»

@@ -1,0 +1,8 @@
+<div class="container" >
+	<h1 class="title">«TITLE»</h1>
+	<div class="whiteboard">
+		<div class="text «STYLE» post" id="post">«POST»</div>
+	</div>
+	«LABELS»
+	«DISPLAY-EXTERNAL»
+</div>

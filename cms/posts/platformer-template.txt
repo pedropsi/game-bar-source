@@ -1,0 +1,56 @@
+«ABOUT-TEXT»
+«ONE-LINER»
+
+«HOWTO-TEXT»
+<p><em>Move</em> with «ARROWKEYS», which are used to interact with blocks of different shapes.</p>
+<p>Your perception of the goal and game rules should evolve as the game progresses.</p>
+
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-HINTS-TEXT»
+
+«CREDITS»
+
+<h3>Special thanks</h3>
+<p>««P-PRE»HUNKYDORY«P-POS»» and ««P-PRE»ZABEL«P-POS»» for spotting two rare yet important bugs.</p>
+<p>««P-PRE»MINOTALEN«P-POS»» for suggesting the addition of hints and for several hint suggestions and improvements.</p>
+
+<h2>F.A.Q.</h2>
+<h3>Is «TITLE-BOLD» a real game or a game template?</h3>
+<p>Both! Because there is no better way to teach that to put the principles in practice, immediately. Questions like: <em>Why was this level not introduced before?</em> or <em>What is new in this level?</em> or <em>Could any element be removed while preserving the desired effect?</em> should guide your attention while playing.</p>
+
+<h3>Is «TITLE-BOLD» «NAME»'s last game?</h3>
+<p>«NAME» intended to close <a href="2019-04-14-a-game-making-journey.html">2018's cycle of puzzlescript games</a> by teaching others - «TITLE-BOLD» emerged naturally from this intention.</p>
+
+<h3>How is beating «TITLE-BOLD»'s an achievement?</h3>
+<p>It takes on average 4 enjoyable hours to solve all levels in «TITLE-BOLD», but only 4% of all players so far qualified for the «HOF».</p>
+
+<h3>Does the high difficulty prevent «TITLE-BOLD»'s teaching goals?</h3>
+<p>Since all levels are accessible via the level selector, all players regardless of ability can follow every lesson.</p>
+
+
+<h2>Changelog</h2>
+<h3>09/2019</h3>
+<p>Hints added to most levels!</p>
+
+<h3>06/2019</h3>
+<p>Level tweaks:
+<li>
+<ul><b>level 31:</b> displaced a dash to remove one unintended solution; reduced level size by rearranging elements; simplified lesson;</ul>
+<ul><b>level 32:</b> switched places with former level 31.</ul>
+
+</li>
+
+<h3>05/2019</h3>
+<p>Major data-driven changes to selected levels, based on average time required to win a level, plus several minor tweaks:
+<li>
+<ul><b>level 10:</b> displacement of a single block to try to guide players towards the elusive solution;</ul>
+<ul><b>level 26:</b> major redesign to make it easier;</ul>
+<ul><b>level 43:</b> major redesign and simplification while retaining the core ideas;</ul>
+<ul><b>level 44:</b> reduction of level size;</ul>
+<ul><b>level 46:</b> reduction of level size and decluttering;</ul>
+<ul><b>level 48:</b> major redesign to declutter and ramp up the challenge;</ul>
+<ul><b>level 50:</b> remotion of one single dash causing one unintended solution.</ul>
+</li>
+</p>
+
+«PRESS-TEXT»

@@ -1,0 +1,38 @@
+﻿	<div id="Console" class="hide">
+		<div class="message">To enter the world of Combinatura... please enable Javascript in your browser!</div>
+	</div>	
+	
+	<div id="Combinatura" class="Gallery">	
+	</div>
+
+	<div id="Options" class="hide">
+		<div id="Language">
+			<a><div id="DE" class="lang button" onclick="LanguageToggle('DE')">Deutsch </div></a>
+			<a><div id="EN" class="lang button" onclick="LanguageToggle('EN')">English</div></a>		
+			<a><div id="FR" class="lang button" onclick="LanguageToggle('FR')">Français</div></a>
+			<a><div id="PT" class="lang button" onclick="LanguageToggle('PT')">Português</div></a>
+		</div>
+		
+		<div id="Control">
+			<a>
+				<div id="Restart" class="button" onclick="GameNew()">Enter Combinatura</div>
+			</a>
+			<a href="#HowToPlay">
+				<div id="HowToPlay" class="button">How to play</div>
+			</a>
+	
+		</div>
+		
+	</div>	
+		
+	<div id="DexBar">
+		<h1>Combinadex <a><div class="button" onclick="OpenToggle('DexBar','Dex')">▼</div></a></h1>
+		<div  id="Dex" class="Gallery Dex invisible"></div>
+	</div>
+	
+	<link rel="stylesheet" href="combinatura/assets/css/combinatura.css" />
+	<script src="combinatura/assets/js/jquery.min.js"></script>
+	<script src="combinatura/assets/js/combinatura-cards.js"></script>
+	<script src="combinatura/assets/js/combinatura-languages.js"></script>
+	<script src="combinatura/assets/js/combinatura.js"></script>
+	

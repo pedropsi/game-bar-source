@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en" xml:lang="en" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="images/favicon-32x32.png" rel="icon" type="image/png"/><link href="images/favicon-32x32.png" rel="shortcut icon" type="image/x-icon"/><link href="images/splash.png" rel="apple-touch-icon"/><link href="codes/index.css" rel="stylesheet" type="text/css"/><title>Puzzlescript Game Bar</title>
+<meta name="description" content=" About the  Puzzlescript Game Bar  
+
+ This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
+
+ This is how the «TITLE-BOLD..."/>
+
+<meta property="og:title" 		content="Puzzlescript Game Bar"/>
+<meta property="og:description"	content=" About the  Puzzlescript Game Bar  
+
+ This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
+
+ This is how the «TITLE-BOLD..."/>
+<meta property="og:url"			content="https://pedropsi.github.io/game-bar.html"/>
+<meta property="og:image"		content="https://pedropsi.github.io/images/game-bar.png"/>
+
+<meta property="og:type" content="article"/>
+<meta property="og:image:alt"	 content="Puzzlescript Game Bar"/><script src="codes/data-transfer.js"></script></head><body class="body" id="game-bar"><div class="main"><div class="nav"><a href="index.html"><div class="logo"><svg viewBox="-8 -8 16 16" xmlns="http://www.w3.org/2000/svg">
+  <rect x="-5" y="-5" width="10" height="10" class="logo-1" fill="#070070" />
+  <rect x="-5" y="-5" width="10" height="10" class="logo-1" fill="#070070" transform="rotate(45)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-2" fill="#000fff" transform="scale(0.765367) rotate(22.5)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-2" fill="#000fff" transform="scale(0.765367) rotate(67.5)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-3" fill="#1982ed" transform="scale(0.585786) rotate(0)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-3" fill="#1982ed" transform="scale(0.585786) rotate(45)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-4" fill="#3bf8de" transform="scale(0.448342) rotate(22.5)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-4" fill="#3bf8de" transform="scale(0.448342) rotate(67.5)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-5" fill="#46f46f" transform="scale(0.343146) rotate(0)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-5" fill="#46f46f" transform="scale(0.343146) rotate(45)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-6" fill="#f0f8af" transform="scale(0.262632) rotate(22.5)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-6" fill="#f0f8af" transform="scale(0.262632) rotate(67.5)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-7" fill="#fff9c9" transform="scale(0.201010) rotate(0)"/>
+  <rect x="-5" y="-5" width="10" height="10" class="logo-7" fill="#fff9c9" transform="scale(0.201010) rotate(45)"/>
+</svg></div></a><nav><a href="about.html" class="nav-link" style="max-width: 728px;">About</a>
+<a href="contact.html" class="nav-link" style="max-width: 728px;">Contact</a>
+<a href="guestbook.html" class="nav-link" style="max-width: 728px;">Guestbook</a>
+<a href="posts-by-date.html" class="nav-link" style="max-width: 728px;">Posts by date</a>
+<a href="posts-by-tag.html" class="nav-link" style="max-width: 728px;">Posts by tag</a>
+<a href="games.html" class="nav-link" style="max-width: 728px;">Games</a>
+<a href="hall-of-fame.html" class="nav-link" style="max-width: 728px;">Hall of Fame</a>
+<a href="subscribe.html" class="nav-link" style="max-width: 728px;">Subscribe</a></nav><div class="rainbowline"></div></div><div class="section"><div class="container"><h1 class="title">Puzzlescript Game Bar</h1><div class="whiteboard"><div class="text prose post" id="post"><h2>About the <b>Puzzlescript Game Bar</b></h2>
+
+<p>This is the "game bar" found in all Pedro PSI's <a href="games.html">puzzlescript games</a>. It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
+
+<p>This is how the <b>Puzzlescript Game Bar</b> looks like:</p>
+<div class="figure"><img src="images/game-bar.png" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/></div>
+
+<h3>Current version</h3>
+<p><b><span id="version-number">v2.1</span>:</b><span id="version-date">19/09/2019</span></p>
+
+<script>
+var v=LoadData("https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js");
+var vn=v.match(/(v(\d+\.)*\d+)/)[0];
+var vd=v.match(/((\d+\/)+\d+)/)[0];
+ReplaceElement(vn,"version-number");
+ReplaceElement(vd,"version-date");
+</script>
+
+<p>Older versions can be found <a href="https://github.com/pedropsi/puzzlescript-game-bar/tree/master/Versions">in the archive</a>.</p>
+
+<h2>Bookmarklet</h2>
+<p>The <b>Puzzlescript Game Bar</b> can now be added to any online puzzlescript game with this <a href="javascript:
+var jsCode=document.createElement('script');
+jsCode.setAttribute('src','https://pedropsi.github.io/puzzlescript-game-bar/GameBar/GameBar.js');
+jsCode.setAttribute('type','text/javascript');
+document.body.appendChild(jsCode);
+console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
+<p> Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet to add the <b>Puzzlescript Game Bar</b> to that <a href="2019-01-31-selected-puzzlescript-games.html">particular game</a>.</p>
+
+<h2>How to add the <b>Puzzlescript Game Bar</b> to your own game</h2>
+<h3>Just include the <b>javascript source code</b>!</h3>
+<p>Include the <b>javascript source</b> <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" target='_blank'>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
+<p>To ensure the <b>Puzzlescript Game Bar</b> overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the <code><span><</span>body<span>></span></code> the snippet <code><span><</span>script type="text/javascript" src="GameBar.js"<span>></span></code><code><span><</span>/script<span>></span></code>.</p>
+
+<h2>Customisation tips</h2>
+<p>The <b>Puzzlescript Game Bar</b> <b>stylesheet</b> can be found (inlined) inside the <b>javascript source</b> as a large block of text assigned to the variable  <code>stylesheet</code>.</p>
+
+<h3>Colours</h3>
+<p>Just edit the colours variables in the <code>:root</code> element of the <b>stylesheet</b>.</p>
+<p>If you wish to use the original Pedro PSI colours, please delete the line <code>var replaceColours=true;</code> (near the source end).</p>
+
+<h3>Font</h3>
+<p>Edit the font variable (right after the colours) in the <b>stylesheet</b>.</p>
+
+<h3>Logo image beside the level selector</h3>
+<h4>Easy way</h4>
+<p>Add a logo image named <code>"logo.png"</code> to the <code>images</code> folder in the root directory.</p>
+<h4>Hard way</h4> 
+<p>Edit the <code>function OpenBalloon</code> in the <b>javascript source</b>, specifically by changing the path string <code>"images/logo.png"</code> to wherever your logo may be located.</p>
+
+<h2>Adding hints</h2>
+<p> Create a folder named <code>hints</code>, where you'll drop a <b>hints file</b> containing all hints. The <b>hints file</b> should be named exactly like the matching game <code>.html</code> page file, but with the <code>.txt</code> extension.</p>
+<p>If you have several game pages, you can drop one <b>hints file</b> per game into the common <code>hints</code> folder.</p>
+
+<h3><b>hints file</b> text standard</h3>
+<p>The <b>hints file</b> textual format follows 7 rules:
+<ol>
+<li>Each hint ocupies exactly one line;</li>
+<li>hints belonging to the same level (hint groups) are placed in successive contiguous lines;</li>
+<li>hint groups are separated by one or more empty lines;</li>
+<li>if the first line in a hint group starts with the word <code>level</code>, the hint group will ignore this line. 
+	<ul><li>Thus a group consisting of the single line <code>level ...</code> will be interpreted as containing zero hints;</li></ul></li>
+<li>digits at the start of any hint line will be ignored;</li>
+<li>hint lines consisting solely of a reference to an image (see section below) will display that image.</li>
+<li><b>Important:</b>hint groups are assigned to each level by the order in which they appear;</li>
+</o>
+</p>
+
+<p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the <a href="platformer-template.html">platformer template</a> game page.</p>
+
+<h3>Adding hint images</h3>
+<p>To add hint images to one game:
+	<ol>
+		<li>Inside the <code>hints/</code> folder, make a new subfolder named like your <b>hints file</b> without the <code>.txt</code> extension.</li>
+		<li>Drop all hint images into this new subfolder.</li>
+		<li>Reference each image, amidst the hints, by its relative path inside this subfolder.</li>
+	</ol>
+</p>	
+<p>For multiple games, each game must have its own subfolder inside the the <code>hints/</code> folder.</p>
+
+<h3>Music</h3>
+<h4>Add music files</h4>
+<p>To control a music playlist via the game bar, each music track should be added to the page inside <code><span><</span>audio class="music"<span>></span></code> tags, placed anywhere in the page. If these tags are detected, a music button will be revealed automatically.</p>
+
+<h3>"Credits" and "How-to-play" buttons</h3>
+<h4>Reveal the buttons</h4>
+<p>Search for the <code>function GameBar(targetIDsel)</code> and edit the <code> buttons </code> array inside that function, by uncommenting the commented lines containing <code>Credits</code> and <code>How-to-play</code> strings.</p>
+<h4>Activate the buttons</h4>
+<p>If you have sections in your page explicitly labelled with ids <code>Credits</code> and <code>How-to-play</code>, clicking each button will scroll the page to that section. You may want instead to add a custom function to each button.</p>
+
+<h3>Custom buttons</h3>
+<p>Within the <code>function GameBar(targetIDsel)</code>, edit the <code> buttons </code> array at will!</p>
+
+
+<h2>Troubleshoting</h2>
+<h3>You've added the script at the end of the body, but nothing shows...</h3>
+<p>Most likely the <b>javascript source</b> cannot find your game in the page. </p>
+<p>If the ID of your game <code>canvas</code> differs from the default PS export ID (named <code>"#gameCanvas"</code> ) you'll have to edit the following line, near the end of the <b>javascript source</b>: <code>var gameSelector="#gameCanvas";</code> to match your game ID.</p>
+
+<h3>You are hosting your game at the itch.io platform and nothing shows...</h3>
+<p>Please ensure that the <b>Puzzlescript Game Bar</b> <b>javascript source</b> is loaded from within the <code><span><</span>iframe<span>></span></code> containing the game, rather than from the main itch page.</p>
+
+<h3>You dislike the level navigation imposed by the <b>Puzzlescript Game Bar</b>...</h3>
+<p>In the <b>javascript source</b>, delete the <code>function nextLevel()</code>, effectively preventing the overwriting of the default PS function.</p>
+
+<h3>You use a modified version of Puzzlescript, now broken...</h3>
+<p>The <b>Puzzlescript Game Bar</b> overwrites exactly <b>4</b> puzzlescript functions:</p>
+<ul>
+<li><code>function doWin()</code></li>
+<li><code>function nextLevel()</code></li>
+<li><code>function doSetupTitleScreenLevelContinue()</code></li>
+<li><code>function level4Serialization()</code></li>
+</ul>
+
+<p>If your Puzzlescript version relies on changes to any of these functions, it's likely those particular changes be erased. You're welcome to <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">file your issue so it can be taken a look at</a>.</p>
+
+<h3>You found a different problem.</h3>
+<p>Please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">report your problem</a> so it can be fixed sooner.</p>
+
+<h2>Examples</h2>
+<p>Here are some games that use he <b>Puzzlescript Game Bar</b>:</p>
+<ul>
+<li><span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>Minotalen</a> </span>'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
+<li>All Pedro PSI's <a href="games.html">games</a>.</li>
+<li><span class='Failed-to-load'> <a href="https://joelgahr.itch.io/" target='_blank'>Joel Gahr</a> </span>'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
+<li><span class='Failed-to-load'> <a href="https://twitter.com/noa_cubestudio" target='_blank'>Noa Hoffmann (Noa Cube Studio)</a> </span>'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
+
+</ul>
+<p>Would you like to add your game to the list? Please <a href='contact.html'>let me know</a>!</p>
+
+
+<h2>Contributions</h2>
+<h3>Special thanks</h3>
+<p>To <span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>Minotalen</a> </span> for very active ongoing collaboration!</p>
+
+<h3>Would you like to contribute?</h3>
+<p>Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" target='_blank'>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
+
+
+<h2>FAQ</h2>
+<h3>How is <b>Puzzlescript Game Bar</b>'s different from available alternatives?</h3>
+<p> <b>Puzzlescript Game Bar</b> was designed to be <b>a 1-step install</b>, <b>beautiful</b>, <b>intuitive</b> and <b>customisable</b>.</p>
+
+<p>Although the undo/reset and music buttons can be found in Puzzlescript's default mobile menu and <span class='Failed-to-load'> <a href="https://twitter.com/draknek" target='_blank'>Alan Hazelden</a> </span> has made a <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">custom level selector</a>, Pedro PSI found it useful to have a single bar with all important features, including:</p>
+<ul>
+<li>A level selector;</li>
+<li>Fullscreen mode;</li>
+<li>Mute/unmute control for a BGM playlist (optional);</li>
+<li>Non-linear level navigation:
+	<ul>
+		<li>All levels must be completed (no matter the order) before the game finishes;</li>
+		<li>Level unlocking:
+			<ul>
+			<li><b>N-level lookahead</b>: players can access up the following N unsolved levels, further levels are "locked";</li>
+			<li>Multiple <b>Gate levels</b>: gate levels only show up after all previous levels were beaten and lock further levels;</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li>Keyboard shortcuts (in game):
+	<ul>
+		<li><kbd>L</kbd>: open the level selector;</li>
+		<li><kbd>H</kbd>: toggle Hints;</li>
+		<li>in level selector:
+			<ul>
+			<li><kbd>0</kbd> <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> <kbd>5</kbd> <kbd>6</kbd> <kbd>7</kbd> <kbd>8</kbd> <kbd>9</kbd>: pick a level;</li>
+			<li><kbd>Left</kbd>/<kbd>Right</kbd>: next/previous level;</li>
+			<li><kbd>Enter</kbd>: select level;</li>
+			<li><kbd>Esc</kbd> or <kbd>L</kbd>: close the level selector;</li>
+			</ul>
+		</li>
+		<li>in hint balloon:
+			<ul>
+			<li><kbd>Left</kbd>/<kbd>Right</kbd>: next/previous hint;</li>
+			<li><kbd>Esc</kbd>/<kbd>Enter</kbd>/<kbd>H</kbd>: close the hint balloon;</li>
+			</ul>
+		</li>
+		<li><kbd>F</kbd>: Toggle Fullscreen</li>
+		<li><kbd>M</kbd>: Pause/Resume BGM playlist</li>
+		<li><kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd>: next/previous menu item.</li>
+	</ul>
+</li>
+</ul>
+
+<h3>Can you use <b>Puzzlescript Game Bar</b> for free?</h3>
+<p>Yes, it's under a <a href="https://opensource.org/licenses/MIT" target='_blank'>MIT</a> license.</p>
+
+<h3>What are the differences between the shared <b>Puzzlescript Game Bar</b> and the one <b>live</b> at the Creative Archive?</h3>
+<p>The <b>live</b> <b>Puzzlescript Game Bar</b> at the Creative Archive is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official <b>Puzzlescript Game Bar</b> shared in this page. Any buttons that depend on the Creative Archive's infrastructure to work or that lack general interest won't be included into the official <b>Puzzlescript Game Bar</b>.</p>
+
+<h3>Does the <b>Puzzlescript Game Bar</b> level selector handle checkpoints?</h3>
+<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">actually need it</a>.</p>
+
+<h3>Does the <b>Puzzlescript Game Bar</b> hint system handle checkpoints?</h3>
+<p>No, sorry! But if this would make a difference, <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">please let us know</a>.</p>
+
+<h2>Feedback</h2><h3>Problems? Suggestions?</h3><p>Please <a href='contact.html'>let me know</a> !</p><h3>Praise?</h3><p>Enjoyed <b>Puzzlescript Game Bar</b>? Add <b>your message</b> below to the Creative Archive's <b><a href="guestbook.html">guestbook</a></b>!</p><div class="button centered" onclick="RequestGuestbook()" tabindex="0">Leave your message!</div></div></div><div class="tags buttonrow"><a class="tag button" href="posts-by-date.html">Saturday, 27/07/2019</a><a class="tag button" href="tag-Resource.html">Resource</a>
+<a class="tag button" href="tag-Tutorial.html">Tutorial</a>
+<a class="tag button" href="tag-Puzzlescript.html">Puzzlescript</a></div></div></div></div><div class="footer"><p>© Pedro PSI 2010-2019. <a href='terms-of-use.html'>Terms of Use.</a> <a href='privacy-policy.html'>Privacy Policy.</a> <a href='press.html'>Press kit.</a></p><p><span id="NightMode" onclick='toggleNightMode()'> Darken</span>. <a href='2018-02-08-support-the-archive.html'>Support the Creative Archive!</a> <a href="subscribe.html">Subscribe!</a></p></div><script type="text/javascript" data-cfasync="false" src="codes/analytics.js"></script><script type="text/javascript" data-cfasync="false" src="codes/communication.js"></script></body></html>

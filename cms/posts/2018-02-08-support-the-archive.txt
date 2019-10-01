@@ -1,0 +1,30 @@
+﻿<p>Here's what you can do to make the «SITE-NAME» thrive:</p>
+
+<h2>For free</h2>
+<h3>Give feedback</h3>
+<p>It may be so as simple as to «CONTACT-TEXT-3» what you think of a particular aspect of the «SITE-NAME». What do you really like? How did it make your day better? 
+<p> Shall something be annoying, out of place or not working, please «CONTACT-TEXT-2» so it be fixed sooner.</p>
+
+<h3>Share with your friends</h3>
+<p>If you like the «SITE-NAME», tell your friends about it now! Seeing many people enjoying it boosts «MY» motivation, which, in turn, may fuel even more interesting projects.</p>
+
+<h3>Review, stream or link</h3>
+<p>Streaming a video about anything in the «SITE-NAME», reviewing some of its content, or just linking to a page, perhaps in a forum, in your blog or collection is always welcomed.</p>
+
+
+<h2>For profit</h2>
+<p>Instead of making a donation or seeing an advertisement, you may want to:</p>
+
+<h3>Buy a personal license</h3>
+<p>Some of the things in the «SITE-NAME» are so polished that «I» felt were too good to be free. The first example is <a href="gravirinth.html">Gravirinth</a>.</p>
+
+<h3>Do business together</h3>
+<p>Expressions of interest are «CONTACT-TEXT-5».</p>
+
+<h3>Partner</h3>
+<p>Do you want to do join with «SITE-NAME» in new project? «CONTACT-TEXT-4»</p>
+
+
+<h2>Other ideas?</h2>
+<p>«CONTACT-TEXT-6»</p>
+

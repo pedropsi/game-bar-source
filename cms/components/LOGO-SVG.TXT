@@ -1,0 +1,16 @@
+<svg viewBox="-8 -8 16 16" xmlns="http://www.w3.org/2000/svg">
+  <rect «LOGO-DIMS» class="logo-1" fill="#070070" />
+  <rect «LOGO-DIMS» class="logo-1" fill="#070070" transform="rotate(45)"/>
+  <rect «LOGO-DIMS» class="logo-2" fill="#000fff" transform="scale(0.765367) rotate(22.5)"/>
+  <rect «LOGO-DIMS» class="logo-2" fill="#000fff" transform="scale(0.765367) rotate(67.5)"/>
+  <rect «LOGO-DIMS» class="logo-3" fill="#1982ed" transform="scale(0.585786) rotate(0)"/>
+  <rect «LOGO-DIMS» class="logo-3" fill="#1982ed" transform="scale(0.585786) rotate(45)"/>
+  <rect «LOGO-DIMS» class="logo-4" fill="#3bf8de" transform="scale(0.448342) rotate(22.5)"/>
+  <rect «LOGO-DIMS» class="logo-4" fill="#3bf8de" transform="scale(0.448342) rotate(67.5)"/>
+  <rect «LOGO-DIMS» class="logo-5" fill="#46f46f" transform="scale(0.343146) rotate(0)"/>
+  <rect «LOGO-DIMS» class="logo-5" fill="#46f46f" transform="scale(0.343146) rotate(45)"/>
+  <rect «LOGO-DIMS» class="logo-6" fill="#f0f8af" transform="scale(0.262632) rotate(22.5)"/>
+  <rect «LOGO-DIMS» class="logo-6" fill="#f0f8af" transform="scale(0.262632) rotate(67.5)"/>
+  <rect «LOGO-DIMS» class="logo-7" fill="#fff9c9" transform="scale(0.201010) rotate(0)"/>
+  <rect «LOGO-DIMS» class="logo-7" fill="#fff9c9" transform="scale(0.201010) rotate(45)"/>
+</svg>

@@ -1,0 +1,40 @@
+«ABOUT-TEXT»
+«ONE-LINER»
+
+«HOWTO-TEXT»
+<p><em>Move</em> with «ARROWKEYS», and push blocks of different shapes.</p>
+<p>Level difficulty is shown by the number of stars (1 to 5).</p>
+
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»
+
+<h2>Featured in</h2>
+<h3>Blogs</h3>
+<ul>
+<li>««P-PRE»BONTE«P-POS»»'s <a href="https://www.bontegames.com/2019/07/burokku-konekuta-browser.html">blog</a></li>
+<li>««P-PRE»LKREJG«P-POS»»'s <a href="http://blog.livedoor.jp/lkrejg/archives/66112536.html#comments">フラシュ - 無料ゲーム blog</a></li>
+</ul>
+<h3>Livestreams</h3>
+<ul>
+<li>
+<a href="«YT-URL»D58VbHjrSHA">【今日のフリーゲーム】</a>
+</li>
+
+
+<h2>F.A.Q.</h2>
+
+<h3>Why is «TITLE-BOLD» in japanese?</h3>
+<p>Japanese culture values tidiness often.</p>
+
+<h3>Is there a version of «TITLE-BOLD» without the motion indicators?</h3>
+<p>Yes, in case you find them distracting. This was suggested by ««P-PRE»HAZELDEN«P-POS»».</p>
+<div class="button" onclick="PuzzleScript.embed(document.getElementById('puzzlescript-game'),'23a48efa1bad64ee435e63882c0efeb2');">Remove motion indicators!</div>
+
+
+<h2>Changelog</h2>
+<h3>07/2019</h3>
+<p>«TITLE-BOLD» was published, using <a href="platformer-template.html">platformer-template</a> as a starting point.</p>
+
+«PRESS-TEXT»

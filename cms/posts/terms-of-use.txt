@@ -1,0 +1,20 @@
+﻿<h3>General rule</h3>
+<p>All content in «SITE-NAME» is, unless otherwise stated <b>«COPYRIGHT»</b>. This includes, in particular, the <a href="«LOGOPATH»" «BLANK»>logo</a>.</p>
+
+<h3>Content under «LICENSE-CC-BY-NC-SA-4.0»</h3>
+<p>A large portion of the content is shared under the license «LICENSE-CC-BY-NC-SA-4.0». This applies at least to:</p>
+<ul>
+	<li>«SITE-NAME» source code files, when therein stated</li>
+	<li><b><a href="tag-game.html">Game</a></b> source codes, when therein stated</li>
+	<li>All <b><a href="tag-mosaic.html">mosaics</a></b> in the «SITE-NAME», unless otherwise stated</li>
+</ul>
+<p>In practice, this means that you can use and modify this content freely for non-commercial purposes as long as you provide credit and keep the same license on derivative works. «I»'d appreciate that you'd «CONTACT-TEXT-3»!</p>
+
+<h3>Sharing links and snippets...</h3>
+<p>...is ok!</p>
+
+<h3>Journalists</h3>
+<p>All textual and pictorial content in «SITE-NAME» can be used for the purpose of journalism, without restrictions, provided the source is attributed.</p>
+
+<h3>Other commercial uses</h3>
+<p>For commercial usage of any content in «SITE-NAME», please «CONTACT-TEXT-1» to discuss bespoke licenses.</p>

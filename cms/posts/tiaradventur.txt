@@ -1,0 +1,60 @@
+﻿«ABOUT-TEXT»
+«ONE-LINER»
+
+<h3>Easy quest</h3>
+<p>Pick each <b>tiara</b> and hand it to the <b>Princess</b> to fulfill the <b>easy quest</b>.</p>
+<p>Estimated play time: <b>30 minutes</b>.</p>
+<h3>Hard quest</h3>
+<p>Gently pick all <b>tiaras</b> unbroken, thereby making the <b>Princess</b> happier, a <b>harder quest</b> for which <em>precise timing</em> may sometimes be required.</p>
+<p>Estimated play time: <b>60 minutes</b>.</p>
+<h3>Hidden challenge</h3>
+<p>Obtaining the <b>secret item</b>, after solving the <b>hidden challenge</b>, will subtly alter the game ending.</p>
+
+
+<h2>Game elements</h2>
+
+<h3>Characters</h3>
+<p>The <b>Hero</b> is <b>you</b>!
+<p>Behind her docile appearance, the <b>Princess</b> is actually in charge. Except when <b>wolves</b> attack... or any other puzzling situation has to be solved.
+<p><b>Wolves</b> <em>chase</em> the closest human they find, and are not friendly. They will even <em>throw</em> <b>obtainables</b> <em>astray</em></b> and when <em>cornered</em> will <em>push</em> <b>Objects</b>.
+
+<h3>Obtainables</h3>
+<p>The precious <b>tiara</b> is so fragile that it will <em>shatter</em> under too much weight.</p>
+<p>The <b>sword</b> can be used to keep wolves away and to <em>slash</em> <b>crates</b>.</p>
+<p>One <b>secret item</b> may be discovered.</p>
+
+
+<h3>Objects</h3>
+<p><b>Crates</b> can be <em>pushed</em>, are <em>flammable</em> and <em>float</em> on <b>water</b>.
+<p><b>Boulders</b> can also be <em>pushed</em> but are neither <em>flammable</em> nor <em>float</em> on <b>water</b>.
+<p><b>Trees</b> can't move but are <em>flammable</em>.
+<p><b>Torches</b> will <em>ignite</em> <b>trees</b> when <em>pushed</em> towards them and won't <em>float</em> on <b>water</b>.</p>
+
+«HOWTO-TEXT»
+<p><em>Move</em> with «ARROWKEYS».</p>
+<p>Come towards the <b>Princess</b> to <em>talk</em> to her. She is a great storyteller and on occasion may provide useful <b>hints</b>. You may <em>give</em> her certain <b>obtainables</b>.</p>
+<p><em>Use</em> the <b>sword</b>, once obtained, by pressing <kbd>X</kbd>. You'll <em>swipe</em> it instinctively when dangerously close to a <b>wolf</b>.</p>
+«UNDO-RESTART-TEXT»
+<p>The game <em>saves automatically</em> whenever the <b>Princess</b> <em>safely</em> enters an area containing a new <b>tiara</b>.</p>
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»
+
+<h3>Special thanks</h3>
+<h4>09/2018</h4>
+<p>««P-PRE»ONE«P-POS»», ««P-PRE»HAZELDEN«P-POS»» and ««P-PRE»CHZ«P-POS»» for spotting important bugs and for useful feedback.</p>
+<h4>01/2019</h4>
+<p>««P-PRE»HUNKYDORY«P-POS»», ««P-PRE»JOEL«P-POS»», ««P-PRE»MOKESMOE«P-POS»» and ««P-PRE»THATSCAR«P-POS»» for feedback, finding bugs and unintended solutions.</p>
+
+
+<h2>F.A.Q.</h2>
+<h3>How does the name «TITLE» mean?</h3>
+<p><b>Tiara</b> + <b>Adventure!</b></p>
+<h3>What was your inspiration?</h3>
+<p>The adventure theme was inspired by <b>The Legend of Zelda</b>. A second source of inspiration was ««P-PRE»HAZELDEN«P-POS»»'s <a href="http://www.draknek.org/games/puzzlescript/skipping-stones.php" «BLANK»><b>Skipping Stones To Lonely Homes</b></a>.</p>
+
+<h2 id="changelog">Changelog</h2>
+<h3>09/2018</h3>
+<p>Redesign of <em>level 3</em> to prevent unintended solution; minor tweaks to <em>levels 1, 2 and 4</em>; two crates removed from near the secret item; minor graphic changes (polishing margins, choosing smaller trees in key positions, fixing lamp flame animation); dialogue flow fix; player falling unintentionally into water disallowed; burning message added; diverse improvements of princess behaviour; fixes to auto-save system including a golden flash; new restart trigger; golden win animation.</p>
+<h3>01/2019</h3>
+<p>The princess now stubbornly refuses to be left behind! On the last level, she will now consistently flee from the wolves and cause a fire - and gives clearer hints. It is also no longer possible to push an extra wolf into the last level.</p>

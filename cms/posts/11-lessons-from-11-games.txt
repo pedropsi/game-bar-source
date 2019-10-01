@@ -1,0 +1,27 @@
+﻿<p>These 11 lessons were drawn from «MY» 11-game-making journey <a href="2019-04-14-a-game-making-journey.html">in 2018</a>.</p>
+
+<h2>#1 Know your goal</h2>
+<p>What are you trying to accomplish, and why does it matter to you? Does it have positive effects, like learning a specific new skill? </p>
+<h2>#2 Define your message</h2>
+<p>What should players gain or learn from your game? </p>
+<h2>#3 Save yourself time</h2>
+<p>Limit your scope early and allow at least half of the time to beta-test and engage with your audience. Make strategic decisions early. Choose which platforms, if any, you will address. Write modular code and reusable assets. </p>
+<h2>#4 Prepare all beforehand</h2>
+<p>Choose a theme or atmosphere, write the story and game description, define a colour palette and other graphical conventions before starting development. Research similar games and potential copyright issues beforehand too.</p>
+<h2>#5 Join a community</h2>
+<p>There will be nice people who are willing to help, even if you're a complete beginner. If you're an expert, you'll love to share your expertise. Either way, reciprocate.</p>
+<h2>#6 Innovate</h2>
+<p>Don’t be afraid to try new concepts, to be extravagant or to add your own mark. Innovate beyond the game, in your methods and infrastructure. Develop new tools if you have to.</p>
+<h2>#7 Embrace the process</h2>
+<p>No game is ever finished, because the better it is the more attention it draws, inviting further feedback, a never-ending cycle. Alternate between large projects (to raise the bar) with quick projects (to consolidate learning and boost motivation). </p>
+<h2>#8 Seek feedback actively</h2>
+<p>Ask precise questions and identify problems. Never release before getting feedback, but keep listening afterwards! </p>
+<h2>#9 Seek feedback passively</h2>
+Give others the chance to help when you’re unavailable, by providing contact details, feedback forms, interactive action buttons and so on. </p>
+<h2>#10 Track and measure</h2>
+<p>Use analytics to know where how players interact with your game, infrastructure and links, so you know what to improve. Ask for permission, and avoid collecting personal information and data you won’t use. </p>
+<h2>#11 Network effects</h2>
+<p>The only way to reach a larger audience is to have other people promoting our game. Make it easy for them!</p>
+
+<p><em>Do these lessons resonate with your own experience? Or not at all?</em></p>
+«GUESTBOOK-ADD»

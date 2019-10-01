@@ -1,0 +1,22 @@
+﻿«XML»
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" >
+	<channel>
+
+		<atom:link href="«RSS-URL»" rel="self" type="application/rss+xml" />
+
+		<title>«SITE-NAME»</title>
+		<link>«SITE»</link>
+		<description>«RSS-SITE-DESCRIPTION»</description>
+		<language>en</language> 
+		<docs>https://cyber.harvard.edu/rss/rss.html</docs>
+		<copyright>«COPYRIGHT-TEXT»</copyright>
+		<image> 			
+			<link>«SITE»</link>
+			<title>«SITE-NAME»</title>
+		    	<url>«SITE»/«LOGOPATH»</url>
+		</image>
+
+		«RSS-ITEM|In:CMS|SortBy:{Date}|Max:«RSS-LIMIT»|Contain:True»
+		
+	</channel>
+</rss>

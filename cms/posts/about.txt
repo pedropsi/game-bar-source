@@ -1,0 +1,54 @@
+﻿<h2>Welcome!</h2>
+<p>This is «NAME»'s «SITE-NAME». It includes a collection of <a href="games.html"><b>games</b></a> and a few patterned <a href="tag-Mosaic.html"><b>wallpapers</b></a>. More surprises are coming...</p>
+<p>As a hobby and learning journal, most of the «SITE-NAME»'s content is <b>free</b>.<p>
+
+<h2>About «ME»...</h2>
+<p>«NAME» is «MY» name.
+«I'm» currently based in «LOCATION», and «I» love to travel.</p>
+
+<h2>Journalist? Media?</h2>
+<p>Check the <a href="press.html">press-kit</a> or «CONTACT-TEXT-7»!</p>
+
+<h2>Do you want to support the «SITE-NAME»?</h2>
+<p>Great! <a href="«SUPPORT-LINK»">Here are some suggestions</a>.</p>
+
+<h2>How was the «SITE-NAME» made?</h2>
+<table class="top-left">
+<thead>
+	<tr>
+		<th>Facet</th>
+		<th>Tool/Language</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Writing</th>
+		<th>Microsoft Word</th>
+	</tr>
+	<tr>
+		<th>Illustration & Colour design</th>
+		<th>Microsoft Powerpoint; Paletton</th>
+	</tr>
+	<tr>
+		<th>Page design</th>
+		<th>HTML & CSS: «CSS-NAME»</th>
+	</tr>
+	<tr>
+		<th>Content management</th>
+		<th>Microsoft Excel, Wolfram Language, Notepad++ </th>
+	</tr>
+	<tr>
+		<th>Video</th>
+		<th>OBS, Shotcut and Microsoft Powerpoint</th>
+	</tr>
+	<tr>
+		<th>Music & Sound</th>
+		<th>Howler.js, MuseScore</th>
+	</tr>
+	<tr>
+		<th>Game design</th>
+		<th>Puzzlescript, Javascript; </th>
+	</tr>
+
+</tbody>
+</table>
