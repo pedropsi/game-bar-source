@@ -151,20 +151,13 @@ h4{
     }
 }
 
-
+::-selection{
+    background:var(--smokewhite);
     color:var(--blue);
-    border-style: solid;
-    padding: var(--h8) var(--w8) var(--h8) var(--w8);
-    margin:var(--h8) var(--w8) var(--h8) var(--w8);
-    font-family: Courier;
-    line-height: 200%;
-    white-space: pre-wrap;
 }
-textarea:focus, input:focus{
+::-moz-selection{
+    background:var(--smokewhite);
     color:var(--blue);
-    border-bottom-width: var(--h1);
-    padding:var(--h1) var(--w1) var(--h1) var(--w1);
-    transition-duration: var(--duration);
 }
 @media only screen and (max-width:350px){
     .buttonbar{
