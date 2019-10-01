@@ -68,19 +68,6 @@ body {
     }
 } 
 
-.nightmode div, .nightmode{
-  --white: rgba(0,0,0,var(--t));
-  --smokewhite: rgba(0,0,0,var(--t));
-  --darkblue: rgba(255,100,50,var(--t));
-  --blue: rgba(200,50,0,var(--t));
-  --lightblue: rgba(150,20,0,var(--t));
-  --turquoise: rgba(100,10,0,var(--t));
-  --green: rgba(50,20,0,var(--t));
-  --yellow: rgba(40,10,0,var(--t));
-  --lightyellow: rgba(20,5,0,var(--t));
-}
-
-.nightmode img, .nightmode .game {filter:sepia(1) hue-rotate(310deg) saturate(5) brightness(0.3) }
 
 div {
     max-width: 100%;
