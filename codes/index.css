@@ -272,6 +272,7 @@ h4{
     flex-wrap:nowrap;
     background-color: var(--white);
     width: 100%;
+    margin:unset
 }
 
 .buttonbar .button{
