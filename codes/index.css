@@ -160,14 +160,6 @@ h4{
     line-height: 200%;
     white-space: pre-wrap;
 }
-
-
-[contenteditable=true] *:focus{
-    background-color: var(--green);
-}
-
-
-
 textarea:focus, input:focus{
     color:var(--blue);
     border-bottom-width: var(--h1);
