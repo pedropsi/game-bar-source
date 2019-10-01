@@ -509,77 +509,11 @@ function LoadExternalScript(url){
 	LoadScript(LoadData(url));
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// Data transmission - JSON, to a script in url "url"
-
-function EchoPureData(data,url){
-	var encoded = Object.keys(data).map(function(k){
-		return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-	}).join('&');
-
-	var xhr = new XMLHttpRequest();
-	xhr.open('POST',url);
-	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	xhr.onreadystatechange = function(){
-		console.log(xhr.status, xhr.statusText);
-		console.log(xhr.responseText);
-		return;
-	};
-	// url encode form data for sending as post data
-
-	xhr.send(encoded);	
-}
-
-function EchoData(data,url){
-	if(Online())
-		EchoPureData(data,url);
-	else
-		BufferData(data,url);	
-}
-
-function EchoDataBuffer(){
-	while(Connection.queue.length>0){
-		EchoPureData(Connection.queue[0][0],Connection.queue[0][1]);
-		Connection.queue.shift();
-	}
-};
-
-function BufferData(data,url){
-	Connection.queue.push([data,url]);
-}
-
-function DataBufferEmpty(){
-	return Connection.queue.length<1;
-}
 
 //Network status
 
 function Online(){return navigator.onLine};
 function Offline(){return !Online()};
-
-function MonitorConnection() {
-	if(Online()){
-		var message="Network status:<b>Online</b>";
-		if(!DataBufferEmpty()){
-			message=message+" re-sending data...";
-			EchoDataBuffer();
-		}
-		ListenOnce('offline',MonitorConnection);
-	}else{
-		var message="Network status:<b>Offline</b>";
-		ListenOnce('online',MonitorConnection);
-	}
-    ConsoleAdd(message);
- }
-
-function Connection(){
-	if(!Connection.queue)
-		Connection.queue=[];
-
-ListenOnce('offline', MonitorConnection);
-}
-
-Connection();
 
 ///////////////////////////////////////////////////////////////////////////////
 // DOM Manipulation
