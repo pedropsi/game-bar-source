@@ -1856,48 +1856,7 @@ function OpenVideoModal(ytid){
 ///////////////////////////////////////////////////////////////////////////////
 // Form Validators and Modifiers
 
-// Pattern Validator Generator
-function PatternValidatorGenerator(pattern,errormessage){
-	function ValidatorFunction(DF){
-		var string=FindData(DF.qfield,DF.qid);
-		if((typeof string!=="undefined")&&(string.match(pattern)!==null))
-			return {valid:true,error:"none"}
-		else if(DF.qerrorcustom!=='')
-			return {valid:false,error:DF.qerrorcustom}
-		else
-			return {valid:false,error:errormessage}
-		};
-	return ValidatorFunction;
-}
-
-// Form Validators
-
 function IdentityValidator(DF){return {valid:true,error:"no errors"};}
-
-function EmailValidator(DF){
-	var pattern=/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ig;
-	var errormessage="Please verify your e-mail address!";
-	return PatternValidatorGenerator(pattern,errormessage)(DF);
-}
-
-function SomeTextValidator(DF){
-	var pattern=/[\d\w]/;
-	var errormessage="Please write something!";
-	return PatternValidatorGenerator(pattern,errormessage)(DF);
-}
-
-function NameValidator(DF){
-	var pattern=/[\d\w][\d\w]+/;
-	var errormessage="Please write at least 2 alphanumerics!";
-	return PatternValidatorGenerator(pattern,errormessage)(DF);
-}
-
-// Utility
-function SomeTextValidate(name){
-	var pattern=/[\d\w]/;
-	return name.match(pattern)!==null;
-}
-
 
 ///////////////////////////////////////////////////////////////////////////////
 //Message Console 
