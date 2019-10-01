@@ -951,7 +951,6 @@ function DefaultDataPack(){
 		qclass:"",						//class
 		
 		destination:'Feedback',			//Name of data repository (default)
-		findDestination:FindDestination,//Get Destination
 		requireConnection:true,			//Does it need a connection?
 
 		action:CheckSubmit, 			//action on submit :receives a qid
@@ -974,7 +973,6 @@ function DefaultDataPack(){
 	
 }
 
-function FindDestination(DP){return FindData("destination",DP.qid)};
 
 function NewDataField(obj){
 	var DF=DefaultDataField();
