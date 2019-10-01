@@ -125,7 +125,6 @@ h4{
         word-break:break-all;
     }
 }
-
 ::-selection{
     background:var(--smokewhite);
     color:var(--blue);
