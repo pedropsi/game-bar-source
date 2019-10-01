@@ -2305,9 +2305,9 @@ var ContextualShortcuts={
 	},
 	".buttonrow":{
 		"left":FocusPrev,
-		"up":FocusNext,
+		"up":FocusPrev,
 		"right":FocusNext,
-		"down":FocusPrev
+		"down":FocusNext
 	},
 	".button":{
 		"enter":ClickStay,
@@ -2320,6 +2320,8 @@ var ContextualShortcuts={
 	".input":{
 		"escape":CloseCurrentDatapack,
 		"enter":FocusNext,
+		//"alt enter":EnterLine, or dispatch event (enter?)
+		//"shift enter":EnterLine,
 		"ctrl enter":SubmitCurrentDatapack,
 		"tab":FocusNext,
 		"shift tab":FocusPrev
