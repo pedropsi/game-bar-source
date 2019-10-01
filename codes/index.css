@@ -308,9 +308,6 @@ h4{
     color: var(--lightblue);
     border-bottom:var(--h1) solid currentColor; 
     margin-bottom:var(--h2);
-    padding: var(--h1) var(--w2) var(--h1) var(--w2);
-    font-weight: bold;
-}   
 
 .closing {
   	opacity: 0;
