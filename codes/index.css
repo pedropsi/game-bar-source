@@ -333,6 +333,9 @@ h4{
 .menu{
     position:absolute;
     width:100px;height:100px;
+    padding:var(--h1) var(--w2) var(--h1) var(--w2);
+    font-weight:bold;
+}
 }
 .button.pulsating,
 .button.pulsating:hover,
