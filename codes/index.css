@@ -403,14 +403,6 @@ textarea:focus, input:focus{
     position:absolute;
     width:100px;height:100px;
 }
-
-code{
-    font-family: Arial;
-    letter-spacing: var(--w-8);
-    background-color: var(--lightyellow);
-    padding: 0 var(--w2) 0 var(--w2);
-}
-
 .button.pulsating,
 .button.pulsating:hover,
 .button.pulsating:active,
