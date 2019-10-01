@@ -553,15 +553,6 @@ tbody tr:nth-child(odd) {
     color: var(--turquoise);   
 }
 
-
-
-.error{
-	max-width: 95%;
-    font-weight: bold;
-    color: var(--lightblue);
-    align-self: center;
-}
-
 #Console {
     pointer-events: none;
 	position:fixed;
