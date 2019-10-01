@@ -280,68 +280,6 @@ li {
     padding-left:var(--w1);       
 }
 
-.logo {
-    --t:1;
-    width: 100%;
-    padding: calc(var(--w-2) + var(--h2)) 0 calc(var(--w-2) + var(--h2)) 0;
-    transition-duration: var(--duration);
-    background-color: var(--white);
-}
-.nav .logo:hover,.nav .logo:focus,.nav .logo:active {
-    background-color: var(--darkblue);
-    transition-duration: var(--duration);
-}
-.logo svg{
-    height: calc(var(--w4) + var(--h4));
-    align-self: center;
-}
-.logo-1{
-    fill: var(--darkblue);
-}
-.logo-2{
-    fill: var(--blue);
-}
-.logo-3{
-    fill: var(--lightblue);
-}
-.logo-4{
-    fill: var(--turquoise);
-}
-.logo-5{
-    fill: var(--green);
-}
-.logo-6{
-    fill: var(--yellow);
-}
-.logo-7{
-    fill: var(--lightyellow);
-}
-
-.nav .logo:hover .logo-1{
-    fill: var(--turquoise);
-}
-.nav .logo:hover .logo-2{
-    fill: var(--turquoise);
-}
-.nav .logo:hover .logo-3{
-    fill: var(--turquoise);
-}
-.nav .logo:hover .logo-4{
-    fill: var(--darkblue);
-}
-.nav .logo:hover .logo-5{
-    fill: var(--darkblue);
-}
-.nav .logo:hover .logo-6{
-    fill: var(--darkblue);
-}
-.nav .logo:hover .logo-7{
-    fill: var(--turquoise);
-}
-.rainbowline {
-    height: var(--h-2);
-    background-image: linear-gradient(86deg, var(--darkblue), var(--blue) 12%, var(--lightblue) 44%, var(--turquoise) 61%, var(--green) 80%, var(--yellow) 88%, var(--lightyellow) 91%, var(--white));
-}
 
 
 .date {
