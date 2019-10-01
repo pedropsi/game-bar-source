@@ -167,17 +167,6 @@ h4 {
     text-decoration-color: var(--lightblue);
 }
 
-::-selection { 
-    background: var(--smokewhite);
-    color: var(--blue);
-    text-decoration-color: var(--blue);
-    
-}
-::-moz-selection { 
-    background: var(--smokewhite);
-    color: var(--blue);
-    text-decoration-color: var(--blue);
-}
 
 .game-container{
     align-items: center;
