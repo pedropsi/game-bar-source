@@ -442,28 +442,6 @@ tbody tr:nth-child(odd) {
     font-size: 300%;
 }
 
-.modal-content input{
-    max-width:80%;
-    background-color:var(--lightyellow);
-    text-align: center;
-}
-
-.gallery-video {
-    background-color: var(--darkblue);
-}
-.gallery-video .modal-frame  {
-    border-bottom-color: var(--blue);
-}
-.gallery-video .modal-content  {
-    border-bottom-color: var(--blue);
-    min-height:var(--h64);
-    min-width:var(--w64);
-}
-
-.modal .closer .button {
-    background-color: var(--lightyellow);
-}
-
 .modal .closer .button:hover,
 .modal .closer .button:active,
 .modal .closer .button:focus{
