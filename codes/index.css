@@ -254,11 +254,6 @@ textarea:focus, input:focus{
     transition-duration: var(--duration);
 }
 
-
-
-
-
-
 .closer {
     width:100%;
     flex-direction:row;
