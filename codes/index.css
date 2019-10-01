@@ -189,9 +189,6 @@ h4 {
 }
 
 
-[contenteditable=true]{
-    --t:0.4;
-    background-color: var(--yellow);
     color:var(--blue);
     border-style: solid;
     padding: var(--h8) var(--w8) var(--h8) var(--w8);
