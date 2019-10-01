@@ -49,10 +49,7 @@ function LoadGameExample(){CompileGame(sourceCodeExample);};
 		function LoadGame(){load_game(id);};
 		
 		function FastLoad(){
-			if(typeof compile!=="undefined")
-				LoadGame();
-			else
-				ListenOnce('load',LoadGame);
+			ListenOnce('load',LoadGame);
 		}
 		
 		function SlowLoad(){setTimeout(LoadGame,1000);}
@@ -61,7 +58,7 @@ function LoadGameExample(){CompileGame(sourceCodeExample);};
 			FastLoad();
 		else{
 			ConsoleAdd(pageTitle()+" will load as soon as back online.");
-			setTimeout(LoadGameExample,500);
+			setTimeout(LoadGameExample,1000);
 			ListenOnce("online",SlowLoad)
 		}
 	}
