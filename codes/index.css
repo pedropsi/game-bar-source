@@ -22,7 +22,6 @@
     --scaling:2;
     --basis-width:calc(1vw);
     --basis-height:calc(1vh);
-        
     --w1 :var(--basis-width);
     --w2 :calc(var(--w1)  * var(--scaling));
     --w4 :calc(var(--w2)  * var(--scaling));
@@ -33,7 +32,6 @@
     --w-2:calc(var(--w1)  / var(--scaling));
     --w-4:calc(var(--w-2) / var(--scaling));
     --w-8:calc(var(--w-4) / var(--scaling));
-
     --h1:var(--basis-height);
     --h2 :calc(var(--h1)  * var(--scaling));
     --h4 :calc(var(--h2)  * var(--scaling));
@@ -44,7 +42,6 @@
     --h-2:calc(var(--h1)  / var(--scaling));
     --h-4:calc(var(--h-2) / var(--scaling));
     --h-8:calc(var(--h-4) / var(--scaling));
-    
 }
 
 body {
@@ -67,8 +64,6 @@ body {
         display:none;
     }
 } 
-
-
 div {
     max-width: 100%;
     max-height: 100%;
@@ -79,8 +74,6 @@ div {
     border-width: var(--h-2);
     color:var(--darkblue);
 }
-
-
 
 nav {
     display:flex;
