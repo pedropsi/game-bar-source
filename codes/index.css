@@ -183,10 +183,11 @@ h4{
     color: inherit;
     transition-duration: var(--duration);
 }
-
-.button:hover a,.button:active a,.button:focus a{
     background-color: transparent;
     transition-duration: var(--duration);
+.button:hover a
+.button:active a
+.button:focus a{
 }
 
 .closer{
