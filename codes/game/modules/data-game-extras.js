@@ -593,7 +593,6 @@ function ResetLevel(){
 	curlevel=0;
 	curlevelTarget=null;
 	SolvedLevelScreens.levels=[];
-	ClearLevelRecord();
 }
 
 
@@ -618,7 +617,6 @@ function ResetGame(){
 	ResetCheckpoints();
 	goToTitleScreen();
 	tryPlayEndGameSound();
-	ClearLevelRecord();
 }
 
 function AdvanceLevel(){
@@ -628,7 +626,6 @@ function AdvanceLevel(){
 	messageselected=false;
 	LocalsaveLevel(curlevel);
 	LoadLevelOrCheckpoint();
-	ClearLevelRecord();
 }
 
 function AdvanceUnsolvedScreen(){
