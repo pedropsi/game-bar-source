@@ -122,32 +122,11 @@ h4{
 }
 
 
-.game-container{
-    align-items: center;
-    margin-bottom:var(--h1)
+    text-decoration-color:var(--lightblue);
 }
-
-.game {
-    width: 100%;
-    touch-action: none;
-}
-
-#gameCanvas {
-    height:calc(87vh);
-    width: 100%;
-}
-.game-container:fullscreen #gameCanvas{
-    height:calc(96vh);
-}
-.game-container:full-screen #gameCanvas{
-    height:calc(96vh);
-}
-@media only screen and (max-width:330px) { /*space for the responsive button bar*/
-    .game-container:fullscreen #gameCanvas{
-        height:calc(94vh);
-    }
-    .game-container:full-screen #gameCanvas{
-        height:calc(94vh);
+@media only screen and (max-width:250px){
+    h1, h2, h3, h4, h5, h6, p, table{
+        word-break:break-all;
     }
 }
 
