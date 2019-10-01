@@ -2252,11 +2252,15 @@ var ContextualShortcuts={
 	"BODY":{
 		"left":FocusPrev,
 		"right":FocusNext,
+		"tab":FocusNext,
+		"shift tab":FocusPrev
 	},
 	".window":{
 		"escape":CloseCurrentDatapack,
 		"ctrl w":CloseCurrentDatapack,
-		"ctrl enter":SubmitCurrentDatapack
+		"ctrl enter":SubmitCurrentDatapack,
+		"tab":FocusNext,
+		"shift tab":FocusPrev
 	},
 	".navi":{
 		"left":ClickPrevBounded,
@@ -2287,7 +2291,9 @@ var ContextualShortcuts={
 	".input":{
 		"escape":CloseCurrentDatapack,
 		"enter":FocusNext,
-		"ctrl enter":SubmitCurrentDatapack
+		"ctrl enter":SubmitCurrentDatapack,
+		"tab":FocusNext,
+		"shift tab":FocusPrev
 	}
 }
 
