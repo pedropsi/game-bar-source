@@ -91,26 +91,22 @@ body{
     flex-direction:column;
 
 
-.button:hover ,
-.button:active,
-.button:focus ,
-.button:hover  a,
-.button:active a,
-.button:focus  a,
-.selected {
-    color: var(--turquoise);
-    text-decoration-color: currentColor;
-    background-color: var(--darkblue);
-    transition-duration: var(--duration);
-    cursor:pointer;
-    outline: none;
 }
 
 
 a div:hover img {
     background-color: var(--lightyellow);
     transition-duration: var(--duration);
+.button:hover,.button:active,.button:focus,
+.button:hover a,.button:active a,.button:focus a,
+.selected{
+    color:var(--turquoise);
+    text-decoration-color:currentColor;
+    text-decoration-style:solid ;
+    background-color:var(--darkblue);
+    transition-duration:var(--duration);
     cursor:pointer;
+    outline:none;
 }
 
 h1,h2,h3,h4,h5,h6 {
