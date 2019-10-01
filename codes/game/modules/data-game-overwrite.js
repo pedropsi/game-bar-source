@@ -31,7 +31,6 @@ function nextLevel(){
 		else if(curlevel<LastScreen())
 			AdvanceEndScreen();
 		else{
-			RequestHallOfFame();
 			ResetGame();
 		}
 	}
