@@ -403,16 +403,6 @@ textarea:focus, input:focus{
 }
 
 
-table{
-    border-collapse: collapse;
-    border-bottom: var(--h-2) solid var(--darkblue);
-    color: var(--blue);
-    width: 100%;
-    vertical-align: middle;
-    margin-bottom: var(--h4);
-    margin-top: var(--h2);
-    font-size: 80%;
-}
 
 thead th{
     background-color: var(--darkblue);
