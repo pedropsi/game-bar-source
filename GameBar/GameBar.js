@@ -18,6 +18,40 @@ function LoaderInFolder(folder){
 	return function(sourcename){return LoadAsync(sourcename,folder)};
 }
 
+function SupraStyle(gameSelector){
+
+	var stylesheet="\
+			#gameCanvas{\
+			position:unset;\
+			max-height:96vh;\
+			width:100%;\
+		}\
+		.game-container{\
+			display:flex;\
+			flex-direction:column;\
+			align-items:center;\
+			justify-content: space-between;\
+			font-family:var(--font);\
+		}\
+		.game-container:fullscreen #gameCanvas{\
+			height:calc(96vh);\
+		}\
+		.game-container:full-screen #gameCanvas{\
+			height:calc(96vh);\
+		}\
+		@media only screen and (max-width:330px) {\
+			.game-container:fullscreen #gameCanvas{\
+				height:calc(94vh);\
+			}\
+			.game-container:full-screen #gameCanvas{\
+				height:calc(94vh);\
+			}\
+		}";
+	
+	stylesheet=stylesheet.replace(/\#gameCanvas/g,gameSelector).replace(/\.game\-container/g,ParentSelector(gameSelector));
+	AddElement("<style>"+stylesheet+"</style>",document.head);
+}
+
 // Load the Game Bar
 var puzzlescriptModules=[
 "data-game-colours",
@@ -31,6 +65,7 @@ puzzlescriptModules.map(LoaderInFolder("../codes/game/modules"));
 function GameBarLoad(){
 	RemoveElement(".tab");
 	PrepareGame();
+	SupraStyle(gameSelector);
 }
 
 window.addEventListener('load',GameBarLoad);
