@@ -80,38 +80,6 @@ div {
     color:var(--darkblue);
 }
 
-a {
-    text-decoration: none;
-    color: var(--darkblue);
-    overflow: hidden;
-}
-
-.main {
-	flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
- 	flex-grow: 1;
-}
-
-
-.section {
-    display: flex;
-    overflow: visible;
-    height: auto;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    flex-basis:80%;
-    flex-grow: 1;
-    margin: 0 var(--w-2) 0 var(--w-2);
-}
-
-.container {
-    justify-content: space-between;
-    align-items: center;
-    width:100%;
-}
 
 .footer {
     font-weight: 700;
