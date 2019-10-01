@@ -74,7 +74,6 @@
     --h-4:calc(var(--h-2) / var(--scaling));
     --h-8:calc(var(--h-4) / var(--scaling));
 }
-
 body{
  margin: unset;  
 }
