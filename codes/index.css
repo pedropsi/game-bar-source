@@ -5,6 +5,37 @@
   https://pedropsi.github.io/puzzlescript-game-bar#source
   ///////////////////////////////////////////////////////////////////////////////
   MIT License
+#gameCanvas{
+    position:unset;
+    max-height:96vh;
+    width:100%;
+}
+.game-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-between;
+	font-family:var(--font);
+}
+.game-container:fullscreen #gameCanvas{
+    height:calc(96vh);
+}
+.game-container:full-screen #gameCanvas{
+    height:calc(96vh);
+}
+@media only screen and (max-width:330px) {
+    .game-container:fullscreen #gameCanvas{
+        height:calc(94vh);
+    }
+    .game-container:full-screen #gameCanvas{
+        height:calc(94vh);
+    }
+}
+/*Correct footer in PS export*/
+.footer{
+	top:93%;
+	bottom:7%;
+}
     --t:0.90;
  
     --white:rgba(255,255,255,var(--t));         /*#FFF*/
@@ -44,35 +75,14 @@
     --h-8:calc(var(--h-4) / var(--scaling));
 }
 
-body {
-    background-color:var(--smokewhite);
-    color: var(--darkblue); 
-    caret-color: var(--green);
-    border-color: currentColor;
-    padding:var(--w1);
-    margin:0;
-    font-family: Arial, sans-serif;
-    font-size: calc(10px + var(--w-2));
-    line-height: calc(12px + var(--w-2));  
-    justify-content: space-between;
-    text-align: center;
-    word-wrap:break-word;
+body{
+ margin: unset;  
 }
 
-@media only screen and (max-width: 250px) {
-    .avatar {
-        display:none;
+@media only screen and (max-width:500px){
+    body{
+       word-break:break-all;
     }
-} 
-div {
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    border-color: currentColor;
-    border-width: var(--h-2);
-    color:var(--darkblue);
 }
 
 nav {
