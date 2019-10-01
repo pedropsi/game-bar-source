@@ -1,9 +1,10 @@
 /*
-	Octaflower Theme (c) 2017-2019 by Pedro PSI
-	https://pedropsi.github.io/
-	License: CC BY-NC-SA 4.0
 												*/
 :root {
+  Game Bar Theme by Pedro PSI
+  https://pedropsi.github.io/puzzlescript-game-bar#source
+  ///////////////////////////////////////////////////////////////////////////////
+  MIT License
     --t:0.90;
  
     --white:rgba(255,255,255,var(--t));         /*#FFF*/
