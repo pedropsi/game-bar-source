@@ -217,7 +217,6 @@ h4{
     max-height: 80%;
     animation: fadein var(--duration);
 }
-
 .baloon-content{
     flex-direction: row;
     justify-content: flex-start;
@@ -225,9 +224,7 @@ h4{
     border-bottom: var(--h1) solid var(--turquoise);
     padding:var(--h2) var(--w2) var(--h2) var(--w2);
     align-items: center;
-    
 }
-
 .baloon-content .avatar {
     max-width:calc(var(--w4) + 30px);
     background-color: var(--transparent);
