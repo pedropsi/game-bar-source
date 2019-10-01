@@ -2397,9 +2397,9 @@ function ElementContext(targetSelector){
 	while(e.parentElement&&!ContextBlocker(e)){
 		e=e.parentElement;
 		subcontext=SubContext(e);
-		if(subcontext)
-			context=FuseObjects(subcontext,context);
-		//Add blocking rules or references
+		if(!subcontext)
+			subcontext={};
+		context=FuseObjects(Clone(subcontext),context);
 	}
 	return context
 }
