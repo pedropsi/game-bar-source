@@ -50,14 +50,14 @@ function GameBar(targetIDsel){
 	
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
-		ButtonLinkHTML("How to play?"),
+//		ButtonLinkHTML("How to play?"),
 		HintButton(),
 		UndoButton(),
 		restart,
 		//ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
-		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
-		ButtonLinkHTML("Credits"),
+//		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
+//		ButtonLinkHTML("Credits"),
 		MuteButton(),
 		ButtonHTML({txt:"◱",attributes:{onclick:'RequestGameFullscreen();GameFocus();',id:'FullscreenButton'}}),
 	].join("");
@@ -680,7 +680,7 @@ function AdjustFlickscreen(){
 function KeyActionsGameBar(){
 	return {
 	// Game bar menus
-	"E"			:RequestGameFeedback,
+	//"E"			:RequestGameFeedback,
 	"F"			:RequestGameFullscreen,
 	"H"			:RequestHint,
 	"L"			:RequestLevelSelector, 
@@ -985,7 +985,7 @@ function RequestHint(){
 	else if(ScreenMessage(curlevel)){
 		var tip=CycleNext([
 			"Just relax and have fun!",
-			"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
+//			"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
 			"Remember to pause once in a while!",
 			"If you like this game, share it with your friends!"]);
 		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
