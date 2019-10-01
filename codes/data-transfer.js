@@ -1378,6 +1378,7 @@ function Show(selectorE){
 		e.tabindex=e.dataset.tabindex;
 	
 	Deselect(selectorE,"hidden");
+	SelectSimple(selectorE);
 }
 
 function Hide(selectorE){
@@ -1389,6 +1390,7 @@ function Hide(selectorE){
 		e.dataset.tabindex=e.tabindex;
 	}
 	
+	Deselect(selectorE);
 	SelectSimple(selectorE,"hidden");
 }
 

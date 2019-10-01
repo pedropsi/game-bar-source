@@ -1214,3 +1214,8 @@ kbd {
 .hidden{
     display: none;
 }
+
+.hint *:active,.hint *:focus{
+    filter:brightness(0.8);
+    transition-duration: var(--duration);
+}
