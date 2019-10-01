@@ -364,50 +364,6 @@ li {
 }
 
 
-[contenteditable=true] div::-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
-}
-
-[contenteditable=true] div::-moz-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
-}
-
-[contenteditable=true]::-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
-}
-
-[contenteditable=true]::-moz-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
-}
-
-input, textarea{
-    border: 0;
-    color:var(--lightblue);
-    background-color:var(--white);
-    border: var(--w-8) solid;
-    border-bottom: var(--h-2) solid;
-    margin:var(--h1) 0 var(--h1) 0;
-    font-family: inherit;
-    font-size: inherit;
-    align-self: center;
-    transition-duration: var(--duration);
-    overflow: auto;
-    text-align:center;
-    padding-top: var(--h1);
-    padding-bottom: var(--h1);
-    max-width: 100%;
-}
-input:invalid,textarea:invalid{
-    color:red
-}
 
 textarea:focus, input:focus{
     color:var(--blue);
