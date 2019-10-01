@@ -327,9 +327,6 @@ h4{
     -ms-transition: opacity var(--duration) ease-in-out;
 }
 
-.menu{
-    position:absolute;
-    width:100px;height:100px;
     padding:var(--h1) var(--w2) var(--h1) var(--w2);
     font-weight:bold;
 }
