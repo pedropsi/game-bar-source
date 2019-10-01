@@ -1592,7 +1592,22 @@ function FocusNextBounded(F){
 
 function FocusPrevBounded(F){
 	var e=FocusAdjacentElement(document.activeElement,true,true);
-	if(F)
+	if(F&&typeof F==="function")
+		F(e);
+	return e;
+}
+
+//Focus NextParent
+function FocusNextParent(F){
+	var e=FocusAdjacentElement(document.activeElement.parentElement,false);
+	if(F&&typeof F==="function")
+		F(e);
+	return e;
+}
+
+function FocusPrevParent(F){
+	var e=FocusAdjacentElement(document.activeElement.parentElement,true);
+	if(F&&typeof F==="function")
 		F(e);
 	return e;
 }
@@ -1605,15 +1620,15 @@ function ClickElement(elem){
 }
 
 function ClickPrevBounded(){
-	FocusPrevBounded(ClickElement)
+	FocusPrevBounded(ClickElement);
 }
 
 function ClickNextBounded(){
-	FocusNextBounded(ClickElement)
+	FocusNextBounded(ClickElement);
 }
 
 function ClickStay(){
-	FocusStay(ClickElement)
+	FocusStay(ClickElement);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
