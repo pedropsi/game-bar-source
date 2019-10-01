@@ -1482,8 +1482,8 @@ function AddSpotlight(element){
 
 
 //Focus clicked items (also to escape focus by clicking in unfocusable parents)
+window.addEventListener("mousedown",function(e){FocusElement(e.target)});
 window.addEventListener("click",function(e){FocusElement(e.target)});
-
 
 // Focus Element
 function FocusElement(targetIDsel){
@@ -2328,29 +2328,36 @@ function FreeFullscreenCursor(){
 
 var ContextualShortcuts={
 	"BODY":{
-		"left":FocusPrev,
-		"right":FocusNext,
 		"tab":FocusNext,
-		"shift tab":FocusPrev
+		"shift tab":FocusPrev,
+		"up":FocusPrev,
+		"down":FocusNext,
+		"left":FocusPrev,
+		"right":FocusNext
 	},
 	".window":{
 		"escape":CloseCurrentDatapack,
 		"ctrl w":CloseCurrentDatapack,
 		"ctrl enter":SubmitCurrentDatapack,
+		"enter":SubmitCurrentDatapack,
 		"tab":FocusNext,
-		"shift tab":FocusPrev
+		"shift tab":FocusPrev,
+		"left":FocusPrev,
+		"right":FocusNext,
+		"up":FocusPrev,
+		"down":FocusNext,
 	},
 	".navi":{
+		"up":FocusPrevParent,
+		"down":FocusNextParent,
 		"left":ClickPrevBounded,
-		"up":ClickNextBounded,
 		"right":ClickNextBounded,
-		"down":ClickPrevBounded
 	},
 	".buttonrow":{
-		"left":FocusPrev,
-		"up":FocusPrev,
-		"right":FocusNext,
-		"down":FocusNext
+		"up":FocusPrevParent,
+		"down":FocusNextParent,
+		"left":FocusPrevBounded,
+		"right":FocusNextBounded,
 	},
 	".button":{
 		"enter":ClickStay,
@@ -2361,10 +2368,10 @@ var ContextualShortcuts={
 		"space":ClickStay
 	},
 	".input":{
+		//"alt enter":EnterLine, or dispatch event (enter?)
+		//"shift enter":EnterLine,		"escape":CloseCurrentDatapack,
 		"escape":CloseCurrentDatapack,
 		"enter":FocusNext,
-		//"alt enter":EnterLine, or dispatch event (enter?)
-		//"shift enter":EnterLine,
 		"ctrl enter":SubmitCurrentDatapack,
 		"tab":FocusNext,
 		"shift tab":FocusPrev
@@ -2379,10 +2386,18 @@ var ContextualShortcuts={
 
 //Context finding
 function Context(targetSelector){
+	var context;
 	if(typeof targetSelector==="undefined")
-		return ElementContext(Spotlight());
+		context=ElementContext(Spotlight());
 	else
-		return ElementContext(targetSelector);
+		context=ElementContext(targetSelector);
+	
+	if(!context){
+		FocusElement(document.activeElement);
+		context=Context();
+	}
+	
+	return context;
 }
 
 function ElementContext(targetSelector){
