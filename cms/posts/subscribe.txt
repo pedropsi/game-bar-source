@@ -1,9 +1,0 @@
-﻿<h2>Email</h2>
-<p>Receive release alerts on «NAME»'s next projects directly in your inbox.</p>
-<div class="button centered" >«SUBSCRIBE-EMAIL»</div>
-
-<h2>RSS</h2>
-<p>Follow the most recent posts and updates in the «SITE-NAME».</p>
-<div class="button centered" >«SUBSCRIBE-RSS»</div>
-
-

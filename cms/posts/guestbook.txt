@@ -1,4 +1,0 @@
-﻿<h2>About the «TITLE»</h2>
-<p>Any visitor to the «SITE-NAME» may leave a courteous message in this «TITLE», live since the 25th of July, 2018. What are you waiting for?</p>
-«GUESTBOOK-ADD»
-<p><b>NB:</b> refresh the page to see your message.</p>
