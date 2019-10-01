@@ -427,57 +427,6 @@ tbody tr:nth-child(odd) {
      transition-duration: var(--duration);
 }
 
-tbody tr:hover{
-   background-color: var(--lightyellow);
-   color: var(--darkblue);
-     transition-duration: var(--duration);
-}
-.top-left tbody th:first-child{
-    text-align: center;
-    color: var(--darkblue);
-    transition-duration: var(--duration);
-}
-
-td{
-    min-width: var(--w16)
-}
-
-table caption{
-    color: var(--darkblue);
-    font-style:italic;
-}
-
-.modal {   
-    --t:0.5;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--green);
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-    animation: fadein var(--duration);
-    z-index:10;
-}
-
-.modal-frame  {
-    --t:1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 11;
-}
-
-.modal-content  {
-    align-items: center;
-    background-color: var(--lightyellow);
-    color:var(--blue);
-    border-bottom: var(--h1) solid var(--green);
-    padding: var(--h2) var(--w2) var(--h2) var(--w2);
-    margin: unset;
-}
 
 
 .closer {
