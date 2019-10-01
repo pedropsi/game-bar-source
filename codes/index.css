@@ -210,14 +210,6 @@ h4 {
     white-space: pre-wrap;
 }
 
-[contenteditable=true] *{
-    --t:0.4;
-    background-color: var(--yellow);
-}
-
-[contenteditable=true] *:hover{
-    background-color: var(--lightyellow);
-}
 
 [contenteditable=true] *:focus{
     background-color: var(--green);
