@@ -61,6 +61,7 @@ function LoadGameExample(){CompileGame(sourceCodeExample);};
 			FastLoad();
 		else{
 			ConsoleAdd(pageTitle()+" will load as soon as back online.");
+			setTimeout(LoadGameExample,500);
 			ListenOnce("online",SlowLoad)
 		}
 	}
