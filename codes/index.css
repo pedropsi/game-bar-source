@@ -170,14 +170,6 @@ h1 {
     background-color: var(--white);
 }
 
-h2 {
-    --scaling:1.2;
-    text-decoration-color: var(--green);
-}
-h3 {
-    --scaling:0.9;
-    text-decoration-color: var(--turquoise);
-}
 h4 {
     --scaling:0.85;
     text-decoration-color: var(--lightblue);
