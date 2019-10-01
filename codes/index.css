@@ -410,17 +410,13 @@ textarea:focus, input:focus{
     background-color: var(--blue);
     --duration:0.001s;
 }
-
-
 .nowrap{
     flex-wrap: nowrap;
 }
-
 .hint {
     margin: var(--w-2) var(--h-2) var(--w-2) var(--h-2);
     align-items: center;
 }
-
 .hint img,
 .hint canvas{
     max-height: var(--w32);
@@ -431,7 +427,6 @@ textarea:focus, input:focus{
     background-color: var(--darkblue);
     color: var(--white);
 }
-
 kbd {
     border: var(--w-8) solid var(--darkblue);
     border-bottom-width: var(--h-2);
@@ -441,7 +436,6 @@ kbd {
     line-height: calc(12px + var(--w-2) + var(--h2) + var(--h1));
     font-family: Arial;
 }
-
 .hideCursor{
     cursor:none;
 }
