@@ -1115,8 +1115,8 @@ function LaunchBalloon(DP){
 	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
 
-function BalloonHTML(avatarHTML,content,id){
-	var b='<div class="balloon window" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content">'+avatarHTML+'<div class="subtitle">'+content+'</div></div></div>';
+function BalloonHTML(content,id){
+	var b='<div class="balloon window" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content"><div class="subtitle">'+content+'</div></div></div>';
 	return b;
 }
 
