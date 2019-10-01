@@ -174,51 +174,6 @@ h4 {
     --scaling:0.85;
     text-decoration-color: var(--lightblue);
 }
-h5 {
-    --scaling:0.77;
-    text-decoration-color: var(--blue);
-}
-h6 {
-    --scaling:0.77;
-    text-decoration-color: var(--blue);
-    color:var(--blue);
-}
-
-img {
-    padding: 10px;
-    background-color: var(--smokewhite);
-    vertical-align: middle;
-    display: inline-block;
-    max-width: 100%;
-}
-p {
-    margin-bottom: var(--h2);
-    margin-top: var(--h2);
-    max-width: 100%;
-}
-ul,
-ol {
-	text-align: justify;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-left: calc(var(--w2) + var(--w-2));    
-}
-li {
-    list-style-type:none;
-    border-left:var(--w-2) solid var(--yellow);
-    margin-bottom:var(--h-2);
-    padding-left:var(--w1);       
-}
-
-
-
-.date {
-    font-size: 80%;
-    font-weight: bold;
-    overflow: hidden;
-    background-color: var(--lightyellow);
-}
 
 ::-selection { 
     background: var(--smokewhite);
