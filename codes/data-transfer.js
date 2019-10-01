@@ -99,19 +99,33 @@ function FixedPoint(F,x){
 
 ///////////////////////////////////////////////////////////////////////////////
 // String Replace
+function StringReplaceRule(string,rule){
+	return string.replace(rule[0],rule.length>0?rule[1]:"");
+}
+function StringReplaceRuleArray(string,ruleArray){
+	return Fold(StringReplaceRule,string,ruleArray);
+}
+function StringReplaceRulesObject(string,rulesObj){
+	var keys=Object.keys(rulesObj);
+	var s=string;
+	for(var i in keys){
+		var ruleArray=Clone(rulesObj)[keys[i]].map(function(k){return [k,keys[i]]});
+		s=StringReplaceRuleArray(s,ruleArray);
+	}
+	return s;
+}
+
 function StringReplace(string,rules){
 	if(typeof rules==="string")
 		return string.replace(rules,"");
-	else if(IsObject(rules)){
-		var ks=Object.keys(rules);
-		var rules=ks.map(function(k){return [k,rules[k]];});
-		return StringReplace(string,rules);
+	else if(IsObject(rules)){ //Inversion
+		return StringReplaceRulesObject(string,rules);
 	}
 	else if(IsArray(rules)){
-		function Replace(string,rule){
-			return string.replace(rule[0],rule[1]);
-		}
-		return Fold(Replace,string,rules);
+		if(IsArray(rules[0]))
+			return StringReplaceRuleArray(string,rules);
+		else
+			return StringReplaceRule(string,rule);
 	}
 	else {
 		console.log("error: can't make string rule from",r);
