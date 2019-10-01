@@ -3,10 +3,9 @@ function doSetupTitleScreenLevelContinue(){	LoadGame();};
 
 doSetupTitleScreenLevelContinue()
 
-//DoWin - Level selector - keep track of solved levels and echo win
+//DoWin - Level selector - keep track of solved levels 
 function DoWin() {
 	if (!winning) {
-		EchoLevelWin(curlevel);
 		AddToSolvedScreens(curlevel);
 		LocalsaveLevel(curlevel);
 		if(typeof customLevelInfo!= "undefined")customLevelInfo();
@@ -42,9 +41,8 @@ function nextLevel(){
 }
 
 
-//level4Serialization - save a full checkpoint stack and echo
+//level4Serialization - save a full checkpoint stack 
 function level4Serialization() { //Intercept
-	EchoCheckpoint();
 	
 	var stack=GetCheckpoints();
 	console.log("restarting",restarting,stack);
