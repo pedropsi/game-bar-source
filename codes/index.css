@@ -107,7 +107,6 @@ body{
     outline:none;
 }
 
-h1,h2,h3,h4,h5,h6 {
     font-variant-caps: small-caps;
     font-weight: bold;
     max-width: 100%;
@@ -117,9 +116,7 @@ h1,h2,h3,h4,h5,h6 {
     margin-top: calc(var(--h4) * var(--scaling));
     text-decoration: underline;
 }
-
-
-h4 {
+h4{
     --scaling:0.85;
     text-decoration-color: var(--lightblue);
 }
