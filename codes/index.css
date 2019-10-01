@@ -81,22 +81,6 @@ div {
 }
 
 
-.footer {
-    font-weight: 700;
-    line-height: var(--h2);
-    margin-top: var(--h2);
-    padding:var(--h1) var(--w4) var(--h1) var(--w4) ;
-    background-color:var(--smokewhite);
-}
-
-.nav {
-    margin: 0 var(--w-2) var(--h1) var(--w-2);
-    font-size: 120%;
-    font-weight: 600;
-    text-align: center;
-    flex-basis:15%;
-    flex-grow: 1;
-}
 
 nav {
     display:flex;
