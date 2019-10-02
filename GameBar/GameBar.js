@@ -8,7 +8,7 @@ function LoadScriptFrom(source){
 	document.body.appendChild(jsCode);
 }
 
-function LoaderInFolder(folder){
+function LoaderInFolderGB(folder){
 	return function(sourcename){
 		return LoadScriptFrom(folder+"/"+sourcename);
 	}
@@ -51,18 +51,18 @@ var precedences={
 }
 
 function LoadModule(module){
-	function L(){return LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes/game/modules")(module)};
+	function L(){return LoaderInFolderGB("https://pedropsi.github.io/game-bar-source/codes/game/modules")(module)};
 	return DelayUntil(precedences[module],L,module);
 }
 
 
 if(navigator.onLine){
-	LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes")("data-transfer");
+	LoaderInFolderGB("https://pedropsi.github.io/game-bar-source/codes")("data-transfer");
 	puzzlescriptModules.map(LoadModule);
 }
 else{
-	LoaderInFolder("../codes")("data-transfer");
-	puzzlescriptModules.map(LoaderInFolder("../codes/game/modules"));
+	LoaderInFolderGB("../codes")("data-transfer");
+	puzzlescriptModules.map(LoaderInFolderGB("../codes/game/modules"));
 }
 
 
