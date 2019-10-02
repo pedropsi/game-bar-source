@@ -9,7 +9,15 @@ function LoadScriptFrom(source){
 }
 
 function LoaderInFolder(folder){
-	return function(sourcename){return LoadScriptFrom(folder+"/"+sourcename)};
+	if(!LoaderInFolder.time)
+		LoaderInFolder.time=0;
+	else
+		LoaderInFolder.time=LoaderInFolder.time+300;
+	
+	return function(sourcename){
+		function L(){return LoadScriptFrom(folder+"/"+sourcename)};
+		setTimeout(L,LoaderInFolder.time);
+	}
 }
 
 function SupraStyle(gameSelector){
