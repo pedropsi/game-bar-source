@@ -53,7 +53,7 @@ function GameBar(targetIDsel){
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
 	var buttons=[
-		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
+//		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
 //		ButtonLinkHTML("How to play?"),
 		HintButton(),
 		UndoButton(),
