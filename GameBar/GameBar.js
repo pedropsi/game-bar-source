@@ -59,7 +59,7 @@ var puzzlescriptModules=[
 "data-game-overwrite"
 ]
 
-if(Online()){
+if(navigator.onLine){
 	LoaderInFolder("https://pedropsi.github.io/game-bar/codes")("data-transfer");
 	puzzlescriptModules.map(LoaderInFolder("https://pedropsi.github.io/game-bar/codes/game/modules"));
 }
