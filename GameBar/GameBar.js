@@ -1,21 +1,15 @@
 //Helpers
 
-function LoadAsync(sourcename,folder){
-	var head= document.head;
-	var script= document.createElement('script');
-	var ext='.js';
-	var folder=((folder+"/").replace(/\/\//,"/"))||"codes/"
-	if(sourcename.replace(".txt","")!=sourcename){
-		ext="";
-	}
-	script.src= folder+sourcename+ext;
-	script.async= false;
-	
-	head.appendChild(script);
+function LoadScriptFrom(source){
+	var jsCode=document.createElement('script');
+	jsCode.setAttribute('src',source.replace('.js','')+'.js');
+	jsCode.setAttribute('type','text/javascript');
+	jsCode.setAttribute('async',false);
+	document.body.appendChild(jsCode);
 }
 
 function LoaderInFolder(folder){
-	return function(sourcename){return LoadAsync(sourcename,folder)};
+	return function(sourcename){return LoadScriptFrom(folder+"/"+sourcename)};
 }
 
 function SupraStyle(gameSelector){
