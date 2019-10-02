@@ -46,7 +46,7 @@ var puzzlescriptModules=[
 
 var precedences={
 	"data-game-colours":function(){return typeof GetElement!=="undefined";},
-	"data-game-extras":function(){return typeof GetElement!=="undefined";},
+	"data-game-extras":function(){return typeof Saturation!=="undefined";},
 	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
 }
 
