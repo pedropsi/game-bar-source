@@ -16,8 +16,10 @@ function PrepareGame(){
 			LoadStyle("../codes/index");
 		AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
 		ConsoleAddMany([
-			"Localsave is ON for "+pageTitle()+".",
-			"To stop saving and erase all 2 cookies, please deselect 🖫."
+			"Puzzlescript Game bar loaded!",
+			"Issues? Suggestions? Head to pedropsi.github.io/game-bar."
+		//	"Localsave is ON for "+pageTitle()+".",
+		//	"To stop saving and erase all 2 cookies, please deselect 🖫."
 		]);
 		PlaylistStartPlay();
 		GameFocus();
