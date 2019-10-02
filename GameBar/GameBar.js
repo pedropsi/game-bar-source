@@ -9,7 +9,9 @@ function LoadScriptFrom(source){
 }
 
 function LoaderInFolder(folder){
-	return LoadScriptFrom(folder+"/"+sourcename)};
+	return function(sourcename){
+		return LoadScriptFrom(folder+"/"+sourcename);
+	}
 }
 
 function DelayUntil(Condition,F,i){
@@ -53,6 +55,7 @@ function LoadModule(module){
 	return DelayUntil(precedences[module],L,module);
 }
 
+
 if(navigator.onLine){
 	LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes")("data-transfer");
 	puzzlescriptModules.map(LoadModule);
@@ -61,6 +64,7 @@ else{
 	LoaderInFolder("../codes")("data-transfer");
 	puzzlescriptModules.map(LoaderInFolder("../codes/game/modules"));
 }
+
 
 function GameBarLoad(){
 	RemoveElement(".tab");
