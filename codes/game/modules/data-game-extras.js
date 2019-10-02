@@ -10,7 +10,10 @@ function PrepareGame(){
 		ScrollInto(gameSelector);
 		//GetElement(gameSelector).click();//Activate audio (maybe?)
 		AddGameBar();
-		LoadStyle("../codes/index");
+		/*if(Online())
+			LoadStyle("https://github.com/pedropsi/game-bar/codes/index.js");
+		else*/
+			LoadStyle("../codes/index");
 		AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
 		ConsoleAddMany([
 			"Localsave is ON for "+pageTitle()+".",
