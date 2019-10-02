@@ -54,8 +54,8 @@ var puzzlescriptModules=[
 ]
 
 if(navigator.onLine){
-	LoaderInFolder("https://pedropsi.github.io/game-bar/codes")("data-transfer");
-	puzzlescriptModules.map(LoaderInFolder("https://pedropsi.github.io/game-bar/codes/game/modules"));
+	LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes")("data-transfer");
+	puzzlescriptModules.map(LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes/game/modules"));
 }
 else{
 	LoaderInFolder("../codes")("data-transfer");
