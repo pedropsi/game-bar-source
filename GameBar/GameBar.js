@@ -50,14 +50,16 @@ var precedences={
 	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
 }
 
+var FOLDER="https://pedropsi.github.io/game-bar-source/codes";
+
 function LoadModule(module){
-	function L(){return LoaderInFolderGB("https://pedropsi.github.io/game-bar-source/codes/game/modules")(module)};
+	function L(){return LoaderInFolderGB(FOLDER+"/"+"game/modules")(module)};
 	return DelayUntil(precedences[module],L,module);
 }
 
 
 if(navigator.onLine){
-	LoaderInFolderGB("https://pedropsi.github.io/game-bar-source/codes")("data-transfer");
+	LoaderInFolderGB(FOLDER)("data-transfer");
 	puzzlescriptModules.map(LoadModule);
 }
 else{
