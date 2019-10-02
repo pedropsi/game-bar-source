@@ -1,4 +1,4 @@
-//Helpers
+//Load helpers
 
 function LoadScriptFrom(source){
 	var jsCode=document.createElement('script');
@@ -9,16 +9,65 @@ function LoadScriptFrom(source){
 }
 
 function LoaderInFolder(folder){
-	if(!LoaderInFolder.time)
-		LoaderInFolder.time=0;
-	else
-		LoaderInFolder.time=LoaderInFolder.time+300;
+	return LoadScriptFrom(folder+"/"+sourcename)};
+}
+
+function DelayUntil(Condition,F,i){
+	var n=Condition.name+F.name+(i?i:0);
 	
-	return function(sourcename){
-		function L(){return LoadScriptFrom(folder+"/"+sourcename)};
-		setTimeout(L,LoaderInFolder.time);
+	if(!DelayUntil[n])
+		DelayUntil[n]=0;
+	DelayUntil[n]++;
+
+	if(Condition()){
+		DelayUntil[n]=0;
+		return F();
+	}
+	else{
+		console.log(DelayUntil[n]);
+		
+		if(DelayUntil[n]<10){
+			function D(){return DelayUntil(Condition,F,i);};
+			setTimeout(D,100*(2**DelayUntil[n]));
+		}
+		else
+			console.log("Timed out: ",n);
 	}
 }
+
+// Load the Game Bar
+var puzzlescriptModules=[
+	"data-game-colours",
+	"data-game-extras",
+	"data-game-overwrite"
+]
+
+var precedences={
+	"data-game-colours":function(){return typeof GetElement!=="undefined";},
+	"data-game-extras":function(){return typeof GetElement!=="undefined";},
+	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
+}
+
+function LoadModule(module){
+	function L(){return LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes/game/modules")(module)};
+	return DelayUntil(precedences[module],L,module);
+}
+
+if(navigator.onLine){
+	LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes")("data-transfer");
+	puzzlescriptModules.map(LoadModule);
+}
+else{
+	LoaderInFolder("../codes")("data-transfer");
+	puzzlescriptModules.map(LoaderInFolder("../codes/game/modules"));
+}
+
+function GameBarLoad(){
+	RemoveElement(".tab");
+	PrepareGame();
+	SupraStyle(gameSelector);
+}
+
 
 function SupraStyle(gameSelector){
 
@@ -54,27 +103,6 @@ function SupraStyle(gameSelector){
 	AddElement("<style>"+stylesheet+"</style>",document.head);
 }
 
-// Load the Game Bar
-var puzzlescriptModules=[
-"data-game-colours",
-"data-game-extras",
-"data-game-overwrite"
-]
-
-if(navigator.onLine){
-	LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes")("data-transfer");
-	puzzlescriptModules.map(LoaderInFolder("https://pedropsi.github.io/game-bar-source/codes/game/modules"));
-}
-else{
-	LoaderInFolder("../codes")("data-transfer");
-	puzzlescriptModules.map(LoaderInFolder("../codes/game/modules"));
-}
-
-function GameBarLoad(){
-	RemoveElement(".tab");
-	PrepareGame();
-	SupraStyle(gameSelector);
-}
 
 window.addEventListener('load',GameBarLoad);
 
