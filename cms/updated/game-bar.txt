@@ -6,22 +6,22 @@
 «FIGURE-SIMPLE»
 
 <h3>Current version</h3>
-<p><b><span id="version-number">v2.1</span>:</b><span id="version-date">19/09/2019</span></p>
+<p><b><span id="version-number">v2.2</span>:</b><span id="version-date">02/10/2019</span></p>
 
 <script>
-var v=LoadData("https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js");
+var v=LoadData("https://raw.githubusercontent.com/pedropsi/game-bar-source/master/GameBar/GameBar.js");
 var vn=v.match(/(v(\d+\.)*\d+)/)[0];
 var vd=v.match(/((\d+\/)+\d+)/)[0];
 ReplaceElement(vn,"version-number");
 ReplaceElement(vd,"version-date");
 </script>
 
-<p>Older versions can be found <a href="https://github.com/pedropsi/puzzlescript-game-bar/tree/master/Versions">in the archive</a>.</p>
+<p>Older versions can be found <a href="https://github.com/pedropsi/game-bar-source/tree/master/Versions">in the archive</a>.</p>
 
 <h2>Bookmarklet</h2>
 <p>The «TITLE-BOLD» can now be added to any online puzzlescript game with this <a href="javascript:
 var jsCode=document.createElement('script');
-jsCode.setAttribute('src','https://pedropsi.github.io/puzzlescript-game-bar/GameBar/GameBar.js');
+jsCode.setAttribute('src','https://pedropsi.github.io/game-bar-source/GameBar/GameBar.js');
 jsCode.setAttribute('type','text/javascript');
 document.body.appendChild(jsCode);
 console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
@@ -29,7 +29,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 
 <h2>How to add the <b>Puzzlescript Game Bar</b> to your own game</h2>
 <h3>Just include the <b>javascript source code</b>!</h3>
-<p>Include the <b>javascript source</b> <a href="https://raw.githubusercontent.com/pedropsi/puzzlescript-game-bar/master/GameBar/GameBar.js" «BLANK»>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
+<p>Include the <b>javascript source</b> <a href="https://pedropsi.github.io/game-bar-source/GameBar/GameBar.js" «BLANK»>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
 <p>To ensure the «TITLE-BOLD» overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the «[<»body«>]» the snippet «[<»script type="text/javascript" src="GameBar.js"«>]»«[<»/script«>]».</p>
 
 <h2>Customisation tips</h2>
@@ -112,10 +112,10 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <li>«[»function level4Serialization()«]»</li>
 </ul>
 
-<p>If your Puzzlescript version relies on changes to any of these functions, it's likely those particular changes be erased. You're welcome to <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">file your issue so it can be taken a look at</a>.</p>
+<p>If your Puzzlescript version relies on changes to any of these functions, it's likely those particular changes be erased. You're welcome to <a href="https://github.com/pedropsi/game-bar-source/issues">file your issue so it can be taken a look at</a>.</p>
 
 <h3>You found a different problem.</h3>
-<p>Please <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">report your problem</a> so it can be fixed sooner.</p>
+<p>Please <a href="https://github.com/pedropsi/game-bar-source/issues">report your problem</a> so it can be fixed sooner.</p>
 
 <h2>Examples</h2>
 <p>Here are some games that use he «TITLE-BOLD»:</p>
@@ -134,7 +134,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <p>To ««P-PRE»MINOTALEN«P-POS»» for very active ongoing collaboration!</p>
 
 <h3>Would you like to contribute?</h3>
-<p>Head to the official <a href="https://github.com/pedropsi/puzzlescript-game-bar" «BLANK»>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/puzzlescript-game-bar/pulls">pull requests</a>.</p>
+<p>Head to the official <a href="https://github.com/pedropsi/game-bar-source" «BLANK»>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/game-bar-source/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/game-bar-source/pulls">pull requests</a>.</p>
 
 
 <h2>FAQ</h2>
@@ -189,9 +189,9 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any buttons that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
 
 <h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
-<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">actually need it</a>.</p>
+<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/game-bar-source/issues">actually need it</a>.</p>
 
 <h3>Does the «TITLE-BOLD» hint system handle checkpoints?</h3>
-<p>No, sorry! But if this would make a difference, <a href="https://github.com/pedropsi/puzzlescript-game-bar/issues">please let us know</a>.</p>
+<p>No, sorry! But if this would make a difference, <a href="https://github.com/pedropsi/game-bar-source/issues">please let us know</a>.</p>
 
 «FEEDBACK»
