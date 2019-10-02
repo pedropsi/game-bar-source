@@ -59,9 +59,14 @@ var puzzlescriptModules=[
 "data-game-overwrite"
 ]
 
-LoaderInFolder("../codes")("data-transfer");
-puzzlescriptModules.map(LoaderInFolder("../codes/game/modules"));
-
+if(Online(){
+	LoaderInFolder("https://raw.githubusercontent.com/pedropsi/game-bar/gamebar/codes")("data-transfer");
+	puzzlescriptModules.map(LoaderInFolder("https://raw.githubusercontent.com/pedropsi/game-bar/gamebar/codes/game/modules"));
+}
+else{
+	LoaderInFolder("../codes")("data-transfer");
+	puzzlescriptModules.map(LoaderInFolder("../codes/game/modules"));
+}
 function GameBarLoad(){
 	RemoveElement(".tab");
 	PrepareGame();

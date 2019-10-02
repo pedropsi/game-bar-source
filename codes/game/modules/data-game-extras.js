@@ -10,9 +10,9 @@ function PrepareGame(){
 		ScrollInto(gameSelector);
 		//GetElement(gameSelector).click();//Activate audio (maybe?)
 		AddGameBar();
-		/*if(Online())
-			LoadStyle("https://github.com/pedropsi/game-bar/codes/index.js");
-		else*/
+		if(Online())
+			LoadStyle("https://raw.githubusercontent.com/pedropsi/game-bar/gamebar/codes/index.css");
+		else
 			LoadStyle("../codes/index");
 		AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
 		ConsoleAddMany([
