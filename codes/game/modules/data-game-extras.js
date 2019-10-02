@@ -11,7 +11,7 @@ function PrepareGame(){
 		//GetElement(gameSelector).click();//Activate audio (maybe?)
 		AddGameBar();
 		if(Online())
-			LoadStyle("https://raw.githubusercontent.com/pedropsi/game-bar/gamebar/codes/index.css");
+			LoadStyle("https://pedropsi.github.io/game-bar-source/codes/index.css");
 		else
 			LoadStyle("../codes/index");
 		AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise

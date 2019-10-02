@@ -1,4 +1,4 @@
-//Load helpers
+//Dependecy Loaders
 
 function LoadScriptFrom(source){
 	var jsCode=document.createElement('script');
@@ -66,6 +66,8 @@ else{
 }
 
 
+//Start the Bar
+
 function GameBarLoad(){
 	RemoveElement(".tab");
 	PrepareGame();
@@ -108,5 +110,6 @@ function SupraStyle(gameSelector){
 }
 
 
-window.addEventListener('load',GameBarLoad);
+function C(){return typeof PrepareGame!=="undefined";};
+DelayUntil(C,GameBarLoad);
 
