@@ -757,7 +757,8 @@ function AddAfterElement(html,selector){
 // Replace parent element contents with new element
 function ReplaceElement(html,parentIDsel){
 	var p=GetElement(parentIDsel);
-	p.innerHTML=html;
+	if(p)
+		p.innerHTML=html;
 };
 
 // Add HTML Data from external source to page
