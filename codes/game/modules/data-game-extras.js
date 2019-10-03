@@ -343,7 +343,7 @@ function UnSolvedLevelScreens(){
 
 function FirstUnsolvedScreen(curlevel){
 	if(UnSolvedLevelScreens().length===0)
-		return 1+LevelScreens()[LevelScreens().length-1];
+		return 1+LevelScreens()[MaxLevel()-1];
 	else{
 		var c=LevelScreens().indexOf(UnSolvedLevelScreens()[0]);
 		if(c===0)
@@ -413,13 +413,17 @@ function UnlockedLevelScreens(){
 	return UnlockedLevels().map(LevelScreen);
 }
 
+function MaxLevel(){
+	return LevelScreens().length;
+}
+
 // Level Selector
 
 function LevelSelectorTitle(){
-	if(UnlockedLevels().length!==LevelScreens().length)
-		return "Access "+UnlockedLevels().length+" out of "+LevelScreens().length+" levels";
+	if(UnlockedLevels().length!==MaxLevel())
+		return "Access "+UnlockedLevels().length+" out of "+MaxLevel()+" levels";
 	else
-		return "Access one of the "+LevelScreens().length+" levels"
+		return "Access one of the "+MaxLevel()+" levels"
 }
 
 function RequestLevelSelector(){
@@ -490,23 +494,43 @@ function CloseLevelSelector(){
 function MaxLevelDigits(){
 	if(MaxLevelDigits.m)
 		return MaxLevelDigits.m;
-	return MaxLevelDigits.m=Math.ceil(Math.log10(1+LevelScreens().length));
+	return MaxLevelDigits.m=Math.ceil(Math.log10(1+MaxLevel()));
 };
 
-function StarLevelNumber(n){
+function PadLevelNumber(n){
 	var m=n+"";
-	var padding="0".repeat(MaxLevelDigits()-m.length);
+	return "0".repeat(MaxLevelDigits()-m.length)+m;
+}
+
+function LevelHintStar(n){
 	var star="★";
 	if(Hints()&&UsedHints(n)!==0)
 		star="☆";
-	return padding+m+(LevelSolved(n)?star:"");
+	return LevelSolved(n)?star:"";
 }
+
+function StarLevelNumber(n){
+	return PadLevelNumber(n)+LevelHintStar(n);
+}
+
 function StarLevel(l){
 	var n=LevelNumber(l);
 	return StarLevelNumber(n);
 }
 function UnstarLevel(l){
 	return Number(l.replace("★","").replace("☆",""));
+}
+
+function UpdateLevelSelectorButton(lvl){
+	if(!lvl)
+		lvl=CurLevelNumber(); 
+	if(titleScreen)
+		var leveltext="Select level";
+	else if(lvl<=MaxLevel())
+		var leveltext="Level "+PadLevelNumber(lvl)+"/"+MaxLevel()+LevelHintStar(lvl);
+	else
+		var leveltext="★ All levels ★";
+	ReplaceElement(leveltext,"LevelSelectorButton");
 }
 
 function LoadFromLevelSelectorButton(qid){
@@ -623,6 +647,8 @@ function ResetGame(){
 	ResetCheckpoints();
 	goToTitleScreen();
 	tryPlayEndGameSound();
+	ClearLevelRecord();
+	UpdateLevelSelectorButton();
 }
 
 function AdvanceLevel(){
@@ -632,6 +658,8 @@ function AdvanceLevel(){
 	messageselected=false;
 	LocalsaveLevel(curlevel);
 	LoadLevelOrCheckpoint();
+	ClearLevelRecord();
+	UpdateLevelSelectorButton();
 }
 
 function AdvanceUnsolvedScreen(){
