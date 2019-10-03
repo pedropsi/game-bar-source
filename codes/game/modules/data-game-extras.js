@@ -337,7 +337,7 @@ function UnSolvedLevelScreens(){
 
 function FirstUnsolvedScreen(curlevel){
 	if(UnSolvedLevelScreens().length===0)
-		return 1+LevelScreens()[LevelScreens().length-1];
+		return 1+LevelScreens()[MaxLevel()-1];
 	else{
 		var c=LevelScreens().indexOf(UnSolvedLevelScreens()[0]);
 		if(c===0)
@@ -405,6 +405,10 @@ function UnlockedLevels(){
 
 function UnlockedLevelScreens(){
 	return UnlockedLevels().map(LevelScreen);
+}
+
+function MaxLevel(){
+	return LevelScreens().length;
 }
 
 // Level Selector
@@ -484,7 +488,7 @@ function CloseLevelSelector(){
 function MaxLevelDigits(){
 	if(MaxLevelDigits.m)
 		return MaxLevelDigits.m;
-	return MaxLevelDigits.m=Math.ceil(Math.log10(1+LevelScreens().length));
+	return MaxLevelDigits.m=Math.ceil(Math.log10(1+MaxLevel()));
 };
 
 function StarLevelNumber(n){
