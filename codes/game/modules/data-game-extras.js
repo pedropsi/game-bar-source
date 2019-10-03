@@ -980,6 +980,7 @@ function RequestHint(){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
 		var tip=CycleNextBounded([
 			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
+			"Please note that <b>Hall of Fame</b> entries now count how many hints are used!",
 			"You got this! Now go ahead and play!"
 			]);
 		var DFOpts={questionname:tip};
