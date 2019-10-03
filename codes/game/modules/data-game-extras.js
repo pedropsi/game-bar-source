@@ -991,7 +991,11 @@ function RequestHint(){
 			"Just relax and have fun!",
 			"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
 			"Remember to pause once in a while!",
-			"If you like this game, share it with your friends!"]);
+			"If you like this game, share it with your friends!",
+			"Go Fullscreen by pressing ◱ or <kbd>F</kbd>!",
+			"Play or pause the music by pressing ♫ or <kbd>M</kbd>!",
+			"Open the level selector with <kbd>L</kbd>, then type a <kbd>number</kbd>."
+			]);
 		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
 		var DPFields=[['plain',DFOpts]];
 	}
