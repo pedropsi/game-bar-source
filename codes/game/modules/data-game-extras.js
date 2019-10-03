@@ -945,6 +945,10 @@ function UsedHints(lvl){
 		return	Hints.used[lvl-1];
 }
 
+function HintProgress(lvl,hintN){
+	var a=AvailableHints(lvl);
+	return "★".repeat(hintN)+"☆".repeat(Math.max(a-hintN,0));
+}
 
 function HintButton(){
 	if(Hints()===undefined)
@@ -1028,7 +1032,9 @@ function RequestHint(){
 		}
 		
 		var DFOpts={questionname:tip};
+		var DFHintCounter={questionname:"<b>"+HintProgress(CurLevelNumber(),p+1)+"</b>"};
 		var DPFields=[
+			['plain',DFHintCounter],
 			['plain',DFOpts],
 			['navi',{
 				qchoices:navichoices,
