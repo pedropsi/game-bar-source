@@ -944,6 +944,10 @@ function UsedHints(lvl){
 		return	Hints.used[lvl-1];
 }
 
+function HintProgress(lvl,hintN){
+	var a=AvailableHints(lvl);
+	return "★".repeat(hintN)+"☆".repeat(Math.max(a-hintN,0));
+}
 
 function HintButton(){
 	if(Hints()===undefined)
@@ -979,6 +983,7 @@ function RequestHint(){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
 		var tip=CycleNextBounded([
 			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
+			"Please note that <b>Hall of Fame</b> entries now count how many hints are used!",
 			"You got this! Now go ahead and play!"
 			]);
 		var DFOpts={questionname:tip};
@@ -989,7 +994,11 @@ function RequestHint(){
 			"Just relax and have fun!",
 //			"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
 			"Remember to pause once in a while!",
-			"If you like this game, share it with your friends!"]);
+			"If you like this game, share it with your friends!",
+			"Open the level selector with <kbd>L</kbd>, then type a <kbd>number</kbd>.",
+			"Go Fullscreen by pressing ◱ or <kbd>F</kbd>!",
+			"Play or pause the music by pressing ♫ or <kbd>M</kbd>!"
+			]);
 		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
 		var DPFields=[['plain',DFOpts]];
 	}
@@ -1022,7 +1031,9 @@ function RequestHint(){
 		}
 		
 		var DFOpts={questionname:tip};
+		var DFHintCounter={questionname:"<b>"+HintProgress(CurLevelNumber(),p+1)+"</b>"};
 		var DPFields=[
+			['plain',DFHintCounter],
 			['plain',DFOpts],
 			['navi',{
 				qchoices:navichoices,
