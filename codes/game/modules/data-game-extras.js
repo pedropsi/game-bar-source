@@ -869,7 +869,10 @@ function Hints(lvl){
 		return Hints.cached[lvl-1];
 }
 
-Hints.path="https://pedropsi.github.io/hints/";
+if(isFileLink(pageURL()))
+	Hints.path="https://pedropsi.github.io/hints/";
+else
+	Hints.path="hints/";
 
 function LoadHintsFile(){
 	if(!LoadHintsFile.loaded){
