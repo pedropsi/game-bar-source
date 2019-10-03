@@ -647,7 +647,6 @@ function ResetGame(){
 	ResetCheckpoints();
 	goToTitleScreen();
 	tryPlayEndGameSound();
-	ClearLevelRecord();
 	UpdateLevelSelectorButton();
 }
 
@@ -658,7 +657,6 @@ function AdvanceLevel(){
 	messageselected=false;
 	LocalsaveLevel(curlevel);
 	LoadLevelOrCheckpoint();
-	ClearLevelRecord();
 	UpdateLevelSelectorButton();
 }
 
