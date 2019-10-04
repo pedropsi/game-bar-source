@@ -1934,7 +1934,8 @@ function PlaylistStartPlay(){
 
 //Song
 function Muted(){
-	return !Selected(GetElement("MuteButton"));
+	var mutebutton=GetElement("MuteButton");
+	return mutebutton&&!Selected(mutebutton);
 }
 function Mute(){
 	Deselect("MuteButton");
