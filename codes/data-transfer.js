@@ -1935,7 +1935,10 @@ function PlaylistStartPlay(){
 //Song
 function Muted(){
 	var mutebutton=GetElement("MuteButton");
-	return mutebutton&&!Selected(mutebutton);
+	if(mutebutton)
+		return Selected(mutebutton);
+	else
+		return false;
 }
 function Mute(){
 	Deselect("MuteButton");
