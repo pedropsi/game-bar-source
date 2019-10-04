@@ -787,29 +787,34 @@ function InstructGame(event){
 // Custom sounds 
 
 function FindSoundName(seed){ //Finds the sound name which overwrites the PS seed
-	var seedname=String(seed);
-	if(!FindSoundName.names)
-		FindSoundName.names={};
-	var nameObj=FindSoundName.names;
-	if(nameObj[seedname])
-		return nameObj[seedname];
+	var sounds=GetElements(".sound");
+	if(sounds.length===0){
+		return seed;
+	}
 	else{
-		var sounds=GetElements(".sound");
-		var found=false;
-		var i=0;
-		var nob={}
-		while(!found&&i<sounds.length){
-			if(sounds[i].dataset.sfx===seedname){
-				found=true;
-				nob[seedname]=sounds[i].id;
-				FindSoundName.names=FuseObjects(FindSoundName.names,nob);
-			};
-			i++;
+		var seedname=String(seed);
+		if(!FindSoundName.names)
+			FindSoundName.names={};
+		var nameObj=FindSoundName.names;
+		if(nameObj[seedname])
+			return nameObj[seedname];
+		else{
+			var found=false;
+			var i=0;
+			var nob={}
+			while(!found&&i<sounds.length){
+				if(sounds[i].dataset.sfx===seedname){
+					found=true;
+					nob[seedname]=sounds[i].id;
+					FindSoundName.names=FuseObjects(FindSoundName.names,nob);
+				};
+				i++;
+			}
+			if(found)
+				return sounds[i-1].id;
+			else
+				return seedname;
 		}
-		if(found)
-			return sounds[i-1].id;
-		else
-			return seedname;
 	}
 }
 
