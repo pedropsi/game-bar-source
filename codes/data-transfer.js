@@ -2095,8 +2095,10 @@ function LoadSounds(soundtrack,parentElement){
 	}
 }
 
-function PlaySound(soundname){
-	GetElement(soundname).play();
+function PlaySound(src){
+	var s=new Audio(src);
+	s.play();
+	return;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2127,7 +2129,7 @@ function PlaylistStartPlay(){
 function Muted(){
 	var mutebutton=GetElement("MuteButton");
 	if(mutebutton)
-		return Selected(mutebutton);
+		return !Selected(mutebutton);
 	else
 		return false;
 }
