@@ -65,8 +65,8 @@ function playSound(seed) {
 	
 	//Play if memorised
 	if(playSound[seed]){
-		var s=new Audio(playSound[seed]);
-		s.play();
+		function P(){PlaySound(playSound[seed])};
+		Throttle(P,500,seed);
 		return;
 	}
 
@@ -76,7 +76,7 @@ function playSound(seed) {
 		sounds=sounds.filter(function(s){return s.dataset.sfx===String(seed)});
 		if(sounds.length>0){
 			playSound[seed]=sounds[0].src; //memorise
-			sounds[0].play();
+			PlaySound(playSound[seed]);
 			return;
 		}
 	}

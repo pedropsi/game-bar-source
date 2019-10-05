@@ -1904,8 +1904,10 @@ function LoadSounds(soundtrack,parentElement){
 	}
 }
 
-function PlaySound(soundname){
-	GetElement(soundname).play();
+function PlaySound(src){
+	var s=new Audio(src);
+	s.play();
+	return;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1936,7 +1938,7 @@ function PlaylistStartPlay(){
 function Muted(){
 	var mutebutton=GetElement("MuteButton");
 	if(mutebutton)
-		return Selected(mutebutton);
+		return !Selected(mutebutton);
 	else
 		return false;
 }
@@ -2459,7 +2461,7 @@ function SetDatapackShortcuts(DP){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// AutoRepeat and AutoStop functions
+// Time-based functions
 
 function AutoRepeat(RepeatF,delay){
 	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
@@ -2484,6 +2486,15 @@ function Monitor(MonitorF,delay,DisplayF){
 	AutoRepeat(M,delay);
 }
 
+
+//Prevent execution unless time cooldown exceeded, in ms
+function Throttle(F,cooldown,id){
+	if(!Throttle[id]||Date.now()-Throttle[id]>=cooldown){
+		Throttle[id]=Date.now();
+		return F();
+	}
+	return false;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Cycle
