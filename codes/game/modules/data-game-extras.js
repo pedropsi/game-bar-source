@@ -784,41 +784,6 @@ function InstructGame(event){
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// Custom sounds 
-
-function FindSoundName(seed,sounds){ //Finds the sound name which overwrites the PS seed
-	if(!sounds)
-		return seed;
-	
-	var seedname=String(seed);
-	if(!FindSoundName.names)
-		FindSoundName.names={};
-	var nameObj=FindSoundName.names;
-	
-	if(nameObj[seedname])
-		return nameObj[seedname];
-	else{
-		var found=false;
-		var i=0;
-		var nob={}
-		while(!found&&i<sounds.length){
-			if(sounds[i].dataset.sfx===seedname){
-				found=true;
-				nob[seedname]=sounds[i].id;
-				FindSoundName.names=FuseObjects(FindSoundName.names,nob);
-			};
-			i++;
-		}
-		if(found)
-			return sounds[i-1].id;
-		else
-			return seedname;
-	}
-}
-
-
-
-////////////////////////////////////////////////////////////////////////////////
 //Colorise game bar
 
 var stylesheet="#GameBar,"+ParentSelector(gameSelector)+"{\

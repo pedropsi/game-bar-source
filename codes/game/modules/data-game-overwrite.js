@@ -63,13 +63,27 @@ function playSound(seed) {
 	if (Muted())
 		return;
 	
-	var sounds=GetElements(".sound");
-	if(sounds.length>0)
-		PlaySound(FindSoundName(seed),sounds);
-	else{
-		checkAudioContextExists();
-		if (unitTesting) return;
-		var sound = cacheSeed(seed);
-		sound.play();
+	//Play if memorised
+	if(playSound[seed]){
+		var s=new Audio(playSound[seed]);
+		s.play();
+		return;
 	}
+
+	//Play if overwritten
+	var sounds=GetElements('.sound');	
+	if(sounds){
+		sounds=sounds.filter(function(s){return s.dataset.sfx===String(seed)});
+		if(sounds.length>0){
+			playSound[seed]=sounds[0].src; //memorise
+			sounds[0].play();
+			return;
+		}
+	}
+
+	//Default play if not played before
+	checkAudioContextExists();
+	if (unitTesting) return;
+	var sound = cacheSeed(seed);
+	sound.play();
 }
