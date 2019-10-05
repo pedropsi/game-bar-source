@@ -66,7 +66,7 @@ function playSound(seed) {
 	if (Muted())
 		return;
 	
-	var sounds=GetElements(".sound");
+	var sounds=GetElements('.sound');
 	if(sounds.length>0)
 		PlaySound(FindSoundName(seed),sounds);
 	else{
