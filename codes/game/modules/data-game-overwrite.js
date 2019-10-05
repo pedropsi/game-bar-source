@@ -63,6 +63,7 @@ function level4Serialization() { //Intercept
 
 //playSound - custom sound effects, if available
 function playSound(seed) {
+	var sounds=GetElements(".sound");
 	if (!Muted())
-		PlaySound(FindSoundName(seed));
+		PlaySound(FindSoundName(seed),sounds);
 }
