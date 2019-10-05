@@ -2650,7 +2650,7 @@ function SetDatapackShortcuts(DP){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// AutoRepeat and AutoStop functions
+// Time-based functions
 
 function AutoRepeat(RepeatF,delay){
 	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
@@ -2675,6 +2675,15 @@ function Monitor(MonitorF,delay,DisplayF){
 	AutoRepeat(M,delay);
 }
 
+
+//Prevent execution unless time cooldown exceeded, in ms
+function Throttle(F,cooldown,id){
+	if(!Throttle[id]||Date.now()-Throttle[id]>=cooldown){
+		Throttle[id]=Date.now();
+		return F();
+	}
+	return false;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Cycle
