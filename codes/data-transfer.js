@@ -856,7 +856,7 @@ function GameRowHTML(dataline){
 	if(dataline.join("")==="")
 		return "";
 	
-	console.log(dataline);
+	//console.log(dataline);
 	var title=AHTML(SafeString(dataline[1]),SafeUrl(dataline[3]));	
 	var author=SafeString(dataline[2]);
 	if(SafeUrl(dataline[4]))
