@@ -16,7 +16,7 @@ function SubmitGameData(){
 }
 
 var DESTINATION_TAGGER={
-	url:"https://script.google.com/macros/s/10yebV5NBLcEcd6qNXvp-1hnSoC5iSbHypS2hQSzBEU-XFreGUqMA4ci8/exec",
+	url:"https://script.google.com/macros/s/AKfycbwl1oMrc36DizbST5TJAxCYMV-5hnGpHsVs_U8fsgZwBqBZnsWm/exec",
 	headers:"[\"title\",\"author\",\"link\"]",
 	sheet:"Games List",
 	name:"GameDatabase"
