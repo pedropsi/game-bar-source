@@ -1,5 +1,18 @@
+function In(SAO,n){
+	return SAO.replace(n,"")!==SAO;
+}
+
 function ReadGameData(){
-	return {
+	if(In(document.URL,"itch.io")){
+		var T=document.getElementsByTagName("TITLE")[0].innerHTML;
+		return {
+		"title":T.replace(/\sby\s.*/,""),
+		"author":T.replace(/.*\sby\s/,""),
+		"link":document.URL,
+		"page":document.URL.replace(/itch.io\/.*/,"itch.io")
+	};
+	}else
+		return {
 		"title":state.metadata.title,
 		"author":state.metadata.author,
 		"link":document.URL,
