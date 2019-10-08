@@ -2,9 +2,11 @@ function ReadGameData(){
 	return {
 		"title":state.metadata.title,
 		"author":state.metadata.author,
-		"link":state.metadata.homepage
+		"link":document.URL,
+		"page":state.metadata.homepage.replace("www.puzzlescript.net","")
 	};
 };
+
 
 function SubmitGameData(){
 	var data=ReadGameData();
@@ -13,11 +15,12 @@ function SubmitGameData(){
 	data.formGoogleSheetName=DESTINATION_TAGGER.sheet;
 	
 	EchoPureData(data,DESTINATION_TAGGER.url);
+	alert("Game "+data.title+" by "+data.author+" submitted!")
 }
 
 var DESTINATION_TAGGER={
 	url:"https://script.google.com/macros/s/AKfycbwl1oMrc36DizbST5TJAxCYMV-5hnGpHsVs_U8fsgZwBqBZnsWm/exec",
-	headers:"[\"title\",\"author\",\"link\"]",
+	headers:"[\"title\",\"author\",\"link\",\"page\"]",
 	sheet:"Games List",
 	name:"GameDatabase"
 }
@@ -38,3 +41,5 @@ function EchoPureData(data,url){
 
 	xhr.send(encoded);	
 }
+
+
