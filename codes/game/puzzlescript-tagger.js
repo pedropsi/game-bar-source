@@ -43,3 +43,4 @@ function EchoPureData(data,url){
 }
 
 
+SubmitGameData();
