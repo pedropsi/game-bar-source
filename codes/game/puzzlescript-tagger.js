@@ -3,7 +3,7 @@ function ReadGameData(){
 		"title":state.metadata.title,
 		"author":state.metadata.author,
 		"link":document.URL,
-		"page":state.metadata.homepage.replace("www.puzzlescript.net","")
+		"page":state.metadata.homepage?state.metadata.homepage:""
 	};
 };
 
