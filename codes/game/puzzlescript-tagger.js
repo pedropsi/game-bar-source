@@ -3,32 +3,41 @@ function In(SAO,n){
 }
 
 function ReadGameData(){
+	var data=false;
 	if(In(document.URL,"itch.io")){
 		var T=document.getElementsByTagName("TITLE")[0].innerHTML;
-		return {
+		data={
 		"title":T.replace(/\sby\s.*/,""),
 		"author":T.replace(/.*\sby\s/,""),
 		"link":document.URL,
 		"page":document.URL.replace(/itch.io\/.*/,"itch.io")
-	};
-	}else
-		return {
-		"title":state.metadata.title,
-		"author":state.metadata.author,
-		"link":document.URL,
-		"page":state.metadata.homepage?state.metadata.homepage:""
-	};
+		};
+	}else{
+		if(state&&state.metadata){
+			data={
+			"title":state.metadata.title,
+			"author":state.metadata.author,
+			"link":document.URL,
+			"page":state.metadata.homepage?state.metadata.homepage:""
+			};
+		}
+	}
+	return data;
 };
 
 
 function SubmitGameData(){
 	var data=ReadGameData();
-	data.formDataNameOrder=DESTINATION_TAGGER.headers;
-	data.formGoogleSendEmail="";
-	data.formGoogleSheetName=DESTINATION_TAGGER.sheet;
-	
-	EchoPureData(data,DESTINATION_TAGGER.url);
-	alert("Game "+data.title+" by "+data.author+" submitted!")
+	if(data){
+		data.formDataNameOrder=DESTINATION_TAGGER.headers;
+		data.formGoogleSendEmail="";
+		data.formGoogleSheetName=DESTINATION_TAGGER.sheet;
+		
+		EchoPureData(data,DESTINATION_TAGGER.url);
+		alert("Game "+data.title+" by "+data.author+" submitted!");
+	}
+	else
+		alert("Sorry, no game could be found in this page. Please tell Pedro PSI whether this is an error.");
 }
 
 var DESTINATION_TAGGER={
