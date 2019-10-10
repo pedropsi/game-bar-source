@@ -1,24 +1,24 @@
 ﻿<h2>«TITLE-BOLD»</h2>
-<p>This aims to be the definitive list of all (public) puzzlescript games, worldwide. Whenever a new puzzlescript game is made, it will be added to this list sooner or later.</p>
-<p>Since the goal is to make a complete, exhaustive list, all puzzlescript games qualify. If you're looking for a curated list, <a href="2019-01-31-selected-puzzlescript-games.html">look here instead</a>.</p>
+<p>This aims to be the definitive list of all (public) puzzlescript games, ever made, worldwide. Even the terrible ones qualify, so you may prefer to look into <a href="2019-01-31-selected-puzzlescript-games.html">«NAME»'s curated list</a> instead.
+<p>Whenever a new puzzlescript game is made, it will be added to this list. <b>Found a missing title? Please add it now!</b></p>
 
-<h2>Submit a puzzlescript game to the all games list</h2>
-<p>To add a game to the "«TITLE-BOLD»" list in one click, use this handy <a href="javascript:
+<h2>Adding a puzzlescript game to this list</h2>
+<p>To add a game to the "«TITLE-BOLD»" list in one click, simply use this handy <a href="javascript:
 var jsCode=document.createElement('script');
 jsCode.setAttribute('src','https://pedropsi.github.io/codes/game/puzzlescript-tagger.js');
 jsCode.setAttribute('type','text/javascript');
 document.body.appendChild(jsCode);
 console.log('Bookmaklet run!');void 0">Submit Puzzlescript Game</a> bookmarklet!</p>
 
-<p> Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet and the current game will add itself the «TITLE-BOLD» page.</p>
+<p> How? Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet, causing the current game to add itself the «TITLE-BOLD» page.</p>
 
 
 <h2>FAQ</h2>
 
-<h3>Does the Puzzlescript Game Tagger work on puzzlescript games hosted in itch.io?</h3>
-<p>Not yet, sorry!</p>
+<h3>How could such a huge list of puzzlescript games be compiled overnight?</h3>
+<p>The bookmarklet is that quick and convenient!</p>
 
-<h3>Will this be the longest list of puzzlescript games in the world or is there more to it?</h3>
-<p>At the moment it is just a long collaborative list, but at some point it will be converted to some sort of wiki, so people can add more information to each game, like the release year and tags! This in turn will allow some filtering functionality.</p>
+<h3>How could this long list of puzzlescript games become more useful?</h3>
+<p>This collaborative list may eventually gain a wiki-like character, so people could add detailed info like release year and tags, thus enabling better filtering. If pictures were added, this could become a puzzlescript gallery. Perhaps people would want vote on their favourites!</p>
 
 «FEEDBACK»
