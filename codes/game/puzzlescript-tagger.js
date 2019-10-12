@@ -12,6 +12,14 @@ function ReadGameData(){
 		"link":document.URL,
 		"page":document.URL.replace(/itch.io\/.*/,"itch.io")
 		};
+	}else if(In(document.URL,"increpare.com")){
+		var T=document.getElementsByTagName("TITLE")[0].innerHTML;
+		data={
+		"title":T.replace(/\s\-\s.*/,""),
+		"author":"Stephen Lavelle",
+		"link":"https://increpare.com/",
+		"page":document.URL
+		};
 	}else{
 		
 		var link=document.URL;
