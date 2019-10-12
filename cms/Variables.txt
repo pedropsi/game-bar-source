@@ -72,9 +72,9 @@ GUESTBOOK-DISPLAY-LEGACY	«SHEET-URL-RECORD»2036979410«SHEET-OPT»
 GUESTBOOK-DISPLAY-URL	«MACRO-URL»AKfycbzbI9ht52-sWmNcVi4SpQvjhyTtEdSJxTPpfqwuSDTPlQfJJfc/exec
 GUESTBOOK-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",function(d){return MakeGuestbook(JSON.parse(d))})
 
-ALL-PUZZLESCRIPT-GAMES-DISPLAY-LEGACY	«SHEET-URL-GAMES-LIST»2116581279«SHEET-OPT»
-ALL-PUZZLESCRIPT-GAMES-DISPLAY-URL	«MACRO-URL»AKfycbyp6yZrpw7TIiOE8fg0wUkI0SMtTWUpYlki53OGLg5Pgc6ppLM/exec
-ALL-PUZZLESCRIPT-GAMES-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",function(d){return MakeTable(JSON.parse(d),GameRowHTML)})
+PUZZLESCRIPT-GAMES-DATABASE-DISPLAY-LEGACY	«SHEET-URL-GAMES-LIST»2116581279«SHEET-OPT»
+PUZZLESCRIPT-GAMES-DATABASE-DISPLAY-URL	«MACRO-URL»AKfycbyp6yZrpw7TIiOE8fg0wUkI0SMtTWUpYlki53OGLg5Pgc6ppLM/exec
+PUZZLESCRIPT-GAMES-DATABASE-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",function(d){return MakeTable(JSON.parse(d),GameRowHTML)})
 
 DISPLAY-EXTERNAL	<div id="«LINK»-area">«DISPLAY-IFRAME»«DISPLAY-SCRIPT»</div>
 DISPLAY-SCRIPT	<script>««LINK»-DISPLAY»</script>
@@ -352,5 +352,16 @@ GAME-TABLE-ITEM	<tr><td><a href="«GAME-LINK»" «BLANK»>«TITLE»</a></td><td>«Autho
 GAME-TABLE-BODY	<tbody>«GAME-TABLE-ITEM|In:NiceGames|Filter:{"Year"->_}|Contain:True»</tbody>
 GAME-TABLE-HEAD	<thead><tr>«TH»Title</th>«TH»Author</th>«TH»Year</th>«TH»Tags</th></tr></thead>
 GAME-LIST	<table class="top-left"><caption>«NAME»'s selected puzzlescript games</caption>«GAME-TABLE-HEAD»«GAME-TABLE-BODY»</table>
+
+MOD-TABLE-ITEM	<tr><td><a href="«GAME-LINK»" «BLANK»>«TITLE»</a></td><td>«Author»</td><td>«YEAR»</td><td>«USE»</td></tr>
+MOD-TABLE-BODY	<tbody>«MOD-TABLE-ITEM|In:NiceMods|Filter:{"Year"->_}|Contain:True»</tbody>
+MOD-TABLE-HEAD	<thead><tr>«TH»Title</th>«TH»Author</th>«TH»Year</th>«TH»Usage</th></tr></thead>
+MOD-LIST	<table class="top-left"><caption>Useful puzzlescript mods and forks</caption>«MOD-TABLE-HEAD»«MOD-TABLE-BODY»</table>
+
+TOOL-TABLE-ITEM	<tr><td><a href="«TOOL-LINK»" «BLANK»>«TITLE»</a></td><td>«Author»</td><td>«YEAR»</td><td>«USE»</td><td>«TAGS»</td></tr>
+TOOL-TABLE-BODY	<tbody>«TOOL-TABLE-ITEM|In:NiceTools|Filter:{"Year"->_}|Contain:True»</tbody>
+TOOL-TABLE-HEAD	<thead><tr>«TH»Title</th>«TH»Author</th>«TH»Year</th>«TH»Usage</th>«TH»Tags</th></tr></thead>
+TOOL-LIST	<table class="top-left"><caption>Useful puzzlescript tools</caption>«TOOL-TABLE-HEAD»«TOOL-TABLE-BODY»</table>
+
 
 NEW!	<div class="new"><span>New</span></div>

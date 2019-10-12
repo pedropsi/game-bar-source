@@ -17,14 +17,37 @@
 		</image>
 
 		<item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
+<title>Game tools</title>
+<link>http://pedropsi.github.io/game-tools</link>
+<guid>http://pedropsi.github.io/game-tools</guid>
+<pubDate>Sat, 12 Oct 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/game-tools.png" height="200" align="left" hspace="5" alt="Game tools" title="Game tools"/>
+		<p> Purpose 
+ This is a concise compilation of game tools, inculding useful puzzlescript forks or mods and auxiliary tools for larger games . As a publicly shared, personal reference, it may be updated anytime. 
+
+ Puzzlescript forks or mods 
+ Over 100 puzzlescript forks were made since 2013. The t...</p>
+	]]>
+	</description>
+
+<category>Community</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+<category>Puzzlescript</category>
+<category>Resource</category>
+</item>
+<item>
+<title>Puzzlescript games database</title>
+<link>http://pedropsi.github.io/puzzlescript-games-database</link>
+<guid>http://pedropsi.github.io/puzzlescript-games-database</guid>
 <pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
-		<p>A comprehensive list of all puzzlescript games, worldwide.</p>
+		<img src="https://pedropsi.github.io/images/puzzlescript-games-database.png" height="200" align="left" hspace="5" alt="Puzzlescript games database" title="Puzzlescript games database"/>
+		<p>The complete list of all puzzlescript games, good or bad.</p>
 	]]>
 	</description>
 
@@ -54,21 +77,21 @@
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
-		<p> About  All Puzzlescript Games  
-The definitive list all puzlescript games
+		<p> About  Game tools  
+Useful tools to make games, including puzzlescript forks, wrappers and puzzlescript sprite editors.
 
     How to play Controls - keyboard 
  Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
  Level difficulty is shown by the number of stars (1 to 5). 
 
  Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Puzzlescript Games , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Puzzlescript Games ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Game tools , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Game tools ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
 
- Credits   All Puzzlescript Games  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Puzzlescript Games        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+ Credits   Game tools  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Game tools        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
 
  F.A.Q. 
 
- How is  All Puzzlescript Games  related to Burokku Konekuta? 
+ How is  Game tools  related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
@@ -85,6 +108,39 @@ The definitive list all puzlescript games
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
+		<p> About  Puzzlescript games database  
+The definitive puzlescript game database, comprising all puzzlescript games in the world!
+
+    How to play Controls - keyboard 
+ Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
+ Level difficulty is shown by the number of stars (1 to 5). 
+
+ Press  Z  to undo a move. Press  R  to restart the level. 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Puzzlescript games database , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Puzzlescript games database ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+
+ Credits   Puzzlescript games database  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Puzzlescript games database        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+
+ F.A.Q. 
+
+ How is  Puzzlescript games database  related to Burokku Konekuta? 
+ «TITLE-B...</p>
+	]]>
+	</description>
+
+<category>Creative-Archive</category>
+<category>Log</category>
+<category>Post</category>
+<category>Press</category>
+<category>Sitemap</category>
+</item>
+<item>
+<title>Classed as 'Puzzlescript'</title>
+<link>http://pedropsi.github.io/tag-Puzzlescript</link>
+<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p> About  Classed as Community   
 
 
@@ -104,22 +160,18 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Creative-Archive</category>
-<category>Log</category>
-<category>Post</category>
-<category>Press</category>
-<category>Sitemap</category>
+<category>Class</category>
 </item>
 <item>
-<title>Classed as 'Puzzlescript'</title>
-<link>http://pedropsi.github.io/tag-Puzzlescript</link>
-<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p> About  Skilleblokker  
- It s time to disconnect with  All Puzzlescript Games , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
+ It s time to disconnect with  Game tools , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
  Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
@@ -140,14 +192,43 @@ The definitive list all puzlescript games
 <category>Class</category>
 </item>
 <item>
-<title>All Tutorials</title>
-<link>http://pedropsi.github.io/tag-Tutorial</link>
-<guid>http://pedropsi.github.io/tag-Tutorial</guid>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p> About  News  
+ It s time to disconnect with  Puzzlescript games database , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
+
+    How to play Controls - keyboard 
+ Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
+ Level difficulty is shown by the number of stars (1 to 5). 
+
+ Press  Z  to undo a move. Press  R  to restart the level. 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  News , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  News ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+
+ Credits   News  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in News        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+
+ F.A.Q. 
+
+ How is  News  related to Burokku Konekuta? 
+ «TITLE-B...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<p> About  Classed as Puzzlescript   
  It s time to disconnect with  Classed as Community  , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
@@ -155,28 +236,30 @@ The definitive list all puzlescript games
  Level difficulty is shown by the number of stars (1 to 5). 
 
  Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  News , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  News ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Puzzlescript  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Puzzlescript  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
 
- Credits   News  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in News        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+ Credits   Classed as Puzzlescript   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Puzzlescript         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
 
  F.A.Q. 
 
- How is  News  related to Burokku Konekuta? 
+ How is  Classed as Puzzlescript   related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Resource</category>
+<category>Tutorial</category>
+<category>Puzzlescript</category>
 </item>
 <item>
-<title>All Resources</title>
-<link>http://pedropsi.github.io/tag-Resource</link>
-<guid>http://pedropsi.github.io/tag-Resource</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>Game tools</title>
+<link>http://pedropsi.github.io/game-tools</link>
+<guid>http://pedropsi.github.io/game-tools</guid>
+<pubDate>Sat, 12 Oct 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Classed as Puzzlescript   
+		<img src="https://pedropsi.github.io/images/game-tools.png" height="200" align="left" hspace="5" alt="Game tools" title="Game tools"/>
+		<p> About  All Tutorials  
  It s time to disconnect with  Skilleblokker , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
@@ -184,28 +267,33 @@ The definitive list all puzlescript games
  Level difficulty is shown by the number of stars (1 to 5). 
 
  Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Puzzlescript  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Puzzlescript  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Tutorials , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Tutorials ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
 
- Credits   Classed as Puzzlescript   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Puzzlescript         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+ Credits   All Tutorials  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Tutorials        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
 
  F.A.Q. 
 
- How is  Classed as Puzzlescript   related to Burokku Konekuta? 
+ How is  All Tutorials  related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Community</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+<category>Puzzlescript</category>
+<category>Resource</category>
 </item>
 <item>
-<title>Puzzlescript Game Bar</title>
-<link>http://pedropsi.github.io/game-bar</link>
-<guid>http://pedropsi.github.io/game-bar</guid>
-<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<title>Puzzlescript games database</title>
+<link>http://pedropsi.github.io/puzzlescript-games-database</link>
+<guid>http://pedropsi.github.io/puzzlescript-games-database</guid>
+<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
-		<p> About  All Tutorials  
+		<img src="https://pedropsi.github.io/images/puzzlescript-games-database.png" height="200" align="left" hspace="5" alt="Puzzlescript games database" title="Puzzlescript games database"/>
+		<p> About  All Resources  
  It s time to disconnect with  News , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
@@ -213,30 +301,30 @@ The definitive list all puzlescript games
  Level difficulty is shown by the number of stars (1 to 5). 
 
  Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Tutorials , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Tutorials ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Resources , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Resources ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
 
- Credits   All Tutorials  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Tutorials        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+ Credits   All Resources  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Resources        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
 
  F.A.Q. 
 
- How is  All Tutorials  related to Burokku Konekuta? 
+ How is  All Resources  related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
 
-<category>Resource</category>
-<category>Tutorial</category>
+<category>Community</category>
+<category>List</category>
 <category>Puzzlescript</category>
 </item>
 <item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<title>Classed as 'Community'</title>
+<link>http://pedropsi.github.io/tag-Community</link>
+<guid>http://pedropsi.github.io/tag-Community</guid>
+<pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p> About  All Resources  
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p> About  Puzzlescript Game Bar  
  It s time to disconnect with  Classed as Puzzlescript  , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
@@ -244,30 +332,28 @@ The definitive list all puzlescript games
  Level difficulty is shown by the number of stars (1 to 5). 
 
  Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Resources , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Resources ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Puzzlescript Game Bar , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Puzzlescript Game Bar ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
 
- Credits   All Resources  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Resources        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+ Credits   Puzzlescript Game Bar  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Puzzlescript Game Bar        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
 
  F.A.Q. 
 
- How is  All Resources  related to Burokku Konekuta? 
+ How is  Puzzlescript Game Bar  related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
 
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
+<category>Class</category>
 </item>
 <item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
-<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
+<title>Skilleblokker</title>
+<link>http://pedropsi.github.io/skilleblokker</link>
+<guid>http://pedropsi.github.io/skilleblokker</guid>
+<pubDate>Sat, 21 Sep 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
-		<p> About  Puzzlescript Game Bar  
+		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
+		<p> About  Game tools  
  It s time to disconnect with  All Tutorials , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
@@ -275,30 +361,30 @@ The definitive list all puzlescript games
  Level difficulty is shown by the number of stars (1 to 5). 
 
  Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Puzzlescript Game Bar , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Puzzlescript Game Bar ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Game tools , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Game tools ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
 
- Credits   Puzzlescript Game Bar  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Puzzlescript Game Bar        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+ Credits   Game tools  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Game tools        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
 
  F.A.Q. 
 
- How is  Puzzlescript Game Bar  related to Burokku Konekuta? 
+ How is  Game tools  related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
 
-<category>Community</category>
-<category>List</category>
+<category>Game</category>
+<category>Puzzle</category>
 <category>Puzzlescript</category>
 </item>
 <item>
-<title>Classed as 'Community'</title>
-<link>http://pedropsi.github.io/tag-Community</link>
-<guid>http://pedropsi.github.io/tag-Community</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>News</title>
+<link>http://pedropsi.github.io/news</link>
+<guid>http://pedropsi.github.io/news</guid>
+<pubDate>Fri, 20 Sep 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Burokku Konekuta  
+		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
+		<p> About  Puzzlescript games database  
  It s time to disconnect with  All Resources , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
@@ -306,60 +392,33 @@ The definitive list all puzlescript games
  Level difficulty is shown by the number of stars (1 to 5). 
 
  Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Burokku Konekuta , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Burokku Konekuta ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
+ Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Puzzlescript games database , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Puzzlescript games database ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
 
- Credits   Burokku Konekuta  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Burokku Konekuta        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
+ Credits   Puzzlescript games database  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Puzzlescript games database        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
 
  F.A.Q. 
 
- How is  Burokku Konekuta  related to Burokku Konekuta? 
+ How is  Puzzlescript games database  related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Creative-Archive</category>
+<category>Log</category>
+<category>Post</category>
+<category>Press</category>
+<category>Sitemap</category>
 </item>
 <item>
-<title>Skilleblokker</title>
-<link>http://pedropsi.github.io/skilleblokker</link>
-<guid>http://pedropsi.github.io/skilleblokker</guid>
-<pubDate>Sat, 21 Sep 2019 07:06:05 GMT</pubDate>
+<title>Classed as 'Puzzlescript'</title>
+<link>http://pedropsi.github.io/tag-Puzzlescript</link>
+<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
+<pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
-		<p> About  All Puzzlescript Games  
- It s time to disconnect with  Puzzlescript Game Bar , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Puzzlescript Games , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Puzzlescript Games ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Puzzlescript Games  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Puzzlescript Games        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  All Puzzlescript Games  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>News</title>
-<link>http://pedropsi.github.io/news</link>
-<guid>http://pedropsi.github.io/news</guid>
-<pubDate>Fri, 20 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p> About  Classed as Community   
- It s time to disconnect with  Burokku Konekuta , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
+ It s time to disconnect with  Puzzlescript Game Bar , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
 
     How to play Controls - keyboard 
  Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
@@ -377,16 +436,12 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Creative-Archive</category>
-<category>Log</category>
-<category>Post</category>
-<category>Press</category>
-<category>Sitemap</category>
+<category>Class</category>
 </item>
 <item>
-<title>Classed as 'Puzzlescript'</title>
-<link>http://pedropsi.github.io/tag-Puzzlescript</link>
-<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
+<title>All Tutorials</title>
+<link>http://pedropsi.github.io/tag-Tutorial</link>
+<guid>http://pedropsi.github.io/tag-Tutorial</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
@@ -413,9 +468,9 @@ The definitive list all puzlescript games
 <category>Class</category>
 </item>
 <item>
-<title>All Tutorials</title>
-<link>http://pedropsi.github.io/tag-Tutorial</link>
-<guid>http://pedropsi.github.io/tag-Tutorial</guid>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
 <pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
@@ -442,13 +497,13 @@ The definitive list all puzlescript games
 <category>Class</category>
 </item>
 <item>
-<title>All Resources</title>
-<link>http://pedropsi.github.io/tag-Resource</link>
-<guid>http://pedropsi.github.io/tag-Resource</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
 		<p> About  Classed as Puzzlescript   
 
 
@@ -468,16 +523,18 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Resource</category>
+<category>Tutorial</category>
+<category>Puzzlescript</category>
 </item>
 <item>
-<title>Puzzlescript Game Bar</title>
-<link>http://pedropsi.github.io/game-bar</link>
-<guid>http://pedropsi.github.io/game-bar</guid>
-<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<title>Game tools</title>
+<link>http://pedropsi.github.io/game-tools</link>
+<guid>http://pedropsi.github.io/game-tools</guid>
+<pubDate>Sat, 12 Oct 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<img src="https://pedropsi.github.io/images/game-tools.png" height="200" align="left" hspace="5" alt="Game tools" title="Game tools"/>
 		<p> About  All Tutorials  
 
 
@@ -497,18 +554,21 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Resource</category>
-<category>Tutorial</category>
+<category>Community</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
 <category>Puzzlescript</category>
+<category>Resource</category>
 </item>
 <item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<title>Puzzlescript games database</title>
+<link>http://pedropsi.github.io/puzzlescript-games-database</link>
+<guid>http://pedropsi.github.io/puzzlescript-games-database</guid>
+<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
+		<img src="https://pedropsi.github.io/images/puzzlescript-games-database.png" height="200" align="left" hspace="5" alt="Puzzlescript games database" title="Puzzlescript games database"/>
 		<p> About  All Resources  
 
 
@@ -524,37 +584,6 @@ The definitive list all puzlescript games
  F.A.Q. 
 
  How is  All Resources  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
-<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
-		<p> About  Puzzlescript Game Bar  
- Tidiness rules in  All Puzzlescript Games . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Puzzlescript Game Bar , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Puzzlescript Game Bar ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Puzzlescript Game Bar  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Puzzlescript Game Bar        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  Puzzlescript Game Bar  related to Burokku Konekuta? 
  «TITLE-B...</p>
 	]]>
 	</description>
@@ -571,248 +600,6 @@ The definitive list all puzlescript games
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Burokku Konekuta  
- Tidiness rules in  Classed as Community  . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Burokku Konekuta , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Burokku Konekuta ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Burokku Konekuta  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Burokku Konekuta        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  Burokku Konekuta  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Skilleblokker</title>
-<link>http://pedropsi.github.io/skilleblokker</link>
-<guid>http://pedropsi.github.io/skilleblokker</guid>
-<pubDate>Sat, 21 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
-		<p> About  All Puzzlescript Games  
- Tidiness rules in  Skilleblokker . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Puzzlescript Games , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Puzzlescript Games ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Puzzlescript Games  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Puzzlescript Games        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  All Puzzlescript Games  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>News</title>
-<link>http://pedropsi.github.io/news</link>
-<guid>http://pedropsi.github.io/news</guid>
-<pubDate>Fri, 20 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
-		<p> About  Classed as Community   
- Tidiness rules in  News . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Community  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Community  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Community   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Community         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  Classed as Community   related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Creative-Archive</category>
-<category>Log</category>
-<category>Post</category>
-<category>Press</category>
-<category>Sitemap</category>
-</item>
-<item>
-<title>Classed as 'Puzzlescript'</title>
-<link>http://pedropsi.github.io/tag-Puzzlescript</link>
-<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Skilleblokker  
- Tidiness rules in  Classed as Puzzlescript  . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Skilleblokker , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Skilleblokker ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Skilleblokker  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Skilleblokker        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  Skilleblokker  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Tutorials</title>
-<link>http://pedropsi.github.io/tag-Tutorial</link>
-<guid>http://pedropsi.github.io/tag-Tutorial</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  News  
- Tidiness rules in  All Tutorials . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  News , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  News ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   News  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in News        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  News  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Resources</title>
-<link>http://pedropsi.github.io/tag-Resource</link>
-<guid>http://pedropsi.github.io/tag-Resource</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Classed as Puzzlescript   
- Tidiness rules in  All Resources . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Puzzlescript  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Puzzlescript  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Puzzlescript   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Puzzlescript         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  Classed as Puzzlescript   related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Puzzlescript Game Bar</title>
-<link>http://pedropsi.github.io/game-bar</link>
-<guid>http://pedropsi.github.io/game-bar</guid>
-<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
-		<p> About  All Tutorials  
- Tidiness rules in  Puzzlescript Game Bar . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Tutorials , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Tutorials ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Tutorials  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Tutorials        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  All Tutorials  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Resource</category>
-<category>Tutorial</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p> About  All Resources  
- Tidiness rules in  Burokku Konekuta . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Slide with  left up right down or W A S D , and push apart blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Hints Request a hint by pressing H , but use them sparingly to preserve your standing, shall you enter the  Hall of Fame !  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Resources , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Resources ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Resources  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Resources        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- F.A.Q. 
-
- How is  All Resources  related to Burokku Konekuta? 
- «TITLE-B...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
-<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
 		<p> This is the Creative Archive s news stream, live since 19/09/2019 . Check back often to keep abreast of the most relevant developments. 
 
  02/10/2019 
@@ -821,22 +608,6 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Community</category>
-<category>List</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Classed as 'Community'</title>
-<link>http://pedropsi.github.io/tag-Community</link>
-<guid>http://pedropsi.github.io/tag-Community</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p>Classed as 'Puzzlescript' in the Creative Archive</p>
-	]]>
-	</description>
-
 <category>Class</category>
 </item>
 <item>
@@ -847,7 +618,7 @@ The definitive list all puzlescript games
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
-		<p>All Tutorials in the Creative Archive</p>
+		<p>Classed as 'Puzzlescript' in the Creative Archive</p>
 	]]>
 	</description>
 
@@ -863,7 +634,7 @@ The definitive list all puzlescript games
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
-		<p>All Resources in the Creative Archive</p>
+		<p>All Tutorials in the Creative Archive</p>
 	]]>
 	</description>
 
@@ -881,11 +652,7 @@ The definitive list all puzlescript games
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About the  All Puzzlescript Games  
-
- This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
-
- This is how the «TITLE-BOLD...</p>
+		<p>All Resources in the Creative Archive</p>
 	]]>
 	</description>
 
@@ -899,6 +666,42 @@ The definitive list all puzlescript games
 <description>
 	<![CDATA[
 		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p> About the  Game tools  
+
+ This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
+
+ This is how the «TITLE-BOLD...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>All Resources</title>
+<link>http://pedropsi.github.io/tag-Resource</link>
+<guid>http://pedropsi.github.io/tag-Resource</guid>
+<pubDate> 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<p> About the  Puzzlescript games database  
+
+ This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
+
+ This is how the «TITLE-BOLD...</p>
+	]]>
+	</description>
+
+<category>Class</category>
+</item>
+<item>
+<title>Puzzlescript Game Bar</title>
+<link>http://pedropsi.github.io/game-bar</link>
+<guid>http://pedropsi.github.io/game-bar</guid>
+<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<description>
+	<![CDATA[
+		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
 		<p> About the  Classed as Community   
 
  This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
@@ -907,16 +710,18 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Resource</category>
+<category>Tutorial</category>
+<category>Puzzlescript</category>
 </item>
 <item>
-<title>All Resources</title>
-<link>http://pedropsi.github.io/tag-Resource</link>
-<guid>http://pedropsi.github.io/tag-Resource</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>Game tools</title>
+<link>http://pedropsi.github.io/game-tools</link>
+<guid>http://pedropsi.github.io/game-tools</guid>
+<pubDate>Sat, 12 Oct 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<img src="https://pedropsi.github.io/images/game-tools.png" height="200" align="left" hspace="5" alt="Game tools" title="Game tools"/>
 		<p> About the  Skilleblokker  
 
  This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
@@ -925,16 +730,21 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Community</category>
+<category>List</category>
+<category>Log</category>
+<category>Post</category>
+<category>Puzzlescript</category>
+<category>Resource</category>
 </item>
 <item>
-<title>Puzzlescript Game Bar</title>
-<link>http://pedropsi.github.io/game-bar</link>
-<guid>http://pedropsi.github.io/game-bar</guid>
-<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
+<title>Puzzlescript games database</title>
+<link>http://pedropsi.github.io/puzzlescript-games-database</link>
+<guid>http://pedropsi.github.io/puzzlescript-games-database</guid>
+<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
+		<img src="https://pedropsi.github.io/images/puzzlescript-games-database.png" height="200" align="left" hspace="5" alt="Puzzlescript games database" title="Puzzlescript games database"/>
 		<p> About the  News  
 
  This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
@@ -943,18 +753,18 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Resource</category>
-<category>Tutorial</category>
+<category>Community</category>
+<category>List</category>
 <category>Puzzlescript</category>
 </item>
 <item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
+<title>Classed as 'Community'</title>
+<link>http://pedropsi.github.io/tag-Community</link>
+<guid>http://pedropsi.github.io/tag-Community</guid>
+<pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p> About the  Classed as Puzzlescript   
 
  This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
@@ -963,18 +773,16 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
+<category>Class</category>
 </item>
 <item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
-<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
+<title>Skilleblokker</title>
+<link>http://pedropsi.github.io/skilleblokker</link>
+<guid>http://pedropsi.github.io/skilleblokker</guid>
+<pubDate>Sat, 21 Sep 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
+		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
 		<p> About the  All Tutorials  
 
  This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
@@ -983,18 +791,18 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Community</category>
-<category>List</category>
+<category>Game</category>
+<category>Puzzle</category>
 <category>Puzzlescript</category>
 </item>
 <item>
-<title>Classed as 'Community'</title>
-<link>http://pedropsi.github.io/tag-Community</link>
-<guid>http://pedropsi.github.io/tag-Community</guid>
-<pubDate> 07:06:05 GMT</pubDate>
+<title>News</title>
+<link>http://pedropsi.github.io/news</link>
+<guid>http://pedropsi.github.io/news</guid>
+<pubDate>Fri, 20 Sep 2019 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
+		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
 		<p> About the  All Resources  
 
  This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
@@ -1003,825 +811,25 @@ The definitive list all puzlescript games
 	]]>
 	</description>
 
-<category>Class</category>
+<category>Creative-Archive</category>
+<category>Log</category>
+<category>Post</category>
+<category>Press</category>
+<category>Sitemap</category>
 </item>
 <item>
-<title>Skilleblokker</title>
-<link>http://pedropsi.github.io/skilleblokker</link>
-<guid>http://pedropsi.github.io/skilleblokker</guid>
-<pubDate>Sat, 21 Sep 2019 07:06:05 GMT</pubDate>
+<title>Classed as 'Puzzlescript'</title>
+<link>http://pedropsi.github.io/tag-Puzzlescript</link>
+<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
+<pubDate> 07:06:05 GMT</pubDate>
 <description>
 	<![CDATA[
-		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
+		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
 		<p> About the  Puzzlescript Game Bar  
 
  This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
 
  This is how the «TITLE-BOLD...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>News</title>
-<link>http://pedropsi.github.io/news</link>
-<guid>http://pedropsi.github.io/news</guid>
-<pubDate>Fri, 20 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
-		<p> About the  Burokku Konekuta  
-
- This is the game bar found in all Pedro PSI s puzzlescript games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
-
- This is how the «TITLE-BOLD...</p>
-	]]>
-	</description>
-
-<category>Creative-Archive</category>
-<category>Log</category>
-<category>Post</category>
-<category>Press</category>
-<category>Sitemap</category>
-</item>
-<item>
-<title>Classed as 'Puzzlescript'</title>
-<link>http://pedropsi.github.io/tag-Puzzlescript</link>
-<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  All Puzzlescript Games  
-The definitive list all puzlescript games
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Puzzlescript Games , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Puzzlescript Games ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Puzzlescript Games  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Puzzlescript Games        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Tutorials</title>
-<link>http://pedropsi.github.io/tag-Tutorial</link>
-<guid>http://pedropsi.github.io/tag-Tutorial</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Classed as Community   
-
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Community  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Community  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Community   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Community         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Resources</title>
-<link>http://pedropsi.github.io/tag-Resource</link>
-<guid>http://pedropsi.github.io/tag-Resource</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Skilleblokker  
- It s time to disconnect with  All Puzzlescript Games , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Skilleblokker , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Skilleblokker ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Skilleblokker  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Skilleblokker        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Puzzlescript Game Bar</title>
-<link>http://pedropsi.github.io/game-bar</link>
-<guid>http://pedropsi.github.io/game-bar</guid>
-<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
-		<p> About  News  
- It s time to disconnect with  Classed as Community  , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  News , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  News ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   News  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in News        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Resource</category>
-<category>Tutorial</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p> About  Classed as Puzzlescript   
- It s time to disconnect with  Skilleblokker , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Puzzlescript  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Puzzlescript  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Puzzlescript   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Puzzlescript         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
-<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
-		<p> About  All Tutorials  
- It s time to disconnect with  News , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Tutorials , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Tutorials ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Tutorials  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Tutorials        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Community</category>
-<category>List</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Classed as 'Community'</title>
-<link>http://pedropsi.github.io/tag-Community</link>
-<guid>http://pedropsi.github.io/tag-Community</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  All Resources  
- It s time to disconnect with  Classed as Puzzlescript  , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Resources , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Resources ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Resources  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Resources        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Skilleblokker</title>
-<link>http://pedropsi.github.io/skilleblokker</link>
-<guid>http://pedropsi.github.io/skilleblokker</guid>
-<pubDate>Sat, 21 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
-		<p> About  Puzzlescript Game Bar  
- It s time to disconnect with  All Tutorials , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Puzzlescript Game Bar , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Puzzlescript Game Bar ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Puzzlescript Game Bar  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Puzzlescript Game Bar        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>News</title>
-<link>http://pedropsi.github.io/news</link>
-<guid>http://pedropsi.github.io/news</guid>
-<pubDate>Fri, 20 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
-		<p> About  Burokku Konekuta  
- It s time to disconnect with  All Resources , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Burokku Konekuta , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Burokku Konekuta ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Burokku Konekuta  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Burokku Konekuta        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Creative-Archive</category>
-<category>Log</category>
-<category>Post</category>
-<category>Press</category>
-<category>Sitemap</category>
-</item>
-<item>
-<title>Classed as 'Puzzlescript'</title>
-<link>http://pedropsi.github.io/tag-Puzzlescript</link>
-<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  All Puzzlescript Games  
- It s time to disconnect with  Puzzlescript Game Bar , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Puzzlescript Games , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Puzzlescript Games ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Puzzlescript Games  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Puzzlescript Games        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Tutorials</title>
-<link>http://pedropsi.github.io/tag-Tutorial</link>
-<guid>http://pedropsi.github.io/tag-Tutorial</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Classed as Community   
- It s time to disconnect with  Burokku Konekuta , the opposite twin of Burokku Konekuta. Can you chill out and isolate every block or will you slip astray on the ice? 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Community  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Community  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Community   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Community         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Resources</title>
-<link>http://pedropsi.github.io/tag-Resource</link>
-<guid>http://pedropsi.github.io/tag-Resource</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Skilleblokker  
-
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Skilleblokker , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Skilleblokker ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Skilleblokker  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Skilleblokker        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Puzzlescript Game Bar</title>
-<link>http://pedropsi.github.io/game-bar</link>
-<guid>http://pedropsi.github.io/game-bar</guid>
-<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
-		<p> About  News  
-
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  News , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  News ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   News  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in News        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Resource</category>
-<category>Tutorial</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p> About  Classed as Puzzlescript   
-
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Puzzlescript  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Puzzlescript  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Puzzlescript   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Puzzlescript         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
-<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
-		<p> About  All Tutorials  
-
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Tutorials , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Tutorials ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Tutorials  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Tutorials        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Community</category>
-<category>List</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Classed as 'Community'</title>
-<link>http://pedropsi.github.io/tag-Community</link>
-<guid>http://pedropsi.github.io/tag-Community</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  All Resources  
-
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Resources , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Resources ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Resources  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Resources        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Skilleblokker</title>
-<link>http://pedropsi.github.io/skilleblokker</link>
-<guid>http://pedropsi.github.io/skilleblokker</guid>
-<pubDate>Sat, 21 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/skilleblokker.png" height="200" align="left" hspace="5" alt="Skilleblokker" title="Skilleblokker"/>
-		<p> About  Puzzlescript Game Bar  
- Tidiness rules in  All Puzzlescript Games . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Puzzlescript Game Bar , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Puzzlescript Game Bar ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Puzzlescript Game Bar  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Puzzlescript Game Bar        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>News</title>
-<link>http://pedropsi.github.io/news</link>
-<guid>http://pedropsi.github.io/news</guid>
-<pubDate>Fri, 20 Sep 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/news.png" height="200" align="left" hspace="5" alt="Creative Archive News" title="Creative Archive News"/>
-		<p> About  Burokku Konekuta  
- Tidiness rules in  Classed as Community  . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Burokku Konekuta , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Burokku Konekuta ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Burokku Konekuta  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Burokku Konekuta        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Creative-Archive</category>
-<category>Log</category>
-<category>Post</category>
-<category>Press</category>
-<category>Sitemap</category>
-</item>
-<item>
-<title>Classed as 'Puzzlescript'</title>
-<link>http://pedropsi.github.io/tag-Puzzlescript</link>
-<guid>http://pedropsi.github.io/tag-Puzzlescript</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  All Puzzlescript Games  
- Tidiness rules in  Skilleblokker . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Puzzlescript Games , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Puzzlescript Games ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Puzzlescript Games  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Puzzlescript Games        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Tutorials</title>
-<link>http://pedropsi.github.io/tag-Tutorial</link>
-<guid>http://pedropsi.github.io/tag-Tutorial</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Classed as Community   
- Tidiness rules in  News . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Community  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Community  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Community   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Community         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>All Resources</title>
-<link>http://pedropsi.github.io/tag-Resource</link>
-<guid>http://pedropsi.github.io/tag-Resource</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  Skilleblokker  
- Tidiness rules in  Classed as Puzzlescript  . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely between all levels.. Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Skilleblokker , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Skilleblokker ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Skilleblokker  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Skilleblokker        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Class</category>
-</item>
-<item>
-<title>Puzzlescript Game Bar</title>
-<link>http://pedropsi.github.io/game-bar</link>
-<guid>http://pedropsi.github.io/game-bar</guid>
-<pubDate>Sat, 27 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/game-bar.png" height="200" align="left" hspace="5" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar"/>
-		<p> About  News  
- Tidiness rules in  All Tutorials . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  News , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  News ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   News  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in News        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Resource</category>
-<category>Tutorial</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Burokku Konekuta</title>
-<link>http://pedropsi.github.io/burokku-konekuta</link>
-<guid>http://pedropsi.github.io/burokku-konekuta</guid>
-<pubDate>Wed, 10 Jul 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/burokku-konekuta.png" height="200" align="left" hspace="5" alt="Burokku Konekuta" title="Burokku Konekuta"/>
-		<p> About  Classed as Puzzlescript   
- Tidiness rules in  All Resources . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  Classed as Puzzlescript  , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  Classed as Puzzlescript  ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   Classed as Puzzlescript   by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in Classed as Puzzlescript         Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Game</category>
-<category>Puzzle</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>All Puzzlescript Games</title>
-<link>http://pedropsi.github.io/all-puzzlescript-games</link>
-<guid>http://pedropsi.github.io/all-puzzlescript-games</guid>
-<pubDate>Thu, 10 Oct 2019 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="All Puzzlescript Games" title="All Puzzlescript Games"/>
-		<p> About  All Tutorials  
- Tidiness rules in  Puzzlescript Game Bar . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Tutorials , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Tutorials ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Tutorials  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Tutorials        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
-	]]>
-	</description>
-
-<category>Community</category>
-<category>List</category>
-<category>Puzzlescript</category>
-</item>
-<item>
-<title>Classed as 'Community'</title>
-<link>http://pedropsi.github.io/tag-Community</link>
-<guid>http://pedropsi.github.io/tag-Community</guid>
-<pubDate> 07:06:05 GMT</pubDate>
-<description>
-	<![CDATA[
-		<img src="https://pedropsi.github.io/images/splash.png" height="200" align="left" hspace="5" alt="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression." title="Octaflower, the Creative Archive's logo. A geometric lotus flower composed of eight rows of eight petals in rainbow progression."/>
-		<p> About  All Resources  
- Tidiness rules in  Burokku Konekuta . Connect all the scattered pieces together to regain the harmony within your puzzled mind. 
-
-    How to play Controls - keyboard 
- Move with  left up right down or W A S D , and push blocks of different shapes. 
- Level difficulty is shown by the number of stars (1 to 5). 
-
- Press  Z  to undo a move. Press  R  to restart the level. 
- Controls - touchscreen Tap to simulate pressing X and swipe to simulate an arrow keypress . E-mail Pedro PSI real-time feedback Press E anytime to e-mail real-time feedback to Pedro PSI! Much appreciated!  Level navigation Press L or click Select level in the game bar to navigate freely . Type the level number directly with  0 1 2 3 4 5 6 7 8 9 , press Tab / Shift + Tab or Left / Right to cycle through levels , Enter or Double Click to confirm , Esc or L to cancel .  Fullscreen Toggle Fullscreen by pressing F .  Hall of fame Once you beat  All Resources , you ll be invited to enter the  Hall of Fame ! As soon as you pass the final credits screen after winning, you ll be able to type your name in a new window. Make sure you are connected to the internet, then press Submit to be remembered forever or close the window... Community  Guestbook  Enjoyed  All Resources ? Add your message below to the Creative Archive s  guestbook !  Leave your message! 
-
- Credits   All Resources  by  Pedro PSI , 2019.  Music  Background music by .  Music tracks in All Resources        Game Engine  Made with Puzzlescript and Pedro PSI s game bar !  Inspect the source freely, but consider supporting the Creative Archive ! 
-
- Featured in 
- Blogs 
- 
-  s blog 
-  s フラ...</p>
 	]]>
 	</description>
 

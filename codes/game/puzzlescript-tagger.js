@@ -39,7 +39,7 @@ function SubmitGameData(){
 		data.formGoogleSheetName=DESTINATION_TAGGER.sheet;
 		
 		EchoPureData(data,DESTINATION_TAGGER.url);
-		alert("Game "+data.title+" by "+data.author+" submitted!");
+		alert("Game "+data.title+" by "+data.author+" submitted, if not already!");
 	}
 	else
 		alert("Sorry, no game could be found in this page. Please tell Pedro PSI whether this is an error.");
