@@ -1,5 +1,10 @@
 ﻿<p>This is the «SITE-NAME»'s news stream, live since <b>19/09/2019</b>. Check back often to keep abreast of the most relevant developments.</p>
 
+<h2>12/10/2019</h2>
+<h3>Puzzlescript game database & tools</h3>
+<p>The world's largest public puzzlescript game database was released for the first time.</p>
+<p>Some game making tools were listed, for future reference.</p>
+
 <h2>02/10/2019</h2>
 <h3>Game bar keyboard shortcuts system</h3>
 <p>A better keyboard shortcut system was added. Menu navigation using (<kbd>ctrl</kbd>+)<kbd>enter</kbd>, <kbd>space</kbd>, (<kbd>shift</kbd>+)<kbd>tab</kbd> and <kbd>arrows</kbd> has improved.</p>
