@@ -13,11 +13,16 @@ function ReadGameData(){
 		"page":document.URL.replace(/itch.io\/.*/,"itch.io")
 		};
 	}else{
+		
+		var link=document.URL;
+		if(In(link,"hack")&&In(link,"puzzlescript"))
+			link=link.replace("hack=","p=").replace("editor.html","play.html");
+		
 		if(state&&state.metadata){
 			data={
 			"title":state.metadata.title,
 			"author":state.metadata.author,
-			"link":document.URL,
+			"link":link,
 			"page":state.metadata.homepage?state.metadata.homepage:""
 			};
 		}
