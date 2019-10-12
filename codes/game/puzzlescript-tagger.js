@@ -17,8 +17,8 @@ function ReadGameData(){
 		data={
 		"title":T.replace(/\s\-\s.*/,""),
 		"author":"Stephen Lavelle",
-		"link":"https://increpare.com/",
-		"page":document.URL
+		"link":document.URL,
+		"page":"https://increpare.com/"
 		};
 	}else{
 		
