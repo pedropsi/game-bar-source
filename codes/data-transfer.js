@@ -2374,7 +2374,11 @@ var ContextualShortcuts={
 		"up":FocusPrev,
 		"down":FocusNext,
 		"left":FocusPrev,
-		"right":FocusNext
+		"right":FocusNext,
+		"W":FocusPrev,
+		"S":FocusNext,
+		"A":FocusPrev,
+		"D":FocusNext
 	},
 	".window":{
 		"escape":CloseCurrentDatapack,
@@ -2387,18 +2391,30 @@ var ContextualShortcuts={
 		"right":FocusNext,
 		"up":FocusPrev,
 		"down":FocusNext,
+		"W":FocusPrev,
+		"S":FocusNext,
+		"A":FocusPrev,
+		"D":FocusNext
 	},
 	".navi":{
 		"up":FocusPrevParent,
 		"down":FocusNextParent,
 		"left":ClickPrevBounded,
 		"right":ClickNextBounded,
+		"W":FocusPrevParent,
+		"S":FocusNextParent,
+		"A":ClickPrevBounded,
+		"D":ClickNextBounded
 	},
 	".buttonrow":{
 		"up":FocusPrevParent,
 		"down":FocusNextParent,
 		"left":FocusPrevBounded,
 		"right":FocusNextBounded,
+		"W":FocusPrevParent,
+		"S":FocusNextParent,
+		"A":FocusPrevBounded,
+		"D":FocusNextBounded
 	},
 	".button":{
 		"enter":ClickStay,
