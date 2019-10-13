@@ -4,7 +4,7 @@
 
 <h2>Puzzlescript forks or mods</h2>
 <p>Over 100 puzzlescript forks were made since 2013, and some of them are highlighted in the table below. They may include useful features and language extensions not incorporated yet in the original repository. The engine has also been adapted to create 3D games, and wrapped to run in different environments.</p>
-<p><b>NB:</b> «NAME»'s <a href="game-bar.html#Bookmarklet">puzzlescript game bar bookmarklet</a> adds a <em>level selector</em>, a <em>fullscreen mode</em> and a flexible <em>hints system</em> to any puzzlescript game on the fly.</p>
+<p><b>NB:</b> «NAME»'s <a href="game-bar.html#Bookmarklet">puzzlescript game bar bookmarklet</a> adds a <em>level selector</em> and a <em>fullscreen mode</em> to any puzzlescript game on the fly, and supports a flexible <em>hints system</em> and a <em>background music</em> playlist.</p>
 
 «MOD-LIST»
 
