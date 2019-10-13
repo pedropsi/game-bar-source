@@ -684,6 +684,13 @@ tbody tr:hover{
    color: var(--darkblue);
      transition-duration: var(--duration);
 }
+
+tbody td:hover{
+   background-color: var(--white);
+   color: var(--darkblue);
+     transition-duration: var(--duration);
+}
+
 .top-left tbody th:first-child{
     text-align: center;
     color: var(--darkblue);
@@ -691,13 +698,34 @@ tbody tr:hover{
 }
 
 td{
-    min-width: var(--w16)
+    max-width: var(--w16);
 }
 
 table caption{
     color: var(--darkblue);
     font-style:italic;
 }
+
+
+@media only screen and (max-width: 350px) {
+
+    thead th, tbody tr{
+        display:flex;
+        flex-direction:column;
+        justify-content: stretch;
+    }
+
+    thead th, tbody tr td{
+        border-bottom: var(--h-4) solid var(--white);
+        min-width: 95%;
+        align-self: center;
+     }
+    
+    tr:nth-child(even) td{
+        border-bottom-color: var(--smokewhite);
+     }
+
+} 
 
 .modal {   
     --t:0.5;
