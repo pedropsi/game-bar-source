@@ -1,18 +1,17 @@
 ﻿<h2>Purpose</h2>
-<p>This is a <em>concise</em> compilation of game tools, inculding useful <b>puzzlescript forks or mods</b> and <b>auxiliary tools</b> for larger games . As a publicly shared, «PERSONAL» reference, it may be updated anytime.</p>
+
+<p>This is a <em>concise</em> compilation of (puzzlescript) game tools, including useful <b>forks or mods</b> and <b>helpful tools</b>. As a publicly shared, «PERSONAL» reference, it may be updated anytime.</p>
 
 <h2>Puzzlescript forks or mods</h2>
-<p>Over 100 puzzlescript forks were made since 2013. The table below lists only those with innovative features not yet incorporated in the official repository, that «NAME» knows about. Puzzlescript wrappers were included.</p>
+<p>Over 100 puzzlescript forks were made since 2013, and some of them are highlighted in the table below. They may include useful features and language extensions not incorporated yet in the original repository. The engine has also been adapted to create 3D games, and wrapped to run in different environments.</p>
+<p><b>NB:</b> «NAME»'s <a href="game-bar.html#Bookmarklet">puzzlescript game bar bookmarklet</a> adds a <em>level selector</em>, a <em>fullscreen mode</em> and a flexible <em>hints system</em> to any puzzlescript game on the fly.</p>
 
 «MOD-LIST»
 
-<p><b>NB:</b> The <a href="game-bar.html#Bookmarklet">puzzlescript game bar bookmarklet</a>, a related tool, though not exactly a fork, adds a <em>level selector</em> and <em>fullscreen</em> option to any puzzlescript games on the fly.</p>
-
-<h2>Auxiliary tools</h2>
-<p>Making larger games with puzzlescript escapes its original intention, yet many people regard that as a challenge. In that case, the auxiliary tools below may make your task less heroic.</p>
+<h2>Helpful tools</h2>
+<p>Making larger games with puzzlescript is regarded by many people as a challenge. In that case, these helpful tools make it less heroic.</p>
 
 «TOOL-LIST»
 
-
-<p><em>If these puzzlescript resources were useful to you, do leave a message on the guestbook:</em></p>
+<p><em>If you have a suggestion or you found these puzzlescript resources were useful, do leave a message on the guestbook:</em></p>
 «GUESTBOOK-ADD»
