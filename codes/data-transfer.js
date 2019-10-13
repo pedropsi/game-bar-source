@@ -702,29 +702,61 @@ function ScrollInto(elementIDsel){
 //////////////////////////////////////////////////
 // Safe string loading
 function SafeString(tex){
-	return String(tex).replace(/[\<\>\=\+\-\(\)]/g,"");
+	return String(tex).replace(/[\<\>\=\+\-\(\)\*\'\"]/g,"");
 }
 
+function SafeUrl(tex){
+	return "https://"+String(tex).replace(/[\<\>\+\(\)\*\'\"\#\\\s]+.*/g,"").replace(/https?:\/\//,"");
+}
 
 //////////////////////////////////////////////////
 // Transformer: Table
-function MakeTable(dataarray){
-	function EnRow(dataline){
-		var datalin = dataline.map(
-			function(x){
-				var y = SafeString(x);
-				if(y!="")
-					y="\t\t<td>"+SafeString(x)+"</td>";
-				return y;
-			});
-		var dtl = datalin.join("\n");
-		if(dtl!="\n")
-			dtl="\t<tr>\n"+dtl+"</tr>";
-		return 	dtl;
-	};
-	return "<table><tbody>\n"+dataarray.map(EnRow).join("\n")+"</tbody></table>";
+/*function ReplaceTemplateHTML(template,optionsObj){
+	var keys=Object.keys(optionsObj);
+	var result=template;
+	for(var i in keys){
+		if(optionsObj.hasOwnProperty(keys[i]))
+			result=result.replace(keys[i],optionsObj[keys[i]]);
+	}
+	return result;
+}*/
+
+function TableDataHTML(y){
+	if(y!="")
+		y="\t\t<td>"+y+"</td>";
+	return y;
 }
 
+function RowHTML(dataline){
+	var dataline = dataline.map(SafeString);
+	dataline = dataline.map(TableDataHTML);
+	var dtl = dataline.join("\n");
+	if(dtl!="\n")
+		dtl="\t<tr>\n"+dtl+"</tr>";
+	return 	dtl;
+};
+
+function MakeTable(dataarray,RowF){
+	if(!RowF)
+		var RowF=RowHTML;
+	return "<caption>"+pageTitle()+"</caption><table><tbody>\n"+dataarray.map(RowF).join("\n")+"</tbody></table>";
+}
+
+// Other tables 
+
+function GameRowHTML(dataline){
+	if(dataline.join("")==="")
+		return "";
+	
+	//console.log(dataline);
+	var title=AHTML(SafeString(dataline[1]),SafeUrl(dataline[3]));	
+	var author=SafeString(dataline[2]);
+	if(SafeUrl(dataline[4]))
+		author=AHTML(author,SafeUrl(dataline[4]));
+	
+	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+"</tr>";
+
+};
 
 //////////////////////////////////////////////////
 // Guestbook 
@@ -2151,7 +2183,11 @@ var ContextualShortcuts={
 		"up":FocusPrev,
 		"down":FocusNext,
 		"left":FocusPrev,
-		"right":FocusNext
+		"right":FocusNext,
+		"W":FocusPrev,
+		"S":FocusNext,
+		"A":FocusPrev,
+		"D":FocusNext
 	},
 	".window":{
 		"escape":CloseCurrentDatapack,
@@ -2164,18 +2200,30 @@ var ContextualShortcuts={
 		"right":FocusNext,
 		"up":FocusPrev,
 		"down":FocusNext,
+		"W":FocusPrev,
+		"S":FocusNext,
+		"A":FocusPrev,
+		"D":FocusNext
 	},
 	".navi":{
 		"up":FocusPrevParent,
 		"down":FocusNextParent,
 		"left":ClickPrevBounded,
 		"right":ClickNextBounded,
+		"W":FocusPrevParent,
+		"S":FocusNextParent,
+		"A":ClickPrevBounded,
+		"D":ClickNextBounded
 	},
 	".buttonrow":{
 		"up":FocusPrevParent,
 		"down":FocusNextParent,
 		"left":FocusPrevBounded,
 		"right":FocusNextBounded,
+		"W":FocusPrevParent,
+		"S":FocusNextParent,
+		"A":FocusPrevBounded,
+		"D":FocusNextBounded
 	},
 	".button":{
 		"enter":ClickStay,
