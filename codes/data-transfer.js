@@ -869,15 +869,38 @@ function GameRowHTML(dataline){
 		return "";
 	
 	//console.log(dataline);
-	var title=AHTML(SafeString(dataline[1]),SafeUrl(dataline[3]));	
+	var link=SafeUrl(dataline[3]);
+	var title=SafeString(dataline[1]);
+	var authorlink=SafeUrl(dataline[4]);
 	var author=SafeString(dataline[2]);
-	if(SafeUrl(dataline[4]))
-		author=AHTML(author,SafeUrl(dataline[4]));
+	//console.log(link,title,author,authorlink);
+		
+	if(InWhitelist(link)){
+		title=AHTML(title,link);
+		if(authorlink)
+			author=AHTML(author,authorlink)
+	}
 	
 	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+"</tr>";
-
 };
 
+function InWhitelist(string){
+	function Verify(condition){return InString(string,condition)}
+	return Whitelist().some(Verify);
+}
+
+function Whitelist(){ //Sort descending by expected number of submissions
+	return [
+		/^https\:\/\/[^\#\^\~\\\/\|\.\:\;\,\s\?\=\}\{\[\]\&\'\"\@\!]*\.itch\.io\/.*/,
+		/^https\:\/\/(www\.)?puzzlescript\.net\/play\.html\?p\=.*/,
+		/^https\:\/\/(www\.)?puzzlescript\.net\/editor\.html\?hack\=.*/,
+		/^https\:\/\/[^\#\^\~\\\/\|\.\:\;\,\s\?\=\}\{\[\]\&\'\"\@\!]*\.github\.io\/.*/i,
+		/^https\:\/\/(www\.)?increpare\.com\/.*/,
+		/^https?\:\/\/(www\.)?draknek\.org\/.*/,
+		/^https\:\/\/(www\.)?newgrounds\.com\/portal\/view\/.*/,
+		/^https\:\/\/(www\.)?jackkutilek\.com\/puzzlescript\/.*/,
+		/^https\:\/\/(www\.)?sokobond\.com\/.*/,
+		/^https\:\/\/(www\.)?streamingcolour\.com\/liveapps\/puzzlescript\/.*/,
 //////////////////////////////////////////////////
 // Guestbook 
 function MakeGuestbook(dataarray){
