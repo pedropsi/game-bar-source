@@ -47,7 +47,7 @@ function Apply(arrayOrObj,F){
 };
 
 // Does element exist?
-function In(arrayOrObj,n){
+function InArrayOrObj(arrayOrObj,n){
 	if(!arrayOrObj)
 		return false;
 	function F(ao){return ao.indexOf(n)>=0;};
@@ -66,6 +66,18 @@ function UpdateKeys(Obj,F){
 	}
 	return Obj;
 };
+
+function InString(string,n){
+	var s=string;
+	return s.replace(n,"")!==string;
+}
+
+function In(SAO,n){
+	if(typeof SAO==="string")
+		return InString(SAO,n);
+	else
+		return InArrayOrObj(SAO,n);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Repetitive functions
