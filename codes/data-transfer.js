@@ -901,6 +901,12 @@ function Whitelist(){ //Sort descending by expected number of submissions
 		/^https\:\/\/(www\.)?jackkutilek\.com\/puzzlescript\/.*/,
 		/^https\:\/\/(www\.)?sokobond\.com\/.*/,
 		/^https\:\/\/(www\.)?streamingcolour\.com\/liveapps\/puzzlescript\/.*/,
+		/^https\:\/\/(www\.)?struct\.ca\/games\/.*/,
+		/^https\:\/\/benjamindav\.is\/.*/,
+		/^https\:\/\/axaxaxas\.herokuapp\.com\/games\/.*/
+	];
+}
+
 //////////////////////////////////////////////////
 // Guestbook 
 function MakeGuestbook(dataarray){
