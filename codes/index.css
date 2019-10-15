@@ -978,7 +978,7 @@ table caption{
     transition-duration: var(--duration);
 }
 
-#guestbook-area, #hall-of-fame-table{
+.external-area{
     width: 100%;
     margin-top: var(--h4);
 }
