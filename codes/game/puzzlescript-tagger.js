@@ -1,10 +1,10 @@
-function In(SAO,n){
-	return SAO.replace(n,"")!==SAO;
+function InString(string,n){
+	return string.replace(n,"")!==string;
 }
 
 function ReadGameData(){
 	var data=false;
-	if(In(document.URL,"itch.io")){
+	if(InString(document.URL,"itch.io")){
 		var T=document.getElementsByTagName("TITLE")[0].innerHTML;
 		data={
 		"title":T.replace(/\sby\s.*/,""),
@@ -12,7 +12,7 @@ function ReadGameData(){
 		"link":document.URL,
 		"page":document.URL.replace(/itch.io\/.*/,"itch.io")
 		};
-	}else if(In(document.URL,"increpare.com")){
+	}else if(InString(document.URL,"increpare.com")){
 		var T=document.getElementsByTagName("TITLE")[0].innerHTML;
 		data={
 		"title":T.replace(/\s\-\s.*/,""),
@@ -23,7 +23,7 @@ function ReadGameData(){
 	}else{
 		
 		var link=document.URL;
-		if(In(link,"hack")&&In(link,"puzzlescript"))
+		if(InString(link,"hack")&&InString(link,"puzzlescript"))
 			link=link.replace("hack=","p=").replace("editor.html","play.html");
 		
 		if(state&&state.metadata){
@@ -37,7 +37,6 @@ function ReadGameData(){
 	}
 	return data;
 };
-
 
 function SubmitGameData(){
 	var data=ReadGameData();
