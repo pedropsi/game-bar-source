@@ -15,6 +15,13 @@ if(typeof ObtainRestart==="undefined")
 	function ObtainRestart(){return !state.metadata.norestart;}
 
 var gameSelector='#gameCanvas';
+
+//Game and Level Navigation
+if(typeof ObtainStateScreens==="undefined")
+	function ObtainStateScreens(){return state.levels;}
+
+
+
 if(typeof ResizeCanvas==="undefined")
 	function ResizeCanvas(){canvasResize();}
 
@@ -339,7 +346,7 @@ function FormerLevel4Serialization() { //The original one
 // Keep track of solved levels
 
 function ScreenMessage(lvl){
-	return typeof state.levels[lvl].message !=="undefined"
+	return typeof ObtainStateScreens()[lvl].message !=="undefined"
 }
 
 function ScreenType(level){
@@ -351,8 +358,8 @@ function LevelScreens(){
 		return LevelScreens.l;
 	else{
 		var l=[];
-		for(var i=0;i<state.levels.length;i++){
-			if(ScreenType(state.levels[i]))
+		for(var i=0;i<ObtainStateScreens().length;i++){
+			if(ScreenType(ObtainStateScreens()[i]))
 				l.push(i);
 		}
 		return LevelScreens.l=l;
@@ -412,7 +419,7 @@ function NextUnsolvedScreen(curlevel){
 	return lastsolvebefore[lastsolvebefore.length-1]+1;
 }
 
-function LastScreen(){return state.levels.length-1;};
+function LastScreen(){return ObtainStateScreens().length-1;};
 
 function FinalLevelScreen(){
 	var li=UnlockedLevelScreens(); return li[li.length-1];
