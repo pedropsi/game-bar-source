@@ -1,0 +1,102 @@
+:root{
+    --gameW:calc(100vw - 6*var(--w1));
+    --gameH:calc(100vh - 6*var(--h1));
+}
+
+.game{
+    height: var(--gameH);
+    border-top: var(--h2) solid;
+    border-bottom: var(--h2) solid;
+
+    max-width: var(--gameV);
+    border-left: var(--w2) solid;
+    border-right: var(--w2) solid;
+    
+    background-color: var(--lightyellow);
+    color:var(--darkblue);
+    border-color:var(--darkblue);
+    
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@media only screen and (max-width: 500px) {
+    .game {
+        transform: 
+            translateX(calc(var(--gameW) * -0.5))
+            translateY(calc(var(--gameH) * -0.5)) 
+            rotate(90deg) 
+            translateX(calc(var(--gameH) * 0.5))
+            translateY(calc(var(--gameW) * -0.5));
+        
+        height: calc(100vw - 6*var(--w1));
+        max-height: calc(100vw - 6*var(--w1));
+        width: calc(100vh - 6*var(--h1));
+        max-width: calc(100vh - 6*var(--h1));
+    }
+} 
+
+.top{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.top .goal{
+   background-color: var(--lightyellow);
+   font-size:var(--w8);
+   padding: var(--w4);
+   height: 100%;
+}
+.middle{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lightyellow);
+    filter: brightness(1.2);
+}
+
+.letter{
+    color:var(--darkblue);
+    border-bottom: var(--w2) solid var(--darkblue);
+    font-weight: bold;
+    padding-bottom: var(--w1);
+    font-size: var(--w8);
+    width: var(--w8);
+    transition-duration: var(--duration);
+    height: var(--w16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter.caret{
+    background-color: var(--darkblue);
+    border-bottom-color: var(--lightyellow);
+}
+
+.win{
+   --lightyellow:var(--blue);
+}
+
+@keyframes Flicker{
+  0%,100%   { opacity: 0; }
+  15%,85%   { opacity: 1; }
+}
+
+.caret {
+  -webkit-animation: Flicker 5s infinite; /* Safari 4+ */
+  -moz-animation:    Flicker 5s infinite; /* Fx 5+ */
+  -o-animation:      Flicker 5s infinite; /* Opera 12+ */
+  animation:         Flicker 5s infinite; /* IE 10+, Fx 29+ */
+}
+

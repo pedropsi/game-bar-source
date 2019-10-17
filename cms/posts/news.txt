@@ -1,5 +1,10 @@
 ﻿<p>This is the «SITE-NAME»'s news stream, live since <b>19/09/2019</b>. Check back often to keep abreast of the most relevant developments.</p>
 
+<h2>19/10/2019</h2>
+<h3>Game-bar extension and auto-rotation</h3>
+<p>The game-bar has been extended to work with any vanilla javascript game (besides puzzlescript), so it fits the upcoming minigame "Puzzle Type".</p>
+<p>On small screens, such as in mobile devices, the screen will rotate to landscape.</p>
+
 <h2>12/10/2019</h2>
 <h3>Puzzlescript game database & tools</h3>
 <p>The world's largest public puzzlescript game database was released for the first time.</p>

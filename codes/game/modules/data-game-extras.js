@@ -20,7 +20,6 @@ if(typeof ObtainStateScreens==="undefined")
 	function ObtainStateScreens(){return state.levels;}
 
 
-
 if(typeof ResizeCanvas==="undefined")
 	function ResizeCanvas(){canvasResize();}
 
