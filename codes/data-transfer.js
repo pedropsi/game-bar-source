@@ -826,7 +826,10 @@ function SafeString(tex){
 }
 
 function SafeUrl(tex){
-	return "https://"+String(tex).replace(/[\<\>\+\(\)\*\'\"\#\\\s]+.*/g,"").replace(/https?:\/\//,"");
+	var prefix="https://";
+	if(In(tex,"http:"))
+		prefix="http://";
+	return prefix+String(tex).replace(/[\<\>\+\(\)\*\'\"\#\\\s]+.*/g,"").replace(/https?:\/\//,"");
 }
 
 //////////////////////////////////////////////////
