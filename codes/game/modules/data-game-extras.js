@@ -1,5 +1,13 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Game Preparation
+// Game data link defaults, overwritable
+
+//Game Options
+if(typeof ObtainBGColor==="undefined")
+	function ObtainBGColor(){return state.bgcolor;}
+
+if(typeof ObtainFGColor==="undefined")
+	function ObtainFGColor(){return state.fgcolor;}
+
 if(typeof ObtainUndo==="undefined")
 	function ObtainUndo(){return !state.metadata.noundo;}
 
@@ -17,7 +25,7 @@ function PrepareGame(){
 		ScrollInto(gameSelector);
 		//GetElement(gameSelector).click();//Activate audio (maybe?)
 		AddGameBar();
-		AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
+		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 
 		ToggleSavePermission(GetElement("SaveButton"));
 		
