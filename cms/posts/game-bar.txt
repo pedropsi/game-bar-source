@@ -130,11 +130,11 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 </li>
 <li>Keyboard shortcuts:
 	<ul>
-		<li><kbd>L</kbd>: toggle the level selector;</li>
-		<li><kbd>H</kbd>: toggle Hints;</li>
+		<li>«LEVEL-KEY»: toggle the level selector;</li>
+		<li>«HINT-KEY»: toggle Hints;</li>
 		<li>in level selector:
 			<ul>
-			<li>«NUMKEYS»: pick a level;</li>
+			<li>«NUM-KEYS»: pick a level;</li>
 			</ul>
 		</li>
 		<li>in current menu:
@@ -145,8 +145,8 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 			<li><kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd>: next/previous menu item.</li>
 			</ul>
 		</li>
-		<li><kbd>F</kbd>: Toggle Fullscreen</li>
-		<li><kbd>M</kbd>: Pause/Resume BGM playlist</li>
+		<li>«FULLSCREEN-KEY»: Toggle Fullscreen</li>
+		<li>«MUSIC-KEY»: Pause/Resume BGM playlist</li>
 	</ul>
 </li>
 </ul>
