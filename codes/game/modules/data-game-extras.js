@@ -6,7 +6,9 @@ var gameSelector='#gameCanvas';
 function PrepareGame(){
 	var bar=GetElement("GameBar");
 	if(!bar){
-		StopCapturingKeys(onKeyDown);ResumeCapturingKeys(CaptureComboKey);
+		if(typeof onKeyDown!=="undefined")
+			StopCapturingKeys(onKeyDown);
+		ResumeCapturingKeys(CaptureComboKey);
 		ScrollInto(gameSelector);
 		//GetElement(gameSelector).click();//Activate audio (maybe?)
 		AddGameBar();
