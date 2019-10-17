@@ -17,25 +17,12 @@ function DoWin() {
 	}
 }
 
-//nextLevel - Level selector - non-linear level navigation "jumping"
+//nextLevel
 function nextLevel(){
 	againing=false;
 	messagetext="";
 	
-	curlevel=Math.min(curlevel,LastScreen()?LastScreen():curlevel);
-	
-	if (titleScreen)
-		StartLevelFromTitle();
-	else {
-		if(!SolvedAllLevels())
-			AdvanceUnsolvedScreen();
-		else if(curlevel<LastScreen())
-			AdvanceEndScreen();
-		else{
-			RequestHallOfFame();
-			ResetGame();
-		}
-	}
+	NextLevel();
 	
 	AdjustFlickscreen();
 	canvasResize();

@@ -352,6 +352,26 @@ function FormerLevel4Serialization() { //The original one
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+// Winning Logic (non-linear level navigation "jumping")
+
+function NextLevel(){
+	var curscreen=Math.min(CurrentScreen(),LastScreen()?LastScreen():CurrentScreen());
+	CurrentScreen(curscreen);
+	
+	if (InTitleScreen())
+		StartLevelFromTitle();
+	else {
+		if(!SolvedAllLevels())
+			AdvanceUnsolvedScreen();
+		else if(curscreen<LastScreen())
+			AdvanceEndScreen();
+		else{
+			RequestHallOfFame();
+			ResetGame();
+		}
+	}
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
