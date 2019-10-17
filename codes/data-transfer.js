@@ -2788,6 +2788,30 @@ function Throttle(F,cooldown,id){
 	return false;
 }
 
+//Delay execution until certain condition is met
+function DelayUntil(Condition,F,i){
+	var n=Condition.name+F.name+(i?i:0);
+	
+	if(!DelayUntil[n])
+		DelayUntil[n]=0;
+	DelayUntil[n]++;
+
+	if(Condition()){
+		DelayUntil[n]=0;
+		return F();
+	}
+	else{
+		console.log(DelayUntil[n]);
+		
+		if(DelayUntil[n]<10){
+			function D(){return DelayUntil(Condition,F,i);};
+			setTimeout(D,100*(2**DelayUntil[n]));
+		}
+		else
+			console.log("Timed out: ",n);
+	}
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // Cycle
 
