@@ -15,6 +15,8 @@ if(typeof ObtainRestart==="undefined")
 	function ObtainRestart(){return !state.metadata.norestart;}
 
 var gameSelector='#gameCanvas';
+if(typeof ResizeCanvas==="undefined")
+	function ResizeCanvas(){canvasResize();}
 
 if(typeof ObtainLevelLoader==="undefined")
 	function ObtainLevelLoader(){loadLevelFromState(state,CurrentScreen())};
@@ -624,7 +626,7 @@ function SelectUnlockedLevel(lvl){
 function GoToScreenCheckpoint(n){
 	LoadCheckpoint(n);
 	loadLevelFromStateTarget(state,curlevel,curlevelTarget);
-	canvasResize();
+	ResizeCanvas();
 	
 	EchoSelect(n,"checkpoint");
 };
