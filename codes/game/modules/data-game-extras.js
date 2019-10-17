@@ -19,6 +19,24 @@ var gameSelector='#gameCanvas';
 if(typeof ObtainLevelLoader==="undefined")
 	function ObtainLevelLoader(){loadLevelFromState(state,CurrentScreen())};
 
+if(typeof ObtainLevelTransition==="undefined")
+	function ObtainLevelTransition(){
+		textMode=false;
+		titleScreen=false;
+		quittingMessageScreen=false;
+		messageselected=false;
+	}
+
+if(typeof ObtainTitleScreenLoader==="undefined")
+	function ObtainTitleScreenLoader(){goToTitleScreen()};
+
+if(typeof ObtainPlayEndGameSound==="undefined")
+	function ObtainPlayEndGameSound(){tryPlayEndGameSound()};
+
+if(typeof titleScreen==="undefined")
+	var titleScreen=true;
+
+
 //Record
 if(typeof ClearLevelRecord==="undefined")
 	var ClearLevelRecord=Identity;
@@ -673,18 +691,15 @@ function ResetGame(){
 	ClearSolvedLevelScreens();
 	ResetLevel();
 	ResetCheckpoints();
-	goToTitleScreen();
-	tryPlayEndGameSound();
+	ObtainTitleScreenLoader();
+	ObtainPlayEndGameSound();
 	ClearLevelRecord();
 	UpdateLevelSelectorButton()
 }
 
 function AdvanceLevel(){
-	textMode=false;
-	titleScreen=false;
-	quittingMessageScreen=false;
-	messageselected=false;
 	LocalsaveLevel(curlevel);
+	ObtainLevelTransition();
 	LoadLevelOrCheckpoint();
 	ClearLevelRecord();
 	UpdateLevelSelectorButton();
