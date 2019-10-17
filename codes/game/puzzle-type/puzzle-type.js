@@ -4,7 +4,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 function LoadGameHTML(){
-	var frameHTML="<div class='game-container'>\
+	var frameHTML="<div class='game-supra-container'>\
+	<div class='game-container'>\
 		<div class='game' id='gameCanvas'>\
 			<div class='top'>\
 				<h1 class='goal'>Puzzle Type</h1>\
@@ -15,7 +16,8 @@ function LoadGameHTML(){
 			<div class='bottom'>\
 			</div>\
 		</div>\
-	</div>";
+	</div>\
+</div>";
 
 	PrependElement(frameHTML,".main");
 }

@@ -1,47 +1,49 @@
 :root{
-    --gameW:calc(100vw - 6*var(--w1));
-    --gameH:calc(100vh - 6*var(--h1));
+    --gameW:calc(100vw - 2*var(--w1));
+    --gameH:calc(100vh - 2*var(--h1));
 }
 
-.game{
+.game-supra-container{
     height: var(--gameH);
-    border-top: var(--h2) solid;
-    border-bottom: var(--h2) solid;
-
-    max-width: var(--gameV);
-    border-left: var(--w2) solid;
-    border-right: var(--w2) solid;
+    max-width: var(--gameW);
     
-    background-color: var(--lightyellow);
-    color:var(--darkblue);
-    border-color:var(--darkblue);
-    
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
 }
 
 @media only screen and (max-width: 500px) {
-    .game {
+    .game-supra-container {
         transform: 
             translateX(calc(var(--gameW) * -0.5))
-            translateY(calc(var(--gameH) * -0.5)) 
+            translateY(calc(var(--gameH) * -0.5))
             rotate(90deg) 
-            translateX(calc(var(--gameH) * 0.5))
-            translateY(calc(var(--gameW) * -0.5));
+            translateX(calc(var(--gameH) * 0.5 ))
+            translateY(calc(var(--gameW) * -0.5 ));
         
-        height: calc(100vw - 6*var(--w1));
-        max-height: calc(100vw - 6*var(--w1));
-        width: calc(100vh - 6*var(--h1));
-        max-width: calc(100vh - 6*var(--h1));
+        height: var(--gameW);
+        max-height: var(--gameW);
+        width: var(--gameW);
+        max-width: var(--gameW);
     }
 } 
 
+
+.game-container{
+    border-color:var(--darkblue);
+    background-color: var(--white);
+    color:var(--darkblue);
+    
+    width: 100%;
+    max-width: var(--gameW);
+    
+    overflow: hidden;    
+}
+
+
+
 .top{
     height: 50%;
-    width: 100%;
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -50,7 +52,7 @@
 .top .goal{
    background-color: var(--lightyellow);
    font-size:var(--w8);
-   padding: var(--w4);
+   padding: var(--w8);
    height: 100%;
 }
 .middle{
