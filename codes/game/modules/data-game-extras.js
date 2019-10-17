@@ -138,7 +138,7 @@ function AddGameBar(targetIDsel){
 	var parentElement=GetElement(targetIDsel).parentElement;
 	if(!parentElement.id)
 		parentElement.id=GenerateId();
-	AddAfterElement(GameBar(parentElement.id),targetIDsel)
+	AppendElement(GameBar(parentElement.id),targetIDsel)
 }
 
 

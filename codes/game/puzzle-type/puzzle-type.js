@@ -18,7 +18,7 @@ var frame="\
 	</div>\
 </div>";
 
-AddBeforeElement(frame,".main");
+	PrependElement(frameHTML,".main");
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -210,7 +210,7 @@ function UpdateCaret(){
 	var p=Caret()[0];
 	
 	if(p===-1)
-		PrependElement(CaretHTML(),"#letters");
+		PreAddElement(CaretHTML(),"#letters");
 	if(p===Letters().length)
 		AddElement(CaretHTML(),"#letters");
 }

@@ -750,30 +750,24 @@ function AddElement(html,parentIDsel){
 	return e;
 };
 
-function PrependElement(html,parentIDsel){
+function PreAddElement(html,parentIDsel){
 	var e=MakeElement(html);
 	var p=GetElement(parentIDsel);
-	p.insertAdjacentElement('afterbegin', e);
+	p.insertAdjacentElement('afterbegin',e);
+	return e;
 };
 
 // Add new element to page, after a sibling element
-function AddAfterElement(html,selector){
-	var s=document.querySelectorAll(selector);
-	var e;
-	for(var i=0;i<s.length;i++){
-		e=document.createElement("div");
-		e.innerHTML=html;
-		s[i].insertAdjacentElement('afterend',e.firstChild)};
+function AppendElement(html,selector){
+	var s=GetElement(selector);
+	return s.insertAdjacentElement('afterend',MakeElement(html));
 };
 
-function AddBeforeElement(html,selector){
-	var s=document.querySelectorAll(selector);
-	var e;
-	for(var i=0;i<s.length;i++){
-		e=document.createElement("div");
-		e.innerHTML=html;
-		s[i].insertAdjacentElement('beforebegin',e.firstChild)};
+function PrependElement(html,selector){
+	var s=GetElement(selector);
+	return s.insertAdjacentElement('beforebegin',MakeElement(html));
 };
+
 
 // Replace parent element contents with new element
 function ReplaceElement(html,parentIDsel){
@@ -1802,7 +1796,7 @@ function InvalidateAnswer(DF){
 	FocusElement(DF.qid);
 	var invalid=(DF.qrequired&&!validator.valid);
 	if(invalid)
-		AddAfterElement(ErrorHTML(validator.error,errorid),"#"+DF.qid);
+		AppendElement(ErrorHTML(validator.error,errorid),"#"+DF.qid);
 	return invalid;
 }
 
