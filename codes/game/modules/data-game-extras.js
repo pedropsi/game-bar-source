@@ -50,6 +50,14 @@ if(typeof EchoSelect==="undefined")
 if(typeof EchoHint==="undefined")
 	var EchoHint=Identity;
 
+
+//Game selector
+if(gameSelector==="undefined")
+	var gameSelector='#gameCanvas';
+
+////////////////////////////////////////////////////////////////////////////////
+// Game Preparation
+
 function PrepareGame(){
 	var bar=GetElement("GameBar");
 	if(!bar){
