@@ -25,7 +25,7 @@ if(typeof ResizeCanvas==="undefined")
 	function ResizeCanvas(){canvasResize();}
 
 if(typeof ObtainLevelLoader==="undefined")
-	function ObtainLevelLoader(){loadLevelFromState(state,CurrentScreen())};
+	function ObtainLevelLoader(){loadLevelFromState(state,curlevel)};
 
 if(typeof ObtainLevelTransition==="undefined")
 	function ObtainLevelTransition(){
@@ -57,6 +57,9 @@ if(typeof EchoSelect==="undefined")
 
 if(typeof EchoHint==="undefined")
 	var EchoHint=Identity;
+
+
+//curlevelTarget
 
 
 //Game selector
@@ -179,6 +182,20 @@ function ToggleSavePermission(thi){
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
+// Current Level
+
+if(typeof curlevel==="undefined")
+	var curlevel=0;
+
+function CurrentScreen(s){
+	if(typeof s==="undefined")
+		return curlevel;
+	else
+		return curlevel=s;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////
 // Save Level & Checkpoint
 
 function DocumentURL(){
@@ -199,10 +216,10 @@ function HasLevel(){
 
 
 // Localsave = save in local storage
-function LocalsaveLevel(curlevel){
+function LocalsaveLevel(curscreen){
 	if(savePermission){
 		localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelScreens());
-		return localStorage[DocumentURL()]=curlevel;
+		return localStorage[DocumentURL()]=curscreen;
 	}
 	else
 		EraseLocalsaveLevel();
@@ -221,7 +238,7 @@ function LocalsaveHints(){
 }
 	
 function Localsave(){
-	LocalsaveLevel(curlevel);
+	LocalsaveLevel(CurrentScreen());
 	LocalsaveHints();
 	//LocalsaveCheckpoints();
 }	
@@ -251,7 +268,7 @@ function LoadLevel(){
 	if(sls)
 		SolvedLevelScreens.levels=JSON.parse(sls).map(Number);
 	
-	return curlevel=localStorage[DocumentURL()];
+	return CurrentScreen(localStorage[DocumentURL()]);
 }
 
 function LocalloadCheckpoints(){
@@ -330,7 +347,7 @@ function FormerLevel4Serialization() { //The original one
 		height : level.height,
 		oldflickscreendat: oldflickscreendat.concat([]),
 		//New
-		lvl:curlevel
+		lvl:CurrentScreen()
 	};
 	return ret;
 }
@@ -378,10 +395,10 @@ function SolvedLevelScreens(){
 	return SolvedLevelScreens.levels;
 }
 
-function AddToSolvedScreens(curlevel){
+function AddToSolvedScreens(curscreen){
 	function SortNumber(a,b){return a-b};
-	if(!ScreenMessage(curlevel)&&!LevelScreenSolved(curlevel)){
-		SolvedLevelScreens.levels.push(Number(curlevel));
+	if(!ScreenMessage(curscreen)&&!LevelScreenSolved(curscreen)){
+		SolvedLevelScreens.levels.push(Number(curscreen));
 		SolvedLevelScreens.levels=SolvedLevelScreens.levels.sort(SortNumber);
 	}
 	return SolvedLevelScreens();
@@ -391,15 +408,15 @@ function LevelSolved(n){
 	return LevelScreenSolved(LevelScreen(n));
 }
 
-function LevelScreenSolved(curlevel){
-	return In(SolvedLevelScreens(),curlevel);
+function LevelScreenSolved(curscreen){
+	return In(SolvedLevelScreens(),curscreen);
 }
 
 function UnSolvedLevelScreens(){
 	return LevelScreens().filter(function(l){return !LevelScreenSolved(l)});
 }
 
-function FirstUnsolvedScreen(curlevel){
+function FirstUnsolvedScreen(){
 	if(UnSolvedLevelScreens().length===0)
 		return 1+LevelScreens()[MaxLevel()-1];
 	else{
@@ -411,8 +428,8 @@ function FirstUnsolvedScreen(curlevel){
 	}
 }
 
-function NextUnsolvedScreen(curlevel){
-	var firstusolve=UnSolvedLevelScreens().filter(function(x){return x>=curlevel;})[0];
+function NextUnsolvedScreen(curscreen){
+	var firstusolve=UnSolvedLevelScreens().filter(function(x){return x>=curscreen;})[0];
 	var lastsolvebefore=UnlockedLevelScreens().filter(function(x){return x<firstusolve;});
 	return lastsolvebefore[lastsolvebefore.length-1]+1;
 }
@@ -431,12 +448,12 @@ function SolvedAllLevels(){
 	return LevelScreens().every(LevelScreenSolved);
 }
 
-function LevelNumber(curlevel){
-	return LevelScreens().filter(function(l){return l<curlevel}).length+1;
+function LevelNumber(curscreen){
+	return LevelScreens().filter(function(l){return l<curscreen}).length+1;
 }
 
 function CurLevelNumber(){
-	return LevelNumber(curlevel);
+	return LevelNumber(CurrentScreen());
 }
 
 
@@ -630,16 +647,16 @@ function SelectUnlockedLevel(lvl){
 
 function GoToScreenCheckpoint(n){
 	LoadCheckpoint(n);
-	loadLevelFromStateTarget(state,curlevel,curlevelTarget);
+	loadLevelFromStateTarget(state,CurrentScreen(),curlevelTarget);
 	ResizeCanvas();
 	
 	EchoSelect(n,"checkpoint");
 };
 
 function GoToScreen(lvl){
-	curlevel=lvl;
+	CurrentScreen(lvl);
 	AdvanceLevel();
-	canvasResize();
+	ResizeCanvas();
 };
 
 // Keyboard to Pick Level - records multiple digits within a 2000 ms timeframe to select the level
@@ -680,7 +697,7 @@ function StartLevelFromTitle(){
 }
 
 function ResetLevel(){
-	curlevel=0;
+	CurrentScreen(0);
 	curlevelTarget=null;
 	SolvedLevelScreens.levels=[];
 	ClearLevelRecord();
@@ -713,41 +730,42 @@ function ResetGame(){
 }
 
 function AdvanceLevel(){
-	LocalsaveLevel(curlevel);
 	ObtainLevelTransition();
+	LocalsaveLevel(CurrentScreen());
 	LoadLevelOrCheckpoint();
 	ClearLevelRecord();
 	UpdateLevelSelectorButton();
 }
 
 function AdvanceUnsolvedScreen(){
-	if(ScreenMessage(curlevel)&&curlevel<FinalLevelScreen()){
+	var curscreen=CurrentScreen();
+	if(ScreenMessage(curscreen)&&curscreen<FinalLevelScreen()){
 		//console.log("from message");
-		curlevel++;
+		CurrentScreen(curscreen+1);
 	}
-	else if(curlevel>=FinalLevelScreen()||!NextUnsolvedScreen(curlevel)){
+	else if(curscreen>=FinalLevelScreen()||!NextUnsolvedScreen(curscreen)){
 		//console.log("from last level");
-		curlevel=FirstUnsolvedScreen(curlevel);
+		CurrentScreen(FirstUnsolvedScreen());
 	}
 	else{
 		//console.log("from anywhere in the middle");
-		curlevel=NextUnsolvedScreen(curlevel);
+		CurrentScreen(NextUnsolvedScreen(curscreen));
 	}		
 	AdvanceLevel();	
 }
 
 function AdvanceEndScreen(){
-	if(curlevel>=FinalLevelScreen())
-		curlevel++;
+	if(CurrentScreen()>=FinalLevelScreen())
+		CurrentScreen(CurrentScreen()+1);
 	else
-		curlevel=FinalLevelScreen()+1;
+		CurrentScreen(FinalLevelScreen()+1);
 	
 	AdvanceLevel();		
 }
 
 function LoadLevelOrCheckpoint(){
 	if ((typeof curlevelTarget!=="undefined")&&(curlevelTarget!==null)){
-		loadLevelFromStateTarget(state,curlevel,curlevelTarget);
+		loadLevelFromStateTarget(state,CurrentScreen(),curlevelTarget);
 		curlevelTarget=null;
 	}
 	else
@@ -1039,7 +1057,7 @@ function RequestHint(){
 		var DFOpts={questionname:tip};
 		var DPFields=[['plain',DFOpts]];
 	}
-	else if(ScreenMessage(curlevel)){
+	else if(ScreenMessage(CurrentScreen())){
 		var tip=CycleNext([
 			"Just relax and have fun!",
 			"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
