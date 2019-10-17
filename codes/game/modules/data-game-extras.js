@@ -19,6 +19,19 @@ var gameSelector='#gameCanvas';
 if(typeof ObtainLevelLoader==="undefined")
 	function ObtainLevelLoader(){loadLevelFromState(state,CurrentScreen())};
 
+//Record
+if(typeof ClearLevelRecord==="undefined")
+	var ClearLevelRecord=Identity;
+
+if(typeof ClearSolvedLevelScreens==="undefined")
+	var ClearSolvedLevelScreens=Identity;
+
+if(typeof EchoSelect==="undefined")
+	var EchoSelect=Identity;
+
+if(typeof EchoHint==="undefined")
+	var EchoHint=Identity;
+
 function PrepareGame(){
 	var bar=GetElement("GameBar");
 	if(!bar){
