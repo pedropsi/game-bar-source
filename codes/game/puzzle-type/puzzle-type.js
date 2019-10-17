@@ -1,24 +1,24 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Puzzle Type (C) by Pedro PSI 2019, all rights reserved
+//Puzzle Type (c) Pedro PSI, 2019.
+//All rights reserved
 ///////////////////////////////////////////////////////////////////////////////
 
-LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
-
-var frame="\
-<div class='game-container'>\
-	<div class='game' id='gameCanvas'>\
-		<div class='top'>\
-			<h1 class='goal'>INCREASE</h1>\
+function LoadGameHTML(){
+	var frameHTML="<div class='game-container'>\
+		<div class='game' id='gameCanvas'>\
+			<div class='top'>\
+				<h1 class='goal'>Puzzle Type</h1>\
+			</div>\
+			<div class='middle' id='letters'>\
+				<div class='credits'>by Pedro PSI (2019)</div>\
+			</div>\
+			<div class='bottom'>\
+			</div>\
 		</div>\
-		<div class='middle' id='letters'>\
-			<div class='letter caret'> </div>\
-		</div>\
-		<div class='bottom'>\
-		</div>\
-	</div>\
-</div>";
+	</div>";
 
 	PrependElement(frameHTML,".main");
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -47,8 +47,12 @@ gameModules.map(LoaderInFolder("codes/game/modules"));
 
 function P(){
 	PrepareGame();
-	ResumeCapturingKeys(CaptureComboKey);	
+	ResumeCapturingKeys(CaptureComboKey);
+	LevelLoader();
 };
+
+LoadGameHTML();
+LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
 DelayUntil(function(){return (typeof PrepareGame!=="undefined")},P);
 
 
@@ -267,9 +271,8 @@ function LevelLoader(){
 	ClearLetters();
 	ReplaceElement(CurLevelName(),".goal");
 }
-LevelLoader();
-var curlevel=0;
-function CurLevelName(){return LevelGoals[curlevel]};//placeholder
+
+function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 
 
 function CheckWin(){
