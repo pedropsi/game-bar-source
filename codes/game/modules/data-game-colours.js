@@ -144,9 +144,10 @@ function RGB_HSL(HSL){
 
 //Colour Manipulation
 function ColourExtract(rgbatxt){
-		var ntxt=rgbatxt.match(/([\d]+\,)+([\d]+)/);
-		var RGBAorHSL=ntxt[0].split(",").map(Number);
-		return RGBAorHSL;
+	rgbatxt=rgbatxt.replace(/rgba?/g,"").replace(/[\(\)\s]+/g,"");
+	var ntxt=rgbatxt.match(/([\d]+\,)+([\d]+)/);
+	var RGBAorHSL=ntxt[0].split(",").map(Number);
+	return RGBAorHSL;
 }
 
 function Colour(colour){
