@@ -197,7 +197,7 @@ function RequestGameFeedback(){
 		qdisplay:LaunchBalloon,
 		qonsubmit:RecordAndLaunchThanksBalloon,
 		qonclose:FocusAndResetFunction(RequestGameFeedback,GameFocus),
-		shortcutExtras:FuseObjects(KeyActionsGameBar(),{"E":CloseFeedback}),
+		shortcutExtras:FuseObjects(ObtainKeyActionsGameBar?ObtainKeyActionsGameBar():{},{"E":CloseFeedback}),
 		thanksmessage:"★ Thank you for your feedback! ★",
 		buttonSelector:"FeedbackButton",
 	};

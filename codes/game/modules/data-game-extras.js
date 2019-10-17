@@ -525,7 +525,7 @@ function RequestLevelSelector(){
 		}
 	}
 	
-	var LevelSelectorShortcuts=FuseObjects(KeyActionsGameBar(),{
+	var LevelSelectorShortcuts=FuseObjects(ObtainKeyActionsGameBar(),{
 		"L":CloseLevelSelector,
 		"1":function(){DelayLevel(1)},
 		"2":function(){DelayLevel(2)},
@@ -777,82 +777,86 @@ function LoadLevelOrCheckpoint(){
 ////////////////////////////////////////////////////////////////////////////////
 //Key capturing
 
-function KeyActionsGameBar(){
-	return {
-	// Game bar menus
-	"E"			:RequestGameFeedback,
-	"F"			:RequestGameFullscreen,
-	"H"			:RequestHint,
-	"L"			:RequestLevelSelector, 
-	"M"			:ToggleCurrentSong
-	};
+if(typeof ObtainKeyActionsGameBar==="undefined")
+	function ObtainKeyActionsGameBar(){
+		return {
+		// Game bar menus
+		"E"			:RequestGameFeedback,
+		"F"			:RequestGameFullscreen,
+		"H"			:RequestHint,
+		"L"			:RequestLevelSelector, 
+		"M"			:ToggleCurrentSong
+		};
 };
 
 //Game keybinding profile
-var keyActionsGame=FuseObjects(KeyActionsGameBar(),{
-	//Arrows
-	"left"		:InstructGameKeyF(37),
-	"up"		:InstructGameKeyF(38),
-	"right"		:InstructGameKeyF(39),
-	"down"		:InstructGameKeyF(40),
-	"W"			:InstructGameKeyF(37),
-	"A"			:InstructGameKeyF(38),
-	"S"			:InstructGameKeyF(39),
-	"D"			:InstructGameKeyF(40),
-	//Action / Select
-	"enter"		:InstructGameKeyF(88),
-	"C"			:InstructGameKeyF(88),
-	"X"			:InstructGameKeyF(88),
-	"spacebar"	:InstructGameKeyF(88),
-	// Undo     
-	"Z"			:InstructGameKeyF(85),
-	"U"			:InstructGameKeyF(85),
-	/*"backspace"	:InstructGameKeyF(85),*/
-	// Restart
-	"R"			:InstructGameKeyF(82),
-	// Quit
-	"escape"	:InstructGameKeyF(27),
-	"Q"			:InstructGameKeyF(27)
+if(typeof ObtainKeyActionsGame==="undefined")
+	function ObtainKeyActionsGame(){
+		return {
+			//Arrows
+			"left"		:InstructGameKeyF(37),
+			"up"		:InstructGameKeyF(38),
+			"right"		:InstructGameKeyF(39),
+			"down"		:InstructGameKeyF(40),
+			"W"			:InstructGameKeyF(37),
+			"A"			:InstructGameKeyF(38),
+			"S"			:InstructGameKeyF(39),
+			"D"			:InstructGameKeyF(40),
+			//Action / Select
+			"enter"		:InstructGameKeyF(88),
+			"C"			:InstructGameKeyF(88),
+			"X"			:InstructGameKeyF(88),
+			"spacebar"	:InstructGameKeyF(88),
+			// Undo     
+			"Z"			:InstructGameKeyF(85),
+			"U"			:InstructGameKeyF(85),
+			/*"backspace"	:InstructGameKeyF(85),*/
+			// Restart
+			"R"			:InstructGameKeyF(82),
+			// Quit
+			"escape"	:InstructGameKeyF(27),
+			"Q"			:InstructGameKeyF(27)
+		};
+		
+	
+	function InstructGameKeyF(newkey){
+		return function(ev){ev.keyCode=newkey;InstructGame(ev)}
 	}
-);
+	
+	function InstructGame(event){
+		event.preventDefault();
+		var key=event.keyCode;
+	
+		//Avoid repetition?
+		if (In(keybuffer,key))
+			return;
+		
+		//Instruct the game
+		if (!In(keybuffer,key)){
+			keybuffer.splice(keyRepeatIndex,0,key);
+			keyRepeatTimer=0;
+			CheckRegisterKey(event);
+			}
+	}
+	
+		//Execute key instructions
+	function CheckRegisterKey(event){
+		checkKey(event,true);
+		RegisterMove(event.keyCode);
+	}
+		
+}
 
 
 //Keybind to game element
-OverwriteShortcuts(gameSelector,keyActionsGame);
-
+var FullShortcuts=FuseObjects(ObtainKeyActionsGameBar(),ObtainKeyActionsGame());
+OverwriteShortcuts(gameSelector,FullShortcuts);
 
 function RequestGameFullscreen(){
 	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
 }
 
 
-//Execute key instructions
-function CheckRegisterKey(event){
-	checkKey(event,true);
-	RegisterMove(event.keyCode);
-}
-
-
-
-function InstructGameKeyF(newkey){
-	return function(ev){ev.keyCode=newkey;InstructGame(ev)}
-}
-
-function InstructGame(event){
-	event.preventDefault();
-	var key=event.keyCode;
-
-	//Avoid repetition?
-    if (In(keybuffer,key))
-    	return;
-	
-	//Instruct the game
-   	if (!In(keybuffer,key)){
-   		keybuffer.splice(keyRepeatIndex,0,key);
-	   	keyRepeatTimer=0;
-	   	CheckRegisterKey(event);
-		}
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1125,7 +1129,7 @@ function RequestHint(){
 			qdisplay:LaunchBalloon,
 			qtargetid:ParentSelector(gameSelector),
 			requireConnection:false,
-			shortcutExtras:FuseObjects(KeyActionsGameBar(),{"H":CloseHint}),
+			shortcutExtras:FuseObjects(ObtainKeyActionsGameBar(),{"H":CloseHint}),
 			buttonSelector:"HintButton",
 			spotlight:gameSelector
 		});
