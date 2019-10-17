@@ -60,8 +60,7 @@ if(typeof EchoHint==="undefined")
 
 
 //Game selector
-if(gameSelector==="undefined")
-	var gameSelector='#gameCanvas';
+var gameSelector=gameSelector?gameSelector:'#gameCanvas';
 
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
