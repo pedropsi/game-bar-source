@@ -51,7 +51,7 @@ body {
     color: var(--darkblue); 
     caret-color: var(--green);
     border-color: currentColor;
-    padding:var(--w1);
+    padding:var(--h1) var(--w1) var(--h1) var(--w1);
     margin:0;
     font-family: Arial, sans-serif;
     font-size: calc(10px + var(--w-2));
