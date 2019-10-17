@@ -1,5 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
+if(typeof ObtainUndo==="undefined")
+	function ObtainUndo(){return !state.metadata.noundo;}
+
+if(typeof ObtainRestart==="undefined")
+	function ObtainRestart(){return !state.metadata.norestart;}
 
 var gameSelector='#gameCanvas';
 
@@ -25,7 +30,7 @@ function PrepareGame(){
 // Game Bar
 
 function UndoButton(){
-	var undo=!state.metadata.noundo?ButtonHTML({txt:'↶',attributes:{
+	var undo=ObtainUndo()?ButtonHTML({txt:'↶',attributes:{
 		onclick:'UndoAndFocus();',
 		onmousedown:'AutoRepeat(UndoAndFocus,250);',
 		ontouchstart:'AutoRepeat(UndoAndFocus,250);',
@@ -47,7 +52,7 @@ function MuteButton(){
 
 function GameBar(targetIDsel){
 	
-	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
+	var restart=ObtainRestart()?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
