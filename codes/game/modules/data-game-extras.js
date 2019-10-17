@@ -16,6 +16,9 @@ if(typeof ObtainRestart==="undefined")
 
 var gameSelector='#gameCanvas';
 
+if(typeof ObtainLevelLoader==="undefined")
+	function ObtainLevelLoader(){loadLevelFromState(state,CurrentScreen())};
+
 function PrepareGame(){
 	var bar=GetElement("GameBar");
 	if(!bar){
@@ -705,7 +708,7 @@ function LoadLevelOrCheckpoint(){
 		curlevelTarget=null;
 	}
 	else
-		loadLevelFromState(state,curlevel);
+		ObtainLevelLoader();
 }
 
 
