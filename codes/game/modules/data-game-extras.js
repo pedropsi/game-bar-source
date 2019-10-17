@@ -895,10 +895,8 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 		hintslines=hintslines.split(/\n\s*/);
 		
 		hintslines=hintslines.map(ParseHintLine);
+		hintslines=hintslines.filter(function(l){return l!==""});
 		
-		if(hintslines[0]==="")
-			hintslines.shift();
-			
 		return hintslines;
 	}
 	

@@ -72,6 +72,7 @@
     --h-4:calc(var(--h-2) / var(--scaling));
     --h-8:calc(var(--h-4) / var(--scaling));
 }
+
 body{
  margin: unset;  
 }
@@ -156,6 +157,7 @@ h4{
     background-color: transparent;
     transition-duration: var(--duration);
 }
+
 .button:hover a
 .button:active a
 .button:focus a{
