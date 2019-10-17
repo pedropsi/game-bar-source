@@ -774,7 +774,7 @@ function ReplaceElement(html,parentIDsel){
 };
 
 // Add HTML Data from external source to page
-function InjectData(source,destinationID,Transform){	
+function InjectData(source,destinationID,Transform){
 	var data = LoadData(source);
 	if(Transform){
 		data = Transform(data);
@@ -783,7 +783,7 @@ function InjectData(source,destinationID,Transform){
 };
 
 // Add HTML Data from external source to page
-function OverwriteData(source,destinationID,Transform){	
+function OverwriteData(source,destinationID,Transform){
 	var data = LoadData(source);
 	if(Transform){
 		data = Transform(data);
@@ -792,7 +792,7 @@ function OverwriteData(source,destinationID,Transform){
 };
 
 // Add HTML Data from external source to page
-function RefreshData(source,destinationID,Transform){	
+function RefreshData(source,destinationID,Transform){
 	RefreshData[destinationID]=function(){OverwriteData(source,destinationID,Transform)};
 	RefreshData[destinationID]();
 };
