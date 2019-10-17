@@ -766,6 +766,15 @@ function AddAfterElement(html,selector){
 		s[i].insertAdjacentElement('afterend',e.firstChild)};
 };
 
+function AddBeforeElement(html,selector){
+	var s=document.querySelectorAll(selector);
+	var e;
+	for(var i=0;i<s.length;i++){
+		e=document.createElement("div");
+		e.innerHTML=html;
+		s[i].insertAdjacentElement('beforebegin',e.firstChild)};
+};
+
 // Replace parent element contents with new element
 function ReplaceElement(html,parentIDsel){
 	var p=GetElement(parentIDsel);
