@@ -14,7 +14,6 @@ if(typeof ObtainUndo==="undefined")
 if(typeof ObtainRestart==="undefined")
 	function ObtainRestart(){return !state.metadata.norestart;}
 
-var gameSelector='#gameCanvas';
 
 //Game and Level Navigation
 if(typeof ObtainStateScreens==="undefined")
