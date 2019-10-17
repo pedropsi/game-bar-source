@@ -11,10 +11,9 @@ function PrepareGame(){
 		//GetElement(gameSelector).click();//Activate audio (maybe?)
 		AddGameBar();
 		AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
-		ConsoleAddMany([
-			"Localsave is ON for "+pageTitle()+".",
-			"To stop saving and erase all 2 cookies, please deselect 🖫."
-		]);
+
+		ToggleSavePermission(GetElement("SaveButton"));
+		
 		PlaylistStartPlay();
 		GameFocus();
 	}
@@ -49,7 +48,7 @@ function GameBar(targetIDsel){
 	var restart=!state.metadata.norestart?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
 	
 	var buttons=[
-		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':''}}),
+		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
 		ButtonLinkHTML("How to play?"),
 		HintButton(),
 		UndoButton(),
@@ -94,7 +93,7 @@ function UndoAndFocus(){
 // Save permissions
 
 var curcheckpoint=0;
-var savePermission=true;
+var savePermission=false; //Is toggled to true on load
 
 function ToggleSavePermission(thi){
 	Deselect(thi);
