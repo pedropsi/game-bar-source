@@ -92,8 +92,14 @@ function ObtainKeyActionsGame(){
 		"Y":InstructGameKeyF("Y"),
 		"Z":InstructGameKeyF("Z"),
 		"Escape":ObtainTitleScreenLoader,
-		"Backspace":InstructGameKeyF("Backspace") /*,
-		"Delete":InstructGameKeyF("Delete")*/
+		"Backspace":InstructGameKeyF("Backspace"),
+		"Delete":InstructGameKeyF("Backspace"),
+		"Spacebar":InstructNothing,
+		"Enter":InstructNothing,
+		"Left":InstructNothing,
+		"Up":InstructNothing,
+		"Right":InstructNothing,
+		"Down":InstructNothing
 	};
 };
 
@@ -108,6 +114,11 @@ function ObtainKeyActionsGameBar(){
 	};
 };
 
+function InstructNothing(){
+	return function(ev){
+		ev.preventDefault();
+	}
+}
 
 function InstructGameKeyF(key){
 	return function(ev){
@@ -377,34 +388,3 @@ function CheckWin(){
 		NextLevel();
 	}
 }
-
-/*
-var superpowers={
-	"A":{name:"Add"				,legend:"Add any to end"							,applyto:{"end"}										,action:A};
-	"B":{name:"Beginning"		,legend:"Add any to beginning"						,applyto:{"beginning"}									,action:B};
-	"C":{name:"Cut"				,legend:"Cut in half, vertical or horizontally"		,applyto:{"O","B","W","M","U","T","K","X","S"}			,action:C};
-	"D":{name:"Double"			,legend:"Double"									,applyto:{"C","D","V","A","J","L","I"}					,action:D};
-	"E":{name:"Expand"			,legend:"Inflate a letter"							,applyto:{"B","D","P","R"}								,action:E};
-	"F":{name:"Flip"			,legend:"Flip horizontal or vertically"				,applyto:{"S","Z","V","A"}								,action:F};
-	"G":{name:"Germini"			,legend:"Copy to any position"						,applyto:{"all"}										,action:G};
-	"H":{name:""				,legend:""											,applyto:{	}											,action:H};
-	"I":{name:"Idleness"		,legend:"Do nothing"								,applyto:{"all"}										,action:I};
-	"J":{name:"Jetpack"			,legend:"Fly to another position"					,applyto:{"all"}										,action:J};
-	"K":{name:"Kill"			,legend:"Delete"									,applyto:{"all"}										,action:K};
-	"L":{name:"Lifeline"		,legend:"Recover lost letter"						,applyto:{"all"}										,action:L};
-	"M":{name:"Minus"			,legend:"Recede next letter alphabethically"		,applyto:{"next"}										,action:M};
-	"N":{name:"Near minus"		,legend:"Recede previous letter alphabethically"	,applyto:{"previous"}									,action:N};
-	"O":{name:"Opposite"		,legend:"Swap with the alphabetical opposite"		,applyto:{"all"}										,action:O};
-	"P":{name:"Plus"			,legend:"Advance next letter alphabethically"		,applyto:{"next"}										,action:P};
-	"Q":{name:"Quasi plus"		,legend:"Advance previous letter alphabethically"	,applyto:{"previous"}									,action:Q};
-	"R":{name:"Rotate"			,legend:"Rotate 90 degrees in any direction"		,applyto:{"C","U","N","Z"}								,action:R};
-	"S":{name:"Swap"			,legend:"Switch pair's position"					,applyto:{"all"}										,action:S};
-	"T":{name:"Tail"			,legend:"Add tail"									,applyto:{"P","O","I","N","F","V"}						,action:T};
-	"U":{name:"Un-tail"			,legend:"Remove tail"								,applyto:{"R","Q","L","M","E","N"}						,action:U};
-	"V":{name:""				,legend:""											,applyto:{""}											,action:V};
-	"W":{name:"Wish"			,legend:"Use any other superpower"					,applyto:{"all"}										,action:W};
-	"X":{name:"X-ymmetry"		,legend:"Kill any assymetric"						,applyto:{"F","J","L","P","R"}							,action:X};
-	"Y":{name:""				,legend:""											,applyto:{}												,action:Y};
-	"Z":{name:"Zero"			,legend:"Reset to initial letter"					,applyto:{"all"}										,action:Z};	
-}
-*/
