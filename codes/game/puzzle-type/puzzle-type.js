@@ -139,6 +139,7 @@ function GameAction(key){
 	
 	UpdateLetters();
 	UpdateCaret();
+	CheckWin();
 };
 
 
@@ -280,7 +281,11 @@ function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 
 
 function CheckWin(){
-	return Letters().join("").toUpperCase()===CurLevelName().toUpperCase();
+	var win=Letters().join("").toUpperCase()===CurLevelName().toUpperCase();
+	if(win){
+		MarkWonLevel();
+		NextLevel();
+	}
 }
 
 /*

@@ -6,9 +6,7 @@ doSetupTitleScreenLevelContinue()
 //DoWin - Level selector - keep track of solved levels and echo win
 function DoWin() {
 	if (!winning) {
-		EchoLevelWin(curlevel);
-		AddToSolvedScreens(curlevel);
-		LocalsaveLevel(curlevel);
+		MarkWonLevel();
 		if(typeof customLevelInfo!= "undefined")customLevelInfo();
 		if (againing = false, tryPlayEndLevelSound(), unitTesting){
 			return void nextLevel();

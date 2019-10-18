@@ -355,6 +355,12 @@ function FormerLevel4Serialization() { //The original one
 ////////////////////////////////////////////////////////////////////////////////
 // Winning Logic (non-linear level navigation "jumping")
 
+function MarkWonLevel(){
+	EchoLevelWin(CurrentScreen());
+	AddToSolvedScreens(CurrentScreen());
+	LocalsaveLevel(CurrentScreen());
+}
+
 function NextLevel(){
 	var curscreen=Math.min(CurrentScreen(),LastScreen()?LastScreen():CurrentScreen());
 	CurrentScreen(curscreen);
