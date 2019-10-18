@@ -132,20 +132,11 @@ function InstructGameKeyF(key){
 
 function GameAction(key){
 	if(key==="Backspace"){
-		var b=BackspaceLevelActions[CurLevelName()];
-		if(b)
-			b();
+		if(Caret()[0]===-1)
+			DeleteLetterBefore();
 		else
 			DeleteLetterAfter();
 	}
-	/*else if(key==="Delete"){
-		DeleteActions[CurLevelName()];
-		var d=DeleteActions[CurLevelName()];
-		if(d)
-			d();
-		else
-			DeleteLetterBefore();
-	}	*/
 	else
 		LevelActions[CurLevelName()](key);
 	
@@ -160,13 +151,13 @@ function GameAction(key){
 var LevelGoals=[
 	"Direct",
 	"Reverse",
-	"Follower",
+	/*"Follower",
 	"Second",
 	"Oppose",
 	"Alternate",
-	"Increase",
-	"Vowels",
-	"#DEFACE"];
+	"Increase",*/
+	"Vowels"
+	];
 
 var LevelActions={
 	"Direct":Direct,
@@ -181,7 +172,16 @@ var LevelActions={
 		var M=NumberLetter(LetterNumber(L)+1); 
 		InputLetter(M);
 	},
-	"Second":Second,
+	"Second":function Second(L){
+		if(!Second.n)
+			Second.n=0;
+		Second.n++;
+		
+		if(Second.n%2===0)
+			DeleteLetterBefore();
+		
+		InputLetter(L);
+},
 	"Vowels":function Vowels(A){
 		if(!Vowels.n)
 			Vowels.n=0;
@@ -220,7 +220,6 @@ var LevelActions={
 		UpdateLetters();
 		
 	},
-	"#DEFACE":Direct,
 	"Follower":function (L){
 		if(Letters.array.length>=1){
 			var last=Letters.array[Letters.array.length-1];
@@ -237,27 +236,6 @@ function Direct(L){
 		InputLetter(L);
 };
 
-function Second(L){
-		if(!Second.n)
-			Second.n=0;
-		Second.n++;
-		
-		if(Second.n%2===0)
-			DeleteLetterBefore();
-		
-		InputLetter(L);
-}
-
-var BackspaceLevelActions={
-	"Reverse":DeleteLetterBefore,
-	"Second":function(){
-		if(!Second.n)
-			Second.n=0;
-		Second.n--;
-		
-		DeleteLetterAfter();
-	}
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
@@ -379,12 +357,13 @@ function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 function CheckWin(){
 	var win=Letters().join("").toUpperCase()===CurLevelName().toUpperCase();
 	
-	if(CurLevelName()==="#DEFACE")
-		win=Letters().join("").toUpperCase()==="GREEN";
-	
 	if(win){
 		PlaySound("media/puzzle-type/sound/win"+RandomChoice("123")+".mp3");
 		MarkWonLevel();
 		NextLevel();
 	}
+}
+
+function ObtainPlayEndGameSound(){
+	PlaySound("media/puzzle-type/sound/wingame.mp3");
 }

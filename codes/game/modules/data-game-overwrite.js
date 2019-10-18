@@ -7,8 +7,9 @@ doSetupTitleScreenLevelContinue()
 function DoWin() {
 	if (!winning) {
 		MarkWonLevel();
-		if(typeof customLevelInfo!= "undefined")customLevelInfo();
-		if (againing = false, tryPlayEndLevelSound(), unitTesting){
+		ObtainPlayEndLevelSound();
+		againing = false;
+		if (unitTesting){
 			return void nextLevel();
 		}
 		winning = true, timer = 0
@@ -78,7 +79,6 @@ function playSound(seed) {
 
 
 // Preserve this function as is
-
 function AdjustFlickscreen(){
 	if (state!==undefined && state.metadata.flickscreen!==undefined){
 		oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)];

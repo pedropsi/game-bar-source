@@ -40,6 +40,9 @@ if(typeof ObtainTitleScreenLoader==="undefined")
 if(typeof ObtainPlayEndGameSound==="undefined")
 	function ObtainPlayEndGameSound(){tryPlayEndGameSound()};
 
+if(typeof ObtainPlayEndGameSound==="undefined")
+	function ObtainPlayEndGameSound(){tryPlayEndLevelSound()};
+
 if(typeof titleScreen==="undefined")
 	var titleScreen=true;
 
@@ -377,6 +380,9 @@ function MarkWonLevel(){
 	EchoLevelWin(CurrentScreen());
 	AddToSolvedScreens(CurrentScreen());
 	LocalsaveLevel(CurrentScreen());
+	
+	if(typeof RegisterLevelHonour!=="undefined")
+		RegisterLevelHonour();
 }
 
 function NextLevel(){

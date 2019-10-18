@@ -20,7 +20,7 @@ function TA_CountObtained(){
 }
 
 //Hook to in-game winning
-customLevelInfo=TA_CountObtained;
+var RegisterLevelHonour=TA_CountObtained;
 
 //Hook to HOF
 function GetHonour(){
