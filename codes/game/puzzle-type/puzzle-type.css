@@ -12,22 +12,6 @@
     align-items: center;
 }
 
-@media only screen and (max-width: 500px) {
-    .game-supra-container {
-        transform: 
-            translateX(calc(var(--gameW) * -0.5))
-            translateY(calc(var(--gameH) * -0.5))
-            rotate(90deg) 
-            translateX(calc(var(--gameH) * 0.5 ))
-            translateY(calc(var(--gameW) * -0.5 ));
-        
-        height: var(--gameW);
-        max-height: var(--gameW);
-        width: var(--gameW);
-        max-width: var(--gameW);
-    }
-} 
-
 
 .game-container{
     border-color:var(--darkblue);
@@ -39,6 +23,28 @@
     
     overflow: hidden;    
 }
+
+@media only screen and (max-width: 500px) {
+    .game-supra-container {
+        transform: 
+            translateX(calc(var(--gameH) * -0.5))
+            translateY(calc(var(--gameW) * -0.5))
+            rotate(90deg) 
+            translateX(calc(var(--gameH) * 0.5 ))
+            translateY(calc(var(--gameW) * -0.5 ));
+        
+        height: var(--gameW);
+        max-height: var(--gameW);
+        width: var(--gameH);
+        max-width: var(--gameH);
+    }
+    
+    .game-container{
+        max-width: 100%;
+    }
+} 
+
+
 
 
 
