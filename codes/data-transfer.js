@@ -2869,7 +2869,7 @@ var ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg",
 function LoadImage(fullpath){
 	var loaded=LoadData(fullpath)!==undefined;
 	if(loaded){
-		if(IsGif){
+		if(IsGif(fullpath)){
 			gifID=GenerateId();
 			loaded=ImageHTML({attributes:{id:gifID,src:fullpath,onload:'StartGIF('+gifID+')',tabindex:'0',class:"gif"}});
 		}
