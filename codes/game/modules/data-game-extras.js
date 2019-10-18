@@ -383,7 +383,7 @@ function NextLevel(){
 	var curscreen=Math.min(CurrentScreen(),LastScreen()?LastScreen():CurrentScreen());
 	CurrentScreen(curscreen);
 	
-	if (InTitleScreen())
+	if (TitleScreen())
 		StartLevelFromTitle();
 	else {
 		if(!SolvedAllLevels())
@@ -397,6 +397,12 @@ function NextLevel(){
 	}
 }
 
+function TitleScreen(t){
+	if(typeof t==="undefined")
+		return titleScreen;
+	else
+		return titleScreen=t?true:false;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Level/Message Screen navigation
@@ -642,7 +648,7 @@ function UnstarLevel(l){
 function UpdateLevelSelectorButton(lvl){
 	if(!lvl)
 		lvl=CurLevelNumber(); 
-	if(titleScreen)
+	if(TitleScreen())
 		var leveltext="Select level";
 	else if(lvl<=MaxLevel())
 		var leveltext="Level "+PadLevelNumber(lvl)+"/"+MaxLevel()+LevelHintStar(lvl);
@@ -677,7 +683,7 @@ function SelectLevel(lvl){
 
 function SelectUnlockedLevel(lvl){
 	//Don't return to same level
-	if(lvl===CurLevelNumber()&&!titleScreen)
+	if(lvl===CurLevelNumber()&&!TitleScreen())
 		return console.log("stay in lvl ",lvl);
 		
 	//Go to exactly after the level prior to the chosen one, to read all useful messages, including level title
@@ -895,8 +901,10 @@ if(typeof ObtainKeyActionsGame==="undefined")
 var FullShortcuts=FuseObjects(ObtainKeyActionsGameBar(),ObtainKeyActionsGame());
 OverwriteShortcuts(gameSelector,FullShortcuts);
 
+
 function RequestGameFullscreen(){
 	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
+	setTimeout(GameRotation,500);
 }
 
 
@@ -1094,7 +1102,7 @@ function RequestHint(){
 	if(!Hints())
 		return console.log("hints file not found");
 	
-	if(!RequestHint.requested||titleScreen){
+	if(!RequestHint.requested||TitleScreen()){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
 		var tip=CycleNextBounded([
 			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
