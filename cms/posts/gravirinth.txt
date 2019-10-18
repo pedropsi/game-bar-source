@@ -77,10 +77,10 @@
 		<div>
 			<img src="images/gravirinth/gravirinth-tutorial-7.gif" alt="Gravirinth tutorial 7: undo" title="Gravirinth tutorial 7: undo"/>
 		</div>
-		<p>Your progress is reported continuously to base, so you may retrace your steps whenever you've done anything wrong. Press «UNDOKEY» on your exopad.</p>
+		<p>Your progress is reported continuously to base, so you may retrace your steps whenever you've done anything wrong. Press «UNDO-KEY» on your exopad.</p>
 	</div>
 	<div class="right">
-		<p>A special record of your progress is created whenever you reach a save point. Press «RESETKEY» on your exopad to go back in time! This should work even if you quit the game for a while.</p>
+		<p>A special record of your progress is created whenever you reach a save point. Press «RESTART-KEY» on your exopad to go back in time! This should work even if you quit the game for a while.</p>
 		<div>
 			<img src="images/gravirinth/gravirinth-tutorial-8.png" alt="Gravirinth tutorial 8:save" title="Gravirinth tutorial 8:save"/>
 		</div>
