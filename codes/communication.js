@@ -27,11 +27,11 @@ var DESTINATION_FEEDBACK={
 	Data:function(qid){
 		return{
 			identifier:document.body.id,
-			context:String(LevelNumber(curlevel)),
+			context:String(CurLevelNumber()),
 			question:GetElement(".question",qid).innerHTML,
 			answer:FindData("answer",qid),
 			name:who,
-			state:FindData("snapshot",qid)?PrintGameState():"---"
+			state:FindData("snapshot",qid)==="yes"?PrintGameState():"---"
 			}}
 }
 
@@ -184,16 +184,14 @@ function RequestGameFeedback(){
 
 	if(!RequestGameFeedback.requests)
 		RequestGameFeedback.requests=[];
-	
 	  
 	function RecordAndLaunchThanksBalloon(DP){
-		function RecordFeedback(curlevel){RequestGameFeedback.requests.push(curlevel);}
-		RecordFeedback(curlevel);
+		RequestGameFeedback.requests.push(CurrentScreen());
 		LaunchConsoleThanks(DP);
 		FocusAndResetFunction(RequestGameFeedback,GameFocus)();};
 	
 	var DPsettingsObj={
-		qtargetid:'puzzlescript-game',
+		qtargetid:ParentSelector(gameSelector),
 		qdisplay:LaunchBalloon,
 		qonsubmit:RecordAndLaunchThanksBalloon,
 		qonclose:FocusAndResetFunction(RequestGameFeedback,GameFocus),
@@ -205,21 +203,20 @@ function RequestGameFeedback(){
 	var DFsettingsObj={};
 	var DFSnapshot=['snapshot',{}];
 	  
-	function HasFeedback(curlevel){return In(RequestGameFeedback.requests,curlevel);};
-	function InTitleScreen(){return titleScreen}
+	function HasFeedback(){return In(RequestGameFeedback.requests,CurrentScreen());};
 	
 	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="FeedbackButton")
 		CloseCurrentDatapack();
-	else if(InTitleScreen()){
+	else if(TitleScreen()){
 		DFsettingsObj.questionname="<p>Press ✉ or <kbd>E</kbd> as soon as you start the game to Email Pedro PSI real-time feedback. Much appreciated!</p>";
 		RequestDataPack([['plain',DFsettingsObj]],DPsettingsObj);
 	}
-	else if(HasFeedback(curlevel)){
-		DFsettingsObj.questionname="Any further comments on level"+LevelNumber(curlevel)+"?";
+	else if(HasFeedback()){
+		DFsettingsObj.questionname="Any further comments on level"+CurLevelNumber()+"?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
-	else if(!ScreenMessage(curlevel)){
-		DFsettingsObj.questionname="What do you think of level "+LevelNumber(curlevel)+", so far?";
+	else if(!ScreenMessage(CurrentScreen())){
+		DFsettingsObj.questionname="What do you think of level "+CurLevelNumber()+", so far?";
 		RequestDataPack([['answer',DFsettingsObj],DFSnapshot],DPsettingsObj);
 	}
 	else{
