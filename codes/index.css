@@ -43,7 +43,8 @@
     --h-2:calc(var(--h1)  / var(--scaling));
     --h-4:calc(var(--h-2) / var(--scaling));
     --h-8:calc(var(--h-4) / var(--scaling));
-    
+ 
+    --fontheight:calc(12px + var(--w-2));
 }
 
 body {
@@ -54,8 +55,8 @@ body {
     padding:var(--h1) var(--w1) var(--h1) var(--w1);
     margin:0;
     font-family: Arial, sans-serif;
-    font-size: calc(10px + var(--w-2));
-    line-height: calc(12px + var(--w-2));  
+    font-size: var(--fontheight);  
+    line-height: var(--fontheight);  
     justify-content: space-between;
     text-align: center;
     word-wrap:break-word;
@@ -79,7 +80,7 @@ body {
   --lightyellow: rgba(20,5,0,var(--t));
 }
 
-.nightmode img, .nightmode .game {filter:sepia(1) hue-rotate(310deg) saturate(5) brightness(0.3) }
+.nightmode img {filter:sepia(1) hue-rotate(310deg) saturate(5) brightness(0.4) }
 
 div {
     max-width: 100%;
@@ -460,34 +461,6 @@ li {
     text-decoration-color: var(--blue);
 }
 
-.game-container{
-    align-items: center;
-    margin-bottom:var(--h1)
-}
-
-.game {
-    width: 100%;
-    touch-action: none;
-}
-
-#gameCanvas {
-    height:calc(87vh);
-    width: 100%;
-}
-.game-container:fullscreen #gameCanvas{
-    height:calc(96vh);
-}
-.game-container:full-screen #gameCanvas{
-    height:calc(96vh);
-}
-@media only screen and (max-width:330px) { /*space for the responsive button bar*/
-    .game-container:fullscreen #gameCanvas{
-        height:calc(94vh);
-    }
-    .game-container:full-screen #gameCanvas{
-        height:calc(94vh);
-    }
-}
 
 
 .post {
@@ -1210,29 +1183,13 @@ code{
     flex-wrap: nowrap;
 }
 
-.hint {
-    margin: var(--w-2) var(--h-2) var(--w-2) var(--h-2);
-    align-items: center;
-}
-
-.hint img,
-.hint canvas{
-    max-height: var(--w32);
-    max-width: var(--w32);
-    object-fit:scale-down;
-    padding: 0;
-    margin: var(--w-4) var(--h-4) var(--w-4) var(--h-4);
-    background-color: var(--darkblue);
-    color: var(--white);
-}
-
 kbd {
     border: var(--w-8) solid var(--darkblue);
     border-bottom-width: var(--h-2);
     border-top-width: var(--h-8);
     padding: var(--h-4) var(--w-2) var(--h-4) var(--w-2);
     font-weight: bold;
-    line-height: calc(12px + var(--w-2) + var(--h2) + var(--h1));
+    line-height: calc(var(--fontheight) + var(--h2) + var(--h-2));
     font-family: Arial;
 }
 
@@ -1240,13 +1197,5 @@ kbd {
     cursor:none;
 }
 .hidden{
-    display: none;
-}
-
-.hint *:active,.hint *:focus{
-    filter:brightness(0.8);
-    transition-duration: var(--duration);
-}
-newtest{
     display: none;
 }

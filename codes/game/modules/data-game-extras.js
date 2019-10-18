@@ -156,6 +156,24 @@ function UndoAndFocus(){
 	GameFocus();
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Screen rotation
+
+GameRotation();
+window.addEventListener('resize',GameRotation);
+
+function GameRotation(){
+	var x=window.innerWidth;
+	var y=window.innerHeight;
+	
+	if(x<y*1.05)
+		SelectSimple('.game-rotation-container','rotate90');
+	else
+		Deselect('.game-rotation-container','rotate90');
+	
+	ResizeCanvas();
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 // Save permissions
 

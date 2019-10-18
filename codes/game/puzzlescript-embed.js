@@ -1,6 +1,18 @@
 // Add the game container to the page
-PreAddElement('<div class="game-container"><div id="puzzlescript-game" class="game"><canvas id="gameCanvas"></canvas></div></div>',"body");
+PreAddElement('\
+<div class="game-supra-container">\
+	<div class="game-rotation-container">\
+		<div class="game-container">\
+			<div id="puzzlescript-game" class="game">\
+				<canvas id="gameCanvas"></canvas>\
+			</div>\
+		</div>\
+	</div>\
+</div>',"body");
+
 ConsoleAdd("Loading "+pageTitle()+"...");
+
+LoadStyle(pageRoot()+"codes/game/game.css");
 
 // Load the Puzzlescript engine
 var puzzlescriptModules=[

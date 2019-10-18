@@ -56,6 +56,7 @@ function P(){
 };
 
 LoadGameHTML();
+LoadStyle(pageRoot()+"codes/game/game.css");
 LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
 DelayUntil(function(){return (typeof PrepareGame!=="undefined")},P);
 

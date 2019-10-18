@@ -1,0 +1,117 @@
+/*
+	Octaflower-game Theme (c) 2019 by Pedro PSI
+	https://pedropsi.github.io/
+	MIT License
+												*/
+
+/*Dimensioning and Rotation*/
+:root{
+    --gameW:calc(100vw - 2*var(--w1));
+    --gameH:calc(100vh - 2*var(--h1));
+}
+
+.game-supra-container{
+    height: var(--gameH);
+    overflow: hidden;
+    margin-bottom: var(--h1);
+}
+
+.game-rotation-container{
+    height: var(--gameH);
+    max-width: var(--gameW);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.game-container{
+    border-color:var(--darkblue);
+    background-color: var(--white);
+    color:var(--darkblue);
+    
+    width: 100%;
+    max-width: var(--gameW);
+    
+    overflow: hidden;    
+    align-items: center;
+}
+
+.game {
+    height: calc(var(--gameH) - 2*var(--fontheight));
+    touch-action: none;
+    width: 100%;
+}
+
+/*@media only screen and (max-width: 500px) {*/
+    .game-rotation-container.rotate90 {
+        transform: 
+            translateX(calc(var(--gameH) * -0.5))
+            translateY(calc(var(--gameW) * -0.5))
+            rotate(90deg) 
+            translateX(calc(var(--gameH) * 0.5 ))
+            translateY(calc(var(--gameW) * -0.5 ));
+        
+        height: var(--gameW);
+        max-height: var(--gameW);
+        width: var(--gameH);
+        max-width: var(--gameH);
+    }
+    
+   .rotate90 .game-container{
+        max-width: 100%;
+        height: var(--gameW);
+        max-height: var(--gameW);
+    }
+    .rotate90 .game {
+        height: calc(var(--gameW) - 2*var(--fontheight));
+    }
+} 
+
+
+
+
+/*Fullscreen*/
+.game-container:fullscreen #gameCanvas{
+    height:calc(96vh);
+}
+.game-container:full-screen #gameCanvas{
+    height:calc(96vh);
+}
+@media only screen and (max-width:330px) { /*space for the responsive button bar*/
+    .game-container:fullscreen #gameCanvas{
+        height:calc(94vh);
+    }
+    .game-container:full-screen #gameCanvas{
+        height:calc(94vh);
+    }
+}
+
+
+/*Hints*/
+.hint {
+    margin: var(--w-2) var(--h-2) var(--w-2) var(--h-2);
+    align-items: center;
+}
+
+.hint img,
+.hint canvas{
+    max-height: var(--w32);
+    max-width: var(--w32);
+    object-fit:scale-down;
+    padding: 0;
+    margin: var(--w-4) var(--h-4) var(--w-4) var(--h-4);
+    background-color: var(--darkblue);
+    color: var(--white);
+}
+
+.hint *:active,.hint *:focus{
+    filter:brightness(0.8);
+    transition-duration: var(--duration);
+}
+
+/*Nightmode*/
+.nightmode .game-supra-container {
+    filter:sepia(1) hue-rotate(310deg) saturate(5) brightness(0.4)
+}
