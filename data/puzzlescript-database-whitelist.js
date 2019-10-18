@@ -17,3 +17,16 @@ function Whitelist(){ //Sort descending by expected number of submissions
 		/^https\:\/\/axaxaxas\.herokuapp\.com\/games\/.*/
 	];
 }
+
+var knownAuthors={
+	"unblock":"NOA Cube Studio",
+	"Rose":"Jared Piers",
+	"Im too far gone":"Jack Lance"
+}
+
+function KnownAuthor(title){
+	if(In(knownAuthors,title))
+		return knownAuthors[title];
+	else
+		return "undefined";
+}

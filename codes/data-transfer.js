@@ -879,14 +879,20 @@ function GameRowHTML(dataline){
 	var title=SafeString(dataline[1]);
 	var authorlink=SafeUrl(dataline[4]);
 	var author=SafeString(dataline[2]);
-	//console.log(link,title,author,authorlink);
-		
-	if(typeof Whitelist!=="undefined"&&InWhitelist(link)){
-		title=AHTML(title,link);
-		if(authorlink)
-			author=AHTML(author,authorlink)
+	
+	if(author==="undefined"){
+	//	console.log(typeof KnownAuthor!=="undefined");
+		if(typeof KnownAuthor!=="undefined")
+			author=KnownAuthor(title);
 	}
 	
+	if(typeof Whitelist!=="undefined"&&InWhitelist(link)){
+		title=AHTML(title,link);
+		if(authorlink&&author!=="undefined"){
+			author=AHTML(author,authorlink)
+		}
+	}
+		
 	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+"</tr>";
 };
 
