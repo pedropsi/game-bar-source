@@ -5,6 +5,12 @@
 
 .game-supra-container{
     height: var(--gameH);
+    overflow: hidden;
+    margin-bottom: var(--h1);
+}
+
+.game-rotation-container{
+    height: var(--gameH);
     max-width: var(--gameW);
     
     display: flex;
@@ -25,7 +31,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-    .game-supra-container {
+    .game-rotation-container {
         transform: 
             translateX(calc(var(--gameH) * -0.5))
             translateY(calc(var(--gameW) * -0.5))

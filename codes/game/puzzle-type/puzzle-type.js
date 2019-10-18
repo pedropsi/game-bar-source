@@ -5,15 +5,17 @@
 
 function LoadGameHTML(){
 	var frameHTML="<div class='game-supra-container'>\
-	<div class='game-container'>\
-		<div class='game' id='gameCanvas'>\
-			<div class='top'>\
-				<h1 class='goal'>Puzzle Type</h1>\
-			</div>\
-			<div class='middle' id='letters'>\
-				<div class='credits'>by Pedro PSI (2019)</div>\
-			</div>\
-			<div class='bottom'>\
+	<div class='game-rotation-container'>\
+		<div class='game-container'>\
+			<div class='game' id='gameCanvas'>\
+				<div class='top'>\
+					<h1 class='goal'>Puzzle Type</h1>\
+				</div>\
+				<div class='middle' id='letters'>\
+					<div class='credits'>by Pedro PSI (2019)</div>\
+				</div>\
+				<div class='bottom'>\
+				</div>\
 			</div>\
 		</div>\
 	</div>\
