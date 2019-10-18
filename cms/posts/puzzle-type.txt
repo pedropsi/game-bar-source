@@ -3,7 +3,8 @@
 
 «HOWTO-TEXT»
 <p>The screen displays only one word. Your goal is to type this word exactly as shown. However, your keyboard is behaving cryptically...  and the word is also your only clue!</p>
-<p>All puzzles are to be solved by thinking. No quick reflexes are needed, but pencil and paper may prove useful.</p>
+<p>You may type any of the 26 uppercase letters of the latin alphabet, and erase a letter by pressing <kbd>backspace</kbd> or <kbd>delete</kbd>. Other characters or spaces are excluded.</p>
+<p>All puzzles can be solved with logic and creative thinking, and maybe some pencil and paper. Quick reactions are unnecessary, please take your time!</p>
 
 <p>«UNDO-RESTART-TEXT|With:{UNDO-KEY->"<kbd>Shift</kbd>+<kbd>U</kbd>",RESTART-KEY->"<kbd>Shift</kbd>+<kbd>R</kbd>"}»</p>
 «GAME-EXTRAS-HINTS-TEXT|With:{TOUCHSCREEN-TEXT->"",FEEDBACK-KEY->"<kbd>Shift</kbd>+<kbd>E</kbd>",FULLSCREEN-KEY->"<kbd>Shift</kbd>+<kbd>F</kbd>",HINT-KEY->"<kbd>Shift</kbd>+<kbd>H</kbd>",LEVEL-KEY->"<kbd>Shift</kbd>+<kbd>L</kbd>",MUSIC-KEY->"<kbd>Shift</kbd>+<kbd>M</kbd>"}»
@@ -14,6 +15,9 @@
 
 <h3>Music</h3>
 «CREDITS-MUSIC»
+
+<h3>Sound effects</h3>
+<p>Sound effects made with <a href="https://musescore.com">MuseScore</a> by «NAME-YEAR».</p>
 
 <h3>Game Engine</h3>
 <p>Made with vanilla JS and CSS, including <a href="game-bar.html">«NAME»'s game bar</a>!</p>

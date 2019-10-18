@@ -3,6 +3,7 @@ YEAR-NOW	2019
 LOCATION	a secret location
 NAME	Pedro PSI
 NAME-LINK	<a href="«SITE»">«NAME»</a>
+NAME-YEAR	«NAME-LINK», «YEAR»
 MOSAIC-TEXT	Clicking on the mosaic above will change this page's background. Try it!
 YEAR-START	2010
 DATE-FOUNDED	December, 2017
@@ -196,7 +197,7 @@ LEVEL-KEY	<kbd>L</kbd>
 MUSIC-KEY	<kbd>M</kbd>
 
 CREDITS	<h2>Credits</h2>«CREDITS-AUTHORSHIP»<h3>Music</h3>«CREDITS-MUSIC»«CREDITS-ENGINE-SUPPORT»
-CREDITS-AUTHORSHIP	<p><a href="«LINK-URL».html">«TITLE-BOLD»</a> by «NAME-LINK», «YEAR».</p>
+CREDITS-AUTHORSHIP	<p><a href="«LINK-URL».html">«TITLE-BOLD»</a> by «NAME-YEAR».</p>
 CREDITS-MUSIC	«MUSIC-CREDITS»«GALLERY-AUDIO»
 CREDITS-ENGINE-SUPPORT	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT»«SOURCE-TEXT»
 CREDITS-ENGINE-CLOSED	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT» The source will be available some time after the release.

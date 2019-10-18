@@ -52,7 +52,7 @@ gameModules.map(LoaderInFolder("codes/game/modules"));
 function P(){
 	PrepareGame();
 	ResumeCapturingKeys(CaptureComboKey);
-	LevelLoader();
+	ObtainTitleScreenLoader();
 };
 
 LoadGameHTML();
@@ -146,18 +146,21 @@ function GameAction(key){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
-var LevelGoals=["Direct","Reverse","Twice","Second","Oppose","Increase"];
+var LevelGoals=[
+	"Direct",
+	"Reverse",
+	"Follower",
+	"Second",
+	"Oppose",
+	"Alternate",
+	"Increase",
+	"Vowels",
+	"#DEFACE"];
 
 var LevelActions={
-	"Direct":function(L){
-		InputLetter(L);
-	},
+	"Direct":Direct,
 	"Reverse":function(L){
 		InputLetterBefore(L);
-	},
-	"Twice":function(L){
-		InputLetter(L);
-		InputLetter(L);
 	},
 	"Oppose":function(A){
 		var Z=NumberLetter(25-LetterNumber(A)); 
@@ -167,7 +170,63 @@ var LevelActions={
 		var M=NumberLetter(LetterNumber(L)+1); 
 		InputLetter(M);
 	},
-	"Second":function Second(L){
+	"Second":Second,
+	"Vowels":function Vowels(A){
+		if(!Vowels.n)
+			Vowels.n=0;
+		
+		var n=0;
+		switch(A){
+			case "A":n=n+0;break;
+			case "E":n=n+1;break;
+			case "I":n=n+2;break;
+			case "O":n=n+3;break;
+			case "U":n=n+4;break;
+			default:
+				InputLetter(A);
+				return;
+		}
+		
+		Vowels.n=(Vowels.n+n)%5+1;
+		
+		switch(Vowels.n){
+			case 1:InputLetter("A");break;
+			case 2:InputLetter("E");break;
+			case 3:InputLetter("I");break;
+			case 4:InputLetter("O");break;
+			case 5:InputLetter("U");break;
+		}
+	},
+	"Alternate":function (L){
+		
+		if(CycleNext(["end","begin"])==="begin"){
+			InputLetter(L);
+			Caret(-1);
+		}else{
+			InputLetterBefore(L);
+			Caret(Letters().length);
+		}
+		UpdateLetters();
+		
+	},
+	"#DEFACE":Direct,
+	"Follower":function (L){
+		if(Letters.array.length>=1){
+			var last=Letters.array[Letters.array.length-1];
+			DeleteLetterAfter();
+			InputLetter(L);
+			InputLetter(last);
+		}
+		else
+			InputLetter(L);
+	}
+}
+
+function Direct(L){
+		InputLetter(L);
+};
+
+function Second(L){
 		if(!Second.n)
 			Second.n=0;
 		Second.n++;
@@ -176,13 +235,17 @@ var LevelActions={
 			DeleteLetterBefore();
 		
 		InputLetter(L);
-	}
-
 }
 
-
 var BackspaceLevelActions={
-	"Reverse":DeleteLetterBefore
+	"Reverse":DeleteLetterBefore,
+	"Second":function(){
+		if(!Second.n)
+			Second.n=0;
+		Second.n--;
+		
+		DeleteLetterAfter();
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -288,6 +351,7 @@ function NumberLetter(n){
 //Game execution
 
 function ObtainTitleScreenLoader(){
+	TitleScreen(true);
 	ReplaceElement("Puzzle Type",".goal");
 	Letters.array="by Pedro PSI (2019)".split("");
 	UpdateLetters();
@@ -303,7 +367,12 @@ function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 
 function CheckWin(){
 	var win=Letters().join("").toUpperCase()===CurLevelName().toUpperCase();
+	
+	if(CurLevelName()==="#DEFACE")
+		win=Letters().join("").toUpperCase()==="GREEN";
+	
 	if(win){
+		PlaySound("media/puzzle-type/sound/win"+RandomChoice("123")+".mp3");
 		MarkWonLevel();
 		NextLevel();
 	}
