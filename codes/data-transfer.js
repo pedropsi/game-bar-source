@@ -881,7 +881,7 @@ function GameRowHTML(dataline){
 	var author=SafeString(dataline[2]);
 	//console.log(link,title,author,authorlink);
 		
-	if(InWhitelist(link)){
+	if(typeof Whitelist!=="undefined"&&InWhitelist(link)){
 		title=AHTML(title,link);
 		if(authorlink)
 			author=AHTML(author,authorlink)
