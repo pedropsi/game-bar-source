@@ -8,14 +8,21 @@ var jsCode=document.createElement('script');
 jsCode.setAttribute('src','https://pedropsi.github.io/codes/game/puzzlescript-tagger.js');
 jsCode.setAttribute('type','text/javascript');
 document.body.appendChild(jsCode);
-console.log('Bookmaklet run!');void 0">Submit Puzzlescript Game</a> bookmarklet!</p>
+console.log('Bookmarklet run!');void 0">Submit PuzzleScript Game</a> bookmarklet!</p>
 
-<p> How? Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet, causing the current game to add itself the «TITLE-BOLD» page.</p>
+<p> How? Simply add the bookmarklet above to your bookmarks (instructions below), then on a game page of your choice run (click on) the new bookmarklet, causing the current game to add itself the «TITLE-BOLD» page.</p>
+
+<h3>In Chrome</h3>
+<p><kbd>Drag</kbd> the above bookmarklet link to your bookmarks toolbar.</p>
+<h3>In Firefox</h3>
+<p><kbd>Right click</kbd> on the above bookmarklet link, then select "bookmark this link".</p>
+<h3>If nothing else works</h3>
+<p>Replace the content of an old bookmark with the above link content. Or you could run the bookmarklet js code directly in a game page (it'd still quicker than manually adding a game).</p>
 
 
 <h2>FAQ</h2>
 <h3>Why would you want to contribute to this database for free?</h3>
-<p>If you love (puzzlescript) games you'll love to have a definite public list with all titles. Did you know there's more than 700?</p>
+<p>If you love (puzzlescript) games you'll love to have a definite public list with all titles. Did you know there's more than 750, and counting?</p>
 
 <h3>Is this database safe?</h3>
 <p>All submitted games are listed. If a newly submitted game belongs to a known domain (e.g. puzzlescript.net), its link becomes immediately available. Otherwise, it will be simply listed without a link (so people can google it themselves), until a periodic review. During the review, legitimate new domains will be added to the whitelist and their links enabled, whereas suspicious submissions will be removed.</p>
