@@ -145,9 +145,12 @@ function GameAction(key){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
-var LevelGoals=["Reverse","Twice","Oppose","Increase"];
+var LevelGoals=["Direct","Reverse","Twice","Second","Oppose","Increase"];
 
 var LevelActions={
+	"Direct":function(L){
+		InputLetter(L);
+	},
 	"Reverse":function(L){
 		InputLetterBefore(L);
 	},
@@ -156,12 +159,22 @@ var LevelActions={
 		InputLetter(L);
 	},
 	"Oppose":function(A){
-		var Z=String.fromCharCode((25-(A.charCodeAt()-65)%26)+65); 
+		var Z=NumberLetter(25-LetterNumber(A)); 
 		InputLetter(Z);		
 	},
 	"Increase":function(L){
-		var M=String.fromCharCode(((L.charCodeAt()-65+1)%26)+65); 
+		var M=NumberLetter(LetterNumber(L)+1); 
 		InputLetter(M);
+	},
+	"Second":function Second(L){
+		if(!Second.n)
+			Second.n=0;
+		Second.n++;
+		
+		if(Second.n%2===0)
+			DeleteLetterBefore();
+		
+		InputLetter(L);
 	}
 
 }
@@ -260,6 +273,13 @@ function DeleteLetterBefore(){
 
 function DeleteLetterAfter(){
 	Letters("any",false,true);
+}
+
+function LetterNumber(A){
+	return A.charCodeAt()-65;
+}
+function NumberLetter(n){
+	return String.fromCharCode(n%26+65);
 }
 
 
