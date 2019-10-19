@@ -23,6 +23,9 @@ if(typeof ObtainStateScreens==="undefined")
 if(typeof ResizeCanvas==="undefined")
 	function ResizeCanvas(){canvasResize();}
 
+if(typeof ObtainNewGameCondition==="undefined")
+	function ObtainNewGameCondition(){return titleSelection===0}
+
 if(typeof ObtainLevelLoader==="undefined")
 	function ObtainLevelLoader(){loadLevelFromState(state,curlevel)};
 
@@ -742,7 +745,7 @@ function DelayLevel(n){
 // Level Progression
 
 function StartLevelFromTitle(){
-	if (titleSelection===0){//new game
+	if(ObtainNewGameCondition()){//new game
 		ResetLevel();
 		ResetCheckpoints();
 	}
