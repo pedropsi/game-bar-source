@@ -89,3 +89,7 @@
   animation:         Flicker 5s infinite; /* IE 10+, Fx 29+ */
 }
 
+.caret.forbidden{
+   opacity: 1; 
+   background-color: var(--green);
+}
