@@ -133,16 +133,13 @@ function InstructGameKeyF(key){
 
 
 function GameAction(key){
-	if(key==="Backspace"){
-		if(Caret()[0]===-1)
-			DeleteLetterBefore();
-		else
-			DeleteLetterAfter();
-	}
-	else if(!TitleScreen())
-		LevelActions[CurLevelName()](key);
-	else
+	if(TitleScreen())
 		LevelLoader();
+	else if(key==="Backspace"){
+		Letters.array=[];Caret(0);
+	}
+	else
+		LevelActions[CurLevelName()](key);
 	
 	UpdateLetters();
 	UpdateCaret();
@@ -155,12 +152,13 @@ function GameAction(key){
 var LevelGoals=[
 	"Direct",
 	"Reverse",
-	"Follower",
-	"Second",
-	"Oppose",
 	"Alternate",
-	"Increase",
-	"Vowels"
+	"Second",
+	"Follow",
+	"Oppose",
+	"Raise",
+	"Vowels",
+	"Falls"
 	];
 
 var LevelActions={
@@ -172,7 +170,7 @@ var LevelActions={
 		var Z=NumberLetter(25-LetterNumber(A)); 
 		InputLetter(Z);		
 	},
-	"Increase":function(L){
+	"Raise":function(L){
 		var M=NumberLetter(LetterNumber(L)+1); 
 		InputLetter(M);
 	},
@@ -224,7 +222,7 @@ var LevelActions={
 		UpdateLetters();
 		
 	},
-	"Follower":function (L){
+	"Follow":function (L){
 		if(Letters.array.length>=1){
 			var last=Letters.array[Letters.array.length-1];
 			DeleteLetterAfter();
@@ -233,6 +231,14 @@ var LevelActions={
 		}
 		else
 			InputLetter(L);
+	},
+	"Falls":function (L){
+		function LetterDown(Z){
+			return NumberLetter(LetterNumber(Z)-1);
+		}
+		Letters.array=Letters.array.map(LetterDown);
+		InputLetter(L);
+		UpdateLetters();
 	}
 }
 
@@ -333,10 +339,10 @@ function DeleteLetterAfter(){
 }
 
 function LetterNumber(A){
-	return A.charCodeAt()-65;
+	return (A.charCodeAt()-65)%26;
 }
 function NumberLetter(n){
-	return String.fromCharCode(n%26+65);
+	return String.fromCharCode(((n%26)+26)%26+65);
 }
 
 
@@ -344,6 +350,8 @@ function NumberLetter(n){
 //Game execution
 
 function ObtainTitleScreenLoader(){
+	if(!TitleScreen())
+		PlaySound("media/puzzle-type/sound/startgame.mp3");
 	TitleScreen(true);
 	ReplaceElement("<div class='top'><div class='title'></div><div class='credits'></div></div>",".top");
 	ReplaceElement("Puzzle Type",".title");
