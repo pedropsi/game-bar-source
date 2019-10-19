@@ -118,6 +118,7 @@ function ObtainKeyActionsGameBar(){
 function InstructNothing(){
 	return function(ev){
 		ev.preventDefault();
+		ForbidCaret();
 	}
 }
 
@@ -139,13 +140,20 @@ function GameAction(key){
 		Letters.array=[];Caret(0);
 	}
 	else
+	else if(key==="Enter"){
+		ForbidCaret();return;
+	}else
 		LevelActions[CurLevelName()](key);
 	
 	UpdateLetters();
 	UpdateCaret();
 	CheckWin();
+	GameFocus();
 };
 
+function ForbidCaret(){
+	PulseSelect(".caret","forbidden",500);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
