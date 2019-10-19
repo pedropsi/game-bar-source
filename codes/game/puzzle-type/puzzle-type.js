@@ -36,7 +36,10 @@ function ObtainFGColor(){return window.getComputedStyle(document.body)["color"];
 function ObtainUndo(){return false;}
 function ObtainRestart(){return true;}
 
+function ObtainNewGameCondition(){return SolvedLevelScreens().length<1};
+
 function ObtainStateScreens(){return LevelGoals;}
+
 var ObtainLevelLoader=LevelLoader;
 
 function ResizeCanvas(){return ;}
@@ -53,6 +56,7 @@ gameModules.map(LoaderInFolder("codes/game/modules"));
 function P(){
 	PrepareGame();
 	ResumeCapturingKeys(CaptureComboKey);
+	LoadGame();
 	ObtainTitleScreenLoader();
 };
 
@@ -92,9 +96,11 @@ function ObtainKeyActionsGame(){
 		"X":InstructGameKeyF("X"),
 		"Y":InstructGameKeyF("Y"),
 		"Z":InstructGameKeyF("Z"),
-		"Escape":ObtainTitleScreenLoader,
+		"Escape":InstructGameKeyF("Escape"),
 		"Backspace":InstructGameKeyF("Backspace"),
 		"Delete":InstructGameKeyF("Backspace"),
+		"Shift R":InstructGameKeyF("Backspace"),
+		"Shift U":InstructGameKeyF("Backspace"),
 		"Spacebar":InstructGameKeyF("Enter"),
 		"Enter":InstructGameKeyF("Enter"),
 		"Left":InstructNothing,
@@ -127,29 +133,54 @@ function InstructGameKeyF(key){
 		ev.preventDefault();
 		
 		function Action(){return GameAction(key);}
+		
 		Throttle(Action,100,"Action");
 	}
 }
 
-
-
-function GameAction(key){
-	if(TitleScreen())
-		LevelLoader();
-	else if(key==="Backspace"){
+function LevelAction(key){
+	if(key==="Escape"){
+		ObtainTitleScreenLoader();
+		return;
+	 }	
+	
+	if(key==="Backspace"){
 		Letters.array=[];Caret(0);
 	}
-	else
 	else if(key==="Enter"){
 		ForbidCaret();return;
-	}else
+	}
+	else
 		LevelActions[CurLevelName()](key);
 	
 	UpdateLetters();
 	UpdateCaret();
-	CheckWin();
+	CheckWin();	
+}
+
+function TitleScreenAction(key){
+	if(key!=="Escape")StartLevelFromTitle();
+}
+
+function GameAction(key){
+	
+	if(BlockInput.blocked)
+		return;
+	
+	if(TitleScreen())
+		TitleScreenAction(key)
+	else
+		LevelAction(key)
+	
 	GameFocus();
 };
+
+function BlockInput(duration){
+	var duration=duration||1000;
+	BlockInput.blocked=true;
+	function UnblockInput(){BlockInput.blocked=false;}
+	setTimeout(UnblockInput,duration);
+}
 
 function ForbidCaret(){
 	PulseSelect(".caret","forbidden",500);
@@ -164,7 +195,7 @@ var LevelGoals=[
 	"Second",
 	"Follow",
 	"Oppose",
-	"Raise",
+	"Rise",
 	"Vowels",
 	"Falls"
 	];
@@ -178,7 +209,7 @@ var LevelActions={
 		var Z=NumberLetter(25-LetterNumber(A)); 
 		InputLetter(Z);		
 	},
-	"Raise":function(L){
+	"Rise":function(L){
 		var M=NumberLetter(LetterNumber(L)+1); 
 		InputLetter(M);
 	},
@@ -248,12 +279,60 @@ var LevelActions={
 		InputLetter(L);
 		UpdateLetters();
 	}
+	
+	/*,
+	"#DEFACE":function (L){
+		InputLetter(L);
+	},
+	"Unspeedwise":function (L){
+		var L={"A":"O",
+			"B":"L",
+			"C":"S",
+			"D":"L",
+			"E":"O",
+			"F":"L",
+			"G":"S",
+			"H":"S",
+			"I":"Y",
+			"J":"L",
+			"K":"S",
+			"L":"L",
+			"M":"L",
+			"N":"L",
+			"O":"O",
+			"P":"L",
+			"Q":"S",
+			"R":"L",
+			"S":"S",
+			"T":"L",
+			"U":"Y",
+			"V":"W",
+			"W":"W",
+			"X":"S",
+			"Y":"Y",
+			"Z":"S",
+		}[L];
+		InputLetter(L);
+	}*/
 }
 
 function Direct(L){
 		InputLetter(L);
 };
 
+/*
+function Synonyms(UPPERCASEWORD){
+	if(In(SynonymsArray,UPPERCASEWORD))
+		return SynonymsArray[UPPERCASEWORD];
+	else
+		return [UPPERCASEWORD];
+}
+
+var SynonymsArray={
+	"#DEFACE":["LIGHTGREEN","GREEN"],
+	"UNSPEEDWISE":["SLOWLY"]
+}
+*/
 
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
@@ -383,12 +462,14 @@ function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 
 
 function CheckWin(){
-	var win=Letters().join("").toUpperCase()===CurLevelName().toUpperCase();
+	//var win=In(Synonyms(CurLevelName().toUpperCase()),Letters().join("").toUpperCase());
+	var win=CurLevelName().toUpperCase()===Letters().join("").toUpperCase();
 	
 	if(win){
 		PlaySound("media/puzzle-type/sound/win"+RandomChoice("123")+".mp3");
 		MarkWonLevel();
-		NextLevel();
+		BlockInput(1100);
+		setTimeout(NextLevel,1000);
 	}
 }
 
