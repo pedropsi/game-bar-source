@@ -1,50 +1,12 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Game data link defaults, overwritable
-
-//Game Options
-if(typeof ObtainBGColor==="undefined")
-	function ObtainBGColor(){return state.bgcolor;}
-
-if(typeof ObtainFGColor==="undefined")
-	function ObtainFGColor(){return state.fgcolor;}
-
-if(typeof ObtainUndo==="undefined")
-	function ObtainUndo(){return !state.metadata.noundo;}
-
-if(typeof ObtainRestart==="undefined")
-	function ObtainRestart(){return !state.metadata.norestart;}
+//Good defaults
 
 
-//Game and Level Navigation
-if(typeof ObtainStateScreens==="undefined")
-	function ObtainStateScreens(){return state.levels;}
+//Game selector
+var gameSelector=gameSelector?gameSelector:'#gameCanvas';
 
+//curlevelTarget
 
-if(typeof ResizeCanvas==="undefined")
-	function ResizeCanvas(){canvasResize();}
-
-if(typeof ObtainNewGameCondition==="undefined")
-	function ObtainNewGameCondition(){return titleSelection===0}
-
-if(typeof ObtainLevelLoader==="undefined")
-	function ObtainLevelLoader(){loadLevelFromState(state,curlevel)};
-
-if(typeof ObtainLevelTransition==="undefined")
-	function ObtainLevelTransition(){
-		textMode=false;
-		titleScreen=false;
-		quittingMessageScreen=false;
-		messageselected=false;
-	}
-
-if(typeof ObtainTitleScreenLoader==="undefined")
-	function ObtainTitleScreenLoader(){goToTitleScreen()};
-
-if(typeof ObtainPlayEndGameSound==="undefined")
-	function ObtainPlayEndGameSound(){tryPlayEndGameSound()};
-
-if(typeof ObtainPlayEndLevelSound==="undefined")
-	function ObtainPlayEndLevelSound(){tryPlayEndLevelSound()};
 
 if(typeof titleScreen==="undefined")
 	var titleScreen=true;
@@ -65,12 +27,6 @@ if(typeof EchoSelect==="undefined")
 if(typeof EchoHint==="undefined")
 	var EchoHint=Identity;
 
-
-//curlevelTarget
-
-
-//Game selector
-var gameSelector=gameSelector?gameSelector:'#gameCanvas';
 
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
