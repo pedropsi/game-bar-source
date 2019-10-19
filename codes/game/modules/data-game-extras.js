@@ -49,6 +49,8 @@ if(typeof ObtainPlayEndLevelSound==="undefined")
 if(typeof titleScreen==="undefined")
 	var titleScreen=true;
 
+if(typeof ResizeCanvas==="undefined")
+	function ResizeCanvas(){canvasResize();}
 
 //Record
 if(typeof ClearLevelRecord==="undefined")
@@ -76,17 +78,20 @@ var gameSelector=gameSelector?gameSelector:'#gameCanvas';
 function PrepareGame(){
 	var bar=GetElement("GameBar");
 	if(!bar){
+		
 		if(typeof onKeyDown!=="undefined")
 			StopCapturingKeys(onKeyDown);
 		ResumeCapturingKeys(CaptureComboKey);
-		ScrollInto(gameSelector);
-		//GetElement(gameSelector).click();//Activate audio (maybe?)
-		AddGameBar();
-		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
-
 		
+		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
+		AddGameBar();
+
 		PlaylistStartPlay();
+		
+		ScrollInto(gameSelector);
 		GameFocus();
+		
+		ResizeCanvas();
 	}
 }
 
