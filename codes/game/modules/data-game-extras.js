@@ -43,8 +43,8 @@ if(typeof ObtainTitleScreenLoader==="undefined")
 if(typeof ObtainPlayEndGameSound==="undefined")
 	function ObtainPlayEndGameSound(){tryPlayEndGameSound()};
 
-if(typeof ObtainPlayEndGameSound==="undefined")
-	function ObtainPlayEndGameSound(){tryPlayEndLevelSound()};
+if(typeof ObtainPlayEndLevelSound==="undefined")
+	function ObtainPlayEndLevelSound(){tryPlayEndLevelSound()};
 
 if(typeof titleScreen==="undefined")
 	var titleScreen=true;
