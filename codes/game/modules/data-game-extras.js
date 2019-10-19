@@ -84,7 +84,6 @@ function PrepareGame(){
 		AddGameBar();
 		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 
-		ToggleSavePermission(GetElement("SaveButton"));
 		
 		PlaylistStartPlay();
 		GameFocus();
@@ -184,7 +183,7 @@ function GameRotation(){
 // Save permissions
 
 var curcheckpoint=0;
-var savePermission=false; //Is toggled to true on load
+var savePermission=true;
 
 function ToggleSavePermission(thi){
 	Deselect(thi);
@@ -193,15 +192,18 @@ function ToggleSavePermission(thi){
 		EraseLocalsave();
 		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": Localsave is OFF across sessions.");
 	}
-	else {
-		savePermission=true;
-		Localsave();
-		ConsoleAddMany([
-			"Localsave is ON for "+pageTitle()+".",
-			"To stop localsaving and erase all 2 cookies, please deselect 🖫."
-			]);
-		Select(thi);
-	}	
+	else 
+		ActivateSavePermission(thi);
+}
+
+function ActivateSavePermission(thi){
+	savePermission=true;
+	Localsave();
+	ConsoleAddMany([
+		"Localsave is ON for "+pageTitle()+".",
+		"To stop localsaving and erase all 2 cookies, please deselect 🖫."
+		]);
+	Select(thi);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
