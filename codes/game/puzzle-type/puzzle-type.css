@@ -1,16 +1,47 @@
 .top{
+    width: 100;
     height: 50%;
     display: flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
 }
+
+.top .title,.top .credits{
+   width: 100%;
+   font-size:var(--w8);
+   font-weight: bold;
+   border: unset;
+   flex-basis: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.top .credits{
+   font-size:var(--w4);
+   font-weight: unset;
+   margin-top: 10%;
+}
+
+.rotate90 .title{
+   font-size:var(--h8);
+}
+.rotate90 .credits{
+   font-size:var(--h4);
+   margin-top: var(--w8);
+}
+
+
 .top .goal{
+   font-variant-caps:small-caps;
+   font-weight: bold;
    background-color: var(--lightyellow);
    font-size:var(--w8);
    padding: var(--w8);
    height: 100%;
 }
+
+
 .middle{
     height: 50%;
     width: 100%;

@@ -10,9 +10,10 @@ function LoadGameHTML(){
 			<div class='game' id='gameCanvas'>\
 				<div class='top'>\
 					<h1 class='goal'>Puzzle Type</h1>\
+					<h2 class='credits'>by Pedro PSI (2019)</h1>\
 				</div>\
 				<div class='middle' id='letters'>\
-					<div class='credits'>by Pedro PSI (2019)</div>\
+					<div class='latters'>Start game</div>\
 				</div>\
 				<div class='bottom'>\
 				</div>\
@@ -94,8 +95,8 @@ function ObtainKeyActionsGame(){
 		"Escape":ObtainTitleScreenLoader,
 		"Backspace":InstructGameKeyF("Backspace"),
 		"Delete":InstructGameKeyF("Backspace"),
-		"Spacebar":InstructNothing,
-		"Enter":InstructNothing,
+		"Spacebar":InstructGameKeyF("Enter"),
+		"Enter":InstructGameKeyF("Enter"),
 		"Left":InstructNothing,
 		"Up":InstructNothing,
 		"Right":InstructNothing,
@@ -130,6 +131,7 @@ function InstructGameKeyF(key){
 }
 
 
+
 function GameAction(key){
 	if(key==="Backspace"){
 		if(Caret()[0]===-1)
@@ -137,8 +139,10 @@ function GameAction(key){
 		else
 			DeleteLetterAfter();
 	}
-	else
+	else if(!TitleScreen())
 		LevelActions[CurLevelName()](key);
+	else
+		LevelLoader();
 	
 	UpdateLetters();
 	UpdateCaret();
@@ -151,11 +155,11 @@ function GameAction(key){
 var LevelGoals=[
 	"Direct",
 	"Reverse",
-	/*"Follower",
+	"Follower",
 	"Second",
 	"Oppose",
 	"Alternate",
-	"Increase",*/
+	"Increase",
 	"Vowels"
 	];
 
@@ -341,12 +345,20 @@ function NumberLetter(n){
 
 function ObtainTitleScreenLoader(){
 	TitleScreen(true);
-	ReplaceElement("Puzzle Type",".goal");
-	Letters.array="by Pedro PSI (2019)".split("");
-	UpdateLetters();
+	ReplaceElement("<div class='top'><div class='title'></div><div class='credits'></div></div>",".top");
+	ReplaceElement("Puzzle Type",".title");
+	ReplaceElement("by Pedro PSI (2019)",".credits");
+	if(CurLevelNumber()>1||SolvedLevelScreens().length>0)
+		Letters.array="CONTINUE".split("");
+	else
+		Letters.array="START".split("");
+	UpdateLetters(); UpdateCaret();
+	
 };
 
 function LevelLoader(){
+	TitleScreen(false);
+	ReplaceElement("<div class='top'><div class='goal'></div></div>",".top");
 	ClearLetters();
 	ReplaceElement(CurLevelName(),".goal");
 }
