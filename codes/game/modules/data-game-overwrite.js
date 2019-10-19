@@ -1,3 +1,8 @@
+
+
+if(typeof ObtainPlayEndLevelSound==="undefined")
+	function ObtainPlayEndLevelSound(){tryPlayEndLevelSound()};
+
 ////////////////////////////////////////////////////////////////////////////////
 //Puzzlescript overwrite
 
@@ -89,47 +94,3 @@ function AdjustFlickscreen(){
 }
 
 
-
-////////////////////////////////////////////////////////////////////////////////
-// Game data link defaults, for puzzlescript, overwritable
-
-//Game Options
-if(typeof ObtainBGColor==="undefined")
-	function ObtainBGColor(){return state.bgcolor;}
-
-if(typeof ObtainFGColor==="undefined")
-	function ObtainFGColor(){return state.fgcolor;}
-
-if(typeof ObtainUndo==="undefined")
-	function ObtainUndo(){return !state.metadata.noundo;}
-
-if(typeof ObtainRestart==="undefined")
-	function ObtainRestart(){return !state.metadata.norestart;}
-
-
-//Game and Level Navigation
-if(typeof ObtainStateScreens==="undefined")
-	function ObtainStateScreens(){return state.levels;}
-
-if(typeof ObtainNewGameCondition==="undefined")
-	function ObtainNewGameCondition(){return titleSelection===0}
-
-if(typeof ObtainLevelLoader==="undefined")
-	function ObtainLevelLoader(){loadLevelFromState(state,curlevel)};
-
-if(typeof ObtainLevelTransition==="undefined")
-	function ObtainLevelTransition(){
-		textMode=false;
-		titleScreen=false;
-		quittingMessageScreen=false;
-		messageselected=false;
-	}
-
-if(typeof ObtainTitleScreenLoader==="undefined")
-	function ObtainTitleScreenLoader(){goToTitleScreen()};
-
-if(typeof ObtainPlayEndGameSound==="undefined")
-	function ObtainPlayEndGameSound(){tryPlayEndGameSound()};
-
-if(typeof ObtainPlayEndLevelSound==="undefined")
-	function ObtainPlayEndLevelSound(){tryPlayEndLevelSound()};
