@@ -1433,10 +1433,11 @@ function Toggle(selectorE,clas){
 
 // Select Pulse
 
-function PulseSelect(selectorE){
-	var clas="pulsating";
+function PulseSelect(selectorE,clas,delay){
+	var delay=delay||100;
+	var clas=clas||"pulsating";
 	SelectSimple(selectorE,clas);
-	setTimeout(function(){Deselect(selectorE,clas);},100);
+	setTimeout(function(){Deselect(selectorE,clas);},delay);
 }
 
 // Show/Hide
