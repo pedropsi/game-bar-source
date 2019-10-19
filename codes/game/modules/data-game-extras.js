@@ -914,7 +914,7 @@ OverwriteShortcuts(gameSelector,FullShortcuts);
 
 
 function RequestGameFullscreen(){
-	FullscreenToggle(ParentSelector(ParentSelector(gameSelector)));
+	FullscreenToggle(".game-supra-container");
 	setTimeout(GameRotation,500);
 }
 

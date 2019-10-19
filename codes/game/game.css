@@ -65,29 +65,9 @@
         max-height: var(--gameW);
     }
     .rotate90 .game {
-        height: calc(var(--gameW) - 2*var(--fontheight));
+        height: calc(var(--gameW) - 3*var(--fontheight));
     }
 } 
-
-
-
-
-/*Fullscreen*/
-.game-container:fullscreen #gameCanvas{
-    height:calc(96vh);
-}
-.game-container:full-screen #gameCanvas{
-    height:calc(96vh);
-}
-@media only screen and (max-width:330px) { /*space for the responsive button bar*/
-    .game-container:fullscreen #gameCanvas{
-        height:calc(94vh);
-    }
-    .game-container:full-screen #gameCanvas{
-        height:calc(94vh);
-    }
-}
-
 
 /*Hints*/
 .hint {
