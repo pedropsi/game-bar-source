@@ -20,6 +20,7 @@ function Whitelist(){ //Sort descending by expected number of submissions
 
 var knownAuthors={
 	"unblock":"NOA Cube Studio",
+	"dis pontibus II demake / edit":"NOA Cube Studio",
 	"Rose":"Jared Piers",
 	"Im too far gone":"Jack Lance",
 	"skeleton assembler 2":"Ethan Clark"
