@@ -263,7 +263,7 @@ var LevelActions={
 	},
 	"Follow":function (L){
 		if(Letters.array.length>=1){
-			var last=Letters.array[Letters.array.length-1];
+			var last=Last(Letters.array);
 			DeleteLetterAfter();
 			InputLetter(L);
 			InputLetter(last);

@@ -25,6 +25,13 @@ function Identity(){return;};
 ///////////////////////////////////////////////////////////////////////////////
 // Array or Object
 
+function Last(array){
+	if(array.length)
+		return array[array.length-1];
+	else
+		return undefined;
+}
+
 //Distinguish Objects and Arrays
 function IsArray(array){
 	return FunctionName(array.constructor)==="Array";
@@ -1515,7 +1522,7 @@ function CloseAndContinue(DP){
 function CurrentDatapack(){
 	var h=GetDataPack.history;
 	if(h&&h.length>0){
-		var DP=h[h.length-1];
+		var DP=Last(h);
 		if(DP.closed)
 			return undefined;
 		else
@@ -1544,7 +1551,7 @@ function SubmitCurrentDatapack(){
 function Spotlight(){
 	if(!Spotlight.s)
 		Spotlight.s=[document.body];
-	return Spotlight.s[Spotlight.s.length-1];
+	return Last(Spotlight.s);
 }
 
 function AddSpotlight(element){
@@ -1817,7 +1824,7 @@ function PreviousSubmission(field){
 	var s=PreviousSubmission.history.filter(function(datasub){return ((typeof datasub[field])!=="undefined")});
 	
 	if(s.length>0)
-		return s[s.length-1][field];
+		return Last(s)[field];
 	else
 		return undefined;
 }

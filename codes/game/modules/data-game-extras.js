@@ -494,13 +494,14 @@ function FirstUnsolvedScreen(){
 function NextUnsolvedScreen(curscreen){
 	var firstusolve=UnSolvedLevelScreens().filter(function(x){return x>=curscreen;})[0];
 	var lastsolvebefore=UnlockedLevelScreens().filter(function(x){return x<firstusolve;});
-	return lastsolvebefore[lastsolvebefore.length-1]+1;
+	return Last(lastsolvebefore)+1;
 }
 
 function LastScreen(){return ObtainStateScreens().length-1;};
 
 function FinalLevelScreen(){
-	var li=UnlockedLevelScreens(); return li[li.length-1];
+	var li=UnlockedLevelScreens(); 
+	return Last(li);
 };
 
 function ClearSolvedLevelScreens(){
