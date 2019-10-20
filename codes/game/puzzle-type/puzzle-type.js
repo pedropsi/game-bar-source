@@ -33,8 +33,10 @@ function LoadGameHTML(){
 function ObtainBGColor(){return window.getComputedStyle(document.body)["background-color"];}
 function ObtainFGColor(){return window.getComputedStyle(document.body)["color"];}
 
-function ObtainUndo(){return false;}
-function ObtainRestart(){return true;}
+function ObtainRestartAllowed(){return true;}
+function ObtainUndoAllowed(){return true;}
+function ObtainUndo(){Undo();}
+function ObtainRestart(){ClearLetters();}
 
 function ObtainNewGameCondition(){return SolvedLevelScreens().length<1};
 
@@ -97,10 +99,10 @@ function ObtainKeyActionsGame(){
 		"Y":InstructGameKeyF("Y"),
 		"Z":InstructGameKeyF("Z"),
 		"Escape":InstructGameKeyF("Escape"),
-		"Backspace":InstructGameKeyF("Backspace"),
-		"Delete":InstructGameKeyF("Backspace"),
-		"Shift R":InstructGameKeyF("Backspace"),
-		"Shift U":InstructGameKeyF("Backspace"),
+		"Backspace":ObtainRestart,
+		"Delete":ObtainRestart,
+		"Shift R":ObtainRestart,
+		"Shift U":ObtainUndo,
 		"Spacebar":InstructGameKeyF("Enter"),
 		"Enter":InstructGameKeyF("Enter"),
 		"Left":InstructNothing,
@@ -144,17 +146,13 @@ function LevelAction(key){
 		return;
 	 }	
 	
-	if(key==="Backspace"){
-		Letters.array=[];Caret(0);
-	}
-	else if(key==="Enter"){
+	if(key==="Enter"){
 		ForbidCaret();return;
 	}
 	else
 		LevelActions[CurLevelName()](key);
 	
-	UpdateLetters();
-	UpdateCaret();
+	UpdateLevel();
 	CheckWin();	
 }
 
@@ -250,7 +248,6 @@ var LevelActions={
 		}
 	},
 	"Alternate":function (L){
-		
 		if(CycleNext(["end","begin"])==="begin"){
 			InputLetter(L);
 			Caret(-1);
@@ -258,8 +255,6 @@ var LevelActions={
 			InputLetterBefore(L);
 			Caret(Letters().length);
 		}
-		UpdateLetters();
-		
 	},
 	"Follow":function (L){
 		if(Letters.array.length>=1){
@@ -277,62 +272,13 @@ var LevelActions={
 		}
 		Letters.array=Letters.array.map(LetterDown);
 		InputLetter(L);
-		UpdateLetters();
 	}
-	
-	/*,
-	"#DEFACE":function (L){
-		InputLetter(L);
-	},
-	"Unspeedwise":function (L){
-		var L={"A":"O",
-			"B":"L",
-			"C":"S",
-			"D":"L",
-			"E":"O",
-			"F":"L",
-			"G":"S",
-			"H":"S",
-			"I":"Y",
-			"J":"L",
-			"K":"S",
-			"L":"L",
-			"M":"L",
-			"N":"L",
-			"O":"O",
-			"P":"L",
-			"Q":"S",
-			"R":"L",
-			"S":"S",
-			"T":"L",
-			"U":"Y",
-			"V":"W",
-			"W":"W",
-			"X":"S",
-			"Y":"Y",
-			"Z":"S",
-		}[L];
-		InputLetter(L);
-	}*/
 }
 
 function Direct(L){
 		InputLetter(L);
 };
 
-/*
-function Synonyms(UPPERCASEWORD){
-	if(In(SynonymsArray,UPPERCASEWORD))
-		return SynonymsArray[UPPERCASEWORD];
-	else
-		return [UPPERCASEWORD];
-}
-
-var SynonymsArray={
-	"#DEFACE":["LIGHTGREEN","GREEN"],
-	"UNSPEEDWISE":["SLOWLY"]
-}
-*/
 
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
@@ -378,7 +324,7 @@ function Caret(position){
 		Caret.array=[position];	
 }
 
-function UpdateCaret(){
+function DrawCaret(){
 	var p=Caret()[0];
 	
 	if(p===-1)
@@ -399,13 +345,22 @@ function CaretHTML(){
 function ClearLetters(){
 	Letters.array=[];
 	Caret(0);
-	UpdateLetters();
-	UpdateCaret();
+	UpdateLevel();
 }
 
-function UpdateLetters(){
+function DrawLetters(){
 	var letters=Letters().map(LetterHTML).join("\n");
 	ReplaceElement(letters,"#letters");
+}
+
+function UpdateLevel(){
+	UpdateLevelSecretly();
+	SaveLevelState();
+}
+	
+function UpdateLevelSecretly(){
+	DrawLetters();
+	DrawCaret();
 }
 
 
@@ -417,6 +372,7 @@ function InputLetter(letter){
 	Letters(letter,false);
 }
 
+//Letters Delete
 function DeleteLetterBefore(){
 	Letters("any",true,true);
 }
@@ -425,6 +381,8 @@ function DeleteLetterAfter(){
 	Letters("any",false,true);
 }
 
+
+//Letters and Numbers
 function LetterNumber(A){
 	return (A.charCodeAt()-65)%26;
 }
@@ -447,7 +405,7 @@ function ObtainTitleScreenLoader(){
 		Letters.array="CONTINUE".split("");
 	else
 		Letters.array="START".split("");
-	UpdateLetters(); UpdateCaret();
+	UpdateLevel();
 	
 };
 
@@ -456,13 +414,14 @@ function LevelLoader(){
 	ReplaceElement("<div class='top'><div class='goal'></div></div>",".top");
 	ClearLetters();
 	ReplaceElement(CurLevelName(),".goal");
+	UndoClear();
 }
 
 function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 
 
 function CheckWin(){
-	//var win=In(Synonyms(CurLevelName().toUpperCase()),Letters().join("").toUpperCase());
+	
 	var win=CurLevelName().toUpperCase()===Letters().join("").toUpperCase();
 	
 	if(win){
@@ -470,9 +429,58 @@ function CheckWin(){
 		MarkWonLevel();
 		BlockInput(1100);
 		setTimeout(NextLevel,1000);
+		UndoClear();
 	}
 }
 
 function ObtainPlayEndGameSound(){
 	PlaySound("media/puzzle-type/sound/wingame.mp3");
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+//Undo
+function Undo(){
+	if(!Undo.backups)
+		SaveLevelState();
+	
+	if(Undo.backups.length>=2){
+		var u=Undo.backups.pop(); //Pop the current state
+		LoadLevelState(Last(Undo.backups));
+	}
+}
+
+function SaveLevelState(){
+	if(!Undo.backups)
+		UndoClear();
+	Undo.backups.push(LevelState());
+}
+
+function LoadLevelState(levelstate){
+	Letters.array=Clone(levelstate['letters']);
+	Caret(levelstate['caret']);
+	UpdateLevelSecretly();
+}
+
+function UndoClear(){
+	Undo.backups=[LevelZeroState()];
+} 
+
+function LevelZeroState(){
+	var state={
+		'letters':[],
+		'caret':0
+	};
+	return state;
+}
+
+function LevelState(){
+	var state={
+		'letters':Clone(Letters()),
+		'caret':Caret()[0]
+	};
+	return state;
+}
+
+
+
