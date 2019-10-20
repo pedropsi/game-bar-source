@@ -22,6 +22,7 @@ function LoadGameHTML(){
 	</div>\
 </div>";
 
+	RemoveElement(".game-supra-container");
 	PrependElement(frameHTML,".main");
 }
 
