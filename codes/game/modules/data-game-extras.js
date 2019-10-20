@@ -9,11 +9,17 @@ if(typeof ObtainBGColor==="undefined")
 if(typeof ObtainFGColor==="undefined")
 	function ObtainFGColor(){return state.fgcolor;}
 
+if(typeof ObtainRestartAllowed==="undefined")
+	function ObtainRestartAllowed(){return !state.metadata.norestart;}
+
+if(typeof ObtainUndoAllowed==="undefined")
+	function ObtainUndoAllowed(){return !state.metadata.noundo;}
+
 if(typeof ObtainUndo==="undefined")
-	function ObtainUndo(){return !state.metadata.noundo;}
+	function ObtainUndo(){CheckRegisterKey({keyCode:85});}
 
 if(typeof ObtainRestart==="undefined")
-	function ObtainRestart(){return !state.metadata.norestart;}
+	function ObtainRestart(){CheckRegisterKey({keyCode:82});}
 
 
 //Game and Level Navigation
@@ -97,7 +103,7 @@ function PrepareGame(){
 // Game Bar
 
 function UndoButton(){
-	var undo=ObtainUndo()?ButtonHTML({txt:'↶',attributes:{
+	var undo=ObtainUndoAllowed()?ButtonHTML({txt:'↶',attributes:{
 		onclick:'UndoAndFocus();',
 		onmousedown:'AutoRepeat(UndoAndFocus,250);',
 		ontouchstart:'AutoRepeat(UndoAndFocus,250);',
@@ -117,9 +123,11 @@ function MuteButton(){
 	}
 }
 
+
+
 function GameBar(targetIDsel){
 	
-	var restart=ObtainRestart()?ButtonOnClickHTML('↺','CheckRegisterKey({keyCode:82});GameFocus();'):"";
+	var restart=ObtainRestartAllowed()?ButtonOnClickHTML('↺','ObtainRestart();GameFocus();'):"";
 	
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
@@ -160,7 +168,7 @@ function GameFocus(DP){
 };
 
 function UndoAndFocus(){
-	CheckRegisterKey({keyCode:85});
+	ObtainUndo();
 	GameFocus();
 }
 
