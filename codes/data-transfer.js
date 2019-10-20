@@ -172,9 +172,21 @@ function FuseObjects(object,extrapropertiesobject){
 	return O;
 }
 
-function Clone(Obj){
+function CloneObject(Obj){
 	return FuseObjects({},Obj);
 }
+
+function CloneArray(Arr){
+	return [].concat(Arr);
+}
+
+function Clone(AO){
+	if(IsObject(AO))
+		return CloneObject(AO);
+	else
+		return CloneArray(AO);
+}
+
 
 function Datafy(object){
 	var O={};
