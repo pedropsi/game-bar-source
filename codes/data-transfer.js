@@ -800,14 +800,6 @@ function ReplaceElement(html,parentIDsel){
 		p.innerHTML=html;
 };
 
-// Add HTML Data from external source to page
-function InjectData(source,destinationID,Transform){
-	var data=LoadData(source);
-	if(Transform){
-		data=Transform(data);
-	}
-	AddElement(data,destinationID);
-};
 
 // Add HTML Data from external source to page
 function OverwriteData(source,destinationID,Transform){
