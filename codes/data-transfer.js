@@ -232,7 +232,7 @@ function ForwardRegex(string){
 //IDENTIFIER 	page
 //EXTENSION 	.html
 //TAG			#etc
-var domains =["pedropsi.github.io","combinatura.github.io"];
+var domains=["pedropsi.github.io","combinatura.github.io"];
 var predomainssoft=AlternateRegex(domains.map(function(d){return CombineRegex(/^[\d\D]*/,d)}));
 var predomainshard=AlternateRegex(domains.map(function(d){return CombineRegex(/^(https?:\/\/)*/,d)}));
 var posdomains=AlternateRegex(domains.map(function(d){return CombineRegex(d,/[\d\D]*$/)}));
@@ -457,11 +457,11 @@ function RandomChoice(v){return v[RandomInteger(v.length)]};
 
 
 function GenerateId(){
-	var preconsonants = "bcdfghjklmnpqrstvwxz";
-	var preconsonants2 = "hjlnrs";
-	var vowels = "aeiouyáéíóúàèìòùýäëïöüÿãõâêîôû";
-	var posconsonants2 = "pkstm";
-	var posconsonants = "bcdglmnrstxz";
+	var preconsonants="bcdfghjklmnpqrstvwxz";
+	var preconsonants2="hjlnrs";
+	var vowels="aeiouyáéíóúàèìòùýäëïöüÿãõâêîôû";
+	var posconsonants2="pkstm";
+	var posconsonants="bcdglmnrstxz";
 				
 	function PreSyllabe(){
 		return RandomInteger(5)<=3?RandomChoice(preconsonants)+(RandomInteger(5)<=1?RandomChoice(preconsonants2):""):"";
@@ -483,22 +483,22 @@ function GenerateId(){
 //Load scripts
 
 function LoadScript(sourcecode){
-	var head= GetElements('head')[0];
-	var script= document.createElement('script');
+	var head=GetElements('head')[0];
+	var script=document.createElement('script');
 	script.innerHTML=sourcecode;
 	head.appendChild(script);
 }
 
 function LoadAsync(sourcename,folder){
-	var head= GetElements('head')[0];
-	var script= document.createElement('script');
+	var head=GetElements('head')[0];
+	var script=document.createElement('script');
 	var ext='.js';
 	var folder=((folder+"/").replace(/\/\//,"/"))||"codes/"
 	if(sourcename.replace(".txt","")!=sourcename){
 		ext="";
 	}
-	script.src= folder+sourcename+ext;
-	script.async= false;
+	script.src=folder+sourcename+ext;
+	script.async=false;
 	
 	head.appendChild(script);
 }
@@ -510,9 +510,9 @@ function LoaderInFolder(folder){
 //Load styles
 
 function LoadStyle(sourcename){
-	var head= document.getElementsByTagName('head')[0];
-	var styleelement= document.createElement('link');
-	styleelement.href= sourcename.replace(".css","")+".css";
+	var head=document.getElementsByTagName('head')[0];
+	var styleelement=document.createElement('link');
+	styleelement.href=sourcename.replace(".css","")+".css";
 	styleelement.rel="stylesheet";
 	styleelement.type="text/css";
 	head.appendChild(styleelement);
@@ -524,12 +524,12 @@ function LoadStyle(sourcename){
 //Fetch data from url
 function LoadDataMaybe(url){
 	var data;
-    var rawFile = new XMLHttpRequest();
+    var rawFile=new XMLHttpRequest();
     rawFile.open("GET", url, false);
-    rawFile.onreadystatechange = function (){
-        if(rawFile.readyState === 4){
-            if(rawFile.status === 200 || rawFile.status == 0){
-                data = rawFile.responseText;
+    rawFile.onreadystatechange=function (){
+        if(rawFile.readyState===4){
+            if(rawFile.status===200||rawFile.status==0){
+                data=rawFile.responseText;
             }
         }
     }
@@ -564,14 +564,14 @@ function LoadExternalScript(url){
 // Data transmission - JSON, to a script in url "url"
 
 function EchoPureData(data,url){
-	var encoded = Object.keys(data).map(function(k){
+	var encoded=Object.keys(data).map(function(k){
 		return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
 	}).join('&');
 
-	var xhr = new XMLHttpRequest();
+	var xhr=new XMLHttpRequest();
 	xhr.open('POST',url);
 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	xhr.onreadystatechange = function(){
+	xhr.onreadystatechange=function(){
 		console.log(xhr.status, xhr.statusText);
 		console.log(xhr.responseText);
 		return;
@@ -797,18 +797,18 @@ function ReplaceElement(html,parentIDsel){
 
 // Add HTML Data from external source to page
 function InjectData(source,destinationID,Transform){
-	var data = LoadData(source);
+	var data=LoadData(source);
 	if(Transform){
-		data = Transform(data);
+		data=Transform(data);
 	}
 	AddElement(data,destinationID);
 };
 
 // Add HTML Data from external source to page
 function OverwriteData(source,destinationID,Transform){
-	var data = LoadData(source);
+	var data=LoadData(source);
 	if(Transform){
-		data = Transform(data);
+		data=Transform(data);
 	}
 	ReplaceElement(data,destinationID);
 };
@@ -836,7 +836,7 @@ function RemoveElement(elementIDsel){
 // Scroll into
 
 function ScrollInto(elementIDsel){
-  var e = GetElement(elementIDsel);
+  var e=GetElement(elementIDsel);
   e.scrollIntoView();
 }
 
@@ -873,9 +873,9 @@ function TableDataHTML(y){
 }
 
 function RowHTML(dataline){
-	var dataline = dataline.map(SafeString);
-	dataline = dataline.map(TableDataHTML);
-	var dtl = dataline.join("\n");
+	var dataline=dataline.map(SafeString);
+	dataline=dataline.map(TableDataHTML);
+	var dtl=dataline.join("\n");
 	if(dtl!="\n")
 		dtl="\t<tr>\n"+dtl+"</tr>";
 	return 	dtl;
@@ -1781,7 +1781,7 @@ function ListenIndeed(evObj){
 // Data submission in forms
 
 function SubmitData(dataObject,destination){
-	var data =dataObject;
+	var data=dataObject;
 	data.formDataNameOrder=destination.headers;
 	data.formGoogleSendEmail="";
 	data.formGoogleSheetName=destination.sheet;
@@ -1868,7 +1868,7 @@ function FindDataInNode(type,node){
 		return NodeGetData(type,node);
 	}
 	else{
-		var children= node.childNodes;
+		var children=node.childNodes;
 		var i=0;
 		while((typeof children[i]!=="undefined")){
 			if(typeof FindDataInNode(type,children[i])!=="undefined"){
@@ -1903,7 +1903,7 @@ function OverwriteDataInNode(type,node,newdata){
 		return NodeOverwriteData(type,node,newdata);
 	}
 	else{
-		var children= node.childNodes;
+		var children=node.childNodes;
 		var i=0;
 		while((typeof children[i]!=="undefined")){
 			if(typeof FindDataInNode(type,children[i])!=="undefined"){
@@ -2200,7 +2200,7 @@ function Playlist(i){
 		Playlist.p=GetElements('.music');
 		Playlist.l=Playlist.p.length;
 	}
-	if(typeof i ==="undefined"){
+	if(typeof i==="undefined"){
 		return Playlist.p;
 	}
 	else{
@@ -2333,7 +2333,7 @@ function FullscreenActivate(browserprefix){
 };
 
 function FullscreenOpen(targetIDsel){
-	var e = GetElement(targetIDsel);
+	var e=GetElement(targetIDsel);
 	var f;
 	if(f=e.requestFullscreen){
 		e.requestFullscreen();
@@ -2729,7 +2729,7 @@ var KeyCodes={
 
 //Key Capturing
 function CaptureComboKey(event) {
-	event = event || window.event;
+	event=event||window.event;
 	var keystring=EventKeystring(event);
 	var context=Context();
 	if(In(context,keystring)){
@@ -3020,7 +3020,7 @@ function DrawPolygon(txtObj){
 		ctx.fill();
 
 		if(txtObj.lineWidth){
-			ctx.lineWidth = lineWidth;
+			ctx.lineWidth=lineWidth;
 			ctx.strokeStyle=strokeColor;
 			ctx.stroke();			
 		}			
@@ -3055,4 +3055,8 @@ function TestGame(){
 	
 	VisualExecute(actionArray,1000)
 }
+
+	window.CustomEvent=CustomEvent;
+}
+
 
