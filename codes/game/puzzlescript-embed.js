@@ -1,4 +1,4 @@
-// Add the game container to the page
+// Add the game container to the page  <img src="images/splash.png" alt="Loading...">
 PreAddElement('\
 <div class="game-supra-container">\
 	<div class="game-rotation-container">\
@@ -51,69 +51,43 @@ function CompileGame(sourceCode){
 // Load an offline example
 function LoadGameExample(){CompileGame(sourceCodeExample);};
 
-// Load the game
-(function(){
-	
-	function embed(element, id){
-		
-		ListenOnce('mousedown',function(){var gestureHandler = Mobile.enable(true);},GetElement("gameCanvas"));
-		
-		function LoadGame(){load_game(id);};
-		
-		function FastLoad(){
-			ListenOnce('load',LoadGame);
+// Load from network
+function LoadGameFromID(id){
+	var githubURL = 'https://api.github.com/gists/' + id;
+			
+	function ProcessGame(gamedata){
+		if(gamedata===""){
+			ConsoleAdd("Offline! Loading a local game example, for testing...");
+			LoadGameExample();
 		}
-		
-		function SlowLoad(){setTimeout(LoadGame,1000);}
-		
-		if(Online())
-			FastLoad();
 		else{
-			ConsoleAdd(pageTitle()+" will load as soon as back online.");
-			setTimeout(LoadGameExample,1000);
-			ListenOnce("online",SlowLoad)
+			var code=JSON.parse(gamedata)["files"]["script.txt"]["content"];
+			CompileGame(code);
 		}
 	}
 	
+	LoadDataTry(githubURL,ProcessGame);
+}
+
+// Enable mobile
+function EnableMobile(){Mobile.enable(true);}
+ListenOnce('mousedown',EnableMobile,GetElement("gameCanvas"));
+
+// Embed
+window["PuzzleScript"]=window["PuzzleScript"]||{embed:embed};
+
+function embed(target,id){
+	function LoadGame(){
+		LoadGameFromID(id);
+	};
 	
-	function load_game(id){
-		var githubURL = 'https://api.github.com/gists/' + id;
-		var githubHTTPClient = new XMLHttpRequest();
-		githubHTTPClient.open('GET', githubURL);
-		githubHTTPClient.onreadystatechange = function (){
-			if (githubHTTPClient.readyState != 4){
-				return;
-			}
-			var result = githubHTTPClient.responseText;
-			
-			function LoadOnline(){
-				if (githubHTTPClient.status === 403){
-					ConsoleAdd("Error loading the game: <b>forbidden</b>");
-					console.log(403,result.message);
-				}
-				else if (githubHTTPClient.status !== 200 && githubHTTPClient.status !== 201){
-					ConsoleAdd("Error loading the game: <b>not created</b>");
-					console.log(200,"HTTP Error " + githubHTTPClient.status + ' - ' + githubHTTPClient.statusText);
-				}
-				else{
-					result = JSON.parse(result);
-					var code = result["files"]["script.txt"]["content"];
-					CompileGame(code);
-				}
-			}
-			
-			if(result===""){
-				ConsoleAdd("Offline! Loading a local game example, for testing...");
-				LoadGameExample();
-			}
-			else
-				LoadOnline();
-						
-		}
-		githubHTTPClient.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		githubHTTPClient.send();
+	function LoadGameSlowly(){setTimeout(LoadGame,1000);}
+	
+	if(Online())
+		ListenOnce('load',LoadGame);
+	else{
+		ConsoleAdd(pageTitle()+" will load as soon as back online.");
+		ListenOnce('load',LoadGameExample);
+		ListenOnce("online",LoadGameSlowly)
 	}
-
-	window.PuzzleScript = window.PuzzleScript ||{ embed: embed };
-
-})();
+}
