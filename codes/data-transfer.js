@@ -811,11 +811,14 @@ function InjectData(source,destinationID,Transform){
 
 // Add HTML Data from external source to page
 function OverwriteData(source,destinationID,Transform){
-	var data=LoadData(source);
-	if(Transform){
-		data=Transform(data);
+	function Overwrite(data){
+		if(Transform){
+			data=Transform(data);
+		}
+		ReplaceElement(data,destinationID);
 	}
-	ReplaceElement(data,destinationID);
+	
+	LoadDataTry(source,Overwrite);
 };
 
 // Add HTML Data from external source to page
