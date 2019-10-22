@@ -862,7 +862,7 @@ if(typeof ObtainKeyActionsGameBar==="undefined")
 };
 
 //Game keybinding profile
-if(typeof ObtainKeyActionsGame==="undefined")
+if(typeof ObtainKeyActionsGame==="undefined"){
 	function ObtainKeyActionsGame(){
 		return {
 			//Arrows
@@ -889,7 +889,7 @@ if(typeof ObtainKeyActionsGame==="undefined")
 			"escape"	:InstructGameKeyF(27),
 			"Q"			:InstructGameKeyF(27)
 		};
-		
+	}
 	
 	function InstructGameKeyF(newkey){
 		return function(ev){ev.keyCode=newkey;InstructGame(ev)}
