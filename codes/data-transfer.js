@@ -813,11 +813,6 @@ function OverwriteData(source,destinationID,Transform){
 	LoadDataTry(source,Overwrite);
 };
 
-// Add HTML Data from external source to page
-function RefreshData(source,destinationID,Transform){
-	RefreshData[destinationID]=function(){OverwriteData(source,destinationID,Transform)};
-	RefreshData[destinationID]();
-};
 
 // Remove Children
 function RemoveChildren(parentID){

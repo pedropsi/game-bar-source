@@ -247,7 +247,6 @@ function RequestGuestbook(){
 		['alias',{}]
 	],{
 		destination:'Guestbook'
-		/*,qonsubmit:function(DP){LaunchThanksModal(DP);RefreshData["guestbook-area"]()}*/
 		}
 	)
 }
