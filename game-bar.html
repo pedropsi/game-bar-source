@@ -47,14 +47,6 @@
 <h3>Current version</h3>
 <p><b><span id="version-number">v2.2</span>:</b><span id="version-date">02/10/2019</span>.</p>
 
-<script>
-var v=LoadData("https://raw.githubusercontent.com/pedropsi/game-bar-source/master/GameBar/GameBar.js");
-var vn=v.match(/(v(\d+\.)*\d+)/)[0];
-var vd=v.match(/((\d+\/)+\d+)/)[0];
-ReplaceElement(vn,"version-number");
-ReplaceElement(vd,"version-date");
-</script>
-
 <p>Please note the game-bar bookmarklet and code always default to the most recent version. Older versions can be found <a href="https://github.com/pedropsi/game-bar-source/tree/master/Versions">in the archive</a>.</p>
 
 <h2>Bookmarklet</h2>
@@ -68,7 +60,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 
 <h2>How to add the <b>Puzzlescript Game Bar</b> to your own game</h2>
 <h3>Just include the <b>javascript source code</b>!</h3>
-<p>Include the <b>javascript source</b> <a href="https://pedropsi.github.io/game-bar-source/GameBar/GameBar.js" target='_blank'>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
+<p>Include the <b>javascript source</b> <a href="https://pedropsi.github.io/game-bar-source/GameBar/GameBar.js" target='_blank' rel="noopener">GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
 <p>To ensure the <b>Puzzlescript Game Bar</b> overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the <code><span><</span>body<span>></span></code> the snippet <code><span><</span>script type="text/javascript" src="GameBar.js"<span>></span></code><code><span><</span>/script<span>></span></code>.</p>
 
 <h2>Adding hints</h2>
@@ -86,7 +78,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <li>digits at the start of any hint line will be ignored;</li>
 <li>hint lines consisting solely of a reference to an image (see section below) will display that image.</li>
 <li><b>Important:</b>hint groups are assigned to each level by the order in which they appear;</li>
-</o>
+</ol>
 </p>
 
 <p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the <a href="platformer-template.html">platformer template</a> game page.</p>
@@ -128,21 +120,22 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <h2>Examples</h2>
 <p>Here are some games that use he <b>Puzzlescript Game Bar</b>:</p>
 <ul>
-<li><span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>minotalen</a> </span>'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
+<li><span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank' rel="noopener">minotalen</a> </span>'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
 <li>All Pedro PSI's <a href="games.html">games</a>.</li>
-<li><span class='Failed-to-load'> <a href="https://joelgahr.itch.io/" target='_blank'>Joel Gahr</a> </span>'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
-<li><span class='Failed-to-load'> <a href="https://twitter.com/noa_cubestudio" target='_blank'>Noa Hoffmann (Noa Cube Studio)</a> </span>'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
-
+<li><span class='Failed-to-load'> <a href="https://joelgahr.itch.io/" target='_blank' rel="noopener">Joel Gahr</a> </span>'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
+<li><span class='Failed-to-load'> <a href="https://twitter.com/noa_cubestudio" target='_blank' rel="noopener">Noa Hoffmann (Noa Cube Studio)</a> </span>'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
+<li>Thinky Collective's <a href="https://what-gophers-go-for.github.io/">What gophers go for</a></li>
 </ul>
+
 <p>Would you like to add your game to the list? Please <a href='contact.html'>let me know</a>!</p>
 
 
 <h2>Contributions</h2>
 <h3>Special thanks</h3>
-<p>To <span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank'>minotalen</a> </span> for very active ongoing collaboration!</p>
+<p>To <span class='Failed-to-load'> <a href="https://twitter.com/minotalen" target='_blank' rel="noopener">minotalen</a> </span> for very active ongoing collaboration!</p>
 
 <h3>Would you like to contribute?</h3>
-<p>Head to the official <a href="https://github.com/pedropsi/game-bar-source" target='_blank'>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/game-bar-source/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/game-bar-source/pulls">pull requests</a>.</p>
+<p>Head to the official <a href="https://github.com/pedropsi/game-bar-source" target='_blank' rel="noopener">Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/game-bar-source/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/game-bar-source/pulls">pull requests</a>.</p>
 
 
 <h2>FAQ</h2>
@@ -190,10 +183,10 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 </li>
 </ul>
 
-<p>Notable alternatives to the <b>Puzzlescript Game Bar</b> include Puzzlescript's default mobile menu (undo/reset and music buttons), <span class='Failed-to-load'> <a href="https://twitter.com/draknek" target='_blank'>Alan Hazelden</a> </span> <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">level selector</a>,  <a href="https://dario-zubovic.github.io/PuzzleScript/editor.html">Puzzlescript Fork</a>, which includes a level selector and variable sprite size.</p>
+<p>Notable alternatives to the <b>Puzzlescript Game Bar</b> include Puzzlescript's default mobile menu (undo/reset and music buttons), <span class='Failed-to-load'> <a href="https://twitter.com/draknek" target='_blank' rel="noopener">Alan Hazelden</a> </span> <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">level selector</a>,  <a href="https://dario-zubovic.github.io/PuzzleScript/editor.html">Puzzlescript Fork</a>, which includes a level selector and variable sprite size.</p>
 
 <h3>Can you use <b>Puzzlescript Game Bar</b> for free?</h3>
-<p>Yes, it's under a <a href="https://opensource.org/licenses/MIT" target='_blank'>MIT</a> license.</p>
+<p>Yes, it's under a <a href="https://opensource.org/licenses/MIT" target='_blank' rel="noopener">MIT</a> license.</p>
 
 <h3>What are the differences between the shared <b>Puzzlescript Game Bar</b> and the one <b>live</b> at the Creative Archive?</h3>
 <p>The <b>live</b> <b>Puzzlescript Game Bar</b> at the Creative Archive is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official <b>Puzzlescript Game Bar</b> shared in this page. Any buttons that depend on the Creative Archive's infrastructure to work or that lack general interest won't be included into the official <b>Puzzlescript Game Bar</b>.</p>

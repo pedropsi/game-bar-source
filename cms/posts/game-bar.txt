@@ -8,14 +8,6 @@
 <h3>Current version</h3>
 <p><b><span id="version-number">v2.2</span>:</b><span id="version-date">02/10/2019</span>.</p>
 
-<script>
-var v=LoadData("https://raw.githubusercontent.com/pedropsi/game-bar-source/master/GameBar/GameBar.js");
-var vn=v.match(/(v(\d+\.)*\d+)/)[0];
-var vd=v.match(/((\d+\/)+\d+)/)[0];
-ReplaceElement(vn,"version-number");
-ReplaceElement(vd,"version-date");
-</script>
-
 <p>Please note the game-bar bookmarklet and code always default to the most recent version. Older versions can be found <a href="https://github.com/pedropsi/game-bar-source/tree/master/Versions">in the archive</a>.</p>
 
 <h2>Bookmarklet</h2>
@@ -47,7 +39,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <li>digits at the start of any hint line will be ignored;</li>
 <li>hint lines consisting solely of a reference to an image (see section below) will display that image.</li>
 <li><b>Important:</b>hint groups are assigned to each level by the order in which they appear;</li>
-</o>
+</ol>
 </p>
 
 <p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the <a href="platformer-template.html">platformer template</a> game page.</p>
