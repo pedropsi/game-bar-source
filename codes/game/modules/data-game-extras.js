@@ -96,6 +96,7 @@ function PrepareGame(){
 		GameFocus();
 		
 		ResizeCanvas();
+		Shout("GameBar");
 	}
 }
 
@@ -997,14 +998,11 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 ////////////////////////////////////////////////////////////////////////////////
 //Hints
 
+ListenOnce("GameBar",LoadHintsFile);
+
 function Hints(lvl){
 	if(!Hints.cached){
-		Hints.cached=LoadHintsFile();
-		if(Hints.cached){
-			Hints.cached=ParseHintsFile(Hints.cached);
-			if(!LoadHints())
-				Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
-		}
+		return false;
 	}
 	
 	if(lvl===undefined)
@@ -1013,17 +1011,36 @@ function Hints(lvl){
 		return Hints.cached[lvl-1];
 }
 
-if(isFileLink(pageURL()))
-	Hints.path="https://pedropsi.github.io/hints/";
-else
-	Hints.path="hints/";
-
 function LoadHintsFile(){
-	if(!LoadHintsFile.loaded){
-		LoadHintsFile.loaded=true;
-		LoadHintsFile.file=LoadData(Hints.path+pageIdentifierSimple()+".txt");
+	if(!Hints.cached){
+		
+		function LoadHintData(hintdata){
+			if(hintdata===""){
+				console.log("no hints found.");
+			}
+			else{
+				Hints.cached=ParseHintsFile(hintdata);
+				if(Hints.cached){
+					if(!LoadHints())
+						Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
+					
+					ShowHintButton();
+				}
+			}
+		}
+		
+		if(isFileLink(pageURL()))
+			Hints.path="https://pedropsi.github.io/hints/";
+		else
+			Hints.path="hints/";
+		
+		LoadDataTry(Hints.path+pageIdentifierSimple()+".txt",LoadHintData);
 	}
-	return LoadHintsFile.file;
+}
+
+function ShowHintButton(){
+	Show("HintButton");
+	Deselect("HintButton");
 }
 
 function HintDisplay(reference){
@@ -1096,10 +1113,7 @@ function HintProgress(lvl,hintN){
 }
 
 function HintButton(){
-	if(Hints()===undefined)
-		return "";
-	else
-		return ButtonHTML({txt:"⚿",attributes:{onclick:'RequestHint();',id:'HintButton'}});	
+	return ButtonHTML({txt:"⚿",attributes:{onclick:'RequestHint();',id:'HintButton',class:'hidden'}});	
 }
 
 function CloseHint(){
