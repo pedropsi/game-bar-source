@@ -163,7 +163,7 @@ LICENSE-CC-BY-4.0	<a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>
 LICENSE-CC-BY-NC-SA-4.0	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
 
-BLANK	target='_blank'
+BLANK	target='_blank' rel="noopener"
 
 ABOUT-TEXT	<h2>About «TITLE-BOLD»</h2>
 HOWTO-TEXT	«FIGURE-SIMPLE»<h2>How to play</h2><h3>Controls - keyboard</h3>
