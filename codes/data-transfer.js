@@ -522,18 +522,23 @@ function LoadStyle(sourcename){
 //Data Reception
 
 //Fetch data from url
+function LoadDataTry(url,SuccessF){
+	var rawFile=new XMLHttpRequest();
+	rawFile.open("GET",url,false);
+	rawFile.onreadystatechange=function(){
+		if(rawFile.readyState===4){
+			if(rawFile.status===200||rawFile.status==0){
+				SuccessF(rawFile.responseText);
+			}
+		}
+	}
+	rawFile.send(null);
+};
+
 function LoadDataMaybe(url){
 	var data;
-    var rawFile=new XMLHttpRequest();
-    rawFile.open("GET", url, false);
-    rawFile.onreadystatechange=function (){
-        if(rawFile.readyState===4){
-            if(rawFile.status===200||rawFile.status==0){
-                data=rawFile.responseText;
-            }
-        }
-    }
-    rawFile.send(null);
+	function ReceiveData(rawFile){data=rawFile.responseText;}
+	LoadDataTry(url,ReceiveData);
 	return data;
 };
 
