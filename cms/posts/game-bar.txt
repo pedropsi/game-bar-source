@@ -93,8 +93,9 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <li>All «NAME»'s <a href="games.html">games</a>.</li>
 <li>««P-PRE»GAHR«P-POS»»'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
 <li>««P-PRE»CUBESTUDIO«P-POS»»'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
-
+<li>Thinky Collective's <a href="https://what-gophers-go-for.github.io/">What gophers go for</a></li>
 </ul>
+
 <p>Would you like to add your game to the list? Please «CONTACT-TEXT-3»!</p>
 
 
