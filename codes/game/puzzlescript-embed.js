@@ -66,7 +66,7 @@ function LoadGameFromID(id){
 		}
 	}
 	
-	LoadDataTry(githubURL,ProcessGame);
+	LoadData(githubURL,ProcessGame);
 }
 
 // Enable mobile

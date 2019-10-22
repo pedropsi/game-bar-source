@@ -1019,7 +1019,7 @@ function LoadHintsFile(){
 		else
 			Hints.path="hints/";
 		
-		LoadDataTry(Hints.path+pageIdentifierSimple()+".txt",LoadHintData);
+		LoadData(Hints.path+pageIdentifierSimple()+".txt",LoadHintData);
 	}
 }
 

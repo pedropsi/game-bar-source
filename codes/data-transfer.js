@@ -522,7 +522,7 @@ function LoadStyle(sourcename){
 //Data Reception
 
 //Fetch data from url
-function LoadDataTry(url,SuccessF){
+function LoadData(url,SuccessF){
 	var rawFile=new XMLHttpRequest();
 	rawFile.open("GET",url,false);
 	rawFile.onreadystatechange=function(){
@@ -535,21 +535,30 @@ function LoadDataTry(url,SuccessF){
 	rawFile.send(null);
 };
 
+
 function LoadDataMaybe(url){
 	var data;
-	function ReceiveData(rawFile){data=rawFile.responseText;}
-	LoadDataTry(url,ReceiveData);
+    var rawFile=new XMLHttpRequest();
+    rawFile.open("GET", url, false);
+    rawFile.onreadystatechange=function (){
+        if(rawFile.readyState===4){
+            if(rawFile.status===200||rawFile.status==0){
+                data=rawFile.responseText;
+            }
+        }
+    }
+    rawFile.send(null);
 	return data;
 };
 
-function LoadData(url){
-	if(LoadData[url]){
+function LoadDataSynchronous(url){
+	if(LoadDataSynchronous[url]){
 		console.log("(cached data:",url,")");
-		return LoadData[url];
+		return LoadDataSynchronous[url];
 	}
 	if(Online()){
 		try{
-			return LoadData[url]=LoadDataMaybe(url);
+			return LoadDataSynchronous[url]=LoadDataMaybe(url);
 		}
 		catch(errorDummy){
 			return undefined;
@@ -562,7 +571,7 @@ function LoadData(url){
 };
 
 function LoadExternalScript(url){
-	LoadScript(LoadData(url));
+	LoadScript(LoadDataSynchronous(url));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -810,7 +819,7 @@ function OverwriteData(source,destinationID,Transform){
 		ReplaceElement(data,destinationID);
 	}
 	
-	LoadDataTry(source,Overwrite);
+	LoadData(source,Overwrite);
 };
 
 
@@ -876,7 +885,11 @@ function RowHTML(dataline){
 	return 	dtl;
 };
 
-function MakeTable(dataarray,RowF){
+function MakeTable(jsondata,RowF){
+	if(!jsondata)
+		return;
+
+	var dataarray=JSON.parse(jsondata);
 	if(!RowF)
 		var RowF=RowHTML;
 	return "<caption>"+pageTitle()+"</caption><table><tbody>\n"+dataarray.map(RowF).join("\n")+"</tbody></table>";
@@ -920,7 +933,8 @@ function InWhitelist(string){
 
 //////////////////////////////////////////////////
 // Guestbook 
-function MakeGuestbook(dataarray){
+function MakeGuestbook(jsonstring){
+	var dataarray=JSON.parse(jsonstring);
 	function MakeComment(dataline){
 		if(dataline[0]==="") return "";
 		var au=SafeString(dataline[2]);
@@ -2873,7 +2887,7 @@ function CyclePrevBounded(array){
 var ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
 
 function LoadImage(fullpath){
-	var loaded=LoadData(fullpath)!==undefined;
+	var loaded=LoadDataSynchronous(fullpath)!==undefined;
 	if(loaded){
 		if(IsGif(fullpath)){
 			gifID=GenerateId();
