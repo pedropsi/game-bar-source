@@ -3056,6 +3056,30 @@ function TestGame(){
 	VisualExecute(actionArray,1000)
 }
 
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Custom events 
+
+function Shout(name,targetSelector){
+	var ev=new CustomEvent(name);
+	var e=GetElement(targetSelector)||window;
+	e.dispatchEvent(ev);
+}
+
+//polyfill
+if(typeof window.CustomEvent!=="function"){
+	function CustomEvent(event,optObj){
+		optObj=optObj||{
+			bubbles:false,
+			detail:undefined,
+			cancelable:false
+			};
+		var ev=document.createEvent('CustomEvent');
+		ev.initCustomEvent(event,optObj.bubbles,optObj.cancelable,optObj.detail);
+		return ev;
+	}
+	CustomEvent.prototype=window.Event.prototype;
 	window.CustomEvent=CustomEvent;
 }
 
