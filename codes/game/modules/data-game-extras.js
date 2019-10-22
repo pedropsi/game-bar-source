@@ -1014,27 +1014,27 @@ function Hints(lvl){
 function LoadHintsFile(){
 	if(!Hints.cached){
 		
-		function LoadHintData(hintdata){
-			if(hintdata===""){
-				console.log("no hints found.");
-			}
-			else{
-				Hints.cached=ParseHintsFile(hintdata);
-				if(Hints.cached){
-					if(!LoadHints())
-						Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
-					
-					ShowHintButton();
-				}
-			}
-		}
-		
 		if(isFileLink(pageURL()))
 			Hints.path="https://pedropsi.github.io/hints/";
 		else
 			Hints.path="hints/";
 		
 		LoadDataTry(Hints.path+pageIdentifierSimple()+".txt",LoadHintData);
+	}
+}
+
+function LoadHintData(hintdata){
+	if(hintdata===""){
+		console.log("no hints found.");
+	}
+	else{
+		Hints.cached=ParseHintsFile(hintdata);
+		if(Hints.cached){
+			if(!LoadHints())
+				Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
+			
+			ShowHintButton();
+		}
 	}
 }
 
