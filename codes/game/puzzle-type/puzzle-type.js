@@ -197,6 +197,7 @@ var LevelGoals=[
 	"Rise",
 	"Vowels",
 	"Falls"
+	//"Fuse"
 	];
 
 var LevelActions={
@@ -273,6 +274,25 @@ var LevelActions={
 		}
 		Letters.array=Letters.array.map(LetterDown);
 		InputLetter(L);
+	}/*,
+	"Fuse":function Fuse(F,cycle){
+		var cycle=false||cycle;
+		
+		var n=LetterNumber(F);
+		if(!cycle)
+			n=n%7;
+		
+		if(Letters().length===0)
+			InputLetter(NumberLetter(n));
+		else{
+			var l=LetterNumber(Last(Letters()));
+			if(l===n){
+				DeleteLetterAfter();
+				Fuse(NumberLetter(1+n),true);
+			}
+			else
+				InputLetter(NumberLetter(n));
+		}*/
 	}
 }
 
