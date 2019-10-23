@@ -14,9 +14,12 @@ ConsoleAdd("Loading "+pageTitle()+"...");
 
 LoadStyle(pageRoot()+"codes/game/game.css");
 
+// Load the Game
+LoaderInFolder("codes/game/puzzlescript")(pageIdentifier())
+
 // Load the Puzzlescript engine
 var puzzlescriptModules=[
-/*Puzzlescript modules*/
+//Puzzlescript modules
 "globalVariables",
 "debug_off",
 "font",
@@ -31,63 +34,27 @@ var puzzlescriptModules=[
 "compiler",
 "inputoutput",
 "mobile",
-/*Extras*/
+//Extras
 "data-game-colours",
 "data-game-extras",
 "data-game-overwrite",
-"data-game-moves",
-"data-game-example"
+"data-game-moves"
 ]
 
 puzzlescriptModules.map(LoaderInFolder("codes/game/modules"));
 
-
-// Compile the game
-function CompileGame(sourceCode){
-	compile(["restart"], sourceCode);
-	ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
-}
-
-// Load an offline example
-function LoadGameExample(){CompileGame(sourceCodeExample);};
-
-// Load from network
-function LoadGameFromID(id){
-	var githubURL = 'https://api.github.com/gists/' + id;
-			
-	function ProcessGame(gamedata){
-		if(gamedata===""){
-			ConsoleAdd("Offline! Loading a local game example, for testing...");
-			LoadGameExample();
-		}
-		else{
-			var code=JSON.parse(gamedata)["files"]["script.txt"]["content"];
-			CompileGame(code);
-		}
-	}
-	
-	LoadData(githubURL,ProcessGame);
-}
-
 // Enable mobile
 function EnableMobile(){Mobile.enable(true);}
-ListenOnce('mousedown',EnableMobile,GetElement("gameCanvas"));
 
-// Embed
-window["PuzzleScript"]=window["PuzzleScript"]||{embed:embed};
-
-function embed(target,id){
-	function LoadGame(){
-		LoadGameFromID(id);
-	};
-	
-	function LoadGameSlowly(){setTimeout(LoadGame,1000);}
-	
-	if(Online())
-		ListenOnce('load',LoadGame);
-	else{
-		ConsoleAdd(pageTitle()+" will load as soon as back online.");
-		ListenOnce('load',LoadGameExample);
-		ListenOnce("online",LoadGameSlowly)
-	}
+// Compile the game
+function CompileGame(){
+	compile(["restart"], sourceCode);
+	ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
+	ListenOnce('mousedown',EnableMobile,GetElement("gameCanvas"));
 }
+
+function LoadPuzzlescriptGame(){
+	DelayUntil(function(){return (typeof compile!=="undefined")&&(typeof sourceCode!=="undefined");},CompileGame);
+}
+
+LoadPuzzlescriptGame();

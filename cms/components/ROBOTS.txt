@@ -2,5 +2,4 @@
 Disallow: /codes
 Disallow: /hints
 Disallow: /media
-Disallow: /Puzzlescript
 Sitemap: «SITE»/«SITEMAP-PATH»
