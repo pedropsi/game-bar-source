@@ -10,6 +10,8 @@ DATE-FOUNDED	December, 2017
 
 YEAR-SPAN	«YEAR-START»-«YEAR-NOW»
 
+THEMECOLOUR-DEFAULT	#070070
+
 ME	me
 MY	my
 I	I
@@ -32,9 +34,7 @@ CSS-REL	<link href="«CSSPATH»" rel="stylesheet" type="text/css"/>
 CSS-ABS	<link href="«SITE»/«CSSPATH»" rel="stylesheet" type="text/css"/>
 CODES-PATH	«SITE»/codes/
 
-
-
-APPLEICON	images/splash.png
+APPLEICON	images/apple-icons/«IMAGE»
 FAVICON32	images/favicon-32x32.png
 PLACEHOLDER-IMAGE	splash.png
 
@@ -42,9 +42,10 @@ HTML-PREFIX	<html lang="«LANG»" xml:lang="«LANG»" prefix="og: http://ogp.me/ns#"
 LANG	en
 
 HEAD	<head>«HEAD-ITEMS»</head>
-HEAD-ITEMS	«HEAD-VIEWPORT»«HEAD-STYLE-ICONS»«HEAD-DATA-GRAPH»<script src="codes/data-transfer.js"></script>
+HEAD-ITEMS	«HEAD-VIEWPORT»«HEAD-THEME»«HEAD-STYLE-ICONS»«HEAD-DATA-GRAPH»<script src="codes/data-transfer.js"></script>
 HEAD-VIEWPORT	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 HEAD-STYLE-ICONS	<link href="«FAVICON32»" rel="icon" type="image/png"/><link href="«FAVICON32»" rel="shortcut icon" type="image/x-icon"/><link href="«APPLEICON»" rel="apple-touch-icon"/>«CSS-REL»
+HEAD-THEME	<meta name="theme-color" content="«THEMECOLOUR»">
 
 RSS-SITE-DESCRIPTION	Don't miss out on novelties from The «SITE-NAME»!
 RSS-LIMIT	9
@@ -117,7 +118,7 @@ SELECTION-TYPE	Filter:{Type->_?(NameSelector[«POST»]),Day->_?NumberQ,Month->_?Nu
 
 NAVBAR	<div class="nav">«NAV-LOGO»<nav>«NAV-LINK|SortBy:{Nav}|Filter:{Nav->_?NumberQ}|Contain:True»</nav>«RAINBOWLINE»</div>
 NAV-LINK	<a href="«LINK».html" class="nav-link" style="max-width: 728px;">«TITLE»</a>
-NAV-LOGO	<a href="index.html"><div class="logo">«LOGO-SVG»</div></a>
+NAV-LOGO	<a href="index.html"><div class="logo" alt="«SITE-NAME» home page">«LOGO-SVG»</div></a>
 RAINBOWLINE	<div class="rainbowline"></div>
 
 LOGO-DIMS	x="-5" y="-5" width="10" height="10"
@@ -163,7 +164,7 @@ LICENSE-CC-BY-4.0	<a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>
 LICENSE-CC-BY-NC-SA-4.0	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
 
-BLANK	target='_blank' rel="noopener"
+BLANK	target='_blank' rel="noopener noreferrer"
 
 ABOUT-TEXT	<h2>About «TITLE-BOLD»</h2>
 HOWTO-TEXT	«FIGURE-SIMPLE»<h2>How to play</h2><h3>Controls - keyboard</h3>
