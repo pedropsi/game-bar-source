@@ -78,9 +78,13 @@ PUZZLESCRIPT-GAMES-DATABASE-DISPLAY-LEGACY	«SHEET-URL-GAMES-LIST»2116581279«SHEE
 PUZZLESCRIPT-GAMES-DATABASE-DISPLAY-URL	«MACRO-URL»AKfycbyp6yZrpw7TIiOE8fg0wUkI0SMtTWUpYlki53OGLg5Pgc6ppLM/exec
 PUZZLESCRIPT-GAMES-DATABASE-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",function(d){return MakeTable(d,GameRowHTML)})
 
-DISPLAY-EXTERNAL	<div id="«LINK»-area" class="external-area">«DISPLAY-IFRAME»«DISPLAY-SCRIPT»</div>
+DISPLAY-EXTERNAL	<div id="«LINK»-area" class="external-area">«DISPLAY-IFRAME»</div>
 DISPLAY-SCRIPT	<script>««LINK»-DISPLAY»</script>
 DISPLAY-IFRAME	<div class="section"><iframe src="««LINK»-DISPLAY-LEGACY»" «IFRAME-OPTS»></iframe></div>
+
+AREA-PRE	<div class="container"><h1 class="title">«TITLE»</h1>
+TABULAR-AREA	«AREA-PRE»«DISPLAY-EXTERNAL»«POST-PLUS-LABELS»</div>
+GUESTBOOK-AREA	«AREA-PRE»<div class="whiteboard"><div class="text «STYLE» post" id="post">«POST»</div></div>«LABELS»«DISPLAY-EXTERNAL»</div>
 
 SCRIPT-TYPE	type="text/javascript"
 SCRIPT-ASYNC	data-cfasync="false"
