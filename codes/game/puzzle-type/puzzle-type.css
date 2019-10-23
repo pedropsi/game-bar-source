@@ -59,15 +59,18 @@
 }
 
 .letter{
-    border-bottom: var(--w2) solid var(--darkblue);
-    padding-bottom: var(--w1);
-    width: var(--w8);
-    transition-duration: var(--duration);
-    height: var(--w16);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+   font-size: var(--w8);
+   font-weight: bold;
+   color:var(--darkblue);
+   border-bottom: var(--w2) solid var(--darkblue);
+   padding-bottom: var(--w1);
+   width: var(--w8);
+   transition-duration: var(--duration);
+   height: var(--w16);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
 
 .letter.caret{
