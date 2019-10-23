@@ -20,7 +20,6 @@
 .top .credits{
    font-size:var(--w4);
    font-weight: unset;
-   margin-top: 10%;
 }
 
 .rotate90 .title{
@@ -53,12 +52,15 @@
     filter: brightness(1.2);
 }
 
+.letters{
+   font-size: var(--w8);
+   font-weight: bold;
+   color:var(--darkblue);
+}
+
 .letter{
-    color:var(--darkblue);
     border-bottom: var(--w2) solid var(--darkblue);
-    font-weight: bold;
     padding-bottom: var(--w1);
-    font-size: var(--w8);
     width: var(--w8);
     transition-duration: var(--duration);
     height: var(--w16);

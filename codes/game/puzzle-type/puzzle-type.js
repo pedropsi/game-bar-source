@@ -13,7 +13,7 @@ function LoadGameHTML(){
 					<h2 class='credits'>by Pedro PSI (2019)</h1>\
 				</div>\
 				<div class='middle' id='letters'>\
-					<div class='latters'>Start game</div>\
+					<div class='letters'>Coming soon!</div>\
 				</div>\
 				<div class='bottom'>\
 				</div>\
@@ -26,6 +26,7 @@ function LoadGameHTML(){
 	PrependElement(frameHTML,".main");
 }
 
+//<div class='latters'>Start game</div>\
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load the game bar & options
@@ -66,7 +67,7 @@ function P(){
 LoadGameHTML();
 LoadStyle(pageRoot()+"codes/game/game.css");
 LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
-DelayUntil(function(){return (typeof PrepareGame!=="undefined")},P);
+//DelayUntil(function(){return (typeof PrepareGame!=="undefined")},P);
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -292,8 +293,8 @@ var LevelActions={
 			}
 			else
 				InputLetter(NumberLetter(n));
-		}*/
-	}
+		}
+	}*/
 }
 
 function Direct(L){
