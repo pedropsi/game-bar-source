@@ -49,7 +49,7 @@ function EnableMobile(){Mobile.enable(true);}
 // Compile the game
 function CompileGame(){
 	compile(["restart"], sourceCode);
-	ListenOnce(['click','keydown','keypress','keyup'],PrepareGame);
+	DelayUntil(function(){return (typeof PrepareGame!=="undefined");},PrepareGame);
 	ListenOnce('mousedown',EnableMobile,GetElement("gameCanvas"));
 }
 
