@@ -19,7 +19,6 @@
 }
 .top .credits{
    font-size:var(--w4);
-   font-weight: unset;
 }
 
 .rotate90 .title{

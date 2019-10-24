@@ -38,7 +38,7 @@ function ObtainFGColor(){return window.getComputedStyle(document.body)["color"];
 function ObtainRestartAllowed(){return true;}
 function ObtainUndoAllowed(){return true;}
 function ObtainUndo(){Undo();}
-function ObtainRestart(){ClearLetters();}
+function ObtainRestart(){Restart();}
 
 function ObtainNewGameCondition(){return SolvedLevelScreens().length<1};
 
@@ -214,51 +214,9 @@ var LevelActions={
 		var M=NumberLetter(LetterNumber(L)+1); 
 		InputLetter(M);
 	},
-	"Second":function Second(L){
-		if(!Second.n)
-			Second.n=0;
-		Second.n++;
-		
-		if(Second.n%2===0)
-			DeleteLetterBefore();
-		
-		InputLetter(L);
-},
-	"Vowels":function Vowels(A){
-		if(!Vowels.n)
-			Vowels.n=0;
-		
-		var n=0;
-		switch(A){
-			case "A":n=n+0;break;
-			case "E":n=n+1;break;
-			case "I":n=n+2;break;
-			case "O":n=n+3;break;
-			case "U":n=n+4;break;
-			default:
-				InputLetter(A);
-				return;
-		}
-		
-		Vowels.n=(Vowels.n+n)%5+1;
-		
-		switch(Vowels.n){
-			case 1:InputLetter("A");break;
-			case 2:InputLetter("E");break;
-			case 3:InputLetter("I");break;
-			case 4:InputLetter("O");break;
-			case 5:InputLetter("U");break;
-		}
-	},
-	"Alternate":function (L){
-		if(CycleNext(["end","begin"])==="begin"){
-			InputLetter(L);
-			Caret(-1);
-		}else{
-			InputLetterBefore(L);
-			Caret(Letters().length);
-		}
-	},
+	"Second":Second,
+	"Vowels":Vowels,
+	"Alternate":Alternate,
 	"Follow":function (L){
 		if(Letters.array.length>=1){
 			var last=Last(Letters.array);
@@ -301,6 +259,58 @@ function Direct(L){
 		InputLetter(L);
 };
 
+function Second(L){
+	if(!Second.n)
+		Second.n=0;
+	Second.n++;
+	
+	if(Second.n%2===0)
+		DeleteLetterBefore();
+	
+	InputLetter(L);
+}
+
+function Vowels(A){
+	if(!Vowels.n)
+		Vowels.n=0;
+	
+	var n=0;
+	switch(A){
+		case "A":n=n+0;break;
+		case "E":n=n+1;break;
+		case "I":n=n+2;break;
+		case "O":n=n+3;break;
+		case "U":n=n+4;break;
+		default:
+			InputLetter(A);
+			return;
+	}
+	
+	Vowels.n=(Vowels.n+n)%5+1;
+	
+	switch(Vowels.n){
+		case 1:InputLetter("A");break;
+		case 2:InputLetter("E");break;
+		case 3:InputLetter("I");break;
+		case 4:InputLetter("O");break;
+		case 5:InputLetter("U");break;
+	}
+}
+
+function Alternate(L){
+	if(!Alternate.n)
+		Alternate.n=0;
+	
+	if(Alternate.n){
+		InputLetter(L);
+		Caret(-1);
+	}else{
+		InputLetterBefore(L);
+		Caret(Letters().length);
+	}
+	
+	Alternate.n=1-Alternate.n;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
@@ -481,6 +491,9 @@ function SaveLevelState(){
 function LoadLevelState(levelstate){
 	Letters.array=Clone(levelstate['letters']);
 	Caret(levelstate['caret']);
+	Vowels.n=levelstate['Vowels'];
+	Second.n=levelstate['Second'];
+	Alternate.n=levelstate['Alternate'];
 	UpdateLevelSecretly();
 }
 
@@ -491,7 +504,10 @@ function UndoClear(){
 function LevelZeroState(){
 	var state={
 		'letters':[],
-		'caret':0
+		'caret':0,
+		'Vowels':0,
+		'Second':0,
+		'Alternate':0
 	};
 	return state;
 }
@@ -499,10 +515,14 @@ function LevelZeroState(){
 function LevelState(){
 	var state={
 		'letters':Clone(Letters()),
-		'caret':Caret()[0]
+		'caret':Caret()[0],
+		'Vowels':Vowels.n?Vowels.n:0,
+		'Second':Second.n?Second.n:0,
+		'Alternate':Alternate.n?Alternate.n:0
 	};
 	return state;
 }
 
-
-
+function Restart(){
+	LoadLevelState(LevelZeroState());
+}
