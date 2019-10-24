@@ -1054,7 +1054,11 @@ function ButtonOnClickHTML(title,onclicktxt){
 }
 
 function ButtonLinkHTML(title){
-	return ButtonHTML({tag:"a",txt:title,attributes:{href:'#'+IDfy(title),onclick:'FullscreenClose()'}});
+	var id='#'+IDfy(title);
+	if(GetElement(id))
+		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()'}});
+	else
+		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()',class:'hidden'}});
 }
 
 function CloseButtonHTML(targetid){
