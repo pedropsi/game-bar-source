@@ -42,7 +42,7 @@ HTML-PREFIX	<html lang="«LANG»" xml:lang="«LANG»" prefix="og: http://ogp.me/ns#"
 LANG	en
 
 HEAD	<head>«HEAD-ITEMS»</head>
-HEAD-ITEMS	«HEAD-VIEWPORT»«HEAD-THEME»«HEAD-STYLE-ICONS»«HEAD-DATA-GRAPH»
+HEAD-ITEMS	«HEAD-VIEWPORT»«HEAD-THEME»«HEAD-STYLE-ICONS»«HEAD-DATA-GRAPH»«PWA-MANIFEST»
 HEAD-VIEWPORT	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 HEAD-STYLE-ICONS	<link href="«FAVICON32»" rel="icon" type="image/png"/><link href="«FAVICON32»" rel="shortcut icon" type="image/x-icon"/><link href="«APPLEICON»" rel="apple-touch-icon"/>«CSS-REL»
 HEAD-THEME	<meta name="theme-color" content="«THEMECOLOUR»">
@@ -375,3 +375,15 @@ TOOL-LIST	<table class="top-left"><caption>Useful puzzlescript tools</caption>«T
 
 
 NEW!	<div class="new"><span>New</span></div>
+
+PWA-MANIFEST	<link rel="manifest" href='data:application/manifest+json,«PWA-MANIFEST-CONTENT»'/>
+PWA-MANIFEST-CONTENT	{«PWA-NAME»,«PWA-DISPLAY»,«PWA-ICONS»,«PWA-DESC»,«PWA-LANG»,«PWA-SCOPE»}
+
+PWA-NAME	"short_name":"«TITLE»","name":"«TITLE-BY»"
+PWA-DISPLAY	"theme_color":"«THEMECOLOUR»","background_color":"«THEMECOLOUR»","display":"standalone","orientation":"landscape"
+PWA-ICONS	"icons":[{"src":"/images/apple-icons/«LINK».png","type":"image/png","sizes":"180x180"}]
+PWA-DESC	"description":"«DESCRIPTION»","categories":["entertainment","kids","games"]
+PWA-LANG	"dir":"ltr","lang":"en-US"
+PWA-SCOPE	"start_url":"«LINK-URL».html#app","scope":"«LINK-URL».html"
+PWA-WORKERS	TODO
+PWA-SCREENSHOTS	TODO
