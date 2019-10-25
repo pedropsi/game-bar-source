@@ -10,7 +10,7 @@ DATE-FOUNDED	December, 2017
 
 YEAR-SPAN	«YEAR-START»-«YEAR-NOW»
 
-THEMECOLOUR-DEFAULT	#070070
+THEMECOLOUR-DEFAULT	rgba(7,0,112)
 
 ME	me
 MY	my
@@ -386,6 +386,6 @@ PWA-DISPLAY	"theme_color":"«THEMECOLOUR»","background_color":"«THEMECOLOUR»","di
 PWA-ICONS	"icons":[{"src":"/images/512/«LINK»-min.png","type":"image/png","sizes":"512x512"}]
 PWA-DESC	"description":"«DESCRIPTION»","categories":["entertainment","kids","games"]
 PWA-LANG	"dir":"ltr","lang":"en-US"
-PWA-SCOPE	"start_url":"«LINK-URL».html#app","scope":"«LINK-URL».html"
+PWA-SCOPE	"start_url":"«LINK-URL».html?app","scope":"«LINK-URL».html"
 PWA-WORKERS	TODO
 PWA-SCREENSHOTS	TODO
