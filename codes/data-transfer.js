@@ -523,7 +523,7 @@ function LoadStyle(sourcename){
 	head.appendChild(styleelementpre);
 	
 	var styleelement=document.createElement('link');
-	styleelementpre.href=sourcename.replace(".css","")+".css";
+	styleelement.href=sourcename.replace(".css","")+".css";
 	styleelement.rel="stylesheet";
 	styleelement.type="text/css";
 	head.appendChild(styleelement);	
