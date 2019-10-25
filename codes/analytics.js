@@ -154,9 +154,9 @@ else{
 ////////////////////////////////////////////////////////////////////////////////
 // Analytics: custom actions
 
-function ElementClicked(b){b.addEventListener("click", function(){RegisterElementClicked(this)}); return b};
-function MosaicToggled(b){b.addEventListener("click", function(){RegisterMosaicToggled(this)}); return b};
-function NightModeToggled(b){b.addEventListener("click", function(){RegisterNightModeToggled(this)}); return b};
+function ElementClicked(b){Listen("click", function(){RegisterElementClicked(this)},b); return b};
+function MosaicToggled(b){Listen("click", function(){RegisterMosaicToggled(this)},b); return b};
+function NightModeToggled(b){Listen("click", function(){RegisterNightModeToggled(this)},b); return b};
 
 
 ////////////////////////////////////////////////////////////////////////////////

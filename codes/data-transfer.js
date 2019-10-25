@@ -1592,8 +1592,8 @@ function AddSpotlight(element){
 
 
 //Focus clicked items (also to escape focus by clicking in unfocusable parents)
-window.addEventListener("mousedown",function(e){FocusElement(e.target)});
-window.addEventListener("click",function(e){FocusElement(e.target)});
+Listen("mousedown",function(e){FocusElement(e.target)});
+Listen("click",function(e){FocusElement(e.target)});
 
 // Focus Element
 function FocusElement(targetIDsel){
@@ -1789,8 +1789,17 @@ function ListenNoMore(evObj){
 }
 
 function ListenIndeed(evObj){
-	evObj["ev"].map(function(e){evObj["target"].addEventListener(e,evObj["F"],{passive: true})});
+	evObj["ev"].map(function(e){Listen(e,evObj["F"],evObj["target"])});
 }
+
+function Listen(eString,F,target){
+	var target=target||window;
+	if(In(['click','mousedown'],eString)
+		target.addEventListener(eString,F,{passive: true});
+	else
+		target.addEventListener(eString,F);
+};
+
 
 
 
@@ -2252,7 +2261,7 @@ function PlaySong(song){
 		song.play();
 		ListenOnce('ended',PlayNextF(song),song);
 		Unmute();
-		window.addEventListener("blur", PlaylistSleep);
+		Listen("blur", PlaylistSleep);
 		//console.log("Now playing: "+song);
 	}
 }
@@ -2271,7 +2280,7 @@ function ResumeSong(song){
 		song.play();
 		ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
 		Unmute();
-		window.addEventListener("blur", PlaylistSleep);
+		Listen("blur", PlaylistSleep);
 	}
 }
 
@@ -2314,7 +2323,7 @@ function PlaylistSleep(){
 	if(!Playlist.sleep){
 		Playlist.sleep=true;
 		PauseSong(CurrentSong());
-		window.addEventListener("focus", PlaylistAwaken);
+		Listen("focus", PlaylistAwaken);
 	}
 }
 

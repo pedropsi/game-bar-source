@@ -177,7 +177,7 @@ function UndoAndFocus(){
 // Screen rotation
 
 GameRotation();
-window.addEventListener('resize',GameRotation);
+Listen('resize',GameRotation);
 
 function GameRotation(){
 	var x=window.innerWidth;
