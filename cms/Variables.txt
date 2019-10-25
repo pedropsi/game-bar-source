@@ -19,6 +19,8 @@ I'm	I'm
 PERSONAL	personal
 MYSELF	myself
 
+ROOT	 
+
 SITE-NAME	Creative Archive
 SITE-SHORT	pedropsi.github.io
 SITE	https://«SITE-SHORT»
