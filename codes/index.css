@@ -634,7 +634,7 @@ thead th{
     color: var(--white);
     text-align: center;
     text-emphasis: bold;
-     transition-duration: var(--duration);
+    transition-duration: var(--duration);
 }
 
 thead th:hover {
@@ -645,7 +645,7 @@ thead th:hover {
 
 tbody tr{
     background-color: var(--white);
-     transition-duration: var(--duration);
+    transition-duration: var(--duration);
 }
 tbody tr:nth-child(odd) {
     background-color: var(--smokewhite);
@@ -672,6 +672,7 @@ tbody td:hover{
 
 td{
     max-width: var(--w16);
+    padding: var(--fontheight);
 }
 
 table caption{
