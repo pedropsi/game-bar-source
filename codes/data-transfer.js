@@ -416,6 +416,10 @@ function isAbsolutableLink(url){
 	return isExtraPageLink(url)&&(isRelativeLink(url)||isInOwnDomain(url));
 }
 
+//More
+function Local(){
+	return /^file\:.*/.test(document.URL);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Page traversal
