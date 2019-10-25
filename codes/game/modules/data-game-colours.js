@@ -267,6 +267,7 @@ function HSL(colour){
 // Colour modification
 
 function Lighten(colour,n){
+	var n=LightnessNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[2]=Math.min(Math.max(c[2]*n,0),1);
@@ -275,6 +276,7 @@ function Lighten(colour,n){
 } 
 
 function Darken(colour,n){
+	var n=LightnessNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[2]=(n===0?1:Math.min(Math.max(c[2]/n,0),1));
@@ -283,6 +285,7 @@ function Darken(colour,n){
 } 
 
 function LightenTo(colour,n){
+	var n=LightnessNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[2]=Math.min(Math.max(n,0),1);
@@ -291,6 +294,7 @@ function LightenTo(colour,n){
 } 
 
 function DarkenTo(colour,n){
+	var n=LightnessNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[2]=1-Math.min(Math.max(n,0),1);
@@ -299,6 +303,7 @@ function DarkenTo(colour,n){
 } 
 
 function Saturate(colour,n){
+	var n=SaturationNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[1]=Math.min(Math.max(c[1]*n,0),1);
@@ -307,6 +312,7 @@ function Saturate(colour,n){
 } 
 
 function Desaturate(colour,n){
+	var n=SaturationNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[1]=(n===0?1:Math.min(Math.max(c[1]/n,0),1));
@@ -315,6 +321,7 @@ function Desaturate(colour,n){
 } 
 
 function SaturateTo(colour,n){
+	var n=SaturationNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[1]=Math.min(Math.max(n,0),1);
@@ -323,6 +330,7 @@ function SaturateTo(colour,n){
 } 
 
 function Huen(colour,n){
+  var n=HueNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[0]=(c[0]+n)%360;
@@ -331,6 +339,7 @@ function Huen(colour,n){
 } 
 
 function Dehuen(colour,n){
+  var n=HueNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[0]=(c[0]-n)%360;
@@ -338,10 +347,34 @@ function Dehuen(colour,n){
   return colour;
 } 
 
-function HueTo(colour,n){
+function HueTo(colour,n){	
+  var n=HueNumber(n);
   var colour=HSL(colour);
   var c=colour.colour;
   c[0]=n%360;
   colour.colour=c;
   return colour;
 } 
+
+//Accept pure numbers or extract parameter from another colour
+function HueNumber(n){
+	if(typeof n!=="number")
+		return HSL(n).colour[0];
+	else
+		return n;
+}
+
+function SaturationNumber(n){
+	if(typeof n!=="number")
+		return HSL(n).colour[1];
+	else
+		return n;
+}
+
+function LightnessNumber(n){
+	if(typeof n!=="number")
+		return HSL(n).colour[2];
+	else
+		return n;
+}
+
