@@ -50,7 +50,8 @@ var precedences={
 	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
 }
 
-var FOLDER="https://pedropsi.github.io/game-bar-source/codes";
+var VERSIONFOLDER="/"+"codes"; //"Versions/3.0/codes/";
+var FOLDER="https://pedropsi.github.io/game-bar-source"+VERSIONFOLDER;
 
 function LoadModule(module){
 	function L(){return LoaderInFolderGB(FOLDER+"/"+"game/modules")(module)};
@@ -63,8 +64,8 @@ if(navigator.onLine){
 	puzzlescriptModules.map(LoadModule);
 }
 else{
-	LoaderInFolderGB("../codes")("data-transfer");
-	puzzlescriptModules.map(LoaderInFolderGB("../codes/game/modules"));
+	LoaderInFolderGB(".."+VERSIONFOLDER)("data-transfer");
+	puzzlescriptModules.map(LoaderInFolderGB(".."+VERSIONFOLDER+"/game/modules"));
 }
 
 
