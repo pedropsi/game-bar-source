@@ -97,9 +97,10 @@ SCRIPT-PRE	<script src="
 SCRIPT-POS	"></script>
 SCRIPT	«SCRIPT-PRE»«SRC»«SCRIPT-POS»
 
+PRIORITY-LOAD	rel="preload"
 
 BEACONS	«BEACON-LIB»«BEACON-ANALYTICS»«BEACON-COM»
-BEACON-LIB	«SCRIPT-PRE»codes/data-transfer.js«SCRIPT-POS»
+BEACON-LIB	«SCRIPT-PRE»codes/data-transfer.js" «PRIORITY-LOAD»></script>
 BEACON-ANALYTICS	«SCRIPT-ASYNC-PRE»codes/analytics.js«SCRIPT-POS»
 BEACON-COM	«SCRIPT-ASYNC-PRE»codes/communication.js«SCRIPT-POS»
 BEACON-TEST	«SCRIPT-ASYNC-PRE»codes/test.js«SCRIPT-POS»
@@ -139,9 +140,8 @@ FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LIN
 
 GAME-SCRIPT	«SCRIPT-PRE»codes/game/«LINK»/«LINK».js«SCRIPT-POS»
 
-PUZZLE-SCRIPT	<script src="codes/game/puzzlescript-embed.js" type="text/javascript"></script>
+PUZZLE-SCRIPT	<script src="codes/game/puzzlescript-embed.js" type="text/javascript" «PRIORITY-LOAD»></script>
 HONOURS	«SCRIPT-PRE»codes/game/honours-«TITLE».js«SCRIPT-POS»
-
 
 GUESTBOOK-ADD	<div class="button centered" onclick="RequestGuestbook()" tabindex="0">Leave your message!</div>
 BUTTON-GET	<div class="button centered buy" tabindex="0">Get it now!</div>
