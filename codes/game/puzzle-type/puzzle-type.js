@@ -2,6 +2,17 @@
 //Puzzle Type (c) Pedro PSI, 2019.
 //All rights reserved
 ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//Ideas to-do
+/*
+Add devil's calculator mention
+PUZZLES:
+-positional caret
+-leetspeek
+-calculatorspeak
+-Fliptext  / upside down text (see wikipedi article)
+
+*/
 
 function LoadGameHTML(){
 	var frameHTML="<div class='game-supra-container'>\
@@ -197,7 +208,8 @@ var LevelGoals=[
 	"Oppose",
 	"Rise",
 	"Vowels",
-	"Falls"
+	"Falls",
+	"3|_1735|>33|<"
 	//"Fuse"
 	];
 
@@ -233,7 +245,9 @@ var LevelActions={
 		}
 		Letters.array=Letters.array.map(LetterDown);
 		InputLetter(L);
-	}/*,
+	},
+	"3|_1735|>3A|<":Direct
+	/*,
 	"Fuse":function Fuse(F,cycle){
 		var cycle=false||cycle;
 		
@@ -454,7 +468,10 @@ function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 
 function CheckWin(){
 	
-	var win=CurLevelName().toUpperCase()===Letters().join("").toUpperCase();
+	if(CurLevelName()==="3|_1735|>34|<")
+		var win="ELITESPEAK"===Letters().join("").toUpperCase();
+	else
+		var win=CurLevelName().toUpperCase()===Letters().join("").toUpperCase();
 	
 	if(win){
 		PlaySound("media/puzzle-type/sound/win"+RandomChoice("123")+".mp3");
