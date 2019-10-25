@@ -515,10 +515,14 @@ function LoaderInFolder(folder){
 
 function LoadStyle(sourcename){
 	var head=document.getElementsByTagName('head')[0];
+	
 	var styleelement=document.createElement('link');
 	styleelement.href=sourcename.replace(".css","")+".css";
 	styleelement.rel="stylesheet";
 	styleelement.type="text/css";
+	styleelement.as="css";
+	styleelement.rel="preload";
+	
 	head.appendChild(styleelement);
 }
 
