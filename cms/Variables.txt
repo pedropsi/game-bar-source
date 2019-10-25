@@ -383,7 +383,7 @@ PWA-MANIFEST-CONTENT	{«PWA-NAME»,«PWA-DISPLAY»,«PWA-ICONS»,«PWA-DESC»,«PWA-LANG»
 
 PWA-NAME	"short_name":"«TITLE»","name":"«TITLE-BY»"
 PWA-DISPLAY	"theme_color":"«THEMECOLOUR»","background_color":"«THEMECOLOUR»","display":"standalone","orientation":"landscape"
-PWA-ICONS	"icons":[{"src":"/images/apple-icons/«LINK».png","type":"image/png","sizes":"180x180"}]
+PWA-ICONS	"icons":[{"src":"/images/512/«LINK»-min.png","type":"image/png","sizes":"512x512"}]
 PWA-DESC	"description":"«DESCRIPTION»","categories":["entertainment","kids","games"]
 PWA-LANG	"dir":"ltr","lang":"en-US"
 PWA-SCOPE	"start_url":"«LINK-URL».html#app","scope":"«LINK-URL».html"
