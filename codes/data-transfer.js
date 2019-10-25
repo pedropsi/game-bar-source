@@ -1794,10 +1794,10 @@ function ListenIndeed(evObj){
 
 function Listen(eString,F,target){
 	var target=target||window;
-	if(In(['click','mousedown'],eString)
-		target.addEventListener(eString,F,{passive: true});
+	if(In(['click','mousedown'],eString))
+		target.addEventListener(eString,F,{"passive":true})
 	else
-		target.addEventListener(eString,F);
+		target.addEventListener(eString,F)
 };
 
 
