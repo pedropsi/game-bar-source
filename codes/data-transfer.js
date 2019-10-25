@@ -516,14 +516,17 @@ function LoaderInFolder(folder){
 function LoadStyle(sourcename){
 	var head=document.getElementsByTagName('head')[0];
 	
+	var styleelementpre=document.createElement('link');
+	styleelementpre.href=sourcename.replace(".css","")+".css";
+	styleelementpre.as="css";
+	styleelementpre.rel="preload";
+	head.appendChild(styleelementpre);
+	
 	var styleelement=document.createElement('link');
-	styleelement.href=sourcename.replace(".css","")+".css";
+	styleelementpre.href=sourcename.replace(".css","")+".css";
 	styleelement.rel="stylesheet";
 	styleelement.type="text/css";
-	styleelement.as="css";
-	styleelement.rel="preload";
-	
-	head.appendChild(styleelement);
+	head.appendChild(styleelement);	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
