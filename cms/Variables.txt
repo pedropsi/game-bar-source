@@ -132,7 +132,7 @@ LOGO-DIMS	x="-5" y="-5" width="10" height="10"
 
 FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACONS»«POSTSCRIPT»
 
-PICTURE	<img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»"/>
+PICTURE	<img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
 FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
@@ -318,7 +318,7 @@ TITLE-BY-CLEAN	«TITLE-BY»
 SELECTION-TYPE	Filter:{Type->«TYPE»,Day->_,Month->_,Year->_,Type->_}|Contain:True»
 SELECTION	Filter:{Selected->_?NumberQ,Day->_?NumberQ,Month->_?NumberQ,Year->_?NumberQ}|SortBy:{Date}|Contain:True
 
-PICTURE-GALLERY	<a href="images/«IMAGE»" «BLANK»><div class="card"><img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»"/></div></a>
+PICTURE-GALLERY	<a href="images/«IMAGE»" «BLANK»><div class="card"><img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/></div></a>
 GALLERY	<div class="featured">«PICTURE-GALLERY|In:Asset|Filter:{"Context-id"->«LINK»}|Contain:True»</div>
 
 MUSIC-TABLE-HEAD	<thead>«ROW|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Info"}|Contain:True»</thead>
@@ -342,7 +342,7 @@ PRESS-SCREENSHOT-GALLERY	<h3 class="images">Screenshots & Logo</h3><p>Download a
 OTHER-INQUIRIES	<h3>Other inquiries</h3><p class="centre">Check also the «PRESS-KIT» or «CONTACT-TEXT-1» for all unusual requests!</p>
 
 VIDEO-SRC	media/«LINK»/«LINK».mp4
-TRAILER-LAUNCHER	<img class="card" onclick='OpenVideoModal("«TRAILER»")' src="images/«TRAILER-IMAGE»" alt="«TITLE»'s trailer" title="«TITLELONG» (trailer)"/>
+TRAILER-LAUNCHER	<img class="card" onclick='OpenVideoModal("«TRAILER»")' src="images/«TRAILER-IMAGE»" alt="«TITLE»'s trailer" title="«TITLELONG» (trailer)" loading="lazy"/>
 
 P-PRE	«Presentation|In:People|Contain:True|Filter:{Link->"
 P-POS	"}»
