@@ -10,6 +10,15 @@
     --gameH:calc(100vh - 2*var(--h1));
 }
 
+.game-supra-container:fullscreen{
+    --gameW:calc(100vw);
+    --gameH:calc(100vh);
+}
+.game-supra-container:full-screen{
+    --gameW:calc(100vw);
+    --gameH:calc(100vh);
+}
+
 .game-supra-container{
     height: var(--gameH);
     overflow: hidden;
@@ -65,9 +74,11 @@
         max-height: var(--gameW);
     }
     .rotate90 .game {
-        height: calc(var(--gameW) - 3*var(--fontheight));
+        height: calc(var(--gameW) - 2*var(--fontheight));
     }
 } 
+
+
 
 /*Hints*/
 .hint {
