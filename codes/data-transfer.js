@@ -1767,21 +1767,21 @@ function ListenOutside(ev,fun,target){
 }
 
 function ListenF(ev,fun,target,ConditionF){
-		var evObj={
-			"ev":IsArray(ev)?ev:[ev],
-			"F":F,
-			"target":GetElement(target)
-		};
-			
-		function F(eve){
-			if(ConditionF(eve)){
-				fun();
-				ListenNoMore(evObj);
-			}
-		};
+	var evObj={
+		"ev":IsArray(ev)?ev:[ev],
+		"F":F,
+		"target":GetElement(target)
+	};
 		
-		ListenIndeed(evObj);
-		return evObj;
+	function F(eve){
+		if(ConditionF(eve)){
+			fun();
+			ListenNoMore(evObj);
+		}
+	};
+	
+	ListenIndeed(evObj);
+	return evObj;
 }
 
 function ListenNoMore(evObj){
@@ -1789,7 +1789,7 @@ function ListenNoMore(evObj){
 }
 
 function ListenIndeed(evObj){
-	evObj["ev"].map(function(e){evObj["target"].addEventListener(e,evObj["F"])});
+	evObj["ev"].map(function(e){evObj["target"].addEventListener(e,evObj["F"],{passive: true})});
 }
 
 
