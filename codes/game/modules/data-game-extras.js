@@ -10,10 +10,10 @@ function PrepareGame(){
 		ScrollInto(gameSelector);
 		//GetElement(gameSelector).click();//Activate audio (maybe?)
 		AddGameBar();
-		if(Online())
-			LoadStyle("https://pedropsi.github.io/game-bar-source/codes/index.css");
+		if(Local())
+			LoadStyle("../codes/index.css");
 		else
-			LoadStyle("../codes/index");
+			LoadStyle("https://pedropsi.github.io/game-bar-source/codes/index.css");
 		AddElement("<style>"+ReplaceColours(stylesheet,state.bgcolor,state.fgcolor)+"</style>",'head');//Colorise
 		ConsoleAddMany([
 			"Puzzlescript Game bar loaded!",

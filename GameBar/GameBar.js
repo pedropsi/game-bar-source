@@ -37,6 +37,10 @@ function DelayUntil(Condition,F,i){
 	}
 }
 
+function Local(){
+	return /^file\:.*/.test(document.URL);
+}
+
 // Load the Game Bar
 var puzzlescriptModules=[
 	"data-game-colours",
@@ -50,23 +54,21 @@ var precedences={
 	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
 }
 
-var VERSIONFOLDER="/"+"codes"; //"Versions/3.0/codes/";
-var FOLDER="https://pedropsi.github.io/game-bar-source"+VERSIONFOLDER;
+var VERSIONFOLDER="Versions/3.0/codes"; //"/"+"codes"; //
+
+if(Local()) //Local vs online
+	var FOLDER=".."+"/"+VERSIONFOLDER;
+else
+	var FOLDER="https://pedropsi.github.io/game-bar-source"+"/"+VERSIONFOLDER;
+
 
 function LoadModule(module){
 	function L(){return LoaderInFolderGB(FOLDER+"/"+"game/modules")(module)};
 	return DelayUntil(precedences[module],L,module);
 }
 
-
-if(navigator.onLine){
-	LoaderInFolderGB(FOLDER)("data-transfer");
-	puzzlescriptModules.map(LoadModule);
-}
-else{
-	LoaderInFolderGB(".."+VERSIONFOLDER)("data-transfer");
-	puzzlescriptModules.map(LoaderInFolderGB(".."+VERSIONFOLDER+"/game/modules"));
-}
+LoaderInFolderGB(FOLDER)("data-transfer");
+puzzlescriptModules.map(LoadModule);
 
 
 //Start the Bar
