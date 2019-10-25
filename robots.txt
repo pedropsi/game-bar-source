@@ -2,5 +2,4 @@ User-agent: *
 Disallow: /codes
 Disallow: /hints
 Disallow: /media
-Disallow: /Puzzlescript
 Sitemap: https://pedropsi.github.io/sitemap.xml
