@@ -836,6 +836,8 @@ table caption{
     color: var(--darkblue);
     border-color: currentColor;
     margin:0;
+    padding-top:var(--fontheight);
+    padding-bottom:var(--fontheight);
 }
 
 .buttonrow .tag:first-of-type {
