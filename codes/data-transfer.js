@@ -537,7 +537,7 @@ function LoadStyle(sourcename){
 //Fetch data from url
 function LoadData(url,SuccessF){
 	var rawFile=new XMLHttpRequest();
-	rawFile.open("GET",url,false);
+	rawFile.open("GET",url,true);
 	rawFile.onreadystatechange=function(){
 		if(rawFile.readyState===4){
 			if(rawFile.status===200||rawFile.status==0){
@@ -1034,6 +1034,11 @@ function ImageHTML(optionsObj){
 		o.attributes={src:"images/splash.png"}
 	return SingleElementHTML(o)
 };
+
+function PlaceholderImageHTML(){
+	return ImageHTML()
+};
+
 
 function ButtonHTML(optionsObj){
 	var o=optionsObj?optionsObj:{};
@@ -2922,21 +2927,23 @@ function CyclePrevBounded(array){
 //Image
 var ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
 
-function LoadImage(fullpath){
-	var loaded=LoadDataSynchronous(fullpath)!==undefined;
-	if(loaded){
+function LoadImage(fullpath,parentIDsel){
+	
+	function ImageReplace(data){
+		if(data==="")
+			return console.log("no image found at: "+fullpath);
+		
 		if(IsGif(fullpath)){
 			gifID=GenerateId();
 			loaded=ImageHTML({attributes:{id:gifID,src:fullpath,onload:'StartGIF('+gifID+')',tabindex:'0',class:"gif"}});
 		}
 		else
 			loaded=ImageHTML({attributes:{src:fullpath}});
+		
+		ReplaceElement(loaded,parentIDsel);
 	}
-	else{
-		console.log("no image found at: ",fullpath);
-		loaded="";
-	}
-	return loaded;
+	
+	LoadData(fullpath,ImageReplace);
 }
 
 function IsImageReference(ref){

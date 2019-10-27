@@ -1076,9 +1076,9 @@ function ShowHintButton(){
 function HintDisplay(reference){
 	var fullpath=Hints.path+pageIdentifierSimple()+"/"+reference.replace(/\s*/,"");
 	if(IsImageReference(fullpath)){
-		var img=LoadImage(fullpath);
-		if(img!=="")
-			return "<div class='hint'>"+img+"</div>";
+		var parentid=GenerateId();
+		LoadImage(fullpath,parentid);
+		return "<div class='hint' id='"+parentid+"'>"+PlaceholderImageHTML()+"</div>";
 	}
 	return "<div class='hint'><p>"+reference+"</p></div>";
 }
