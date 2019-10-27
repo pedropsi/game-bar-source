@@ -548,45 +548,6 @@ function LoadData(url,SuccessF){
 	rawFile.send(null);
 };
 
-
-function LoadDataMaybe(url){
-	var data;
-    var rawFile=new XMLHttpRequest();
-    rawFile.open("GET", url, false);
-    rawFile.onreadystatechange=function (){
-        if(rawFile.readyState===4){
-            if(rawFile.status===200||rawFile.status==0){
-                data=rawFile.responseText;
-            }
-        }
-    }
-    rawFile.send(null);
-	return data;
-};
-
-function LoadDataSynchronous(url){
-	if(LoadDataSynchronous[url]){
-		console.log("(cached data:",url,")");
-		return LoadDataSynchronous[url];
-	}
-	if(Online()){
-		try{
-			return LoadDataSynchronous[url]=LoadDataMaybe(url);
-		}
-		catch(errorDummy){
-			return undefined;
-		}
-	}
-	else{
-		console.log("Offline - couldn't load:",url)
-		return undefined;
-	}
-};
-
-function LoadExternalScript(url){
-	LoadScript(LoadDataSynchronous(url));
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 // Data transmission - JSON, to a script in url "url"
 
