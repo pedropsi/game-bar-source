@@ -1987,8 +1987,10 @@ function GetDefaultData(field,id){
 function SetData(field,value,id){
 	//console.log(field,value,id);
 	var DP=GetDataPack(id);
-	if(DP!==undefined)
+	if(DP!==undefined){
 		GetDataPack(id)[field]=value;
+		Shout("Set "+field);
+	}
 };
 
 function ClearData(field,id){
