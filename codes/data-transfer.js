@@ -1449,11 +1449,13 @@ function SelectSimple(selectorE,clas){
 		e.classList.remove(clas);
 		e.classList.add(clas);
 	}
+	return e;
 }
 
 function Select(selectorE,clas){ //With Pulse by default
-	SelectSimple(selectorE,clas);
+	var e=SelectSimple(selectorE,clas);
 	PulseSelect(selectorE);
+	return e;
 }
 
 function Deselect(selectorE,clas){
@@ -1461,6 +1463,7 @@ function Deselect(selectorE,clas){
 	var e=GetElement(selectorE);
 	if(e)
 		e.classList.remove(clas);
+	return e;
 }
 
 function Selected(selectorE){
@@ -1478,6 +1481,7 @@ function Toggle(selectorE,clas){
 	var e=GetElement(selectorE);
 	if(e)
 		e.classList.toggle(clas);
+	return e;
 }
 
 // Select Pulse
