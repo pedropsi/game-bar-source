@@ -228,11 +228,11 @@ var LevelGoals=[	//Required types of thinking
 	"Rotate",		//Positional, Spacial, Retroactive
 	"Falls",		//Alphabetical, Retroactive, Adjacent
 	"Precedent",	//Alphabetical, Retroactive, Adjacent
-	"Dvorak",		//Language, Spacial, Mapping
+	"Dvorak"		//Language, Spacial, Mapping
 //	"3|_1735|>33|<",//Language, Mapping
 //	"Vinegar",		//Knowledge, Synonym
 //	"Nigeria",		//Knowledge, Retroactive, Word, Spacial
-	"Fuse"			//
+	//"Fuse"			//
 	];
 
 var LevelActions={
