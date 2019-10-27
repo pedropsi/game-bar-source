@@ -46,6 +46,10 @@ if(typeof ObtainTitleScreenLoader==="undefined")
 if(typeof ObtainPlayEndGameSound==="undefined")
 	function ObtainPlayEndGameSound(){tryPlayEndGameSound()};
 
+if(typeof ObtainLevelTitle==="undefined")
+	function ObtainLevelTitle(lvl){
+		return "Access level "+LevelNumberFromTotal(lvl);
+	}
 
 ////////////////////////////////////////////////////////////////////////////////
 //Good defaults
@@ -570,15 +574,28 @@ function MaxLevel(){
 
 // Level Selector
 
+function ChosenLevelDescription(){
+	var DP=CurrentDatapack();
+	if(DP){
+		var l=FindData("level",CurrentDatapack().qid);
+		if(l)
+			return ChosenLevelDescription.last=ObtainLevelTitle(UnstarLevel(l));
+	}
+	
+	if(ChosenLevelDescription.last)
+		return ChosenLevelDescription.last;
+	else
+		return LevelSelectorTitle();
+}
+
 function LevelSelectorTitle(){
 	if(UnlockedLevels().length!==MaxLevel())
 		return "Access "+UnlockedLevels().length+" out of "+MaxLevel()+" levels";
 	else
-		return "Access one of the "+MaxLevel()+" levels"
+		return "Access one of the "+MaxLevel()+" levels";
 }
 
 function RequestLevelSelector(){
-	
 	if(!HasCheckpoint()){
 		var type="level";
 		var DPOpts={
@@ -672,13 +689,23 @@ function UnstarLevel(l){
 	return Number(l.replace("★","").replace("☆",""));
 }
 
+function UpdateAccessLevelMessage(){
+	ReplaceElement(ChosenLevelDescription(),".question");
+}
+
+Listen("Set level",UpdateAccessLevelMessage);
+
+function LevelNumberFromTotal(lvl){
+	return PadLevelNumber(lvl)+"/"+MaxLevel()+LevelHintStar(lvl)
+}
+
 function UpdateLevelSelectorButton(lvl){
 	if(!lvl)
 		lvl=CurLevelNumber(); 
 	if(TitleScreen())
 		var leveltext="Select level";
 	else if(lvl<=MaxLevel())
-		var leveltext="Level "+PadLevelNumber(lvl)+"/"+MaxLevel()+LevelHintStar(lvl);
+		var leveltext="Level "+LevelNumberFromTotal(lvl)
 	else
 		var leveltext="★ All levels ★";
 	ReplaceElement(leveltext,"LevelSelectorButton");
