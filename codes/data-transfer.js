@@ -1286,6 +1286,7 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 		//var ExecuteF=SelectF+'CheckSubmit(\"'+dataFiel.pid+'\");';
 		var buAttribs={
 			'onfocus':SelectF,
+			'onmouseover':SelectF,
 			'onclick':ExecuteF,
 			'ondblclick':ExecuteF,
 			id:"choice-"+choice};
