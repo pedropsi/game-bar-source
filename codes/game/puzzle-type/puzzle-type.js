@@ -390,20 +390,20 @@ function FlipArray(array){
 //Symmetric
 
 function Symmetric(O){	
-		if(HorizontalSymmetric(O)||InversionSymmetric(O)){
-			ModifyLetters(ToggleHorizontal);
-			console.log("hori:"+O);
-		}
-		
-		if(VerticalSymmetric(O)||InversionSymmetric(O)){
-			ModifyLetters(ToggleVertical);
-			console.log("vert:"+O);
-		}
-		
-		if(In("SYMMETRIC",O)){
-			InputLetter(O);
-		}
+	if(HorizontalSymmetric(O)||InversionSymmetric(O)){
+		ModifyLetters(ToggleHorizontal);
+		console.log("hori:"+O);
 	}
+	
+	if(VerticalSymmetric(O)||InversionSymmetric(O)){
+		ModifyLetters(ToggleVertical);
+		console.log("vert:"+O);
+	}
+	
+	if(In("SYMMETRIC",O)){
+		InputLetter(O);
+	}
+}
 
 function PureLetter(O){
 	return O.replace(/\-/g,"").replace(/\|/g,"");
