@@ -69,6 +69,9 @@ if(typeof ClearLevelRecord==="undefined")
 if(typeof ClearSolvedLevelScreens==="undefined")
 	var ClearSolvedLevelScreens=Identity;
 
+if(typeof EchoLevelWin==="undefined")
+	var EchoLevelWin=Identity;
+
 if(typeof EchoSelect==="undefined")
 	var EchoSelect=Identity;
 
