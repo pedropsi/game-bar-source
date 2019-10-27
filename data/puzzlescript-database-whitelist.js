@@ -18,7 +18,7 @@ function Whitelist(){ //Sort descending by expected number of submissions
 	];
 }
 
-var knownAuthors={
+var KnownAuthors={
 	"unblock":"NOA Cube Studio",
 	"dis pontibus II demake / edit":"NOA Cube Studio",
 	"Rose":"Jared Piers",
@@ -26,9 +26,15 @@ var knownAuthors={
 	"skeleton assembler 2":"Ethan Clark"
 }
 
+var AuthorAliases={
+	"Jere":"Jere Majava",
+	"jjmajava":"Jere Majava",
+	"nooa majava":"Jere Majava"
+}
+
 function KnownAuthor(title){
-	if(In(knownAuthors,title))
-		return knownAuthors[title];
+	if(In(KnownAuthors,title))
+		return KnownAuthors[title];
 	else
 		return "undefined";
 }

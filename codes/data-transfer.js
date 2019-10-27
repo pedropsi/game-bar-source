@@ -925,6 +925,10 @@ function GameRowHTML(dataline){
 		if(typeof KnownAuthor!=="undefined")
 			author=KnownAuthor(title);
 	}
+	if(typeof AuthorAliases!==="undefined"&&In(AuthorAliases,author)){
+	//	console.log(typeof AuthorAliases!=="undefined");
+		author=AuthorAliases(author);
+	}
 	
 	if(typeof Whitelist!=="undefined"&&InWhitelist(link)){
 		title=AHTML(title,link);

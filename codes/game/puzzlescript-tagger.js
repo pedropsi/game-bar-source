@@ -12,6 +12,31 @@ function ReadGameData(){
 		"link":document.URL,
 		"page":document.URL.replace(/itch.io\/.*/,"itch.io")
 		};
+	}else if(InString(document.URL,"gist.github.com")){
+		var D=Array.from(document.querySelectorAll(".js-file-line")).map(function(x){return x.innerHTML});
+		var T=D.filter(function(l){return /title/i.test(l)})[0].replace(/title\s*/i,"");
+		var A=D.filter(function(l){return /author/i.test(l)});
+		var P=D.filter(function(l){return /homepage/i.test(l)});
+		
+		var id=document.URL.replace(/.*gist\.github\.com\/.*\//,"");
+				
+		if(P.length>0)
+			P=P[0].replace(/homepage\s*/i,"");
+		else
+			var P=document.URL.replace(id,"");
+				
+		if(A.length>0)
+			A=A[0].replace(/author\s*/i,"");
+		else
+			A=P.replace(/.*gist\.github\.com/,"").replace(/\//g,"");
+		
+		document.getElementsByTagName("TITLE")[0].innerHTML;
+		data={
+		"title":T,
+		"author":A,
+		"link":"https://www.puzzlescript.net/play.html?p="+id,
+		"page":P
+		};
 	}else if(InString(document.URL,"increpare.com")){
 		var T=document.getElementsByTagName("TITLE")[0].innerHTML;
 		data={
