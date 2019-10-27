@@ -97,3 +97,19 @@
    opacity: 1; 
    background-color: var(--green);
 }
+
+/*Level-specific*/
+.symmetry.horizontal{
+   transform: scaleX(-1);
+   transition-duration: var(--duration);
+}
+
+.symmetry.vertical{
+   transform: scaleY(-1);
+   transition-duration: var(--duration);
+}
+
+.symmetry.vertical.horizontal{
+   transform: scaleX(-1) scaleY(-1);
+   transition-duration: var(--duration);
+}

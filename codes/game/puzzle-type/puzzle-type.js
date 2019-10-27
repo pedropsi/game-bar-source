@@ -7,11 +7,20 @@
 /*
 Add devil's calculator mention
 PUZZLES:
--positional caret
--leetspeek
--calculatorspeak
--Fliptext  / upside down text (see wikipedi article)
-
+--positional caret
+--leetspeek
+--calculatorspeak
+X-Fliptext  / upside down text 
+X-Keyboard layout (dvorak)
+--hiragana
+--disorder: a letter adds itself alphabeticall or reverse depending on last letter?
+--nigeria switch niger to chad. must find country that switches to niger
+--vinegar: chemical formula CH3COOH
+--#DEFACE
+--Fur elise must write the first notes (letters give sharps and bemol
+--gogol (letters input numbers)
+--phonetic alphabet?
+)
 */
 
 function LoadGameHTML(){
@@ -54,6 +63,10 @@ function ObtainRestart(){Restart();}
 function ObtainNewGameCondition(){return SolvedLevelScreens().length<1};
 
 function ObtainStateScreens(){return LevelGoals;}
+
+function ObtainLevelTitle(l){
+	return LevelGoals[l-1];
+}
 
 var ObtainLevelLoader=LevelLoader;
 
@@ -115,7 +128,9 @@ function ObtainKeyActionsGame(){
 		"Backspace":ObtainRestart,
 		"Delete":ObtainRestart,
 		"Shift R":ObtainRestart,
+		"Ctrl R":ObtainRestart,
 		"Shift U":ObtainUndo,
+		"Ctrl Z":ObtainUndo,
 		"Spacebar":InstructGameKeyF("Enter"),
 		"Enter":InstructGameKeyF("Enter"),
 		"Left":InstructNothing,
@@ -199,18 +214,25 @@ function ForbidCaret(){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
-var LevelGoals=[
+var LevelGoals=[	//Required types of thinking
 	"Direct",
-	"Reverse",
-	"Alternate",
-	"Second",
-	"Follow",
-	"Oppose",
-	"Rise",
-	"Vowels",
-	"Falls",
-	"3|_1735|>33|<"
-	//"Fuse"
+	"Reverse",		//Positional,
+	"Alternate",	//Positional,
+	"Second",		//Positional,
+	"Follow",		//Positional,
+	"Superior",		//Alphabetical, Retroactive
+	"Oppose",		//Alphabetical, Mapping
+	"Symmetric",	//Spacial, Toggling
+	"Rise",			//Alphabetical, Adjacent
+	"Vowels",		//Alphabetical, Cyclic, Posteroactive
+	"Rotate",		//Positional, Spacial, Retroactive
+	"Falls",		//Alphabetical, Retroactive, Adjacent
+	"Precedent",	//Alphabetical, Retroactive, Adjacent
+	"Dvorak",		//Language, Spacial, Mapping
+//	"3|_1735|>33|<",//Language, Mapping
+//	"Vinegar",		//Knowledge, Synonym
+//	"Nigeria",		//Knowledge, Retroactive, Word, Spacial
+	"Fuse"			//
 	];
 
 var LevelActions={
@@ -246,8 +268,33 @@ var LevelActions={
 		Letters.array=Letters.array.map(LetterDown);
 		InputLetter(L);
 	},
-	"3|_1735|>3A|<":Direct
-	/*,
+	"Superior":function (L){
+		if(Letters.array.length>0&&LetterNumber(L)>=LetterNumber(Last(Letters.array)))
+			DeleteLetterAfter();
+		InputLetter(L);
+	},
+	"Rotate":function (L){
+		InputLetter(L);
+		if(Letters.array.length%2===0)
+			Letters.array=FlipArray(Letters.array);
+	},
+	"Precedent":function (L){
+		function ConditionF(K){return K===NumberLetter(LetterNumber(L)-1);};
+		function ChangeF(K){return L;};
+		var m=ModifyLetters(ChangeF,ConditionF);
+		if(!m)
+			InputLetter(L);
+	},
+	"Symmetric":Symmetric,
+	"Dvorak":function (P){
+		var n=Letters.array.length;
+		var P=P;
+		for(var i=1;i<=n;i++)
+			if(In(DvorakMapping,P))
+				P=DvorakMapping[P];
+		InputLetter(P);
+	},
+	"3|_1735|>3A|<":Direct,
 	"Fuse":function Fuse(F,cycle){
 		var cycle=false||cycle;
 		
@@ -266,7 +313,7 @@ var LevelActions={
 			else
 				InputLetter(NumberLetter(n));
 		}
-	}*/
+	}
 }
 
 function Direct(L){
@@ -326,6 +373,114 @@ function Alternate(L){
 	Alternate.n=1-Alternate.n;
 }
 
+function FlipArray(array){
+	var a=[];
+	var j;
+	for (var i=0;i<array.length;i++){
+		if(i<array.length/2)
+			j=i+Math.floor(array.length/2);
+		else
+			j=i-Math.ceil(array.length/2);
+		
+		a.push(array[j]);
+	}
+	return a;
+}
+
+//Symmetric
+
+function Symmetric(O){	
+		if(HorizontalSymmetric(O)||InversionSymmetric(O)){
+			ModifyLetters(ToggleHorizontal);
+			console.log("hori:"+O);
+		}
+		
+		if(VerticalSymmetric(O)||InversionSymmetric(O)){
+			ModifyLetters(ToggleVertical);
+			console.log("vert:"+O);
+		}
+		
+		if(In("SYMMETRIC",O)){
+			InputLetter(O);
+		}
+	}
+
+function PureLetter(O){
+	return O.replace(/\-/g,"").replace(/\|/g,"");
+}
+
+function ToggleVertical(W){
+	return NormaliseSymmetry(W+"-");
+}
+
+function ToggleHorizontal(W){
+	return NormaliseSymmetry(W+"|");
+}
+
+function NormaliseSymmetry(W){
+	var W=W;
+
+	if(W.split("-").length>2)
+		W=W.replace(/\-/g,"");
+	
+	if(W.split("|").length>2)
+		W=W.replace(/\|/g,"");
+	
+	if(InversionSymmetric(W)&&(In(W,"-")&&In(W,"|")))
+		return PureLetter(W);
+		
+	if(HorizontalSymmetric(W)&&In(W,"|"))
+		return W.replace(/\|/g,"");
+		
+	if(VerticalSymmetric(W)&&In(W,"-"))
+		return W.replace(/\-/g,"");
+	
+	return W;
+}
+
+function HorizontalSymmetric(O){
+	return In(["A","H","I","M","O","T","U","V","W","X","Y"],PureLetter(O));
+}
+
+function VerticalSymmetric(O){
+	return In(["B","C","D","E","H","I","K","O","X"],PureLetter(O));
+}
+
+function InversionSymmetric(O){
+	return In(["N","S","Z"],PureLetter(O));
+}
+
+//Dvorak
+
+var DvorakMapping={
+	"A":"O",
+	"B":"M",
+	"C":"R",
+	"D":"H",
+	"E":"U",
+	"F":"G",
+	"G":"C",
+	"H":"T",
+	"I":"D",
+	"J":"K",
+	"K":"X",
+	"L":"P",
+	"M":"W",
+	"N":"S",
+	"O":"E",
+	"P":"Y",
+	"Q":"J",
+	"R":"L",
+	"S":"A",
+	"T":"N",
+	"U":"I",
+	"V":"Z",
+	"W":"V",
+	"X":"B",
+	"Y":"F",
+	"Z":"Q"
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
 
@@ -379,8 +534,25 @@ function DrawCaret(){
 		AddElement(CaretHTML(),"#letters");
 }
 
-function LetterHTML(L){
+function LetterPureHTML(L){
 	return "<div class='letter'>"+L+"</div>"
+}
+
+function LetterHTML(L){
+	var S=MakeElement("<div>"+PureLetter(L)+"</div>");
+	
+	if(In(L,"-"))
+		SelectSimple(S,"vertical");
+	
+	if(In(L,"|"))
+		SelectSimple(S,"horizontal");
+
+	if(Classed(S,"vertical")||Classed(S,"horizontal")){
+		SelectSimple(S,"symmetry");
+		return LetterPureHTML(S.outerHTML);
+	}
+	else
+		return LetterPureHTML(L);
 }
 
 function CaretHTML(){
@@ -436,6 +608,20 @@ function NumberLetter(n){
 	return String.fromCharCode(((n%26)+26)%26+65);
 }
 
+
+function ModifyLetters(ChangeF,ConditionF){
+	var ConditionF=ConditionF||(function(){return true});
+	var p=0;
+	var modified=false;
+	while(p<Letters.array.length){
+		if(ConditionF(Letters.array[p])){
+			modified=true;
+			Letters.array[p]=ChangeF(Letters.array[p]);
+		}
+		p++;
+	}
+	return modified;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Game execution
