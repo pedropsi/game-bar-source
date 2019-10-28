@@ -638,8 +638,8 @@ thead th{
 }
 
 thead th:hover {
-    color: var(--lightyellow);
-    background-color: var(--darkblue);
+    color: var(--white);
+    background-color: var(--blue);
     transition-duration: var(--duration);
 }
 
@@ -700,6 +700,16 @@ table caption{
      }
 
 } 
+
+.Ascending{
+    background-color: var(--lightblue);
+    color: var(--white);
+}
+.Descending{
+    background-color: var(--lightblue);
+    color: var(--yellow);
+}
+
 
 .modal {   
     --t:0.5;
