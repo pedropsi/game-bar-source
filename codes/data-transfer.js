@@ -830,6 +830,57 @@ function ScrollInto(elementIDsel){
 
 
 //////////////////////////////////////////////////
+//Sort tables
+
+function ColumnNumber(tableSelector,n){
+	var headers=GetElements("TH",tableSelector);
+	if(typeof n==="number"&&n>-1&&n<=headers.length-1)
+		return n;
+	
+	if(typeof n!=="string")
+		return -1;
+	else{
+		headers=headers.map(function(th){return th.textContent.toLowerCase()});
+		return headers.indexOf(n.toLowerCase());
+	}
+}
+
+function CompareRow(n,descending){
+	
+	function CompareAscending(rowA,rowB){
+		if(!rowA.childNodes||rowA.childNodes.length<n-1)
+			if(!rowB.childNodes||rowB.childNodes.length<n-1)
+				return 0;
+			else
+				return 1;
+		
+		if(!rowB.childNodes||rowB.childNodes.length<n-1)
+			return -1;
+		
+		return ((rowA.childNodes[n].textContent.toLowerCase())<(rowB.childNodes[n].textContent.toLowerCase()))?-1:1;
+	}
+	
+	if(!descending)
+		return CompareAscending;
+	else
+		return function(rowA,rowB){return 0-CompareAscending(rowA,rowB)};
+}
+
+
+function SortTable(tableSelector,n,descending){
+	var descending=descending||false;
+	var table=GetElement(tableSelector);
+	var tbody=GetElement("TBODY",table);
+	var n=ColumnNumber(table,n);
+	
+	var rows=GetElements("TR",tbody);
+	rows=rows.sort(CompareRow(n,descending));
+	rows.map(function(row){return row.cloneNode()});
+	RemoveChildren(tbody);
+	rows.map(function(row){AddElement(row,tbody)});
+}
+
+//////////////////////////////////////////////////
 // Safe string loading
 function SafeString(tex){
 	return String(tex).replace(/[\<\>\=\+\-\(\)\*\'\"]/g,"");
@@ -844,15 +895,6 @@ function SafeUrl(tex){
 
 //////////////////////////////////////////////////
 // Transformer: Table
-/*function ReplaceTemplateHTML(template,optionsObj){
-	var keys=Object.keys(optionsObj);
-	var result=template;
-	for(var i in keys){
-		if(optionsObj.hasOwnProperty(keys[i]))
-			result=result.replace(keys[i],optionsObj[keys[i]]);
-	}
-	return result;
-}*/
 
 function TableDataHTML(y){
 	if(y!="")
@@ -915,9 +957,6 @@ function InWhitelist(string){
 	function Verify(condition){return InString(string,condition)}
 	return Whitelist().some(Verify);
 }
-
-
-
 
 //////////////////////////////////////////////////
 // Guestbook 
