@@ -1,4 +1,14 @@
-﻿<p>This is the «SITE-NAME»'s news stream, live since <b>19/09/2019</b>. Check back often to keep abreast of the most relevant developments.</p>
+﻿<p>This is the «SITE-NAME»'s news stream, live since <b>19/09/2019</b>. Check back often to keep abreast of the most relevant developments, or «SUBSCRIBE-LINK»</p>
+
+<h2>02/11/2019</h2>
+<h3>Nicer tables</h3>
+<p>All tables in the «SITE-NAME» are now sortable.</p>
+
+<h2>26/10/2019</h2>
+<h3>Towards Progressive Web Apps (PWA)</h3>
+<p>The «SITE-NAME» has suffered diverse optimisations towards transforming several pages into independent PWAs. Games, for instance, load faster. Plus diverse small accessibility improvements, as suggested by the Lighthouse tool.</p>
+<h3>Puzzle-type (alpha)</h3>
+<p>This upcoming cryptic puzzle is gaining shape. Animated logo. Sound effects. 14 levels, and counting.</p>
 
 <h2>19/10/2019</h2>
 <h3>Game-bar extension and auto-rotation</h3>
