@@ -1,4 +1,4 @@
-// Add the game container to the page  <img src="images/splash.png" alt="Loading...">
+// Add the game container to the page 
 PreAddElement('\
 <div class="game-supra-container">\
 	<div class="game-rotation-container">\
