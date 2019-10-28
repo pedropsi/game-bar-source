@@ -751,29 +751,38 @@ function GetElements(selectorString,parentIDsel){
 };
 
 // Add new element to page, under a parent element
-function AddElement(html,parentIDsel){
-	var e=MakeElement(html);
+function Element(htmlOrElement){
+	var e=htmlOrElement;
+	if (typeof htmlOrElement==="string")
+		e=MakeElement(htmlOrElement);
+	return e;
+}
+
+function AddElement(htmlOrElement,parentIDsel){
+	var e=Element(htmlOrElement);
 	var p=GetElement(parentIDsel);
 	p.appendChild(e);
 	return e;
 };
 
-function PreAddElement(html,parentIDsel){
-	var e=MakeElement(html);
+function PreAddElement(htmlOrElement,parentIDsel){
+	var e=Element(htmlOrElement);
 	var p=GetElement(parentIDsel);
 	p.insertAdjacentElement('afterbegin',e);
 	return e;
 };
 
 // Add new element to page, after a sibling element
-function AppendElement(html,selector){
+function AppendElement(htmlOrElement,selector){
+	var e=Element(htmlOrElement);
 	var s=GetElement(selector);
-	return s.insertAdjacentElement('afterend',MakeElement(html));
+	return s.insertAdjacentElement('afterend',e);
 };
 
-function PrependElement(html,selector){
+function PrependElement(htmlOrElement,selector){
+	var e=Element(htmlOrElement);
 	var s=GetElement(selector);
-	return s.insertAdjacentElement('beforebegin',MakeElement(html));
+	return s.insertAdjacentElement('beforebegin',e);
 };
 
 
@@ -800,7 +809,7 @@ function OverwriteData(source,destinationID,Transform){
 
 // Remove Children
 function RemoveChildren(parentID){
-	ReplaceElement(parentID,"")
+	ReplaceElement("",parentID)
 }
 
 // Remove Element
