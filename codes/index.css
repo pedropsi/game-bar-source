@@ -635,6 +635,8 @@ thead th{
     text-align: center;
     text-emphasis: bold;
     transition-duration: var(--duration);
+    padding: var(--fontheight);
+    font-size: 120%;
 }
 
 thead th:hover {
