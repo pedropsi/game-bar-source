@@ -487,14 +487,14 @@ function GenerateId(){
 //Load scripts
 
 function LoadScript(sourcecode){
-	var head=GetElements('head')[0];
+	var head=GetElement('head');
 	var script=document.createElement('script');
 	script.innerHTML=sourcecode;
 	head.appendChild(script);
 }
 
 function LoadAsync(sourcename,folder){
-	var head=GetElements('head')[0];
+	var head=GetElement('head');
 	var script=document.createElement('script');
 	var ext='.js';
 	var folder=((folder+"/").replace(/\/\//,"/"))||"codes/"
@@ -740,12 +740,13 @@ function Outside(parentSelector,selector){
 }
 
 // Get element based on selectors: .class, tag, or the element itself
-function GetElements(selectorString){
+function GetElements(selectorString,parentIDsel){
 	var HTMLCollect;
+	var parentElement=GetElement(parentIDsel)||document;
 	if(IsClass(selectorString))
-		HTMLCollect=document.getElementsByClassName(selectorString.replace(/^\./,""));
+		HTMLCollect=parentElement.getElementsByClassName(selectorString.replace(/^\./,""));
 	else if (IsTag(selectorString))
-		HTMLCollect=document.getElementsByTagName(selectorString);
+		HTMLCollect=parentElement.getElementsByTagName(selectorString);
 	return Array.prototype.slice.call(HTMLCollect);
 };
 
