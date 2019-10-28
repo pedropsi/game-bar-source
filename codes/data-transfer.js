@@ -846,18 +846,27 @@ function ColumnNumber(tableSelector,n){
 }
 
 function CompareRow(n,descending){
-	
 	function CompareAscending(rowA,rowB){
-		if(!rowA.childNodes||rowA.childNodes.length<n-1)
-			if(!rowB.childNodes||rowB.childNodes.length<n-1)
+		
+		var A=Array.from(rowA.children);
+		var B=Array.from(rowB.children);
+		
+		if(A.length<n-1)
+			if(B.length<n-1)
 				return 0;
 			else
 				return 1;
 		
-		if(!rowB.childNodes||rowB.childNodes.length<n-1)
+		if(B.length<n-1)
 			return -1;
+
+		var Atext=A[n]?A[n].textContent.toLowerCase():"";
+		var Btext=B[n]?B[n].textContent.toLowerCase():"";
 		
-		return ((rowA.childNodes[n].textContent.toLowerCase())<(rowB.childNodes[n].textContent.toLowerCase()))?-1:1;
+		if(Atext<Btext)
+			return -1;
+		else
+			return 1;
 	}
 	
 	if(!descending)
