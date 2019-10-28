@@ -824,12 +824,8 @@ table caption{
     background-color: var(--white);
 }
 
-.buttonrow .button:hover,
-.buttonrow .button:active,
-.buttonrow .button:focus{
-    background-color: var(--darkblue);
-    border-bottom-color: currentColor;
-    color:var(--turquoise);
+.buttonrow .tag:first-of-type {
+    background-color:var(--lightyellow);
 }
 
 .buttonrow .tag {
@@ -840,8 +836,12 @@ table caption{
     padding-bottom:var(--fontheight);
 }
 
-.buttonrow .tag:first-of-type {
-    background-color:var(--lightyellow);
+.buttonrow .button:hover,
+.buttonrow .button:active,
+.buttonrow .button:focus{
+    background-color: var(--darkblue);
+    border-bottom-color: currentColor;
+    color:var(--turquoise);
 }
 
 .buttonrow.tags {
