@@ -880,6 +880,33 @@ function SortTable(tableSelector,n,descending){
 	rows.map(function(row){AddElement(row,tbody)});
 }
 
+function SortableTable(tableSelector){
+	var headers=GetElements("TH",tableSelector);
+	
+	function SortByHeader(header){
+		var table=header.parentElement.parentElement.parentElement; //improve this with a Parent function
+		var column=header.textContent;
+		function SortByThis(){
+			Toggle(header,"Ascending");
+			var descending=!Classed(header,"Ascending")
+			if(descending)
+				SelectSimple(header,"Descending");
+			else
+				Deselect(header,"Descending");
+			SortTable(tableSelector,column,descending);
+		}
+		Listen('click',SortByThis,header);
+	}
+	
+	headers.map(SortByHeader)
+}
+
+function SortableTables(){
+	GetElements("TABLE").map(SortableTable);
+}
+
+ListenOnce('load',SortableTables);
+
 //////////////////////////////////////////////////
 // Safe string loading
 function SafeString(tex){
@@ -911,14 +938,19 @@ function RowHTML(dataline){
 	return 	dtl;
 };
 
-function MakeTable(jsondata,RowF){
+function MakeTable(jsondata,RowF,headers){
 	if(!jsondata)
 		return;
+
+	var headers=headers?("<th>"+headers.join("</th><th>")+"</th>"):"";
 
 	var dataarray=JSON.parse(jsondata);
 	if(!RowF)
 		var RowF=RowHTML;
-	return "<caption>"+pageTitle()+"</caption><table><tbody>\n"+dataarray.map(RowF).join("\n")+"</tbody></table>";
+	
+	setTimeout(SortableTables,500);
+	
+	return "<caption>"+pageTitle()+"</caption><table><thead>"+headers+"</thead><tbody>\n"+dataarray.map(RowF).join("\n")+"</tbody></table>";
 }
 
 // Other tables 
