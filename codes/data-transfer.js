@@ -535,7 +535,7 @@ function LoadStyle(sourcename){
 //Data Reception
 
 //Fetch data from url
-function LoadData(url,SuccessF){
+function LoadData(url,SuccessF,header){
 	var rawFile=new XMLHttpRequest();
 	rawFile.open("GET",url,true);
 	rawFile.onreadystatechange=function(){
@@ -545,8 +545,11 @@ function LoadData(url,SuccessF){
 			}
 		}
 	}
+	if(header)
+		rawFile.setRequestHeader("Content-type", header);
 	rawFile.send(null);
 };
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // Data transmission - JSON, to a script in url "url"
