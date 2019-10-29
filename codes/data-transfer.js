@@ -3228,3 +3228,5 @@ if ('serviceWorker' in navigator) {
 }
 
 };
+
+ServiceWorker();
