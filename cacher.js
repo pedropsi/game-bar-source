@@ -4,7 +4,7 @@ console.log("I'm a service worker");
 self.addEventListener('install',function(event){
 	console.log('install');
 	event.waitUntil(
-		caches.open('v1').then((cache) => {
+		caches.open('v2').then(function(cache){
 			console.log("cached!");
 			return cache.addAll([
 				'./unlucky-unlock.html',
@@ -43,10 +43,12 @@ self.addEventListener('activate', function(event) {
 });
 
 // Listen for network requests from the main document
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch',function(event){
 	console.log('fetch');
 	event.respondWith(
-		caches.match(event.request)
+		caches.match(event.request).then(function(response){
+			return response||fetch(event.request)
+		})
 	);
 });
 
