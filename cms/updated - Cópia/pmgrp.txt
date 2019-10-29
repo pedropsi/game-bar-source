@@ -1,0 +1,33 @@
+﻿«ABOUT-TEXT»
+«ONE-LINER»
+
+«HOWTO-TEXT»
+<h4>Play mode</h4>
+<p>Move with «ARROWKEYS». When the bar becomes full, you run out of moves.</p>
+<p>Press «DOWNKEY» when standing on an <em>object</em> (either a <em>crate</em> or your <em>other self</em>) to pick it. Press «DOWNKEY» again to drop it. Press <b>against an edge</b> to throw the <em>object</em> sideways over it.</p>
+<h4>Replay mode</h4>
+<p>Press <kbd>X</kbd> to enter <em>Replay Mode</em>. Your <em>future self</em> will now replay all your moves... then you return into <em>Play Mode</em>.</p>
+<p>Whenever your future self can't move in a particular direction, this move is simply skipped.</p>  
+
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»
+
+<h3>Special thanks</h3>
+<p>««P-PRE»WAINWRIGHT«P-POS»», for impressive feedback, both in quality and quantity (see changelogs below).</p>
+<p>««P-PRE»PUZZLESCRIPT«P-POS»» ««P-PRE»PERCONTI«P-POS»», ««P-PRE»THATSCAR«P-POS»», ««P-PRE»HAZELDEN«P-POS»» and ««P-PRE»LAVELLE«P-POS»» for different levels of feedback.</p>
+
+<h2>Featured in</h2>
+<p>««P-PRE»LAVELLE«P-POS»»'s <a href="https://puzzlescriptgallery.tumblr.com/post/172318724969/httpspedropsigithubiopmgrppuzzlescript" «BLANK»>Puzzlescript Gallery</a>.</p>
+
+<h2>F.A.Q.</h2>
+<h3>How was the name PMGRP chosen?</h3>
+<p>Play Mini Gemini Replay PMGRP is a <em>Recursive Acronym</em>, as the last P in PMGRP refers to the game itself. This results in an infinite name that means play again and again, forever.</p>
+<p>It also contains <em>imperfect symmetry</em>, as highlighted: <em>Play</em> <b>Mini</b> Ge-<b>Mini</b> Re-<em>Play</em>. This reflects the slight differences during <em>replay mode</em> due to interactions between the player and its future self.</p>
+
+<h2>Changelog</h2>
+<h3>05/2018</h3>
+<p>Redesign of <em>level 0</em>; layout changes to <em>levels 6 and 7</em>; improvements in <b>replay mode</b> (highlighting, slowing down); future and present self no longer swap colours.</p>
+<h3>06/2018</h3>
+<p>Aesthetical changes (including a redesign of respawn and goal animations);  improvement of multi-crate pile physics and dropping; suppression of <em>level 11</em>; all level numbers incremented by 1.</p>

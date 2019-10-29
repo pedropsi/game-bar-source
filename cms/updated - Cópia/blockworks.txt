@@ -1,0 +1,14 @@
+﻿«ABOUT-TEXT»
+«ONE-LINER»
+
+«HOWTO-TEXT»
+«AVATAR-TEXT»    
+<p>Press <kbd>X</kbd> on top of a <em>block</em> to pick it, press <kbd>X</kbd> again to drop it.  
+«RESTART-TEXT»
+
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»  
+
+<h3>Special thanks</h3>
+<p>««P-PRE»PUZZLESCRIPT«P-POS»» ««P-PRE»AHLMAN«P-POS»», ««P-PRE»HAZELDEN«P-POS»», ««P-PRE»EDDERIOFER«P-POS»», ««P-PRE»JUNG«P-POS»» and ««P-PRE»CHZ«P-POS»» for varied levels of feedback.</p>

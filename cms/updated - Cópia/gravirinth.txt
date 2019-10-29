@@ -1,0 +1,132 @@
+﻿«ABOUT-TEXT»
+«ONE-LINER»
+
+<h3>Features</h3>
+<ul>
+<li>A deep labyrinth of spatial puzzles;</li>
+<li>an exoarchaeology space expedition at the outskirts of the solar system;</li>
+<li>a carefully hand-crafted, minimalist and mysterious atmosphere;</li>
+<li>special features:</li>
+<ul>
+	<li>for <b>experienced</b> puzzlers: harder bonus levels; </li>
+	<li>for <b>perfectionists</b>: a <em>smart</em>	action counter;</li>
+	<li>for <b>explorers</b>: some very well-hidden or almost unreachable paths;</li>
+</ul>
+</ul>
+
+<h2>Release notes</h2>
+
+<h3>Schedule</h3>
+<p class="centre">«TITLE-BOLD» was released three days after <b>February 28th 2019</b> and made freely available on June 21st 2019.</p>
+
+<h3>Development log</h3>
+<p class="centre">Follow development @ «LOG-LINK», or...</p>
+
+«BUTTON-SUBSCRIBE»
+
+<h2 class="trailer">Trailer</h2>
+«TRAILER-LAUNCHER»
+
+«PRESS-TEXT»
+
+<h2>How to play</h2>
+<p>Read the instructions below beforehand or skip them in favour of «TITLE-BOLD»'s interactive tutorial!</p>
+
+<div  class="tutorial">
+	<div class="left">
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-1.gif" alt="Gravirinth tutorial 1:move and switch gravity" title="Gravirinth tutorial 1:move and switch gravity"/>
+		</div>
+		<p>Navigate the «TITLE-BOLD» with «ARROWKEYS». Step on <em>gravity beacons</em> to change your <em>specific gravity</em>! The controls change accordingly.</p>
+	</div>
+	<div class="right">
+		<p>Pick any number of <em>blocks</em> with «DOWNKEY». Place them strategically  with «UPKEY» to overcome obstacles!</p>
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-2.gif" alt="Gravirinth tutorial 2:pick and carry blocks" title="Gravirinth tutorial 1:pick and carry blocks"/>
+		</div>
+	</div>
+	<div class="left">
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-3.gif" alt="Gravirinth tutorial 3:throw a block" title="Gravirinth tutorial 3:throw a block"/>
+		</div>
+		<p>Blocks also have their own <em>specific gravity</em>! Push blocks in your way or throw them horizontally to a higher platform!</p>
+	</div>
+	<div class="right">
+		<p>What if two specific gravities <em>collide</em>? An <em>unstable gravity field</em> materialises, keeping everything in place. Untangle the collision, and it eventually vanishes!</p>
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-4.gif" alt="Gravirinth tutorial 4:collision of specific gravities" title="Gravirinth tutorial 4:collision of specific gravities"/>
+		</div>
+	</div>
+	<div class="left">
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-5.gif" alt="Gravirinth tutorial 5:incoming call" title="Gravirinth tutorial 5:incoming call"/>
+		</div>
+		<p>Base communicates with you though a low-bandwidth intercom. In this way general tips and orientation hints may be given.</p>
+	</div>
+	<div class="right">
+		<p>Finding the elusive <em>fourfold orbs</em> requires persistence and inventiveness. Try your best!</p>
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-6.gif" alt="Gravirinth tutorial 6:fourfold orb" title="Gravirinth tutorial 6:fourfold orb"/>
+		</div>
+	</div>
+</div>
+
+<h3>Additional Controls</h3>
+<div  class="tutorial">
+	<div class="left">
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-7.gif" alt="Gravirinth tutorial 7: undo" title="Gravirinth tutorial 7: undo"/>
+		</div>
+		<p>Your progress is reported continuously to base, so you may retrace your steps whenever you've done anything wrong. Press «UNDO-KEY» on your exopad.</p>
+	</div>
+	<div class="right">
+		<p>A special record of your progress is created whenever you reach a save point. Press «RESTART-KEY» on your exopad to go back in time! This should work even if you quit the game for a while.</p>
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-8.png" alt="Gravirinth tutorial 8:save" title="Gravirinth tutorial 8:save"/>
+		</div>
+	</div>
+	<div class="left">
+		<div>
+			<img src="images/gravirinth/gravirinth-tutorial-9.png" alt="Gravirinth tutorial 9:rescue" title="Gravirinth tutorial 9:rescue"/>
+		</div>
+		<p>At the end of the expedition, Press <kbd>X</kbd> on your exopad to call rescue, unless you prefer to collect any still accessible <em>fourfold orbs</em>...</p>
+	</div>
+</div>
+
+«GAME-EXTRAS-TEXT»
+
+
+«CREDITS»
+
+<h3>Special thanks</h3>
+<p>All beta testers for their comprehensive feedback! Among them a special mention to ««P-PRE»LESLO«P-POS»» for outstanding help.</p>
+
+
+<h2>F.A.Q.</h2>
+<h3>What does the name «TITLE-BOLD» mean?</h3>
+<p>«TITLE-BOLD» is a combination of the words <em>Gravity</em> and <em>Labyrinth</em>. It was coined by contemporary exoarchaeologists, because the  extrasolar name is unknown.</p>
+
+<h3>How <b>deep</b> is the «TITLE-BOLD»?</h3>
+<p>As far as the sonars can tell, the «TITLE-BOLD» is composed of a multitude of <em>interconnected chambers</em> of various sizes. Depending on how a chamber is defined, this number may vary, but probably <b>more than 32</b>. Some puzzles span <em>multiple chambers</em>, an some chambers comprise <em>multiple puzzles</em>.</p>
+
+<h3>How many <em>fourfold orbs</em> can be collected in «TITLE-BOLD»?</h3>
+<p>Certainly <b>more than 12</b>. The <em>exact number</em> eludes most exoarchaeologists.</p>
+<p>The ultimate purpose of the <em>fourfold orbs</em> within the «TITLE-BOLD» is unknown, although it may contribute to a more accurate classification of alien life traits such as <em>inventiveness</em> and <em>persistence</em> or simply reward <em>exploration</em>.</p> 
+
+<h3>What inspired «TITLE-BOLD»?</h3>
+<p>The exoarcheology theme was inspired by Michio Kaku's <em>Future of Mankind</em>.</p>
+<p>The game mechanic emerged naturally, drawing elements from <a href="pmgrp.html">Play Mini Gemini Replay</a> (basic platform mechanics),  <a href="whirlpuzzle.html">Whirpuzzle</a> (idea of rotation and space theme) and <a href="tiaradventur.html">Tiaradventur</a> (inventory, narrative system, management of a large word map), whose source codes are openly available.</p>
+<p>Specific gravity is also a central theme of the game <a href="https://manifold.garden/" «BLANK»>Manifold Garden</a>.</p>
+
+<h3>How is «TITLE-BOLD» ambitious from a coding point of view?</h3>
+<p>The features below make a great game experience and are a puzzlescript coding challenge:</p>
+<ul>
+	<li>a large animated world map;</li>
+	<li>a camera directing system;</li>
+	<li>a message selector, for storytelling and strategic hint placement;</li>
+	<li>a smart action counter;</li>
+	<li>inventory/dialogue display banners, trailing along with the camera;</li>
+	<li>progressively revealing and activating unseen areas.</li>
+</ul>
+<p>Altogether, these features required more than 4000 lines of puzzlescript code, including the main labyrinth's 5734 tiles - laid by hand and thoroughly tested, since a single tile may mean the difference from an hard puzzle to an impossible one. </p>
+<p>Custom sound effects and a background music playlist were linked to the puzzlescript engine.</p>

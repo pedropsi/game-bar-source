@@ -1,0 +1,15 @@
+﻿«ABOUT-TEXT»
+«ONE-LINER»
+
+
+«HOWTO-TEXT»
+<p>Move and push blocks with «ARROWKEYS».</p>
+«UNDO-RESTART-TEXT»
+«GAME-EXTRAS-TEXT»
+
+«CREDITS»  
+
+
+<h2>Featured in</h2>
+<p>««P-PRE»BONTE«P-POS»»'s <a href="http://www.bontegames.com/2014/07/unlucky-unlock.html">blog</a> - with some very nice reviews.</p>
+<p><a href="http://warpdoor.com/2014/07/18/unlucky-unlock-pedro-psi">Warpdoor portal</a></p>
