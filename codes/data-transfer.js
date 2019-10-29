@@ -377,6 +377,16 @@ function pageAbsolute(url){
 }
 
 
+//Search queries
+function pageSearch(parameter,page){
+	var l=document.createElement("a");
+	l.href=page||document.URL;
+	var id=l.search.replace("?"+parameter+"=","");
+	if(/.*\=.*/.test(id))
+		id="";
+	return id;
+}
+
 //SECONDARY
 
 function isRelativeLink(url){
