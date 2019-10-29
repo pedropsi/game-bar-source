@@ -986,6 +986,7 @@ function GameRowHTML(dataline){
 	var title=SafeString(dataline[1]);
 	var authorlink=SafeUrl(dataline[4]);
 	var author=SafeString(dataline[2]);
+	var playlink="";
 	
 	if(author==="undefined"){
 	//	console.log(typeof KnownAuthor!=="undefined");
@@ -999,12 +1000,21 @@ function GameRowHTML(dataline){
 	
 	if(typeof Whitelist!=="undefined"&&InWhitelist(link)){
 		title=AHTML(title,link);
+		
+		if(/.*puzzlescript\.net\/play.*/.test(link))
+			playlink="game-console.html?game="+pageSearch("p",link);
+		if(/.*puzzlescript\.net\/editor.*/.test(link))
+			playlink="game-console.html?game="+pageSearch("hack",link);
+		
+		if(playlink!=="")
+			playlink="\n"+TableDataHTML(AHTML("Launch with the game bar!",playlink));
+		
 		if(authorlink&&author!=="undefined"){
 			author=AHTML(author,authorlink)
 		}
 	}
 		
-	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+"</tr>";
+	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+playlink+"</tr>";
 };
 
 function InWhitelist(string){

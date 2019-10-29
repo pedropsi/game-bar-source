@@ -78,7 +78,7 @@ GUESTBOOK-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",function(d)
 
 PUZZLESCRIPT-GAMES-DATABASE-DISPLAY-LEGACY	«SHEET-URL-GAMES-LIST»2116581279«SHEET-OPT»
 PUZZLESCRIPT-GAMES-DATABASE-DISPLAY-URL	«MACRO-URL»AKfycbyp6yZrpw7TIiOE8fg0wUkI0SMtTWUpYlki53OGLg5Pgc6ppLM/exec
-PUZZLESCRIPT-GAMES-DATABASE-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",function(d){return MakeTable(d,GameRowHTML,["Title","Author"])})
+PUZZLESCRIPT-GAMES-DATABASE-DISPLAY	OverwriteData("««LINK»-DISPLAY-URL»","«LINK»-area",function(d){return MakeTable(d,GameRowHTML,["Title","Author","Gamebar"])})
 
 DISPLAY-EXTERNAL	<div id="«LINK»-area" class="external-area">«DISPLAY-IFRAME»</div>
 DISPLAY-SCRIPT	<script>««LINK»-DISPLAY»</script>
@@ -156,6 +156,7 @@ CONTACT-TEXT-4	<a href='contact.html'>«I»'d love to hear from you!</a>
 CONTACT-TEXT-5	<a href='contact.html'>welcome</a>
 CONTACT-TEXT-6	<a href='contact.html'>Drop «ME» a line!</a>
 CONTACT-TEXT-7	<a href='contact.html'>reach out</a>
+CONTACT-TEXT-8	<a href='contact.html'>simply request it</a>
 
 COPYRIGHT	Copyright «NAME» «YEAR-SPAN», all rights reserved.
 COPYRIGHT-TEXT	© «NAME» «YEAR-START»-«YEAR-NOW».
@@ -166,6 +167,7 @@ LICENSE-CC-BY-3.0	<a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>
 LICENSE-CC-BY-4.0	<a href="https://creativecommons.org/licenses/by/3.0" «BLANK»>CC-BY 3.0</a>
 LICENSE-CC-BY-NC-SA-4.0	<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
+DISCLAIMER	<p class="disclaimer">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 
 BLANK	target='_blank' rel="noopener noreferrer"
 
@@ -308,6 +310,7 @@ SHEET-OPT	&single=true&widget=false&chrome=false&headers=false
 IFRAME-OPTS	width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0"
 
 TITLE-BY	«TITLE» by «NAME» «YEAR»
+TITLE-BY-AL	«TITLE» by «NAME» et al. «YEAR»
 TITLE-YEAR	«TITLE» («YEAR») 
 TITLELONG	«TITLE» - «TAGLINE»
 TITLE-BOLD	<b>«TITLE»</b>

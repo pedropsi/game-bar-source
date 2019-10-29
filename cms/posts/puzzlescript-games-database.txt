@@ -22,16 +22,7 @@ console.log('Bookmarklet run!');void 0">Submit PuzzleScript Game</a> bookmarklet
 
 <h2>FAQ</h2>
 <h3>Why would you want to contribute to this database for free?</h3>
-<p>If you love (puzzlescript) games you'll love to have a definite public list with all titles. Did you know there's more than 750, and counting?</p>
-
-<h3>Is this database safe?</h3>
-<p>All submitted games are listed. If a newly submitted game belongs to a known domain (e.g. puzzlescript.net), its link becomes immediately available. Otherwise, it will be simply listed without a link (so people can google it themselves), until a periodic review. During the review, legitimate new domains will be added to the whitelist and their links enabled, whereas suspicious submissions will be removed.</p>
-
-<h3>How is this database sorted?</h3>
-<p>Most games are sorted alphabetically by author and then by title. New submissions (since the last periodic review) will be displayed on top, unsorted. Usually these will be newly released games, but they may also include elusive old titles.</p>
-
-<h3>How often are the periodic reviews?</h3>
-<p>Shortly after the database is publicised, daily or weekly reviews. As the database matures, they will become less frequent (monthly or yearly), and sorting will be automated.</p>
+<p>If you love (puzzlescript) games you'll love to have a definite public list with all titles. Did you know there's more than 850, and counting?</p>
 
 <h3>How could such a huge list of puzzlescript games be compiled almost overnight?</h3>
 <p>The bookmarklet is that quick and convenient!</p>
@@ -39,10 +30,22 @@ console.log('Bookmarklet run!');void 0">Submit PuzzleScript Game</a> bookmarklet
 <h3>Is there any shorter, curated list with just the great titles?</h3>
 <p>You may be looking for <a href="2019-01-31-selected-puzzlescript-games.html">«NAME»'s curated list</a>!</p>
 
+<h3>Is this database safe?</h3>
+<p>All submitted games are listed. If a newly submitted game belongs to a known domain (e.g. puzzlescript.net), its link becomes immediately available. Otherwise, it will be listed without a link (so people can google it themselves), until a periodic review. During the review, legitimate new domains will be added to the whitelist and their links enabled, whereas suspicious submissions will be removed.</p>
+
+<h3>How is this database sorted?</h3>
+<p>Simply click the table headers to sort the table freely!</p>
+<p>By default, most games are sorted alphabetically by author and then by title. New submissions (since the last periodic review) will be displayed on top, unsorted. Usually these will be newly released games, but they may also include elusive old titles.</p>
+
 <h3>How could this long list of puzzlescript games become more useful?</h3>
 <p>Depending on traction, this collaborative list may gain a wiki-like character, so people could add detailed info like release year and tags, thus enabling better filtering. If pictures were added, this could become a puzzlescript gallery. Perhaps people would like to vote on their favourites!</p>
 
 <h3>Can this database be used in external projects?</h3>
-<p>Most likely, but please «CONTACT-TEXT-1» to discuss.</p>
+<p>For non-profit or educational projects, yes, as long as you cite it properly.</p>
+<p>For all other projects, please «CONTACT-TEXT-1» to discuss.</p>
+
+<h3>How to cite this database properly?</h3>
+<p>Just include all information below, using your favourite citing convention. If you are citing online, please ensure the link is clickable.</p>
+<p>«TITLE-BY», accessed at:«SITE»/«LINK».html</p>
 
 «FEEDBACK»
