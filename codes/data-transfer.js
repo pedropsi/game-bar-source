@@ -768,7 +768,7 @@ function AddElement(htmlOrElement,parentIDsel){
 function PreAddElement(htmlOrElement,parentIDsel){
 	var e=Element(htmlOrElement);
 	var p=GetElement(parentIDsel);
-	p.insertAdjacentElement('afterbegin',e);
+	p.prepend(e);
 	return e;
 };
 
