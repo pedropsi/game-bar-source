@@ -12,5 +12,7 @@ self.addEventListener('activate', function(event) {
 
 // Listen for network requests from the main document
 self.addEventListener('fetch', function(event) {
-    console.log('fetch');
+	event.respondWith(
+	caches.match(event.request);
 });
+
