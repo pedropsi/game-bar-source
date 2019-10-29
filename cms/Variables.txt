@@ -386,9 +386,9 @@ PWA-MANIFEST-CONTENT	{«PWA-NAME»,«PWA-DISPLAY»,«PWA-ICONS»,«PWA-DESC»,«PWA-LANG»
 
 PWA-NAME	"short_name":"«SHORTNAME»","name":"«TITLE-BY»"
 PWA-DISPLAY	"theme_color":"«THEMECOLOUR»","background_color":"«THEMECOLOUR»","display":"standalone","orientation":"landscape"
-PWA-ICON-OBJ	{"src":"images/«SIZE»/«IMAGE»","type":"image/png","sizes":"«SIZE»x«SIZE»"}
+PWA-ICON-OBJ	{"src":"/images/«SIZE»/«IMAGE»","type":"image/png","sizes":"«SIZE»x«SIZE»"}
 PWA-ICONS	"icons":[«PWA-ICON-OBJ|With:{SIZE->512}»,«PWA-ICON-OBJ|With:{SIZE->192}»,«PWA-ICON-OBJ|With:{SIZE->180}»]
 PWA-DESC	"description":"«ONE-LINER»","categories":[«CATEGORIES»]
 PWA-LANG	"dir":"ltr","lang":"en-US"
-PWA-SCOPE	"start_url":"../«LINK».html","scope":"./"
+PWA-SCOPE	"start_url":"./«LINK».html","scope":"./"
 PWA-WORKER	"serviceworker":{"src":"./cacher.js"}
