@@ -3210,4 +3210,10 @@ if(typeof window.CustomEvent!=="function"){
 	window.CustomEvent=CustomEvent;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// Service workers
 
+function ServiceWorker(){
+if(navigator.serviceWorker)
+	navigator.serviceWorker.register('./codes/cacher.js');
+};
