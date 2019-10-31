@@ -31,4 +31,4 @@
 <h3>10/2019</h3>
 <p>«TITLE-BOLD» was published!</p>
 
-«PRESS-TEXT»
+«PRESS-INTRO»«PRESS-USAGE»«OTHER-INQUIRIES»
