@@ -49,6 +49,11 @@ HEAD-VIEWPORT	<meta http-equiv="content-type" content="text/html; charset=UTF-8"
 HEAD-STYLE-ICONS	<link href="«FAVICON32»" rel="icon" type="image/png"/><link href="«FAVICON32»" rel="shortcut icon" type="image/x-icon"/><link href="«APPLEICON»" rel="apple-touch-icon"/>«CSS-REL»
 HEAD-THEME	<meta name="theme-color" content="«THEMECOLOUR»">
 
+HEAD-DATA-GRAPH	<title>«TITLE»</title><meta name="description" content="«ONE-LINER»"/><meta property="og:title" content="«TITLE»"/><meta property="og:description"	content="«ONE-LINER»"/><meta property="og:url" content="«SITE»/«LINK».html"/><meta property="og:image" content="«SITE»/images/«IMAGE»"/>
+
+<meta property="og:type" content="«TYPEGRAPH»"/>
+<meta property="og:image:alt"	 content="«IMAGEALT»"/>
+
 RSS-SITE-DESCRIPTION	Don't miss out on novelties from The «SITE-NAME»!
 RSS-LIMIT	9
 RSS-PATH	rss.xml
@@ -133,7 +138,7 @@ LOGO-DIMS	x="-5" y="-5" width="10" height="10"
 
 FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACONS»«POSTSCRIPT»
 
-PICTURE	<img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
+PICTURE	<img src="images/«IMAGE»" width="180" height="180" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
 FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
@@ -393,3 +398,15 @@ PWA-DESC	"description":"«ONE-LINER»","categories":[«CATEGORIES»]
 PWA-LANG	"dir":"ltr","lang":"en-US"
 PWA-SCOPE	"start_url":"«ORIGIN»/«LINK».html","scope":"«ORIGIN»"
 PWA-WORKER	"serviceworker":{"src":"«ORIGIN»/cacher.js"}
+
+GIF	<video autoplay loop muted playsinline><source src="images/180/«IMAGE»" type="video/mp4"></source></video>
+
+RSS-ITEM	<item>«RSS-HEAD»«RSS-BODY»«RSS-TAGS|Split:, |Filter:{Link->«LINK»}|Contain:True»</item>
+RSS-HEAD	<title>«TITLE»</title><link>«RSSLINK»</link><guid>«RSSLINK»</guid><pubDate>«UPDATE» 07:06:05 GMT</pubDate> 
+RSS-BODY	<description><![CDATA[<img src="«SITE»/images/180/«IMAGE»" height="180" width="180" align="left" hspace="5" alt="«IMAGEALT»" title="«IMAGEALT»"/><p>«ONE-LINER»</p>]]></description>
+
+RSS	«XML»<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">«RSS-CHANNEL»</rss>
+RSS-CHANNEL	<channel>«RSS-CHANNEL-HEAD»«RSS-CHANNEL-IMAGE»«RSS-CHANNEL-BODY»</channel>
+RSS-CHANNEL-HEAD	<atom:link href="«RSS-URL»" rel="self" type="application/rss+xml"/><title>«SITE-NAME»</title><link>«SITE»</link><description>«RSS-SITE-DESCRIPTION»</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><copyright>«COPYRIGHT-TEXT»</copyright>
+RSS-CHANNEL-BODY	«RSS-CHANNEL-IMAGE»«RSS-ITEM|In:CMS|SortBy:{Date}|Max:«RSS-LIMIT»|Contain:True»
+RSS-CHANNEL-IMAGE	<image><link>«SITE»</link><title>«SITE-NAME»</title><url>«SITE»/«LOGOPATH»</url></image>
