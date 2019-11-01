@@ -242,7 +242,7 @@ function CurrentScreen(s){
 /////////////////////////////////////////////////////////////////////////////////////
 // Save Level & Checkpoint
 
-function DocumentURL(){
+function StorageURL(){
 	if (typeof pageNoTag==="undefined")
 		return document.URL;
 	else
@@ -252,18 +252,18 @@ function CanSaveLocally(){
 	return window.localStorage;
 }
 function HasCheckpoint(){
-	return void 0!==localStorage[DocumentURL()+"_checkpoint"];
+	return void 0!==localStorage[StorageURL()+"_checkpoint"];
 }
 function HasLevel(){
-	return CanSaveLocally()&&void 0!==localStorage[DocumentURL()];
+	return CanSaveLocally()&&void 0!==localStorage[StorageURL()];
 }
 
 
 // Localsave = save in local storage
 function LocalsaveLevel(curscreen){
 	if(savePermission){
-		localStorage[DocumentURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelScreens());
-		return localStorage[DocumentURL()]=curscreen;
+		localStorage[StorageURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelScreens());
+		return localStorage[StorageURL()]=curscreen;
 	}
 	else
 		EraseLocalsaveLevel();
@@ -271,14 +271,14 @@ function LocalsaveLevel(curscreen){
 
 function LocalsaveCheckpoints(newstack){
 	if(savePermission)
-		return localStorage[DocumentURL()+"_checkpoint"]=JSON.stringify(newstack);
+		return localStorage[StorageURL()+"_checkpoint"]=JSON.stringify(newstack);
 	else
 		EraseLocalsaveCheckpoints();
 }
 
 function LocalsaveHints(){
 	if(savePermission&&Hints())
-		localStorage[DocumentURL()+"_hintsused"]=JSON.stringify(Hints.used);
+		localStorage[StorageURL()+"_hintsused"]=JSON.stringify(Hints.used);
 }
 	
 function Localsave(){
@@ -288,16 +288,16 @@ function Localsave(){
 }	
 	
 function EraseLocalsaveLevel(){
-	localStorage.removeItem(DocumentURL()+"_solvedlevels");
-	return localStorage.removeItem(DocumentURL());
+	localStorage.removeItem(StorageURL()+"_solvedlevels");
+	return localStorage.removeItem(StorageURL());
 };
 
 function EraseLocalsaveCheckpoints(){
-	return localStorage.removeItem(DocumentURL()+"_checkpoint");
+	return localStorage.removeItem(StorageURL()+"_checkpoint");
 };
 
 function EraseLocalsaveHints(){
-	return localStorage.removeItem(DocumentURL()+"_hintsused");
+	return localStorage.removeItem(StorageURL()+"_hintsused");
 }
 
 function EraseLocalsave(){
@@ -308,22 +308,22 @@ function EraseLocalsave(){
 // Load from memory
 function LoadLevel(){
 	
-	var sls=localStorage[DocumentURL()+"_solvedlevels"];
+	var sls=localStorage[StorageURL()+"_solvedlevels"];
 	if(sls)
 		SolvedLevelScreens.levels=JSON.parse(sls).map(Number);
 	
-	return CurrentScreen(localStorage[DocumentURL()]);
+	return CurrentScreen(localStorage[StorageURL()]);
 }
 
 function LocalloadCheckpoints(){
-	var storeddata=localStorage[DocumentURL()+"_checkpoint"];
+	var storeddata=localStorage[StorageURL()+"_checkpoint"];
 	var sta=storeddata?JSON.parse(storeddata):[];
 	sta=sta.dat?[sta]:sta;	//data compatibility (converts single checkpoint to array if needed)
 	return sta;
 }
 
 function LoadHints(){
-	var h=localStorage[DocumentURL()+"_hintsused"];
+	var h=localStorage[StorageURL()+"_hintsused"];
 	if(h)
 		return Hints.used=JSON.parse(h).map(Number);
 }
