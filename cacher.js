@@ -1,8 +1,13 @@
 console.log("I'm a service worker");
 
-function A(){
-	console.log("lovely");
+function PathHTML(){
+	return document.location.pathname;
 }
+
+function PathJS(){
+	return PathHTML().replace(".html",".js");
+}
+
 
 // Install 
 self.addEventListener('install',function(event){
@@ -14,7 +19,7 @@ self.addEventListener('install',function(event){
 			return cache.addAll([
 				'./cacher.js',
 				
-				'./unlucky-unlock.html',
+				'.'+PathHTML(),
 				'./codes/index.css',
 				'./codes/communication.js',
 				'./codes/data-transfer.js',
@@ -22,7 +27,7 @@ self.addEventListener('install',function(event){
 				'./codes/game/game.css',
 				'./codes/game/puzzlescript-embed.js',
 				
-				'./codes/game/puzzlescript/unlucky-unlock.js',
+				'./codes/game/puzzlescript'+PathJS(),
 				
 				"./codes/game/modules/globalVariables",
 				"./codes/game/modules/debug_off",
