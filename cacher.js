@@ -1,12 +1,19 @@
 console.log("I'm a service worker");
 
+function A(){
+	console.log("lovely");
+}
+
 // Install 
 self.addEventListener('install',function(event){
 	console.log('install');
 	event.waitUntil(
 		caches.open('v4').then(function(cache){
 			console.log("cached!");
+			A();
 			return cache.addAll([
+				'./cacher.js',
+				
 				'./unlucky-unlock.html',
 				'./codes/index.css',
 				'./codes/communication.js',
