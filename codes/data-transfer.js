@@ -529,8 +529,7 @@ function LoadStyle(sourcename){
 	//Load
 	var styleelement=document.createElement('link');
 	styleelement.href=sourcename.replace(".css","")+".css";
-	styleelement.rel="preload";
-	styleelement.as="css";
+	styleelement.rel="stylesheet";
 	styleelement.type="text/css";
 	head.appendChild(styleelement);	
 }
