@@ -5,6 +5,10 @@
 <h3>How to load any puzzlescript game in this page</h3>
 <p>Just replace the PUZZLESCRIPT_ID with your game's puzzlescript ID at the end of the following URL: «[»«SITE»/«LINK».html?game=PUZZLESCRIPT_ID«]».</p>
 
+<h2>Known issues</h2>
+<h3>Sharing saved game progression</h3>
+<p>Game progression within the «TITLE» is not (currently) shared with the original game page. For the time being, please imagine two different game cartridges. Thanks «JCMILLER» for reporting.</p>
+
 <h2>FAQ</h2>
 <h3> What is a puzzlescript id?</h3>
 <p>It's the long identifier after «[»puzzlescript.net/play.html?p=«]» or after «[»puzzlescript.net/editor.html?hack=«]».</p>
@@ -13,7 +17,7 @@
 <p>Because this is the cutting-edge, possibly experimental, version!</p>
 
 <h3>Who may link to a game played in this page?</h3>
-<p> If you are the game author or obtained permission from the author, you may. Otherwise, please be kind and use instead the original links the authors provided, which help them monitor game traction and p earn advertising revenue.</p>
+<p> If you are the game author or obtained permission from the author, you may. Otherwise, please be kind and use instead the original links the authors provided, which help them monitor game traction and possibly boost their revenue.</p>
 <p>If you really think a game should be played with the game bar, try to persuade the authors to <a href="game-bar.html">add the game bar</a> to their own game page.</p>
 
 <h2>Legal info</h2>
