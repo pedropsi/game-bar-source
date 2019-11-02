@@ -99,7 +99,7 @@
 «CREDITS»
 
 <h3>Special thanks</h3>
-<p>All beta testers for their comprehensive feedback! Among them a special mention to ««P-PRE»LESLO«P-POS»» for outstanding help.</p>
+<p>All beta testers for their comprehensive feedback! Among them a special mention to «LESLO» for outstanding help.</p>
 
 
 <h2>F.A.Q.</h2>

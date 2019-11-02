@@ -74,10 +74,10 @@
 <h2>Examples</h2>
 <p>Here are some games that use he «TITLE-BOLD»:</p>
 <ul>
-<li>««P-PRE»MINOTALEN«P-POS»»'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
+<li>«MINOTALEN»'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
 <li>All «NAME»'s <a href="games.html">games</a>.</li>
-<li>««P-PRE»GAHR«P-POS»»'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
-<li>««P-PRE»CUBESTUDIO«P-POS»»'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
+<li>«GAHR»'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
+<li>«CUBESTUDIO»'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
 <li>Thinky Collective's <a href="https://what-gophers-go-for.github.io/">What gophers go for</a></li>
 </ul>
 
@@ -105,7 +105,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 
 <h2>Contributions</h2>
 <h3>Special thanks</h3>
-<p>To ««P-PRE»MINOTALEN«P-POS»» for very active ongoing collaboration!</p>
+<p>To «MINOTALEN» for very active ongoing collaboration!</p>
 
 <h3>Would you like to contribute?</h3>
 <p>Head to the official <a href="https://github.com/pedropsi/game-bar-source" «BLANK»>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/game-bar-source/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/game-bar-source/pulls">pull requests</a>.</p>
@@ -156,7 +156,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 </li>
 </ul>
 
-<p>Notable alternatives to the «TITLE-BOLD» include Puzzlescript's default mobile menu (undo/reset and music buttons), ««P-PRE»HAZELDEN«P-POS»» <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">level selector</a>, ««P-PRE»ZUBOVICs«P-POS»» <a href="https://dario-zubovic.github.io/PuzzleScript/editor.html">Puzzlescript Fork</a>, which includes a level selector and variable sprite size.</p>
+<p>Notable alternatives to the «TITLE-BOLD» include Puzzlescript's default mobile menu (undo/reset and music buttons), «HAZELDEN» <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">level selector</a>, «ZUBOVICs» <a href="https://dario-zubovic.github.io/PuzzleScript/editor.html">Puzzlescript Fork</a>, which includes a level selector and variable sprite size.</p>
 
 <h3>Can you use «TITLE-BOLD» for free?</h3>
 <p>Yes, it's under a «LICENSE-MIT» license.</p>

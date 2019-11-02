@@ -132,6 +132,8 @@ a {
     font-weight: 700;
     padding:var(--h4) var(--w4) var(--h4) var(--w4) ;
     background-color:var(--smokewhite);
+    width: 100%;
+    margin-top: var(--h2);
 }
 
 .nav {
@@ -173,6 +175,7 @@ nav {
 
 .whiteboard{
     background-color: var(--white);
+    align-items: center;
 }
 
 .text {
@@ -195,7 +198,24 @@ nav {
     background-color: var(--white);
   }
 
-.featured a, .archive a{
+.archive-year{
+    width: 100%;
+}
+
+.architem:nth-child(even){
+	background-color: var(--smokewhite);
+    border-bottom-color: var(--white);
+}
+
+.card {
+    align-items: center;
+    justify-content:flex-end;
+    height: auto;
+    transition-duration: var(--duration);
+    margin-bottom: var(--h-2);
+}
+
+.card-supra {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,27 +227,15 @@ nav {
     flex-grow: 1;
 }
 
-.featured a:hover ,
-.featured a:active,
-.featured a:focus,
-.archive a:hover ,
-.archive a:active,
-.archive a:focus {
+.card-supra:hover ,
+.card-supra:active,
+.card-supra:focus{
     background-color: var(--darkblue);
     transition-duration: var(--duration);
     border-bottom-color: var(--turquoise); 
 }
 
-.card {
-    align-items: center;
-    justify-content:flex-end;
-    height: auto;
-    transition-duration: var(--duration);
-    margin-bottom: var(--h-2);
-}
-
-.featured a img,
-.archive a img{
+.card-supra img{
     opacity: 0.5;
     filter: grayscale(1);
     max-height: var(--h16);
@@ -235,13 +243,10 @@ nav {
     transition-duration: var(--duration);
 }
 
-
-.featured a h3,
-.archive a h3,
-.archive a h3{
+.card-supra h3 {
+    text-decoration:none;
     width:auto;
     transition-duration: var(--duration);
-    text-decoration:none;
     padding:var(--h-2) var(--w-2) var(--h-2) var(--w-2);
     margin: var(--h2) var(--w2) var(--h2) var(--w2);
 }
@@ -256,6 +261,10 @@ nav {
     text-decoration-style:double;
     text-decoration-color: var(--lightblue);
     transition-duration: var(--duration);
+}
+
+.card a, a.card-supra {
+    text-decoration: unset;
 }
 
 .button:hover ,
@@ -282,24 +291,18 @@ p a:focus ,
 .mini:hover ,
 .mini:active,
 .mini:focus ,
-a:hover .card img,
-a:focus .card img,
-a:active .card img,
+.card-supra:hover img,
+.card-supra:focus img,
+.card-supra:active img,
 .selected {
     opacity: unset;
-    filter: unset;
+    filter:unset;
     color: var(--turquoise);
     text-decoration-color: currentColor;
     background-color: var(--darkblue);
     transition-duration: var(--duration);
     cursor:pointer;
     outline: none;
-}
-a:hover .card h3,
-a:focus .card h3,
-a:active .card h3 {
-    color: var(--turquoise);
-    text-decoration-color: currentColor;
 }
 
 .mini .tag:hover {
@@ -358,6 +361,13 @@ h6 {
     --scaling:0.77;
     text-decoration-color: var(--blue);
     color:var(--blue);
+}
+
+.card-supra:hover h3,
+.card-supra:focus h3,
+.card-supra:active h3 {
+    color: var(--turquoise);
+    text-decoration-color: currentColor;
 }
 
 img {
@@ -518,56 +528,6 @@ li {
     text-align: justify;
     color:var(--darkblue);
     background-color: var(--smokewhite);
-}
-
-[contenteditable=true]{
-    --t:0.4;
-    background-color: var(--yellow);
-    color:var(--blue);
-    border-style: solid;
-    padding: var(--h8) var(--w8) var(--h8) var(--w8);
-    margin:var(--h8) var(--w8) var(--h8) var(--w8);
-    font-family: Courier;
-    line-height: 200%;
-    white-space: pre-wrap;
-}
-
-[contenteditable=true] *{
-    --t:0.4;
-    background-color: var(--yellow);
-}
-
-[contenteditable=true] *:hover{
-    background-color: var(--lightyellow);
-}
-
-[contenteditable=true] *:focus{
-    background-color: var(--green);
-}
-
-
-[contenteditable=true] div::-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
-}
-
-[contenteditable=true] div::-moz-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
-}
-
-[contenteditable=true]::-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
-}
-
-[contenteditable=true]::-moz-selection { 
-    background: var(--blue);
-    color: var(--lightyellow);
-    text-decoration-color: var(--lightyellow);
 }
 
 input, textarea{
@@ -873,6 +833,7 @@ table caption{
     justify-content: flex-end;
     flex-wrap:wrap;
 	width: 100%;
+    margin-bottom: var(--h2);
 }
 
 .buttonbar{
@@ -1100,19 +1061,6 @@ table caption{
     border:0;
     margin:-20px 0px -20px 0px;
     align-self: flex-end;
-}
-
-.architem{
-    margin: 1%;
-    padding: 1%;
-    border: unset;
-}
-.architem:nth-child(even){
-	background-color: var(--smokewhite);
-}
-.architem a {
-    text-decoration: unset;
-    border: unset;
 }
 
 .announce{

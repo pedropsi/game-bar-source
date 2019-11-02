@@ -49,7 +49,7 @@ HEAD-VIEWPORT	<meta http-equiv="content-type" content="text/html; charset=UTF-8"
 HEAD-STYLE-ICONS	<link href="«FAVICON32»" rel="icon" type="image/png"/><link href="«FAVICON32»" rel="shortcut icon" type="image/x-icon"/><link href="«APPLEICON»" rel="apple-touch-icon"/>«CSS-REL»
 HEAD-THEME	<meta name="theme-color" content="«THEMECOLOUR»">
 
-HEAD-DATA-GRAPH	<title>«TITLE»</title><meta name="description" content="«ONE-LINER»"/><meta property="og:title" content="«TITLE»"/><meta property="og:description"	content="«ONE-LINER»"/><meta property="og:url" content="«SITE»/«LINK».html"/><meta property="og:image" content="«SITE»/images/«IMAGE»"/>
+HEAD-DATA-GRAPH	<title>«TITLE»</title><meta name="description" content="«ONE-LINER»"/><meta property="og:title" content="«TITLE»"/><meta property="og:description"	content="«ONE-LINER»"/><meta property="og:url" content="«SITE»/«LINK».html"/><meta property="og:image" content="«SITE»/images/512/«IMAGE»"/>
 
 <meta property="og:type" content="«TYPEGRAPH»"/>
 <meta property="og:image:alt"	 content="«IMAGEALT»"/>
@@ -114,14 +114,14 @@ BEACONS-ABSOLUTE	«CSS-ABS»«BEACONS-ABSOLUTE-SCRIPTS»<script «TYPE-ASYNC»>absolut
 BEACONS-ABSOLUTE-SCRIPTS	«SCRIPT-ABS-PRE»data-transfer.js«SCRIPT-POS»«SCRIPT-ABS-PRE»analytics.js«SCRIPT-POS»«SCRIPT-ABS-PRE»communication.js«SCRIPT-POS»
 
 
-PAGE-IN-ARCHIVE	<div class="architem"><a href="«LINK».html"><h3>«TITLE»</h3></a><div class="date">«DATE»</div></div>
+PAGE-IN-ARCHIVE	<div class="architem card-supra"><div class="card"><a href="«LINK».html"><h3>«TITLE»</h3></a><div class="date">«DATE»</div></div></div>
 
 ARCHIVE-BY-CLASS	«ARCHIVE-CLASS-BUTTON|Filter:{Type->Tag,Tags->_}|Contain:True»
-ARCHIVE-CLASS-BUTTON	<div class="architem"><h3><a href="«LINK».html">«Post»</a></h3></div>
+ARCHIVE-CLASS-BUTTON	<div class="architem card-supra"><div class="card"><h3><a href="«LINK».html">«Post»</a></h3></div></div>
 
 ARCHIVE-BY-YEAR	«ARCHIVE-BY-YEA|In:CMS|Contain:True»
 ARCHIVE-BY-YEA	«ARCHIVE-YE|With:{THISYEAR->«YEAR|In:CMS|Unique:True|SortBy:{Year}»}»
-ARCHIVE-YE	<h2>«THISYEAR»</h2>«PAGE-IN-ARCHIVE|Filter:{Year->_?(NumberSelector[«THISYEAR»])}|SortBy:{Date}|Contain:True»
+ARCHIVE-YE	<h2 class="archive-year">«THISYEAR»</h2>«PAGE-IN-ARCHIVE|Filter:{Year->_?(NumberSelector[«THISYEAR»])}|SortBy:{Date}|Contain:True»
 
 ARCHIVE-TAG	«PAGE-IN-ARCHIVE|«SELECTION-TAG»»
 ARCHIVE-TAG-FEATURED	«FEATURED-ITEM|«SELECTION-TAG»»
@@ -138,7 +138,7 @@ LOGO-DIMS	x="-5" y="-5" width="10" height="10"
 
 FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACONS»«POSTSCRIPT»
 
-PICTURE	<img src="images/«IMAGE»" width="180" height="180" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
+PICTURE	<img src="images/512/«IMAGE»" width="180" height="180" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
 FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT»</div></div>
 FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
 FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
@@ -253,7 +253,7 @@ HIGHLIGHTS	<h1 class="title">Highlights</h1><div class="featured">«FEATURED-ITEM
 
 FEATURED	<h1 class="title">«TITLE»</h1><div class="featured">«CONTENT»</div>
 FEATURED-ITEM	«FEATURED-ITEM-SUB|Contain:True»
-FEATURED-ITEM-SUB	<a href="«LINK».html"><div class="card"><h3>«TITLE»</h3>«PICTURE»</div></a>
+FEATURED-ITEM-SUB	<a href="«LINK».html" class="card-supra"><div class="card"><h3>«TITLE»</h3>«PICTURE»</div></a>
 
 SNIPPET	«SNIPPET-SUB|Filter:{Link->«LINK»}|Contain:True»
 SNIPPET-SUB	<div class="mini"><div>«TITLE-YEAR»</div>«PICTURE-LINK»</div>
@@ -326,7 +326,7 @@ TITLE-BY-CLEAN	«TITLE-BY»
 SELECTION-TYPE	Filter:{Type->«TYPE»,Day->_,Month->_,Year->_,Type->_}|Contain:True»
 SELECTION	Filter:{Selected->_?NumberQ,Day->_?NumberQ,Month->_?NumberQ,Year->_?NumberQ}|SortBy:{Date}|Contain:True
 
-PICTURE-GALLERY	<a href="images/«IMAGE»" «BLANK»><div class="card"><img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/></div></a>
+PICTURE-GALLERY	<a href="images/«IMAGE»" «BLANK» class="card-supra"><div class="card"><img src="images/«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/></div></a>
 GALLERY	<div class="featured">«PICTURE-GALLERY|In:Asset|Filter:{"Context-id"->«LINK»}|Contain:True»</div>
 
 MUSIC-TABLE-HEAD	<thead>«ROW|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Info"}|Contain:True»</thead>

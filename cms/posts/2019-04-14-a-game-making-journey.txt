@@ -8,7 +8,7 @@
 
 <h3>First outings</h3>
 <h4>#1 «REDACTED» - a terrible puzzle</h4>
-<p>«MY» very first puzzlescript game was, unsurprisingly, a <em>very</em> bad puzzle game. So bad, it's not even online anymore. Ugly art, overly complex game mechanics, lack of focus and chaotic difficulty curve. Luckily, some nice game designers from the community provided useful feedback, with which the game progressed, in hindsight, from bad to <em>mediocre</em>.</p>
+<p>«MY» very first puzzlescript game was, unsurprisingly, a <em>very</em> bad puzzle game. So bad, it's not even online anymore. Ugly art, overly complex game mechanics, lack of focus and chaotic difficulty curve. Luckily, some nice game designers from the «PUZZLESCRIPT-COMMUNITY» provided useful feedback, with which the game progressed, in hindsight, from bad to <em>mediocre</em>.</p>
 <h5>Achievements</h5>
 <ul>
 <li> a game shared with the world!</li>
@@ -180,7 +180,7 @@
 <p>Still recovering from Tiaradventur, it was time for another quick game, again with a pedagogical goal - to explore the question <em>"what is art, and why?"</em>. </p>
 <p> While reproducing famous abstract art paintings (using a new puzzle mechanic involving spilling lines of paint), the player becomes curious about the paintings, their authors and underlying ideas (some alluded to briefly as inter-level messages) in the historical context of the early nineties, reinforced by two classical music pieces from the period, by Camille Saint-Saëns and Gustav Holst.</p>
 <p>A positive side-effect of making this game, «I» learned much about abstract art, and appreciated the works of many artists while searching for suitable paintings to include. The complexities of copyright law in the art world came as a surprise challenge: depending on whose country an artist was born, lived, first presented an artwork, applicable artwork copyright laws change!</p>
-<p>This time, to avoid disappointment prior to the main release, a semi-private release on the ««P-PRE»THINKY«P-POS»» enabled pre-emptive improvements to the game and its description. It was interesting to notice how art can be an emotional and controversial theme.</p>
+<p>This time, to avoid disappointment prior to the main release, a semi-private release on the «THINKY» enabled pre-emptive improvements to the game and its description. It was interesting to notice how art can be an emotional and controversial theme.</p>
 
 <h5>Achievements</h5>
 <ul>
@@ -197,7 +197,7 @@
 
 <h3>The last mile</h3>
 <h4>#11 Gravirinth - a game from another world</h4>
-<p> <a href="gravirinth.html">Gravirinth</a> is «MY» last and most ambitious puzzlescript game. It was the first game that went through a full beta-testing phase, which took over a month, on top of two months of (spare time) development. The engagement of people like «P-PRE»LESLO«P-POS» was a pleasant surprise as the quality of the feedback took the game to an entire new level, as documented in <a href="gravirinth-log.html">gravirinth’s devlog</a>:</p> 
+<p> <a href="gravirinth.html">Gravirinth</a> is «MY» last and most ambitious puzzlescript game. It was the first game that went through a full beta-testing phase, which took over a month, on top of two months of (spare time) development. The engagement of people like «LESLO» was a pleasant surprise as the quality of the feedback took the game to an entire new level, as documented in <a href="gravirinth-log.html">gravirinth’s devlog</a>:</p> 
 <ul>
 <li>an open world map with a core challenge comprising multiple paths;</li>
 <li>many bonus levels, optional post-ending secrets and bonuses;</li>

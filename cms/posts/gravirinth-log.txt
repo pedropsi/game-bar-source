@@ -21,7 +21,7 @@
 
 <h2>23-02-2019</h2>
 <h3>Trailer update</h3>
-<p>After some feedback from the ««P-PRE»THINKY«P-POS»», «I»'ve edited the Trailer to reduce the credits/text duration, remove the counterproductive statement, and introducing the mechanics more gradually. Overall the updated version feels much better! A major annoyance was youtube forbidding uploaded video edits - so next time «I»'ll upload the trailer somewhere else.</p>
+<p>After some feedback from the «THINKY», «I»'ve edited the Trailer to reduce the credits/text duration, remove the counterproductive statement, and introducing the mechanics more gradually. Overall the updated version feels much better! A major annoyance was youtube forbidding uploaded video edits - so next time «I»'ll upload the trailer somewhere else.</p>
 
 <h2>22-02-2019</h2>
 <h3>Full trailer</h3>
@@ -30,7 +30,7 @@
 
 <h2>21-02-2019</h2>
 <h3>End of Beta-testing</h3>
-<p>Many thanks to all beta-testers! A special mention to ««P-PRE»LESLO«P-POS»» whose challenging comments propelled the game to a new space beyond the known frontiers of puzzlescript!</p>
+<p>Many thanks to all beta-testers! A special mention to «LESLO» whose challenging comments propelled the game to a new space beyond the known frontiers of puzzlescript!</p>
 
 <h2>18-02-2019</h2>
 <h3>Screenshots</h3>
@@ -95,7 +95,7 @@
 	
 <h2>07-01-2019</h2>
 	<h3>Music</h3>
-		<p>««P-PRE»STELLARDRONE«P-POS»»'s music has been picked to enter <a href="gravirinth.html"><b>Gravirinth</b></a>'s soundtrack.</p>
+		<p>«STELLARDRONE»'s music has been picked to enter <a href="gravirinth.html"><b>Gravirinth</b></a>'s soundtrack.</p>
 
 <h2>04-01-2019</h2>
 	<p>Happy new year and thanks to all <b>beta-testers</b> for an extra round of wonderful ideas and important suggestions, which motivated the following improvements:</p>

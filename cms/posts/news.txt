@@ -31,11 +31,11 @@
 
 <h2>19/09/2019</h2>
 <h3>Bookmarklet</h3>
-<p>The game bar now can be applied to any online puzzlescript game by means of a <a href="game-bar.html#Bookmarklet">Bookmarklet</a>, a suggestion by ««P-PRE»MINOTALEN«P-POS»».</p>
+<p>The game bar now can be applied to any online puzzlescript game by means of a <a href="game-bar.html#Bookmarklet">Bookmarklet</a>, a suggestion by «MINOTALEN».</p>
 
 <h2>11/09/2019</h2>
 <h3>Hints system</h3>
-<p>The game bar now includes support for Hints, a suggestion by ««P-PRE»MINOTALEN«P-POS»». Hints were added to <a href="platformer-template.html#hints">Platformer Template</a>.</p>
+<p>The game bar now includes support for Hints, a suggestion by «MINOTALEN». Hints were added to <a href="platformer-template.html#hints">Platformer Template</a>.</p>
 
 <h2>07/09/2019</h2>
 <h3>Keyboard Keys styling</h3>

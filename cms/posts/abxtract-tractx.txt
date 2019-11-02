@@ -33,7 +33,7 @@
 «CREDITS-ENGINE-SUPPORT»
 
 <h3>Special thanks</h3>
-<p>««P-PRE»LESLO«P-POS»», ««P-PRE»ESCAPER«P-POS»», ««P-PRE»PERSONMAN«P-POS»», ««P-PRE»CHZ«P-POS»», ««P-PRE»MARCOSD«P-POS»» and ««P-PRE»VANDEVANDER«P-POS»» for early positive feedback and/or for suggestions about the game synopsis; ««P-PRE»GRANT«P-POS»» for spotting other polishing opportunities.</p>
+<p>«LESLO», «ESCAPER», «PERSONMAN», «CHZ», «MARCOSD» and «VANDEVANDER» for early positive feedback and/or for suggestions about the game synopsis; «GRANT» for spotting other polishing opportunities.</p>
 
 
 <h2>F.A.Q.</h2>
