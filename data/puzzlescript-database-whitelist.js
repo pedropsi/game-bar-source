@@ -29,7 +29,13 @@ var KnownAuthors={
 var AuthorAliases={
 	"Jere":"Jere Majava",
 	"jjmajava":"Jere Majava",
-	"nooa majava":"Jere Majava"
+	"nooa majava":"Jere Majava",
+	"octoConnors":"Connorses",
+	"octoConnors":"Connorses",
+	"Connorses [Loneship Games]":"Connorses",
+	"Connorses/Loneship Games":"Connorses",
+	"Connorses / Loneship Games":"Connorses",
+	"copyright of Stuart Burfield":"Stuart Burfield"
 }
 
 function KnownAuthor(title){
