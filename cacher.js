@@ -15,7 +15,6 @@ self.addEventListener('install',function(event){
 	event.waitUntil(
 		caches.open('v4').then(function(cache){
 			console.log("cached!");
-			A();
 			return cache.addAll([
 				'./cacher.js',
 				
