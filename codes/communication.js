@@ -129,6 +129,9 @@ DESTINATIONS[DESTINATION_PASS.name]=DESTINATION_PASS;
 
 function RequestHallOfFame(){
 	
+	if(/game\-console/.test(pageURL()))
+		return;
+	
 	RequestDataPack([
 	['alias',{
 		questionname:"Enter the Hall of Fame:",

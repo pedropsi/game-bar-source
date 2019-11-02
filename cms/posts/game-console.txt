@@ -1,6 +1,7 @@
 ﻿<h2>About the «TITLE-BOLD»</h2>
 
-<p>This is just a convenient page to test any puzzlescript game <b>right now</b> with the <a href="game-bar.html">game bar!</a></p>
+<p>This is just a convenient page to test <a href="puzzlescript-games-database.html" «BLANK»>any puzzlescript game</a> <b>right now</b> with the <a href="game-bar.html">game bar!</a></p>
+
 
 <h3>How to load any puzzlescript game in this page</h3>
 <p>Just replace the PUZZLESCRIPT_ID with your game's puzzlescript ID at the end of the following URL: «[»«SITE»/«LINK».html?game=PUZZLESCRIPT_ID«]».</p>
