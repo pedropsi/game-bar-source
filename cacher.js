@@ -4,7 +4,7 @@ console.log("I'm a service worker");
 self.addEventListener('install',function(event){
 	console.log('install');
 	event.waitUntil(
-		caches.open('v3').then(function(cache){
+		caches.open('v4').then(function(cache){
 			console.log("cached!");
 			return cache.addAll([
 				'./unlucky-unlock.html',
@@ -14,7 +14,9 @@ self.addEventListener('install',function(event){
 				'./codes/analytics.js',
 				'./codes/game/game.css',
 				'./codes/game/puzzlescript-embed.js',
+				
 				'./codes/game/puzzlescript/unlucky-unlock.js',
+				
 				"./codes/game/modules/globalVariables",
 				"./codes/game/modules/debug_off",
 				"./codes/game/modules/font.js",
@@ -41,7 +43,7 @@ self.addEventListener('install',function(event){
 // Activate 
 self.addEventListener('activate', function(event) {
     console.log('activate');
-	var cacheKeeplist = ['v3'];
+	var cacheKeeplist = ['v4'];
 
 	event.waitUntil(
 		caches.keys().then(function(keyList){
