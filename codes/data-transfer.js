@@ -526,17 +526,11 @@ function LoaderInFolder(folder){
 function LoadStyle(sourcename){
 	var head=document.getElementsByTagName('head')[0];
 	
-	//Pre-link (PWA)
-	var styleelementpre=document.createElement('link');
-	styleelementpre.href=sourcename.replace(".css","")+".css";
-	styleelementpre.as="css";
-	styleelementpre.rel="preload";
-	head.appendChild(styleelementpre);
-	
 	//Load
 	var styleelement=document.createElement('link');
 	styleelement.href=sourcename.replace(".css","")+".css";
-	styleelement.rel="stylesheet";
+	styleelementpre.rel="preload";
+	styleelementpre.as="css";
 	styleelement.type="text/css";
 	head.appendChild(styleelement);	
 }
