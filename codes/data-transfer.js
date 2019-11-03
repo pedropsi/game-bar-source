@@ -496,13 +496,6 @@ function GenerateId(){
 ////////////////////////////////////////////////////////////////////////////////
 //Load scripts
 
-function LoadScript(sourcecode){
-	var head=GetElement('head');
-	var script=document.createElement('script');
-	script.innerHTML=sourcecode;
-	head.appendChild(script);
-}
-
 function LoadAsync(sourcename,folder){
 	var head=GetElement('head');
 	var script=document.createElement('script');
@@ -3202,24 +3195,3 @@ if(typeof window.CustomEvent!=="function"){
 	CustomEvent.prototype=window.Event.prototype;
 	window.CustomEvent=CustomEvent;
 }
-
-///////////////////////////////////////////////////////////////////////////////
-// Service workers
-
-function ServiceWorker(){
-
-if ('serviceWorker' in navigator) {
-  // Register a service worker hosted at the root of the
-  // site using a more restrictive scope.
-  navigator.serviceWorker.register('/cacher.js', {scope: './'}).then(function(registration) {
-    console.log('Service worker registration succeeded:', registration);
-  }, /*catch*/ function(error) {
-    console.log('Service worker registration failed:', error);
-  });
-} else {
-  console.log('Service workers are not supported.');
-}
-
-};
-
-ServiceWorker();
