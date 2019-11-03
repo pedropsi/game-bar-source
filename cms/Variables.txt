@@ -399,7 +399,7 @@ PWA-ICON-OBJ	{"src":"«ORIGIN»/images/«SIZE»/«IMAGE»","type":"image/png","sizes":
 PWA-ICONS	"icons":[«PWA-ICON-OBJ|With:{SIZE->512}»,«PWA-ICON-OBJ|With:{SIZE->192}»,«PWA-ICON-OBJ|With:{SIZE->180}»]
 PWA-DESC	"description":"«ONE-LINER»","categories":[«CATEGORIES»]
 PWA-LANG	"dir":"ltr","lang":"en-US"
-PWA-SCOPE	"start_url":"./«LINK»?source=homescreen","scope":"/"
+PWA-SCOPE	"start_url":"«ORIGIN»/«LINK».html?source=homescreen","scope":"«ORIGIN»"
 PWA-SCOPE-OLD	"start_url":"«ORIGIN»/«LINK».html","scope":"«ORIGIN»"
 PWA-WORKER	"serviceworker":{"src":"«ORIGIN»/cacher.js"}
 
