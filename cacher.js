@@ -1,14 +1,5 @@
 console.log("I'm a service worker");
 
-function AppIdentifier(){
-	return document.location.pathname.replace(/\.html/,"");
-}
-
-function PathJS(){
-	return PathHTML().replace(".html",".js");
-}
-
-
 const preCacheName = "pre-cache-"+AppIdentifier()+"-v2",
     preCacheFiles = [
 	"/",
