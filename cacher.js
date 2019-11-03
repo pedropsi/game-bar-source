@@ -9,18 +9,42 @@ function PathJS(){
 }
 
 
-const preCacheName = "pre-cache-"+AppIdentifier()+"-v1",
+const preCacheName = "pre-cache-"+AppIdentifier()+"-v2",
     preCacheFiles = [
 	"/",
 	"cacher.js",
-	AppIdentifier()+".html",
-	"codes/index.cs",
+	
+	"abxtract-tractx"+".html",
+	"blockworks"+".html",
+	"burokku-konekuta"+".html",
+	"gravirinth"+".html",
+	"platformer-template"+".html",
+	"pmgrp"+".html",
+	"unlucky-unlock"+".html",
+	"skilleblokker"+".html",
+	"tetrastrophe"+".html",
+	"tiaradventur"+".html",
+	"whirlpuzzle"+".html",
+	
+	"codes/index.css",
 	"codes/communication.js",
 	"codes/data-transfer.js",
 	"codes/analytics.js",
 	"codes/game/game.css",
 	"codes/game/puzzlescript-embed.js",
-	"codes/game/puzzlescript"+AppIdentifier()+".js",
+	
+	"codes/game/puzzlescript"+"abxtract-tractx"+".js",
+	"codes/game/puzzlescript"+"blockworks"+".js",
+	"codes/game/puzzlescript"+"burokku-konekuta"+".js",
+	"codes/game/puzzlescript"+"gravirinth"+".js",
+	"codes/game/puzzlescript"+"platformer-template"+".js",
+	"codes/game/puzzlescript"+"pmgrp"+".js",
+	"codes/game/puzzlescript"+"unlucky-unlock"+".js",
+	"codes/game/puzzlescript"+"skilleblokker"+".js",
+	"codes/game/puzzlescript"+"tetrastrophe"+".js",
+	"codes/game/puzzlescript"+"tiaradventur"+".js",
+	"codes/game/puzzlescript"+"whirlpuzzle"+".js",
+	
 	"codes/game/modules/globalVariables",
 	"codes/game/modules/debug_off",
 	"codes/game/modules/font.js",
@@ -54,7 +78,7 @@ self.addEventListener("activate",event=>{
 	event.waitUntil(
 		caches.keys().then(cacheNames=>{
 			cacheNames.forEach(value=>{
-				if(value.indexOf("-v0")< 0){
+				if(value.indexOf("-v1")< 0){
 					caches.delete(value);
 				}
 			});
