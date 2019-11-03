@@ -1,3 +1,5 @@
+LoadAsync("cacher",".");
+
 function PuzzlescriptPage(id){
 	
 	ConsoleAdd("Loading "+pageTitle()+"...");
