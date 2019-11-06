@@ -35,7 +35,16 @@ var AuthorAliases={
 	"Connorses [Loneship Games]":"Connorses",
 	"Connorses/Loneship Games":"Connorses",
 	"Connorses / Loneship Games":"Connorses",
-	"copyright of Stuart Burfield":"Stuart Burfield"
+	"copyright of Stuart Burfield":"Stuart Burfield",
+	"https:soundcloud.comridlaa":"Rosa Francesca",
+	"Tom Hermans @Auroriax":"Auroriax (Tom Hermans)",
+	"Tom Hermans [@Auroriax]":"Auroriax (Tom Hermans)",
+	"Auroriax Tom H.":"Auroriax (Tom Hermans)",
+	"Auroriax":"Auroriax (Tom Hermans)",
+	"Ricky":"Ricky Cruz",
+	"Para":"Parachor",
+	"pAAraK_or":"Parachor",
+	"pAA-raK_or":"Parachor"
 }
 
 function KnownAuthor(title){
