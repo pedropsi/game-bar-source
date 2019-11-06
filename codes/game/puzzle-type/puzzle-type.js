@@ -12,9 +12,9 @@ PUZZLES:
 --calculatorspeak
 X-Fliptext  / upside down text 
 X-Keyboard layout (dvorak)
---hiragana
+X-hiragana
 --disorder: a letter adds itself alphabeticall or reverse depending on last letter?
---nigeria switch niger to chad. must find country that switches to niger
+X-nigeria;
 --vinegar: chemical formula CH3COOH
 --#DEFACE
 --Fur elise must write the first notes (letters give sharps and bemol
@@ -224,15 +224,16 @@ var LevelGoals=[	//Required types of thinking
 	"Oppose",		//Alphabetical, Mapping
 	"Symmetric",	//Spacial, Toggling
 	"Rise",			//Alphabetical, Adjacent
-	"Vowels",		//Alphabetical, Cyclic, Posteroactive
 	"Rotate",		//Positional, Spacial, Retroactive
+	"ひらがな",		//Syllabe, Language, Mapping
 	"Falls",		//Alphabetical, Retroactive, Adjacent
 	"Precedent",	//Alphabetical, Retroactive, Adjacent
 	"Dvorak",		//Language, Spacial, Mapping
-//	"3|_1735|>33|<",//Language, Mapping
+	"Nigeria",		//Knowledge, Retroactive, Word, Spacial, Mapping
+	"Consonants"	//Alphabetical, Cyclic, Posteroactive
+	//	"3|_1735|>33|<",//Language, Mapping
 //	"Vinegar",		//Knowledge, Synonym
-	"Nigeria"		//Knowledge, Retroactive, Word, Spacial
-	//"Fuse"			//
+	//"Fuse"		//
 	];
 
 var LevelActions={
@@ -249,7 +250,7 @@ var LevelActions={
 		InputLetter(M);
 	},
 	"Second":Second,
-	"Vowels":Vowels,
+	"Consonants":Vowels,
 	"Alternate":Alternate,
 	"Follow":function (L){
 		if(Letters.array.length>=1){
@@ -319,6 +320,10 @@ var LevelActions={
 		var i=Countries.indexOf(Letters.array.join(""))+1;
 		if(i>0)
 			Letters.array=Countries[Math.min(Math.max(i,0),Countries.length-1)].split("");
+	},
+	"ひらがな":function(L){
+		InputLetter(L);
+		Letters.array=StringReplaceRulesObject(Letters.array.join("").toLowerCase(),Hiragana).toUpperCase().split("");
 	}
 }
 
@@ -687,6 +692,118 @@ var Countries=[
 ];
 
 Countries=Countries.map(function(c){return c.replace(/[\s\-]/g,"").toUpperCase()});
+
+var Hiragana={
+'a':'あ',
+'kあ':'か',
+'sあ':'さ',
+'tあ':'た',
+'nあ':'な','んあ':'な',
+'hあ':'は',
+'mあ':'ま',
+'yあ':'や',
+'rあ':'ら',
+'wあ':'わ',
+'n':'ん',
+'gあ':'が',
+'zあ':'ざ',
+'dあ':'だ',
+'bあ':'ば',
+'pあ':'ぱ',
+'i':'い',
+'kい':'き',
+'sひ':'し',
+'cひ':'ち',
+'nい':'に','んい':'に',
+'hい':'ひ',
+'mい':'み',
+'rい':'り',
+'wい':'ゐ',
+'gい':'ぎ',
+'jい':'じ',
+'dじ':'ぢ',
+'bい':'び',
+'pい':'ぴ',
+'u':'う',
+'kう':'く',
+'sう':'す',
+'tす':'つ',
+'nう':'ぬ','んう':'ぬ',
+'fう':'ふ',
+'mう':'む',
+'yう':'ゆ',
+'rう':'る',
+'e':'え',
+'kえ':'け',
+'sえ':'せ',
+'tえ':'て',
+'nえ':'ね','んえ':'ね',
+'hえ':'へ',
+'mえ':'め',
+'rえ':'れ',
+'wえ':'ゑ',
+'o':'お',
+'kお':'こ',
+'sお':'そ',
+'tお':'と',
+'nお':'の','んお':'の',
+'hお':'ほ',
+'mお':'も',
+'yお':'よ',
+'rお':'ろ',
+'wお':'を',
+'kや':'きゃ',
+'sは':'しゃ',
+'cは':'ちゃ',
+'nや':'にゃ','んや':'にゃ',
+'hや':'ひゃ',
+'mや':'みゃ',
+'kゆ':'きゅ',
+'shう':'しゅ',
+'chう':'ちゅ',
+'nゆ':'にゅ','んゆ':'にゅ',
+'hゆ':'ひゅ',
+'mゆ':'みゅ',
+'kよ':'きょ',
+'shお':'しょ',
+'chお':'ちょ',
+'nよ':'にょ','んよ':'にょ',
+'hよ':'ひょ',
+'mよ':'みょ',
+'rや':'りゃ',
+'rゆ':'りゅ',
+'rよ':'りょ',
+'gう':'ぐ',
+'zう':'ず',
+'dzう':'づ',
+'bう':'ぶ',
+'pう':'ぷ',
+'gえ':'げ',
+'zえ':'ぜ',
+'dえ':'で',
+'bえ':'べ',
+'pえ':'ぺ',
+'gお':'ご',
+'zお':'ぞ',
+'dお':'ど',
+'bお':'ぼ',
+'pお':'ぽ',
+'gゆ':'ぎゅ',
+'jう':'じゅ',
+'dじゅ':'ぢゅ',
+'bゆ':'びゅ',
+'pゆ':'ぴゅ',
+'gや':'ぎゃ',
+'jあ':'じゃ',
+'dじゃ':'ぢゃ',
+'bや':'びゃ',
+'pや':'ぴゃ',
+'gよ':'ぎょ',
+'jお':'じょ',
+'dじょ':'ぢょ',
+'bよ':'びょ',
+'pよ':'ぴょ'
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
