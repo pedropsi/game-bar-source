@@ -116,22 +116,33 @@ function FixedPoint(F,x){
 }
 
 
+Fold(function(s,r){return s.replace(r[0],r[1])},"ohnoanother",[["o","l"],["a","i"]])
+
 ///////////////////////////////////////////////////////////////////////////////
 // String Replace
-function StringReplaceRule(string,rule){
+function StringReplaceOnceRule(string,rule){
 	return string.replace(rule[0],rule.length>0?rule[1]:"");
+}
+function StringReplaceRule(string,rule){
+	return FixedPoint(function(s){return StringReplaceOnceRule(s,rule)},string)
 }
 function StringReplaceRuleArray(string,ruleArray){
 	return Fold(StringReplaceRule,string,ruleArray);
 }
-function StringReplaceRulesObject(string,rulesObj){
-	var keys=Object.keys(rulesObj);
-	var s=string;
+
+function ObjectRules(Obj){
+	var keys=Object.keys(Obj);
+	var a=[];
 	for(var i in keys){
-		var ruleArray=Clone(rulesObj)[keys[i]].map(function(k){return [k,keys[i]]});
-		s=StringReplaceRuleArray(s,ruleArray);
+		if (Obj.hasOwnProperty(keys[i])){
+			a.push([keys[i],Obj[keys[i]]])
+		}
 	}
-	return s;
+	return a;
+}
+
+function StringReplaceRulesObject(string,rulesObj){
+	return FixedPoint(function(s){return StringReplaceRuleArray(s,ObjectRules(rulesObj))},string);
 }
 
 function StringReplace(string,rules){
