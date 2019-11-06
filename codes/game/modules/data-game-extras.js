@@ -140,7 +140,7 @@ function GameBar(targetIDsel){
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
 		ButtonLinkHTML("How to play?"),
-		HintButton(),
+		"<span id='HintButton' class='hidden'></span>",
 		UndoButton(),
 		restart,
 		//ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
@@ -690,7 +690,7 @@ function UnstarLevel(l){
 }
 
 function UpdateAccessLevelMessage(){
-	ReplaceElement(ChosenLevelDescription(),".question");
+	ReplaceChildren(ChosenLevelDescription(),".question");
 }
 
 Listen("Set level",UpdateAccessLevelMessage);
@@ -708,7 +708,7 @@ function UpdateLevelSelectorButton(lvl){
 		var leveltext="Level "+LevelNumberFromTotal(lvl)
 	else
 		var leveltext="★ All levels ★";
-	ReplaceElement(leveltext,"LevelSelectorButton");
+	ReplaceChildren(leveltext,"LevelSelectorButton");
 }
 
 function LoadFromLevelSelectorButton(qid){
@@ -1069,6 +1069,7 @@ function LoadHintData(hintdata){
 }
 
 function ShowHintButton(){
+	ReplaceElement(HintButton(),"HintButton")
 	Show("HintButton");
 	Deselect("HintButton");
 }
@@ -1143,7 +1144,7 @@ function HintProgress(lvl,hintN){
 }
 
 function HintButton(){
-	return ButtonHTML({txt:"⚿",attributes:{onclick:'RequestHint();',id:'HintButton',class:'hidden'}});	
+	return ButtonHTML({txt:"⚿",attributes:{onclick:'RequestHint();',id:'HintButton'}});	
 }
 
 function CloseHint(){

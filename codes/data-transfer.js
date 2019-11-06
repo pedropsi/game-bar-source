@@ -797,12 +797,18 @@ function PrependElement(htmlOrElement,selector){
 
 
 // Replace parent element contents with new element
-function ReplaceElement(html,parentIDsel){
+function ReplaceChildren(html,parentIDsel){
 	var p=GetElement(parentIDsel);
 	if(p)
 		p.innerHTML=html;
 };
 
+// Replace parent element contents with new element
+function ReplaceElement(html,parentIDsel){
+	var a=AppendElement(html,parentIDsel);
+	RemoveElement(parentIDsel);
+	return a;
+};
 
 // Add HTML Data from external source to page
 function OverwriteData(source,destinationID,Transform){
@@ -810,7 +816,7 @@ function OverwriteData(source,destinationID,Transform){
 		if(Transform){
 			data=Transform(data);
 		}
-		ReplaceElement(data,destinationID);
+		ReplaceChildren(data,destinationID);
 	}
 	
 	LoadData(source,Overwrite);
@@ -819,7 +825,7 @@ function OverwriteData(source,destinationID,Transform){
 
 // Remove Children
 function RemoveChildren(parentID){
-	ReplaceElement("",parentID)
+	ReplaceChildren("",parentID)
 }
 
 // Remove Element
@@ -2630,8 +2636,8 @@ function Context(targetSelector){
 		context=ElementContext(targetSelector);
 	
 	if(!context){
-		FocusElement(document.activeElement);
-		context=Context();
+		var e=FocusElement(document.activeElement);
+		context=ElementContext(e)||ElementContext("BODY");
 	}
 	
 	return context;
@@ -2653,7 +2659,7 @@ function ElementContext(targetSelector){
 			subcontext={};
 		context=FuseObjects(Clone(subcontext),context);
 	}
-	return context
+	return context;
 }
 
 function ContextBlocker(e){
@@ -3012,7 +3018,7 @@ function LoadImage(fullpath,parentIDsel){
 		else
 			loaded=ImageHTML({attributes:{src:fullpath}});
 		
-		ReplaceElement(loaded,parentIDsel);
+		ReplaceChildren(loaded,parentIDsel);
 	}
 	
 	LoadData(fullpath,ImageReplace);
