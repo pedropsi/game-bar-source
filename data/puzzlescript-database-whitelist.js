@@ -23,7 +23,8 @@ var KnownAuthors={
 	"dis pontibus II demake / edit":"NOA Cube Studio",
 	"Rose":"Jared Piers",
 	"Im too far gone":"Jack Lance",
-	"skeleton assembler 2":"Ethan Clark"
+	"skeleton assembler 2":"Ethan Clark",
+	"Cannonclobber":"Jere Majava"
 }
 
 var AuthorAliases={
@@ -44,7 +45,8 @@ var AuthorAliases={
 	"Ricky":"Ricky Cruz",
 	"Para":"Parachor",
 	"pAAraK_or":"Parachor",
-	"pAA-raK_or":"Parachor"
+	"pAA-raK_or":"Parachor",
+	"@dennishcau":"Dennis Au"
 }
 
 function KnownAuthor(title){
