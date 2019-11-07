@@ -892,10 +892,16 @@ table caption{
 @media only screen and (max-width:330px) {
     .mini {
         flex-direction: column;
+        margin-bottom:var(--h-2);
+    }
+    .mini div{
+        order:2;
+        width:100%;
     }
     .mini img{
         max-width: 100%;
         margin: var(--h2) var(--w-2) var(--h2) var(--w-2);
+        order:1
     }
 }
 
