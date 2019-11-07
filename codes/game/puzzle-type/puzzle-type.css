@@ -113,3 +113,8 @@
    transform: scaleX(-1) scaleY(-1);
    transition-duration: var(--duration);
 }
+
+.letter.draft{
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}

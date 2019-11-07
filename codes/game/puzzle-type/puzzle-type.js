@@ -15,6 +15,7 @@ X-Keyboard layout (dvorak)
 X-hiragana
 --disorder: a letter adds itself alphabeticall or reverse depending on last letter?
 X-nigeria;
+X-Periodic
 --vinegar: chemical formula CH3COOH
 --#DEFACE
 --Fur elise must write the first notes (letters give sharps and bemol
@@ -212,6 +213,17 @@ function ForbidCaret(){
 	PulseSelect(".caret","forbidden",500);
 }
 
+
+///////////////////////////////////////////////////////////////////////////////
+
+function InPart(arrayOrObj,n){
+	if(!arrayOrObj)
+		return false;
+	var m=a=new RegExp("^"+n,"i");
+	function F(ao){return ao.some(function(s){return InString(s,m)})};
+	return Apply(arrayOrObj,F)||false;
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
 var LevelGoals=[	//Required types of thinking
@@ -227,13 +239,11 @@ var LevelGoals=[	//Required types of thinking
 	"Rotate",		//Positional, Spacial, Retroactive
 	"ひらがな",		//Syllabe, Language, Mapping
 	"Falls",		//Alphabetical, Retroactive, Adjacent
+	"Consonants",	//Alphabetical, Cyclic, Posteroactive
 	"Precedent",	//Alphabetical, Retroactive, Adjacent
 	"Dvorak",		//Language, Spacial, Mapping
 	"Nigeria",		//Knowledge, Retroactive, Word, Spacial, Mapping
-	"Consonants"	//Alphabetical, Cyclic, Posteroactive
-	//	"3|_1735|>33|<",//Language, Mapping
-//	"Vinegar",		//Knowledge, Synonym
-	//"Fuse"		//
+	"Nucleus"		//Knowledge, Syllabe, Word, Language, Mapping, Retroactive
 	];
 
 var LevelActions={
@@ -295,35 +305,67 @@ var LevelActions={
 				P=DvorakMapping[P];
 		InputLetter(P);
 	},
-	"3|_1735|>3A|<":Direct,
-	"Fuse":function Fuse(F,cycle){
-		var cycle=false||cycle;
-		
-		var n=LetterNumber(F);
-		if(!cycle)
-			n=n%7;
-		
-		if(Letters().length===0)
-			InputLetter(NumberLetter(n));
-		else{
-			var l=LetterNumber(Last(Letters()));
-			if(l===n){
-				DeleteLetterAfter();
-				Fuse(NumberLetter(1+n),true);
-			}
-			else
-				InputLetter(NumberLetter(n));
-		}
-	},
-	"Nigeria":function(L){
-		InputLetter(L);
-		var i=Countries.indexOf(Letters.array.join(""))+1;
-		if(i>0)
-			Letters.array=Countries[Math.min(Math.max(i,0),Countries.length-1)].split("");
-	},
+	"Nigeria":Nigeria,
 	"ひらがな":function(L){
 		InputLetter(L);
 		Letters.array=StringReplaceRulesObject(Letters.array.join("").toLowerCase(),Hiragana).toUpperCase().split("");
+		PlaceEndCaret();
+	},
+	"Nucleus": Nucleus
+}
+
+function Nigeria(L){
+		if(Nigeria.freeze){
+			delete Nigeria.freeze;
+			Restart();
+			return;
+		}
+		
+		InputLetter(L+"*");
+		
+		var i=Countries.indexOf(PureLetter(Letters.array.join("")))+1;
+		if(i>0){
+			Letters.array=Countries[Math.min(Math.max(i,0),Countries.length-1)].split("");
+			Nigeria.freeze=true;
+		}
+		else
+			PlaceEndCaret();
+	}
+
+function Nucleus(L){
+		if(!Nucleus.partial)
+			Nucleus.partial=[];
+
+		var nulow=(Nucleus.partial.join("")+L).toLowerCase();
+
+		console.log(In(Nuclei,nulow),nulow);
+				
+		if(InPart(Nuclei,nulow)){
+			InputLetter(L+"*");	//VISUAL Feedback for temporary letters in lighter blue
+			Nucleus.partial.push(L);
+			if(In(Nuclei,nulow)){
+				var elem=Nuclei[nulow].toUpperCase();
+				DeleteLetters(nulow.length);
+				Letters.array=(Letters.array.join("")+elem).split("");
+				Nucleus.partial=[];
+			}
+		}
+		else{
+			DeleteLetters(nulow.length-1);
+			Nucleus.partial=[];
+		}
+	PlaceEndCaret();
+}
+
+
+function DeleteLetters(n,beginning){
+	var i=1;
+	while(i<=n){
+		if(!beginning)
+			Letters.array.pop();
+		else
+			Letters.array=Letters.array.unshift();
+		i++;
 	}
 }
 
@@ -417,7 +459,7 @@ function Symmetric(O){
 }
 
 function PureLetter(O){
-	return O.replace(/\-/g,"").replace(/\|/g,"");
+	return O.replace(/\-/g,"").replace(/\|/g,"").replace(/\*/g,"");
 }
 
 function ToggleVertical(W){
@@ -805,8 +847,138 @@ var Hiragana={
 'pよ':'ぴょ'
 };
 
+var Nuclei={
+'actinium':'ac',
+'silver':'ag',
+'aluminium':'al',
+'americium':'am',
+'argon':'ar',
+'arsenic':'as',
+'astatine':'at',
+'gold':'au',
+'boron':'b',
+'barium':'ba',
+'beryllium':'be',
+'bohrium':'bh',
+'bismuth':'bi',
+'berkelium':'bk',
+'bromine':'br',
+'carbon':'c',
+'calcium':'ca',
+'cadmium':'cd',
+'cerium':'ce',
+'californium':'cf',
+'chlorine':'cl',
+'curium':'cm',
+'copernicium':'cn',
+'cobalt':'co',
+'chromium':'cr',
+'caesium':'cs',
+'copper':'cu',
+'dubnium':'db',
+'darmstadtium':'ds',
+'dysprosium':'dy',
+'erbium':'er',
+'einsteinium':'es',
+'europium':'eu',
+'fluorine':'f',
+'iron':'fe',
+'flerovium':'fl',
+'fermium':'fm',
+'francium':'fr',
+'gallium':'ga',
+'gadolinium':'gd',
+'germanium':'ge',
+'hydrogen':'h',
+'helium':'he',
+'hafnium':'hf',
+'mercury':'hg',
+'holmium':'ho',
+'hassium':'hs',
+'iodine':'i',
+'indium':'in',
+'iridium':'ir',
+'potassium':'k',
+'krypton':'kr',
+'lanthanum':'la',
+'lithium':'li',
+'lawrencium':'lr',
+'lutetium':'lu',
+'livermorium':'lv',
+'moscovium':'mc',
+'mendelevium':'md',
+'magnesium':'mg',
+'manganese':'mn',
+'molybdenum':'mo',
+'meitnerium':'mt',
+'nitrogen':'n',
+'sodium':'na',
+'natrium':'na',
+'niobium':'nb',
+'neodymium':'nd',
+'neon':'ne',
+'nihonium':'nh',
+'nickel':'ni',
+'nobelium':'no',
+'neptunium':'np',
+'oxygen':'o',
+'oganesson':'og',
+'osmium':'os',
+'phosphorus':'p',
+'protactinium':'pa',
+'lead':'pb',
+'palladium':'pd',
+'promethium':'pm',
+'polonium':'po',
+'praseodymium':'pr',
+'platinum':'pt',
+'plutonium':'pu',
+'radium':'ra',
+'rubidium':'rb',
+'rhenium':'re',
+'rutherfordium':'rf',
+'roentgenium':'rg',
+'rhodium':'rh',
+'radon':'rn',
+'ruthenium':'ru',
+'sulfur':'s',
+'sulphur':'s',
+'antimony':'sb',
+'scandium':'sc',
+'selenium':'se',
+'seaborgium':'sg',
+'silicon':'si',
+'samarium':'sm',
+'tin':'sn',
+'strontium':'sr',
+'tantalum':'ta',
+'terbium':'tb',
+'technetium':'tc',
+'tellurium':'te',
+'thorium':'th',
+'titanium':'ti',
+'thallium':'tl',
+'thulium':'tm',
+'tennessine':'ts',
+'uranium':'u',
+'vanadium':'v',
+'tungsten':'w',
+'xenon':'xe',
+'yttrium':'y',
+'ytterbium':'yb',
+'zinc':'zn',
+'zirconium':'zr'
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
+
+function PlaceEndCaret(beginning){
+	if(!beginning)
+		Caret(Letters.array.length);
+	else
+		Caret(-1);
+}
 
 function Letters(letter,beginning,deleteletter){
 	if(!Letters.array)
@@ -858,25 +1030,44 @@ function DrawCaret(){
 		AddElement(CaretHTML(),"#letters");
 }
 
-function LetterPureHTML(L){
-	return "<div class='letter'>"+L+"</div>"
+function LetterPureHTML(L,cla){
+	var cla=cla?(' '+cla):'';
+	return "<div class='letter"+cla+"'>"+L+"</div>"
 }
 
-function LetterHTML(L){
-	var S=MakeElement("<div>"+PureLetter(L)+"</div>");
+var LetterDisplay={
+	"Symmetric":function(L){
+		var S=MakeElement("<div>"+PureLetter(L)+"</div>");
+		
+		if(In(L,"-"))
+			SelectSimple(S,"vertical");
+		
+		if(In(L,"|"))
+			SelectSimple(S,"horizontal");
 	
-	if(In(L,"-"))
-		SelectSimple(S,"vertical");
-	
-	if(In(L,"|"))
-		SelectSimple(S,"horizontal");
+		if(Classed(S,"vertical")||Classed(S,"horizontal")){
+			SelectSimple(S,"symmetry");
+			return LetterPureHTML(S.outerHTML);
+		}
+		else
+			return LetterPureHTML(L);
+	},
+	"Nucleus":LetterDraftHTML,
+	"Nigeria":LetterDraftHTML
+}
 
-	if(Classed(S,"vertical")||Classed(S,"horizontal")){
-		SelectSimple(S,"symmetry");
-		return LetterPureHTML(S.outerHTML);
-	}
+function LetterDraftHTML(L){
+	if(In(L,"*"))
+		return LetterPureHTML(PureLetter(L),'draft');
 	else
 		return LetterPureHTML(L);
+}
+
+function LetterHTML(levelName){
+	if(In(LetterDisplay,levelName))
+		return LetterDisplay[levelName];
+	else
+		return LetterPureHTML;
 }
 
 function CaretHTML(){
@@ -891,8 +1082,8 @@ function ClearLetters(){
 }
 
 function DrawLetters(){
-	var letters=Letters().map(LetterHTML).join("\n");
-	ReplaceElement(letters,"#letters");
+	var letters=Letters().map(LetterHTML(CurLevelName())).join("\n");
+	ReplaceChildren(letters,"#letters");
 }
 
 function UpdateLevel(){
@@ -954,9 +1145,9 @@ function ObtainTitleScreenLoader(){
 	if(!TitleScreen())
 		PlaySound("media/puzzle-type/sound/startgame.mp3");
 	TitleScreen(true);
-	ReplaceElement("<div class='top'><div class='title'></div><div class='credits'></div></div>",".top");
-	ReplaceElement("Puzzle Type",".title");
-	ReplaceElement("by Pedro PSI (2019)",".credits");
+	ReplaceChildren("<div class='top'><div class='title'></div><div class='credits'></div></div>",".top");
+	ReplaceChildren("Puzzle Type",".title");
+	ReplaceChildren("by Pedro PSI (2019)",".credits");
 	if(CurLevelNumber()>1||SolvedLevelScreens().length>0)
 		Letters.array="CONTINUE".split("");
 	else
@@ -967,9 +1158,9 @@ function ObtainTitleScreenLoader(){
 
 function LevelLoader(){
 	TitleScreen(false);
-	ReplaceElement("<div class='top'><div class='goal'></div></div>",".top");
+	ReplaceChildren("<div class='top'><div class='goal'></div></div>",".top");
 	ClearLetters();
-	ReplaceElement(CurLevelName(),".goal");
+	ReplaceChildren(CurLevelName(),".goal");
 	UndoClear();
 }
 
@@ -1021,6 +1212,8 @@ function LoadLevelState(levelstate){
 	Vowels.n=levelstate['Vowels'];
 	Second.n=levelstate['Second'];
 	Alternate.n=levelstate['Alternate'];
+	Nucleus.partial=levelstate['Nucleus'];
+	Nigeria.freeze=levelstate['Nigeria'];
 	UpdateLevelSecretly();
 }
 
@@ -1034,7 +1227,9 @@ function LevelZeroState(){
 		'caret':0,
 		'Vowels':0,
 		'Second':0,
-		'Alternate':0
+		'Alternate':0,
+		'Nucleus':[],
+		'Nigeria':false
 	};
 	return state;
 }
@@ -1045,7 +1240,9 @@ function LevelState(){
 		'caret':Caret()[0],
 		'Vowels':Vowels.n?Vowels.n:0,
 		'Second':Second.n?Second.n:0,
-		'Alternate':Alternate.n?Alternate.n:0
+		'Alternate':Alternate.n?Alternate.n:0,
+		'Nucleus':Nucleus.partial?Clone(Nucleus.partial):[],
+		'Nigeria':Nigeria.freeze?Nigeria.freeze:false
 	};
 	return state;
 }
