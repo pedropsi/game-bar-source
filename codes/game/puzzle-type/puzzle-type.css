@@ -64,7 +64,6 @@
    color:var(--darkblue);
    border-bottom: var(--w2) solid var(--darkblue);
    padding-bottom: var(--w1);
-   width: var(--w8);
    transition-duration: var(--duration);
    height: var(--w16);
    display: flex;
@@ -76,6 +75,7 @@
 .letter.caret{
     background-color: var(--darkblue);
     border-bottom-color: var(--lightyellow);
+    width: var(--w8);
 }
 
 .win{
