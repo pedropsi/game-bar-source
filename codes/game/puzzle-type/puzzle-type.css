@@ -63,7 +63,7 @@
    font-weight: bold;
    color:var(--darkblue);
    border-bottom: var(--w2) solid var(--darkblue);
-   padding-bottom: var(--w1);
+   padding: var(--w-2);
    transition-duration: var(--duration);
    height: var(--w16);
    display: flex;
@@ -75,7 +75,7 @@
 .letter.caret{
     background-color: var(--darkblue);
     border-bottom-color: var(--lightyellow);
-    width: var(--w8);
+    width: calc(var(--w4) + var(--w2));
 }
 
 .win{
