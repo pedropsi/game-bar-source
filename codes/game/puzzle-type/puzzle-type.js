@@ -167,7 +167,7 @@ function InstructGameKeyF(key){
 		
 		function Action(){return GameAction(key);}
 		
-		Throttle(Action,100,"Action");
+		Throttle(Action,50,"Action");
 	}
 }
 
