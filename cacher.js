@@ -1,11 +1,10 @@
 console.log("I'm a service worker");
 
-const preCacheName = "pre-cache-"+"PSI"+"-v5",
-    preCacheFiles = [
+var preCacheFiles = [
 	"/",
 	"cacher.js",
 	
-	"abxtract-tractx"+".html",
+/*	"abxtract-tractx"+".html",
 	"blockworks"+".html",
 	"burokku-konekuta"+".html",
 	"gravirinth"+".html",
@@ -15,7 +14,7 @@ const preCacheName = "pre-cache-"+"PSI"+"-v5",
 	"skilleblokker"+".html",
 	"tetrastrophe"+".html",
 	"tiaradventur"+".html",
-	"whirlpuzzle"+".html",
+	"whirlpuzzle"+".html",*/
 	
 	"codes/index.css",
 	"codes/communication.js",
@@ -57,27 +56,41 @@ const preCacheName = "pre-cache-"+"PSI"+"-v5",
     ];
 
 
+var CACHE_VERSION = 1;
+
+var CURRENT_CACHES = {
+	main: 'PSI-cache-v' + CACHE_VERSION
+};
+
+self.addEventListener('activate', function(event) {
+	var expectedCacheNames = Object.values(CURRENT_CACHES);
+
+  // Active worker won't be treated as activated until promise
+  // resolves successfully.
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (!expectedCacheNames.includes(cacheName)) {
+            console.log('Deleting out of date cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+
+
 self.addEventListener("install",event=>{
     console.log("installing precache files");
 	self.skipWaiting();
-	caches.open(preCacheName).then(function(cache){
+	caches.open(CURRENT_CACHES.main).then(function(cache){
 		return cache.addAll(preCacheFiles);
 	});
 });
 
-self.addEventListener("activate",event=>{
-	event.waitUntil(
-		caches.keys().then(cacheNames=>{
-			cacheNames.forEach(value=>{
-				if(value.indexOf("-v4")< 0){
-					caches.delete(value);
-				}
-			});
-			console.log("service worker activated");
-			return;
-		})
-	);
-});
 
 
 self.addEventListener("fetch",event=>{
