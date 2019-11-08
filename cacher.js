@@ -1,12 +1,10 @@
-var CACHE_VERSION=3;
-
+var CACHE_VERSION=4;
 var CURRENT_CACHES={
-	main: 'PSI-cache-v' + CACHE_VERSION
+	main:'PSI-cache-v'+CACHE_VERSION
 };
-
 var preCacheFiles=[
 	"/",
-	/*"cacher.js",*/
+	"cacher.js",
 	
 	"abxtract-tractx"+".html",
 	"blockworks"+".html",
@@ -57,19 +55,16 @@ var preCacheFiles=[
 	"codes/game/modules/data-game-extras.js",
 	"codes/game/modules/data-game-overwrite.js",
 	"codes/game/modules/data-game-moves.js"
-		];
+];
 
 self.addEventListener('activate', function(event){
 	var expectedCacheNames=Object.values(CURRENT_CACHES);
-
-	// Active worker won't be treated as activated until promise
-	// resolves successfully.
 	event.waitUntil(
 		caches.keys().then(function(cacheNames){
 			return Promise.all(
 				cacheNames.map(function(cacheName){
 					if (!expectedCacheNames.includes(cacheName)){
-						console.log('Deleting out of date cache:', cacheName);
+						console.log('Deleting old cache:',cacheName);
 						return caches.delete(cacheName);
 					}
 				})
@@ -81,7 +76,7 @@ self.addEventListener('activate', function(event){
 
 
 self.addEventListener("install",function(event){
-		console.log("installing precache files");
+	console.log("installing precache files");
 	self.skipWaiting();
 	caches.open(CURRENT_CACHES.main).then(function(cache){
 		return cache.addAll(preCacheFiles);
