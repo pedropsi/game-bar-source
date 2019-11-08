@@ -1,6 +1,6 @@
 console.log("I'm a service worker");
 
-const preCacheName = "pre-cache-"+"PSI"+"-v3",
+const preCacheName = "pre-cache-"+"PSI"+"-v5",
     preCacheFiles = [
 	"/",
 	"cacher.js",
