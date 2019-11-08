@@ -1,4 +1,4 @@
-var CACHE_VERSION=6;
+var CACHE_VERSION=7;
 var CURRENT_CACHES={
 	main:'PSI-cache-v'+CACHE_VERSION
 };
@@ -98,7 +98,7 @@ self.addEventListener("fetch",function(event){
 					}
 					
 					caches.open(CURRENT_CACHES.main).then(function(cache) {
-						cache.put(event.request,response.clone());
+						cache.put(event.request,response);
 					});  
 					
 					return response;
