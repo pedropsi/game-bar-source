@@ -307,7 +307,7 @@ function pageIdentifierSimple(url){
 		if(isMaybeRoot(urlAfter))
 			return ""
 		else
-			return urlAfter.replace(".html","").replace(".htm","");
+			return urlAfter.replace(".html","").replace(".htm","").replace(/\?\=.*/g,"");
 	}
 }
 
