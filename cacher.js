@@ -87,8 +87,7 @@ self.addEventListener("fetch",event=>{
 		caches.match(event.request).then(response=>{
 			if(!response){
 				//network fetch
-				return fetch(event.request).
-				then(response=>{
+				return fetch(event.request).then(response=>{
 					caches.cache("dynamic").cache(response.clone());
 					return response;
 				});
