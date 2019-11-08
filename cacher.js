@@ -1,10 +1,14 @@
-console.log("I'm a service worker");
+var CACHE_VERSION=2;
 
-var preCacheFiles = [
+var CURRENT_CACHES={
+	main: 'PSI-cache-v' + CACHE_VERSION
+};
+
+var preCacheFiles=[
 	"/",
 	"cacher.js",
 	
-/*	"abxtract-tractx"+".html",
+	"abxtract-tractx"+".html",
 	"blockworks"+".html",
 	"burokku-konekuta"+".html",
 	"gravirinth"+".html",
@@ -14,7 +18,7 @@ var preCacheFiles = [
 	"skilleblokker"+".html",
 	"tetrastrophe"+".html",
 	"tiaradventur"+".html",
-	"whirlpuzzle"+".html",*/
+	"whirlpuzzle"+".html",
 	
 	"codes/index.css",
 	"codes/communication.js",
@@ -53,38 +57,31 @@ var preCacheFiles = [
 	"codes/game/modules/data-game-extras.js",
 	"codes/game/modules/data-game-overwrite.js",
 	"codes/game/modules/data-game-moves.js"
-    ];
+		];
 
+self.addEventListener('activate', function(event){
+	var expectedCacheNames=Object.values(CURRENT_CACHES);
 
-var CACHE_VERSION = 1;
-
-var CURRENT_CACHES = {
-	main: 'PSI-cache-v' + CACHE_VERSION
-};
-
-self.addEventListener('activate', function(event) {
-	var expectedCacheNames = Object.values(CURRENT_CACHES);
-
-  // Active worker won't be treated as activated until promise
-  // resolves successfully.
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (!expectedCacheNames.includes(cacheName)) {
-            console.log('Deleting out of date cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+	// Active worker won't be treated as activated until promise
+	// resolves successfully.
+	event.waitUntil(
+		caches.keys().then(function(cacheNames){
+			return Promise.all(
+				cacheNames.map(function(cacheName){
+					if (!expectedCacheNames.includes(cacheName)){
+						console.log('Deleting out of date cache:', cacheName);
+						return caches.delete(cacheName);
+					}
+				})
+			);
+		})
+	);
 });
 
 
 
-self.addEventListener("install",event=>{
-    console.log("installing precache files");
+self.addEventListener("install",function(event){
+		console.log("installing precache files");
 	self.skipWaiting();
 	caches.open(CURRENT_CACHES.main).then(function(cache){
 		return cache.addAll(preCacheFiles);
@@ -93,14 +90,14 @@ self.addEventListener("install",event=>{
 
 
 
-self.addEventListener("fetch",event=>{
+self.addEventListener("fetch",function(event){
 	console.log("Fetching");
 	console.log(event);
 	event.respondWith(
-		caches.match(event.request).then(response=>{
+		caches.match(event.request).then(function(response){
 			if(!response){
 				//network fetch
-				return fetch(event.request).then(response=>{
+				return fetch(event.request).then(function(response){
 					caches.cache("dynamic").cache(response.clone());
 					return response;
 				});
