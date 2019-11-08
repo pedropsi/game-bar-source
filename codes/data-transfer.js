@@ -3221,3 +3221,10 @@ if(typeof window.CustomEvent!=="function"){
 	CustomEvent.prototype=window.Event.prototype;
 	window.CustomEvent=CustomEvent;
 }
+
+
+var installPWA=false;
+ListenOnce('beforeinstallprompt',function(e){
+	installPWA=e;
+	console.log("PWA prompt!",e);
+});
