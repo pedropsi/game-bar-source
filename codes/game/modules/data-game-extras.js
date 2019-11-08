@@ -97,7 +97,7 @@ function PrepareGame(){
 		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
 
-		PlaylistStartPlay();
+		ListenOnce('click',PlaylistStartPlay,gameSelector);
 		
 		ScrollInto(gameSelector);
 		GameFocus();
