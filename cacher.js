@@ -24,17 +24,17 @@ const preCacheName = "pre-cache-"+"PSI"+"-v2",
 	"codes/game/game.css",
 	"codes/game/puzzlescript-embed.js",
 	
-	"codes/game/puzzlescript"+"abxtract-tractx"+".js",
-	"codes/game/puzzlescript"+"blockworks"+".js",
-	"codes/game/puzzlescript"+"burokku-konekuta"+".js",
-	"codes/game/puzzlescript"+"gravirinth"+".js",
-	"codes/game/puzzlescript"+"platformer-template"+".js",
-	"codes/game/puzzlescript"+"pmgrp"+".js",
-	"codes/game/puzzlescript"+"unlucky-unlock"+".js",
-	"codes/game/puzzlescript"+"skilleblokker"+".js",
-	"codes/game/puzzlescript"+"tetrastrophe"+".js",
-	"codes/game/puzzlescript"+"tiaradventur"+".js",
-	"codes/game/puzzlescript"+"whirlpuzzle"+".js",
+	"codes/game/puzzlescript/"+"abxtract-tractx"+".js",
+	"codes/game/puzzlescript/"+"blockworks"+".js",
+	"codes/game/puzzlescript/"+"burokku-konekuta"+".js",
+	"codes/game/puzzlescript/"+"gravirinth"+".js",
+	"codes/game/puzzlescript/"+"platformer-template"+".js",
+	"codes/game/puzzlescript/"+"pmgrp"+".js",
+	"codes/game/puzzlescript/"+"unlucky-unlock"+".js",
+	"codes/game/puzzlescript/"+"skilleblokker"+".js",
+	"codes/game/puzzlescript/"+"tetrastrophe"+".js",
+	"codes/game/puzzlescript/"+"tiaradventur"+".js",
+	"codes/game/puzzlescript/"+"whirlpuzzle"+".js",
 	
 	"codes/game/modules/globalVariables",
 	"codes/game/modules/debug_off",
@@ -81,6 +81,8 @@ self.addEventListener("activate",event=>{
 
 
 self.addEventListener("fetch",event=>{
+	console.log("Fetching");
+	console.log(event);
 	event.respondWith(
 		caches.match(event.request).then(response=>{
 			if(!response){
