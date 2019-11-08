@@ -2,7 +2,7 @@ var CACHE_VERSION=4;
 var CURRENT_CACHES={
 	main:'PSI-cache-v'+CACHE_VERSION
 };
-var preCacheFiles=[
+var preCacheFiles=[ 
 	"/",
 	"cacher.js",
 	
