@@ -3224,7 +3224,7 @@ if(typeof window.CustomEvent!=="function"){
 
 
 var installPWA=false;
-ListenOnce('beforeinstallprompt',function(e){
+window.addEventListener('beforeinstallprompt',function(e){
 	installPWA=e;
 	console.log("PWA prompt!",e);
 });
