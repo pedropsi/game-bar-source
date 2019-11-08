@@ -1,6 +1,6 @@
 console.log("I'm a service worker");
 
-const preCacheName = "pre-cache-"+"PSI"+"-v2",
+const preCacheName = "pre-cache-"+"PSI"+"-v3",
     preCacheFiles = [
 	"/",
 	"cacher.js",
@@ -69,7 +69,7 @@ self.addEventListener("activate",event=>{
 	event.waitUntil(
 		caches.keys().then(cacheNames=>{
 			cacheNames.forEach(value=>{
-				if(value.indexOf("-v1")< 0){
+				if(value.indexOf("-v2")< 0){
 					caches.delete(value);
 				}
 			});
