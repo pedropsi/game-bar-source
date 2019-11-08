@@ -2358,8 +2358,13 @@ function Unmute(){
 	Select("MuteButton");
 }
 
+function ValidSong(song){
+	return (typeof song!=="undefined")&&(FileSong(song).replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"")!==FileSong(song));
+}
+
+
 function PlaySong(song){
-	if((typeof song!=="undefined")&&song.paused){
+	if(ValidSong(song)&&song.paused){
 		song.play();
 		ListenOnce('ended',PlayNextF(song),song);
 		Unmute();
@@ -2369,7 +2374,7 @@ function PlaySong(song){
 }
 
 function PauseSong(song){
-	if((typeof song!=="undefined")&&!song.paused){
+	if(ValidSong(song)&&!song.paused){
 		song.pause();
 		ConsoleAdd("Music paused...");
 		Mute();
@@ -2378,7 +2383,7 @@ function PauseSong(song){
 }
 
 function ResumeSong(song){
-	if((typeof song!=="undefined")&&song.paused){
+	if(ValidSong(song)&&song.paused){
 		song.play();
 		ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
 		Unmute();
@@ -2387,7 +2392,11 @@ function ResumeSong(song){
 }
 
 function NameSong(song){
-	return pageRelativePath(song.src).replace(/.*\//,"").replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"").replace(/\%20/g," ");
+	return FileSong(song).replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"").replace(/\%20/g," ");
+}
+
+function FileSong(song){
+	return pageRelativePath(song.src).replace(/.*\//,"");
 }
 
 function PlayNextF(song){
