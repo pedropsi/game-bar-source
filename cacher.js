@@ -1,4 +1,4 @@
-var CACHE_VERSION=5;
+var CACHE_VERSION=6;
 var CURRENT_CACHES={
 	main:'PSI-cache-v'+CACHE_VERSION
 };
@@ -93,7 +93,14 @@ self.addEventListener("fetch",function(event){
 			if(!response){
 				//network fetch
 				return fetch(event.request).then(function(response){
-					caches.cache("dynamic").cache(response.clone());
+					if (!response.ok) {
+						throw new TypeError('Bad response status');
+					}
+					
+					caches.open(CURRENT_CACHES.main).then(function(cache) {
+						cache.put(event.request,response.clone());
+					});  
+					
 					return response;
 				});
 			}
