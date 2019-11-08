@@ -1,4 +1,4 @@
-var CACHE_VERSION=2;
+var CACHE_VERSION=3;
 
 var CURRENT_CACHES={
 	main: 'PSI-cache-v' + CACHE_VERSION
@@ -6,7 +6,7 @@ var CURRENT_CACHES={
 
 var preCacheFiles=[
 	"/",
-	"cacher.js",
+	/*"cacher.js",*/
 	
 	"abxtract-tractx"+".html",
 	"blockworks"+".html",
