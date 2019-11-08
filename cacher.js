@@ -69,7 +69,7 @@ self.addEventListener("activate",event=>{
 	event.waitUntil(
 		caches.keys().then(cacheNames=>{
 			cacheNames.forEach(value=>{
-				if(value.indexOf("-v2")< 0){
+				if(value.indexOf("-v4")< 0){
 					caches.delete(value);
 				}
 			});
@@ -87,7 +87,7 @@ self.addEventListener("fetch",event=>{
 		caches.match(event.request).then(response=>{
 			if(!response){
 				//network fetch
-				return fetch(event.request)
+				return fetch(event.request).
 				then(response=>{
 					caches.cache("dynamic").cache(response.clone());
 					return response;
