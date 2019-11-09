@@ -3223,8 +3223,53 @@ if(typeof window.CustomEvent!=="function"){
 }
 
 
+///////////////////////////////////////////////////////////////////////////////
+// PWA
 var installPWA=false;
 window.addEventListener('beforeinstallprompt',function(e){
 	installPWA=e;
 	console.log("PWA prompt!",e);
 });
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Test Suite
+
+function Testing(){return true};
+
+function TestFunction(functionname,testname){
+	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
+	var test=Test[functionname][testname];
+	if(test)
+		console.log(test["function"].apply(null,test["arguments"]));
+		console.log(test["expected"]);
+		return test["function"].apply(null,test["arguments"])===test["expected"];
+}
+
+function Test(functionname){
+	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
+	var tests=Test[functionname];
+	
+	if(test)
+		console.log(test["function"].apply(null,test["arguments"]));
+		console.log(test["expected"]);
+		return test["function"].apply(null,test["arguments"])===test["expected"];
+}
+
+function SaveTest(F,argArray,result,testname){
+	if(!Testing())
+		return;
+	
+	var functionname=FunctionName(F);
+	
+	if(!Test[functionname])
+		Test[functionname]={};
+	
+	var argArray=IsArray(argArray)?argArray:[argArray];
+	var testname=testname?testname:(functionname+"("+argArray.map(String).join(",")+")");
+	
+	Test[functionname][testname]={"function":F,"arguments":argArray,"expected":result};
+}
+
+
+
