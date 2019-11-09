@@ -244,9 +244,29 @@ var LevelGoals=[	//Required types of thinking
 	"Consonants",	//Alphabetical, Cyclic, Posteroactive
 	"Precedent",	//Alphabetical, Retroactive, Adjacent
 	"Dvorak",		//Language, Spacial, Mapping
+	"Entanglement",	//Alphabetical, Cyclic, Posteroactive    (tangles is shorter, but one loses the quantum link)
 	"Nigeria",		//Knowledge, Retroactive, Word, Spacial, Mapping
 	"Nucleus"		//Knowledge, Syllabe, Word, Language, Mapping, Retroactive
 	];
+
+var LevelMinimals={
+	"Second":12,
+	"Superior":12,
+	"Precedent":13,
+	"Symmetric":14,
+	"Entanglement":11,
+	"Nigeria":6,
+	"ひらがな":8,
+	"Nucleus":38
+}
+
+function ObtainLevelMinimalScore(lvl){
+	var n=levelName(lvl);
+	if(In(LevelMinimals,n))
+		return LevelMinimals[n];
+	else
+		return n.length;
+}
 
 var LevelActions={
 	"Direct":Direct,
@@ -306,6 +326,17 @@ var LevelActions={
 			if(In(DvorakMapping,P))
 				P=DvorakMapping[P];
 		InputLetter(P);
+	},
+	"Entanglement":function (L){
+		if(Letters.array.length<1){
+			InputLetter(L);
+		}
+		else{
+			var A=Last(Letters.array);
+			DeleteLetterAfter();
+			InputLetter(NumberLetter(LetterNumber(L)+LetterNumber(A)+1));
+		}
+		InputLetter(L);
 	},
 	"Nigeria":Nigeria,
 	"ひらがな":function(L){
