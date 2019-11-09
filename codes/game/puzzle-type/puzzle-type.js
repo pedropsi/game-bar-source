@@ -99,6 +99,16 @@ LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
 //Keybinding
 function ObtainKeyActionsGame(){
 	return {
+		"0":InstructGameKeyF("0"),
+		"1":InstructGameKeyF("1"),
+		"2":InstructGameKeyF("2"),
+		"3":InstructGameKeyF("3"),
+		"4":InstructGameKeyF("4"),
+		"5":InstructGameKeyF("5"),
+		"6":InstructGameKeyF("6"),
+		"7":InstructGameKeyF("7"),
+		"8":InstructGameKeyF("8"),
+		"9":InstructGameKeyF("9"),
 		"A":InstructGameKeyF("A"),
 		"B":InstructGameKeyF("B"),
 		"C":InstructGameKeyF("C"),
@@ -177,7 +187,7 @@ function LevelAction(key){
 		return;
 	 }	
 	
-	if(key==="Enter"){
+	if(key==="Enter"||ForbidNumberActions(key)){
 		ForbidCaret();return;
 	}
 	else
@@ -215,6 +225,9 @@ function ForbidCaret(){
 	PulseSelect(".caret","forbidden",500);
 }
 
+function ForbidNumberActions(key){
+	return (!In(["Nokia 1998","Symmetric"],CurLevelName())&&In(NumberCharacters,key));
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -236,17 +249,18 @@ var LevelGoals=[	//Required types of thinking
 	"Follow",		//Positional,
 	"Superior",		//Alphabetical, Retroactive
 	"Oppose",		//Alphabetical, Mapping
+	"Vowels",	//Alphabetical, Cyclic, Posteroactive
 	"Symmetric",	//Spacial, Toggling
 	"Rise",			//Alphabetical, Adjacent
 	"Rotate",		//Positional, Spacial, Retroactive
 	"ひらがな",		//Syllabe, Language, Mapping
 	"Falls",		//Alphabetical, Retroactive, Adjacent
-	"Consonants",	//Alphabetical, Cyclic, Posteroactive
 	"Precedent",	//Alphabetical, Retroactive, Adjacent
 	"Dvorak",		//Language, Spacial, Mapping
 	"Entanglement",	//Alphabetical, Cyclic, Posteroactive    (tangles is shorter, but one loses the quantum link)
 	"Nigeria",		//Knowledge, Retroactive, Word, Spacial, Mapping
-	"Nucleus"		//Knowledge, Syllabe, Word, Language, Mapping, Retroactive
+	"Nucleus",		//Knowledge, Syllabe, Word, Language, Mapping, Retroactive
+	"Nokia 1998"	//Spacial, Mapping
 	];
 
 /*
@@ -283,7 +297,7 @@ var LevelActions={
 		InputLetter(M);
 	},
 	"Second":Second,
-	"Consonants":Vowels,
+	"Vowels":Vowels,
 	"Alternate":Alternate,
 	"Follow":function (L){
 		if(Letters.array.length>=1){
@@ -306,6 +320,27 @@ var LevelActions={
 		if(Letters.array.length>0&&LetterNumber(L)>=LetterNumber(Last(Letters.array)))
 			DeleteLetterAfter();
 		InputLetter(L);
+	},
+	"Nokia 1998":function Nokia(N){
+		if(!Nokia.last)
+			Nokia.last=[N,1];
+		
+		if(!NokiaMapping[N]){
+			ForbidCaret();
+			return;
+		}
+		else{
+			var keygroup=NokiaMapping[N];
+			if(Nokia.last[0]!==N||Nokia.last[1]>=keygroup.length){ //New Key
+				InputLetter(keygroup[0]);
+				Nokia.last=[N,1];
+			}
+			else {//Modify
+				DeleteLetterAfter();
+				InputLetter(keygroup[Nokia.last[1]]);
+				Nokia.last[1]=Nokia.last[1]+1;
+			}
+		}
 	},
 	"Rotate":function (L){
 		InputLetter(L);
@@ -371,8 +406,6 @@ function Nucleus(L){
 			Nucleus.partial=[];
 
 		var nulow=(Nucleus.partial.join("")+L).toLowerCase();
-
-		console.log(In(Nuclei,nulow),nulow);
 				
 		if(InPart(Nuclei,nulow)){
 			InputLetter(L+"*");	//VISUAL Feedback for temporary letters in lighter blue
@@ -479,12 +512,10 @@ function FlipArray(array){
 function Symmetric(O){	
 	if(HorizontalSymmetric(O)||InversionSymmetric(O)){
 		ModifyLetters(ToggleHorizontal);
-		console.log("hori:"+O);
 	}
 	
 	if(VerticalSymmetric(O)||InversionSymmetric(O)){
 		ModifyLetters(ToggleVertical);
-		console.log("vert:"+O);
 	}
 	
 	if(In("SYMMETRIC",O)){
@@ -526,16 +557,33 @@ function NormaliseSymmetry(W){
 }
 
 function HorizontalSymmetric(O){
-	return In(["A","H","I","M","O","T","U","V","W","X","Y"],PureLetter(O));
+	return In(["A","H","I","M","O","T","U","V","W","X","Y","0","8"],PureLetter(O));
 }
 
 function VerticalSymmetric(O){
-	return In(["B","C","D","E","H","I","K","O","X"],PureLetter(O));
+	return In(["B","C","D","E","H","I","K","O","X","0","3","8"],PureLetter(O));
 }
 
 function InversionSymmetric(O){
 	return In(["N","S","Z"],PureLetter(O));
 }
+
+//Nokia 1998
+
+var NokiaMapping={
+	"1":["1"],
+	"2":["A","B","C","2"],
+	"3":["D","E","F","3"],
+	"4":["G","H","I","4"],
+	"5":["J","K","L","5"],
+	"6":["M","N","O","6"],
+	"7":["P","Q","R","S","7"],
+	"8":["T","U","V","8"],
+	"9":["W","X","Y","Z","9"],
+	"0":[" ","0"]
+}
+
+var NumberCharacters=Object.keys(NokiaMapping);
 
 //Dvorak
 
@@ -567,6 +615,8 @@ var DvorakMapping={
 	"Y":"F",
 	"Z":"Q"
 }
+
+var LetterCharacters=Object.keys(DvorakMapping);
 
 var Countries=[
 "Iceland",
