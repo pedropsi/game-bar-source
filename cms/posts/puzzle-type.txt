@@ -24,6 +24,9 @@
 <p>Made with vanilla JS and CSS, including <a href="game-bar.html">«NAME»'s game bar</a>!</p>
 <p>Inspect the <a «BLANK» href='codes/game/puzzle-type.js'><b>source</b></a> freely, but consider <a «BLANK» href='«DONATE-LINK»'><b>supporting the «SITE-NAME»</b></a>!</p>
 
+<h3>Playtesting</h3>
+<p>Many thanks to «Minotalen» for useful, actionable suggestions and even new level ideas!</p>
+
 <h2>F.A.Q.</h2>
 
 <h3>Which other puzzle games inspired «TITLE-BOLD»?</h3>
