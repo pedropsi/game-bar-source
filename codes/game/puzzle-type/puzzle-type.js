@@ -3,25 +3,17 @@
 //All rights reserved
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-//Ideas to-do
+
 /*
-Add devil's calculator mention
-PUZZLES:
+// Level Ideas todo, maybe
 --positional caret
 --leetspeek
 --calculatorspeak
-X-Fliptext  / upside down text 
-X-Keyboard layout (dvorak)
-X-hiragana
 --disorder: a letter adds itself alphabeticall or reverse depending on last letter?
-X-nigeria;
-X-Periodic
---vinegar: chemical formula CH3COOH
 --#DEFACE
---Fur elise must write the first notes (letters give sharps and bemol
+--Fur elise must write the first notes (letters give sharps and bemol)
 --gogol (letters input numbers)
 --phonetic alphabet?
-)
 */
 
 function LoadGameHTML(){
@@ -1116,6 +1108,8 @@ function DrawCaret(){
 
 function LetterPureHTML(L,cla){
 	var cla=cla?(' '+cla):'';
+	if(L===" ")
+		cla=cla+' space';
 	return "<div class='letter"+cla+"'>"+L+"</div>"
 }
 

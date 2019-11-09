@@ -119,3 +119,7 @@
   color: var(--blue);
   border-bottom-color: var(--blue);
 }
+
+.space{
+   width: var(--w2);
+}
