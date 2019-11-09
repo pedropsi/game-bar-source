@@ -8,6 +8,7 @@
 // Level Ideas todo, maybe
 --positional caret
 --leetspeek
+--cyclical letters (vowels)
 --calculatorspeak
 --disorder: a letter adds itself alphabeticall or reverse depending on last letter?
 --#DEFACE
@@ -243,25 +244,24 @@ function InPart(arrayOrObj,n){
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
 var LevelGoals=[	//Required types of thinking
-	"Direct",
+	"Direct",		
 	"Reverse",		//Positional,
 	"Alternate",	//Positional,
-	"Second",		//Positional,
-	"Follow",		//Positional,
-	"Superior",		//Alphabetical, Retroactive
-	"Oppose",		//Alphabetical, Mapping
-	"Vowels",	//Alphabetical, Cyclic, Posteroactive
-	"Symmetric",	//Spacial, Toggling
-	"Rise",			//Alphabetical, Adjacent
+	"Second",		//Retroactive
+	"Follow",		//Positional,Retroactive
 	"Rotate",		//Positional, Spacial, Retroactive
-	"ひらがな",		//Syllabe, Language, Mapping
+	"Oppose",		//Mapping, Alphabetical
+	"Dvorak",		//Mapping, Spacial, Cyclic, Cultural
+	"Rise",			//Alphabetical, Adjacent
 	"Falls",		//Alphabetical, Retroactive, Adjacent
+	"Superior",		//Alphabetical, Retroactive
 	"Precedent",	//Alphabetical, Retroactive, Adjacent
-	"Dvorak",		//Language, Spacial, Mapping
-	"Entanglement",	//Alphabetical, Cyclic, Posteroactive    (tangles is shorter, but one loses the quantum link)
-	"Nigeria",		//Knowledge, Retroactive, Word, Spacial, Mapping
-	"Nucleus",		//Knowledge, Syllabe, Word, Language, Mapping, Retroactive
-	"Nokia 1998"	//Spacial, Mapping
+	"Tangles",		//Posteroactive, Alphabetical, Cyclic,
+	"Symmetric",	//Spacial, Toggling
+	"Nigeria",		//Knowledge, Word, Spacial, Mapping, Retroactive
+	"ひらがな",		//Syllabe, Language, Mapping
+	"Nokia 1998",	//Spacial, Mapping, Cultural
+	"Nucleus"		//Knowledge, Word, Syllabe, Language, Mapping, Retroactive
 	];
 
 /*
@@ -270,7 +270,6 @@ var LevelMinimals={
 	"Superior":12,
 	"Precedent":13,
 	"Symmetric":14,
-	"Entanglement":11,
 	"Nigeria":6,
 	"ひらがな":8,
 	"Nucleus":38
@@ -298,7 +297,6 @@ var LevelActions={
 		InputLetter(M);
 	},
 	"Second":Second,
-	"Vowels":Vowels,
 	"Alternate":Alternate,
 	"Follow":function (L){
 		if(Letters.array.length>=1){
@@ -364,7 +362,7 @@ var LevelActions={
 				P=DvorakMapping[P];
 		InputLetter(P);
 	},
-	"Entanglement":function (L){
+	"Tangles":function (L){
 		if(Letters.array.length<1){
 			InputLetter(L);
 		}
@@ -452,32 +450,6 @@ function Second(L){
 	InputLetter(L);
 }
 
-function Vowels(A){
-	if(!Vowels.n)
-		Vowels.n=0;
-	
-	var n=0;
-	switch(A){
-		case "A":n=n+0;break;
-		case "E":n=n+1;break;
-		case "I":n=n+2;break;
-		case "O":n=n+3;break;
-		case "U":n=n+4;break;
-		default:
-			InputLetter(A);
-			return;
-	}
-	
-	Vowels.n=(Vowels.n+n)%5+1;
-	
-	switch(Vowels.n){
-		case 1:InputLetter("A");break;
-		case 2:InputLetter("E");break;
-		case 3:InputLetter("I");break;
-		case 4:InputLetter("O");break;
-		case 5:InputLetter("U");break;
-	}
-}
 
 function Alternate(L){
 	if(!Alternate.n)
@@ -1292,7 +1264,6 @@ function SaveLevelState(){
 function LoadLevelState(levelstate){
 	Letters.array=Clone(levelstate['letters']);
 	Caret(levelstate['caret']);
-	Vowels.n=levelstate['Vowels'];
 	Second.n=levelstate['Second'];
 	Alternate.n=levelstate['Alternate'];
 	Nucleus.partial=levelstate['Nucleus'];
@@ -1308,7 +1279,6 @@ function LevelZeroState(){
 	var state={
 		'letters':[],
 		'caret':0,
-		'Vowels':0,
 		'Second':0,
 		'Alternate':0,
 		'Nucleus':[],
@@ -1321,7 +1291,6 @@ function LevelState(){
 	var state={
 		'letters':Clone(Letters()),
 		'caret':Caret()[0],
-		'Vowels':Vowels.n?Vowels.n:0,
 		'Second':Second.n?Second.n:0,
 		'Alternate':Alternate.n?Alternate.n:0,
 		'Nucleus':Nucleus.partial?Clone(Nucleus.partial):[],
