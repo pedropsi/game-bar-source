@@ -3271,5 +3271,21 @@ function SaveTest(F,argArray,result,testname){
 	Test[functionname][testname]={"function":F,"arguments":argArray,"expected":result};
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// Service workers
 
+function ServiceWorker(){
 
+if ('serviceWorker' in navigator) {
+  // Register a service worker hosted at the root of the
+  // site using a more restrictive scope.
+  navigator.serviceWorker.register('/cacher.js', {scope: './'}).then(function(registration) {
+    console.log('Service worker registration succeeded:', registration);
+  }, /*catch*/ function(error) {
+    console.log('Service worker registration failed:', error);
+  });
+} else {
+  console.log('Service workers are not supported.');
+}
+
+};

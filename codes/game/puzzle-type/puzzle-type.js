@@ -81,6 +81,8 @@ function StartGame(){
 	ObtainTitleScreenLoader();
 };
 
+LoadAsync("cacher",".");
+ServiceWorker();
 LoadGameHTML();
 LoadStyle(pageRoot()+"codes/game/game.css");
 LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
