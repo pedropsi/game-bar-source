@@ -74,7 +74,7 @@ var gameModules=[
 
 gameModules.map(LoaderInFolder("codes/game/modules"));
 
-function P(){
+function StartGame(){
 	PrepareGame();
 	ResumeCapturingKeys(CaptureComboKey);
 	LoadGame();
@@ -84,7 +84,7 @@ function P(){
 LoadGameHTML();
 LoadStyle(pageRoot()+"codes/game/game.css");
 LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
-//DelayUntil(function(){return (typeof PrepareGame!=="undefined")},P);
+DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
 
 
 ///////////////////////////////////////////////////////////////////////////////

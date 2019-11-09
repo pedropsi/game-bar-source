@@ -44,7 +44,7 @@ HTML-PREFIX	<html lang="«LANG»" xml:lang="«LANG»" prefix="og: http://ogp.me/ns#"
 LANG	en
 
 HEAD	<head>«HEAD-ITEMS»</head>
-HEAD-ITEMS	«HEAD-VIEWPORT»«HEAD-THEME»«HEAD-STYLE-ICONS»«HEAD-DATA-GRAPH»«PWA-MANIFEST»
+HEAD-ITEMS	«HEAD-VIEWPORT»«HEAD-THEME»«HEAD-STYLE-ICONS»«HEAD-DATA-GRAPH»«MANIFEST»
 HEAD-VIEWPORT	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 HEAD-STYLE-ICONS	<link href="«FAVICON32»" rel="icon" type="image/png"/><link href="«FAVICON32»" rel="shortcut icon" type="image/x-icon"/><link href="«APPLEICON»" rel="apple-touch-icon"/>«CSS-REL»
 HEAD-THEME	<meta name="theme-color" content="«THEMECOLOUR»">
