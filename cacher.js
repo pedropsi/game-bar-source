@@ -1,4 +1,4 @@
-var CACHE_VERSION=7;
+var CACHE_VERSION=8;
 var CURRENT_CACHES={
 	main:'PSI-cache-v'+CACHE_VERSION
 };
@@ -36,9 +36,12 @@ var preCacheFiles=[
 	"codes/game/puzzlescript/"+"tetrastrophe"+".js",
 	"codes/game/puzzlescript/"+"tiaradventur"+".js",
 	"codes/game/puzzlescript/"+"whirlpuzzle"+".js",
+
+	"codes/game/puzzle-type/"+"puzzle-type"+".js",
+	"codes/game/puzzle-type/"+"puzzle-type"+".css",
 	
-	"codes/game/modules/globalVariables",
-	"codes/game/modules/debug_off",
+	"codes/game/modules/globalVariables,js",
+	"codes/game/modules/debug_off,js",
 	"codes/game/modules/font.js",
 	"codes/game/modules/rng.js",
 	"codes/game/modules/riffwave.js",
