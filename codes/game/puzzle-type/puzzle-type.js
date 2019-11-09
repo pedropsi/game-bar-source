@@ -65,6 +65,8 @@ var ObtainLevelLoader=LevelLoader;
 
 function ResizeCanvas(){return ;}
 
+var ObtainReadMove=Identity;
+
 
 var gameModules=[
 "data-game-colours",
@@ -184,9 +186,10 @@ function LevelAction(key){
 	if(key==="Enter"||ForbidNumberActions(key)){
 		ForbidCaret();return;
 	}
-	else
+	else{
 		LevelActions[CurLevelName()](key);
-	
+		RegisterMove(key);
+	}
 	UpdateLevel();
 	CheckWin();	
 }
