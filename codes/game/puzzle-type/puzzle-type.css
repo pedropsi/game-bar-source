@@ -19,6 +19,11 @@
 }
 .top .credits{
    font-size:var(--w4);
+   margin-top: var(--w4);
+}
+.top .title{
+   margin-bottom: var(--w2);
+   margin-bottom: var(--w2);
 }
 
 .rotate90 .title{
@@ -39,7 +44,6 @@
    height: 100%;
 }
 
-
 .middle{
     height: 75%;
     width: 100%;
@@ -50,6 +54,13 @@
     background-color: var(--lightyellow);
     filter: brightness(1.2);
    flex-wrap:wrap;
+}
+
+.rotate90 .middle{
+   height: auto;
+   margin-top: auto;
+   padding-top: var(--w4);
+   padding-bottom: var(--w4);
 }
 
 .letters{
@@ -70,6 +81,14 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
+}
+
+
+@media only screen and (min-width: 600px) {
+     .letter{
+        font-size: 48px;
+        height: 64px;
+     }
 }
 
 .letter.caret{
