@@ -162,7 +162,7 @@ function UpdateHintData(lvl,hintN){
 		"type":"hint",
 		"level":lvl,
 		"timing":LevelTime(),
-		"moves":hintN,
+		"moves":hintN
 	});
 }
 
@@ -171,6 +171,6 @@ function UpdateSelectData(lvlch,type){
 	return FuseObjects(LevelData(),{
 		"type":"goto-"+type,
 		"level":(type==="checkpoint")?CheckpointString(curlevel,lvlch):lvlch,
-		"timing":LevelTime(),
+		"timing":LevelTime()
 	});
 }
