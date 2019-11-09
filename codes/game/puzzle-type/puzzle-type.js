@@ -42,31 +42,35 @@ function LoadGameHTML(){
 //<div class='latters'>Start game</div>\
 
 ///////////////////////////////////////////////////////////////////////////////
-// Load the game bar & options
+// Game module hooks
 
-//PS links
+//Colour
 function ObtainBGColor(){return window.getComputedStyle(document.body)["background-color"];}
 function ObtainFGColor(){return window.getComputedStyle(document.body)["color"];}
 
+//Restart and Undo
 function ObtainRestartAllowed(){return true;}
 function ObtainUndoAllowed(){return true;}
-function ObtainUndo(){Undo();}
-function ObtainRestart(){Restart();}
+var ObtainUndo=Undo;
+var ObtainRestart=Restart;
 
-function ObtainNewGameCondition(){return SolvedLevelScreens().length<1};
-
-function ObtainStateScreens(){return LevelGoals;}
-
-function ObtainLevelTitle(l){
-	return LevelGoals[l-1];
-}
-
-var ObtainLevelLoader=LevelLoader;
-
-function ResizeCanvas(){return ;}
-
+//Echo moves
+function ObtainIsUndoMove(move){return false;}
+function ObtainIsRestartMove(move){return false;}
 var ObtainReadMove=Identity;
 
+//Level navigation
+function ObtainNewGameCondition(){return SolvedLevelScreens().length<1};
+function ObtainStateScreens(){return LevelGoals;}
+function ObtainLevelTitle(l){return LevelGoals[l-1];}
+var ObtainLevelLoader=LevelLoader;
+
+//Resize canvas
+function ResizeCanvas(){return ;}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Load the game bar & prepare game
 
 var gameModules=[
 "data-game-colours",

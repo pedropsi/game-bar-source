@@ -94,28 +94,14 @@ function RegisterMove(move){
 	if(!RegisterMove.winseq)
 		RegisterMove.winseq=[];
 	
-	switch(move){
-		case "R":RegisterMove.winseq=[];break;//Restart
-		case "Z":RegisterMove.winseq.pop();break;//Z
-		//case "Q":RegisterMove.winseq=["Q"];break;//Q
-		default:RegisterMove.winseq.push([move,delta]);break
-	}
+	if(ObtainIsUndoMove(move))
+		RegisterMove.winseq.pop();
+	else if(ObtainIsRestartMove(move))
+		RegisterMove.winseq=[];
+	else
+		RegisterMove.winseq.push([move,delta]);
 }
 
-if(typeof ObtainReadMove==="undefined")
-	function ObtainReadMove(move){
-		switch (move) {
-			case 27:return "Q";break;
-			case 37:return "A";break;
-			case 38:return "W";break;
-			case 39:return "D";break;
-			case 40:return "S";break;
-			case 82:return "R";break;
-			case 88:return "X";break;
-			case 85:return "Z";break;
-			default: return move;break;
-		}
-	};
 
 //Timing
 function DeltaTime(){

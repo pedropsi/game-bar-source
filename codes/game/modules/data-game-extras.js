@@ -51,6 +51,28 @@ if(typeof ObtainLevelTitle==="undefined")
 		return "Access level "+LevelNumberFromTotal(lvl);
 	}
 
+//Read move defaults
+if(typeof ObtainIsUndoMove==="undefined")
+	function ObtainIsUndoMove(move){return move==="Z"}
+
+if(typeof ObtainIsRestartMove==="undefined")
+	function ObtainIsRestartMove(move){return move==="R"}
+
+if(typeof ObtainReadMove==="undefined")
+	function ObtainReadMove(move){
+		switch (move) {
+			case 27:return "Q";break;
+			case 37:return "A";break;
+			case 38:return "W";break;
+			case 39:return "D";break;
+			case 40:return "S";break;
+			case 82:return "R";break;
+			case 88:return "X";break;
+			case 85:return "Z";break;
+			default: return move;break;
+		}
+	};
+
 ////////////////////////////////////////////////////////////////////////////////
 //Good defaults
 
