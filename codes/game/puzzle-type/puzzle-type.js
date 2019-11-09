@@ -249,6 +249,7 @@ var LevelGoals=[	//Required types of thinking
 	"Nucleus"		//Knowledge, Syllabe, Word, Language, Mapping, Retroactive
 	];
 
+/*
 var LevelMinimals={
 	"Second":12,
 	"Superior":12,
@@ -266,7 +267,7 @@ function ObtainLevelMinimalScore(lvl){
 		return LevelMinimals[n];
 	else
 		return n.length;
-}
+}*/
 
 var LevelActions={
 	"Direct":Direct,
@@ -1201,11 +1202,7 @@ function CurLevelName(){return LevelGoals[CurrentScreen()]};//placeholder
 
 
 function CheckWin(){
-	
-	if(CurLevelName()==="3|_1735|>34|<")
-		var win="ELITESPEAK"===Letters().join("").toUpperCase();
-	else
-		var win=CurLevelName().toUpperCase()===Letters().join("").toUpperCase();
+	var win=CurLevelName().toUpperCase()===Letters().join("").toUpperCase();
 	
 	if(win){
 		PlaySound("media/puzzle-type/sound/win"+RandomChoice("123")+".mp3");
@@ -1283,3 +1280,67 @@ function LevelState(){
 function Restart(){
 	LoadLevelState(LevelZeroState());
 }
+
+
+
+/*Level scores
+
+if(typeof ObtainLevelMinimalScore==="undefined")
+	var ObtainLevelMinimalScore=function(){return null};
+
+function LevelPerfectlySolved(n){
+	if(!LevelSolved(n))
+		return false;
+	
+	var minimal=ObtainLevelMinimalScore(n);
+	if(minimal===null)
+		return false;
+	
+	var best=LevelScore(n);
+	if(best<minimal)
+		EchoMinimal(n,best);
+	
+	return best<=minimal;
+}
+
+function LevelScore(n,m){
+	if(!LevelScore.scores)
+		LevelScore.scores=LevelScreens().map(function(x){return false});
+	if(typeof n==="undefined")
+		return LevelScore.scores;
+	if(typeof m!=="number")
+		return LevelScore.scores[n-1];
+	else{
+		if(LevelScore.scores[n-1]===false)
+			return LevelScore.scores[n-1]=m;
+		else
+			return LevelScore.scores[n-1]=Math.min(LevelScore.scores[n-1],m);
+	}
+}
+
+
+function ObtainMoveCount(){
+	return RegisterMove.winseq.length;
+}
+
+
+function AddMoveCount(n){
+	var lvl=CurLevelNumber();
+	if(typeof n==="undefined")
+		var n=1;
+	if(typeof MoveCount[lvl]==="undefined")
+		MoveCount[lvl]=Math.max(0,n);
+	return MoveCount[lvl]=Math.max(0,MoveCount[lvl]+n);
+}
+
+function RestartMoveCount(){
+	console.log("res");
+	return AddMoveCount(-9999999999);
+}
+
+function UndoMoveCount(){
+	console.log("un");
+	return AddMoveCount(-1);
+}
+*/
+
