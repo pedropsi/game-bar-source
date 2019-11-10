@@ -1177,3 +1177,20 @@ kbd {
 .hidden{
     display: none;
 }
+
+.label{
+    position:relative;
+    top: calc(-1 * var(--h-2));
+    font-size: 65%;
+    border-left: var(--h1) solid var(--blue);
+    background-color: var(--smokewhite);
+    color: var(--blue);
+    margin-left: var(--h-2);
+    padding: var(--h-4) var(--w1) var(--h-4) var(--w1);
+    font-weight: bold;
+    word-break: normal;
+}
+.label.Partly{
+    color: var(--lightblue);
+    border-color: var(--lightblue);
+}
