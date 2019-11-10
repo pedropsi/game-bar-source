@@ -428,7 +428,10 @@ function White(L){
 	InputLetter(L+"*");
 	
 	if(Letters.array.length===7){
-		if(PureLetter(First(Letters.array))!=="#"){
+		var letters=PureLetter(Letters.array.join(""));
+		var f=First(letters);
+		var r=Rest(letters);
+		if(f!=="#"||r.replace("#","").length!==r.length){
 			Restart();
 			return;
 		}
