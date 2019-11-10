@@ -3,7 +3,7 @@
 
 <h2>Criteria</h2>
 <p>The list focusses on games released within the years <em>2014-2019</em>, yet many during this period were overlooked. As long as they match the <b>criteria</b> below, suggestions are «CONTACT-TEXT-5». </p>
-<p>Please be aware that there's a separate list for <a href="games.html">«NAME»'s games</a>.</p>
+<p>Please be aware that there's a separate list for «A-GAMES», as well as games where «NAME» collaborated (e.g. «GOPHERS») or was indirectly involved (e.g. «ENIGMASH»).</p>
 
 <h3>Inclusion criteria:</h3>
 <p>To be included, a game must score very highly in at least one of these <b>inclusion criteria</b>:</p>
@@ -24,6 +24,6 @@
 	<li><b>Optimism:</b> no negative feelings, at the end of the game;</li>
 </ul>
 
-<p><b>NB:</b> To add a <em>level selector</em> and <em>fullscreen</em> option to any of these games on the fly, just use the <a href="game-bar.html#Bookmarklet">puzzlescript game bar bookmarklet</a>!</p>
+<p><b>NB:</b> To add a <em>level selector</em> and <em>fullscreen</em> option to any of these games on the fly, just use the «A-BOOKMARKLET»!</p>
 
 «GAME-LIST»

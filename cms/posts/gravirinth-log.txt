@@ -1,4 +1,4 @@
-﻿<p>This is <a href="gravirinth.html"><b>Gravirinth</b>'s</a> devlog.</p>
+﻿<p>This is «A-GRAVIRINTH» devlog.</p>
 
 <h2>21-06-2019</h2>
 <h3>Gravirinh giveaway!</h3>
@@ -49,7 +49,7 @@
 
 <h2>14-02-2019</h2>
 <h3>Landing page with teaser video</h3>
-<p>Gravirinth's <a href="gravirinth.html">landing page</a> improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's <a href="#gravirinth-logo">animated logo</a>, still downloadable alongside screenshots.</p>
+<p>«A-GRAVIRINTH»'s landing page improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's <a href="#gravirinth-logo">animated logo</a>, still downloadable alongside screenshots.</p>
 
 <h2>07-02-2019</h2>
 <h3>Physics tweaks</h3>
@@ -78,7 +78,7 @@
 
 <h2>13-01-2019</h2>
 	<h3>Exit or keep exploring?</h3>
-	<p>Upon completing the main puzzle, Xeno now has the option to continue exploring the <a href="gravirinth.html"><b>Gravirinth</b></a> and access overlooked areas (to perhaps collect some extra elusive <em>fourfold orbs</em>), or to be rescued anytime - terminating the game and entering the «HOF». This option is likely to be cherished by <b>completionists</b> and <b>explorers</b> alike.</p>
+	<p>Upon completing the main puzzle, Xeno now has the option to continue exploring the «A-GRAVIRINTH» and access overlooked areas (to perhaps collect some extra elusive <em>fourfold orbs</em>), or to be rescued anytime - terminating the game and entering the «HOF». This option is likely to be cherished by <b>completionists</b> and <b>explorers</b> alike.</p>
 
 <h2>11-01-2019</h2>
 	<h3>Sound effects</h3>
@@ -95,7 +95,7 @@
 	
 <h2>07-01-2019</h2>
 	<h3>Music</h3>
-		<p>«STELLARDRONE»'s music has been picked to enter <a href="gravirinth.html"><b>Gravirinth</b></a>'s soundtrack.</p>
+		<p>«STELLARDRONE»'s music has been picked to enter «A-GRAVIRINTH»'s soundtrack.</p>
 
 <h2>04-01-2019</h2>
 	<p>Happy new year and thanks to all <b>beta-testers</b> for an extra round of wonderful ideas and important suggestions, which motivated the following improvements:</p>

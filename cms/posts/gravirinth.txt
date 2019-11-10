@@ -115,8 +115,8 @@
 
 <h3>What inspired «TITLE-BOLD»?</h3>
 <p>The exoarcheology theme was inspired by Michio Kaku's <em>Future of Mankind</em>.</p>
-<p>The game mechanic emerged naturally, drawing elements from <a href="pmgrp.html">Play Mini Gemini Replay</a> (basic platform mechanics),  <a href="whirlpuzzle.html">Whirpuzzle</a> (idea of rotation and space theme) and <a href="tiaradventur.html">Tiaradventur</a> (inventory, narrative system, management of a large word map), whose source codes are openly available.</p>
-<p>Specific gravity is also a central theme of the game <a href="https://manifold.garden/" «BLANK»>Manifold Garden</a>.</p>
+<p>The game mechanic emerged naturally, drawing elements from «A-PMGRP» (basic platform mechanics), «A-WHIRLPUZZLE» (idea of rotation and space theme) and «A-TIARADVENTUR» (inventory, narrative system, management of a large word map), whose source codes are openly available.</p>
+<p>Specific gravity is also a central theme of the game «MANIFOLD-GARDEN».</p>
 
 <h3>How is «TITLE-BOLD» ambitious from a coding point of view?</h3>
 <p>The features below make a great game experience and are a puzzlescript coding challenge:</p>

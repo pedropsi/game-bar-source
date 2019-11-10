@@ -9,7 +9,7 @@
 «GAME-EXTRAS-TEXT»
 
 <h2>Credits</h2>
-<p><a href="«SITE»/«LINK».html">«TITLE»</a> by <a href="«SITE»">«NAME»</a>, «YEAR».</p>
+«CREDITS-AUTHORSHIP»
 
 <h3>Abstract Artworks</h3>
 <p>All abstract artworks, listed chronologically below, are in the public domain (see Wikiart page link).</p>

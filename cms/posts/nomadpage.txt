@@ -26,6 +26,6 @@
 <h3>Why did «NAME» create «TITLE-BOLD»?</h3>
 <p>«NAME» wanted to read news in different languages in different days, for practice. No similar extension was found, thus «TITLE-BOLD» was born.</p>
 <h3>How long did it take to make «TITLE-BOLD»?</h3>
-<p>Altogether, including writing this answer, about 9 hours. Thanks to <b>Material Design</b> for the <a href="https://material.io/tools/icons/" «BLANK»>solid icons</a>.</p>
+<p>Altogether, including writing this answer, about 9 hours. Thanks to «MATERIAL-ICONS».</p>
 <h3>Is this «NAME»'s first extension?</h3>
 <p>Yes.</p>

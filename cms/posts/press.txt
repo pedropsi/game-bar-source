@@ -21,11 +21,11 @@
 
 <h2 id="history">History</h2>
 	<h3>Phase I</h3>
-	<p>Many years elapsed since «NAME»'s first hit, the mini puzzle <a href="unlucky-unlock.html">Unlucky Unlock</a>, and the birth of the «SITE-NAME», just before 2018. Fast-forward a year, and five intriguing puzzles (<a href="whirlpuzzle.html">whirlpuzzle</a>, <a href="pmgrp.html">pmgrp</a>, <a href="hastefulll.html">hastefulll</a>, <a href="tiaradventur.html">tiaradventur</a>, <a href="abxtract-tractx.html">abxtract-tractx</a>), came into being, each a stepping stone for the next project.</p>
-	<p>«NAME»'s game-making adventure reaches a major milestone in 2019: «NAME»'s first and probably puzzlescript's first fully commercial game. Enter the <a href="gravirinth.html">Gravirinth</a> - a mysteriously puzzling exoarcheology expedition (now available for free).</p>
+	<p>Many years elapsed since «NAME»'s first hit, the mini puzzle «A-UNLUCKY-UNLOCK», and the birth of the «SITE-NAME», just before 2018. Fast-forward a year, and five intriguing puzzles («A-WHIRLPUZZLE», «A-PMGRP», «A-HASTEFULLL», «A-TIARADVENTUR», «A-ABXTRACT-TRACTX»), came into being, each a stepping stone for the next project.</p>
+	<p>«NAME»'s game-making adventure reaches a major milestone in 2019: «NAME»'s first and probably puzzlescript's first fully commercial game. Enter the «A-GRAVIRINTH» - a mysteriously puzzling exoarcheology expedition (now available for free).</p>
 	<h3>Phase II</h3>
-	<p> As <a href="2019-04-14-a-game-making-journey.html">a game-making cycle</a> came to a close, «NAME»'s goals widened. Mastering puzzle-making became secondary to helping the <a href="2019-01-31-selected-puzzlescript-games.html">puzzle-making community</a> by providing useful tools and <a href="11-lessons-from-11-games.html">advice</a>. Thus was born <a href="platformer-template.html">Platformer template</a>, tripling as a game, game-design tutorial and testing ground for... the <a href="game-bar.html">puzzlescript game bar!</a>
-	<p>The <b>puzzlescript game bar</b> emerged as a collaborative open-source effort to provide puzzlescript <em>developers</em> and <em>players</em> with a better experience, including useful new features such as a level selector, background music manager and a hint system. This being the current focus, interspersing  <b>game bar</b> upgrades with short occasional hits like <a href="burokku-konekuta.html">Burokku Konekuta</a> may nevertheless prove irresistible...</p>
+	<p> As <a href="2019-04-14-a-game-making-journey.html">a game-making cycle</a> came to a close, «NAME»'s goals widened. Mastering puzzle-making became secondary to helping the <a href="2019-01-31-selected-puzzlescript-games.html">puzzle-making community</a> by providing useful tools and <a href="11-lessons-from-11-games.html">advice</a>. Thus was born «A-PLATFORMER-TEMPLATE», tripling as a game, game-design tutorial and testing ground for... the «A-GAME-BAR»!
+	<p>The «A-GAME-BAR» emerged as a collaborative open-source effort to provide puzzlescript <em>developers</em> and <em>players</em> with a better experience, including useful new features such as a level selector, background music manager and a hint system. This being the current focus, interspersing  <b>game bar</b> upgrades with short occasional hits like «A-BUROKKU-KONEKUTA» may nevertheless prove irresistible...</p>
 		
 <h2 id="projects" >Projects</h2>
 	«SNIPPET|«SELECTION»»
@@ -40,8 +40,8 @@
 	<div class="featured">«PICTURE-GALLERY|«SELECTION»»</div>
 	
 <h3 id="logo">Logo</h3>
-	<div class="figure"><img src="«LOGOPATH»" alt="«NAME»'s logo, of the «SITE-NAME»" title="«NAME»'s octaflower logo, of the «SITE-NAME»"/><div class="legend">«SITE-NAME»'s logo, by «NAME».</div></div>	
+	<div class="figure"><img src="«LOGOPATH»" alt="«NAME»'s logo, of the «SITE-NAME»" title="«NAME»'s octaflower logo, of the «SITE-NAME»" width="256" height="256"/><div class="legend">«SITE-NAME»'s logo, by «NAME».</div></div>	
 
 <h2 id="contact">Contact</h2>
 	<h3>Inquiries</h3>
-	<p>Contact form: <a href="https://pedropsi.github.io/contact" >pedropsi.github.io/contact</a></p>
+	<p>Please «A-CONTACT».</p>

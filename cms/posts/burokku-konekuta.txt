@@ -35,6 +35,6 @@
 
 <h2>Changelog</h2>
 <h3>07/2019</h3>
-<p>«TITLE-BOLD» was published, using <a href="platformer-template.html">platformer-template</a> as a starting point.</p>
+<p>«TITLE-BOLD» was published, using «A-PLATFORMER-TEMPLATE» as a starting point.</p>
 
 «PRESS-TEXT»

@@ -1,6 +1,6 @@
 ﻿<h2>About the «TITLE-BOLD»</h2>
 
-<p>This is the "game bar" found in all «NAME»'s <a href="games.html">puzzlescript games</a>. It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
+<p>This is the "game bar" found in all «A-GAMES». It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
 
 <p>This is how the «TITLE-BOLD» looks like:</p>
 «FIGURE-SIMPLE»
@@ -36,7 +36,7 @@
 </ol>
 </p>
 
-<p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the <a href="platformer-template.html">platformer template</a> game page.</p>
+<p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the «A-PLATFORMER-TEMPLATE» game page.</p>
 
 <h3>Adding hint images</h3>
 <p>To add hint images to one game:
@@ -75,13 +75,13 @@
 <p>Here are some games that use he «TITLE-BOLD»:</p>
 <ul>
 <li>«MINOTALEN»'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
-<li>All «NAME»'s <a href="games.html">games</a>.</li>
+<li>All «A-GAMES».</li>
 <li>«GAHR»'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
 <li>«CUBESTUDIO»'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
-<li>Thinky Collective's <a href="https://what-gophers-go-for.github.io/">What gophers go for</a></li>
+<li>«GOPHERS»</li>
 </ul>
 
-<p>Check also the <em>game bar testing links</em> available for some games in the <a href="puzzlescript-games-database.html">puzzlescript games database</a>!</p>
+<p>Check also the <em>game bar testing links</em> available for some games in the «A-PS-DATABASE»!</p>
 
 <p>Would you like to add your game to the list? Please «CONTACT-TEXT-3»!</p>
 
@@ -156,7 +156,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 </li>
 </ul>
 
-<p>Notable alternatives to the «TITLE-BOLD» include Puzzlescript's default mobile menu (undo/reset and music buttons), «HAZELDEN» <a href="https://groups.google.com/forum/#!topic/puzzlescript/uydhXEf8j0E">level selector</a>, «ZUBOVICs» <a href="https://dario-zubovic.github.io/PuzzleScript/editor.html">Puzzlescript Fork</a>, which includes a level selector and variable sprite size.</p>
+<p>Notable alternatives to the «TITLE-BOLD» are listed under «A-GAME-TOOLS».</p>
 
 <h3>Can you use «TITLE-BOLD» for free?</h3>
 <p>Yes, it's under a «LICENSE-MIT» license.</p>
@@ -165,9 +165,9 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any buttons that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
 
 <h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
-<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href="https://github.com/pedropsi/game-bar-source/issues">actually need it</a>.</p>
+<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you «A-GB-ISSUES».</p>
 
 <h3>Does the «TITLE-BOLD» hint system handle checkpoints?</h3>
-<p>No, sorry! But if this would make a difference, <a href="https://github.com/pedropsi/game-bar-source/issues">please let us know</a>.</p>
+<p>No, sorry! But if this would make a difference, please «A-GB-ISSUES».</p>
 
 «FEEDBACK»

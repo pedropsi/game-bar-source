@@ -406,8 +406,8 @@ RSS-SITE-DESCRIPTION	Don't miss out on novelties from The «SITE-NAME»!
 RSS-SVG	<svg viewBox="0 0 98.918 100" xml:space="preserve"><ellipse cx="13.566" cy="86.286" rx="13.566" ry="13.714"/><path d="M65.569,100H46.35c0-25.879-20.752-46.858-46.35-46.858l0,0V33.715C36.214,33.715,65.569,63.391,65.569,100z"/><path d="M79.135,100c0-44.183-35.429-80-79.135-80V0c54.631,0,98.918,44.772,98.918,100H79.135z"/></svg>
 RSS-TAGS	<category>«TAGS»</category>
 
-RSS	«VERSION-XML»<rss «VERSION-ATOM»>«RSS-CHANNEL»</rss>
-VERSION-XML	<?xml version="1.0" encoding="UTF-8"?>
+RSS	«XML»<rss «VERSION-ATOM»>«RSS-CHANNEL»</rss>
+XML	<?xml version="1.0" encoding="UTF-8"?>
 VERSION-ATOM	version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
 
 RSS-CHANNEL	<channel>«RSS-CHANNEL-HEAD»«RSS-CHANNEL-IMAGE»«RSS-CHANNEL-BODY»</channel>

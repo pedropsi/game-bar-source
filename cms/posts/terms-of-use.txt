@@ -5,8 +5,8 @@
 <p>A large portion of the content is shared under the license «LICENSE-CC-BY-NC-SA-4.0». This applies at least to:</p>
 <ul>
 	<li>«SITE-NAME» source code files, when therein stated</li>
-	<li><b><a href="tag-game.html">Game</a></b> source codes, when therein stated</li>
-	<li>All <b><a href="tag-mosaic.html">mosaics</a></b> in the «SITE-NAME», unless otherwise stated</li>
+	<li>«A-GAMES» source codes, when therein stated</li>
+	<li>All «A-MOSAICS», unless otherwise stated</li>
 </ul>
 <p>In practice, this means that you can use and modify this content freely for non-commercial purposes as long as you provide credit and keep the same license on derivative works. «I»'d appreciate that you'd «CONTACT-TEXT-3»!</p>
 

@@ -31,15 +31,15 @@
 
 <h2>21/09/2019</h2>
 <h3>Skilleblokker</h3>
-<p><a href='skilleblokker.html' target='_blank'>Skilleblokker</a> spillet utgitt!</p>
+<p>«A-SKILLEBLOKKER» spillet utgitt!</p>
 
 <h2>19/09/2019</h2>
 <h3>Bookmarklet</h3>
-<p>The game bar now can be applied to any online puzzlescript game by means of a <a href="game-bar.html#Bookmarklet">Bookmarklet</a>, a suggestion by «MINOTALEN».</p>
+<p>The game bar now can be applied to any online puzzlescript game by means of a «A-BOOKMARKLET», a suggestion by «MINOTALEN».</p>
 
 <h2>11/09/2019</h2>
 <h3>Hints system</h3>
-<p>The game bar now includes support for Hints, a suggestion by «MINOTALEN». Hints were added to <a href="platformer-template.html#hints">Platformer Template</a>.</p>
+<p>The game bar now includes support for Hints, a suggestion by «MINOTALEN». Hints were added to «A-PLATFORMER-TEMPLATE».</p>
 
 <h2>07/09/2019</h2>
 <h3>Keyboard Keys styling</h3>
@@ -67,10 +67,10 @@
 
 <h2>12/07/2019</h2>
 <h3>Burokku Konekuta</h3>
-<p><a href="burokku-konekuta.html">Burokku Konekuta</a> がリリースされました!</p>
+<p>«A-BUROKKU-KONEKUTA» がリリースされました!</p>
 
 <h2>19/05/2019</h2>
 <h3>Platformer-template</h3>
-<p><a href="platformer-template.html">Platformer Template</a> matures into its final version.</p>
+<p>«A-PLATFORMER-TEMPLATE» matures into its final version.</p>
 
 «GUESTBOOK-POST-TEXT»«GUESTBOOK-ADD»
