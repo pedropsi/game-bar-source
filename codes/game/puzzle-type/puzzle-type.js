@@ -228,7 +228,7 @@ function ForbidCaret(){
 }
 
 function ForbidNumberActions(key){
-	return (!In(["Nokia 1998","Symmetric"],CurLevelName())&&In(NumberCharacters,key));
+	return (!In(["Nokia 1998","Symmetric","White"],CurLevelName())&&In(NumberCharacters,key));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -261,6 +261,7 @@ var LevelGoals=[	//Required types of thinking
 	"Nigeria",		//Knowledge, Word, Spacial, Mapping, Retroactive
 	"ひらがな",		//Syllabe, Language, Mapping
 	"Nokia 1998",	//Spacial, Mapping, Cultural
+	"White",		//Knowledge, Language, Retroactive
 	"Nucleus"		//Knowledge, Word, Syllabe, Language, Mapping, Retroactive
 	];
 
@@ -379,7 +380,8 @@ var LevelActions={
 		Letters.array=StringReplaceRulesObject(Letters.array.join("").toLowerCase(),Hiragana).toUpperCase().split("");
 		PlaceEndCaret();
 	},
-	"Nucleus": Nucleus
+	"White":White,
+	"Nucleus":Nucleus
 }
 
 function Nigeria(L){
@@ -423,6 +425,44 @@ function Nucleus(L){
 	PlaceEndCaret();
 }
 
+function White(L){
+	function Restart(){
+		White.colour=false;
+		ForbidCaret();
+		ClearLetters();
+	}
+	
+	if(!White.colour)
+		White.colour=false;
+	else{
+		Restart();
+		return;
+	}
+	
+	if(!In(Hexadecimal,L))
+		L="#";
+	
+	InputLetter(L+"*");
+	
+	if(Letters.array.length===7){
+		if(PureLetter(First(Letters.array))!=="#"){
+			Restart();
+			return;
+		}
+		else{
+			var hex=PureLetter(Letters.array.join(""));
+			var colour=NamedColour(hex);
+			Letters.array=colour.toUpperCase().split("");
+			
+			AddSingleElement("<style class='overcolour'>.letter{color:"+hex+";border-bottom-color:"+hex+"} .letter.caret{background-color:"+hex+"}</style>",'BODY','.overcolour');
+			setTimeout(function(){RemoveElement(".overcolour");},1000);
+
+			White.colour=true;
+			return;
+		}
+	}
+	PlaceEndCaret();
+}
 
 function DeleteLetters(n,beginning){
 	var i=1;
@@ -557,6 +597,8 @@ var NokiaMapping={
 }
 
 var NumberCharacters=Object.keys(NokiaMapping);
+
+var Hexadecimal=["A","B","C","D","E","F"].concat(NumberCharacters);
 
 //Dvorak
 
@@ -1027,6 +1069,7 @@ var Nuclei={
 'zirconium':'zr'
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////
 //Manage letters and carets
 
@@ -1112,6 +1155,7 @@ var LetterDisplay={
 			return LetterPureHTML(L);
 	},
 	"Nucleus":LetterDraftHTML,
+	"White":LetterDraftHTML,
 	"Nigeria":LetterDraftHTML
 }
 
@@ -1268,6 +1312,7 @@ function LoadLevelState(levelstate){
 	Alternate.n=levelstate['Alternate'];
 	Nucleus.partial=levelstate['Nucleus'];
 	Nigeria.freeze=levelstate['Nigeria'];
+	White.colour=levelstate['Nigeria'];
 	UpdateLevelSecretly();
 }
 
@@ -1282,7 +1327,8 @@ function LevelZeroState(){
 		'Second':0,
 		'Alternate':0,
 		'Nucleus':[],
-		'Nigeria':false
+		'Nigeria':false,
+		'White':false
 	};
 	return state;
 }
@@ -1294,7 +1340,8 @@ function LevelState(){
 		'Second':Second.n?Second.n:0,
 		'Alternate':Alternate.n?Alternate.n:0,
 		'Nucleus':Nucleus.partial?Clone(Nucleus.partial):[],
-		'Nigeria':Nigeria.freeze?Nigeria.freeze:false
+		'Nigeria':Nigeria.freeze?Nigeria.freeze:false,
+		'White':White.colour?White.colour:false
 	};
 	return state;
 }
