@@ -14,7 +14,7 @@
 <h3> What is a puzzlescript id?</h3>
 <p>It's the long identifier after «[»puzzlescript.net/play.html?p=«]» or after «[»puzzlescript.net/editor.html?hack=«]».</p>
 
-<h3> Why is this game bar slighly different from the published version?</h3>
+<h3> Why is this game bar slightly different from the published version?</h3>
 <p>Because this is the cutting-edge, possibly experimental, version!</p>
 
 <h3>Who may link to a game played in this page?</h3>
@@ -24,6 +24,10 @@
 <h2>Legal info</h2>
 <h3>Particular games</h3>
 <p>All games playable in the «TITLE» are loaded in real time from a public github gist shared by the author, and not directly hosted nor verified by «SITE-NAME». Thus, if you are an author and want your game manually excluded from the «TITLE», «CONTACT-TEXT-8».</p>
+
+<h3>Puzzlescript</h3>
+<p>«PUZZLESCRIPT-OFFICIAL» is under this «LICENSE-PUZZLESCRIPT».</p>
+
 <h3>The «TITLE»</h3>
 «DISCLAIMER»
 
