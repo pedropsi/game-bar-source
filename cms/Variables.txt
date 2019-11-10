@@ -56,15 +56,6 @@ HEAD-IMAGE	<meta property="og:type" content="«TYPEGRAPH»"/><meta property="og:im
 HEAD-LINK	<meta property="og:url" content="«SITE»/«LINK».html"/>
 HEAD-TYPE	<meta property="og:image" content="«SITE»/images/512/«IMAGE»"/>
 
-
-RSS-SITE-DESCRIPTION	Don't miss out on novelties from The «SITE-NAME»!
-RSS-LIMIT	9
-RSS-PATH	rss.xml
-RSS-URL	«SITE»/«RSS-PATH»
-RSS-SVG	<svg viewBox="0 0 98.918 100" xml:space="preserve"><ellipse cx="13.566" cy="86.286" rx="13.566" ry="13.714"/><path d="M65.569,100H46.35c0-25.879-20.752-46.858-46.35-46.858l0,0V33.715C36.214,33.715,65.569,63.391,65.569,100z"/><path d="M79.135,100c0-44.183-35.429-80-79.135-80V0c54.631,0,98.918,44.772,98.918,100H79.135z"/></svg>
-RSS-TAGS	<category>«TAGS»</category>
-XML	<?xml version="1.0" encoding="UTF-8"?>
-
 SITEMAP	«XML»<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">«CONTENT»</urlset>
 SITEMAP-ITEM	<url><loc>«SITE»/«LINK»</loc><lastmod>«UP-DA-TE»</lastmod><changefreq>«FREQ»</changefreq></url>
 SITEMAP-PATH	sitemap.xml
@@ -387,8 +378,10 @@ TOOL-TABLE-BODY	<tbody>«TOOL-TABLE-ITEM|In:NiceTools|Filter:{"Year"->_}|Contain:
 TOOL-TABLE-HEAD	<thead><tr>«TH»Title</th>«TH»Author</th>«TH»Year</th>«TH»Usage</th>«TH»Tags</th></tr></thead>
 TOOL-LIST	<table class="top-left"><caption>Useful puzzlescript tools</caption>«TOOL-TABLE-HEAD»«TOOL-TABLE-BODY»</table>
 
-
-NEW!	<div class="new"><span>New</span></div>
+LBL	<span class="label «LBLTYPE»">«LBLTYPE»</span>
+L-NEW	«LBL|With:{LBLTYPE->New}»
+L-DONE	«LBL|With:{LBLTYPE->Done}»
+L-PART	«LBL|With:{LBLTYPE->Partly}»
 
 PWA-MANIFEST	<link rel="manifest" href='data:application/manifest+json,«PWA-MANIFEST-CONTENT»'/>
 PWA-MANIFEST-CONTENT	{«PWA-NAME»,«PWA-DISPLAY»,«PWA-ICONS»,«PWA-DESC»,«PWA-LANG»,«PWA-SCOPE»,«PWA-WORKER»}
@@ -406,12 +399,28 @@ PWA-WORKER	"serviceworker":{"src":"«ORIGIN»/cacher.js"}
 
 GIF	<video autoplay loop muted playsinline><source src="images/180/«IMAGE»" type="video/mp4"></source></video>
 
+RSS-LIMIT	9
+RSS-PATH	rss.xml
+RSS-URL	«SITE»/«RSS-PATH»
+RSS-SITE-DESCRIPTION	Don't miss out on novelties from The «SITE-NAME»!
+RSS-SVG	<svg viewBox="0 0 98.918 100" xml:space="preserve"><ellipse cx="13.566" cy="86.286" rx="13.566" ry="13.714"/><path d="M65.569,100H46.35c0-25.879-20.752-46.858-46.35-46.858l0,0V33.715C36.214,33.715,65.569,63.391,65.569,100z"/><path d="M79.135,100c0-44.183-35.429-80-79.135-80V0c54.631,0,98.918,44.772,98.918,100H79.135z"/></svg>
+RSS-TAGS	<category>«TAGS»</category>
+
+RSS	«VERSION-XML»<rss «VERSION-ATOM»>«RSS-CHANNEL»</rss>
+VERSION-XML	<?xml version="1.0" encoding="UTF-8"?>
+VERSION-ATOM	version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+
+RSS-CHANNEL	<channel>«RSS-CHANNEL-HEAD»«RSS-CHANNEL-IMAGE»«RSS-CHANNEL-BODY»</channel>
+RSS-CHANNEL-HEAD	«RSS-CH-ATOM»«RSS-CH-TI-LI»«RSS-CH-LANG-DESC»«RSS-CH-DOCS»«RSS-CH-COPY»
+RSS-CH-ATOM	<atom:link href="«RSS-URL»" rel="self" type="application/rss+xml"/>
+RSS-CH-DOCS	<docs>https://cyber.harvard.edu/rss/rss.html</docs>
+RSS-CH-COPY	<copyright>«COPYRIGHT-TEXT»</copyright>
+RSS-CH-LANG-DESC	<description>«RSS-SITE-DESCRIPTION»</description><language>en</language>
+RSS-CH-TI-LI	<title>«SITE-NAME»</title><link>«SITE»</link>
+
+RSS-CHANNEL-BODY	«RSS-CHANNEL-IMAGE»«RSS-ITEM|In:CMS|SortBy:{Date}|Max:«RSS-LIMIT»|Contain:True»
+RSS-CHANNEL-IMAGE	<image><link>«SITE»</link><title>«SITE-NAME»</title><url>«SITE»/«LOGOPATH»</url></image>
+
 RSS-ITEM	<item>«RSS-HEAD»«RSS-BODY»«RSS-TAGS|Split:, |Filter:{Link->«LINK»}|Contain:True»</item>
 RSS-HEAD	<title>«TITLE»</title><link>«RSSLINK»</link><guid>«RSSLINK»</guid><pubDate>«UPDATE» 07:06:05 GMT</pubDate> 
 RSS-BODY	<description><![CDATA[<img src="«SITE»/images/180/«IMAGE»" height="180" width="180" align="left" hspace="5" alt="«IMAGEALT»" title="«IMAGEALT»"/><p>«ONE-LINER»</p>]]></description>
-
-RSS	«XML»<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">«RSS-CHANNEL»</rss>
-RSS-CHANNEL	<channel>«RSS-CHANNEL-HEAD»«RSS-CHANNEL-IMAGE»«RSS-CHANNEL-BODY»</channel>
-RSS-CHANNEL-HEAD	<atom:link href="«RSS-URL»" rel="self" type="application/rss+xml"/><title>«SITE-NAME»</title><link>«SITE»</link><description>«RSS-SITE-DESCRIPTION»</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><copyright>«COPYRIGHT-TEXT»</copyright>
-RSS-CHANNEL-BODY	«RSS-CHANNEL-IMAGE»«RSS-ITEM|In:CMS|SortBy:{Date}|Max:«RSS-LIMIT»|Contain:True»
-RSS-CHANNEL-IMAGE	<image><link>«SITE»</link><title>«SITE-NAME»</title><url>«SITE»/«LOGOPATH»</url></image>
