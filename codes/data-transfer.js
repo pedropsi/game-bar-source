@@ -32,6 +32,13 @@ function Last(array){
 		return undefined;
 }
 
+function First(array){
+	if(array.length)
+		return array[0];
+	else
+		return undefined;
+}
+
 //Distinguish Objects and Arrays
 function IsArray(array){
 	return FunctionName(array.constructor)==="Array";
@@ -808,6 +815,13 @@ function ReplaceElement(html,parentIDsel){
 	var a=AppendElement(html,parentIDsel);
 	RemoveElement(parentIDsel);
 	return a;
+};
+
+function AddSingleElement(html,parentIDsel,selfSel){
+	if(GetElement(selfSel))
+		return ReplaceElement(html,selfSel);
+	else
+		return AddElement(html,parentIDsel);
 };
 
 // Add HTML Data from external source to page
