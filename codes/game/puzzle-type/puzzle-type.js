@@ -11,7 +11,6 @@
 --cyclical letters (vowels)
 --calculatorspeak
 --disorder: a letter adds itself alphabeticall or reverse depending on last letter?
---#DEFACE
 --Fur elise must write the first notes (letters give sharps and bemol)
 --gogol (letters input numbers)
 --phonetic alphabet?
@@ -88,13 +87,15 @@ function StartGame(){
 	ObtainTitleScreenLoader();
 };
 
+
 LoadAsync("cacher",".");
 ServiceWorker();
 LoadGameHTML();
 LoadStyle(pageRoot()+"codes/game/game.css");
 LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
+function P(){
 DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
-
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Keybinding
@@ -265,24 +266,6 @@ var LevelGoals=[	//Required types of thinking
 	"Nucleus"		//Knowledge, Word, Syllabe, Language, Mapping, Retroactive
 	];
 
-/*
-var LevelMinimals={
-	"Second":12,
-	"Superior":12,
-	"Precedent":13,
-	"Symmetric":14,
-	"Nigeria":6,
-	"ひらがな":8,
-	"Nucleus":38
-}
-
-function ObtainLevelMinimalScore(lvl){
-	var n=levelName(lvl);
-	if(In(LevelMinimals,n))
-		return LevelMinimals[n];
-	else
-		return n.length;
-}*/
 
 var LevelActions={
 	"Direct":Direct,
@@ -1349,67 +1332,4 @@ function LevelState(){
 function Restart(){
 	LoadLevelState(LevelZeroState());
 }
-
-
-
-/*Level scores
-
-if(typeof ObtainLevelMinimalScore==="undefined")
-	var ObtainLevelMinimalScore=function(){return null};
-
-function LevelPerfectlySolved(n){
-	if(!LevelSolved(n))
-		return false;
-	
-	var minimal=ObtainLevelMinimalScore(n);
-	if(minimal===null)
-		return false;
-	
-	var best=LevelScore(n);
-	if(best<minimal)
-		EchoMinimal(n,best);
-	
-	return best<=minimal;
-}
-
-function LevelScore(n,m){
-	if(!LevelScore.scores)
-		LevelScore.scores=LevelScreens().map(function(x){return false});
-	if(typeof n==="undefined")
-		return LevelScore.scores;
-	if(typeof m!=="number")
-		return LevelScore.scores[n-1];
-	else{
-		if(LevelScore.scores[n-1]===false)
-			return LevelScore.scores[n-1]=m;
-		else
-			return LevelScore.scores[n-1]=Math.min(LevelScore.scores[n-1],m);
-	}
-}
-
-
-function ObtainMoveCount(){
-	return RegisterMove.winseq.length;
-}
-
-
-function AddMoveCount(n){
-	var lvl=CurLevelNumber();
-	if(typeof n==="undefined")
-		var n=1;
-	if(typeof MoveCount[lvl]==="undefined")
-		MoveCount[lvl]=Math.max(0,n);
-	return MoveCount[lvl]=Math.max(0,MoveCount[lvl]+n);
-}
-
-function RestartMoveCount(){
-	console.log("res");
-	return AddMoveCount(-9999999999);
-}
-
-function UndoMoveCount(){
-	console.log("un");
-	return AddMoveCount(-1);
-}
-*/
 
