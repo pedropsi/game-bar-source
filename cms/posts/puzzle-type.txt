@@ -3,19 +3,16 @@
 
 «HOWTO-TEXT»
 <p>The screen displays only one word. Your goal is to type this word exactly as shown. However, your keyboard is behaving cryptically...  and the word is also your only clue!</p>
-<p>You may type any of the 26 uppercase letters of the latin alphabet, and restart by pressing <kbd>backspace</kbd> or <kbd>delete</kbd>. As a rule, other characters or spaces cannot be typed, unless the clue suggests otherwise.</p>
+<p>You may type any of the 26 uppercase letters of the latin alphabet, and undo by pressing <kbd>backspace</kbd> or <kbd>delete</kbd>. As a rule, other characters or spaces cannot be typed, unless the clue suggests otherwise.</p>
 <p> Sometimes, characters may be coloured with a lighter tone. This is just a visual indication for temporary characters, which may be trasformed when certain conditions be (or fail to be) met.</p>
 <p>All puzzles can be solved with logic, experimentation and creative thinking, perhaps even a search engine or pencil and paper. Quick reactions never necessary - relax and take your time.</p>
-
+<p>Most levels do not require english proficiency, but the common knowledge demanded by a few of the final levels had unfortunately to be expressed in words of a particular language. Non-native speakers, you can find these english words online easily!</p>
 
 «GAME-EXTRAS-HINTS-TEXT|With:{TOUCHSCREEN-TEXT->"",FEEDBACK-KEY->"<kbd>Shift</kbd>+<kbd>E</kbd>",FULLSCREEN-KEY->"<kbd>Shift</kbd>+<kbd>F</kbd>",HINT-KEY->"<kbd>Shift</kbd>+<kbd>H</kbd>",LEVEL-KEY->"<kbd>Shift</kbd>+<kbd>L</kbd>",MUSIC-KEY->"<kbd>Shift</kbd>+<kbd>M</kbd>"}»
 
 <h2>Credits</h2>
 
 «CREDITS-AUTHORSHIP»
-
-<h3>Music</h3>
-«CREDITS-MUSIC»
 
 <h3>Sound effects</h3>
 <p>Sound effects made with <a href="https://musescore.com">MuseScore</a> by «NAME-YEAR».</p>
@@ -31,6 +28,14 @@
 
 <h3>Which other puzzle games inspired «TITLE-BOLD»?</h3>
 <p>None in particular. However, «MINOTALEN» keenly observed some similarities with <a href="https://www.cinqmarsmedia.com/ devilscalculator">Devil's Calculator</a>.</p>
+
+<h3>Which new design goals guided the making of «TITLE-BOLD»?</h3>
+<ul>
+<li>Making a compelling enigma with a minimal interface or decoration. «L-DONE»</li>
+<li>Extending the game-bar to any (non-puzzlescript) javascript game. «L-DONE»</li>
+<li>Creating a word game without language-dependent content. «L-PART»</li>
+<li>Making sound effects and music. «L-PART»</li>
+</ul>
 
 <h2>Changelog</h2>
 <h3>10/2019</h3>
