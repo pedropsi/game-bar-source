@@ -23,21 +23,63 @@ var LOGO='<?xml version="1.0"?>\
 function Identity(i){return i;};
 
 ///////////////////////////////////////////////////////////////////////////////
-// Array or Object
+// Lists (AS = Array or String)
 
-function Last(array){
-	if(array.length)
-		return array[array.length-1];
+function Last(AS){
+	if(AS.length)
+		return AS[AS.length-1];
 	else
-		return undefined;
+		return null;
 }
 
-function First(array){
-	if(array.length)
-		return array[0];
+function First(AS){
+	if(AS.length)
+		return AS[0];
 	else
-		return undefined;
+		return null;
 }
+
+function Rest(AS){
+	if(AS.length){
+		if(typeof AS==="string")
+			return Rest(AS.split("")).join("");
+		else{
+			A=Clone(AS);
+			A.shift();
+			return A;
+		}
+	}
+	else
+		return null;
+}
+
+function Most(AS){
+	if(AS.length){
+		if(typeof AS==="string")
+			return Rest(AS.split("")).join("");
+		else{
+			A=Clone(AS);
+			A.pop();
+			return A;
+		}
+	}
+	else
+		return null;
+}
+
+SaveTest(Most,"abcd","abc");
+SaveTest(Most,["a","b","c","d"],["a","b","c"]);
+SaveTest(Rest,"abcd","bcd");
+SaveTest(Rest,["a","b","c","d"],["b","c","d"]);
+SaveTest(Rest,"a","");
+SaveTest(Most,"a","");
+SaveTest(Rest,["a"],[]);
+SaveTest(Most,["a"],[]);
+SaveTest(Rest,"",null);
+SaveTest(Most,"",null);
+SaveTest(Rest,[],null);
+SaveTest(Most,[],null);
+
 
 //Distinguish Objects and Arrays
 function IsArray(array){
@@ -198,11 +240,13 @@ function CloneArray(Arr){
 	return [].concat(Arr);
 }
 
-function Clone(AO){
-	if(IsObject(AO))
-		return CloneObject(AO);
+function Clone(AOS){
+	if(typeof AOS==="string")
+		return AOS;
+	else if(IsObject(AOS))
+		return CloneObject(AOS);
 	else
-		return CloneArray(AO);
+		return CloneArray(AOS);
 }
 
 
@@ -3264,10 +3308,8 @@ function Test(functionname){
 	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
 	var tests=Test[functionname];
 	
-	if(test)
-		console.log(test["function"].apply(null,test["arguments"]));
-		console.log(test["expected"]);
-		return test["function"].apply(null,test["arguments"])===test["expected"];
+	return Object.keys(tests).map(function(testname){TestFunction(functionname,testname)});
+
 }
 
 function SaveTest(F,argArray,result,testname){
