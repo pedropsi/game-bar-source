@@ -855,9 +855,9 @@ function ReplaceChildren(html,parentIDsel){
 };
 
 // Replace parent element contents with new element
-function ReplaceElement(html,parentIDsel){
-	var a=AppendElement(html,parentIDsel);
-	RemoveElement(parentIDsel);
+function ReplaceElement(htmlOrElement,elemIDsel){
+	var a=AppendElement(htmlOrElement,elemIDsel);
+	RemoveElement(elemIDsel);
 	return a;
 };
 
