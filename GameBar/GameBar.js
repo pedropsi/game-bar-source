@@ -54,7 +54,7 @@ var precedences={
 	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
 }
 
-var VERSIONFOLDER="Versions/3.0/codes"; //"/"+"codes"; //
+var VERSIONFOLDER="codes"; //"/"+"codes"; //
 
 if(Local()) //Local vs online
 	var FOLDER=".."+"/"+VERSIONFOLDER;
