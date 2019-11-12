@@ -965,7 +965,7 @@ function SortTable(tableSelector,n,descending){
 	
 	var rows=GetElements("TR",tbody);
 	rows=rows.sort(CompareRow(n,descending));
-	rows.map(function(row){return row.cloneNode()});
+	rows.map(function(row){return row.cloneNode(true)});
 	RemoveChildren(tbody);
 	rows.map(function(row){AddElement(row,tbody)});
 }
