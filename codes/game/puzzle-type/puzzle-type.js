@@ -17,10 +17,7 @@
 */
 
 function LoadGameHTML(){
-	var frameHTML="<div class='game-supra-container'>\
-	<div class='game-rotation-container'>\
-		<div class='game-container'>\
-			<div class='game' id='gameCanvas'>\
+	var frameHTML="<div class='game-supra-Canvas'><div class='game' id='gameCanvas'>\
 				<div class='top'>\
 					<h1 class='goal'>Puzzle Type</h1>\
 					<h2 class='credits'>by Pedro PSI (2019)</h1>\
@@ -29,17 +26,12 @@ function LoadGameHTML(){
 					<div class='letters'>Coming soon!</div>\
 				</div>\
 				<div class='bottom'>\
-				</div>\
-			</div>\
-		</div>\
-	</div>\
-</div>";
+				</div></div>\
+			</div>";
 
-	RemoveElement(".game-supra-container");
 	PrependElement(frameHTML,".main");
 }
 
-//<div class='latters'>Start game</div>\
 
 ///////////////////////////////////////////////////////////////////////////////
 // Game module hooks
@@ -94,7 +86,7 @@ LoadGameHTML();
 LoadStyle(pageRoot()+"codes/game/game.css");
 LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
 function P(){
-DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
+	DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
