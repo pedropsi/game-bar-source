@@ -74,17 +74,13 @@ function CompileGame(){
 	ListenOnce('mousedown',EnableMobile,GetElement("gameCanvas"));
 }
 
-function LoadPuzzlescriptGame(id){
-	PuzzlescriptPage(id);
 
-	DelayUntil(function(){return (typeof compile!=="undefined")&&(typeof sourceCode!=="undefined");},CompileGame);
-	
+if(pageSearch("game")!==""){
+	PuzzlescriptPage(pageSearch("game"));
 }
-
-
-if(pageSearch("game")!=="")
-	LoadPuzzlescriptGame(pageSearch("game"));
-else if(pageTitle()!=="Game Console")
-	LoadPuzzlescriptGame();
+else if(pageTitle()!=="Game Console"){
+	PuzzlescriptPage();
+	DelayUntil(function(){return (typeof compile!=="undefined")&&(typeof sourceCode!=="undefined");},CompileGame);
+}
 
 
