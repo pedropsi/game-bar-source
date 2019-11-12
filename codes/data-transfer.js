@@ -3282,15 +3282,6 @@ if(typeof window.CustomEvent!=="function"){
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// PWA
-var installPWA=false;
-window.addEventListener('beforeinstallprompt',function(e){
-	installPWA=e;
-	console.log("PWA prompt!",e);
-});
-
-
-///////////////////////////////////////////////////////////////////////////////
 // Test Suite
 
 function Testing(){return true};
@@ -3326,6 +3317,36 @@ function SaveTest(F,argArray,result,testname){
 	
 	Test[functionname][testname]={"function":F,"arguments":argArray,"expected":result};
 }
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// PWA
+var installPWA=false;
+window.addEventListener('beforeinstallprompt',function(e){
+	installPWA=e;
+	RequestPWAInstall(installPWA);
+});
+
+function RequestPWAInstall(e){
+	console.log("PWA prompt!",e);
+	
+	ConsoleAdd(pageTitle()+"is now a progressive web app. Whould you like to install it (early beta)?");
+	
+	var request=e.prompt();
+	
+	function Outcome(choice){
+		if (choice.outcome==='accepted'){
+			console.log('accept');
+		}else{
+			console.log('reject');
+		}
+		request=null;
+	}
+	
+	request.userChoice.then(Outcome);
+};
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // Service workers
