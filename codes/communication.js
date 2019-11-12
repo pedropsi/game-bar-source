@@ -396,5 +396,5 @@ function InstallPWAMaybe(choice,id){
 }
 
 window.addEventListener('appinstalled',function(event){
-	ConsoleAdd("Thank you. "+pageTitle+" added to the homescreen!");
+	ConsoleAdd(pageTitle()+" added to the homescreen. Enjoy!");
 });
