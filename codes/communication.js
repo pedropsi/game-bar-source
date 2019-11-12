@@ -365,11 +365,14 @@ function RequestPWAInstall(){
 			qchoices:["Maybe later...","Yes, please!"],
 			executeChoice:InstallPWAMaybe,
 			qsubmittable:false
+			}],
+		['plain',{
+			questionname:"Why? Easy accessible, even offline (beta). All feedback welcome!"
 			}]],
 		{
 			qdisplay:LaunchConsoleMessage
-			}
-		)
+		}
+	)
 }
 
 var installPWAEvent=false;

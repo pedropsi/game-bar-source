@@ -1334,8 +1334,7 @@ function NewDataField(obj){
 function DataFieldTypes(type){
 	var DFTypes={
 		plain:NewDataField({
-			qsubmittable:false
-		}),
+			qsubmittable:false}),
 		message:NewDataField({
 			action:Close,
 			destination:'',
