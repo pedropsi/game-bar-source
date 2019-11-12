@@ -1,4 +1,3 @@
-
 ////////////////////////////////////////////////////////////////////////////////
 // Game data link defaults, for puzzlescript, overwritable
 
@@ -73,6 +72,17 @@ if(typeof ObtainReadMove==="undefined")
 		}
 	};
 
+//Keybinding defaults
+if(typeof ObtainKeyActionsGameBar==="undefined")
+	ObtainKeyActionsGameBar=KeyActionsGameBar;
+
+//
+if(typeof RequestGameFeedback==="undefined")
+	var RequestGameFeedback=Identity;
+
+if(typeof RegisterMove==="undefined")
+	var RegisterMove=Identity;
+
 ////////////////////////////////////////////////////////////////////////////////
 //Good defaults
 
@@ -108,8 +118,11 @@ if(typeof EchoHint==="undefined")
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
 
+
+
 function PrepareGame(){
 	var bar=GetElement("GameBar");
+	
 	if(!bar){
 		
 		if(typeof onKeyDown!=="undefined")
@@ -902,20 +915,20 @@ function LoadLevelOrCheckpoint(){
 ////////////////////////////////////////////////////////////////////////////////
 //Key capturing
 
-if(typeof ObtainKeyActionsGameBar==="undefined")
-	function ObtainKeyActionsGameBar(){
-		return {
-		// Game bar menus
-		"E"			:RequestGameFeedback,
-		"F"			:RequestGameFullscreen,
-		"H"			:RequestHint,
-		"L"			:RequestLevelSelector, 
-		"M"			:ToggleCurrentSong
-		};
-};
+function KeyActionsGameBar(){
+	return {
+	// Game bar menus
+	"E"			:RequestGameFeedback,
+	"F"			:RequestGameFullscreen,
+	"H"			:RequestHint,
+	"L"			:RequestLevelSelector, 
+	"M"			:ToggleCurrentSong
+	};
+}
 
 //Game keybinding profile
 if(typeof ObtainKeyActionsGame==="undefined"){
+	
 	function ObtainKeyActionsGame(){
 		return {
 			//Arrows
