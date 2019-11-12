@@ -3341,7 +3341,6 @@ function RequestPWAInstall(e){
 		}else{
 			console.log('reject');
 		}
-		request=null;
 	}
 	
 	request.userChoice.then(Outcome);
