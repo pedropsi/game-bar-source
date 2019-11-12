@@ -138,6 +138,12 @@ function WrapGame(){
 function PrepareGame(){
 	var bar=GetElement("GameBar");
 	WrapGame();
+	
+	var FOLDER=GlocalPath("https://pedropsi.github.io/","codes");
+	LoadStyle(JoinPath(FOLDER,"game/game.css"));
+
+	setTimeout(ResizeCanvas,250);
+	
 	if(!bar){
 		
 		if(typeof onKeyDown!=="undefined")
@@ -147,10 +153,8 @@ function PrepareGame(){
 		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
 
-		if(Local())
-			LoadStyle("../codes/index.css");
-		else
-			LoadStyle("https://pedropsi.github.io/game-bar-source/codes/index.css");
+		LoadStyle(JoinPath(FOLDER,"index.css"));
+
 		ConsoleAddMany([
 			"Puzzlescript Game bar loaded!",
 			"Issues? Suggestions? Head to pedropsi.github.io/game-bar."
