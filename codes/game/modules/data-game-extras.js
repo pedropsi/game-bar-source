@@ -194,7 +194,6 @@ function GameBar(targetIDsel){
 		"<span id='HintButton' class='hidden'></span>",
 		UndoButton(),
 		restart,
-		//ButtonOnClickHTML("< ^ > v",'RequestPlaylist();LoadPlaylistControls()'),
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
 		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
 		ButtonLinkHTML("Credits"),

@@ -1231,7 +1231,11 @@ function ButtonLinkHTML(title){
 	if(GetElement(id))
 		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()'}});
 	else
-		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()',class:'hidden'}});
+		return GhostButtonHTML(id);
+}
+
+function GhostButtonHTML(id){
+	"<span id='"+id+"' class='hidden'></span>";
 }
 
 function CloseButtonHTML(targetid){
