@@ -221,14 +221,9 @@ h4{
     background-color: var(--white);
 }
 
-.buttonrow .button:hover,
-.buttonrow .button:active,
-.buttonrow .button:focus{
-    background-color: var(--darkblue);
-    border-bottom-color: currentColor;
-    color:var(--turquoise);
+.buttonrow .tag:first-of-type {
+    background-color:var(--lightyellow);
 }
-
 
 .buttonbar{
     margin-top: 0;
@@ -307,6 +302,7 @@ h4{
 .nowrap{
     flex-wrap: nowrap;
 }
+
 .hint {
     margin: var(--w-2) var(--h-2) var(--w-2) var(--h-2);
     align-items: center;
@@ -321,26 +317,19 @@ h4{
     background-color: var(--darkblue);
     color: var(--white);
 }
+
 kbd {
     border: var(--w-8) solid var(--darkblue);
     border-bottom-width: var(--h-2);
     border-top-width: var(--h-8);
     padding: var(--h-4) var(--w-2) var(--h-4) var(--w-2);
     font-weight: bold;
-    line-height: calc(12px + var(--w-2) + var(--h2) + var(--h1));
+    line-height: calc(var(--lineheight) + var(--h2) + var(--h-2));
     font-family: Arial;
 }
 .hideCursor{
     cursor:none;
 }
 .hidden{
-    display: none;
-}
-
-.hint *:active,.hint *:focus{
-    filter:brightness(0.8);
-    transition-duration: var(--duration);
-}
-newtest{
     display: none;
 }

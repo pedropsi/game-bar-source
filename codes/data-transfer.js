@@ -1,9 +1,66 @@
-///////////////////////////////////////////////////////////////////////////////
-//Do nothing
-function Identity(){return;};
 
 ///////////////////////////////////////////////////////////////////////////////
-// Array or Object
+//Do nothing
+function Identity(i){return i;};
+
+///////////////////////////////////////////////////////////////////////////////
+// Lists (AS = Array or String)
+
+function Last(AS){
+	if(AS.length)
+		return AS[AS.length-1];
+	else
+		return null;
+}
+
+function First(AS){
+	if(AS.length)
+		return AS[0];
+	else
+		return null;
+}
+
+function Rest(AS){
+	if(AS.length){
+		if(typeof AS==="string")
+			return Rest(AS.split("")).join("");
+		else{
+			A=Clone(AS);
+			A.shift();
+			return A;
+		}
+	}
+	else
+		return null;
+}
+
+function Most(AS){
+	if(AS.length){
+		if(typeof AS==="string")
+			return Rest(AS.split("")).join("");
+		else{
+			A=Clone(AS);
+			A.pop();
+			return A;
+		}
+	}
+	else
+		return null;
+}
+
+SaveTest(Most,"abcd","abc");
+SaveTest(Most,["a","b","c","d"],["a","b","c"]);
+SaveTest(Rest,"abcd","bcd");
+SaveTest(Rest,["a","b","c","d"],["b","c","d"]);
+SaveTest(Rest,"a","");
+SaveTest(Most,"a","");
+SaveTest(Rest,["a"],[]);
+SaveTest(Most,["a"],[]);
+SaveTest(Rest,"",null);
+SaveTest(Most,"",null);
+SaveTest(Rest,[],null);
+SaveTest(Most,[],null);
+
 
 //Distinguish Objects and Arrays
 function IsArray(array){
@@ -89,22 +146,33 @@ function FixedPoint(F,x){
 }
 
 
+Fold(function(s,r){return s.replace(r[0],r[1])},"ohnoanother",[["o","l"],["a","i"]])
+
 ///////////////////////////////////////////////////////////////////////////////
 // String Replace
-function StringReplaceRule(string,rule){
+function StringReplaceOnceRule(string,rule){
 	return string.replace(rule[0],rule.length>0?rule[1]:"");
+}
+function StringReplaceRule(string,rule){
+	return FixedPoint(function(s){return StringReplaceOnceRule(s,rule)},string)
 }
 function StringReplaceRuleArray(string,ruleArray){
 	return Fold(StringReplaceRule,string,ruleArray);
 }
-function StringReplaceRulesObject(string,rulesObj){
-	var keys=Object.keys(rulesObj);
-	var s=string;
+
+function ObjectRules(Obj){
+	var keys=Object.keys(Obj);
+	var a=[];
 	for(var i in keys){
-		var ruleArray=Clone(rulesObj)[keys[i]].map(function(k){return [k,keys[i]]});
-		s=StringReplaceRuleArray(s,ruleArray);
+		if (Obj.hasOwnProperty(keys[i])){
+			a.push([keys[i],Obj[keys[i]]])
+		}
 	}
-	return s;
+	return a;
+}
+
+function StringReplaceRulesObject(string,rulesObj){
+	return FixedPoint(function(s){return StringReplaceRuleArray(s,ObjectRules(rulesObj))},string);
 }
 
 function StringReplace(string,rules){
@@ -145,9 +213,23 @@ function FuseObjects(object,extrapropertiesobject){
 	return O;
 }
 
-function Clone(Obj){
+function CloneObject(Obj){
 	return FuseObjects({},Obj);
 }
+
+function CloneArray(Arr){
+	return [].concat(Arr);
+}
+
+function Clone(AOS){
+	if(typeof AOS==="string")
+		return AOS;
+	else if(IsObject(AOS))
+		return CloneObject(AOS);
+	else
+		return CloneArray(AOS);
+}
+
 
 function Datafy(object){
 	var O={};
@@ -193,7 +275,7 @@ function ForwardRegex(string){
 //IDENTIFIER 	page
 //EXTENSION 	.html
 //TAG			#etc
-var domains =["pedropsi.github.io","combinatura.github.io"];
+var domains=["pedropsi.github.io","combinatura.github.io"];
 var predomainssoft=AlternateRegex(domains.map(function(d){return CombineRegex(/^[\d\D]*/,d)}));
 var predomainshard=AlternateRegex(domains.map(function(d){return CombineRegex(/^(https?:\/\/)*/,d)}));
 var posdomains=AlternateRegex(domains.map(function(d){return CombineRegex(d,/[\d\D]*$/)}));
@@ -257,7 +339,7 @@ function pageIdentifierSimple(url){
 		if(isMaybeRoot(urlAfter))
 			return ""
 		else
-			return urlAfter.replace(".html","").replace(".htm","");
+			return urlAfter.replace(".html","").replace(".htm","").replace(/\?.*/g,"");
 	}
 }
 
@@ -337,6 +419,16 @@ function pageAbsolute(url){
 	}
 }
 
+
+//Search queries
+function pageSearch(parameter,page){
+	var l=document.createElement("a");
+	l.href=page||document.URL;
+	var id=l.search.replace("?"+parameter+"=","");
+	if(/.*\=.*/.test(id))
+		id="";
+	return id;
+}
 
 //SECONDARY
 
@@ -422,11 +514,11 @@ function RandomChoice(v){return v[RandomInteger(v.length)]};
 
 
 function GenerateId(){
-	var preconsonants = "bcdfghjklmnpqrstvwxz";
-	var preconsonants2 = "hjlnrs";
-	var vowels = "aeiouyáéíóúàèìòùýäëïöüÿãõâêîôû";
-	var posconsonants2 = "pkstm";
-	var posconsonants = "bcdglmnrstxz";
+	var preconsonants="bcdfghjklmnpqrstvwxz";
+	var preconsonants2="hjlnrs";
+	var vowels="aeiouyáéíóúàèìòùýäëïöüÿãõâêîôû";
+	var posconsonants2="pkstm";
+	var posconsonants="bcdglmnrstxz";
 				
 	function PreSyllabe(){
 		return RandomInteger(5)<=3?RandomChoice(preconsonants)+(RandomInteger(5)<=1?RandomChoice(preconsonants2):""):"";
@@ -447,23 +539,16 @@ function GenerateId(){
 ////////////////////////////////////////////////////////////////////////////////
 //Load scripts
 
-function LoadScript(sourcecode){
-	var head= GetElements('head')[0];
-	var script= document.createElement('script');
-	script.innerHTML=sourcecode;
-	head.appendChild(script);
-}
-
 function LoadAsync(sourcename,folder){
-	var head= GetElements('head')[0];
-	var script= document.createElement('script');
+	var head=GetElement('head');
+	var script=document.createElement('script');
 	var ext='.js';
 	var folder=((folder+"/").replace(/\/\//,"/"))||"codes/"
 	if(sourcename.replace(".txt","")!=sourcename){
 		ext="";
 	}
-	script.src= folder+sourcename+ext;
-	script.async= false;
+	script.src=folder+sourcename+ext;
+	script.async=false;
 	
 	head.appendChild(script);
 }
@@ -475,56 +560,34 @@ function LoaderInFolder(folder){
 //Load styles
 
 function LoadStyle(sourcename){
-	var head= document.getElementsByTagName('head')[0];
-	var styleelement= document.createElement('link');
-	styleelement.href= sourcename.replace(".css","")+".css";
+	var head=document.getElementsByTagName('head')[0];
+	
+	//Load
+	var styleelement=document.createElement('link');
+	styleelement.href=sourcename.replace(".css","")+".css";
 	styleelement.rel="stylesheet";
 	styleelement.type="text/css";
-	head.appendChild(styleelement);
+	head.appendChild(styleelement);	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 //Data Reception
 
 //Fetch data from url
-function LoadDataMaybe(url){
-	var data;
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", url, false);
-    rawFile.onreadystatechange = function (){
-        if(rawFile.readyState === 4){
-            if(rawFile.status === 200 || rawFile.status == 0){
-                data = rawFile.responseText;
-            }
-        }
-    }
-    rawFile.send(null);
-	return data;
-};
-
-function LoadData(url){
-	if(LoadData[url]){
-		console.log("(cached data:",url,")");
-		return LoadData[url];
-	}
-	if(Online()){
-		try{
-			return LoadData[url]=LoadDataMaybe(url);
-		}
-		catch(errorDummy){
-			return undefined;
+function LoadData(url,SuccessF,header){
+	var rawFile=new XMLHttpRequest();
+	rawFile.open("GET",url,true);
+	rawFile.onreadystatechange=function(){
+		if(rawFile.readyState===4){
+			if(rawFile.status===200||rawFile.status==0){
+				SuccessF(rawFile.responseText);
+			}
 		}
 	}
-	else{
-		console.log("Offline - couldn't load:",url)
-		return undefined;
-	}
+	if(header)
+		rawFile.setRequestHeader("Content-type", header);
+	rawFile.send(null);
 };
-
-function LoadExternalScript(url){
-	LoadScript(LoadData(url));
-}
-
 
 //Network status
 
@@ -651,49 +714,83 @@ function Outside(parentSelector,selector){
 }
 
 // Get element based on selectors: .class, tag, or the element itself
-function GetElements(selectorString){
+function GetElements(selectorString,parentIDsel){
 	var HTMLCollect;
+	var parentElement=GetElement(parentIDsel)||document;
 	if(IsClass(selectorString))
-		HTMLCollect=document.getElementsByClassName(selectorString.replace(/^\./,""));
+		HTMLCollect=parentElement.getElementsByClassName(selectorString.replace(/^\./,""));
 	else if (IsTag(selectorString))
-		HTMLCollect=document.getElementsByTagName(selectorString);
+		HTMLCollect=parentElement.getElementsByTagName(selectorString);
 	return Array.prototype.slice.call(HTMLCollect);
 };
 
 // Add new element to page, under a parent element
-function AddElement(html,parentIDsel){
-	var e=MakeElement(html);
+function Element(htmlOrElement){
+	var e=htmlOrElement;
+	if (typeof htmlOrElement==="string")
+		e=MakeElement(htmlOrElement);
+	return e;
+}
+
+function AddElement(htmlOrElement,parentIDsel){
+	var e=Element(htmlOrElement);
 	var p=GetElement(parentIDsel);
 	p.appendChild(e);
 	return e;
 };
 
-function PrependElement(html,parentIDsel){
-	var e=MakeElement(html);
+function PreAddElement(htmlOrElement,parentIDsel){
+	var e=Element(htmlOrElement);
 	var p=GetElement(parentIDsel);
-	p.insertAdjacentElement('afterbegin', e);
+	p.prepend(e);
+	return e;
 };
 
 // Add new element to page, after a sibling element
-function AddAfterElement(html,selector){
-	var s=document.querySelectorAll(selector);
-	var e;
-	for(var i=0;i<s.length;i++){
-		e=document.createElement("div");
-		e.innerHTML=html;
-		s[i].insertAdjacentElement('afterend',e.firstChild)};
+function AppendElement(htmlOrElement,selector){
+	var e=Element(htmlOrElement);
+	var s=GetElement(selector);
+	return s.insertAdjacentElement('afterend',e);
 };
 
+function PrependElement(htmlOrElement,selector){
+	var e=Element(htmlOrElement);
+	var s=GetElement(selector);
+	return s.insertAdjacentElement('beforebegin',e);
+};
+
+
 // Replace parent element contents with new element
-function ReplaceElement(html,parentIDsel){
+function ReplaceChildren(html,parentIDsel){
 	var p=GetElement(parentIDsel);
 	if(p)
 		p.innerHTML=html;
 };
 
+// Replace parent element contents with new element
+function ReplaceElement(html,parentIDsel){
+	var a=AppendElement(html,parentIDsel);
+	RemoveElement(parentIDsel);
+	return a;
+};
+
+function AddSingleElement(html,parentIDsel,selfSel){
+	if(GetElement(selfSel))
+		return ReplaceElement(html,selfSel);
+	else
+		return AddElement(html,parentIDsel);
+};
+
+//Wrap Element
+function WrapElement(elemIDsel,prehtml,poshtml){
+	var e=GetElement(elemIDsel).cloneNode(true);
+	ReplaceElement(prehtml+"<div class='replacing'></div>"+poshtml,elemIDsel);
+	ReplaceElement(e,".replacing");
+}
+
 // Remove Children
 function RemoveChildren(parentID){
-	ReplaceElement(parentID,"")
+	ReplaceChildren("",parentID)
 }
 
 // Remove Element
@@ -708,10 +805,97 @@ function RemoveElement(elementIDsel){
 // Scroll into
 
 function ScrollInto(elementIDsel){
-  var e = GetElement(elementIDsel);
+  var e=GetElement(elementIDsel);
   e.scrollIntoView();
 }
 
+
+//////////////////////////////////////////////////
+//Sort tables
+
+function ColumnNumber(tableSelector,n){
+	var headers=GetElements("TH",tableSelector);
+	if(typeof n==="number"&&n>-1&&n<=headers.length-1)
+		return n;
+	
+	if(typeof n!=="string")
+		return -1;
+	else{
+		headers=headers.map(function(th){return th.textContent.toLowerCase()});
+		return headers.indexOf(n.toLowerCase());
+	}
+}
+
+function CompareRow(n,descending){
+	function CompareAscending(rowA,rowB){
+		
+		var A=Array.from(rowA.children);
+		var B=Array.from(rowB.children);
+		
+		if(A.length<n-1)
+			if(B.length<n-1)
+				return 0;
+			else
+				return 1;
+		
+		if(B.length<n-1)
+			return -1;
+
+		var Atext=A[n]?A[n].textContent.toLowerCase():"";
+		var Btext=B[n]?B[n].textContent.toLowerCase():"";
+		
+		if(Atext<Btext)
+			return -1;
+		else
+			return 1;
+	}
+	
+	if(!descending)
+		return CompareAscending;
+	else
+		return function(rowA,rowB){return 0-CompareAscending(rowA,rowB)};
+}
+
+
+function SortTable(tableSelector,n,descending){
+	var descending=descending||false;
+	var table=GetElement(tableSelector);
+	var tbody=GetElement("TBODY",table);
+	var n=ColumnNumber(table,n);
+	
+	var rows=GetElements("TR",tbody);
+	rows=rows.sort(CompareRow(n,descending));
+	rows.map(function(row){return row.cloneNode()});
+	RemoveChildren(tbody);
+	rows.map(function(row){AddElement(row,tbody)});
+}
+
+function SortableTable(tableSelector){
+	var headers=GetElements("TH",tableSelector);
+	
+	function SortByHeader(header){
+		var table=header.parentElement.parentElement.parentElement; //improve this with a Parent function
+		var column=header.textContent;
+		function SortByThis(){
+			Toggle(header,"Ascending");
+			var descending=!Classed(header,"Ascending")
+			if(descending)
+				SelectSimple(header,"Descending");
+			else
+				Deselect(header,"Descending");
+			SortTable(tableSelector,column,descending);
+		}
+		Listen('click',SortByThis,header);
+	}
+	
+	headers.map(SortByHeader)
+}
+
+function SortableTables(){
+	GetElements("TABLE").map(SortableTable);
+}
+
+ListenOnce('load',SortableTables);
 
 //////////////////////////////////////////////////
 // Safe string loading
@@ -728,15 +912,6 @@ function SafeUrl(tex){
 
 //////////////////////////////////////////////////
 // Transformer: Table
-/*function ReplaceTemplateHTML(template,optionsObj){
-	var keys=Object.keys(optionsObj);
-	var result=template;
-	for(var i in keys){
-		if(optionsObj.hasOwnProperty(keys[i]))
-			result=result.replace(keys[i],optionsObj[keys[i]]);
-	}
-	return result;
-}*/
 
 function TableDataHTML(y){
 	if(y!="")
@@ -745,18 +920,27 @@ function TableDataHTML(y){
 }
 
 function RowHTML(dataline){
-	var dataline = dataline.map(SafeString);
-	dataline = dataline.map(TableDataHTML);
-	var dtl = dataline.join("\n");
+	var dataline=dataline.map(SafeString);
+	dataline=dataline.map(TableDataHTML);
+	var dtl=dataline.join("\n");
 	if(dtl!="\n")
 		dtl="\t<tr>\n"+dtl+"</tr>";
 	return 	dtl;
 };
 
-function MakeTable(dataarray,RowF){
+function MakeTable(jsondata,RowF,headers){
+	if(!jsondata)
+		return;
+
+	var headers=headers?("<th>"+headers.join("</th><th>")+"</th>"):"";
+
+	var dataarray=JSON.parse(jsondata);
 	if(!RowF)
 		var RowF=RowHTML;
-	return "<caption>"+pageTitle()+"</caption><table><tbody>\n"+dataarray.map(RowF).join("\n")+"</tbody></table>";
+	
+	setTimeout(SortableTables,500);
+	
+	return "<caption>"+pageTitle()+"</caption><table><thead>"+headers+"</thead><tbody>\n"+dataarray.map(RowF).join("\n")+"</tbody></table>";
 }
 
 // Other tables 
@@ -770,15 +954,35 @@ function GameRowHTML(dataline){
 	var title=SafeString(dataline[1]);
 	var authorlink=SafeUrl(dataline[4]);
 	var author=SafeString(dataline[2]);
-	//console.log(link,title,author,authorlink);
-		
-	if(InWhitelist(link)){
-		title=AHTML(title,link);
-		if(authorlink)
-			author=AHTML(author,authorlink)
+	var playlink="";
+	
+	if(author==="undefined"){
+	//	console.log(typeof KnownAuthor!=="undefined");
+		if(typeof KnownAuthor!=="undefined")
+			author=KnownAuthor(title);
+	}
+	if(typeof AuthorAliases!=="undefined"&&In(AuthorAliases,author)){
+	//	console.log(typeof AuthorAliases!=="undefined");
+		author=AuthorAliases[author];
 	}
 	
-	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+"</tr>";
+	if(typeof Whitelist!=="undefined"&&InWhitelist(link)){
+		title=AHTML(title,link);
+		
+		if(/.*puzzlescript\.net\/play.*/.test(link))
+			playlink="game-console.html?game="+pageSearch("p",link);
+		if(/.*puzzlescript\.net\/editor.*/.test(link))
+			playlink="game-console.html?game="+pageSearch("hack",link);
+		
+		if(playlink!=="")
+			playlink="\n"+TableDataHTML(AHTML("Launch with the game bar!",playlink));
+		
+		if(authorlink&&author!=="undefined"){
+			author=AHTML(author,authorlink)
+		}
+	}
+		
+	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+playlink+"</tr>";
 };
 
 function InWhitelist(string){
@@ -786,27 +990,10 @@ function InWhitelist(string){
 	return Whitelist().some(Verify);
 }
 
-function Whitelist(){ //Sort descending by expected number of submissions
-	return [
-		/^https\:\/\/[^\#\^\~\\\/\|\.\:\;\,\s\?\=\}\{\[\]\&\'\"\@\!]*\.itch\.io\/.*/,
-		/^https\:\/\/(www\.)?puzzlescript\.net\/play\.html\?p\=.*/,
-		/^https\:\/\/(www\.)?puzzlescript\.net\/editor\.html\?hack\=.*/,
-		/^https\:\/\/[^\#\^\~\\\/\|\.\:\;\,\s\?\=\}\{\[\]\&\'\"\@\!]*\.github\.io\/.*/i,
-		/^https\:\/\/(www\.)?increpare\.com\/.*/,
-		/^https?\:\/\/(www\.)?draknek\.org\/.*/,
-		/^https\:\/\/(www\.)?newgrounds\.com\/portal\/view\/.*/,
-		/^https?\:\/\/(www\.)?jackkutilek\.com\/puzzlescript\/.*/,
-		/^https\:\/\/(www\.)?sokobond\.com\/.*/,
-		/^https\:\/\/(www\.)?streamingcolour\.com\/liveapps\/puzzlescript\/.*/,
-		/^https\:\/\/(www\.)?struct\.ca\/games\/.*/,
-		/^https\:\/\/benjamindav\.is\/.*/,
-		/^https\:\/\/axaxaxas\.herokuapp\.com\/games\/.*/
-	];
-}
-
 //////////////////////////////////////////////////
 // Guestbook 
-function MakeGuestbook(dataarray){
+function MakeGuestbook(jsonstring){
+	var dataarray=JSON.parse(jsonstring);
 	function MakeComment(dataline){
 		if(dataline[0]==="") return "";
 		var au=SafeString(dataline[2]);
@@ -890,6 +1077,11 @@ function ImageHTML(optionsObj){
 	return SingleElementHTML(o)
 };
 
+function PlaceholderImageHTML(){
+	return ImageHTML()
+};
+
+
 function ButtonHTML(optionsObj){
 	var o=optionsObj?optionsObj:{};
 	o.tag=o.tag?o.tag:"div";			//defaults to div
@@ -926,7 +1118,11 @@ function ButtonOnClickHTML(title,onclicktxt){
 }
 
 function ButtonLinkHTML(title){
-	return ButtonHTML({tag:"a",txt:title,attributes:{href:'#'+IDfy(title),onclick:'FullscreenClose()'}});
+	var id='#'+IDfy(title);
+	if(GetElement(id))
+		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()'}});
+	else
+		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()',class:'hidden'}});
 }
 
 function CloseButtonHTML(targetid){
@@ -1129,6 +1325,7 @@ function ExclusiveChoiceButtonRowHTML(dataField){
 		//var ExecuteF=SelectF+'CheckSubmit(\"'+dataFiel.pid+'\");';
 		var buAttribs={
 			'onfocus':SelectF,
+			'onmouseover':SelectF,
 			'onclick':ExecuteF,
 			'ondblclick':ExecuteF,
 			id:"choice-"+choice};
@@ -1258,11 +1455,13 @@ function SelectSimple(selectorE,clas){
 		e.classList.remove(clas);
 		e.classList.add(clas);
 	}
+	return e;
 }
 
 function Select(selectorE,clas){ //With Pulse by default
-	SelectSimple(selectorE,clas);
+	var e=SelectSimple(selectorE,clas);
 	PulseSelect(selectorE);
+	return e;
 }
 
 function Deselect(selectorE,clas){
@@ -1270,6 +1469,7 @@ function Deselect(selectorE,clas){
 	var e=GetElement(selectorE);
 	if(e)
 		e.classList.remove(clas);
+	return e;
 }
 
 function Selected(selectorE){
@@ -1287,14 +1487,16 @@ function Toggle(selectorE,clas){
 	var e=GetElement(selectorE);
 	if(e)
 		e.classList.toggle(clas);
+	return e;
 }
 
 // Select Pulse
 
-function PulseSelect(selectorE){
-	var clas="pulsating";
+function PulseSelect(selectorE,clas,delay){
+	var delay=delay||100;
+	var clas=clas||"pulsating";
 	SelectSimple(selectorE,clas);
-	setTimeout(function(){Deselect(selectorE,clas);},100);
+	setTimeout(function(){Deselect(selectorE,clas);},delay);
 }
 
 // Show/Hide
@@ -1372,7 +1574,7 @@ function CloseAndContinue(DP){
 function CurrentDatapack(){
 	var h=GetDataPack.history;
 	if(h&&h.length>0){
-		var DP=h[h.length-1];
+		var DP=Last(h);
 		if(DP.closed)
 			return undefined;
 		else
@@ -1401,7 +1603,7 @@ function SubmitCurrentDatapack(){
 function Spotlight(){
 	if(!Spotlight.s)
 		Spotlight.s=[document.body];
-	return Spotlight.s[Spotlight.s.length-1];
+	return Last(Spotlight.s);
 }
 
 function AddSpotlight(element){
@@ -1413,8 +1615,8 @@ function AddSpotlight(element){
 
 
 //Focus clicked items (also to escape focus by clicking in unfocusable parents)
-window.addEventListener("mousedown",function(e){FocusElement(e.target)});
-window.addEventListener("click",function(e){FocusElement(e.target)});
+Listen("mousedown",function(e){FocusElement(e.target)});
+Listen("click",function(e){FocusElement(e.target)});
 
 // Focus Element
 function FocusElement(targetIDsel){
@@ -1588,21 +1790,21 @@ function ListenOutside(ev,fun,target){
 }
 
 function ListenF(ev,fun,target,ConditionF){
-		var evObj={
-			"ev":IsArray(ev)?ev:[ev],
-			"F":F,
-			"target":GetElement(target)
-		};
-			
-		function F(eve){
-			if(ConditionF(eve)){
-				fun();
-				ListenNoMore(evObj);
-			}
-		};
+	var evObj={
+		"ev":IsArray(ev)?ev:[ev],
+		"F":F,
+		"target":GetElement(target)
+	};
 		
-		ListenIndeed(evObj);
-		return evObj;
+	function F(eve){
+		if(ConditionF(eve)){
+			fun();
+			ListenNoMore(evObj);
+		}
+	};
+	
+	ListenIndeed(evObj);
+	return evObj;
 }
 
 function ListenNoMore(evObj){
@@ -1610,8 +1812,17 @@ function ListenNoMore(evObj){
 }
 
 function ListenIndeed(evObj){
-	evObj["ev"].map(function(e){evObj["target"].addEventListener(e,evObj["F"])});
+	evObj["ev"].map(function(e){Listen(e,evObj["F"],evObj["target"])});
 }
+
+function Listen(eString,F,target){
+	var target=target||window;
+	if(In(['click','mousedown'],eString))
+		target.addEventListener(eString,F,{"passive":true})
+	else
+		target.addEventListener(eString,F)
+};
+
 
 
 
@@ -1619,7 +1830,7 @@ function ListenIndeed(evObj){
 // Data submission in forms
 
 function SubmitData(dataObject,destination){
-	var data =dataObject;
+	var data=dataObject;
 	data.formDataNameOrder=destination.headers;
 	data.formGoogleSendEmail="";
 	data.formGoogleSheetName=destination.sheet;
@@ -1645,7 +1856,7 @@ function InvalidateAnswer(DF){
 	FocusElement(DF.qid);
 	var invalid=(DF.qrequired&&!validator.valid);
 	if(invalid)
-		AddAfterElement(ErrorHTML(validator.error,errorid),"#"+DF.qid);
+		AppendElement(ErrorHTML(validator.error,errorid),"#"+DF.qid);
 	return invalid;
 }
 
@@ -1674,7 +1885,7 @@ function PreviousSubmission(field){
 	var s=PreviousSubmission.history.filter(function(datasub){return ((typeof datasub[field])!=="undefined")});
 	
 	if(s.length>0)
-		return s[s.length-1][field];
+		return Last(s)[field];
 	else
 		return undefined;
 }
@@ -1706,7 +1917,7 @@ function FindDataInNode(type,node){
 		return NodeGetData(type,node);
 	}
 	else{
-		var children= node.childNodes;
+		var children=node.childNodes;
 		var i=0;
 		while((typeof children[i]!=="undefined")){
 			if(typeof FindDataInNode(type,children[i])!=="undefined"){
@@ -1741,7 +1952,7 @@ function OverwriteDataInNode(type,node,newdata){
 		return NodeOverwriteData(type,node,newdata);
 	}
 	else{
-		var children= node.childNodes;
+		var children=node.childNodes;
 		var i=0;
 		while((typeof children[i]!=="undefined")){
 			if(typeof FindDataInNode(type,children[i])!=="undefined"){
@@ -1786,8 +1997,10 @@ function GetDefaultData(field,id){
 function SetData(field,value,id){
 	//console.log(field,value,id);
 	var DP=GetDataPack(id);
-	if(DP!==undefined)
+	if(DP!==undefined){
 		GetDataPack(id)[field]=value;
+		Shout("Set "+field);
+	}
 };
 
 function ClearData(field,id){
@@ -1997,7 +2210,7 @@ function Playlist(i){
 		Playlist.p=GetElements('.music');
 		Playlist.l=Playlist.p.length;
 	}
-	if(typeof i ==="undefined"){
+	if(typeof i==="undefined"){
 		return Playlist.p;
 	}
 	else{
@@ -2027,18 +2240,23 @@ function Unmute(){
 	Select("MuteButton");
 }
 
+function ValidSong(song){
+	return (typeof song!=="undefined")&&(FileSong(song).replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"")!==FileSong(song));
+}
+
+
 function PlaySong(song){
-	if((typeof song!=="undefined")&&song.paused){
+	if(ValidSong(song)&&song.paused){
 		song.play();
 		ListenOnce('ended',PlayNextF(song),song);
 		Unmute();
-		window.addEventListener("blur", PlaylistSleep);
+		Listen("blur", PlaylistSleep);
 		//console.log("Now playing: "+song);
 	}
 }
 
 function PauseSong(song){
-	if((typeof song!=="undefined")&&!song.paused){
+	if(ValidSong(song)&&!song.paused){
 		song.pause();
 		ConsoleAdd("Music paused...");
 		Mute();
@@ -2047,16 +2265,20 @@ function PauseSong(song){
 }
 
 function ResumeSong(song){
-	if((typeof song!=="undefined")&&song.paused){
+	if(ValidSong(song)&&song.paused){
 		song.play();
 		ConsoleAdd("Resumed playing ♫♪♪ "+NameSong(song));
 		Unmute();
-		window.addEventListener("blur", PlaylistSleep);
+		Listen("blur", PlaylistSleep);
 	}
 }
 
 function NameSong(song){
-	return pageRelativePath(song.src).replace(/.*\//,"").replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"").replace(/\%20/g," ");
+	return FileSong(song).replace(/\.mp3$/,"").replace(/\.wav$/,"").replace(/\.ogg$/,"").replace(/\%20/g," ");
+}
+
+function FileSong(song){
+	return pageRelativePath(song.src).replace(/.*\//,"");
 }
 
 function PlayNextF(song){
@@ -2094,7 +2316,7 @@ function PlaylistSleep(){
 	if(!Playlist.sleep){
 		Playlist.sleep=true;
 		PauseSong(CurrentSong());
-		window.addEventListener("focus", PlaylistAwaken);
+		Listen("focus", PlaylistAwaken);
 	}
 }
 
@@ -2130,7 +2352,7 @@ function FullscreenActivate(browserprefix){
 };
 
 function FullscreenOpen(targetIDsel){
-	var e = GetElement(targetIDsel);
+	var e=GetElement(targetIDsel);
 	var f;
 	if(f=e.requestFullscreen){
 		e.requestFullscreen();
@@ -2305,8 +2527,8 @@ function Context(targetSelector){
 		context=ElementContext(targetSelector);
 	
 	if(!context){
-		FocusElement(document.activeElement);
-		context=Context();
+		var e=FocusElement(document.activeElement);
+		context=ElementContext(e)||ElementContext("BODY");
 	}
 	
 	return context;
@@ -2328,7 +2550,7 @@ function ElementContext(targetSelector){
 			subcontext={};
 		context=FuseObjects(Clone(subcontext),context);
 	}
-	return context
+	return context;
 }
 
 function ContextBlocker(e){
@@ -2526,7 +2748,7 @@ var KeyCodes={
 
 //Key Capturing
 function CaptureComboKey(event) {
-	event = event || window.event;
+	event=event||window.event;
 	var keystring=EventKeystring(event);
 	var context=Context();
 	if(In(context,keystring)){
@@ -2590,6 +2812,30 @@ function Throttle(F,cooldown,id){
 	return false;
 }
 
+//Delay execution until certain condition is met
+function DelayUntil(Condition,F,i){
+	var n=Condition.name+F.name+(i?i:0);
+	
+	if(!DelayUntil[n])
+		DelayUntil[n]=0;
+	DelayUntil[n]++;
+
+	if(Condition()){
+		DelayUntil[n]=0;
+		return F();
+	}
+	else{
+		console.log(DelayUntil[n]);
+		
+		if(DelayUntil[n]<10){
+			function D(){return DelayUntil(Condition,F,i);};
+			setTimeout(D,100*(2**DelayUntil[n]));
+		}
+		else
+			console.log("Timed out: ",n);
+	}
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // Cycle
 
@@ -2650,21 +2896,23 @@ function CyclePrevBounded(array){
 //Image
 var ImageExtensions=["apng","bmp","gif","ico","cur","jpg","jpeg","jfif","pjpeg","pjp","png","svg","tif","tiff","webp"];
 
-function LoadImage(fullpath){
-	var loaded=LoadData(fullpath)!==undefined;
-	if(loaded){
-		if(IsGif){
+function LoadImage(fullpath,parentIDsel){
+	
+	function ImageReplace(data){
+		if(data==="")
+			return console.log("no image found at: "+fullpath);
+		
+		if(IsGif(fullpath)){
 			gifID=GenerateId();
 			loaded=ImageHTML({attributes:{id:gifID,src:fullpath,onload:'StartGIF('+gifID+')',tabindex:'0',class:"gif"}});
 		}
 		else
 			loaded=ImageHTML({attributes:{src:fullpath}});
+		
+		ReplaceChildren(loaded,parentIDsel);
 	}
-	else{
-		console.log("no image found at: ",fullpath);
-		loaded="";
-	}
-	return loaded;
+	
+	LoadData(fullpath,ImageReplace);
 }
 
 function IsImageReference(ref){
@@ -2793,7 +3041,7 @@ function DrawPolygon(txtObj){
 		ctx.fill();
 
 		if(txtObj.lineWidth){
-			ctx.lineWidth = lineWidth;
+			ctx.lineWidth=lineWidth;
 			ctx.strokeStyle=strokeColor;
 			ctx.stroke();			
 		}			
@@ -2804,3 +3052,140 @@ function DrawPolygon(txtObj){
 //Reduce
 
 function Accumulate(acc,val){return acc+val};
+
+///////////////////////////////////////////////////////////////////////////////
+//Unit tests (to be improved)
+
+function VisualExecute(actionArray,delay){
+
+	for (var i=0;i<actionArray.length;i++){
+		
+		setTimeout(actionArray[i],(i)*delay);
+		
+		if(i+1==actionArray.length)
+			console.log("test concluded.")	;
+	}
+	console.log("test started...")	;
+}
+
+function TestGame(){
+	function F(){console.log("try");DoWin();};
+	
+	GoToScreen(0);
+	var actionArray=ObtainStateScreens().map(function(){return F});
+	
+	VisualExecute(actionArray,1000)
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Custom events 
+
+function Shout(name,targetSelector){
+	var ev=new CustomEvent(name);
+	var e=GetElement(targetSelector)||window;
+	e.dispatchEvent(ev);
+}
+
+//polyfill
+if(typeof window.CustomEvent!=="function"){
+	function CustomEvent(event,optObj){
+		optObj=optObj||{
+			bubbles:false,
+			detail:undefined,
+			cancelable:false
+			};
+		var ev=document.createEvent('CustomEvent');
+		ev.initCustomEvent(event,optObj.bubbles,optObj.cancelable,optObj.detail);
+		return ev;
+	}
+	CustomEvent.prototype=window.Event.prototype;
+	window.CustomEvent=CustomEvent;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Test Suite
+
+function Testing(){return true};
+
+function TestFunction(functionname,testname){
+	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
+	var test=Test[functionname][testname];
+	if(test)
+		console.log(test["function"].apply(null,test["arguments"]));
+		console.log(test["expected"]);
+		return test["function"].apply(null,test["arguments"])===test["expected"];
+}
+
+function Test(functionname){
+	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
+	var tests=Test[functionname];
+	
+	return Object.keys(tests).map(function(testname){TestFunction(functionname,testname)});
+
+}
+
+function SaveTest(F,argArray,result,testname){
+	if(!Testing())
+		return;
+	
+	var functionname=FunctionName(F);
+	
+	if(!Test[functionname])
+		Test[functionname]={};
+	
+	var argArray=IsArray(argArray)?argArray:[argArray];
+	var testname=testname?testname:(functionname+"("+argArray.map(String).join(",")+")");
+	
+	Test[functionname][testname]={"function":F,"arguments":argArray,"expected":result};
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// PWA
+var installPWA=false;
+window.addEventListener('beforeinstallprompt',function(e){
+	installPWA=e;
+	RequestPWAInstall(installPWA);
+});
+
+function RequestPWAInstall(e){
+	console.log("PWA prompt!",e);
+	
+//	ConsoleAdd(pageTitle()+"is now a progressive web app. Whould you like to install it (early beta)?");
+	
+	var request=e.prompt();
+	
+	function Outcome(choice){
+		if (choice.outcome==='accepted'){
+			console.log('accept');
+		}else{
+			console.log('reject');
+		}
+	}
+	
+	request.userChoice.then(Outcome);
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Service workers
+
+function ServiceWorker(){
+
+if ('serviceWorker' in navigator) {
+  // Register a service worker hosted at the root of the
+  // site using a more restrictive scope.
+  navigator.serviceWorker.register('/cacher.js', {scope: './'}).then(function(registration) {
+    console.log('Service worker registration succeeded:', registration);
+  }, /*catch*/ function(error) {
+    console.log('Service worker registration failed:', error);
+  });
+} else {
+  console.log('Service workers are not supported.');
+}
+
+};

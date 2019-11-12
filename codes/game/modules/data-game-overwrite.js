@@ -1,3 +1,11 @@
+
+
+if(typeof ObtainPlayEndLevelSound==="undefined")
+	function ObtainPlayEndLevelSound(){tryPlayEndLevelSound()};
+
+////////////////////////////////////////////////////////////////////////////////
+//Puzzlescript overwrite
+
 //doSetupTitleScreenLevelContinue - Level selector - start saving a stack of checkpoints
 function doSetupTitleScreenLevelContinue(){	LoadGame();};
 
@@ -6,34 +14,22 @@ doSetupTitleScreenLevelContinue()
 //DoWin - Level selector - keep track of solved levels 
 function DoWin() {
 	if (!winning) {
-		AddToSolvedScreens(curlevel);
-		LocalsaveLevel(curlevel);
-		if(typeof customLevelInfo!= "undefined")customLevelInfo();
-		if (againing = false, tryPlayEndLevelSound(), unitTesting){
+		MarkWonLevel();
+		ObtainPlayEndLevelSound();
+		againing = false;
+		if (unitTesting){
 			return void nextLevel();
 		}
 		winning = true, timer = 0
 	}
 }
 
-//nextLevel - Level selector - non-linear level navigation "jumping"
+//nextLevel
 function nextLevel(){
 	againing=false;
 	messagetext="";
 	
-	curlevel=Math.min(curlevel,LastScreen()?LastScreen():curlevel);
-	
-	if (titleScreen)
-		StartLevelFromTitle();
-	else {
-		if(!SolvedAllLevels())
-			AdvanceUnsolvedScreen();
-		else if(curlevel<LastScreen())
-			AdvanceEndScreen();
-		else{
-			ResetGame();
-		}
-	}
+	NextLevel();
 	
 	AdjustFlickscreen();
 	canvasResize();
@@ -87,3 +83,13 @@ function playSound(seed) {
 	var sound = cacheSeed(seed);
 	sound.play();
 }
+
+
+// Preserve this function as is
+function AdjustFlickscreen(){
+	if (state!==undefined && state.metadata.flickscreen!==undefined){
+		oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)];
+	}
+}
+
+
