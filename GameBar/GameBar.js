@@ -92,7 +92,6 @@ puzzlescriptModules.map(LoadModule);
 function GameBarLoad(){
 	RemoveElement(".tab");
 	PrepareGame();
-	LoadStyle(JoinPath(FOLDER,"game/game-bar-pages.css"));
 }
 
 
