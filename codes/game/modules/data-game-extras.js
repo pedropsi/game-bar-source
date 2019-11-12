@@ -118,11 +118,25 @@ if(typeof EchoHint==="undefined")
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
 
+function WrapGame(){
+	WrapElement('<div class="game-supra-container">\
+					<div class="game-rotation-container">\
+						<div class="game-container">\
+						</div>\
+					</div>\
+				</div>',
+				ParentSelector(gameSelector),
+				".game-container");
+}
 
 
 function PrepareGame(){
 	var bar=GetElement("GameBar");
+	WrapGame();
 	
+	LoadStyle(pageRoot()+"codes/game/game.css");
+	setTimeout(ResizeCanvas,250);
+			
 	if(!bar){
 		
 		if(typeof onKeyDown!=="undefined")
@@ -131,7 +145,7 @@ function PrepareGame(){
 		
 		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
-
+		
 		ListenOnce('click',PlaylistStartPlay,gameSelector);
 		
 		ScrollInto(gameSelector);

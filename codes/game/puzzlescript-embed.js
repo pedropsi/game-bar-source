@@ -20,18 +20,7 @@ function PuzzlescriptPage(id){
 					</div>',
 			"body");
 		
-		WrapElement("puzzlescript-game",
-			'<div class="game-supra-container">\
-				<div class="game-rotation-container">\
-					<div class="game-container">',
-					'</div>\
-				</div>\
-			</div>');
 		
-		
-		// Load the Styles
-		LoadStyle(pageRoot()+"codes/game/game.css");
-	
 		// Load the Puzzlescript engine
 		var puzzlescriptModules=[
 		//Puzzlescript modules
