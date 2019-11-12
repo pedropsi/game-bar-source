@@ -256,11 +256,12 @@ h4{
     flex-direction: column;
     pointer-events: none;
 	position:fixed;
-    align-items: center;
-	top:0;
+	top:var(--h2);
+    left: 0;
 	margin-top: var(--h1);
 	width: 100%;
 	z-index: 1000;
+    align-items: center;
 }
 
 #Console .message{
