@@ -868,6 +868,13 @@ function AddSingleElement(html,parentIDsel,selfSel){
 		return AddElement(html,parentIDsel);
 };
 
+//Wrap Element
+function WrapElement(elemIDsel,prehtml,poshtml){
+	var e=GetElement(elemIDsel).cloneNode(true);
+	ReplaceElement(prehtml+"<div class='replacing'></div>"+poshtml,elemIDsel);
+	ReplaceElement(e,".replacing");
+}
+
 // Add HTML Data from external source to page
 function OverwriteData(source,destinationID,Transform){
 	function Overwrite(data){
