@@ -69,9 +69,9 @@ function LoadModule(module){
 
 LoaderInFolderGB(FOLDER)("data-transfer");
 
-DelayUntil(function(){typeof WrapElement!=="undefined"},WrapGame);
+DelayUntil(function(){typeof WrapElement!=="undefined"&&typeof gameSelector!=="undefined"},WrapGame);
 function WrapGame(){
-	WrapElement("puzzlescript-game",
+	WrapElement(ParentSelector(gameSelector),
 	'<div class="game-supra-container">\
 		<div class="game-rotation-container">\
 			<div class="game-container">',
