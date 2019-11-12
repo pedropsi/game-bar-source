@@ -3237,32 +3237,6 @@ function DrawPolygon(txtObj){
 function Accumulate(acc,val){return acc+val};
 
 ///////////////////////////////////////////////////////////////////////////////
-//Unit tests (to be improved)
-
-function VisualExecute(actionArray,delay){
-
-	for (var i=0;i<actionArray.length;i++){
-		
-		setTimeout(actionArray[i],(i)*delay);
-		
-		if(i+1==actionArray.length)
-			console.log("test concluded.")	;
-	}
-	console.log("test started...")	;
-}
-
-function TestGame(){
-	function F(){console.log("try");DoWin();};
-	
-	GoToScreen(0);
-	var actionArray=ObtainStateScreens().map(function(){return F});
-	
-	VisualExecute(actionArray,1000)
-}
-
-
-
-///////////////////////////////////////////////////////////////////////////////
 // Custom events 
 
 function Shout(name,targetSelector){
