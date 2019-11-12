@@ -1090,7 +1090,8 @@ table caption{
 #Console {
     pointer-events: none;
 	position:fixed;
-	top:0;
+	top:var(--h2);
+    left: 0;
 	margin-top: var(--h1);
 	width: 100%;
 	z-index: 1000;

@@ -127,6 +127,8 @@ function WrapGame(){
 				</div>',
 				ParentSelector(gameSelector),
 				".game-container");
+				
+	ConsoleLoad(".game-rotation-container");
 }
 
 

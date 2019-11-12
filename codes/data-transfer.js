@@ -2579,7 +2579,6 @@ function FullscreenClose(){
 	if(f) {
 		Deselect("FullscreenButton");
 		FreeFullscreenCursor();
-		ConsoleLoad();
 	};
 }
 
