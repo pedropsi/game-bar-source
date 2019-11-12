@@ -68,6 +68,18 @@ function LoadModule(module){
 }
 
 LoaderInFolderGB(FOLDER)("data-transfer");
+
+DelayUntil(function(){typeof WrapElement!=="undefined"},WrapGame);
+function WrapGame(){
+	WrapElement("puzzlescript-game",
+	'<div class="game-supra-container">\
+		<div class="game-rotation-container">\
+			<div class="game-container">',
+			'</div>\
+		</div>\
+	</div>');
+}
+
 puzzlescriptModules.map(LoadModule);
 
 
