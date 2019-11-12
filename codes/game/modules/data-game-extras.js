@@ -121,8 +121,23 @@ if(typeof EchoHint==="undefined")
 ////////////////////////////////////////////////////////////////////////////////
 // Game Preparation
 
+function WrapGame(){
+	WrapElement('<div class="game-supra-container">\
+					<div class="game-rotation-container">\
+						<div class="game-container">\
+						</div>\
+					</div>\
+				</div>',
+				ParentSelector(gameSelector),
+				".game-container");
+				
+	ConsoleLoad(".game-rotation-container");
+}
+
+
 function PrepareGame(){
 	var bar=GetElement("GameBar");
+	WrapGame();
 	if(!bar){
 		
 		if(typeof onKeyDown!=="undefined")
