@@ -73,6 +73,19 @@ if(typeof ObtainReadMove==="undefined")
 		}
 	};
 
+
+//Keybinding defaults
+if(typeof ObtainKeyActionsGameBar==="undefined")
+	ObtainKeyActionsGameBar=KeyActionsGameBar;
+
+//
+if(typeof RequestGameFeedback==="undefined")
+	var RequestGameFeedback=Identity;
+
+if(typeof RegisterMove==="undefined")
+	var RegisterMove=Identity;
+
+
 ////////////////////////////////////////////////////////////////////////////////
 //Good defaults
 
@@ -911,13 +924,13 @@ function LoadLevelOrCheckpoint(){
 function KeyActionsGameBar(){
 	return {
 	// Game bar menus
-	//"E"			:RequestGameFeedback,
+	"E"			:RequestGameFeedback,
 	"F"			:RequestGameFullscreen,
 	"H"			:RequestHint,
 	"L"			:RequestLevelSelector, 
 	"M"			:ToggleCurrentSong
 	};
-};
+}
 
 //Game keybinding profile
 if(typeof ObtainKeyActionsGame==="undefined"){
