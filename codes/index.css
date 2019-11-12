@@ -341,6 +341,3 @@ kbd {
     filter:brightness(0.8);
     transition-duration: var(--duration);
 }
-newtest{
-    display: none;
-}

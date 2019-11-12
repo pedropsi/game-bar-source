@@ -1,4 +1,19 @@
-//Dependecy Loaders
+//Dependency Loaders
+
+//Glocal Files
+function Local(){
+	return /^file\:.*/.test(document.URL);
+}
+function JoinPath(path,subpath){
+	return path.replace(/\\*$/,"")+"/"+subpath.replace(/^\\*/,"");
+}
+function GlocalPath(urlpath,relativepath){
+if(Local())
+	var u="..";
+else
+	var u=urlpath;
+return JoinPath(u,relativepath);
+}
 
 function LoadScriptFrom(source){
 	var jsCode=document.createElement('script');
@@ -8,9 +23,20 @@ function LoadScriptFrom(source){
 	document.body.appendChild(jsCode);
 }
 
+function LoadStyle(sourcename){
+	var head=document.getElementsByTagName('head')[0];
+	
+	//Load
+	var styleelement=document.createElement('link');
+	styleelement.href=sourcename.replace(".css","")+".css";
+	styleelement.rel="stylesheet";
+	styleelement.type="text/css";
+	head.appendChild(styleelement);	
+}
+
 function LoaderInFolderGB(folder){
 	return function(sourcename){
-		return LoadScriptFrom(folder+"/"+sourcename);
+		return LoadScriptFrom(JoinPath(folder,sourcename));
 	}
 }
 
@@ -37,10 +63,6 @@ function DelayUntil(Condition,F,i){
 	}
 }
 
-function Local(){
-	return /^file\:.*/.test(document.URL);
-}
-
 // Load the Game Bar
 var puzzlescriptModules=[
 	"data-game-colours",
@@ -54,64 +76,23 @@ var precedences={
 	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
 }
 
-var VERSIONFOLDER="Versions/3.0/codes"; //"/"+"codes"; //
 
-if(Local()) //Local vs online
-	var FOLDER=".."+"/"+VERSIONFOLDER;
-else
-	var FOLDER="https://pedropsi.github.io/game-bar-source"+"/"+VERSIONFOLDER;
-
+var VERSIONFOLDER="codes"; 
+FOLDER=GlocalPath("https://pedropsi.github.io/game-bar-source",VERSIONFOLDER);
 
 function LoadModule(module){
-	function L(){return LoaderInFolderGB(FOLDER+"/"+"game/modules")(module)};
+	function L(){return LoaderInFolderGB(JoinPath(FOLDER,"game/modules"))(module)};
 	return DelayUntil(precedences[module],L,module);
 }
 
 LoaderInFolderGB(FOLDER)("data-transfer");
 puzzlescriptModules.map(LoadModule);
 
-
 //Start the Bar
-
 function GameBarLoad(){
 	RemoveElement(".tab");
 	PrepareGame();
-	SupraStyle(gameSelector);
-}
-
-
-function SupraStyle(gameSelector){
-
-	var stylesheet="\
-			#gameCanvas{\
-			position:unset;\
-			max-height:96vh;\
-			width:100%;\
-		}\
-		.game-container{\
-			display:flex;\
-			flex-direction:column;\
-			align-items:center;\
-			justify-content: space-between;\
-			font-family:var(--font);\
-		}\
-		.game-container:fullscreen #gameCanvas{\
-			height:calc(96vh);\
-		}\
-		.game-container:full-screen #gameCanvas{\
-			height:calc(96vh);\
-		}\
-		@media only screen and (max-width:330px) {\
-			.game-container:fullscreen #gameCanvas{\
-				height:calc(94vh);\
-			}\
-			.game-container:full-screen #gameCanvas{\
-				height:calc(94vh);\
-			}\
-		}";
-	
-	stylesheet=stylesheet.replace(/\#gameCanvas/g,gameSelector).replace(/\.game\-container/g,ParentSelector(gameSelector));
-	AddElement("<style>"+stylesheet+"</style>",document.head);
+	LoadStyle(JoinPath(FOLDER,"game/game-bar-pages.css"));
 }
 
 
