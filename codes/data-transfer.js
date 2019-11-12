@@ -3331,7 +3331,7 @@ window.addEventListener('beforeinstallprompt',function(e){
 function RequestPWAInstall(e){
 	console.log("PWA prompt!",e);
 	
-	ConsoleAdd(pageTitle()+"is now a progressive web app. Whould you like to install it (early beta)?");
+//	ConsoleAdd(pageTitle()+"is now a progressive web app. Whould you like to install it (early beta)?");
 	
 	var request=e.prompt();
 	
