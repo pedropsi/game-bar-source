@@ -15,16 +15,19 @@ function PuzzlescriptPage(id){
 		PuzzlescriptPage.modules=true;
 
 		// Add the game container to the page 
-		PreAddElement('<div class="game-supra-container">\
-						<div class="game-rotation-container">\
-							<div class="game-container">\
-								<div id="puzzlescript-game" class="game">\
-									<canvas id="gameCanvas"></canvas>\
-								</div>\
-							</div>\
-						</div>\
+		PreAddElement('<div id="puzzlescript-game" class="game">\
+						<canvas id="gameCanvas"></canvas>\
 					</div>',
-				"body");
+			"body");
+		
+		WrapElement("puzzlescript-game",
+			'<div class="game-supra-container">\
+				<div class="game-rotation-container">\
+					<div class="game-container">',
+					'</div>\
+				</div>\
+			</div>');
+		
 		
 		// Load the Styles
 		LoadStyle(pageRoot()+"codes/game/game.css");
@@ -77,13 +80,16 @@ function EnableMobile(){Mobile.enable(true);}
 // Compile the game
 function CompileGame(){
 	compile(["restart"], sourceCode);
+	
 	DelayUntil(function(){return (typeof PrepareGame!=="undefined");},PrepareGame);
 	ListenOnce('mousedown',EnableMobile,GetElement("gameCanvas"));
 }
 
 function LoadPuzzlescriptGame(id){
 	PuzzlescriptPage(id);
+
 	DelayUntil(function(){return (typeof compile!=="undefined")&&(typeof sourceCode!=="undefined");},CompileGame);
+	
 }
 
 
