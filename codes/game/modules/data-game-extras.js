@@ -1008,7 +1008,7 @@ function RequestGameFullscreen(){
 ////////////////////////////////////////////////////////////////////////////////
 //Colorise game bar
 
-var stylesheet="#GameBar,"+ParentSelector(gameSelector)+"{\
+var stylesheet=".game-supra-container{\
     --white:rgba(255,255,255,var(--t));         /*#FFF*/\
     --smokewhite:rgba(241,241,241,var(--t))    /*#f1f1f1*/;\
     --darkblue:rgba(7,0,112,var(--t))          /*#070070*/;\
