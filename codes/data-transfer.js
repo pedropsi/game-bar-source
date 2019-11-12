@@ -469,9 +469,19 @@ function isAbsolutableLink(url){
 	return isExtraPageLink(url)&&(isRelativeLink(url)||isInOwnDomain(url));
 }
 
-//More
+//Glocal Files
 function Local(){
 	return /^file\:.*/.test(document.URL);
+}
+function JoinPath(path,subpath){
+	return path.replace(/\\*$/,"")+"/"+subpath.replace(/^\\*/,"");
+}
+function GlocalPath(urlpath,relativepath){
+if(Local())
+	var u="..";
+else
+	var u=urlpath;
+return JoinPath(u,relativepath);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
