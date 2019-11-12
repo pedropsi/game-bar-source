@@ -782,10 +782,9 @@ function AddSingleElement(html,parentIDsel,selfSel){
 };
 
 //Wrap Element
-function WrapElement(elemIDsel,prehtml,poshtml){
-	var e=GetElement(elemIDsel).cloneNode(true);
-	ReplaceElement(prehtml+"<div class='replacing'></div>"+poshtml,elemIDsel);
-	ReplaceElement(e,".replacing");
+function WrapElement(html,elemIDsel,newparentIdsel){
+	AppendElement(html,elemIDsel);
+	AddElement(GetElement(elemIDsel),newparentIdsel);
 }
 
 // Remove Children
