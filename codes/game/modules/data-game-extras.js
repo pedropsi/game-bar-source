@@ -139,7 +139,7 @@ function PrepareGame(){
 	var bar=GetElement("GameBar");
 	WrapGame();
 	
-	var FOLDER=GlocalPath("https://pedropsi.github.io/","codes");
+	var FOLDER=GlocalPath("https://pedropsi.github.io/game-bar-source","codes");
 	LoadStyle(JoinPath(FOLDER,"game/game.css"));
 
 	setTimeout(ResizeCanvas,250);
