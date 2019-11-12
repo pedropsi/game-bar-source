@@ -1,5 +1,5 @@
 ﻿<h2>About the «TITLE»</h2>
-<p>Puzzlers who solved any of the puzzles in the «SITE-NAME» earn the right to record their name (or alias) for posterity in the «HOF».</p>
+«ONE-LINER»
 
 <h3>How hard is it to enter the «TITLE»?</h3>
 <p>As of June 2018 only about 10% of players manage to finish a game. Moreover, no one has yet solved all the puzzles!  
