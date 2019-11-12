@@ -355,3 +355,46 @@ function RequestMediaPass(){
 		)
 }
 
+//////////////////////////////////////////////////////////////////////
+//PWA Install
+
+function RequestPWAInstall(){
+	RequestDataPack([
+		['exclusivechoice',{
+			questionname:"Add "+pageTitle()+" to your homescreen Apps?",
+			qchoices:["Maybe later...","Yes, please!"],
+			executeChoice:InstallPWAMaybe,
+			qsubmittable:false
+			}]],
+		{
+			qdisplay:LaunchConsoleMessage
+			}
+		)
+}
+
+var installPWAEvent=false;
+window.addEventListener('beforeinstallprompt',function(e){
+	installPWAEvent=e;
+	RequestPWAInstall();
+});
+
+function InstallPWAMaybe(choice,id){
+	if(choice==="Yes, please!"){
+		installPWAEvent.prompt();
+		console.log("prompted");
+		
+		installPWAEvent.userChoice.then(function(choiceResult){
+			if (choiceResult.outcome === 'accepted') {
+			console.log('User accepted the prompt');
+			} else {
+			console.log('User dismissed the prompt');
+			}
+			deferredPrompt = null;
+		});
+	}
+	CloseCurrentDatapack();
+}
+
+window.addEventListener('appinstalled',function(event){
+	ConsoleAdd("Thank you. "+pageTitle+" added to the homescreen!");
+});
