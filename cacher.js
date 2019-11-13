@@ -1,4 +1,4 @@
-var CACHE_VERSION=1;
+var CACHE_VERSION=1; 
 var CURRENT_CACHES={
 	main:'PSI-cache-v'+CACHE_VERSION
 };
