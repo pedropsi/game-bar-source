@@ -1,4 +1,4 @@
-var CACHE_VERSION=1;
+var CACHE_VERSION=2; 
 var CURRENT_CACHES={
 	main:'PSI-cache-v'+CACHE_VERSION
 };
@@ -63,7 +63,7 @@ var preCacheFiles=[
 self.addEventListener('activate', function(event){
 	var expectedCacheNames=Object.values(CURRENT_CACHES);
 	event.waitUntil(
-		caches.keys().then(function(cacheNames){
+		caches.keys().catch(function(e){return;}).then(function(cacheNames){
 			return Promise.all(
 				cacheNames.map(function(cacheName){
 					if (!expectedCacheNames.includes(cacheName)){
@@ -80,9 +80,9 @@ self.addEventListener('activate', function(event){
 self.addEventListener("install",function(event){
 	console.log("installing precache files");
 	self.skipWaiting();
-	caches.open(CURRENT_CACHES.main).then(function(cache){
+	caches.open(CURRENT_CACHES.main).catch(function(e){return;}).then(function(cache){
 		return cache.addAll(preCacheFiles);
-	}).catch(function(e){return;});
+	});
 });
 
 
@@ -91,15 +91,15 @@ self.addEventListener("fetch",function(event){
 	console.log("Fetching");
 	console.log(event);
 	event.respondWith(
-		caches.match(event.request).then(function(response){
+		caches.match(event.request).catch(function(e){return;}).then(function(response){
 			if(!response){
 				//network fetch
-				return fetch(event.request).then(function(response){
+				return fetch(event.request).catch(function(e){return;}).then(function(response){
 					if (!response.ok) {
 						throw new TypeError('Bad response status');
 					}
 					
-					caches.open(CURRENT_CACHES.main).then(function(cache) {
+					caches.open(CURRENT_CACHES.main).catch(function(e){return;}).then(function(cache) {
 						cache.put(event.request,response);
 					});  
 					
@@ -107,6 +107,6 @@ self.addEventListener("fetch",function(event){
 				});
 			}
 			return response;
-		}).catch(function(e){return;});
+		});
 	);
 });
