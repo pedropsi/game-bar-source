@@ -96,11 +96,11 @@ self.addEventListener("fetch",function(event){
 			if(!response){
 				//network fetch
 				return fetch(event.request).then(function(response){
-					if (!response.ok) {
+					if (!response.ok){
 						throw new TypeError('Bad response status');
 					}
 					
-					caches.open(CURRENT_CACHES.main).then(function(cache) {
+					caches.open(CURRENT_CACHES.main).then(function(cache){
 						cache.put(event.request,response);
 					});  
 					
@@ -110,4 +110,9 @@ self.addEventListener("fetch",function(event){
 			return response;
 		})
 	);
+});
+
+self.addEventListener('unhandledrejection',function(event){
+	console.log("promise",event.promise);
+	console.log("reason",event.reason);
 });
