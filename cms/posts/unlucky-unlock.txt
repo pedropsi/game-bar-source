@@ -11,5 +11,7 @@
 
 
 <h2>Featured in</h2>
-<p>«BONTE»'s <a href="http://www.bontegames.com/2014/07/unlucky-unlock.html">blog</a> - with some very nice reviews.</p>
-<p><a href="http://warpdoor.com/2014/07/18/unlucky-unlock-pedro-psi">Warpdoor portal</a></p>
+<ul>
+<li>«A-UNLUCKY-UNLOCK-FEAT-1» - with some very nice reviews.</li>
+<li>«A-UNLUCKY-UNLOCK-FEAT-2»</li>
+</ul>

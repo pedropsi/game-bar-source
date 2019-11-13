@@ -23,7 +23,7 @@
 		<tr><td>1923</td><td>Theo van Doesburg</td><td>Study for Composition XXV</td><td><a href="https://www.wikiart.org/en/theo-van-doesburg/study-for-composition-xxv-1923" «BLANK»>Wikiart</a></td>
 		<tr><td>1922</td><td>Paul Klee</td><td>Separation in the Evening</td><td><a href="https://www.wikiart.org/en/paul-klee/separation-in-the-evening-1922" «BLANK»>Wikiart</a></td>
 		<tr><td>1927</td><td>Sophie Taeuber-Arp</td><td>Projet pour l'Aubette</td><td><a href="https://www.wikiart.org/en/sophie-taeuber-arp/projet-pour-l-aubette-1927" «BLANK»>Wikiart</a></td>
-		<tr><td>1930</td><td>Piet  Mondrian</td><td>Composition in Red, Blue and Yellow</td><td><a href="https://www.wikiart.org/en/piet-mondrian/composition-with-red-blue-and-yellow-1930" «BLANK»>Wikiart</a></td>
+		<tr><td>1930</td><td>Piet Mondrian</td><td>Composition in Red, Blue and Yellow</td><td><a href="https://www.wikiart.org/en/piet-mondrian/composition-with-red-blue-and-yellow-1930" «BLANK»>Wikiart</a></td>
 	</tbody>
 </table>
 

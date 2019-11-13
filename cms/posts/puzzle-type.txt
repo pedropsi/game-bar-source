@@ -15,7 +15,7 @@
 «CREDITS-AUTHORSHIP»
 
 <h3>Sound effects</h3>
-<p>Sound effects by «NAME-YEAR», made with «MUSESCORE».</p>
+<p>Sound effects by «NAME-YEAR», made with «A-MUSESCORE».</p>
 
 <h3>Game Engine</h3>
 <p>Made with vanilla JS and CSS, including «A-GAME-BAR»!</p>
@@ -27,7 +27,7 @@
 <h2>F.A.Q.</h2>
 
 <h3>Which other puzzle games inspired «TITLE-BOLD»?</h3>
-<p>None in particular. However, «MINOTALEN» keenly observed some similarities with <a href="https://www.cinqmarsmedia.com/ devilscalculator">Devil's Calculator</a>.</p>
+<p>None in particular. However, «MINOTALEN» keenly observed some similarities with «A-DEVILS-CALCULATOR».</p>
 
 <h3>Which new design goals guided the making of «TITLE-BOLD»?</h3>
 <ul>

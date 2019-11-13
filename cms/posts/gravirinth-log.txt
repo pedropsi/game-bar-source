@@ -2,7 +2,7 @@
 
 <h2>21-06-2019</h2>
 <h3>Gravirinh giveaway!</h3>
-<p>The full version of gravirinth will be playable for free in the <a href="gravirinth.html">main page</a> until the end of June.</p>
+<p>The full version of gravirinth will be playable for free in the «A-GRAVIRINTH»'s main page until the end of June.</p>
 
 <h2>25-05-2019</h2>
 <h3>Playable demo</h3>
@@ -49,7 +49,7 @@
 
 <h2>14-02-2019</h2>
 <h3>Landing page with teaser video</h3>
-<p>«A-GRAVIRINTH»'s landing page improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's <a href="#gravirinth-logo">animated logo</a>, still downloadable alongside screenshots.</p>
+<p>«A-GRAVIRINTH»'s landing page improved with the addition of a small looping teaser video with selected moments from the beta-test. This replaces Gravirinth's animated logo, still downloadable alongside screenshots.</p>
 
 <h2>07-02-2019</h2>
 <h3>Physics tweaks</h3>
@@ -196,7 +196,7 @@
 		<p>Naturally, both types of achievements will be displayed at the «HOF».</p>
 
 <h2>22-11-2018</h2>
-	<p><b>Gravirinth</b>'s cover page is <a href="gravirinth.html">now live</a>.</p>
+	<p>«A-GRAVIRINTH»'s cover page is now live.</p>
 
 <h2>21-11-2018</h2>
 	<h3>Cover page</h3>
@@ -213,7 +213,7 @@
 		<p><b>Meaning.</b> When someone decides to pay, it means something special is received in return.</p>
 		<p><b>Learning.</b> Making a paid game requires a broader set set of skills (marketing, communication, processing payments, taxes, etc...) than required for free games. My primary goal with this project is to learn these broader skills in practice!</p>
 	<h3>What if you don't want to pay?</h3>
-		<p> That's ok! You can still enjoy all <a href="games">free games</a>!</p>
+		<p> That's ok! You can still enjoy all free «A-GAMES»!</p>
 
 
 <h2>17-11-2018</h2>

@@ -8,14 +8,14 @@
 <h3>Current version</h3>
 <p><b><span id="version-number">v2.2</span>:</b><span id="version-date">02/10/2019</span>.</p>
 
-<p>Please note the game-bar bookmarklet and code always default to the most recent version. Older versions can be found <a href="https://github.com/pedropsi/game-bar-source/tree/master/Versions">in the archive</a>.</p>
+<p>Please note the game-bar bookmarklet and code always default to the most recent version. The archive stores all «A-GB-VERSIONS».</p>
 
 <h2>How to test the «TITLE-BOLD» in your own game</h2>
-<p>Follow the instruction in the <a href="game-console.html" «BLANK»>game console</a>.</p>
+<p>Follow the instructions in the «A-GAME-CONSOLE».</p>
 
 <h2>How to add the «TITLE-BOLD» to your own game</h2>
 <h3>Just include the <b>javascript source code</b>!</h3>
-<p>Include the <b>javascript source</b> <a href="https://pedropsi.github.io/game-bar-source/GameBar/GameBar.js" «BLANK»>GameBar.js</a> in a regular Puzzlescript export or in a custom page.</p>
+<p>Include the <b>javascript source</b> «A-GB-SOURCE» in a regular Puzzlescript export or in a custom page.</p>
 <p>To ensure the «TITLE-BOLD» overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the «[<»body«>]» the snippet «[<»script type="text/javascript" src="GameBar.js"«>]»«[<»/script«>]».</p>
 
 <h2>Adding hints</h2>
@@ -36,7 +36,7 @@
 </ol>
 </p>
 
-<p>As an example, see the hints file located at <a href="hints/platformer-template.txt">hints/platformer-template.txt</a>, belonging to the «A-PLATFORMER-TEMPLATE» game page.</p>
+<p>As an example, see the hints file located at «A-PT-HINTS», belonging to the «A-PLATFORMER-TEMPLATE» game page.</p>
 
 <h3>Adding hint images</h3>
 <p>To add hint images to one game:
@@ -66,10 +66,10 @@
 <li>«[»function level4Serialization()«]»</li>
 </ul>
 
-<p>If your Puzzlescript version relies on changes to any of these functions, it's likely those particular changes be erased. You're welcome to <a href="https://github.com/pedropsi/game-bar-source/issues">file your issue so it can be taken a look at</a>.</p>
+<p>If your Puzzlescript version relies on changes to any of these functions, it's likely those particular changes be erased. You're welcome to «A-GB-FILE-ISSUE», so it can be taken a look at.</p>
 
 <h3>You found a different problem.</h3>
-<p>Please <a href="https://github.com/pedropsi/game-bar-source/issues">report your problem</a> so it can be fixed sooner.</p>
+<p>Please «A-GB-FILE-ISSUE» so it can be fixed sooner.</p>
 
 <h2>Examples</h2>
 <p>Here are some games that use he «TITLE-BOLD»:</p>
@@ -92,7 +92,7 @@ jsCode.setAttribute('src','https://pedropsi.github.io/game-bar-source/GameBar/Ga
 jsCode.setAttribute('type','text/javascript');
 document.body.appendChild(jsCode);
 console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
-<p> Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet to add the «TITLE-BOLD» to that <a href="2019-01-31-selected-puzzlescript-games.html">particular game</a>.</p>
+<p> Simply add the bookmarklet above to your bookmarks, then on a game page of your choice run (click on) the new bookmarklet to add the «TITLE-BOLD» to that «A-SELECTED-GAME».</p>
 
 <h3>In Chrome</h3>
 <p><kbd>Drag</kbd> the above bookmarklet link to your bookmarks toolbar.</p>
@@ -108,7 +108,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <p>To «MINOTALEN» for very active ongoing collaboration!</p>
 
 <h3>Would you like to contribute?</h3>
-<p>Head to the official <a href="https://github.com/pedropsi/game-bar-source" «BLANK»>Github Repository</a>, inspect the code and <a href="https://github.com/pedropsi/game-bar-source/issues">submit your ideas</a> or even <a href="https://github.com/pedropsi/game-bar-source/pulls">pull requests</a>.</p>
+<p>Head to the official «A-GB-REPOSITORY», submit a «A-GB-PULL» or «A-GB-FILE-ISSUE».</p>
 
 
 <h2>FAQ</h2>
@@ -165,9 +165,9 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any buttons that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
 
 <h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
-<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href="tiaradventur.html">Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you «A-GB-ISSUES».</p>
+<p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in «A-TIARADVENTUR»). Support for multiple levels with checkpoints is not planned, unless you «A-GB-FILE-ISSUE».</p>
 
 <h3>Does the «TITLE-BOLD» hint system handle checkpoints?</h3>
-<p>No, sorry! But if this would make a difference, please «A-GB-ISSUES».</p>
+<p>No, sorry! But if this would make a difference, please «A-GB-FILE-ISSUE».</p>
 
 «FEEDBACK»

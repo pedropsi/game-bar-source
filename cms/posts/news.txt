@@ -1,8 +1,8 @@
-﻿<p>This is the «SITE-NAME»'s news stream, live since <b>19/09/2019</b>. Check back often to keep abreast of the most relevant developments, or «SUBSCRIBE-LINK»</p>
+﻿<p>This is the «SITE-NAME»'s news stream, live since <b>19/09/2019</b>. Check back often to keep abreast of the most relevant developments, or «A-SUBSCRIBE»!</p>
 
 <h2>09/11/2019</h2>
-<h3>Progressive Web Apps</h3>
-<p>All «NAME»'s games are now Progressive Web Apps, so you can now add them to your device's homescreen and play offline!</p>
+<h3>Progressive Web Apps (beta)</h3>
+<p>All «NAME»'s games are now (Progressive) Web Apps, so you can now add them to your device's homescreen and play offline!</p>
 
 <h2>02/11/2019</h2>
 <h3>Nicer tables</h3>

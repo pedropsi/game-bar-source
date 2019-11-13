@@ -1,4 +1,4 @@
-﻿<p>The «SITE-NAME» does not collect <em>personal data</em> as defined in <a href="https://gdpr-info.eu/art-4-gdpr/" «BLANK»>GDPR's Article 4</a>, except when you <b>you explicitly choose</b> to communicate it, in which case <a href="https://gdpr-info.eu/" «BLANK»>GDPR</a> will be <b>respected</b>.<p>
+﻿<p>The «SITE-NAME» does not collect <em>personal data</em> as defined in «A-GDPR-A4», except when you <b>you explicitly choose</b> to communicate it, in which case «A-GDPR» will be <b>respected</b>.<p>
 <p>Moreover, the «SITE-NAME» is designed to minimise privacy risks. <b>Here's how!</b></p>
 
 <h2>Open-source</h2>

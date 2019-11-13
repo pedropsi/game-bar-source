@@ -147,7 +147,7 @@ GUESTBOOK-ADD	<div class="button centered" onclick="RequestGuestbook()" tabindex
 BUTTON-GET	<div class="button centered buy" tabindex="0">Get it now!</div>
 BUTTON-PREORDER	<div class="button centered buy" tabindex="0">Preorder now!</div>
 BUTTON-COMMENT	<div class="button button-comment" onclick="RequestComment(\'«TITLE»\',this)" tabindex="0">Comment!</div>
-BUTTON-SUBSCRIBE	<div class="button centered" tabindex="0">«SUBSCRIBE-LINK»</div>
+BUTTON-SUBSCRIBE	<div class="button centered" tabindex="0">«A-SUBSCRIBE»</div>
 
 CONTACT-TEXT-1	<a href='contact.html'>contact «NAME»</a>
 CONTACT-TEXT-2	<a href='contact.html'>get in touch</a>
@@ -208,16 +208,14 @@ CREDITS-AUTHORSHIP	<p><a href="«LINK-URL».html">«TITLE-BOLD»</a> by «NAME-YEAR».
 CREDITS-MUSIC	«MUSIC-CREDITS»«GALLERY-AUDIO»
 CREDITS-ENGINE-SUPPORT	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT»«SOURCE-TEXT»
 CREDITS-ENGINE-CLOSED	<h3>Game Engine</h3>«PUZZLESCRIPT-TEXT» The source will be available some time after the release.
-PUZZLESCRIPT-TEXT	<p>Made with <a «BLANK» href='http://puzzlescript.net'>Puzzlescript</a> and <a href="game-bar.html">«NAME»'s game bar</a>!</p>
-SOURCE-TEXT	<p>Inspect the <a «BLANK» href='http://puzzlescript.net/editor.html?hack=«CONTENT»'><b>source</b></a> freely, but consider <a «BLANK» href='«DONATE-LINK»'><b>supporting the «SITE-NAME»</b></a>!</p>
+PUZZLESCRIPT-TEXT	<p>Made with «A-PUZZLESCRIPT» and «A-GAME-BAR»!</p>
+SOURCE-TEXT	<p>Inspect the «A-SOURCE» freely, but consider the option to «A-SUPPORT»!</p>
+A-SOURCE	<a «BLANK» href='http://puzzlescript.net/editor.html?hack=«CONTENT»'><b>source</b></a>
 
-DONATE-LINK	2018-02-08-support-the-archive.html
+FOOTER-LINES	<p>«COPYRIGHT-TEXT» «A-TERMS-OF-USE». «A-PRIVACY-POLICY». «A-PRESS-KIT».</p><p>«NIGHTMODE». «A-SUBSCRIBE» and «A-SUPPORT»!</p>
 
-FOOTER-LINES	<p>«COPYRIGHT-TEXT» <a href='terms-of-use.html'>Terms of Use.</a> <a href='privacy-policy.html'>Privacy Policy.</a> <a href='press.html'>Press kit.</a></p><p>«NIGHTMODE» <a href='«SUPPORT-LINK»'>Support the «SITE-NAME»!</a> «SUBSCRIBE-LINK»</p>
+NIGHTMODE	<span id="NightMode" onclick='toggleNightMode()'> Darken</span>
 
-NIGHTMODE	<span id="NightMode" onclick='toggleNightMode()'> Darken</span>.
-
-HOF	<a href='hall-of-fame.html'><b>Hall of Fame</b></a>
 HALL-OF-FAME-TEXT-SHORT	<h2>Hall of fame</h2><p>Once you beat «TITLE-BOLD», you'll be invited to enter the «HOF»! As soon as you pass the final credits screen after winning, you'll be able to type your name in a new window. Make sure you are connected to the internet, then <em>press Submit</em> to be <b>remembered forever</b> or <em>close the window</em> to <b>forsake your glory</b>.</p>
 HALL-OF-FAME-TEXT	«HALL-OF-FAME-TEXT-SHORT» <p>Record-keeping started March 26th 2018, so if you've beaten this game before this date you'll have to beat it again to enter the «HOF»</p>.
 
@@ -225,8 +223,7 @@ COMMUNITY	<h2>Community</h2>«GUESTBOOK-MESSAGE»
 
 STAY-TUNED	<a href='«RSS-PATH»'><b>stay tuned!</b></a>
 
-GUESTBOOK-POST-TEXT	<p>Enjoyed «TITLE-BOLD»? Add <b>your message</b> below to the «SITE-NAME»'s «GUESTBOOK-LINK»!</p>
-GUESTBOOK-LINK	<b><a href="guestbook.html">guestbook</a></b>
+GUESTBOOK-POST-TEXT	<p>Enjoyed «TITLE-BOLD»? Add <b>your message</b> below to the «A-GUESTBOOK»!</p>
 GUESTBOOK-MESSAGE	<h3>Guestbook</h3>«GUESTBOOK-POST-TEXT»«GUESTBOOK-ADD»
 
 FEEDBACK	<h2>Feedback</h2><h3>Problems? Suggestions?</h3><p>Please «CONTACT-TEXT-3» !</p><h3>Praise?</h3>«GUESTBOOK-POST-TEXT»«GUESTBOOK-ADD»
@@ -290,7 +287,6 @@ LOG-COMMENTS	<script>AddAfterElement('«BUTTON-COMMENT»',"h2")</script>
 SUBSCRIBE-ANNOUNCEMENT	<div class="section"><div class="container"><div class="announce"><p>Learn first-hand about «NAME»'s next project!</p>«BUTTON-SUBSCRIBE»</div></div></div>
 SUBSCRIBE-RSS	<a href="«SITE»/«RSS-PATH»" id="rss">Subscribe to RSS feed.</a>
 SUBSCRIBE-EMAIL	<a onclick="OpenModalSubscribe()">Subscribe to email alerts.</a>
-SUBSCRIBE-LINK	<a href="subscribe.html">Subscribe!</a>
 
 DO-COMMENT	<a href="#" onclick="RequestGuestbook()">Leave a comment!</a>
 
@@ -334,15 +330,13 @@ MUSIC-CREDITS-AUTHORS	«AUTHOR-FULL|In:Music|Filter:{"Context-id"->«LINK»,"Type"-
 AUDIO-TRACK	<audio class="music" src="media/«File-path»" preload="none"></audio>
 GALLERY-AUDIO	«AUDIO-TRACK|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Track"}|Unique:True|SortBy:{N}|Contain:True»
 
-SUPPORT-LINK	2018-02-08-support-the-archive.html
-PRESS-KIT	<a href="press.html"><b>«SITE-NAME»'s press kit</b></a>
 
 PRESS-TEXT	«PRESS-INTRO»«PRESS-USAGE»«PRESS-SCREENSHOT-GALLERY»«OTHER-INQUIRIES»
 PRESS-INTRO	<h2>Press</h2><p class="centre">Would you like....<ul><li>to write an article about «TITLE-BOLD»?</li><li>to feature «TITLE-BOLD» in a curated collection?</li><li>to record a playthrough video or livestream?</li></ul></p>
 PRESS-USAGE	<p>Feel free to use and edit, for those purposes, all material on this page, including:<ul> <li>text;</li><li>screenshots and logo below;</li><li>recorded gameplay footage;</li></ul>...as long as you provide appropriate credit and a direct link to this page.</p>
 PRESS-SCREENSHOT-GALLERY	<h3 class="images">Screenshots & Logo</h3><p>Download all screenshots and logo at once:<a class="download" title="Download all screenshots and logo" href="images/«LINK»/«LINK»-screenshots-logo.zip"><b>download all</b> (zip archive)</a></p>«GALLERY»
 
-OTHER-INQUIRIES	<h3>Other inquiries</h3><p class="centre">Check also the «PRESS-KIT» or «CONTACT-TEXT-1» for all unusual requests!</p>
+OTHER-INQUIRIES	<h3>Other inquiries</h3><p class="centre">Check also the «A-PRESS-KIT» or «CONTACT-TEXT-1» for all unusual requests!</p>
 
 VIDEO-SRC	media/«LINK»/«LINK».mp4
 TRAILER-LAUNCHER	<img class="card" onclick='OpenVideoModal("«TRAILER»")' src="images/«TRAILER-IMAGE»" alt="«TITLE»'s trailer" title="«TITLELONG» (trailer)" loading="lazy"/>

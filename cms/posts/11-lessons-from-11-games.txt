@@ -1,4 +1,4 @@
-﻿<p>These 11 lessons were drawn from «MY» 11-game-making journey <a href="2019-04-14-a-game-making-journey.html">in 2018</a>.</p>
+﻿<p>These 11 lessons were drawn from «MY» «A-GAME-JOURNEY» in 2018.</p>
 
 <h2>#1 Know your goal</h2>
 <p>What are you trying to accomplish, and why does it matter to you? Does it have positive effects, like learning a specific new skill? </p>

@@ -26,7 +26,7 @@
 <p>All games playable in the «TITLE» are loaded in real time from a public github gist shared by the author, and not directly hosted nor verified by «SITE-NAME». Thus, if you are an author and want your game manually excluded from the «TITLE», «CONTACT-TEXT-8».</p>
 
 <h3>Puzzlescript</h3>
-<p>«PUZZLESCRIPT-OFFICIAL» is under this «LICENSE-PUZZLESCRIPT».</p>
+<p>«A-PUZZLESCRIPT» is under this «LICENSE-PUZZLESCRIPT».</p>
 
 <h3>The «TITLE»</h3>
 «DISCLAIMER»

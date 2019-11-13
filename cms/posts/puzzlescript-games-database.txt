@@ -28,7 +28,7 @@ console.log('Bookmarklet run!');void 0">Submit PuzzleScript Game</a> bookmarklet
 <p>The bookmarklet is that quick and convenient!</p>
 
 <h3>Is there any shorter, curated list with just the great titles?</h3>
-<p>You may be looking for <a href="2019-01-31-selected-puzzlescript-games.html">«NAME»'s curated list</a>!</p>
+<p>You may be looking for «NAME»'s curated list of «A-SELECTED-GAMES»!</p>
 
 <h3>Is this database safe?</h3>
 <p>All submitted games are listed. If a newly submitted game belongs to a known domain (e.g. puzzlescript.net), its link becomes immediately available. Otherwise, it will be listed without a link (so people can google it themselves), until a periodic review. During the review, legitimate new domains will be added to the whitelist and their links enabled, whereas suspicious submissions will be removed.</p>

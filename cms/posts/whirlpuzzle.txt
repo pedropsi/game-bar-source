@@ -12,8 +12,8 @@
 «CREDITS»
 
 <h3>Special thanks</h3>
-<p>«PUZZLESCRIPT» «MATTISON», «RICHARDSON», «SCHUELLER» and «HAZELDEN» for varying levels of feedback.</p>
-<p>«JOEL» for spotting <a href="#changelog-1">an important bug in block-pushing physics</a>.</p>
+<p>«PUZZLESCRIPT-COMMUNITY» «MATTISON», «RICHARDSON», «SCHUELLER» and «HAZELDEN» for varying levels of feedback.</p>
+<p>«JOEL» for spotting an important bug in block-pushing physics.</p>
 
 
 <h2 id="changelog">Changelog</h2>

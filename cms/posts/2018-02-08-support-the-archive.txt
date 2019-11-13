@@ -16,7 +16,7 @@
 <p>Instead of making a donation or seeing an advertisement, you may want to:</p>
 
 <h3>Buy a personal license</h3>
-<p>Some of the things in the «SITE-NAME» are so polished that «I» felt were too good to be free. The first example is <a href="gravirinth.html">Gravirinth</a>.</p>
+<p>Some of the things in the «SITE-NAME» are so polished that «I» felt were too good to be free. The first example is «A-GRAVIRINTH».</p>
 
 <h3>Do business together</h3>
 <p>Expressions of interest are «CONTACT-TEXT-5».</p>
