@@ -608,7 +608,9 @@ function LoadData(url,SuccessF,header){
 	rawFile.open("GET",url,true);
 	rawFile.onreadystatechange=function(){
 		if(rawFile.readyState===4){
-			if(rawFile.status===200||rawFile.status==0){
+			if(rawFile.status===404)
+				console.log("Nothing found at: ",url," and that's the information we needed. The above error is thus a pointless overreaction.");
+			else if(rawFile.status===200||rawFile.status==0){
 				SuccessF(rawFile.responseText);
 			}
 		}
