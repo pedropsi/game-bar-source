@@ -295,8 +295,8 @@ function activateNightMode(){
 // Background
 
 function toggleBGMode(bg){
-	if(document.body.style.backgroundImage!='url("images/mosaic/'+bg+'.png")'){
-		document.body.style.backgroundImage='url("images/mosaic/'+bg+'.png")';
+	if(document.body.style.backgroundImage!='url("images/512/mosaic/'+bg+'.png")'){
+		document.body.style.backgroundImage='url("images/512/mosaic/'+bg+'.png")';
 		document.body.style.backgroundSize='150px';
 		activateConfig("🖼("+bg+")»");
 		} 
@@ -307,7 +307,7 @@ function toggleBGMode(bg){
 }
 
 function activateBGMode(bg){
-	document.body.style.backgroundImage='url("images/mosaic/'+bg+'.png")';
+	document.body.style.backgroundImage='url("images/512/mosaic/'+bg+'.png")';
 	document.body.style.backgroundSize='150px';
 	activateConfig("🖼("+bg+")»")
 }
