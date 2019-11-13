@@ -1,4 +1,4 @@
-var CACHE_VERSION=8;
+var CACHE_VERSION=9;
 var CURRENT_CACHES={
 	main:'PSI-cache-v'+CACHE_VERSION
 };
@@ -76,6 +76,9 @@ self.addEventListener('activate', function(event){
 	);
 });
 
+function QuietError(error){
+	return;
+}
 
 
 self.addEventListener("install",function(event){
@@ -83,7 +86,7 @@ self.addEventListener("install",function(event){
 	self.skipWaiting();
 	caches.open(CURRENT_CACHES.main).then(function(cache){
 		return cache.addAll(preCacheFiles);
-	});
+	}).catch(QuietError);
 });
 
 
@@ -108,6 +111,6 @@ self.addEventListener("fetch",function(event){
 				});
 			}
 			return response;
-		})
+		}).catch(QuietError);
 	);
 });
