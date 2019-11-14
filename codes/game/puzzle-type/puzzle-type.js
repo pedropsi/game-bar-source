@@ -842,7 +842,12 @@ function InterpretNumber(name){
 	
 function InflateNumber(text){
 	var numberstring=NumberPositions(text).map(function(p){return p[0]}).join("");
-	return text.replace(numberstring,ReadNumber(InterpretNumber(numberstring)+1));
+	
+	if(numberstring==="")
+		return text;
+	else{
+		return text.replace(numberstring,ReadNumber(InterpretNumber(numberstring)+1));
+	}
 }
 
 function InflateNumbers(text){
