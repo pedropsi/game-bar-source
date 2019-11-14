@@ -6,7 +6,7 @@ var DESTINATION_HOF={
 	headers:"[\"identifier\",\"name\",\"honour\"]",
 	sheet:"Hall of fame",
 	name:"HOF",
-	Data:function(qid){return {
+	Data:function(qid){return{
 		identifier:pageTitle(),
 		name:FindData("name",qid),
 		honour:GetHonour()
@@ -14,8 +14,8 @@ var DESTINATION_HOF={
 	}
 
 // Honour
-if (!GetHonour){
-	function GetHonour(){return HintsHonour()}; ///function to be overriden (customised for) in each game, otherwise blank
+if(!GetHonour){
+	function GetHonour(){return HintsHonour()}; ///function to be overriden(customised for) in each game, otherwise blank
 }
 
 var who=UserId();	
@@ -47,7 +47,7 @@ var DESTINATION_GUESTBOOK={
 	headers:"[\"name\",\"identifier\",\"comment\",\"id\"]",
 	sheet:"Guestbook",
 	name:"Guestbook",
-	Data:function(qid){return {
+	Data:function(qid){return{
 		identifier:pageTitle(),
 		comment:FindData("answer",qid),
 		name:AnonimiseBlank(FindData("name",qid)),
@@ -61,7 +61,7 @@ var DESTINATION_COMMENT={
 	headers:DESTINATION_GUESTBOOK.headers,
 	sheet:DESTINATION_GUESTBOOK.sheet,
 	name:"Comments",
-	Data:function(qid){return {
+	Data:function(qid){return{
 		identifier:commentID(),
 		comment:FindData("answer",qid),
 		name:FindData("name",qid),
@@ -73,7 +73,7 @@ var DESTINATION_SUBSCRIPTION={
 	headers:"[\"name\",\"address\"]",
 	sheet:"Subscription",
 	name:"Subscription",
-	Data:function(qid){return {
+	Data:function(qid){return{
 		name:FindData("name",qid),
 		address:FindData("address",qid)
 		}}
@@ -84,7 +84,7 @@ var DESTINATION_ORDER={
 	headers:"[\"identifier\",\"address\"]",
 	sheet:"Order",
 	name:"Order",
-	Data:function(qid){return {
+	Data:function(qid){return{
 		identifier:pageTitle(),
 		address:FindData("address",qid)
 		}}
@@ -95,7 +95,7 @@ var DESTINATION_KEYS={
 	headers:"[\"identifier\",\"key\"]",
 	sheet:"Keys",
 	name:"Keys",
-	Data:function(qid){return {
+	Data:function(qid){return{
 		identifier:pageTitle(),
 		key:FindData("answer",qid)
 		}}
@@ -106,7 +106,7 @@ var DESTINATION_PASS={
 	headers:"[\"identifier\",\"name\",\"address\",\"account\"]",
 	sheet:"Pass",
 	name:"Pass",
-	Data:function(qid){return {
+	Data:function(qid){return{
 		identifier:pageTitle(),
 		name:FindData("name",qid),
 		address:FindData("address",qid),
@@ -346,7 +346,7 @@ function RequestMediaPass(){
 			questionname:"Through which channels do you intend to review this game?",
 			qplaceholder:"e.g. which blog, magazine, youtube channel, twitch account, etc..."}],
 		['email',{
-			questionname:"Your email (to receive the key)"
+			questionname:"Your email(to receive the key)"
 		}]],
 		{
 			thanksmessage:"Your request is being processed - please allow 1-2 business days.",
