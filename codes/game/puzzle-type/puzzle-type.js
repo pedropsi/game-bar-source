@@ -8,11 +8,8 @@
 // Level Ideas todo, maybe
 --positional caret
 --leetspeek
---cyclical letters (vowels)
 --calculatorspeak
---disorder: a letter adds itself alphabeticall or reverse depending on last letter?
 --Fur elise must write the first notes (letters give sharps and bemol)
---gogol (letters input numbers)
 --phonetic alphabet?
 */
 
@@ -94,6 +91,8 @@ function P(){
 //Keybinding
 function ObtainKeyActionsGame(){
 	return {
+		".":InstructGameKeyF("."),
+		"-":InstructGameKeyF("-"),
 		"0":InstructGameKeyF("0"),
 		"1":InstructGameKeyF("1"),
 		"2":InstructGameKeyF("2"),
@@ -131,14 +130,18 @@ function ObtainKeyActionsGame(){
 		"Y":InstructGameKeyF("Y"),
 		"Z":InstructGameKeyF("Z"),
 		"Escape":InstructGameKeyF("Escape"),
+		
 		"Backspace":ObtainUndo,
 		"Delete":ObtainUndo,
-		"Shift R":ObtainRestart,
-		"Ctrl R":ObtainRestart,
 		"Shift U":ObtainUndo,
 		"Ctrl U":ObtainUndo,
 		"Shift Z":ObtainUndo,
 		"Ctrl Z":ObtainUndo,
+				
+		"Shift Backspace":ObtainRestart,
+		"Shift Delete":ObtainRestart,
+		"Shift R":ObtainRestart,
+		
 		"Spacebar":InstructGameKeyF("Enter"),
 		"Enter":InstructGameKeyF("Enter"),
 		"Left":InstructNothing,
@@ -182,7 +185,7 @@ function LevelAction(key){
 		return;
 	 }	
 	
-	if(key==="Enter"||ForbidNumberActions(key)){
+	if(key==="Enter"||ForbidNumberActions(key)||ForbidSymbolActions(key)){
 		ForbidCaret();return;
 	}
 	else{
@@ -225,6 +228,10 @@ function ForbidNumberActions(key){
 	return (!In(["Nokia 1998","Symmetric","White"],CurLevelName())&&In(NumberCharacters,key));
 }
 
+function ForbidSymbolActions(key){
+	return (!In(["-----.-....."],CurLevelName())&&In(["-","."],key));
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 
 function InPart(arrayOrObj,n){
@@ -237,27 +244,29 @@ function InPart(arrayOrObj,n){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
-var LevelGoals=[	//Required types of thinking
-	"Direct",		
-	"Reverse",		//Positional,
-	"Alternate",	//Positional,
-	"Second",		//Retroactive
-	"Follow",		//Positional,Retroactive
-	"Rotate",		//Positional, Spacial, Retroactive
-	"Oppose",		//Mapping, Alphabetical
-	"Dvorak",		//Mapping, Spacial, Cyclic, Cultural
-	"Rise",			//Alphabetical, Adjacent
-	"Falls",		//Alphabetical, Retroactive, Adjacent
-	"Superior",		//Alphabetical, Retroactive
-	"Precedent",	//Alphabetical, Retroactive, Adjacent
-	"Tangles",		//Posteroactive, Alphabetical, Cyclic,
-	"Symmetric",	//Spacial, Toggling
-	"Homeomorphic",	//Spacial, Toggling
-	"Nigeria",		//Knowledge, Word, Spacial, Mapping, Retroactive
-	"ひらがな",		//Syllabe, Language, Mapping
-	"Nokia 1998",	//Spacial, Mapping, Cultural
-	"White",		//Knowledge, Language, Retroactive
-	"Nucleus"		//Knowledge, Word, Syllabe, Language, Mapping, Retroactive
+var LevelGoals=[			//Required types of thinking
+	"Direct",				
+	"Reverse",				//Positional,
+	"Alternate",			//Positional,
+	"Second",				//Retroactive
+	"Follow",				//Positional,Retroactive
+	"Rotate",				//Positional, Spacial, Retroactive
+	"Oppose",				//Mapping, Alphabetical
+	"Rise",					//Alphabetical, Adjacent
+	"Falls",				//Alphabetical, Retroactive, Adjacent
+	"Superior",				//Alphabetical, Retroactive
+	"Precedent",			//Alphabetical, Retroactive, Adjacent
+	"Dvorak",				//Mapping, Spacial, Cyclic, Cultural
+	"Tangles",				//Posteroactive, Alphabetical, Cyclic,
+	"Weightier",			//Word, Adjacent
+	"Symmetric",			//Spacial, Toggling
+	"Homeomorphic",			//Spacial, Cyclic
+	"ひらがな",				//Syllabe, Language, Mapping
+	"-----.-.....",			//Language, Mapping
+	"Nigeria",				//Knowledge, Word, Spacial, Mapping, Retroactive
+	"Nokia 1998",			//Spacial, Mapping, Cultural
+	"White",				//Knowledge, Language, Retroactive
+	"Nucleus"				//Knowledge, Word, Syllabe, Language, Mapping, Retroactive
 	];
 
 
@@ -352,12 +361,14 @@ var LevelActions={
 		}
 		InputLetter(L);
 	},
+	"Weightier":Weightier,
 	"Nigeria":Nigeria,
 	"ひらがな":function(L){
 		InputLetter(L);
 		Letters.array=StringReplaceRulesObject(Letters.array.join("").toLowerCase(),Hiragana).toUpperCase().split("");
 		PlaceEndCaret();
 	},
+	"-----.-.....":Morse,
 	"White":White,
 	"Nucleus":Nucleus
 }
@@ -500,6 +511,19 @@ function FlipArray(array){
 	}
 	return a;
 }
+
+//Morse
+function Morse(L){
+	MorseCode[L.toLowerCase()].split("").map(InputLetter);
+}
+
+//Weightier
+
+function Weightier(L){
+	InputLetter(L);
+	Letters.array=InflateNumbers(Letters.array.join("").toLowerCase()).toUpperCase().split("");
+	PlaceEndCaret();
+	return;}
 
 //Symmetric
 
@@ -661,6 +685,171 @@ var DvorakMapping={
 }
 
 var LetterCharacters=Object.keys(DvorakMapping);
+
+// Weightier
+var NumberPairs={
+	"0":"zero",
+	"1":"one",
+	"2":"two",
+	"3":"three",
+	"4":"four",
+	"5":"five",
+	"6":"six",
+	"7":"seven",
+	"8":"eight",
+	"9":"nine",
+	"10":"ten",
+	"11":"eleven",
+	"12":"twelve",
+	"13":"thirteen",
+	"14":"fourteen",
+	"15":"fifteen",
+	"16":"sixteen",
+	"17":"seventeen",
+	"18":"eighteen",
+	"19":"nineteen",
+	"20":"twenty",
+	"30":"thirty",
+	"40":"fourty",
+	"50":"fifty",
+	"60":"sixty",
+	"70":"seventy",
+	"80":"eighty",
+	"90":"ninety",
+	"100":"hundred",
+	"1000":"thousand",
+	"1000000":"million",
+	"1000000000":"billion",
+	"1000000000000":"trillion",
+	"1000000000000000":"quadrillion",
+	"1000000000000000000":"quintillion" /*,
+	"1000000000000000000000":"sexillion",
+	"1000000000000000000000000":"septillion",
+	"1000000000000000000000000000":"octillion",
+	"1000000000000000000000000000000":"nonillion",
+	"1000000000000000000000000000000000":"decillion",
+	"1000000000000000000000000000000000000":"undecillion",
+	"1000000000000000000000000000000000000000":"duodecillion",
+	"1000000000000000000000000000000000000000000":"tredecillion",
+	"1000000000000000000000000000000000000000000000":"quattuordecillion",
+	"1000000000000000000000000000000000000000000000000":"quindecillion",
+	"1000000000000000000000000000000000000000000000000000":"sexdecillion",
+	"1000000000000000000000000000000000000000000000000000000":"septendecillion",
+	"1000000000000000000000000000000000000000000000000000000000":"octodecillion",
+	"1000000000000000000000000000000000000000000000000000000000000":"novemdecillion",
+	"1000000000000000000000000000000000000000000000000000000000000000":"vingtillion",
+	"10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000":"gogol"*/
+};
+
+NumberDigits=Object.keys(NumberPairs).map(Number);
+NumberNames=NumberDigits.map(function(m){return NumberPairs[m]});
+
+NumberPairsReversed={};
+NumberDigits.map(function(d){NumberPairsReversed[NumberPairs[d]]=Number(d)});
+
+function NameNumber(n){return NumberPairsReversed[n];}
+
+function ReadNumber(n){
+	var m=Number(n);
+	
+	if(In(NumberDigits,m))
+		return NumberPairs[n];
+	
+	var biggest=Number(NumberDigits[0]);
+	var i=0;
+	while(biggest<m&&i<NumberDigits.length-1){
+		if(Number(NumberDigits[i])<m)
+			biggest=Number(NumberDigits[i]);
+		i++;
+	}
+	var times=Math.floor(m/biggest);
+	var remainder=m-biggest*times;
+	
+	times=ReadNumber(times);
+	
+	return (times==="one"?"":times)+ReadNumber(biggest)+ReadNumber(remainder);
+}
+
+
+
+function Positions(string,pattern){
+	var p=[];
+	var s=string;
+	while(In(s,pattern)){
+		s=s.replace(pattern,"~"+Rest(pattern));
+		p.push(s.indexOf("~"));
+		s=s.replace("~","§");
+	}
+	return p;
+}
+
+function NumberPositions(name){
+	var name=name.toLowerCase();
+	var positions=[];
+	NumberNames.map(function(n){return Positions(name,n).map(function(p){positions.push([n,p]);})});
+	
+	positions=positions.sort(function(a,b){
+		if(a[1]===b[1])
+			return a[0].length>b[0].length;
+		else
+			return a[1]>b[1];});
+	
+	var i=0;
+	while(i+1<positions.length){
+		if(positions[i][1]===positions[i+1][1])
+			positions[i]=null;
+		i++;
+	}
+	
+	positions=positions.filter(function(p){return p!==null});
+	
+	return positions;
+}
+
+function NumberDivisions(text){
+	var positions=NumberPositions(text);
+	
+	var divisions=[];
+	
+	var i=0;
+	var prev=0;
+	while(i+1<positions.length){
+		if(positions[i][0].length+positions[i][1]<positions[i+1][1]){
+			divisions.push(text.slice(prev,positions[i+1][1]));
+			prev=positions[i+1][1];
+		}
+		i++;
+	}
+	divisions.push(text.slice(prev,text.length));
+	return divisions;
+}
+	
+function InterpretNumber(name){
+	var digits=NumberPositions(name).map(function(p){return NameNumber(p[0])});
+	var r=0;
+	while(digits.length>1){
+		if(digits[0]<digits[1]){
+			digits[1]=digits[0]*digits[1];
+			r=r*digits[1];
+		}
+		else
+			r=r+digits[0];
+		
+		digits=Rest(digits);
+	}
+	return r+Last(digits);
+};
+	
+function InflateNumber(text){
+	var numberstring=NumberPositions(text).map(function(p){return p[0]}).join("");
+	return text.replace(numberstring,ReadNumber(InterpretNumber(numberstring)+1));
+}
+
+function InflateNumbers(text){
+	return NumberDivisions(text).map(InflateNumber).join("");
+}
+
+
 
 var Countries=[
 "Iceland",
@@ -1096,6 +1285,47 @@ var Nuclei={
 'ytterbium':'yb',
 'zinc':'zn',
 'zirconium':'zr'
+}
+
+var MorseCode={
+	"0":"-----",
+	"1":".----",
+	"2":"..---",
+	"3":"...--",
+	"4":"....-",
+	"5":".....",
+	"6":"-....",
+	"7":"--...",
+	"8":"---..",
+	"9":"----.",
+	"a":".-",
+	"b":"-...",
+	"c":"-.-.",
+	"d":"-..",
+	"e":".",
+	"f":"..-.",
+	"g":"--.",
+	"h":"....",
+	"i":"..",
+	"j":".---",
+	"k":"-.-",
+	"l":".-..",
+	"m":"--",
+	"n":"-.",
+	"o":"---",
+	"p":".--.",
+	"q":"--.-",
+	"r":".-.",
+	"s":"...",
+	"t":"-",
+	"u":"..-",
+	"v":"...-",
+	"w":".--",
+	"x":"-..-",
+	"y":"-.--",
+	"z":"--..",
+	"-":"-....-",
+	".":".-.-.-"
 }
 
 
