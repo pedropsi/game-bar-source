@@ -37,7 +37,7 @@
 	href="images/press-images-pedropsi.zip">↓↓↓ (zip archive)</a></p>
 	
 <h3 id="logo">Selected project images</h3>
-	<div class="featured">«PICTURE-GALLERY|«SELECTION»|With:{PICFOLDERMAX->"512/",PICFOLDERMIN->"180/"}»</div>
+	<div class="featured">«PICTURE-GALLERY|«SELECTION»|With:{PICFOLDERMAX->"/512/",PICFOLDERMIN->"/180/"}»</div>
 	
 <h3 id="logo">Logo</h3>
 	<div class="figure"><img src="«LOGOPATH»" alt="«NAME»'s logo, of the «SITE-NAME»" title="«NAME»'s octaflower logo, of the «SITE-NAME»" width="256" height="256"/><div class="legend">«SITE-NAME»'s logo, by «NAME».</div></div>	

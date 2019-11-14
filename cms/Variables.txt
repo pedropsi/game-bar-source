@@ -319,7 +319,7 @@ SELECTION	Filter:{Selected->_?NumberQ,Day->_?NumberQ,Month->_?NumberQ,Year->_?Nu
 
 PICFOLDERMIN	/
 PICFOLDERMAX	/
-PICTURE-GALLERY	<a href="images/«PICFOLDERMAX»«IMAGE»" «BLANK» class="card-supra"><div class="card"><img src="images/«PICFOLDERMIN»«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/></div></a>
+PICTURE-GALLERY	<a href="images«PICFOLDERMAX»«IMAGE»" «BLANK» class="card-supra"><div class="card"><img src="images«PICFOLDERMIN»«IMAGE»" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/></div></a>
 GALLERY	<div class="featured">«PICTURE-GALLERY|In:Asset|Filter:{"Context-id"->«LINK»}|Contain:True»</div>
 
 MUSIC-TABLE-HEAD	<thead>«ROW|In:Music|Filter:{"Context-id"->«LINK»,"Type"->"Info"}|Contain:True»</thead>
