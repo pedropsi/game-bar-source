@@ -89,6 +89,9 @@ function RegisterNightModeToggled(b){
 	EchoAnalytics(FingerprintAction("NM toggle",b.innerText));
 }
 
+function RegisterPWA(status){
+	EchoAnalytics(FingerprintAction("PWA Prompt",status));
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -384,13 +384,11 @@ window.addEventListener('beforeinstallprompt',function(e){
 function InstallPWAMaybe(choice,id){
 	if(choice==="Yes, please!"){
 		installPWAEvent.prompt();
-		console.log("prompted");
-		
 		installPWAEvent.userChoice.then(function(choiceResult){
-			if (choiceResult.outcome === 'accepted') {
-			console.log('User accepted the prompt');
-			} else {
-			console.log('User dismissed the prompt');
+			if(choiceResult.outcome==='accepted'){
+				RegisterPWA('Dismiss');
+			}else{
+				RegisterPWA('Install');
 			}
 			deferredPrompt = null;
 		});
