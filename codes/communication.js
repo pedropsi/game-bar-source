@@ -386,9 +386,9 @@ function InstallPWAMaybe(choice,id){
 		installPWAEvent.prompt();
 		installPWAEvent.userChoice.then(function(choiceResult){
 			if(choiceResult.outcome==='accepted'){
-				RegisterPWA('Dismiss');
-			}else{
 				RegisterPWA('Install');
+			}else{
+				RegisterPWA('Dismiss');
 			}
 			deferredPrompt = null;
 		});
