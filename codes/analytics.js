@@ -70,23 +70,23 @@ function FingerprintLink(ref){
 // Echoes
  
 function EchoAnalytics(data){
-	EchoData(data,analyticsURL);	
+	EchoData(data,analyticsURL);
 }
  
 function RegisterOpen(){
-	EchoAnalytics(FingerprintOpen());	
+	EchoAnalytics(FingerprintOpen());
 }
 function RegisterLink(l){
 	EchoAnalytics(FingerprintLink(l));
 };
 function RegisterElementClicked(b){
-	EchoAnalytics(FingerprintAction("Click",b.innerText));	
+	EchoAnalytics(FingerprintAction("Click",b.innerText));
 }
 function RegisterMosaicToggled(b){ //Mosaic change
-	EchoAnalytics(FingerprintAction("BG toggle","---"));	
+	EchoAnalytics(FingerprintAction("BG toggle","---"));
 }
 function RegisterNightModeToggled(b){
-	EchoAnalytics(FingerprintAction("NM toggle",b.innerText));	
+	EchoAnalytics(FingerprintAction("NM toggle",b.innerText));
 }
 
 
