@@ -142,7 +142,7 @@ function absolutiseLinks(){
 // Analytics Behaviour
 
 function AnalyticsClearance(){
-	return (pageTag()!==clearance)&&!isFileLink(pageURL());
+	return ((pageTag()!==clearance)&&!isFileLink(pageURL()))||(pageSearch("source")==="homescreen");
 }
 
 if(AnalyticsClearance()){
