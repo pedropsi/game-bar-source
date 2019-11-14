@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<th>Illustration & Colour design</th>
-		<th>Microsoft Powerpoint; Paletton</th>
+		<th>Microsoft Powerpoint; «A-PALLETTON»; «A-PNGQUANT»</th>
 	</tr>
 	<tr>
 		<th>Page design</th>
@@ -35,19 +35,19 @@
 	</tr>
 	<tr>
 		<th>Content management</th>
-		<th>Microsoft Excel, Wolfram Language, Notepad++ </th>
+		<th>Microsoft Excel, Wolfram Language, «A-NOTEPAD»</th>
 	</tr>
 	<tr>
 		<th>Video</th>
-		<th>«A-OBS», Shotcut and Microsoft Powerpoint</th>
+		<th>«A-OBS», «A-SHOTCUT» and Microsoft Powerpoint</th>
 	</tr>
 	<tr>
 		<th>Music & Sound</th>
-		<th>«A-MUSESCORE»</th>
+		<th>«A-MUSESCORE», «A-SOUNDCLOUD-SEARCH»</th>
 	</tr>
 	<tr>
 		<th>Game design</th>
-		<th>«A-PUZZLESCRIPT», Javascript; </th>
+		<th>«A-PUZZLESCRIPT» and Javascript</th>
 	</tr>
 
 </tbody>
