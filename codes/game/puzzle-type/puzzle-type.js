@@ -88,6 +88,7 @@ LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
 function P(){
 	DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
 }
+//P();
 
 ///////////////////////////////////////////////////////////////////////////////
 //Keybinding
@@ -251,6 +252,7 @@ var LevelGoals=[	//Required types of thinking
 	"Precedent",	//Alphabetical, Retroactive, Adjacent
 	"Tangles",		//Posteroactive, Alphabetical, Cyclic,
 	"Symmetric",	//Spacial, Toggling
+	"Homeomorphic",	//Spacial, Toggling
 	"Nigeria",		//Knowledge, Word, Spacial, Mapping, Retroactive
 	"ひらがな",		//Syllabe, Language, Mapping
 	"Nokia 1998",	//Spacial, Mapping, Cultural
@@ -330,6 +332,7 @@ var LevelActions={
 			InputLetter(L);
 	},
 	"Symmetric":Symmetric,
+	"Homeomorphic":Homeomorphic,
 	"Dvorak":function (P){
 		var n=Letters.array.length;
 		var P=P;
@@ -558,6 +561,54 @@ function VerticalSymmetric(O){
 function InversionSymmetric(O){
 	return In(["N","S","Z"],PureLetter(O));
 }
+
+//Homeomorphic
+
+function Homeomorphic(O){	
+	var cla=HomeomorphicClass(O);
+	
+	function InHoCla(F){
+		return HomeomorphicClass(F)===cla;
+	}
+	
+	function HomeomorphicAdvance(F){
+		var p=Homeomorphism[cla].indexOf(F);
+		return Homeomorphism[cla][(p+1)%(Homeomorphism[cla].length)];
+	}
+	
+	ModifyLetters(HomeomorphicAdvance,InHoCla);
+	
+	if(In("HOMEOMORPHIC",O)){
+		InputLetter(O);
+	}
+}
+
+var Homeomorphism={
+	"A":["A","R"],
+	"B":["B"],
+	"C":["C","G","I","J","L","M","N","S","U","V","W","Z"],
+	"D":["D","O"],
+	"E":["E","F","T","Y"],
+	"H":["H","K"],
+	"P":["P"],
+	"Q":["Q"],
+	"X":["X"]
+}
+
+function HomeomorphicClass(O){
+	var classes=Object.keys(Homeomorphism);
+	if(In(classes,O))
+		return O;
+	else{
+		for(var i in classes){
+			if(In(Homeomorphism[classes[i]],O))
+				return classes[i];
+		}
+			
+		return null;
+	}
+}
+
 
 //Nokia 1998
 
