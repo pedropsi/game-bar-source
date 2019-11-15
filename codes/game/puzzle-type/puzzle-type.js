@@ -85,8 +85,11 @@ LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
 function P(){
 	DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
 }
-//P();
 
+if(In(["mago314"],pageSearch("source"))){
+	P();
+}
+	
 ///////////////////////////////////////////////////////////////////////////////
 //Keybinding
 function ObtainKeyActionsGame(){
