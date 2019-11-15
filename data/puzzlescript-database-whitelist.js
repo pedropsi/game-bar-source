@@ -14,7 +14,8 @@ function Whitelist(){ //Sort descending by expected number of submissions
 		/^https\:\/\/(www\.)?streamingcolour\.com\/liveapps\/puzzlescript\/.*/,
 		/^https\:\/\/(www\.)?struct\.ca\/games\/.*/,
 		/^https\:\/\/benjamindav\.is\/.*/,
-		/^https\:\/\/axaxaxas\.herokuapp\.com\/games\/.*/
+		/^https\:\/\/axaxaxas\.herokuapp\.com\/games\/.*/,
+		/^https?\:\/\/www\.colami\.com/
 	];
 }
 
