@@ -55,6 +55,6 @@ window.addEventListener(
 
 <h3>How to cite this database properly?</h3>
 <p>Just include all information below, using your favourite citing convention. If you are citing online, please ensure the link is clickable.</p>
-<p>«TITLE-BY», accessed at:«SITE»/«LINK».html</p>
+<p>«TITLE-BY-AL», accessed at: «SITE»/«LINK».html</p>
 
 «FEEDBACK»
