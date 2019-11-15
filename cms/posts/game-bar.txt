@@ -1,14 +1,15 @@
 ﻿<h2>About the «TITLE-BOLD»</h2>
 
-<p>This is the "game bar" found in all «A-GAMES». It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
+<p>This is the "game bar" found in all «A-GAMES». It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen mode, auto-rotation, plus optional music, credits and how-to-play buttons. Sounds useful? Well <b>you too</b> can use it, for free!<p>
 
 <p>This is how the «TITLE-BOLD» looks like:</p>
 «FIGURE-SIMPLE»
+<p>The game bar's colours adapt to the foreground and background colours of your game.</p>
 
 <h3>Current version</h3>
-<p><b><span id="version-number">v2.2</span>:</b><span id="version-date">02/10/2019</span>.</p>
+<p><b><span id="version-number">v4.0</span>:</b><span id="version-date">11/11/2019</span>.</p>
 
-<p>Please note the game-bar bookmarklet and code always default to the most recent version. The archive stores all «A-GB-VERSIONS».</p>
+<p>Please note the game-bar bookmarklet and code updates in real time to the most recent version. You can as well use any of the archived «A-GB-VERSIONS» instead.</p>
 
 <h2>How to test the «TITLE-BOLD» in your own game</h2>
 <p>Follow the instructions in the «A-GAME-CONSOLE».</p>
@@ -19,6 +20,7 @@
 <p>To ensure the «TITLE-BOLD» overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the «[<»body«>]» the snippet «[<»script type="text/javascript" src="GameBar.js"«>]»«[<»/script«>]».</p>
 
 <h2>Adding hints</h2>
+<p> A hints button will appear whenever a hint file is detected.</p>
 <p> Create a folder named «[»hints«]», where you'll drop a <b>hints file</b> containing all hints. The <b>hints file</b> should be named exactly like the matching game «[».html«]» page file, but with the «[».txt«]» extension.</p>
 <p>If you have several game pages, you can drop one <b>hints file</b> per game into the common «[»hints«]» folder.</p>
 
@@ -51,6 +53,12 @@
 <h3>Music</h3>
 <h4>Add music files</h4>
 <p>To control a music playlist via the game bar, each music track should be added to the page inside «[<»audio class="music"«>]» tags, placed anywhere in the page. If these tags are detected, a music button will be revealed automatically.</p>
+
+<h3>"Credits" button</h3>
+<p>To display a "Credits" button, provide an HTML element with «[»id="Credits"«]», the button will then be revealed automatically.</p>
+
+<h3>"How to play" button</h3>
+<p>To display a "How to play" button, provide an HTML element with «[»id="How-to-play"«]», the button will then be revealed automatically.</p>
 
 <h2>Troubleshoting</h2>
 
@@ -120,6 +128,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <ul>
 <li>A level selector;</li>
 <li>Fullscreen mode;</li>
+<li>Auto-landscape mode (screen rotation);</li>
 <li>Hints system, including text and image hints;</li>
 <li>Mute/unmute control for a BGM playlist (optional);</li>
 <li>Non-linear level navigation:
@@ -162,7 +171,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <p>Yes, it's under a «LICENSE-MIT» license.</p>
 
 <h3>What are the differences between the shared «TITLE-BOLD» and the one <b>live</b> at the «SITE-NAME»?</h3>
-<p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any buttons that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
+<p>The <b>live</b> «TITLE-BOLD» at the «SITE-NAME» is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official «TITLE-BOLD» shared in this page. Any functions that depend on the «SITE-NAME»'s infrastructure to work or that lack general interest won't be included into the official «TITLE-BOLD».</p>
 
 <h3>Does the «TITLE-BOLD» level selector handle checkpoints?</h3>
 <p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in «A-TIARADVENTUR»). Support for multiple levels with checkpoints is not planned, unless you «A-GB-FILE-ISSUE».</p>

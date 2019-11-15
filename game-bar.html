@@ -1,14 +1,8 @@
 <!DOCTYPE html><html lang="en" xml:lang="en" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="theme-color" content="rgb(7,0,112)"><link href="images/favicon-32x32.png" rel="icon" type="image/png"/><link href="images/favicon-32x32.png" rel="shortcut icon" type="image/x-icon"/><link href="images/180/game-bar.png" rel="apple-touch-icon"/><link href="codes/index.css" rel="stylesheet" type="text/css"/><title>Puzzlescript Game Bar</title><meta property="og:title" content="Puzzlescript Game Bar"/><meta name="description" content=" About the  Puzzlescript Game Bar  
 
- This is the game bar found in all Pedro PSI s games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
+ This is the game bar found in all Pedro PSI s games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen mode, auto-rotation, plus optional music, credits and how-to-play buttons. Sounds useful? Well you too can use it, for free..."/><meta property="og:description" content=" About the  Puzzlescript Game Bar  
 
- This is how the  Puzzlescript Game Bar  looks like: 
-«FIG..."/><meta property="og:description" content=" About the  Puzzlescript Game Bar  
-
- This is the game bar found in all Pedro PSI s games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well you too can use it! 
-
- This is how the  Puzzlescript Game Bar  looks like: 
-«FIG..."/><meta property="og:type" content="article"/><meta property="og:image:alt" content="Puzzlescript Game Bar"/><meta property="og:url" content="https://pedropsi.github.io/game-bar.html"/><meta property="og:image" content="https://pedropsi.github.io/images/512/game-bar.png"/></head><body class="body" id="game-bar"><div class="main"><div class="nav"><a href="index.html"><div class="logo"><svg viewBox="-8 -8 16 16" xmlns="http://www.w3.org/2000/svg">
+ This is the game bar found in all Pedro PSI s games . It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen mode, auto-rotation, plus optional music, credits and how-to-play buttons. Sounds useful? Well you too can use it, for free..."/><meta property="og:type" content="article"/><meta property="og:image:alt" content="Puzzlescript Game Bar"/><meta property="og:url" content="https://pedropsi.github.io/game-bar.html"/><meta property="og:image" content="https://pedropsi.github.io/images/512/game-bar.png"/></head><body class="body" id="game-bar"><div class="main"><div class="nav"><a href="index.html"><div class="logo"><svg viewBox="-8 -8 16 16" xmlns="http://www.w3.org/2000/svg">
 	<title>Creative Archive</title>
 	<rect x="-5" y="-5" width="10" height="10" class="logo-1" fill="#070070" />
 	<rect x="-5" y="-5" width="10" height="10" class="logo-1" fill="#070070" transform="rotate(45)"/>
@@ -33,15 +27,16 @@
 <a href="hall-of-fame.html" class="nav-link" style="max-width: 728px;">Hall of Fame</a>
 <a href="subscribe.html" class="nav-link" style="max-width: 728px;">Subscribe</a></nav><div class="rainbowline"></div></div><div class="section"><div class="container"><h1 class="title">Puzzlescript Game Bar</h1><div class="whiteboard"><div class="text prose post" id="post"><h2>About the <b>Puzzlescript Game Bar</b></h2>
 
-<p>This is the "game bar" found in all Pedro PSI's <a href='games.html'>games</a>. It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen button and optional music button. Sounds useful? Well <b>you too</b> can use it!<p>
+<p>This is the "game bar" found in all Pedro PSI's <a href='games.html'>games</a>. It features for instance undo/reset buttons, a beautiful level selector, a hint manager, a fullscreen mode, auto-rotation, plus optional music, credits and how-to-play buttons. Sounds useful? Well <b>you too</b> can use it, for free!<p>
 
 <p>This is how the <b>Puzzlescript Game Bar</b> looks like:</p>
 <div class="figure"><img src="images/512/game-bar.png" width="180" height="180" alt="Puzzlescript Game Bar" title="Puzzlescript Game Bar" loading="lazy"/></div>
+<p>The game bar's colours adapt to the foreground and background colours of your game.</p>
 
 <h3>Current version</h3>
-<p><b><span id="version-number">v2.2</span>:</b><span id="version-date">02/10/2019</span>.</p>
+<p><b><span id="version-number">v4.0</span>:</b><span id="version-date">11/11/2019</span>.</p>
 
-<p>Please note the game-bar bookmarklet and code always default to the most recent version. The archive stores all <a href='https://github.com/pedropsi/game-bar-source/tree/master/Versions' target='_blank' rel="noopener noreferrer">older versions</a>.</p>
+<p>Please note the game-bar bookmarklet and code updates in real time to the most recent version. You can as well use any of the archived <a href='https://github.com/pedropsi/game-bar-source/tree/master/Versions' target='_blank' rel="noopener noreferrer">older versions</a> instead.</p>
 
 <h2>How to test the <b>Puzzlescript Game Bar</b> in your own game</h2>
 <p>Follow the instructions in the <a href='game-console.html'>Game Console</a>.</p>
@@ -52,6 +47,7 @@
 <p>To ensure the <b>Puzzlescript Game Bar</b> overwrites all needed functions, please load it <b>after</b> the game has loaded fully, i.e. by placing at the end of the <code><span><</span>body<span>></span></code> the snippet <code><span><</span>script type="text/javascript" src="GameBar.js"<span>></span></code><code><span><</span>/script<span>></span></code>.</p>
 
 <h2>Adding hints</h2>
+<p> A hints button will appear whenever a hint file is detected.</p>
 <p> Create a folder named <code>hints</code>, where you'll drop a <b>hints file</b> containing all hints. The <b>hints file</b> should be named exactly like the matching game <code>.html</code> page file, but with the <code>.txt</code> extension.</p>
 <p>If you have several game pages, you can drop one <b>hints file</b> per game into the common <code>hints</code> folder.</p>
 
@@ -84,6 +80,12 @@
 <h3>Music</h3>
 <h4>Add music files</h4>
 <p>To control a music playlist via the game bar, each music track should be added to the page inside <code><span><</span>audio class="music"<span>></span></code> tags, placed anywhere in the page. If these tags are detected, a music button will be revealed automatically.</p>
+
+<h3>"Credits" button</h3>
+<p>To display a "Credits" button, provide an HTML element with <code>id="Credits"</code>, the button will then be revealed automatically.</p>
+
+<h3>"How to play" button</h3>
+<p>To display a "How to play" button, provide an HTML element with <code>id="How-to-play"</code>, the button will then be revealed automatically.</p>
 
 <h2>Troubleshoting</h2>
 
@@ -153,6 +155,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <ul>
 <li>A level selector;</li>
 <li>Fullscreen mode;</li>
+<li>Auto-landscape mode (screen rotation);</li>
 <li>Hints system, including text and image hints;</li>
 <li>Mute/unmute control for a BGM playlist (optional);</li>
 <li>Non-linear level navigation:
@@ -195,7 +198,7 @@ console.log('Bookmaklet run!');void 0">Game Bar bookmarklet</a>!</p>
 <p>Yes, it's under a <a href="https://opensource.org/licenses/MIT" target='_blank' rel="noopener noreferrer">MIT</a> license.</p>
 
 <h3>What are the differences between the shared <b>Puzzlescript Game Bar</b> and the one <b>live</b> at the Creative Archive?</h3>
-<p>The <b>live</b> <b>Puzzlescript Game Bar</b> at the Creative Archive is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official <b>Puzzlescript Game Bar</b> shared in this page. Any buttons that depend on the Creative Archive's infrastructure to work or that lack general interest won't be included into the official <b>Puzzlescript Game Bar</b>.</p>
+<p>The <b>live</b> <b>Puzzlescript Game Bar</b> at the Creative Archive is the cutting-edge, sometimes experimental version. As soon as the changes are consolidated, they will be added to the official <b>Puzzlescript Game Bar</b> shared in this page. Any functions that depend on the Creative Archive's infrastructure to work or that lack general interest won't be included into the official <b>Puzzlescript Game Bar</b>.</p>
 
 <h3>Does the <b>Puzzlescript Game Bar</b> level selector handle checkpoints?</h3>
 <p>Only in case all checkpoints are concentrated in a single level (e.g. a open world map such as in <a href='tiaradventur.html'>Tiaradventur</a>). Support for multiple levels with checkpoints is not planned, unless you <a href='https://github.com/pedropsi/game-bar-source/issues' target='_blank' rel="noopener noreferrer">file an issue</a>.</p>
