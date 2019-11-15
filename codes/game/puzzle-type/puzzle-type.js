@@ -359,6 +359,11 @@ var LevelActions={
 		InputLetter(P);
 	},
 	"Tangles":function (L){
+		if(Letters.array.length==="Tangles".length){
+			Restart();
+			return;
+		}
+		
 		if(Letters.array.length<1){
 			InputLetter(L);
 		}
@@ -367,7 +372,12 @@ var LevelActions={
 			DeleteLetterAfter();
 			InputLetter(NumberLetter(LetterNumber(L)+LetterNumber(A)+1));
 		}
-		InputLetter(L+"*");
+		
+		if(Letters.array.length==="Tangles".length-1)
+			InputLetter(L);
+		else
+			InputLetter(L+"*");
+		
 	},
 	"Weightier":Weightier,
 	"Nigeria":Nigeria,
