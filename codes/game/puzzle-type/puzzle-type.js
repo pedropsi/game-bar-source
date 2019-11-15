@@ -246,21 +246,25 @@ function InPart(arrayOrObj,n){
 //Levels & Actions
 var LevelGoals=[			//Required types of thinking
 	"Direct",				
+
 	"Reverse",				//Positional,
 	"Alternate",			//Positional,
 	"Second",				//Retroactive
 	"Follow",				//Positional,Retroactive
 	"Rotate",				//Positional, Spacial, Retroactive
+
 	"Oppose",				//Mapping, Alphabetical
 	"Rise",					//Alphabetical, Adjacent
 	"Falls",				//Alphabetical, Retroactive, Adjacent
+
 	"Superior",				//Alphabetical, Retroactive
 	"Precedent",			//Alphabetical, Retroactive, Adjacent
+	"Tangles",				//Alphabetical, Cyclic, Posteroactive
 	"Dvorak",				//Mapping, Spacial, Cyclic, Cultural
-	"Tangles",				//Posteroactive, Alphabetical, Cyclic,
-	"Weightier",			//Word, Adjacent
 	"Symmetric",			//Spacial, Toggling
-	"Homeomorphic",			//Spacial, Cyclic
+	"Homeomorphic",			//Spacial, Cyclic, Posteroactive
+
+	"Weightier",			//Word, Adjacent
 	"ひらがな",				//Syllabe, Language, Mapping
 	"-----.-.....",			//Language, Mapping
 	"Nigeria",				//Knowledge, Word, Spacial, Mapping, Retroactive
@@ -355,11 +359,11 @@ var LevelActions={
 			InputLetter(L);
 		}
 		else{
-			var A=Last(Letters.array);
+			var A=PureLetter(Last(Letters.array));
 			DeleteLetterAfter();
 			InputLetter(NumberLetter(LetterNumber(L)+LetterNumber(A)+1));
 		}
-		InputLetter(L);
+		InputLetter(L+"*");
 	},
 	"Weightier":Weightier,
 	"Nigeria":Nigeria,
@@ -592,19 +596,24 @@ function Homeomorphic(O){
 	var cla=HomeomorphicClass(O);
 	
 	function InHoCla(F){
-		return HomeomorphicClass(F)===cla;
+		return (HomeomorphicClass(F)===cla?1:0);
 	}
 	
-	function HomeomorphicAdvance(F){
+	function HomeomorphicAdvance(F,n){
 		var p=Homeomorphism[cla].indexOf(F);
-		return Homeomorphism[cla][(p+1)%(Homeomorphism[cla].length)];
+		return Homeomorphism[cla][(p+n)%(Homeomorphism[cla].length)];
 	}
 	
-	ModifyLetters(HomeomorphicAdvance,InHoCla);
+	var n=Letters.array.map(InHoCla);
+	if(n.length===0)
+		n=0
+	else
+		n=n.reduce(Accumulate);
 	
-	if(In("HOMEOMORPHIC",O)){
-		InputLetter(O);
-	}
+	var O=HomeomorphicAdvance(O,n)
+	
+	InputLetter(O);
+	
 }
 
 var Homeomorphism={
@@ -1402,6 +1411,7 @@ function LetterPureHTML(L,cla){
 }
 
 var LetterDisplay={
+	"Tangles":LetterDraftHTML,
 	"Symmetric":function(L){
 		var S=MakeElement("<div>"+PureLetter(L)+"</div>");
 		
