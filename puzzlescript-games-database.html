@@ -45,7 +45,16 @@ console.log('Bookmarklet run!');void 0">Submit PuzzleScript Game</a> bookmarklet
 
 <h2>FAQ</h2>
 <h3>Why would you want to contribute to this database for free?</h3>
-<p>If you love (puzzlescript) games you'll love to have a definite public list with all titles. Did you know there's more than 850, and counting?</p>
+<p>If you love (puzzlescript) games you'll love to have a definite public list with all titles. Did you know there's more than <span id="titlenumber" class="updatable">1095</span>, and counting?</p>
+
+<script>
+window.addEventListener(
+	'updated-puzzlescript-games-database-area',
+	function(){
+		ReplaceChildren(TableLength('puzzlescript-games-database-area'),'titlenumber')
+	}
+)
+</script>
 
 <h3>How could such a huge list of puzzlescript games be compiled almost overnight?</h3>
 <p>The bookmarklet is that quick and convenient!</p>

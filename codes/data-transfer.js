@@ -893,6 +893,7 @@ function OverwriteData(source,destinationID,Transform){
 			data=Transform(data);
 		}
 		ReplaceChildren(data,destinationID);
+		Shout("updated-"+destinationID);
 	}
 	
 	LoadData(source,Overwrite);
@@ -1007,6 +1008,10 @@ function SortableTables(){
 }
 
 ListenOnce('load',SortableTables);
+
+function TableLength(idSel){
+	return Array.from(GetElementIn("TBODY",idSel).childNodes).filter(function(e){return e.childNodes.length>0}).length;
+}
 
 //////////////////////////////////////////////////
 // Safe string loading
