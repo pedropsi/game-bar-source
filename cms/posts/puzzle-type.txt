@@ -24,7 +24,7 @@
 <p>Inspect the <a «BLANK» href='codes/game/puzzle-type.js'><b>source</b></a> freely, but consider the option to «A-SUPPORT»!</p>
 
 <h3>Playtesting</h3>
-<p>Many thanks to «Minotalen» for useful, actionable suggestions and even new level ideas!</p>
+<p>Many thanks to «Minotalen», «DEUSOVI», «MAGO» for useful, actionable suggestions and even new level ideas!</p>
 
 <h2>F.A.Q.</h2>
 
