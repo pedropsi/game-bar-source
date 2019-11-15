@@ -244,33 +244,34 @@ function InPart(arrayOrObj,n){
 
 ///////////////////////////////////////////////////////////////////////////////
 //Levels & Actions
-var LevelGoals=[			//Required types of thinking
+var LevelGoals=[			//Required types of thinking:
+	//Positional, Spacial, Alphabetical, Syllabe, Word, Language, Toggling, Adjacent, Cyclic, Mapping, Language, Knowledge, Cultural, Retroactive, Posteroactive,
 	"Direct",				
 
 	"Reverse",				//Positional,
 	"Alternate",			//Positional,
 	"Second",				//Retroactive
-	"Follow",				//Positional,Retroactive
+	"Follow",				//Positional, Retroactive
 	"Rotate",				//Positional, Spacial, Retroactive
 
-	"Oppose",				//Mapping, Alphabetical
+	"Oppose",				//Alphabetical, Mapping
 	"Rise",					//Alphabetical, Adjacent
-	"Falls",				//Alphabetical, Retroactive, Adjacent
+	"Falls",				//Alphabetical, Adjacent, Retroactive
 
 	"Superior",				//Alphabetical, Retroactive
-	"Precedent",			//Alphabetical, Retroactive, Adjacent
+	"Precedent",			//Alphabetical, Adjacent, Retroactive
 	"Tangles",				//Alphabetical, Cyclic, Posteroactive
-	"Dvorak",				//Mapping, Spacial, Cyclic, Cultural
+	"Dvorak",				//Spacial, Cyclic, Mapping, Cultural
 	"Symmetric",			//Spacial, Toggling
 	"Homeomorphic",			//Spacial, Cyclic, Posteroactive
 
 	"Weightier",			//Word, Adjacent
-	"ひらがな",				//Syllabe, Language, Mapping
+	"ひらがな",				//Syllabe, Mapping, Language,
 	"-----.-.....",			//Language, Mapping
-	"Nigeria",				//Knowledge, Word, Spacial, Mapping, Retroactive
+	"Nigeria",				//Spacial, Word, Mapping, Knowledge, Retroactive
 	"Nokia 1998",			//Spacial, Mapping, Cultural
-	"White",				//Knowledge, Language, Retroactive
-	"Nucleus"				//Knowledge, Word, Syllabe, Language, Mapping, Retroactive
+	"White",				//Language, Knowledge, Retroactive
+	"Nucleus"				//Syllabe, Word, Language, Mapping, Knowledge, Retroactive
 	];
 
 
