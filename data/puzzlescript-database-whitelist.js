@@ -20,11 +20,12 @@ function Whitelist(){ //Sort descending by expected number of submissions
 
 var KnownAuthors={
 	"unblock":"NOA Cube Studio",
-	"dis pontibus II demake / edit":"NOA Cube Studio",
+	"dis pontibus II remix":"NOA Cube Studio",
 	"Rose":"Jared Piers",
 	"Im too far gone":"Jack Lance",
 	"skeleton assembler 2":"Ethan Clark",
-	"Cannonclobber":"Jere Majava"
+	"Cannonclobber":"Jere Majava",
+	"Grunt work of the revolution":"Giles Graham"
 }
 
 var AuthorAliases={
@@ -46,7 +47,8 @@ var AuthorAliases={
 	"Para":"Parachor",
 	"pAAraK_or":"Parachor",
 	"pAA-raK_or":"Parachor",
-	"@dennishcau":"Dennis Au"
+	"@dennishcau":"Dennis Au",
+	"TophWells":"Toph Wells"
 }
 
 function KnownAuthor(title){
