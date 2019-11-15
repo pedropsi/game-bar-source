@@ -315,27 +315,7 @@ var LevelActions={
 			DeleteLetterAfter();
 		InputLetter(L);
 	},
-	"Nokia 1998":function Nokia(N){
-		if(!Nokia.last)
-			Nokia.last=[N,1];
-		
-		if(!NokiaMapping[N]){
-			ForbidCaret();
-			return;
-		}
-		else{
-			var keygroup=NokiaMapping[N];
-			if(Nokia.last[0]!==N||Nokia.last[1]>=keygroup.length){ //New Key
-				InputLetter(keygroup[0]);
-				Nokia.last=[N,1];
-			}
-			else {//Modify
-				DeleteLetterAfter();
-				InputLetter(keygroup[Nokia.last[1]]);
-				Nokia.last[1]=Nokia.last[1]+1;
-			}
-		}
-	},
+	"Nokia 1998":Nokia,
 	"Rotate":function (L){
 		InputLetter(L);
 		if(Letters.array.length%2===0)
@@ -390,6 +370,28 @@ var LevelActions={
 	"White":White,
 	"Nucleus":Nucleus
 }
+
+function Nokia(N){
+		if(!Nokia.last)
+			Nokia.last=[N,1];
+		
+		if(!NokiaMapping[N]){
+			ForbidCaret();
+			return;
+		}
+		else{
+			var keygroup=NokiaMapping[N];
+			if(Nokia.last[0]!==N||Nokia.last[1]>=keygroup.length){ //New Key
+				InputLetter(keygroup[0]);
+				Nokia.last=[N,1];
+			}
+			else {//Modify
+				DeleteLetterAfter();
+				InputLetter(keygroup[Nokia.last[1]]);
+				Nokia.last[1]=Nokia.last[1]+1;
+			}
+		}
+	}
 
 function Nigeria(L){
 		if(Nigeria.freeze){
@@ -1601,6 +1603,7 @@ function LoadLevelState(levelstate){
 	Nucleus.partial=levelstate['Nucleus'];
 	Nigeria.freeze=levelstate['Nigeria'];
 	White.colour=levelstate['Nigeria'];
+	Nokia.last=levelstate['Nokia 1998'];
 	UpdateLevelSecretly();
 }
 
@@ -1616,7 +1619,8 @@ function LevelZeroState(){
 		'Alternate':0,
 		'Nucleus':[],
 		'Nigeria':false,
-		'White':false
+		'White':false,
+		'Nokia 1998':false
 	};
 	return state;
 }
@@ -1629,7 +1633,8 @@ function LevelState(){
 		'Alternate':Alternate.n?Alternate.n:0,
 		'Nucleus':Nucleus.partial?Clone(Nucleus.partial):[],
 		'Nigeria':Nigeria.freeze?Nigeria.freeze:false,
-		'White':White.colour?White.colour:false
+		'White':White.colour?White.colour:false,
+		'Nokia 1998':Nokia.last?Nokia.last:false
 	};
 	return state;
 }
