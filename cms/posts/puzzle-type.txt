@@ -29,7 +29,7 @@
 <h2>F.A.Q.</h2>
 
 <h3>Which other puzzle games inspired «TITLE-BOLD»?</h3>
-<p>«MINOTALEN» keenly observed some gameplay similarities with «A-DEVILS-CALCULATOR», while the interface is as minimal as the one found in riddle game «A-NONE».</p>
+<p>Keenly, «MINOTALEN» observed some gameplay similarities with «A-DEVILS-CALCULATOR», while the interface is as minimal as the one found in «A-NONE», a riddle game.</p>
 
 <h3>Which new design goals guided the making of «TITLE-BOLD»?</h3>
 <ul>
@@ -44,6 +44,6 @@
 <p>«TITLE-BOLD»'s alpha version was shared privately.</p>
 
 <h3>11/2019</h3>
-<p>«TITLE-BOLD» was published!</p>
+<p>«TITLE-BOLD» beta version playtesting!</p>
 
 «PRESS-TEXT»
