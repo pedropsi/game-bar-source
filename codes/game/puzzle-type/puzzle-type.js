@@ -1431,6 +1431,10 @@ var LetterDisplay={
 	"Symmetric":function(L){
 		var S=MakeElement("<div>"+PureLetter(L)+"</div>");
 		
+		//Superimpose Inversion symmetric letters to correct font assymetries
+		if(InversionSymmetric(PureLetter(L)))
+			S=MakeElement("<div class='superimpose'><div class='superimposed'>"+PureLetter(L)+"</div><div>"+PureLetter(L)+"</div></div>");
+		
 		if(In(L,"-"))
 			SelectSimple(S,"vertical");
 		
@@ -1439,10 +1443,10 @@ var LetterDisplay={
 	
 		if(Classed(S,"vertical")||Classed(S,"horizontal")){
 			SelectSimple(S,"symmetry");
-			return LetterPureHTML(S.outerHTML);
 		}
-		else
-			return LetterPureHTML(L);
+		
+		return LetterPureHTML(S.outerHTML);
+		
 	},
 	"Nucleus":LetterDraftHTML,
 	"White":LetterDraftHTML,
@@ -1457,10 +1461,10 @@ function LetterDraftHTML(L){
 }
 
 function LetterHTML(levelName){
-	if(In(LetterDisplay,levelName))
-		return LetterDisplay[levelName];
-	else
+	if(TitleScreen()||!In(LetterDisplay,levelName))
 		return LetterPureHTML;
+	else
+		return LetterDisplay[levelName];
 }
 
 function CaretHTML(){

@@ -142,6 +142,15 @@
    transition-duration: var(--duration);
 }
 
+.superimpose{
+   position: relative; 
+}
+.superimposed{
+   transition-duration: var(--duration);
+   transform: scaleX(-1) scaleY(-1);
+   position: absolute;
+}
+
 .letter.draft{
   color: var(--blue);
   border-bottom-color: var(--blue);
