@@ -90,6 +90,7 @@
 .letter.caret{
     background-color: var(--darkblue);
     border-bottom-color: var(--lightyellow);
+    color:var(--lightyellow);
     width: calc(var(--w4) + var(--w2));
 }
 
@@ -110,8 +111,17 @@
 }
 
 @keyframes Flicker{
-  0%,100%   { opacity: 0; }
-  15%,85%   { opacity: 1; }
+  0%,100%   { 
+     background-color:var(--lightyellow);
+     border-bottom-color: var(--darkblue);
+     color:var(--darkblue);
+   
+   }
+  15%,85%   { 
+     background-color:var(--darkblue);
+     border-bottom-color: var(--lightyellow);
+     color:var(--lightyellow);
+   }
 }
 
 .caret {

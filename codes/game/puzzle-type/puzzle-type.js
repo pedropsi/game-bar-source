@@ -1410,13 +1410,28 @@ function Caret(position){
 		Caret.array=[position];	
 }
 
-function DrawCaret(){
-	var p=Caret()[0];
+function UnDrawCaret(){
+
+	Array.from(GetElement("#letters").children).filter(function(e){return e.innerHTML!==" "}).map(function(c){Deselect(c,"caret")});
 	
-	if(p===-1)
+	RemoveElement(".caret");
+}
+
+function DrawCaret(){
+	if(Caret().length<1)
+		var p=Letters().length;
+	else
+		var p=Caret()[0];
+	
+	UnDrawCaret();
+	
+	if(p<0)
 		PreAddElement(CaretHTML(),"#letters");
-	if(p===Letters().length)
+	if(p>=Letters().length)
 		AddElement(CaretHTML(),"#letters");
+	else
+		SelectSimple(GetElement("#letters").children[p],"caret")
+		
 }
 
 function LetterPureHTML(L,cla){
@@ -1429,6 +1444,9 @@ function LetterPureHTML(L,cla){
 var LetterDisplay={
 	"Tangles":LetterDraftHTML,
 	"Symmetric":function(L){
+		
+		console.log(L);
+		
 		var S=MakeElement("<div>"+PureLetter(L)+"</div>");
 		
 		//Superimpose Inversion symmetric letters to correct font assymetries
