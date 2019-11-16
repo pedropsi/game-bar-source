@@ -1549,6 +1549,8 @@ function ObtainTitleScreenLoader(){
 		Letters.array="CONTINUE".split("");
 	else
 		Letters.array="START".split("");
+	
+	PlaceEndCaret();
 	UpdateLevel();
 	
 };
