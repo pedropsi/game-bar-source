@@ -19,7 +19,7 @@ function LoadGameHTML(){
 					<h1 class='goal'>Puzzle Type</h1>\
 					<h2 class='credits'>by Pedro PSI (2019)</h1>\
 				</div>\
-				<div class='middle' id='letters' content-editable=true>\
+				<div class='middle' id='letters'>\
 					<div class='letters'>Coming soon!</div>\
 				</div>\
 				<div class='bottom'>\
