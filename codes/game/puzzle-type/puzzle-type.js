@@ -548,13 +548,15 @@ function Weightier(L){
 //Symmetric
 
 function Symmetric(O){	
-	if(HorizontalSymmetric(O)||InversionSymmetric(O)){
+	if(HorizontalSymmetric(O))
 		ModifyLetters(ToggleHorizontal);
-	}
 	
-	if(VerticalSymmetric(O)||InversionSymmetric(O)){
+	if(VerticalSymmetric(O))
 		ModifyLetters(ToggleVertical);
-	}
+	
+	if(InversionSymmetric(O))
+		ModifyLetters(ToggleInversion);
+
 	
 	if(In("SYMMETRIC",O)){
 		InputLetter(O);
@@ -562,7 +564,7 @@ function Symmetric(O){
 }
 
 function PureLetter(O){
-	return O.replace(/\-/g,"").replace(/\|/g,"").replace(/\*/g,"");
+	return O.replace(/\-/g,"").replace(/\|/g,"").replace(/\*/g,"").replace(/\%/g,"");
 }
 
 function ToggleVertical(W){
@@ -573,16 +575,22 @@ function ToggleHorizontal(W){
 	return NormaliseSymmetry(W+"|");
 }
 
+function ToggleInversion(W){
+	return NormaliseSymmetry(W+"%");
+}
+
+function SubNormaliseSymmetry(W){
+	return W.replace("-|","%").replace("|-","%").replace("%-","|").replace("%|","-").replace("-%","|").replace("|%","-").replace("||","").replace("--","").replace("%%","");
+}
+
 function NormaliseSymmetry(W){
 	var W=W;
 
-	if(W.split("-").length>2)
-		W=W.replace(/\-/g,"");
+	//Cancel out repeated symmetries
+	W=FixedPoint(SubNormaliseSymmetry,W);
 	
-	if(W.split("|").length>2)
-		W=W.replace(/\|/g,"");
-	
-	if(InversionSymmetric(W)&&(In(W,"-")&&In(W,"|")))
+	//Apply single symmetries
+	if(InversionSymmetric(W)&&(In(W,"%")))
 		return PureLetter(W);
 		
 	if(HorizontalSymmetric(W)&&In(W,"|"))
@@ -603,7 +611,7 @@ function VerticalSymmetric(O){
 }
 
 function InversionSymmetric(O){
-	return In(["N","S","Z"],PureLetter(O));
+	return In(["I","N","O","S","X","Z","0","8"],PureLetter(O));
 }
 
 //Homeomorphic
@@ -1447,11 +1455,16 @@ var LetterDisplay={
 		
 		console.log(L);
 		
-		var S=MakeElement("<div>"+PureLetter(L)+"</div>");
+		var simclass="";
+		if(VerticalSymmetric(L))
+			simclass=simclass+" vertical"
+		if(HorizontalSymmetric(L))
+			simclass=simclass+" horizontal"
+		if(InversionSymmetric(L))
+			simclass=simclass+" inversion"
 		
 		//Superimpose Inversion symmetric letters to correct font assymetries
-		if(InversionSymmetric(PureLetter(L)))
-			S=MakeElement("<div class='superimpose'><div class='superimposed'>"+PureLetter(L)+"</div><div>"+PureLetter(L)+"</div></div>");
+		S=MakeElement("<div class='superimpose'><div class='symmetry superimposed"+simclass+"'>"+PureLetter(L)+"</div><div>"+PureLetter(L)+"</div></div>");
 		
 		if(In(L,"-"))
 			SelectSimple(S,"vertical");
@@ -1459,7 +1472,11 @@ var LetterDisplay={
 		if(In(L,"|"))
 			SelectSimple(S,"horizontal");
 	
-		if(Classed(S,"vertical")||Classed(S,"horizontal")){
+		if(In(L,"%"))
+			SelectSimple(S,"inversion");
+	
+	
+		if(Classed(S,"vertical")||Classed(S,"horizontal")||Classed(S,"inversion")){
 			SelectSimple(S,"symmetry");
 		}
 		

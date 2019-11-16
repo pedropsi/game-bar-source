@@ -137,18 +137,23 @@
 }
 
 /*Level-specific*/
-.symmetry.horizontal{
+.symmetry.horizontal,
+.symmetry.vertical.inversion{
    transform: scaleX(-1);
    transition-duration: var(--duration);
 }
-
-.symmetry.vertical{
+.symmetry.vertical,
+.symmetry.horizontal.inversion{
    transform: scaleY(-1);
    transition-duration: var(--duration);
 }
-
-.symmetry.vertical.horizontal{
+.symmetry.vertical.horizontal,
+.symmetry.inversion{
    transform: scaleX(-1) scaleY(-1);
+   transition-duration: var(--duration);
+}
+.symmetry.vertical.horizontal.inversion{
+   transform: scaleX(1) scaleY(1);
    transition-duration: var(--duration);
 }
 
@@ -157,7 +162,6 @@
 }
 .superimposed{
    transition-duration: var(--duration);
-   transform: scaleX(-1) scaleY(-1);
    position: absolute;
 }
 
