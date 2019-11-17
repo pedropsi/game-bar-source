@@ -2317,14 +2317,14 @@ function TextReadDuration(textstring){ //by counting number of words, 200ms per 
 	return Math.min(Math.max(1000,(textstring.split(" ").length)*250),10000);
 }
 
-function ConsoleAdd(messageHTML,wait,duration){
+function ConsoleAdd(messageHTML,wait,duration,mID){
 	
 	if(GetElement("Console")===null)
 		ConsoleLoad();
 	
 	var duration=duration?Math.max(1000,duration):TextReadDuration(messageHTML);
 	var wait=wait?wait:0;
-	var mID="c-"+GenerateId();//random id
+	var mID=mID?mID:"c-"+GenerateId();//random id
 	setTimeout(function(){AddElement(ConsoleMessageHTML(messageHTML,mID),"Console")},wait)
 	setTimeout(function(){CloseElement(mID)},duration+wait);
 	consolebuffer.push(mID);
@@ -2360,7 +2360,7 @@ function ConsoleAddOnce(messageHTML,wait,duration){
 
 //DataPack integration in console
 function LaunchConsoleMessage(DP){
-	ConsoleAdd(QuestionHTML(DP));
+	ConsoleAdd(QuestionHTML(DP),undefined,undefined,DP.qid);
 }
 
 function LaunchConsoleThanks(DP){

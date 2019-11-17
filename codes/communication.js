@@ -383,15 +383,21 @@ window.addEventListener('beforeinstallprompt',function(e){
 
 function InstallPWAMaybe(choice,id){
 	if(choice==="Yes, please!"){
-		installPWAEvent.prompt();
-		installPWAEvent.userChoice.then(function(choiceResult){
-			if(choiceResult.outcome==='accepted'){
-				RegisterPWA('Install');
-			}else{
-				RegisterPWA('Dismiss');
-			}
-			deferredPrompt = null;
-		});
+		if(!installPWAEvent.prompt){
+			ConsoleAdd("Sorry, your browser is unable to ask for PWA installation - reporting back to Pedro PSI...");
+			RegisterPWA('BrowserCannot');
+		}
+		else{
+			installPWAEvent.prompt();
+			installPWAEvent.userChoice.then(function(choiceResult){
+				if(choiceResult.outcome==='accepted'){
+					RegisterPWA('Install');
+				}else{
+					RegisterPWA('Dismiss');
+				}
+				deferredPrompt = null;
+			});
+		}
 	}
 	CloseCurrentDatapack();
 }
