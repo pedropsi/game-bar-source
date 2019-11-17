@@ -56,7 +56,7 @@ function Rest(AS){
 function Most(AS){
 	if(AS.length){
 		if(typeof AS==="string")
-			return Rest(AS.split("")).join("");
+			return Most(AS.split("")).join("");
 		else{
 			A=Clone(AS);
 			A.pop();
@@ -68,17 +68,17 @@ function Most(AS){
 }
 
 SaveTest(Most,"abcd","abc");
-SaveTest(Most,["a","b","c","d"],["a","b","c"]);
+SaveTest(Most,[["a","b","c","d"]],["a","b","c"]);
 SaveTest(Rest,"abcd","bcd");
-SaveTest(Rest,["a","b","c","d"],["b","c","d"]);
+SaveTest(Rest,[["a","b","c","d"]],["b","c","d"]);
 SaveTest(Rest,"a","");
 SaveTest(Most,"a","");
-SaveTest(Rest,["a"],[]);
-SaveTest(Most,["a"],[]);
+SaveTest(Rest,[["a"]],[]);
+SaveTest(Most,[["a"]],[]);
 SaveTest(Rest,"",null);
 SaveTest(Most,"",null);
-SaveTest(Rest,[],null);
-SaveTest(Most,[],null);
+SaveTest(Rest,[[]],null);
+SaveTest(Most,[[]],null);
 
 
 //Distinguish Objects and Arrays
@@ -448,6 +448,8 @@ function pageSearch(parameter,page){
 		id="";
 	return id;
 }
+
+SaveTest(pageSearch,["source","https://pedropsi.github.io/anypage.html?source=homepage"],"homepage","Obain query string");
 
 //SECONDARY
 
@@ -3288,10 +3290,13 @@ function Testing(){return true};
 function TestFunction(functionname,testname){
 	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
 	var test=Test[functionname][testname];
-	if(test)
-		console.log(test["function"].apply(null,test["arguments"]));
-		console.log(test["expected"]);
-		return test["function"].apply(null,test["arguments"])===test["expected"];
+	if(test){
+		var result=test["function"].apply(null,test["arguments"]);
+		var expect=test["expected"];
+		var passed=(result===expect);
+		console.log(functionname,"-",testname,":",functionname,"(",test["arguments"],")",passed,result,"{",expect,"}");
+		return passed;
+	}
 }
 
 function Test(functionname){
