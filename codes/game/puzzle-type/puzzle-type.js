@@ -90,7 +90,7 @@ function P(){
 	DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
 }
 
-if(In(["mago314","Deusovi"],pageSearch("source"))){
+if(In(["mago314","Deusovi"],pageSearch("source"))||In(["test"],pageTag())){
 	P();
 }
 	
