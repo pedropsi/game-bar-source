@@ -58,6 +58,7 @@
     background-color: var(--lightyellow);
     filter: brightness(1.2);
    flex-wrap:wrap;
+   position: relative;
 }
 
 .rotate90 .middle{
@@ -65,6 +66,15 @@
    margin-top: auto;
    padding-top: var(--w4);
    padding-bottom: var(--w4);
+}
+
+.keyboard-area { /*invisible layer to force keyboard display*/
+   height: calc(100% - 3*var(--fontheight));
+   width: 100%;
+   position: absolute;
+   border:none;
+   background-color: transparent;
+   caret-color: transparent;
 }
 
 .letters{

@@ -22,6 +22,7 @@ function LoadGameHTML(){
 				<div class='middle' id='letters'>\
 					<div class='letters'>Coming soon!</div>\
 				</div>\
+				<input class='keyboard-area'></input>\
 				<div class='bottom'>\
 				</div></div>\
 			</div>";
@@ -57,6 +58,7 @@ var ObtainLevelLoader=LevelLoader;
 //Resize canvas
 function ResizeCanvas(){return ;}
 
+gameSelector=".keyboard-area"; //game focus
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load the game bar & prepare game
@@ -72,8 +74,10 @@ gameModules.map(LoaderInFolder("codes/game/modules"));
 function StartGame(){
 	PrepareGame();
 	ResumeCapturingKeys(CaptureComboKey);
+	ContextualShortcuts[".keyboard-area"]=FuseObjects(ObtainKeyActionsGame(),ObtainKeyActionsGameBar());
 	LoadGame();
 	ObtainTitleScreenLoader();
+	GameFocus();
 };
 
 
