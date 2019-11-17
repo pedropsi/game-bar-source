@@ -68,13 +68,20 @@
    padding-bottom: var(--w4);
 }
 
-.keyboard-area { /*invisible layer to force keyboard display*/
+.keyboard-area,
+.keyboard-area:active,
+.keyboard-area:hover,
+.keyboard-area:focus { /*invisible layer to force keyboard display*/
    height: calc(100% - 3*var(--fontheight));
    width: 100%;
    position: absolute;
    border:none;
+   color: transparent;
    background-color: transparent;
+   background: transparent;
    caret-color: transparent;
+   outline: none;
+   box-shadow: none;
 }
 
 .letters{
