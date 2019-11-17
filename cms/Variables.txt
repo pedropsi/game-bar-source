@@ -175,7 +175,7 @@ ABOUT-TEXT	<h2>About «TITLE-BOLD»</h2>
 HOWTO-TEXT	«FIGURE-SIMPLE»<h2>How to play</h2><h3>Controls - keyboard</h3>
 GAME-EXTRAS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«NAVIGATION-TEXT»«FULLSCREEN-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
 GAME-EXTRAS-HINTS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«HINTS-TEXT»«NAVIGATION-TEXT»«FULLSCREEN-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
-NAVIGATION-TEXT	<h3>Level navigation</h3><p>Press «LEVEL-KEY» or click <em>Select level</em> in the game bar to navigate freely «NAVOPTION».</p><p>Type the level number directly with «NUM-KEYS», press <kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd> or <kbd>Left</kbd>/<kbd>Right</kbd> to <em>cycle through levels</em>, <kbd>Enter</kbd> or <kbd>Click</kbd> to <em>confirm</em>, <kbd>Esc</kbd> or <kbd>L</kbd> to <em>cancel</em>.</p>
+NAVIGATION-TEXT	<h3>Level navigation</h3><p>Press «LEVEL-KEY» or click <em>Level X/Y</em> or <em>Select level</em> in the game bar to navigate freely «NAVOPTION».</p><p>Type the level number directly with «NUM-KEYS», press <kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd> or <kbd>Left</kbd>/<kbd>Right</kbd> to <em>cycle through levels</em>, <kbd>Enter</kbd> or <kbd>Click</kbd> to <em>confirm</em>, <kbd>Esc</kbd> or <kbd>L</kbd> to <em>cancel</em>.</p>
 NAVIGATION-TEXT-FREE	between all levels.
 NAVIGATION-TEXT-CHECKPOINT	 to previous checkpoints, or return to the most recent one. Please be aware that saving after going to a past checkpoint will erase your most recent checkpoint saves.
 TOUCHSCREEN-TEXT	<h3>Controls - touchscreen</h3><p><kbd>Tap</kbd> to simulate <em>pressing <kbd>X</kbd></em> and <kbd>swipe</kbd> to simulate an <em><kbd>arrow</kbd> keypress</em>.

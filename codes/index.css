@@ -1167,10 +1167,14 @@ kbd {
     border-bottom-width: var(--h-2);
     border-top-width: var(--h-8);
     padding: var(--h-4) var(--w-2) var(--h-4) var(--w-2);
+    margin-left: var(--w-4);
+    margin-right: var(--w-4);
     font-weight: bold;
     line-height: calc(var(--lineheight) + var(--h2) + var(--h-2));
     font-family: Arial;
+    font-variant:petite-caps;
 }
+
 
 .hideCursor{
     cursor:none;

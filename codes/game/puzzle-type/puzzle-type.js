@@ -137,18 +137,44 @@ function ObtainKeyActionsGame(){
 		"X":InstructGameKeyF("X"),
 		"Y":InstructGameKeyF("Y"),
 		"Z":InstructGameKeyF("Z"),
+		"Shift A":InstructGameKeyF("A"),
+		"Shift B":InstructGameKeyF("B"),
+		"Shift C":InstructGameKeyF("C"),
+		"Shift D":InstructGameKeyF("D"),
+		"Shift E":InstructGameKeyF("E"),
+		"Shift F":InstructGameKeyF("F"),
+		"Shift G":InstructGameKeyF("G"),
+		"Shift H":InstructGameKeyF("H"),
+		"Shift I":InstructGameKeyF("I"),
+		"Shift J":InstructGameKeyF("J"),
+		"Shift K":InstructGameKeyF("K"),
+		"Shift L":InstructGameKeyF("L"),
+		"Shift M":InstructGameKeyF("M"),
+		"Shift N":InstructGameKeyF("N"),
+		"Shift O":InstructGameKeyF("O"),
+		"Shift P":InstructGameKeyF("P"),
+		"Shift Q":InstructGameKeyF("Q"),
+		"Shift R":InstructGameKeyF("R"),
+		"Shift S":InstructGameKeyF("S"),
+		"Shift T":InstructGameKeyF("T"),
+		"Shift U":InstructGameKeyF("U"),
+		"Shift V":InstructGameKeyF("V"),
+		"Shift W":InstructGameKeyF("W"),
+		"Shift X":InstructGameKeyF("X"),
+		"Shift Y":InstructGameKeyF("Y"),
+		"Shift Z":InstructGameKeyF("Z"),
 		"Escape":InstructGameKeyF("Escape"),
 		
 		"Backspace":ObtainUndo,
 		"Delete":ObtainUndo,
-		"Shift U":ObtainUndo,
+		"Alt U":ObtainUndo,
 		"Ctrl U":ObtainUndo,
-		"Shift Z":ObtainUndo,
+		"Alt Z":ObtainUndo,
 		"Ctrl Z":ObtainUndo,
 				
 		"Shift Backspace":ObtainRestart,
 		"Shift Delete":ObtainRestart,
-		"Shift R":ObtainRestart,
+		"Alt R":ObtainRestart,
 		
 		"Spacebar":InstructGameKeyF("Enter"),
 		"Enter":InstructGameKeyF("Enter"),
@@ -162,11 +188,11 @@ function ObtainKeyActionsGame(){
 function ObtainKeyActionsGameBar(){
 	return {
 	// Game bar menus
-	"Shift E"			:RequestGameFeedback,
-	"Shift F"			:RequestGameFullscreen,
-	"Shift H"			:RequestHint,
-	"Shift L"			:RequestLevelSelector, 
-	"Shift M"			:ToggleCurrentSong
+	"Alt E"			:RequestGameFeedback,
+	"Alt F"			:RequestGameFullscreen,
+	"Alt H"			:RequestHint,
+	"Alt L"			:RequestLevelSelector, 
+	"Alt M"			:ToggleCurrentSong
 	};
 };
 
