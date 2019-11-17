@@ -57,6 +57,7 @@ var ObtainLevelLoader=LevelLoader;
 
 //Resize canvas
 function ResizeCanvas(){return ;}
+function ObtainXYRotateCondition(x,y){return false;}
 
 gameSelector=".keyboard-area"; //game focus
 

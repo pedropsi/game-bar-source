@@ -233,20 +233,23 @@ function UndoAndFocus(){
 ////////////////////////////////////////////////////////////////////////////////
 // Screen rotation
 
-GameRotation();
-Listen('resize',GameRotation);
+if(typeof ObtainXYRotateCondition==="undefined")
+	function ObtainXYRotateCondition(x,y){return x<y*1.05};
 
 function GameRotation(){
 	var x=window.innerWidth;
 	var y=window.innerHeight;
 	
-	if(x<y*1.05)
+	if(ObtainXYRotateCondition(x,y))
 		SelectSimple('.game-rotation-container','rotate90');
 	else
 		Deselect('.game-rotation-container','rotate90');
 	
 	ResizeCanvas();
 }
+
+GameRotation();
+Listen('resize',GameRotation);
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Save permissions
