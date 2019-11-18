@@ -3032,7 +3032,7 @@ function DelayUntil(Condition,F,i){
 		
 		if(DelayUntil[n]<10){
 			function D(){return DelayUntil(Condition,F,i);};
-			setTimeout(D,100*(2**DelayUntil[n]));
+			setTimeout(D,100*(Math.pow(2,DelayUntil[n])));
 		}
 		else
 			console.log("Timed out: ",n);
@@ -3153,7 +3153,7 @@ function StartGIF(gid){
 			"height":h
 		})(ctx);
 		
-		var s=(w*h)**0.5/3;
+		var s=Math.pow(w*h,0.5)/3;
 				
 		DrawPolygon({
 			"size":s/2,

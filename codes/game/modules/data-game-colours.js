@@ -1348,8 +1348,8 @@ var ColourNames=[
 function NamedColour(colorstring){
 	var rgb=RGB(Colour(colorstring)).colour;
 	var c=ColourNames.sort(function(a,b){ //Minimise Error
-		A=((a[0]-rgb[0])**2+(a[1]-rgb[1])**2+(a[2]-rgb[2])**2);
-		B=((b[0]-rgb[0])**2+(b[1]-rgb[1])**2+(b[2]-rgb[2])**2);
+		A=(Math.pow(a[0]-rgb[0],2)+Math.pow(a[1]-rgb[1],2)+Math.pow(a[2]-rgb[2],2));
+		B=(Math.pow(b[0]-rgb[0],2)+Math.pow(b[1]-rgb[1],2)+Math.pow(b[2]-rgb[2],2));
 		
 		if(A>B)
 			return 1;
