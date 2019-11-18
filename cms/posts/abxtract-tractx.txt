@@ -50,6 +50,9 @@
 </ol>
 <p>Do you agree? «DO-COMMENT»!</p>
 
+<h3> Were similar games made ever since?</h3>
+<p>Absolutely. Check, for instance, «A-PAISIBLE» (thanks «CHZ» for the tip).</p>
+
 <h3> Which criteria guided the choice of artists and artworks?</h3>
 <p> The most important criterion for inclusion was the availability of at least one <b>public domain</b> artwork (per artist) that would broadly fit in the abstract category (e.g. Neoplasticism, Suprematism, Abstract Expressionism...). Critically, each artwork had to make <b>a good puzzle</b>, so those with very complicated details or too many colours were excluded. Also, due to the game mechanic and low resolution, right angles were preferred to obliques, and no curvature could be added. So, for instance, Rothko, Pollock, O'Keefe, Delaunay or Kandinsky couldn't be included.</p>
 
