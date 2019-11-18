@@ -15,6 +15,9 @@
 <p>«PUZZLESCRIPT-COMMUNITY» «MATTISON», «RICHARDSON», «SCHUELLER» and «HAZELDEN» for varying levels of feedback.</p>
 <p>«JOEL» for spotting an important bug in block-pushing physics.</p>
 
+<h2>F.A.Q.</h2>
+<h3>Were puzzle games with a similar theme made after «TITLE-BOLD»?</h3>
+<p>For instance, «A-ROTATE» and «A-MAPUZZLE».</p>
 
 <h2 id="changelog">Changelog</h2>
 <h3 id="changelog-1">01/2019</h3>
