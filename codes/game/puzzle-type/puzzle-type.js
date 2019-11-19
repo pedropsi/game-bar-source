@@ -22,7 +22,6 @@ function LoadGameHTML(){
 				<div class='middle' id='letters'>\
 					<div class='letters'>Coming soon!</div>\
 				</div>\
-				<input class='keyboard-area'></input>\
 				<div class='bottom'>\
 				</div></div>\
 			</div>";
@@ -59,7 +58,18 @@ var ObtainLevelLoader=LevelLoader;
 function ResizeCanvas(){return ;}
 function ObtainXYRotateCondition(x,y){return false;}
 
-gameSelector=".keyboard-area"; //game focus
+//Onscreen Keyboard
+function ObtainKeyboardKeys(){
+	return DefaultKeyboardKeys();
+}
+function ObtainKeyboardLauncher(){
+	return LaunchKeyboardBanner;
+}
+function ObtainKeyboardTarget(){
+	return gameSelector;
+}
+
+var ObtainKeyboardButtonAllowed=true;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load the game bar & prepare game
@@ -75,7 +85,7 @@ gameModules.map(LoaderInFolder("codes/game/modules"));
 function StartGame(){
 	PrepareGame();
 	ResumeCapturingKeys(CaptureComboKey);
-	ContextualShortcuts[".keyboard-area"]=FuseObjects(ObtainKeyActionsGame(),ObtainKeyActionsGameBar());
+	ObtainKeyActionsGameBar();
 	LoadGame();
 	ObtainTitleScreenLoader();
 	GameFocus();
@@ -85,7 +95,6 @@ function StartGame(){
 LoadAsync("cacher",".");
 ServiceWorker();
 LoadGameHTML();
-LoadStyle(pageRoot()+"codes/game/game.css");
 LoadStyle(pageRoot()+"codes/game/puzzle-type/puzzle-type.css");
 function P(){
 	DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
@@ -191,6 +200,7 @@ function ObtainKeyActionsGameBar(){
 	"Alt E"			:RequestGameFeedback,
 	"Alt F"			:RequestGameFullscreen,
 	"Alt H"			:RequestHint,
+	"Alt K"			:RequestKeyboard, 
 	"Alt L"			:RequestLevelSelector, 
 	"Alt M"			:ToggleCurrentSong
 	};
@@ -207,11 +217,12 @@ function InstructGameKeyF(key){
 	return function(ev){
 		ev.preventDefault();
 		
-		function Action(){return GameAction(key);}
+		function Action(){return ObtainGameAction(key);}
 		
 		Throttle(Action,50,"Action");
 	}
 }
+
 
 function LevelAction(key){
 	if(key==="Escape"){
@@ -234,7 +245,7 @@ function TitleScreenAction(key){
 	if(key!=="Escape")StartLevelFromTitle();
 }
 
-function GameAction(key){
+function ObtainGameAction(key){
 	
 	if(BlockInput.blocked)
 		return;

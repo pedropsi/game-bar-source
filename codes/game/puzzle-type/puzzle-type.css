@@ -1,10 +1,12 @@
 .game-supra-Canvas{
-   width: 100%;
+   width: 100%; 
 }
 
 .top{
+    min-height: 20%;
+    max-height: 33.33%;
+    flex-grow:1;
     width: 100;
-    height: 50%;
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -49,7 +51,9 @@
 }
 
 .middle{
-    height: 75%;
+    min-height: 33.33%;
+    max-height: 66.66%;
+    flex-grow:1;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -66,22 +70,6 @@
    margin-top: auto;
    padding-top: var(--w4);
    padding-bottom: var(--w4);
-}
-
-.keyboard-area,
-.keyboard-area:active,
-.keyboard-area:hover,
-.keyboard-area:focus { /*invisible layer to force keyboard display*/
-   height: calc(100% - 3*var(--fontheight));
-   width: 100%;
-   position: absolute;
-   border:none;
-   color: transparent;
-   background-color: transparent;
-   background: transparent;
-   caret-color: transparent;
-   outline: none;
-   box-shadow: none;
 }
 
 .letters{

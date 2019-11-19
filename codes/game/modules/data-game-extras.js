@@ -83,6 +83,38 @@ if(typeof RequestGameFeedback==="undefined")
 if(typeof RegisterMove==="undefined")
 	var RegisterMove=Identity;
 
+//On-screen keyboard
+
+if(typeof ObtainKeyboardButtonAllowed==="undefined")
+	var ObtainKeyboardButtonAllowed=false;
+
+if(typeof ObtainKeyboardKeys==="undefined")
+	function ObtainKeyboardKeys(){
+		return [["Z","R","Q"]];
+	}
+	
+if(typeof ObtainKeyboardLauncher==="undefined")
+	function ObtainKeyboardLauncher(){
+		return LaunchBalloon;
+	}
+	
+if(typeof ObtainKeyboardTarget==="undefined")
+	function ObtainKeyboardTarget(){
+		return ParentSelector(gameSelector);
+	}
+
+
+
+//Game Action
+if(typeof ObtainGameAction==="undefined")
+	function ObtainGameAction(key){
+		console.log(key);
+		return checkKey({keycode:key}); //TODO
+	}
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 //Good defaults
 
@@ -182,6 +214,12 @@ function MuteButton(){
 	}
 }
 
+function KeyboardButton(){
+	if(ObtainKeyboardButtonAllowed)
+		return ButtonHTML({txt:"🖮",attributes:{onclick:'RequestKeyboard();',id:'KeyboardButton'}})
+	else
+		return "";
+}
 
 
 function GameBar(targetIDsel){
@@ -194,6 +232,7 @@ function GameBar(targetIDsel){
 		"<span id='HintButton' class='hidden'></span>",
 		UndoButton(),
 		restart,
+		KeyboardButton(),
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
 		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
 		ButtonLinkHTML("Credits"),
@@ -939,6 +978,7 @@ function KeyActionsGameBar(){
 	"E"			:RequestGameFeedback,
 	"F"			:RequestGameFullscreen,
 	"H"			:RequestHint,
+	"K"			:RequestKeyboard, 
 	"L"			:RequestLevelSelector, 
 	"M"			:ToggleCurrentSong
 	};
@@ -1298,7 +1338,7 @@ function RequestHint(){
 			actionvalid:CloseHint,
 			qonsubmit:CloseHint,
 			qonclose:GameFocus,
-			qdisplay:LaunchBalloon,
+			qdisplay:LaunchAvatarBalloon,
 			qtargetid:ParentSelector(gameSelector),
 			requireConnection:false,
 			shortcutExtras:FuseObjects(ObtainKeyActionsGameBar(),{"H":CloseHint}),
@@ -1325,3 +1365,40 @@ function HintsHonour(){
 			return h+" hints  ";
 	}
 }
+
+//Onscreen keyboard
+
+function RequestKeyboard(){
+	
+	var DPOpts={
+		executeChoice:ObtainGameAction,
+		qchoices:ObtainKeyboardKeys()
+	}
+	
+	var Shortcuts=ObtainKeyActionsGameBar();
+	
+	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="KeyboardButton")
+		CloseCurrentDatapack();
+	else
+		RequestDataPack([
+				['keyboard',DPOpts]
+			],
+			{
+				action:console.log,
+				qonsubmit:Identity,
+				qonclose:GameFocus,
+				qdisplay:ObtainKeyboardLauncher(),
+				qtargetid:ObtainKeyboardTarget(),
+				shortcutExtras:Shortcuts,
+				requireConnection:false,
+				buttonSelector:"KeyboardButton",
+				spotlight:gameSelector
+		});
+}
+
+function CloseKeyboard(){
+	if(CurrentDatapack().buttonSelector==="KeyboardButton")
+		CloseCurrentDatapack();
+	GameFocus();
+}
+

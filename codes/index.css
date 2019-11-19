@@ -1199,3 +1199,32 @@ kbd {
     color: var(--lightblue);
     border-color: var(--lightblue);
 }
+
+/*Banner (keyboard)*/
+.banner{
+    width: 100%;
+    animation: fadein var(--duration);
+}
+.banner-content{
+    border-bottom: var(--h1) solid var(--turquoise);
+    padding:var(--h1) var(--w1) var(--h1) var(--w1);
+    align-items: center;
+}
+.banner-content>div{
+    width: 100%;
+}
+
+.keyline{
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+.keyline .button{
+    margin: var(--h-8) var(--w-8) var(--h-8) var(--w-8);
+    height: var(--h4);
+    min-width: var(--w4);
+    padding: var(--h-2) var(--w1) var(--h-2) var(--w1);
+    flex-grow: 1;
+    border-bottom: none;
+}

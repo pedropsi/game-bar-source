@@ -1407,6 +1407,14 @@ function DataFieldTypes(type){
 			qtype:ExclusiveChoiceButtonRowHTML,
 			defaultChoice:function(i,txt){return txt==="OK";},
 			qsubmittable:false}),
+		keyboard:NewDataField({
+			qfield:"keyboard",
+			questionname:"",
+			qchoices:DefaultKeyboardKeys(),
+			//["Ctrl","Alt","\t\t\t\t\t\t\t\t\t","Shift"]["🠴","␡","⮐"]
+			qtype:KeyboardHTML,
+			defaultChoice:function(i,txt){return txt==="⮐";},//Defaults to enter
+			qsubmittable:false}),
 		pass:NewDataField({
 			questionname:"What is the password?",
 			qfield:'answer',
@@ -1482,54 +1490,58 @@ function PlainHTML(dataField){
 	return PlainMessageHTML(dataField.questionname);
 }
 
-function ChoiceHTML(dataField,buttontype){
-	var choi="";
-	var clear='onload="ClearData(\''+dataField.qfield+'\',\''+dataField.pid+'\')" ';
-	for(var i in dataField.qchoices)
-		choi=choi+buttontype(dataField.qchoices[i],dataField,i);
-	return '<div class="buttonrow '+dataField.qclass+'" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
-}
+function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
+	var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\");';
+	var SetF='SetData'+args;
+	var ExecuteF='ExecuteChoice'+args;
+	var SelectF='ToggleThisOnly(event,this,'+dataFiel.pid+');'+SetF;
 
-function ChoicesButtonRowHTML(dataField){
-	function ChoicesButtonHTML(choice,dataFiel,i){
+	var buAttribs={
+		'onfocus':SelectF,
+		'onmouseover':SelectF,
+		'onclick':ExecuteF,
+		'ondblclick':ExecuteF,
+		id:"choice-"+choice};
+	
+	if(dataFiel.defaultChoice(i,choice)){
+		buAttribs=FuseObjects(buAttribs,{class:"selected",onload:SetF});
+		SetData(dataFiel.qfield,choice,dataFiel.pid);//Actualy choose it
+	}
+	
+	return ButtonHTML({txt:choice,attributes:buAttribs});
+};
+
+function MultiChoiceButtonHTML(choice,dataFiel,i){
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
 		var SelectF='ToggleThis(event,this);ToggleData'+args;
 		var buAttribs={'onclick':SelectF,'onfocus':SelectF,id:"choice-"+choice};
 		
 		return ButtonHTML({txt:choice,attributes:buAttribs});
 	};
-	//console.log(dataField.qfield);console.log(dataField.pid);console.log(GetDefaultData(dataField.qfield,dataField.pid));
-	ClearData(dataField.qfield,dataField.pid);
-	return ChoiceHTML(dataField,ChoicesButtonHTML)
+
+function ChoiceRowHTML(dataField,buttontype){
+	var choi="";
+	for(var i in dataField.qchoices)
+		choi=choi+buttontype(dataField.qchoices[i],dataField,i);
+	return choi;
 }
 
-function ExclusiveChoiceButtonRowHTML(dataField){
-	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
-		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\");';
-		var SetF='SetData'+args;
-		var ExecuteF='ExecuteChoice'+args;
-		var SelectF='ToggleThisOnly(event,this);'+SetF;
-		//var ExecuteF=SelectF+'CheckSubmit(\"'+dataFiel.pid+'\");';
-		var buAttribs={
-			'onfocus':SelectF,
-			'onmouseover':SelectF,
-			'onclick':ExecuteF,
-			'ondblclick':ExecuteF,
-			id:"choice-"+choice};
-		var bu;
-		//console.log(i,choice,typeof i);
-		if(dataFiel.defaultChoice(i,choice)){
-			bu=ButtonHTML({txt:choice,attributes:FuseObjects(buAttribs,{class:"selected",onload:SetF})});
-			SetData(dataFiel.qfield,choice,dataFiel.pid);//Actualy choose it
-		}
-		else 
-			bu=ButtonHTML({txt:choice,attributes:buAttribs});
-		return bu;
-	};
-	//console.log(dataField.qfield);console.log(dataField.pid);
+function LayoutHTML(dataField,buttontype,layoutclass,LayoutF){
 	ClearData(dataField.qfield,dataField.pid);
-	return ChoiceHTML(dataField,ExclusiveChoiceButtonHTML)
+	var clear='onload="ClearData(\''+dataField.qfield+'\',\''+dataField.pid+'\')" ';
+	var choi=LayoutF(dataField,buttontype);
+	return '<div class="'+layoutclass+' '+dataField.qclass+'" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
 }
+
+
+function ExclusiveChoiceButtonRowHTML(dataField){
+	return LayoutHTML(dataField,ExclusiveChoiceButtonHTML,'buttonrow',ChoiceRowHTML)
+}
+
+function ChoicesButtonRowHTML(dataField){
+	return LayoutHTML(dataField,MultiChoiceButtonHTML,'buttonrow',ChoiceRowHTML)
+}
+
 
 function ShortAnswerHTML(dataField){
 	return "<input class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"' tabindex='0'></input>";
@@ -1562,7 +1574,6 @@ function QuestionHTML(DP){
 }
 
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // Balloons
 
@@ -1570,7 +1581,7 @@ function LaunchThanksBalloon(DP){
 	RequestDataPack(
 		[['plain',{questionname:DP.thanksmessage,destination:""}]],
 		{qtargetid:DP.qtargetid,
-		qdisplay:LaunchBalloon,
+		qdisplay:LaunchAvatarBalloon,
 		requireConnection:false});
 }
 
@@ -1578,14 +1589,69 @@ function LaunchBalloon(DP){
 	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
 
-function BalloonHTML(avatarHTML,content,id){
-	var b='<div class="balloon window" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content">'+avatarHTML+'<div class="subtitle">'+content+'</div></div></div>';
+function LaunchAvatarBalloon(DP){
+	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid,true);
+}
+
+function BalloonHTML(avatarHTML,content,id,classExtra){
+	var classExtra=classExtra||"";
+	var b='<div class="balloon window '+classExtra+'" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content">'+avatarHTML+'<div class="subtitle">'+content+'</div></div></div>';
 	return b;
 }
 
-function OpenBalloon(content,id,targetid){
-	AddElement(BalloonHTML('<div class="logo avatar">'+LOGO+'</div>',content,id),targetid);
+function OpenBalloon(content,id,targetid,avatar){
+	if(!avatar)
+		var avatar="";
+	else
+		var avatar='<div class="logo avatar">'+LOGO+'</div>';
+	AddElement(BalloonHTML(avatar,content,id),targetid);
 }
+
+//Banner (e.g for keyboard)
+function BannerHTML(content,id,classExtra){
+	var classExtra=classExtra||"";
+	var b='<div class="banner window '+classExtra+'" id='+id+'>'+CloseButtonHTML(id)+'<div class="banner-content">'+content+'</div></div>';
+	return b;
+}
+
+function OpenKeyboardBanner(content,id,targetid){
+	return AddElement(BannerHTML(content,id,"keyboard"),targetid);
+}
+
+function LaunchKeyboardBanner(DP){
+	OpenKeyboardBanner(QuestionHTML(DP),DP.qid,DP.qtargetid);
+}
+
+function OpenKeyboardBalloon(content,id,targetid){
+	return AddElement(BalloonHTML("",content,id,"keyboard"),targetid);
+}
+
+function LaunchKeyboardBalloon(DP){
+	OpenKeyboardBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
+}
+
+// On-screen Keyboard
+function DefaultKeyboardKeys(){
+	return [["1","2","3","4","5","6","7","8","9","0"],["Q","W","E","R","T","Y","U","I","O","P"],["A","S","D","F","G","H","J","K","L"],["Z","X","C","V","B","N","M"]]};
+	
+function KeyboardRowsHTML(dataField,buttontype){
+	var kblines="";
+	var i=0;
+	for(var keyboardline in dataField.qchoices){
+		var k="";
+		for (var key in dataField.qchoices[keyboardline]){
+			i=i+1;
+			k=k+buttontype(dataField.qchoices[keyboardline][key],dataField,i);
+		}
+		kblines=kblines+"<div class='keyline'>"+k+"</div>";
+	}
+	return kblines;
+}
+
+function KeyboardHTML(dataField){
+	return LayoutHTML(dataField,ExclusiveChoiceButtonHTML,'keyboard',KeyboardRowsHTML)
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Opener & Closer Functions with focus option, 

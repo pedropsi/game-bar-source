@@ -13,6 +13,9 @@
 <h3>Controls - keyboard</h3>
 <p>Type any of the 26 uppercase letters of the latin alphabet, and undo by pressing <kbd>backspace</kbd> or <kbd>delete</kbd>. As a rule, other characters or spaces may not be typed, <b>unless the clue suggests otherwise</b>.</p>
 
+<h4>On-screen Keyboard</h4>
+<p>Press the keyboard button or <kbd>Alt</kbd>+<kbd>K</kbd> to open the <b>on-screen keyboard</b>.</p>
+
 «GAME-EXTRAS-HINTS-TEXT|With:{TOUCHSCREEN-TEXT->"",FEEDBACK-KEY->"<kbd>Alt</kbd>+<kbd>E</kbd>",FULLSCREEN-KEY->"<kbd>Alt</kbd>+<kbd>F</kbd>",HINT-KEY->"<kbd>Alt</kbd>+<kbd>H</kbd>",LEVEL-KEY->"<kbd>Alt</kbd>+<kbd>L</kbd>",MUSIC-KEY->"<kbd>Alt</kbd>+<kbd>M</kbd>"}»
 
 <h2>Credits</h2>
