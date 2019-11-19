@@ -1348,6 +1348,10 @@ function DefaultDataPack(){
 		qonsubmit:LaunchThanksModal,	//Next modal on successful submit: receives a DataPack
 		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
 		thanksmessage:"Submitted. Thank you!",
+
+		closeonblur:true,				//Whether to close the DP on losing focus (e.g. clicking outside)
+		closeOthersCondition:True,		//Condition for other DPs to close
+		layer:0,						//Independent Layers for closing
 		
 		shortcutExtras:{},				//Extended shortcuts, to use ad-hoc
 		spotlight:document.body,		//Spotlight after closing
@@ -1468,20 +1472,27 @@ function RequestDataPack(NamedFieldArray,Options){
 		var DP=NewDataPack(NewDataPackFields(NamedFieldArray));
 		DP=UpdateDataPack(DP,o);
 		DP.fields=DP.fields.map(function(f){var fi=f;fi.pid=DP.qid;return fi});
+		
+		if(DP.buttonSelector!=="none"&&CurrentDatapack(function(DP2){return DP2.buttonSelector===DP.buttonSelector;}))
+			ClosePreviousDatapacks(function(DP2){return DP2.buttonSelector===DP.buttonSelector});
+		else{
 
-		CloseCurrentDatapack();
-		if(!GetDataPack.history)
-			GetDataPack.history=[];
-		GetDataPack.history.push(DP);
-		
-		DP.qdisplay(DP);
-		Select(DP.buttonSelector);		//Activate button
-		setTimeout(function(){FocusInside("#"+DP.qid);},100);		//Focus on first question
-		
-		setTimeout(function(){ListenOutside("click",function(){Close(DP.qid)},DP.qid)},500); //Click outside to close
-		SetDatapackShortcuts(DP);
-		
-		return DP;
+			ClosePreviousDatapacks(function(DP2){return DP2.layer===DP.layer});
+			
+			if(!GetDataPack.history)
+				GetDataPack.history=[];
+			GetDataPack.history.push(DP);
+			
+			DP.qdisplay(DP);
+			Select(DP.buttonSelector);		//Activate button
+			setTimeout(function(){FocusInside("#"+DP.qid);},100);		//Focus on first question
+			
+			if(DP.closeonblur)
+				setTimeout(function(){ListenOutside("click",function(){Close(DP.qid)},DP.qid)},500); //Click outside to close
+			SetDatapackShortcuts(DP);
+			
+			return DP;
+		}
 	}
 };
 
@@ -1611,7 +1622,7 @@ function OpenBalloon(content,id,targetid,avatar){
 //Banner (e.g for keyboard)
 function BannerHTML(content,id,classExtra){
 	var classExtra=classExtra||"";
-	var b='<div class="banner window '+classExtra+'" id='+id+'>'+CloseButtonHTML(id)+'<div class="banner-content">'+content+'</div></div>';
+	var b='<div class="banner window '+classExtra+'" id='+id+'><div class="banner-content">'+content+'</div></div>';
 	return b;
 }
 
@@ -1664,18 +1675,6 @@ function FocusAndResetFunction(RequestF,FocusF){
 		FocusF();
 	};
 };
-
-function OpenerCloser(RequestF,ContinueF,FocusF){
-	if(RequestF.id){ //Close on second click
-		var i=RequestF.id; //Retrieves unique id for the request window/balloon/modal
-		Close(i);
-		FocusAndResetFunction(RequestF,FocusF)();
-	}
-	else{
-		RequestF.id=GenerateId(); //Generates unique id for the request window/balloon/modal
-		ContinueF();
-	}
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1825,8 +1824,11 @@ function CloseAndContinue(DP){
 }
 
 // Current Datapack
-function CurrentDatapack(){
+function CurrentDatapack(ConditionF){
+	var ConditionF=ConditionF||True;
 	var h=GetDataPack.history;
+	if(h)
+		h=h.filter(ConditionF);
 	if(h&&h.length>0){
 		var DP=Last(h);
 		if(DP.closed)
@@ -1838,11 +1840,20 @@ function CurrentDatapack(){
 		return undefined;
 }
 
-function CloseCurrentDatapack(){
-	var DP=CurrentDatapack();
-	if(DP){
+function CloseDatapack(DP){
+	if(DP)
 		Close(DP.qid);
-	}
+}
+
+function CloseCurrentDatapack(){
+	CloseDatapack(CurrentDatapack());
+}
+
+function ClosePreviousDatapacks(ConditionF){
+	var h=GetDataPack.history;
+	if(!h)
+		return;
+	h.filter(ConditionF).map(CloseDatapack);
 }
 
 function SubmitCurrentDatapack(){

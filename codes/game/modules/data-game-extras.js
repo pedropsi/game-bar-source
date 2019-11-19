@@ -724,24 +724,21 @@ function RequestLevelSelector(){
 		"0":function(){DelayLevel(0)}
 	});
 	
-	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="LevelSelectorButton")
-		CloseCurrentDatapack();
-	else
-		RequestDataPack([
-				['exclusivechoice',DPOpts]
-			],
-			{
-				action:LoadFromLevelSelectorButton,
-				actionText:"Go to "+type,
-				qonsubmit:CloseLevelSelector,
-				qonclose:GameFocus,
-				qdisplay:LaunchBalloon,
-				qtargetid:ParentSelector(gameSelector),
-				shortcutExtras:LevelSelectorShortcuts,
-				requireConnection:false,
-				buttonSelector:"LevelSelectorButton",
-				spotlight:gameSelector
-		});
+	RequestDataPack([
+			['exclusivechoice',DPOpts]
+		],
+		{
+			action:LoadFromLevelSelectorButton,
+			actionText:"Go to "+type,
+			qonsubmit:CloseLevelSelector,
+			qonclose:GameFocus,
+			qdisplay:LaunchBalloon,
+			qtargetid:ParentSelector(gameSelector),
+			shortcutExtras:LevelSelectorShortcuts,
+			requireConnection:false,
+			buttonSelector:"LevelSelectorButton",
+			spotlight:gameSelector
+	});
 }
 
 function CloseLevelSelector(){
@@ -1330,21 +1327,17 @@ function RequestHint(){
 		
 	}
 	
-	
-	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="HintButton")
-		CloseCurrentDatapack();
-	else
-		RequestDataPack(DPFields,{
-			actionvalid:CloseHint,
-			qonsubmit:CloseHint,
-			qonclose:GameFocus,
-			qdisplay:LaunchAvatarBalloon,
-			qtargetid:ParentSelector(gameSelector),
-			requireConnection:false,
-			shortcutExtras:FuseObjects(ObtainKeyActionsGameBar(),{"H":CloseHint}),
-			buttonSelector:"HintButton",
-			spotlight:gameSelector
-		});
+	RequestDataPack(DPFields,{
+		actionvalid:CloseHint,
+		qonsubmit:CloseHint,
+		qonclose:GameFocus,
+		qdisplay:LaunchAvatarBalloon,
+		qtargetid:ParentSelector(gameSelector),
+		requireConnection:false,
+		shortcutExtras:FuseObjects(ObtainKeyActionsGameBar(),{"H":CloseHint}),
+		buttonSelector:"HintButton",
+		spotlight:gameSelector
+	});
 }
 
 
@@ -1377,23 +1370,22 @@ function RequestKeyboard(){
 	
 	var Shortcuts=ObtainKeyActionsGameBar();
 	
-	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="KeyboardButton")
-		CloseCurrentDatapack();
-	else
-		RequestDataPack([
-				['keyboard',DPOpts]
-			],
-			{
-				action:console.log,
-				qonsubmit:Identity,
-				qonclose:GameFocus,
-				qdisplay:ObtainKeyboardLauncher(),
-				qtargetid:ObtainKeyboardTarget(),
-				shortcutExtras:Shortcuts,
-				requireConnection:false,
-				buttonSelector:"KeyboardButton",
-				spotlight:gameSelector
-		});
+	RequestDataPack([
+			['keyboard',DPOpts]
+		],
+		{
+			action:console.log,
+			qonsubmit:Identity,
+			qonclose:GameFocus,
+			qdisplay:ObtainKeyboardLauncher(),
+			qtargetid:ObtainKeyboardTarget(),
+			shortcutExtras:Shortcuts,
+			requireConnection:false,
+			buttonSelector:"KeyboardButton",
+			spotlight:gameSelector,
+			closeonblur:false,
+			layer:-1
+	});
 }
 
 function CloseKeyboard(){
