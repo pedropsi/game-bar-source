@@ -100,7 +100,7 @@ function P(){
 	DelayUntil(function(){return (typeof PrepareGame!=="undefined")},StartGame);
 }
 
-if(In(["mago314","Deusovi"],pageSearch("source"))||In(["test"],pageTag())){
+if(In(["mago314","Deusovi"],pageSearch("source"))||In(["test","mago314","Deusovi"],pageTag())){
 	P();
 }
 	
