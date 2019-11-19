@@ -1221,10 +1221,11 @@ kbd {
 }
 
 .keyline .button{
-    margin: var(--h-8) var(--w-8) var(--h-8) var(--w-8);
+    margin: var(--h-4) var(--w-4) var(--h-2) var(--w-4);
     height: var(--h4);
-    min-width: var(--w4);
-    padding: var(--h-2) var(--w1) var(--h-2) var(--w1);
+    width: var(--w4);
+    padding: var(--h1) var(--w1) var(--h1) var(--w1);
     flex-grow: 1;
     border-bottom: none;
+    justify-content: center 
 }
