@@ -69,7 +69,7 @@ function ObtainKeyboardTarget(){
 	return gameSelector;
 }
 
-var ObtainKeyboardButtonAllowed=true;
+var ObtainKeyboardAllowed=true;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Load the game bar & prepare game

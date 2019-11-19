@@ -85,8 +85,8 @@ if(typeof RegisterMove==="undefined")
 
 //On-screen keyboard
 
-if(typeof ObtainKeyboardButtonAllowed==="undefined")
-	var ObtainKeyboardButtonAllowed=false;
+if(typeof ObtainKeyboardAllowed==="undefined")
+	var ObtainKeyboardAllowed=false;
 
 if(typeof ObtainKeyboardKeys==="undefined")
 	function ObtainKeyboardKeys(){
@@ -215,7 +215,7 @@ function MuteButton(){
 }
 
 function KeyboardButton(){
-	if(ObtainKeyboardButtonAllowed)
+	if(ObtainKeyboardAllowed)
 		return ButtonHTML({txt:"🖮",attributes:{onclick:'RequestKeyboard();',id:'KeyboardButton'}})
 	else
 		return "";
@@ -978,7 +978,7 @@ function KeyActionsGameBar(){
 	"E"			:RequestGameFeedback,
 	"F"			:RequestGameFullscreen,
 	"H"			:RequestHint,
-	"K"			:RequestKeyboard, 
+	"K"			:ObtainKeyboardAllowed?RequestKeyboard:Identity, 
 	"L"			:RequestLevelSelector, 
 	"M"			:ToggleCurrentSong
 	};
