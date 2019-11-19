@@ -206,7 +206,7 @@ function StringReplace(string,rules){
 		else
 			return StringReplaceRule(string,rule);
 	}
-	else {
+	else{
 		console.log("error: can't make string rule from",r);
 		return string;
 	}
@@ -611,7 +611,7 @@ function LoadData(url,SuccessF,header){
 	rawFile.onreadystatechange=function(){
 		if(rawFile.readyState===4){
 			if(rawFile.status===404)
-				console.log("Nothing found at: ",url," and that's the information we needed. The above error is thus a pointless overreaction.");
+				console.log("Nothing found at: ",url,", not necessarily an error!");
 			else if(rawFile.status===200||rawFile.status==0){
 				SuccessF(rawFile.responseText);
 			}
@@ -671,7 +671,7 @@ function DataBufferEmpty(){
 function Online(){return navigator.onLine};
 function Offline(){return !Online()};
 
-function MonitorConnection() {
+function MonitorConnection(){
 	if(Online()){
 		var message="Network status:<b>Online</b>";
 		if(!DataBufferEmpty()){
@@ -690,7 +690,7 @@ function Connection(){
 	if(!Connection.queue)
 		Connection.queue=[];
 
-ListenOnce('offline', MonitorConnection);
+ListenOnce('offline',MonitorConnection);
 }
 
 Connection();
@@ -3028,7 +3028,7 @@ function DelayUntil(Condition,F,i){
 		return F();
 	}
 	else{
-		console.log(DelayUntil[n]);
+		//console.log(DelayUntil[n]);
 		
 		if(DelayUntil[n]<10){
 			function D(){return DelayUntil(Condition,F,i);};
