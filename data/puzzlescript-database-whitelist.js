@@ -50,7 +50,7 @@ var AuthorAliases={
 	"pAA-raK_or":"Parachor",
 	"@dennishcau":"Dennis Au",
 	"TophWells":"Toph Wells",
-	"-2016-":"NOA Cube Studio"
+	"2016":"NOA Cube Studio"
 }
 
 function KnownAuthor(title){

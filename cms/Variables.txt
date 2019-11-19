@@ -4,7 +4,7 @@ LOCATION	a secret location
 NAME	Pedro PSI
 NAME-LINK	<a href="«SITE»">«NAME»</a>
 NAME-YEAR	«NAME-LINK», «YEAR»
-MOSAIC-TEXT	Clicking on the mosaic above will change this page's background. Try it!
+MOSAIC-TEXT	<kbd>Click</kbd> on the mosaic above to change this page's background. Try it!
 YEAR-START	2010
 DATE-FOUNDED	December, 2017
 
@@ -175,7 +175,7 @@ ABOUT-TEXT	<h2>About «TITLE-BOLD»</h2>
 HOWTO-TEXT	«FIGURE-SIMPLE»<h2>How to play</h2><h3>Controls - keyboard</h3>
 GAME-EXTRAS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«NAVIGATION-TEXT»«FULLSCREEN-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
 GAME-EXTRAS-HINTS-TEXT	«TOUCHSCREEN-TEXT»«FEEDBACK-TEXT»«HINTS-TEXT»«NAVIGATION-TEXT»«FULLSCREEN-TEXT»«HALL-OF-FAME-TEXT-SHORT»«COMMUNITY»
-NAVIGATION-TEXT	<h3>Level navigation</h3><p>Press «LEVEL-KEY» or click <em>Level X/Y</em> or <em>Select level</em> in the game bar to navigate freely «NAVOPTION».</p><p>Type the level number directly with «NUM-KEYS», press <kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd> or <kbd>Left</kbd>/<kbd>Right</kbd> to <em>cycle through levels</em>, <kbd>Enter</kbd> or <kbd>Click</kbd> to <em>confirm</em>, <kbd>Esc</kbd> or <kbd>L</kbd> to <em>cancel</em>.</p>
+NAVIGATION-TEXT	<h3>Level navigation</h3><p>Press «LEVEL-KEY» or <kbd>click</kbd> <em>Level X/Y</em> or <em>Select level</em> in the game bar to navigate freely «NAVOPTION».</p><p>Type the level number directly with «NUM-KEYS», press <kbd>Tab</kbd>/<kbd>Shift</kbd>+<kbd>Tab</kbd> or <kbd>Left</kbd>/<kbd>Right</kbd> to <em>cycle through levels</em>, <kbd>Enter</kbd> or <kbd>Click</kbd> to <em>confirm</em>, <kbd>Esc</kbd> or <kbd>L</kbd> to <em>cancel</em>.</p>
 NAVIGATION-TEXT-FREE	between all levels.
 NAVIGATION-TEXT-CHECKPOINT	 to previous checkpoints, or return to the most recent one. Please be aware that saving after going to a past checkpoint will erase your most recent checkpoint saves.
 TOUCHSCREEN-TEXT	<h3>Controls - touchscreen</h3><p><kbd>Tap</kbd> to simulate <em>pressing <kbd>X</kbd></em> and <kbd>swipe</kbd> to simulate an <em><kbd>arrow</kbd> keypress</em>.
@@ -420,3 +420,5 @@ RSS-CHANNEL-IMAGE	<image><link>«SITE»</link><title>«SITE-NAME»</title><url>«SITE
 RSS-ITEM	<item>«RSS-HEAD»«RSS-BODY»«RSS-TAGS|Split:, |Filter:{Link->«LINK»}|Contain:True»</item>
 RSS-HEAD	<title>«TITLE»</title><link>«RSSLINK»</link><guid>«RSSLINK»</guid><pubDate>«UPDATE» 07:06:05 GMT</pubDate> 
 RSS-BODY	<description><![CDATA[<img src="«SITE»/images/180/«IMAGE»" height="180" width="180" align="left" hspace="5" alt="«IMAGEALT»" title="«IMAGEALT»"/><p>«ONE-LINER»</p>]]></description>
+
+BOOKMARKLET-BROWSER-TEXT	<h3>In Chrome</h3><p><kbd>Drag</kbd> the above bookmarklet link to your bookmarks toolbar.</p><h3>In Firefox</h3><p><kbd>Right click</kbd> on the above bookmarklet link, then select "bookmark this link".</p><h3>If nothing else works</h3><p>Replace the content of an old bookmark with the above link content. Or you could run the bookmarklet js code directly in a game page (it'd still be quicker than manual alternatives).</p>
