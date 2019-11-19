@@ -793,6 +793,30 @@ function FindFirstMatch(selectorArray,elem){
 }
 
 
+//Siblings of any depth
+function Siblings(thi,depth,maxParent){
+	var depth=depth||1;
+	var maxParent=GetElement(maxParent)||document.body;
+	var d=0;
+	var parent=GetElement(thi);
+	
+	if(!parent)
+		return [];
+	
+	while(d<depth&&parent!==maxParent){
+		parent=parent.parentNode;
+		d=d+1;
+	}
+	
+	var chi=[[parent]];
+	while(d>0){
+		var sib=[];
+		Last(chi).map(function(c){sib=sib.concat(Array.from(c.childNodes).filter(function(n){return n.nodeName!=="#text"}))})
+		chi.push(sib);
+		d=d-1;
+	}
+	return Last(chi);
+}
 
 //Inside
 
@@ -1595,8 +1619,8 @@ function ToggleThis(ev,thi){
 		Toggle(thi);
 }
 
-function ToggleThisOnly(ev,thi){
-	var siblings=thi.parentNode.childNodes;
+function ToggleThisOnly(ev,thi,maxparent){
+	var siblings=Siblings(thi,999,maxparent);
 	var i=0;
 	while (i<siblings.length){
 		if(siblings[i]!==thi)
