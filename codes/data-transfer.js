@@ -1671,8 +1671,28 @@ function KeyboardRowsHTML(dataField,buttontype){
 }
 
 function KeyboardHTML(dataField){
-	return LayoutHTML(dataField,ExclusiveChoiceButtonHTML,'keyboard',KeyboardRowsHTML)
+	return LayoutHTML(dataField,KeyboardButtonHTML,'keyboard',KeyboardRowsHTML)
 }
+
+function KeyboardButtonHTML(choice,dataFiel,i){
+	var buID='kb'+i;
+	KeyboardButtonHTML[buID]=function(){ExecuteChoice(dataFiel.qfield,choice,dataFiel.pid)};
+	var Kargs='(KeyboardButtonHTML.'+buID+',250,"'+buID+'")';
+	var Start='AutoRepeat'+Kargs;
+	var Stop='AutoStop'+Kargs;
+
+	var buAttribs={
+		'onclick':'KeyboardButtonHTML.'+buID+'()',
+		'ontouchstart':Start,
+		'onmousedown':Start,
+		'onmouseup':Stop,
+		'ontouchend':Stop,
+		'ontouchcancel':Stop,
+		id:"choice-"+choice};
+		
+	return ButtonHTML({txt:choice,attributes:buAttribs});
+};
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
