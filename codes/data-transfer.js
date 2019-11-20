@@ -1786,6 +1786,7 @@ function Hide(selectorE){
 	SelectSimple(selectorE,"hidden");
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////
 // Closing functions
 
@@ -1810,18 +1811,11 @@ function CloseThis(ev,thi,targetIDsel){
 }
 
 function Close(targetid){
-	//First tries to find the next item to open, then closes
 	var DP=GetDataPack(targetid);
-	if(DP){
-		Deselect(DP.buttonSelector);
-		DeleteShortcuts(DP.qid);
-		DP.closed=true;
-		if(DP.qonclose)
-			DP.qonclose(DP);
-		if(DP.spotlight)
-			FocusElement(DP.spotlight);
-	}
-	CloseElement(targetid);
+	if(DP)
+		CloseDatapack(DP);
+	else
+		CloseElement(targetid);
 }
 
 function CloseAndContinue(DP){
@@ -1849,8 +1843,17 @@ function CurrentDatapack(ConditionF){
 }
 
 function CloseDatapack(DP){
-	if(DP)
-		Close(DP.qid);
+	if(DP){
+		Deselect(DP.buttonSelector);
+		DeleteShortcuts(DP.qid);
+		DP.closed=true;
+		if(DP.qonclose)
+			DP.qonclose(DP);
+		if(DP.spotlight)
+			FocusElement(DP.spotlight);
+		
+		CloseElement(DP.qid);
+	}
 }
 
 function CloseCurrentDatapack(){
@@ -1861,7 +1864,15 @@ function ClosePreviousDatapacks(ConditionF){
 	var h=GetDataPack.history;
 	if(!h)
 		return;
-	h.filter(ConditionF).map(CloseDatapack);
+	h=h.filter(ConditionF).filter(function(DP){return !DP.closed});
+	
+	var l=Last(h);
+	
+	h=Most(h); //Close previous ones without firing onclose event
+	if(h)
+		h.map(function(DP){DP.qonclose=Identity;CloseDatapack(DP)});
+	
+	CloseDatapack(l); //the last one should fire it
 }
 
 function SubmitCurrentDatapack(){
