@@ -1401,7 +1401,6 @@ function RequestKeyboard(){
 	});
 	
 	function HideButtons(){
-		console.log("hide");
 		ReplaceElement(HiddenHTML("RestartButton"),"RestartButton");
 		ReplaceElement(HiddenHTML("UndoButton"),"UndoButton");
 	}
@@ -1413,7 +1412,6 @@ function GameFocusAndRestartUndoButtons(){
 	GameFocus();
 	
 	function RestoreButtons(){
-		console.log("restore");
 		ReplaceElement(RestartButton(),"RestartButton");
 		ReplaceElement(UndoButton(),"UndoButton");
 	}
