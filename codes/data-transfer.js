@@ -876,13 +876,15 @@ function PreAddElement(htmlOrElement,parentIDsel){
 function AppendElement(htmlOrElement,selector){
 	var e=Element(htmlOrElement);
 	var s=GetElement(selector);
-	return s.insertAdjacentElement('afterend',e);
+	if(s)
+		return s.insertAdjacentElement('afterend',e);
 };
 
 function PrependElement(htmlOrElement,selector){
 	var e=Element(htmlOrElement);
 	var s=GetElement(selector);
-	return s.insertAdjacentElement('beforebegin',e);
+	if(s)
+		return s.insertAdjacentElement('beforebegin',e);
 };
 
 
@@ -893,7 +895,7 @@ function ReplaceChildren(html,parentIDsel){
 		p.innerHTML=html;
 };
 
-// Replace parent element contents with new element
+// Replace element with new element
 function ReplaceElement(htmlOrElement,elemIDsel){
 	var a=AppendElement(htmlOrElement,elemIDsel);
 	RemoveElement(elemIDsel);
