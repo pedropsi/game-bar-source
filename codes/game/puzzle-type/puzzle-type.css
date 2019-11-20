@@ -134,11 +134,15 @@
   -moz-animation:    Flicker 5s infinite; /* Fx 5+ */
   -o-animation:      Flicker 5s infinite; /* Opera 12+ */
   animation:         Flicker 5s infinite; /* IE 10+, Fx 29+ */
+   transition-duration: var(--duration);
 }
 
 .caret.forbidden{
-   opacity: 1; 
-   background-color: var(--green);
+   background-color: var(--lightyellow);
+   -webkit-animation:unset; /* Safari 4+ */
+  -moz-animation:    unset; /* Fx 5+ */
+  -o-animation:      unset; /* Opera 12+ */
+  animation:         unset; /* IE 10+, Fx 29+ */
 }
 
 /*Level-specific*/
