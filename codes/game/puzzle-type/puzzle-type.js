@@ -449,8 +449,8 @@ function Nigeria(L){
 			Letters.array=Countries[Math.min(Math.max(i,0),Countries.length-1)].split("");
 			Nigeria.freeze=true;
 		}
-		else
-			PlaceEndCaret();
+		
+		PlaceEndCaret();
 	}
 
 function Nucleus(L){
