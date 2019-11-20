@@ -29,7 +29,7 @@ console.log('Bookmarklet run!');void 0">Submit PuzzleScript Game</a> bookmarklet
 <p>If you love (puzzlescript) games you'll love to have a definite public list with all titles.</p>
 
 
-<h3>How could such a huge list of puzzlescript games be compiled almost overnight?</h3>
+<h3>How could such a huge list of puzzlescript games be compiled with moderate effort?</h3>
 <p>The bookmarklet is that quick and convenient!</p>
 
 <h3>Is there any shorter, curated list with just the great titles?</h3>

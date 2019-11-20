@@ -82,11 +82,14 @@
 <h2>Examples</h2>
 <p>Here are some games that use he «TITLE-BOLD»:</p>
 <ul>
-<li>«MINOTALEN»'s <a href="https://minotalen.itch.io/multiban-collection">Multiban Collection</a>, <a href="https://minotalen.itch.io/landfill">Landfill</a> and <a href="https://minotalen.itch.io/tell-me-about-eight">Make mean eight</a>;</li>
-<li>All «A-GAMES».</li>
-<li>«GAHR»'s <a href="https://joelgahr.itch.io/coin-magician-school">Coin Magician School</a></li>
-<li>«CUBESTUDIO»'s <a href="https://noacubestudio.github.io/unblock.html">Unblock</a></li>
-<li>«GOPHERS»</li>
+<li>«A-MULTIBAN»;</li>
+<li>«A-LANDFILL»;</li>
+<li>«A-MAKEMEANEIGHT»;</li>
+<li>«A-COINMAGICIAN»;</li>
+<li>«A-UNBLOCK»;</li>
+<li>«A-GOPHERS»;</li>
+<li>«A-LASERLEAGUE»;</li>
+<li>plus, of course, all «A-GAMES».</li>
 </ul>
 
 <p>Check also the <em>game bar testing links</em> available for some games in the «A-PS-DATABASE»!</p>
