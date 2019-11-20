@@ -194,15 +194,28 @@ function PrepareGame(){
 // Game Bar
 
 function UndoButton(){
-	var undo=ObtainUndoAllowed()?ButtonHTML({txt:'↶',attributes:{
-		onclick:'UndoAndFocus();',
-		onmousedown:'AutoRepeat(UndoAndFocus,250);',
-		ontouchstart:'AutoRepeat(UndoAndFocus,250);',
-		onmouseup:'AutoStop(UndoAndFocus);',
-		ontouchend:'AutoStop(UndoAndFocus);',
-		ontouchcancel:'AutoStop(UndoAndFocus);'
-		}}):"";
-	return undo;
+	if(ObtainUndoAllowed())
+		return ButtonHTML({txt:'↶',attributes:{
+			onclick:'UndoAndFocus();',
+			onmousedown:'AutoRepeat(UndoAndFocus,250);',
+			ontouchstart:'AutoRepeat(UndoAndFocus,250);',
+			onmouseup:'AutoStop(UndoAndFocus);',
+			ontouchend:'AutoStop(UndoAndFocus);',
+			ontouchcancel:'AutoStop(UndoAndFocus);',
+			id:'UndoButton'
+			}});
+	else
+		return "";
+}
+
+function RestartButton(){
+	if(ObtainRestartAllowed())
+		return ButtonHTML({txt:'↺',attributes:{
+			onclick:'ObtainRestart();GameFocus();',
+			id:'RestartButton'
+		}});
+	else
+		return "";
 }
 
 function MuteButton(){
@@ -224,14 +237,12 @@ function KeyboardButton(){
 
 function GameBar(targetIDsel){
 	
-	var restart=ObtainRestartAllowed()?ButtonOnClickHTML('↺','ObtainRestart();GameFocus();'):"";
-	
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
 		ButtonLinkHTML("How to play?"),
-		"<span id='HintButton' class='hidden'></span>",
+		HiddenHTML('HintButton'),
 		UndoButton(),
-		restart,
+		RestartButton(),
 		KeyboardButton(),
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
 		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),

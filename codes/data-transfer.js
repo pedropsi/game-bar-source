@@ -1758,6 +1758,10 @@ function PulseSelect(selectorE,clas,delay){
 
 // Show/Hide
 
+function HiddenHTML(id){
+	return "<span id='"+id.replace(/\#/g,"")+"' class='hidden'></span>"
+}
+
 function Show(selectorE){
 	var e=GetElement(selectorE);
 	
