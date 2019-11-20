@@ -1227,5 +1227,5 @@ kbd {
     padding: var(--h1) var(--w1) var(--h1) var(--w1);
     flex-grow: 1;
     border-bottom: none;
-    justify-content: center 
+    justify-content: center;
 }

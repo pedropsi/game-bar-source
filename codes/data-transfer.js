@@ -1473,11 +1473,13 @@ function RequestDataPack(NamedFieldArray,Options){
 		DP=UpdateDataPack(DP,o);
 		DP.fields=DP.fields.map(function(f){var fi=f;fi.pid=DP.qid;return fi});
 		
-		if(DP.buttonSelector!=="none"&&CurrentDatapack(function(DP2){return DP2.buttonSelector===DP.buttonSelector;}))
-			ClosePreviousDatapacks(function(DP2){return DP2.buttonSelector===DP.buttonSelector});
+		function SameType(DP1){return function(DP2){return DP1.buttonSelector===DP2.buttonSelector}};
+		function SameLayer(DP1){return function(DP2){return DP1.layer===DP2.layer}};
+		
+		if(DP.buttonSelector!=="none"&&CurrentDatapack(SameType(DP)))
+			ClosePreviousDatapacks(SameType(DP));
 		else{
-
-			ClosePreviousDatapacks(function(DP2){return DP2.layer===DP.layer});
+			ClosePreviousDatapacks(SameLayer(DP));
 			
 			if(!GetDataPack.history)
 				GetDataPack.history=[];
