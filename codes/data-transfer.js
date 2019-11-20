@@ -3054,7 +3054,7 @@ var KeyCodes={
 
 
 //Key Capturing
-function CaptureComboKey(event) {
+function CaptureComboKey(event){
 	event=event||window.event;
 	var keystring=EventKeystring(event);
 	var context=Context();
