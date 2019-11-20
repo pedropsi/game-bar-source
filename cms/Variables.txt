@@ -36,9 +36,18 @@ CSS-REL	<link href="«CSSPATH»" rel="stylesheet" type="text/css"/>
 CSS-ABS	<link href="«SITE»/«CSSPATH»" rel="stylesheet" type="text/css"/>
 CODES-PATH	«SITE»/codes/
 
-APPLEICON	images/180/«IMAGE»
+IMAGE	«IMAGE-NAME».«IMAGE-EXT»
+IMAGE-EXT-DEFAULT	png
+
+IMAGE-180	images/180/«IMAGE-NAME».«IMAGE-EXT»
+IMAGE-192	images/192/«IMAGE-NAME».«IMAGE-EXT»
+IMAGE-512	images/512/«IMAGE-NAME».«IMAGE-EXT»
+
+PLACEHOLDER-IMAGE-NAME	splash
+PLACEHOLDER-IMAGE	«PLACEHOLDER-IMAGE-NAME».«IMAGE-EXT-DEFAULT»
+APPLEICON	images/180/«IMAGE-NAME».«IMAGE-EXT-DEFAULT»
 FAVICON32	images/favicon-32x32.png
-PLACEHOLDER-IMAGE	splash.png
+
 
 HTML-PREFIX	<html lang="«LANG»" xml:lang="«LANG»" prefix="og: http://ogp.me/ns#">
 LANG	en
@@ -54,7 +63,7 @@ HEAD-TITLE	<title>«TITLE»</title><meta property="og:title" content="«TITLE»"/>
 HEAD-DESCRIPTION	<meta name="description" content="«DESCRIPTION»"/><meta property="og:description" content="«DESCRIPTION»"/>
 HEAD-IMAGE	<meta property="og:type" content="«TYPEGRAPH»"/><meta property="og:image:alt" content="«IMAGEALT»"/>
 HEAD-LINK	<meta property="og:url" content="«SITE»/«LINK».html"/>
-HEAD-TYPE	<meta property="og:image" content="«SITE»/images/512/«IMAGE»"/>
+HEAD-TYPE	<meta property="og:image" content="«SITE»/«IMAGE-512»"/>
 
 SITEMAP	«XML»<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">«CONTENT»</urlset>
 SITEMAP-ITEM	<url><loc>«SITE»/«LINK»</loc><lastmod>«UP-DA-TE»</lastmod><changefreq>«FREQ»</changefreq></url>
@@ -133,10 +142,11 @@ LOGO-DIMS	x="-5" y="-5" width="10" height="10"
 
 FOOTER-AREA	<div class="footer">«FOOTER-LINES»</div>«BEACONS»«POSTSCRIPT»
 
-PICTURE	<img src="images/512/«IMAGE»" width="180" height="180" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
-FIGURE	<div class="figure">«PICTURE»<div class="legend">«CONTENT»</div></div>
-FIGURE-SIMPLE	<div class="figure">«PICTURE»</div>
-FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE»<div class="legend">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
+PICTURE-180	<img src="images/180/«IMAGE-NAME».«IMAGE-EXT»" width="180" height="180" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
+PICTURE-512	<img src="images/512/«IMAGE-NAME».«IMAGE-EXT»" width="512" height="512" alt="«IMAGEALT»" title="«IMAGEALT»" loading="lazy"/>
+FIGURE	<div class="figure">«PICTURE-512»<div class="legend">«CONTENT»</div></div>
+FIGURE-SIMPLE	<div class="figure">«PICTURE-512»</div>
+FIGURE-MOSAIC	<div class="figure mosaic" onclick="(function(){toggleBGMode('«LINK»')})()">«PICTURE-512»<div class="legend">«CONTENT»</div><p>«MOSAIC-TEXT»</p></div>
 
 GAME-SCRIPT	«SCRIPT-PRE»codes/game/«LINK»/«LINK».js«SCRIPT-POS»
 
@@ -240,12 +250,12 @@ PAGE-FEATURED	«HTML-PRE»«SECTION-PRE»«FEATURED»«SECTION-POS»«HTML-POS»
 PAGE-FEATURED-EMPTY	«HTML-PRE»«SECTION-PRE»«FEATURED»«LABELS»«SECTION-POS»«HTML-POS»
 PAGE-POST	«HTML-PRE»«POSTAREA»«HTML-POS»
 
-HIGHLIGHTS	<h1 class="title">Highlights</h1><div class="featured">«FEATURED-ITEM-SUB|In:CMS|SortBy:{Date}|Unique:True|Filter:{Featured->Yes,Published->Yes,Day->_,Month->_,Year->_,Type->_}|Contain:True»
+HIGHLIGHTS	<h1 class="title">Highlights</h1><div class="featured">«FEATURED-ITEM-SUB|In:CMS|SortBy:{Date}|Filter:{Featured->Yes,Published->Yes,Day->_,Month->_,Year->_,Type->_}|Contain:True»
 </div>
 
 FEATURED	<h1 class="title">«TITLE»</h1><div class="featured">«CONTENT»</div>
 FEATURED-ITEM	«FEATURED-ITEM-SUB|Contain:True»
-FEATURED-ITEM-SUB	<a href="«LINK».html" class="card-supra"><div class="card"><h3>«TITLE»</h3>«PICTURE»</div></a>
+FEATURED-ITEM-SUB	<a href="«LINK».html" class="card-supra"><div class="card"><h3>«TITLE»</h3>«PICTURE-180»</div></a>
 
 SNIPPET	«SNIPPET-SUB|Filter:{Link->«LINK»}|Contain:True»
 SNIPPET-SUB	<div class="mini"><div>«TITLE-YEAR»</div>«PICTURE-LINK»</div>
@@ -255,7 +265,7 @@ LATEST	«SECTION-PRE»<h1 class="title">Latest posts</h1><div class="latest">«LATE
 LATEST-ITEM	<div class="mini"><div>«TITLE-H3-LINK»«LABELS»</div>«PICTURE-LINK»</div>
 
 TITLE-H3-LINK	<a href="«LINK».html"><h3>«TITLE»</h3></a>
-PICTURE-LINK	<a href="«LINK».html">«PICTURE»</a>
+PICTURE-LINK	<a href="«LINK».html">«PICTURE-180»</a>
 
 LABELS	«LABELS-CONTAIN|Filter:{Link->«LINK»}»
 LABELS-CONTAIN	<div class="tags buttonrow"><a class="tag button" href="posts-by-date.html">«DATE»</a>«LABEL-TAG|Split:, |Contain:True»</div>
@@ -268,18 +278,9 @@ POSTAREA-PRE	<h1 class="title">«TITLE»</h1><div class="whiteboard"><div class="t
 POSTAREA-POS	</div></div>«LABELS»
 POSTAREA-SHARE-POS	</div>«SHARER»</div>«LABELS»
 POSTAREA	«SECTION-PRE»«POST-PLUS-LABELS»«SECTION-POS»
-POSTAREA-PIC	«SECTION-PRE»«POSTAREA-PRE»«POST»</div><div>«PICTURE»«POSTAREA-POS»«SECTION-POS»
+POSTAREA-PIC	«SECTION-PRE»«POSTAREA-PRE»«POST»</div><div>«PICTURE-512»«POSTAREA-POS»«SECTION-POS»
 POSTAREA-SIMPLE	«SECTION-PRE»«POSTAREA-PRE»«CONTENT»«POSTAREA-POS»«SECTION-POS»
 POST-PLUS-LABELS	«POSTAREA-PRE»«POST»«POSTAREA-POS»
-
-STARSSHARE	<div class="starsshare">«STARS»«SHARER»</div>
-STARS-CONTAIN	«STARS-STAR|Split:---|Contain:True»
-STARS-STAR	<button name="rate-«ENUM-1-5»" id="rate-«ENUM-1-5»" onclick="starry(this,'«ENUM-1-5»');" class="star-b" tabindex="0"></button><label class="label-on" for="rate-«ENUM-1-5»"></label> 
-ENUM-1-5	5---4---3---2---1
-
-SHARER	<div class="sharer"><p><strong>Share it:</strong></p><div>«SHARER-SUB»</div></div>
-SHARER-SUB	«SHARER-BUTTON|In:Share|With:{LINK->«LINK»,TITLE->«TITLE»,YEAR->«YEAR»}|Contain:True»
-SHARER-BUTTON	<a href="«ACTION»" target="_«TARGET»" id="share-«SERVICE»"><div class="sharing-button" tabindex="0"><svg viewBox="0 0 «DIM» «DIM»"><path «STROKE» d="«SVG»"/></svg></div></a>
 
 LOG-LINK	<b><a href="«LINK»-log.html">«TITLE-BOLD»'s log</a></b>
 LOG-COMMENTS	<script>AddAfterElement('«BUTTON-COMMENT»',"h2")</script>
@@ -385,7 +386,7 @@ PWA-MANIFEST-CONTENT	{«PWA-NAME»,«PWA-DISPLAY»,«PWA-ICONS»,«PWA-DESC»,«PWA-LANG»
 ORIGIN	«SITE»
 PWA-NAME	"short_name":"«SHORTNAME»","name":"«TITLE-BY»"
 PWA-DISPLAY	"theme_color":"«THEMECOLOUR»","background_color":"«THEMECOLOUR»","display":"standalone","orientation":"landscape"
-PWA-ICON-OBJ	{"src":"«ORIGIN»/images/«SIZE»/«IMAGE»","type":"image/png","sizes":"«SIZE»x«SIZE»"}
+PWA-ICON-OBJ	{"src":"«ORIGIN»/images/«SIZE»/«IMAGE-NAME».«IMAGE-EXT-DEFAULT»","type":"image/«IMAGE-EXT-DEFAULT»","sizes":"«SIZE»x«SIZE»"}
 PWA-ICONS	"icons":[«PWA-ICON-OBJ|With:{SIZE->512}»,«PWA-ICON-OBJ|With:{SIZE->192}»,«PWA-ICON-OBJ|With:{SIZE->180}»]
 PWA-DESC	"description":"«ONE-LINER»","categories":[«CATEGORIES»]
 PWA-LANG	"dir":"ltr","lang":"en-US"
@@ -393,7 +394,7 @@ PWA-SCOPE	"start_url":"«ORIGIN»/«LINK».html?source=homescreen","scope":"«ORIGIN»
 PWA-SCOPE-OLD	"start_url":"«ORIGIN»/«LINK».html","scope":"«ORIGIN»"
 PWA-WORKER	"serviceworker":{"src":"«ORIGIN»/cacher.js"}
 
-GIF	<video autoplay loop muted playsinline><source src="images/180/«IMAGE»" type="video/mp4"></source></video>
+GIF	<video autoplay loop muted playsinline><source src="«IMAGE-180»" type="video/mp4"></source></video>
 
 RSS-LIMIT	9
 RSS-PATH	rss.xml
@@ -419,6 +420,6 @@ RSS-CHANNEL-IMAGE	<image><link>«SITE»</link><title>«SITE-NAME»</title><url>«SITE
 
 RSS-ITEM	<item>«RSS-HEAD»«RSS-BODY»«RSS-TAGS|Split:, |Filter:{Link->«LINK»}|Contain:True»</item>
 RSS-HEAD	<title>«TITLE»</title><link>«RSSLINK»</link><guid>«RSSLINK»</guid><pubDate>«UPDATE» 07:06:05 GMT</pubDate> 
-RSS-BODY	<description><![CDATA[<img src="«SITE»/images/180/«IMAGE»" height="180" width="180" align="left" hspace="5" alt="«IMAGEALT»" title="«IMAGEALT»"/><p>«ONE-LINER»</p>]]></description>
+RSS-BODY	<description><![CDATA[<img src="«SITE»/«IMAGE-180»" height="180" width="180" align="left" hspace="5" alt="«IMAGEALT»" title="«IMAGEALT»"/><p>«ONE-LINER»</p>]]></description>
 
 BOOKMARKLET-BROWSER-TEXT	<h3>In Chrome</h3><p><kbd>Drag</kbd> the above bookmarklet link to your bookmarks toolbar.</p><h3>In Firefox</h3><p><kbd>Right click</kbd> on the above bookmarklet link, then select "bookmark this link".</p><h3>If nothing else works</h3><p>Replace the content of an old bookmark with the above link content. Or you could run the bookmarklet js code directly in a game page (it'd still be quicker than manual alternatives).</p>
