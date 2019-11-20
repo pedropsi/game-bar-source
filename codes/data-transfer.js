@@ -214,10 +214,16 @@ function StringReplace(string,rules){
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-//Get Function Name as a string
+//Get Function Name as a string, or make up a unique one based on the function's body
 function FunctionName(FunctionF){
 	var name=FunctionF.toString().replace(/\(.*/,"").replace("function ","");
-	return name.replace(/\s.*/gm,"");
+	name=name.replace(/\s.*/gm,"");
+	if(name!=="function")
+		return name;
+	else{
+		var body=FunctionF.toString().replace(/[^\)]*\)/,"");
+		return body.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]/gi,"").replace(/^[1234567890]*/,"");
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -3103,18 +3109,20 @@ function SetDatapackShortcuts(DP){
 ///////////////////////////////////////////////////////////////////////////////
 // Time-based functions
 
-function AutoRepeat(RepeatF,delay){
-	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
-	AutoRepeat[FunctionName(RepeatF)]=setTimeout(function(){
+function AutoRepeat(RepeatF,delay,name){
+	var name=name||FunctionName(RepeatF);
+	clearTimeout(AutoRepeat[name]);
+	AutoRepeat[name]=setTimeout(function(){
 		RepeatF();
-		AutoRepeat(RepeatF,delay);
+		AutoRepeat(RepeatF,delay,name);
 	},delay);
 }
 
-function AutoStop(RepeatF,delay){
-	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
+function AutoStop(RepeatF,delay,name){
+	var name=name||FunctionName(RepeatF);
+	clearTimeout(AutoRepeat[name]);
 	setTimeout(function(){
-		clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
+		clearTimeout(AutoRepeat[name]);
 	},delay);
 }
 
