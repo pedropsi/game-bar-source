@@ -89,9 +89,7 @@ if(typeof ObtainKeyboardAllowed==="undefined")
 	var ObtainKeyboardAllowed=false;
 
 if(typeof ObtainKeyboardKeys==="undefined")
-	function ObtainKeyboardKeys(){
-		return [["Z","R","Q"]];
-	}
+	var ObtainKeyboardKeys=GameKeyboardKeys;
 	
 if(typeof ObtainKeyboardLauncher==="undefined")
 	function ObtainKeyboardLauncher(){
@@ -108,10 +106,14 @@ if(typeof ObtainKeyboardTarget==="undefined")
 //Game Action
 if(typeof ObtainGameAction==="undefined")
 	function ObtainGameAction(key){
+		Context(gameSelector)[ComboKeystring(key)]();
+	}
+/*
+	function ObtainGameAction(key){
 		console.log(key);
 		return checkKey({keycode:key}); //TODO
 	}
-
+*/
 
 
 
@@ -1387,7 +1389,7 @@ function RequestKeyboard(){
 		{
 			action:console.log,
 			qonsubmit:Identity,
-			qonclose:GameFocus,
+			qonclose:GameFocusAndRestartUndoButtons,
 			qdisplay:ObtainKeyboardLauncher(),
 			qtargetid:ObtainKeyboardTarget(),
 			shortcutExtras:Shortcuts,
@@ -1397,11 +1399,29 @@ function RequestKeyboard(){
 			closeonblur:false,
 			layer:-1
 	});
+	
+	function HideButtons(){
+		console.log("hide");
+		ReplaceElement(HiddenHTML("RestartButton"),"RestartButton");
+		ReplaceElement(HiddenHTML("UndoButton"),"UndoButton");
+	}
+	
+	HideButtons();
 }
 
-function CloseKeyboard(){
-	if(CurrentDatapack().buttonSelector==="KeyboardButton")
-		CloseCurrentDatapack();
+function GameFocusAndRestartUndoButtons(){
 	GameFocus();
+	
+	function RestoreButtons(){
+		console.log("restore");
+		ReplaceElement(RestartButton(),"RestartButton");
+		ReplaceElement(UndoButton(),"UndoButton");
+	}
+	
+	setTimeout(RestoreButtons,100); //Needed
+}
+
+function GameKeyboardKeys(){
+	return [["↶","↺"]]; // Undo and Restart
 }
 

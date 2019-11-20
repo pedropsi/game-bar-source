@@ -60,7 +60,7 @@ function ObtainXYRotateCondition(x,y){return false;}
 
 //Onscreen Keyboard
 function ObtainKeyboardKeys(){
-	return DefaultKeyboardKeys();
+	return DefaultKeyboardKeys().concat(GameKeyboardKeys());
 }
 function ObtainKeyboardLauncher(){
 	return LaunchKeyboardBanner;
@@ -174,13 +174,15 @@ function ObtainKeyActionsGame(){
 		"Shift Z":InstructGameKeyF("Z"),
 		"Escape":InstructGameKeyF("Escape"),
 		
+		"↶":ObtainUndo,
 		"Backspace":ObtainUndo,
 		"Delete":ObtainUndo,
 		"Alt U":ObtainUndo,
 		"Ctrl U":ObtainUndo,
 		"Alt Z":ObtainUndo,
 		"Ctrl Z":ObtainUndo,
-				
+		
+		"↺":ObtainRestart,
 		"Shift Backspace":ObtainRestart,
 		"Shift Delete":ObtainRestart,
 		"Alt R":ObtainRestart,
@@ -215,12 +217,15 @@ function InstructNothing(){
 
 function InstructGameKeyF(key){
 	return function(ev){
-		ev.preventDefault();
-		
-		function Action(){return ObtainGameAction(key);}
-		
-		Throttle(Action,50,"Action");
+		if(ev)
+			ev.preventDefault();
+		GameKey(key);
 	}
+}
+
+function GameKey(key){
+	function Action(){return InstructGameAction(key);}
+	Throttle(Action,50,"Action");
 }
 
 
@@ -245,7 +250,7 @@ function TitleScreenAction(key){
 	if(key!=="Escape")StartLevelFromTitle();
 }
 
-function ObtainGameAction(key){
+function InstructGameAction(key){
 	
 	if(BlockInput.blocked)
 		return;
