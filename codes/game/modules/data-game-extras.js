@@ -182,7 +182,12 @@ function PrepareGame(){
 		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
 		
-		ListenOnce('click',PlaylistStartPlay,gameSelector);
+		ListenOnce('click',ClickActions,gameSelector);
+		
+		function ClickActions(){
+			PlaylistStartPlay();
+			RequestKeyboard();
+		}
 		
 		ScrollInto(gameSelector);
 		GameFocus();
@@ -1375,6 +1380,9 @@ function HintsHonour(){
 //Onscreen keyboard
 
 function RequestKeyboard(){
+	
+	if(!ObtainKeyboardAllowed)
+		return;
 	
 	var DPOpts={
 		executeChoice:ObtainGameAction,
