@@ -1,8 +1,13 @@
-
 DATAVERSION=5;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Game data link defaults, for puzzlescript, overwritable
+
+//Portable game bar
+var Portable=False;
+if(typeof RequestGameFeedback==="undefined"||typeof RequestHallOfFame==="undefined")
+	Portable=True;
+
 
 //Game Options
 if(typeof ObtainBGColor==="undefined")
@@ -78,18 +83,25 @@ if(typeof ObtainReadMove==="undefined")
 		}
 	};
 
-
 //Keybinding defaults
 if(typeof ObtainKeyActionsGameBar==="undefined")
 	ObtainKeyActionsGameBar=KeyActionsGameBar;
 
 //
-if(typeof RequestGameFeedback==="undefined")
+var HasGameFeedback=True;
+if(typeof RequestGameFeedback==="undefined"){
 	var RequestGameFeedback=Identity;
+	HasGameFeedback=False;
+}
+
+var HasHOF=True;
+if(typeof RequestHallOfFame==="undefined"){
+	var RequestHallOfFame=Identity;
+	HasHOF=False;
+}
 
 if(typeof RegisterMove==="undefined")
 	var RegisterMove=Identity;
-
 
 //On-screen keyboard
 
@@ -106,7 +118,7 @@ if(typeof ObtainKeyboardLauncher==="undefined")
 	
 if(typeof ObtainKeyboardTarget==="undefined")
 	function ObtainKeyboardTarget(){
-		return ParentSelector(gameSelector);
+		return ".game-container";
 	}
 
 
@@ -178,13 +190,23 @@ function PrepareGame(){
 	var bar=GetElement("GameBar");
 	WrapGame();
 	
-	var FOLDER=GlocalPath("https://pedropsi.github.io/game-bar-source","codes");
-	LoadStyle(JoinPath(FOLDER,"game/game.css"));
-	LoadStyle(JoinPath(FOLDER,"game/game-bar-pages.css"));
+	if(Portable()){
+		var FOLDER=GlocalPath("https://pedropsi.github.io/game-bar-source","codes");
+		LoadStyle(JoinPath(FOLDER,"game/game.css"));
+		LoadStyle(JoinPath(FOLDER,"game/game-bar-pages.css"));
+		LoadStyle(JoinPath(FOLDER,"index.css"));
+		ConsoleAddMany([
+				"Puzzlescript Game bar loaded!",
+				"Issues? Suggestions? Head to pedropsi.github.io/game-bar."
+			//	"Localsave is ON for "+pageTitle()+".",
+			//	"To stop saving and erase all 2 cookies, please deselect 🖫."
+		]);
+	}
+	else
+		LoadStyle(pageRoot()+"codes/game/game.css");
 
 	setTimeout(ResizeCanvas,250);
-	
-
+			
 	if(!bar){
 		
 		if(typeof onKeyDown!=="undefined")
@@ -193,16 +215,7 @@ function PrepareGame(){
 		
 		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
-
-		LoadStyle(JoinPath(FOLDER,"index.css"));
-
-		ConsoleAddMany([
-			"Puzzlescript Game bar loaded!",
-			"Issues? Suggestions? Head to pedropsi.github.io/game-bar."
-		//	"Localsave is ON for "+pageTitle()+".",
-		//	"To stop saving and erase all 2 cookies, please deselect 🖫."
-		]);
-
+		
 		ListenOnce('click',PlaylistStartPlay,gameSelector);
 		ListenOnce('touchstart',RequestKeyboard,gameSelector);
 		
@@ -242,6 +255,13 @@ function RestartButton(){
 		return "";
 }
 
+function FeedbackButton(){
+	if(HasGameFeedback())
+		return ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}});
+	else
+		return "";
+}
+
 function MuteButton(){
 	if(Playlist().length<1)
 		return "";
@@ -251,7 +271,6 @@ function MuteButton(){
 	}
 }
 
-
 function KeyboardButton(){
 	if(ObtainKeyboardAllowed)
 		return ButtonHTML({txt:"🖮",attributes:{onclick:'RequestKeyboard();',id:'KeyboardButton'}})
@@ -260,8 +279,8 @@ function KeyboardButton(){
 }
 
 
-function GameBar(targetIDsel){
-
+function GameBar(){
+	
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
 		ButtonLinkHTML("How to play?"),
@@ -270,7 +289,7 @@ function GameBar(targetIDsel){
 		RestartButton(),
 		KeyboardButton(),
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
-//		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
+		FeedbackButton(),
 		ButtonLinkHTML("Credits"),
 		MuteButton(),
 		ButtonHTML({txt:"◱",attributes:{onclick:'RequestGameFullscreen();GameFocus();',id:'FullscreenButton'}}),
@@ -279,15 +298,12 @@ function GameBar(targetIDsel){
 	return ButtonBar(buttons,"GameBar");
 }
 
-function AddGameBar(targetIDsel){
-	var targetIDsel=targetIDsel||gameSelector;
-	var bar=GetElement("GameBar");
-	if(bar!==null)
-		bar.parentNode.removeChild(bar);
-	var parentElement=GetElement(targetIDsel).parentElement;
-	if(!parentElement.id)
-		parentElement.id=GenerateId();
-	AppendElement(GameBar(parentElement.id),targetIDsel)
+function AddGameBar(){
+	RemoveElement("GameBar");
+	if(Portable())
+		AddElement(GameBar(),ParentSelector(gameSelector));
+	else
+		AddElement(GameBar(),".game-container");
 }
 
 
@@ -308,7 +324,6 @@ function UndoAndFocus(){
 ////////////////////////////////////////////////////////////////////////////////
 // Screen rotation
 
-
 if(typeof ObtainXYRotateCondition==="undefined")
 	function ObtainXYRotateCondition(x,y){return x<y*1.05};
 
@@ -326,7 +341,6 @@ function GameRotation(){
 
 GameRotation();
 Listen('resize',GameRotation);
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Save permissions
@@ -602,7 +616,7 @@ function NextLevel(){
 		else if(curscreen<LastScreen())
 			AdvanceEndScreen();
 		else{
-			//RequestHallOfFame();
+			RequestHallOfFame();
 			ResetGame();
 		}
 	}
@@ -822,7 +836,7 @@ function RequestLevelSelector(){
 			qonsubmit:CloseLevelSelector,
 			qonclose:GameFocus,
 			qdisplay:LaunchBalloon,
-			qtargetid:ParentSelector(gameSelector),
+			qtargetid:".game-container",
 			shortcutExtras:LevelSelectorShortcuts,
 			requireConnection:false,
 			buttonSelector:"LevelSelectorButton",
@@ -921,7 +935,8 @@ function SelectUnlockedLevel(lvl){
 	//Go to exactly after the level prior to the chosen one, to read all useful messages, including level title
 	var n=lvl<2?0:(LevelScreens()[lvl-2]+1);
 	GoToScreen(n);
-
+	
+	EchoSelect(lvl,"level");
 };
 
 
@@ -930,6 +945,7 @@ function GoToScreenCheckpoint(n){
 	loadLevelFromStateTarget(state,CurrentScreen(),curlevelTarget);
 	ResizeCanvas();
 	
+	EchoSelect(n,"checkpoint");
 };
 
 function GoToScreen(lvl){
@@ -1012,6 +1028,7 @@ function AdvanceLevel(){
 	ObtainLevelTransition();
 	LocalsaveLevel(CurrentScreen());
 	LoadLevelOrCheckpoint();
+	ClearLevelRecord();
 	UpdateLevelSelectorButton();
 }
 
@@ -1069,6 +1086,7 @@ function KeyActionsGameBar(){
 
 //Game keybinding profile
 if(typeof ObtainKeyActionsGame==="undefined"){
+	
 	function ObtainKeyActionsGame(){
 		return {
 			//Arrows
@@ -1242,7 +1260,6 @@ function LoadHintData(hintdata){
 	}
 }
 
-
 function ShowHintButton(){
 	ReplaceElement(HintButton(),"HintButton")
 	Show("HintButton");
@@ -1295,6 +1312,7 @@ function SeeHint(lvl,hintN){
 	if(UsedHints(lvl)<hintN&&Hints(lvl).length>=hintN&&!LevelSolved(lvl)){
 		Hints.used[lvl-1]=hintN;
 		LocalsaveHints();
+		EchoHint(lvl,hintN);
 	}
 }
 
@@ -1340,30 +1358,41 @@ function RequestPrevHint(){
 }
 
 
+RequestHint["tips-welcome"]=[
+			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
+			"You got this! Now go ahead and play!"
+]
+
+if(HasHOF()){
+	RequestHint["tips-welcome"].splice(1,0,"Please note that <b>Hall of Fame</b> entries now count how many hints are used!");
+}
+
+RequestHint["tips-interlevel"]=[
+			"Just relax and have fun!",
+			"Remember to pause once in a while!",
+			"If you like this game, share it with your friends!",
+			"Open the level selector with <kbd>L</kbd>, then type a <kbd>number</kbd>.",
+			"Go Fullscreen by pressing ◱ or <kbd>F</kbd>!",
+			"Play or pause the music by pressing ♫ or <kbd>M</kbd>!"
+]
+
+if(HasGameFeedback()){
+	RequestHint["tips-interlevel"].splice(1,0,"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!");
+}
+
+
 function RequestHint(){
 	if(!Hints())
 		return console.log("hints file not found");
 	
 	if(!RequestHint.requested||TitleScreen()){
 		RequestHint.requested=Hints().map(function(hl){return hl.map(function(x){return false;})});
-		var tip=CycleNextBounded([
-			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
-		//	"Please note that <b>Hall of Fame</b> entries now count how many hints are used!",
-			"You got this! Now go ahead and play!"
-			]);
+		var tip=CycleNextBounded(RequestHint["tips-welcome"]);
 		var DFOpts={questionname:tip};
 		var DPFields=[['plain',DFOpts]];
 	}
 	else if(ScreenMessage(CurrentScreen())){
-		var tip=CycleNext([
-			"Just relax and have fun!",
-//			"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!",
-			"Remember to pause once in a while!",
-			"If you like this game, share it with your friends!",
-			"Open the level selector with <kbd>L</kbd>, then type a <kbd>number</kbd>.",
-			"Go Fullscreen by pressing ◱ or <kbd>F</kbd>!",
-			"Play or pause the music by pressing ♫ or <kbd>M</kbd>!"
-			]);
+		var tip=CycleNext(RequestHint["tips-interlevel"]);
 		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
 		var DPFields=[['plain',DFOpts]];
 	}
@@ -1411,13 +1440,12 @@ function RequestHint(){
 		
 	}
 	
-
 	RequestDataPack(DPFields,{
 		actionvalid:CloseHint,
 		qonsubmit:CloseHint,
 		qonclose:GameFocus,
 		qdisplay:LaunchAvatarBalloon,
-		qtargetid:ParentSelector(gameSelector),
+		qtargetid:".game-container",
 		requireConnection:false,
 		shortcutExtras:FuseObjects(ObtainKeyActionsGameBar(),{"H":CloseHint}),
 		buttonSelector:"HintButton",
@@ -1426,6 +1454,23 @@ function RequestHint(){
 }
 
 
+//Hints Honours
+	
+function HintsHonour(){
+	if(!Hints())
+		return "";
+	else if(UsedHints()===0)
+		return "no hints ★";
+	else{
+		var h=UsedHints();
+		if(h===1)
+			return "1 hint ☆";
+		else if(h<=AvailableHints()/7)
+			return h+" hints ☆";
+		else
+			return h+" hints  ";
+	}
+}
 
 //Onscreen keyboard
 
@@ -1480,5 +1525,4 @@ function GameFocusAndRestartUndoButtons(){
 function GameKeyboardKeys(){
 	return [["↶","↺"]]; // Undo and Restart
 }
-
 
