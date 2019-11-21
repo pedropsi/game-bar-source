@@ -222,6 +222,7 @@ function PrepareGame(){
 		ScrollInto(gameSelector);
 		GameFocus();
 		
+		ObtainTitleScreenLoader();
 		ResizeCanvas();
 		Shout("GameBar");
 	}
