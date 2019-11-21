@@ -2,6 +2,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //Do nothing
 function Identity(i){return i;};
+function True(){return true};
+function False(){return false};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Lists (AS = Array or String)
@@ -37,7 +39,7 @@ function Rest(AS){
 function Most(AS){
 	if(AS.length){
 		if(typeof AS==="string")
-			return Rest(AS.split("")).join("");
+			return Most(AS.split("")).join("");
 		else{
 			A=Clone(AS);
 			A.pop();
@@ -47,19 +49,6 @@ function Most(AS){
 	else
 		return null;
 }
-
-SaveTest(Most,"abcd","abc");
-SaveTest(Most,["a","b","c","d"],["a","b","c"]);
-SaveTest(Rest,"abcd","bcd");
-SaveTest(Rest,["a","b","c","d"],["b","c","d"]);
-SaveTest(Rest,"a","");
-SaveTest(Most,"a","");
-SaveTest(Rest,["a"],[]);
-SaveTest(Most,["a"],[]);
-SaveTest(Rest,"",null);
-SaveTest(Most,"",null);
-SaveTest(Rest,[],null);
-SaveTest(Most,[],null);
 
 
 //Distinguish Objects and Arrays
@@ -187,17 +176,23 @@ function StringReplace(string,rules){
 		else
 			return StringReplaceRule(string,rule);
 	}
-	else {
+	else{
 		console.log("error: can't make string rule from",r);
 		return string;
 	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-//Get Function Name as a string
+//Get Function Name as a string, or make up a unique one based on the function's body
 function FunctionName(FunctionF){
 	var name=FunctionF.toString().replace(/\(.*/,"").replace("function ","");
-	return name.replace(/\s.*/gm,"");
+	name=name.replace(/\s.*/gm,"");
+	if(name!=="function")
+		return name;
+	else{
+		var body=FunctionF.toString().replace(/[^\)]*\)/,"");
+		return body.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]/gi,"").replace(/^[1234567890]*/,"");
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -430,6 +425,7 @@ function pageSearch(parameter,page){
 	return id;
 }
 
+
 //SECONDARY
 
 function isRelativeLink(url){
@@ -589,7 +585,9 @@ function LoadData(url,SuccessF,header){
 	rawFile.open("GET",url,true);
 	rawFile.onreadystatechange=function(){
 		if(rawFile.readyState===4){
-			if(rawFile.status===200||rawFile.status==0){
+			if(rawFile.status===404)
+				console.log("Nothing found at: ",url,", not necessarily an error!");
+			else if(rawFile.status===200||rawFile.status==0){
 				SuccessF(rawFile.responseText);
 			}
 		}
@@ -702,6 +700,30 @@ function FindFirstMatch(selectorArray,elem){
 }
 
 
+//Siblings of any depth
+function Siblings(thi,depth,maxParent){
+	var depth=depth||1;
+	var maxParent=GetElement(maxParent)||document.body;
+	var d=0;
+	var parent=GetElement(thi);
+	
+	if(!parent)
+		return [];
+	
+	while(d<depth&&parent!==maxParent){
+		parent=parent.parentNode;
+		d=d+1;
+	}
+	
+	var chi=[[parent]];
+	while(d>0){
+		var sib=[];
+		Last(chi).map(function(c){sib=sib.concat(Array.from(c.childNodes).filter(function(n){return n.nodeName!=="#text"}))})
+		chi.push(sib);
+		d=d-1;
+	}
+	return Last(chi);
+}
 
 //Inside
 
@@ -760,13 +782,15 @@ function PreAddElement(htmlOrElement,parentIDsel){
 function AppendElement(htmlOrElement,selector){
 	var e=Element(htmlOrElement);
 	var s=GetElement(selector);
-	return s.insertAdjacentElement('afterend',e);
+	if(s)
+		return s.insertAdjacentElement('afterend',e);
 };
 
 function PrependElement(htmlOrElement,selector){
 	var e=Element(htmlOrElement);
 	var s=GetElement(selector);
-	return s.insertAdjacentElement('beforebegin',e);
+	if(s)
+		return s.insertAdjacentElement('beforebegin',e);
 };
 
 
@@ -777,10 +801,10 @@ function ReplaceChildren(html,parentIDsel){
 		p.innerHTML=html;
 };
 
-// Replace parent element contents with new element
-function ReplaceElement(html,parentIDsel){
-	var a=AppendElement(html,parentIDsel);
-	RemoveElement(parentIDsel);
+// Replace element with new element
+function ReplaceElement(htmlOrElement,elemIDsel){
+	var a=AppendElement(htmlOrElement,elemIDsel);
+	RemoveElement(elemIDsel);
 	return a;
 };
 
@@ -796,6 +820,7 @@ function WrapElement(html,elemIDsel,newparentIdsel){
 	AppendElement(html,elemIDsel);
 	AddElement(GetElement(elemIDsel),newparentIdsel);
 }
+
 
 // Remove Children
 function RemoveChildren(parentID){
@@ -874,7 +899,7 @@ function SortTable(tableSelector,n,descending){
 	
 	var rows=GetElements("TR",tbody);
 	rows=rows.sort(CompareRow(n,descending));
-	rows.map(function(row){return row.cloneNode()});
+	rows.map(function(row){return row.cloneNode(true)});
 	RemoveChildren(tbody);
 	rows.map(function(row){AddElement(row,tbody)});
 }
@@ -906,6 +931,10 @@ function SortableTables(){
 
 ListenOnce('load',SortableTables);
 
+function TableLength(idSel){
+	return Array.from(GetElementIn("TBODY",idSel).childNodes).filter(function(e){return e.childNodes.length>0}).length;
+}
+
 //////////////////////////////////////////////////
 // Safe string loading
 function SafeString(tex){
@@ -918,140 +947,6 @@ function SafeUrl(tex){
 		prefix="http://";
 	return prefix+String(tex).replace(/[\<\>\+\(\)\*\'\"\#\\\s]+.*/g,"").replace(/https?:\/\//,"");
 }
-
-//////////////////////////////////////////////////
-// Transformer: Table
-
-function TableDataHTML(y){
-	if(y!="")
-		y="\t\t<td>"+y+"</td>";
-	return y;
-}
-
-function RowHTML(dataline){
-	var dataline=dataline.map(SafeString);
-	dataline=dataline.map(TableDataHTML);
-	var dtl=dataline.join("\n");
-	if(dtl!="\n")
-		dtl="\t<tr>\n"+dtl+"</tr>";
-	return 	dtl;
-};
-
-function MakeTable(jsondata,RowF,headers){
-	if(!jsondata)
-		return;
-
-	var headers=headers?("<th>"+headers.join("</th><th>")+"</th>"):"";
-
-	var dataarray=JSON.parse(jsondata);
-	if(!RowF)
-		var RowF=RowHTML;
-	
-	setTimeout(SortableTables,500);
-	
-	return "<caption>"+pageTitle()+"</caption><table><thead>"+headers+"</thead><tbody>\n"+dataarray.map(RowF).join("\n")+"</tbody></table>";
-}
-
-// Other tables 
-
-function GameRowHTML(dataline){
-	if(dataline.join("")==="")
-		return "";
-	
-	//console.log(dataline);
-	var link=SafeUrl(dataline[3]);
-	var title=SafeString(dataline[1]);
-	var authorlink=SafeUrl(dataline[4]);
-	var author=SafeString(dataline[2]);
-	var playlink="";
-	
-	if(author==="undefined"){
-	//	console.log(typeof KnownAuthor!=="undefined");
-		if(typeof KnownAuthor!=="undefined")
-			author=KnownAuthor(title);
-	}
-	if(typeof AuthorAliases!=="undefined"&&In(AuthorAliases,author)){
-	//	console.log(typeof AuthorAliases!=="undefined");
-		author=AuthorAliases[author];
-	}
-	
-	if(typeof Whitelist!=="undefined"&&InWhitelist(link)){
-		title=AHTML(title,link);
-		
-		if(/.*puzzlescript\.net\/play.*/.test(link))
-			playlink="game-console.html?game="+pageSearch("p",link);
-		if(/.*puzzlescript\.net\/editor.*/.test(link))
-			playlink="game-console.html?game="+pageSearch("hack",link);
-		
-		if(playlink!=="")
-			playlink="\n"+TableDataHTML(AHTML("Launch with the game bar!",playlink));
-		
-		if(authorlink&&author!=="undefined"){
-			author=AHTML(author,authorlink)
-		}
-	}
-		
-	return "\t<tr>\n"+TableDataHTML(title)+"\n"+TableDataHTML(author)+playlink+"</tr>";
-};
-
-function InWhitelist(string){
-	function Verify(condition){return InString(string,condition)}
-	return Whitelist().some(Verify);
-}
-
-//////////////////////////////////////////////////
-// Guestbook 
-function MakeGuestbook(jsonstring){
-	var dataarray=JSON.parse(jsonstring);
-	function MakeComment(dataline){
-		if(dataline[0]==="") return "";
-		var au=SafeString(dataline[2]);
-		var id=SafeString(dataline[4]);
-		var rid=NextReplyMessageId(id,dataarray); //may duplicate in high traffic times
-		
-		var b=ButtonOnClickHTML("Reply to "+au,'RequestMessageReply("'+rid+'")');
-		var datereply="<div class='date'>"+SafeString(dataline[0])+b+"</div>";
-		var c="<p class='quote'>"+SafeString(dataline[3])+"</p>";
-		var a="<span class='author'>"+au+"</span>";
-		var o="<span class='subject'>, on "+SafeString(dataline[1])+"</span>";
-		
-		var html="<div class='comment' data-id='"+id+"' data-depth='"+IdDepth(id)+"'><div>"+c+"<p>"+a+o+"</p></div>"+datereply+"</div>";
-		return 	html;
-	};
-	return "<table><tbody>\n"+dataarray.sort(function(dl1,dl2){return CompareId(SafeString(dl1[4]),SafeString(dl2[4]))}).map(MakeComment).join("\n")+"</tbody></table>";
-}
-
-
-// Comment tree system
-function CompareId(a,b){
-	if(a===b)
-		return 0;
-	else{
-		var a1=a.replace(/\».*$/,"");
-		var b1=b.replace(/\».*$/,"");
-		
-		if(a1!==b1)
-			return Number(a1)<Number(b1)?1:-1;
-		else if((ThreadId(a,a1)==="")||(ThreadId(b,b1)===""))
-			return IdDepth(a)<IdDepth(b)?-1:1;
-		else
-			return CompareId(ThreadId(a,a1),ThreadId(b,b1));
-	}
-}
-
-function ThreadId(fullid,startid){return fullid.replace(CombineRegex(/^/,startid),"").replace(/^\»/,"")};
-function IdDepth(fullid){return String(fullid).split("»").length};
-	
-function NextReplyMessageId(id,dataarray){
-	//all comment ids
-	var commentids=dataarray.map(function(dataline){return dataline[4]});
-	//children comment ids (exactly depth + 1)
-	function FollowingThreadIds(fullid){return ThreadId(fullid,id)};
-	var childrenThreadIds=commentids.filter(function(fullid){return (ThreadId(fullid,id)!==fullid)&&(IdDepth(fullid)===(1+IdDepth(id)))});
-	//+1 child comment;
-	return id+"»"+String(childrenThreadIds.length+1);
-}
-
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1131,7 +1026,11 @@ function ButtonLinkHTML(title){
 	if(GetElement(id))
 		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()'}});
 	else
-		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()',class:'hidden'}});
+		return GhostButtonHTML(id);
+}
+
+function GhostButtonHTML(id){
+	"<span id='"+id+"' class='hidden'></span>";
 }
 
 function CloseButtonHTML(targetid){
@@ -1209,6 +1108,10 @@ function DefaultDataPack(){
 		qonsubmit:LaunchThanksModal,	//Next modal on successful submit: receives a DataPack
 		qonclose:Identity,				//Next modal on close (defaults to nothing): receives a DataPack
 		thanksmessage:"Submitted. Thank you!",
+
+		closeonblur:true,				//Whether to close the DP on losing focus (e.g. clicking outside)
+		closeOthersCondition:True,		//Condition for other DPs to close
+		layer:0,						//Independent Layers for closing
 		
 		shortcutExtras:{},				//Extended shortcuts, to use ad-hoc
 		spotlight:document.body,		//Spotlight after closing
@@ -1228,8 +1131,16 @@ function NewDataField(obj){
 function DataFieldTypes(type){
 	var DFTypes={
 		plain:NewDataField({
-			qsubmittable:false
-		}),
+			qsubmittable:false}),
+		message:NewDataField({
+			action:Close,
+			destination:'',
+			qtype:LongAnswerHTML,
+			qdisplay:LaunchThanksModal}),
+		answer:NewDataField({
+			qfield:"answer",
+			qtype:LongAnswerHTML,
+			qvalidator:SomeTextValidator}),
 		exclusivechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which one?",
@@ -1242,6 +1153,14 @@ function DataFieldTypes(type){
 			qchoices:["◀","OK","▶"],
 			qtype:ExclusiveChoiceButtonRowHTML,
 			defaultChoice:function(i,txt){return txt==="OK";},
+			qsubmittable:false}),
+		keyboard:NewDataField({
+			qfield:"keyboard",
+			questionname:"",
+			qchoices:DefaultKeyboardKeys(),
+			//["Ctrl","Alt","\t\t\t\t\t\t\t\t\t","Shift"]["🠴","␡","⮐"]
+			qtype:KeyboardHTML,
+			defaultChoice:function(i,txt){return txt==="⮐";},//Defaults to enter
 			qsubmittable:false})
 	}
 	if(typeof type==="undefined")
@@ -1281,20 +1200,29 @@ function RequestDataPack(NamedFieldArray,Options){
 		var DP=NewDataPack(NewDataPackFields(NamedFieldArray));
 		DP=UpdateDataPack(DP,o);
 		DP.fields=DP.fields.map(function(f){var fi=f;fi.pid=DP.qid;return fi});
-
-		CloseCurrentDatapack();
-		if(!GetDataPack.history)
-			GetDataPack.history=[];
-		GetDataPack.history.push(DP);
 		
-		DP.qdisplay(DP);
-		Select(DP.buttonSelector);		//Activate button
-		setTimeout(function(){FocusInside("#"+DP.qid);},100);		//Focus on first question
+		function SameType(DP1){return function(DP2){return DP1.buttonSelector===DP2.buttonSelector}};
+		function SameLayer(DP1){return function(DP2){return DP1.layer===DP2.layer}};
 		
-		setTimeout(function(){ListenOutside("click",function(){Close(DP.qid)},DP.qid)},500); //Click outside to close
-		SetDatapackShortcuts(DP);
-		
-		return DP;
+		if(DP.buttonSelector!=="none"&&CurrentDatapack(SameType(DP)))
+			ClosePreviousDatapacks(SameType(DP));
+		else{
+			ClosePreviousDatapacks(SameLayer(DP));
+			
+			if(!GetDataPack.history)
+				GetDataPack.history=[];
+			GetDataPack.history.push(DP);
+			
+			DP.qdisplay(DP);
+			Select(DP.buttonSelector);		//Activate button
+			setTimeout(function(){FocusInside("#"+DP.qid);},100);		//Focus on first question
+			
+			if(DP.closeonblur)
+				setTimeout(function(){ListenOutside("click",function(){Close(DP.qid)},DP.qid)},500); //Click outside to close
+			SetDatapackShortcuts(DP);
+			
+			return DP;
+		}
 	}
 };
 
@@ -1304,54 +1232,58 @@ function PlainHTML(dataField){
 	return PlainMessageHTML(dataField.questionname);
 }
 
-function ChoiceHTML(dataField,buttontype){
-	var choi="";
-	var clear='onload="ClearData(\''+dataField.qfield+'\',\''+dataField.pid+'\')" ';
-	for(var i in dataField.qchoices)
-		choi=choi+buttontype(dataField.qchoices[i],dataField,i);
-	return '<div class="buttonrow '+dataField.qclass+'" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
-}
+function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
+	var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\");';
+	var SetF='SetData'+args;
+	var ExecuteF='ExecuteChoice'+args;
+	var SelectF='ToggleThisOnly(event,this,'+dataFiel.pid+');'+SetF;
 
-function ChoicesButtonRowHTML(dataField){
-	function ChoicesButtonHTML(choice,dataFiel,i){
+	var buAttribs={
+		'onfocus':SelectF,
+		'onmouseover':SelectF,
+		'onclick':ExecuteF,
+		'ondblclick':ExecuteF,
+		id:"choice-"+choice};
+	
+	if(dataFiel.defaultChoice(i,choice)){
+		buAttribs=FuseObjects(buAttribs,{class:"selected",onload:SetF});
+		SetData(dataFiel.qfield,choice,dataFiel.pid);//Actualy choose it
+	}
+	
+	return ButtonHTML({txt:choice,attributes:buAttribs});
+};
+
+function MultiChoiceButtonHTML(choice,dataFiel,i){
 		var args='(\''+dataFiel.qfield+'\',\''+choice+'\',\''+dataFiel.pid+'\')';
 		var SelectF='ToggleThis(event,this);ToggleData'+args;
 		var buAttribs={'onclick':SelectF,'onfocus':SelectF,id:"choice-"+choice};
 		
 		return ButtonHTML({txt:choice,attributes:buAttribs});
 	};
-	//console.log(dataField.qfield);console.log(dataField.pid);console.log(GetDefaultData(dataField.qfield,dataField.pid));
-	ClearData(dataField.qfield,dataField.pid);
-	return ChoiceHTML(dataField,ChoicesButtonHTML)
+
+function ChoiceRowHTML(dataField,buttontype){
+	var choi="";
+	for(var i in dataField.qchoices)
+		choi=choi+buttontype(dataField.qchoices[i],dataField,i);
+	return choi;
 }
 
-function ExclusiveChoiceButtonRowHTML(dataField){
-	function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
-		var args='(\"'+dataFiel.qfield+'\",\"'+choice+'\",\"'+dataFiel.pid+'\");';
-		var SetF='SetData'+args;
-		var ExecuteF='ExecuteChoice'+args;
-		var SelectF='ToggleThisOnly(event,this);'+SetF;
-		//var ExecuteF=SelectF+'CheckSubmit(\"'+dataFiel.pid+'\");';
-		var buAttribs={
-			'onfocus':SelectF,
-			'onmouseover':SelectF,
-			'onclick':ExecuteF,
-			'ondblclick':ExecuteF,
-			id:"choice-"+choice};
-		var bu;
-		//console.log(i,choice,typeof i);
-		if(dataFiel.defaultChoice(i,choice)){
-			bu=ButtonHTML({txt:choice,attributes:FuseObjects(buAttribs,{class:"selected",onload:SetF})});
-			SetData(dataFiel.qfield,choice,dataFiel.pid);//Actualy choose it
-		}
-		else 
-			bu=ButtonHTML({txt:choice,attributes:buAttribs});
-		return bu;
-	};
-	//console.log(dataField.qfield);console.log(dataField.pid);
+function LayoutHTML(dataField,buttontype,layoutclass,LayoutF){
 	ClearData(dataField.qfield,dataField.pid);
-	return ChoiceHTML(dataField,ExclusiveChoiceButtonHTML)
+	var clear='onload="ClearData(\''+dataField.qfield+'\',\''+dataField.pid+'\')" ';
+	var choi=LayoutF(dataField,buttontype);
+	return '<div class="'+layoutclass+' '+dataField.qclass+'" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
 }
+
+
+function ExclusiveChoiceButtonRowHTML(dataField){
+	return LayoutHTML(dataField,ExclusiveChoiceButtonHTML,'buttonrow',ChoiceRowHTML)
+}
+
+function ChoicesButtonRowHTML(dataField){
+	return LayoutHTML(dataField,MultiChoiceButtonHTML,'buttonrow',ChoiceRowHTML)
+}
+
 
 function ShortAnswerHTML(dataField){
 	return "<input class='input' data-"+dataField.qfield+"='' placeholder='"+dataField.qplaceholder+"' id='"+dataField.qid+"' tabindex='0'></input>";
@@ -1384,7 +1316,6 @@ function QuestionHTML(DP){
 }
 
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // Balloons
 
@@ -1392,7 +1323,7 @@ function LaunchThanksBalloon(DP){
 	RequestDataPack(
 		[['plain',{questionname:DP.thanksmessage,destination:""}]],
 		{qtargetid:DP.qtargetid,
-		qdisplay:LaunchBalloon,
+		qdisplay:LaunchAvatarBalloon,
 		requireConnection:false});
 }
 
@@ -1400,14 +1331,90 @@ function LaunchBalloon(DP){
 	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
 
-function BalloonHTML(content,id){
-	var b='<div class="balloon window" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content"><div class="subtitle">'+content+'</div></div></div>';
+
+function LaunchAvatarBalloon(DP){
+	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid,true);
+}
+
+function BalloonHTML(avatarHTML,content,id,classExtra){
+	var classExtra=classExtra||"";
+	var b='<div class="balloon window '+classExtra+'" id='+id+'>'+CloseButtonHTML(id)+'<div class="baloon-content">'+avatarHTML+'<div class="subtitle">'+content+'</div></div></div>';
 	return b;
 }
 
-function OpenBalloon(content,id,targetid){
-	AddElement(BalloonHTML(content,id),targetid);
+function OpenBalloon(content,id,targetid,avatar){
+	if(!avatar)
+		var avatar="";
+	else
+		var avatar='<div class="logo avatar">'+LOGO+'</div>';
+	AddElement(BalloonHTML(avatar,content,id),targetid);
 }
+
+//Banner (e.g for keyboard)
+function BannerHTML(content,id,classExtra){
+	var classExtra=classExtra||"";
+	var b='<div class="banner window '+classExtra+'" id='+id+'><div class="banner-content">'+content+'</div></div>';
+	return b;
+}
+
+function OpenKeyboardBanner(content,id,targetid){
+	return AddElement(BannerHTML(content,id,"keyboard"),targetid);
+}
+
+function LaunchKeyboardBanner(DP){
+	OpenKeyboardBanner(QuestionHTML(DP),DP.qid,DP.qtargetid);
+}
+
+function OpenKeyboardBalloon(content,id,targetid){
+	return AddElement(BalloonHTML("",content,id,"keyboard"),targetid);
+}
+
+function LaunchKeyboardBalloon(DP){
+	OpenKeyboardBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
+}
+
+// On-screen Keyboard
+function DefaultKeyboardKeys(){
+	return [["1","2","3","4","5","6","7","8","9","0"],["Q","W","E","R","T","Y","U","I","O","P"],["A","S","D","F","G","H","J","K","L"],["Z","X","C","V","B","N","M",".","-"]]};
+	
+function KeyboardRowsHTML(dataField,buttontype){
+	var kblines="";
+	var i=0;
+	for(var keyboardline in dataField.qchoices){
+		var k="";
+		for (var key in dataField.qchoices[keyboardline]){
+			i=i+1;
+			k=k+buttontype(dataField.qchoices[keyboardline][key],dataField,i);
+		}
+		kblines=kblines+"<div class='keyline'>"+k+"</div>";
+	}
+	return kblines;
+}
+
+function KeyboardHTML(dataField){
+	return LayoutHTML(dataField,KeyboardButtonHTML,'keyboard',KeyboardRowsHTML)
+}
+
+function KeyboardButtonHTML(choice,dataFiel,i){
+	var buID='kb'+i;
+	KeyboardButtonHTML[buID]=function(){ExecuteChoice(dataFiel.qfield,choice,dataFiel.pid)};
+	var Kargs='(KeyboardButtonHTML.'+buID+',250,"'+buID+'")';
+	var Start='AutoRepeat'+Kargs;
+	var Stop='AutoStop'+Kargs;
+
+	var buAttribs={
+		'onclick':'KeyboardButtonHTML.'+buID+'()',
+		'ontouchstart':Start,
+		'onmousedown':Start,
+		'onmouseup':Stop,
+		'ontouchend':Stop,
+		'ontouchcancel':Stop,
+		id:"choice-"+choice};
+		
+	return ButtonHTML({txt:choice,attributes:buAttribs});
+};
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Opener & Closer Functions with focus option, 
@@ -1420,18 +1427,6 @@ function FocusAndResetFunction(RequestF,FocusF){
 	};
 };
 
-function OpenerCloser(RequestF,ContinueF,FocusF){
-	if(RequestF.id){ //Close on second click
-		var i=RequestF.id; //Retrieves unique id for the request window/balloon/modal
-		Close(i);
-		FocusAndResetFunction(RequestF,FocusF)();
-	}
-	else{
-		RequestF.id=GenerateId(); //Generates unique id for the request window/balloon/modal
-		ContinueF();
-	}
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Toggling class & buttons
@@ -1441,8 +1436,8 @@ function ToggleThis(ev,thi){
 		Toggle(thi);
 }
 
-function ToggleThisOnly(ev,thi){
-	var siblings=thi.parentNode.childNodes;
+function ToggleThisOnly(ev,thi,maxparent){
+	var siblings=Siblings(thi,999,maxparent);
 	var i=0;
 	while (i<siblings.length){
 		if(siblings[i]!==thi)
@@ -1510,6 +1505,10 @@ function PulseSelect(selectorE,clas,delay){
 
 // Show/Hide
 
+function HiddenHTML(id){
+	return "<span id='"+id.replace(/\#/g,"")+"' class='hidden'></span>"
+}
+
 function Show(selectorE){
 	var e=GetElement(selectorE);
 	
@@ -1533,6 +1532,7 @@ function Hide(selectorE){
 	Deselect(selectorE);
 	SelectSimple(selectorE,"hidden");
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Closing functions
@@ -1558,18 +1558,11 @@ function CloseThis(ev,thi,targetIDsel){
 }
 
 function Close(targetid){
-	//First tries to find the next item to open, then closes
 	var DP=GetDataPack(targetid);
-	if(DP){
-		Deselect(DP.buttonSelector);
-		DeleteShortcuts(DP.qid);
-		DP.closed=true;
-		if(DP.qonclose)
-			DP.qonclose(DP);
-		if(DP.spotlight)
-			FocusElement(DP.spotlight);
-	}
-	CloseElement(targetid);
+	if(DP)
+		CloseDatapack(DP);
+	else
+		CloseElement(targetid);
 }
 
 function CloseAndContinue(DP){
@@ -1580,8 +1573,11 @@ function CloseAndContinue(DP){
 }
 
 // Current Datapack
-function CurrentDatapack(){
+function CurrentDatapack(ConditionF){
+	var ConditionF=ConditionF||True;
 	var h=GetDataPack.history;
+	if(h)
+		h=h.filter(ConditionF);
 	if(h&&h.length>0){
 		var DP=Last(h);
 		if(DP.closed)
@@ -1593,11 +1589,37 @@ function CurrentDatapack(){
 		return undefined;
 }
 
-function CloseCurrentDatapack(){
-	var DP=CurrentDatapack();
+function CloseDatapack(DP){
 	if(DP){
-		Close(DP.qid);
+		Deselect(DP.buttonSelector);
+		DeleteShortcuts(DP.qid);
+		DP.closed=true;
+		if(DP.qonclose)
+			DP.qonclose(DP);
+		if(DP.spotlight)
+			FocusElement(DP.spotlight);
+		
+		CloseElement(DP.qid);
 	}
+}
+
+function CloseCurrentDatapack(){
+	CloseDatapack(CurrentDatapack());
+}
+
+function ClosePreviousDatapacks(ConditionF){
+	var h=GetDataPack.history;
+	if(!h)
+		return;
+	h=h.filter(ConditionF).filter(function(DP){return !DP.closed});
+	
+	var l=Last(h);
+	
+	h=Most(h); //Close previous ones without firing onclose event
+	if(h)
+		h.map(function(DP){DP.qonclose=Identity;CloseDatapack(DP)});
+	
+	CloseDatapack(l); //the last one should fire it
 }
 
 function SubmitCurrentDatapack(){
@@ -2124,14 +2146,14 @@ function TextReadDuration(textstring){ //by counting number of words, 200ms per 
 	return Math.min(Math.max(1000,(textstring.split(" ").length)*250),10000);
 }
 
-function ConsoleAdd(messageHTML,wait,duration){
+function ConsoleAdd(messageHTML,wait,duration,mID){
 	
 	if(GetElement("Console")===null)
 		ConsoleLoad();
 	
 	var duration=duration?Math.max(1000,duration):TextReadDuration(messageHTML);
 	var wait=wait?wait:0;
-	var mID="c-"+GenerateId();//random id
+	var mID=mID?mID:"c-"+GenerateId();//random id
 	setTimeout(function(){AddElement(ConsoleMessageHTML(messageHTML,mID),"Console")},wait)
 	setTimeout(function(){CloseElement(mID)},duration+wait);
 	consolebuffer.push(mID);
@@ -2167,7 +2189,7 @@ function ConsoleAddOnce(messageHTML,wait,duration){
 
 //DataPack integration in console
 function LaunchConsoleMessage(DP){
-	ConsoleAdd(QuestionHTML(DP));
+	ConsoleAdd(QuestionHTML(DP),undefined,undefined,DP.qid);
 }
 
 function LaunchConsoleThanks(DP){
@@ -2406,7 +2428,6 @@ function FullscreenClose(){
 	if(f) {
 		Deselect("FullscreenButton");
 		FreeFullscreenCursor();
-		ConsoleLoad();
 	};
 }
 
@@ -2756,7 +2777,8 @@ var KeyCodes={
 
 
 //Key Capturing
-function CaptureComboKey(event) {
+
+function CaptureComboKey(event){
 	event=event||window.event;
 	var keystring=EventKeystring(event);
 	var context=Context();
@@ -2788,18 +2810,20 @@ function SetDatapackShortcuts(DP){
 ///////////////////////////////////////////////////////////////////////////////
 // Time-based functions
 
-function AutoRepeat(RepeatF,delay){
-	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
-	AutoRepeat[FunctionName(RepeatF)]=setTimeout(function(){
+function AutoRepeat(RepeatF,delay,name){
+	var name=name||FunctionName(RepeatF);
+	clearTimeout(AutoRepeat[name]);
+	AutoRepeat[name]=setTimeout(function(){
 		RepeatF();
-		AutoRepeat(RepeatF,delay);
+		AutoRepeat(RepeatF,delay,name);
 	},delay);
 }
 
-function AutoStop(RepeatF,delay){
-	clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
+function AutoStop(RepeatF,delay,name){
+	var name=name||FunctionName(RepeatF);
+	clearTimeout(AutoRepeat[name]);
 	setTimeout(function(){
-		clearTimeout(AutoRepeat[FunctionName(RepeatF)]);
+		clearTimeout(AutoRepeat[name]);
 	},delay);
 }
 
@@ -2834,11 +2858,12 @@ function DelayUntil(Condition,F,i){
 		return F();
 	}
 	else{
-		console.log(DelayUntil[n]);
+
+		//console.log(DelayUntil[n]);
 		
 		if(DelayUntil[n]<10){
 			function D(){return DelayUntil(Condition,F,i);};
-			setTimeout(D,100*(2**DelayUntil[n]));
+			setTimeout(D,100*(Math.pow(2,DelayUntil[n])));
 		}
 		else
 			console.log("Timed out: ",n);
@@ -2959,7 +2984,7 @@ function StartGIF(gid){
 			"height":h
 		})(ctx);
 		
-		var s=(w*h)**0.5/3;
+		var s=Math.pow(w*h,0.5)/3;
 				
 		DrawPolygon({
 			"size":s/2,
@@ -3063,32 +3088,6 @@ function DrawPolygon(txtObj){
 function Accumulate(acc,val){return acc+val};
 
 ///////////////////////////////////////////////////////////////////////////////
-//Unit tests (to be improved)
-
-function VisualExecute(actionArray,delay){
-
-	for (var i=0;i<actionArray.length;i++){
-		
-		setTimeout(actionArray[i],(i)*delay);
-		
-		if(i+1==actionArray.length)
-			console.log("test concluded.")	;
-	}
-	console.log("test started...")	;
-}
-
-function TestGame(){
-	function F(){console.log("try");DoWin();};
-	
-	GoToScreen(0);
-	var actionArray=ObtainStateScreens().map(function(){return F});
-	
-	VisualExecute(actionArray,1000)
-}
-
-
-
-///////////////////////////////////////////////////////////////////////////////
 // Custom events 
 
 function Shout(name,targetSelector){
@@ -3112,89 +3111,3 @@ if(typeof window.CustomEvent!=="function"){
 	CustomEvent.prototype=window.Event.prototype;
 	window.CustomEvent=CustomEvent;
 }
-
-
-///////////////////////////////////////////////////////////////////////////////
-// Test Suite
-
-function Testing(){return true};
-
-function TestFunction(functionname,testname){
-	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
-	var test=Test[functionname][testname];
-	if(test)
-		console.log(test["function"].apply(null,test["arguments"]));
-		console.log(test["expected"]);
-		return test["function"].apply(null,test["arguments"])===test["expected"];
-}
-
-function Test(functionname){
-	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
-	var tests=Test[functionname];
-	
-	return Object.keys(tests).map(function(testname){TestFunction(functionname,testname)});
-
-}
-
-function SaveTest(F,argArray,result,testname){
-	if(!Testing())
-		return;
-	
-	var functionname=FunctionName(F);
-	
-	if(!Test[functionname])
-		Test[functionname]={};
-	
-	var argArray=IsArray(argArray)?argArray:[argArray];
-	var testname=testname?testname:(functionname+"("+argArray.map(String).join(",")+")");
-	
-	Test[functionname][testname]={"function":F,"arguments":argArray,"expected":result};
-}
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-// PWA
-var installPWA=false;
-window.addEventListener('beforeinstallprompt',function(e){
-	installPWA=e;
-	RequestPWAInstall(installPWA);
-});
-
-function RequestPWAInstall(e){
-	console.log("PWA prompt!",e);
-	
-//	ConsoleAdd(pageTitle()+"is now a progressive web app. Whould you like to install it (early beta)?");
-	
-	var request=e.prompt();
-	
-	function Outcome(choice){
-		if (choice.outcome==='accepted'){
-			console.log('accept');
-		}else{
-			console.log('reject');
-		}
-	}
-	
-	request.userChoice.then(Outcome);
-};
-
-
-///////////////////////////////////////////////////////////////////////////////
-// Service workers
-
-function ServiceWorker(){
-
-if ('serviceWorker' in navigator) {
-  // Register a service worker hosted at the root of the
-  // site using a more restrictive scope.
-  navigator.serviceWorker.register('/cacher.js', {scope: './'}).then(function(registration) {
-    console.log('Service worker registration succeeded:', registration);
-  }, /*catch*/ function(error) {
-    console.log('Service worker registration failed:', error);
-  });
-} else {
-  console.log('Service workers are not supported.');
-}
-
-};

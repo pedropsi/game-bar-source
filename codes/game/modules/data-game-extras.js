@@ -1,4 +1,6 @@
 
+DATAVERSION=5;
+
 ////////////////////////////////////////////////////////////////////////////////
 // Game data link defaults, for puzzlescript, overwritable
 
@@ -48,7 +50,10 @@ if(typeof ObtainPlayEndGameSound==="undefined")
 
 if(typeof ObtainLevelTitle==="undefined")
 	function ObtainLevelTitle(lvl){
-		return "Access level "+LevelNumberFromTotal(lvl);
+		if(HasCheckpoint())
+			return "Access checkpoint "+lvl;
+		else
+			return "Access level "+LevelNumberFromTotal(lvl);
 	}
 
 //Read move defaults
@@ -84,6 +89,40 @@ if(typeof RequestGameFeedback==="undefined")
 
 if(typeof RegisterMove==="undefined")
 	var RegisterMove=Identity;
+
+
+//On-screen keyboard
+
+if(typeof ObtainKeyboardAllowed==="undefined")
+	var ObtainKeyboardAllowed=false;
+
+if(typeof ObtainKeyboardKeys==="undefined")
+	var ObtainKeyboardKeys=GameKeyboardKeys;
+	
+if(typeof ObtainKeyboardLauncher==="undefined")
+	function ObtainKeyboardLauncher(){
+		return LaunchBalloon;
+	}
+	
+if(typeof ObtainKeyboardTarget==="undefined")
+	function ObtainKeyboardTarget(){
+		return ParentSelector(gameSelector);
+	}
+
+
+
+//Game Action
+if(typeof ObtainGameAction==="undefined")
+	function ObtainGameAction(key){
+		Context(gameSelector)[ComboKeystring(key)]();
+	}
+/*
+	function ObtainGameAction(key){
+		console.log(key);
+		return checkKey({keycode:key}); //TODO
+	}
+*/
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -145,6 +184,7 @@ function PrepareGame(){
 
 	setTimeout(ResizeCanvas,250);
 	
+
 	if(!bar){
 		
 		if(typeof onKeyDown!=="undefined")
@@ -164,6 +204,7 @@ function PrepareGame(){
 		]);
 
 		ListenOnce('click',PlaylistStartPlay,gameSelector);
+		ListenOnce('touchstart',RequestKeyboard,gameSelector);
 		
 		ScrollInto(gameSelector);
 		GameFocus();
@@ -177,15 +218,28 @@ function PrepareGame(){
 // Game Bar
 
 function UndoButton(){
-	var undo=ObtainUndoAllowed()?ButtonHTML({txt:'↶',attributes:{
-		onclick:'UndoAndFocus();',
-		onmousedown:'AutoRepeat(UndoAndFocus,250);',
-		ontouchstart:'AutoRepeat(UndoAndFocus,250);',
-		onmouseup:'AutoStop(UndoAndFocus);',
-		ontouchend:'AutoStop(UndoAndFocus);',
-		ontouchcancel:'AutoStop(UndoAndFocus);'
-		}}):"";
-	return undo;
+	if(ObtainUndoAllowed())
+		return ButtonHTML({txt:'↶',attributes:{
+			onclick:'UndoAndFocus();',
+			onmousedown:'AutoRepeat(UndoAndFocus,250);',
+			ontouchstart:'AutoRepeat(UndoAndFocus,250);',
+			onmouseup:'AutoStop(UndoAndFocus);',
+			ontouchend:'AutoStop(UndoAndFocus);',
+			ontouchcancel:'AutoStop(UndoAndFocus);',
+			id:'UndoButton'
+			}});
+	else
+		return "";
+}
+
+function RestartButton(){
+	if(ObtainRestartAllowed())
+		return ButtonHTML({txt:'↺',attributes:{
+			onclick:'ObtainRestart();GameFocus();',
+			id:'RestartButton'
+		}});
+	else
+		return "";
 }
 
 function MuteButton(){
@@ -198,17 +252,23 @@ function MuteButton(){
 }
 
 
+function KeyboardButton(){
+	if(ObtainKeyboardAllowed)
+		return ButtonHTML({txt:"🖮",attributes:{onclick:'RequestKeyboard();',id:'KeyboardButton'}})
+	else
+		return "";
+}
+
 
 function GameBar(targetIDsel){
-	
-	var restart=ObtainRestartAllowed()?ButtonOnClickHTML('↺','ObtainRestart();GameFocus();'):"";
-	
+
 	var buttons=[
 		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
 		ButtonLinkHTML("How to play?"),
-		"<span id='HintButton' class='hidden'></span>",
+		HiddenHTML('HintButton'),
 		UndoButton(),
-		restart,
+		RestartButton(),
+		KeyboardButton(),
 		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
 //		ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}}),
 		ButtonLinkHTML("Credits"),
@@ -248,20 +308,25 @@ function UndoAndFocus(){
 ////////////////////////////////////////////////////////////////////////////////
 // Screen rotation
 
-GameRotation();
-Listen('resize',GameRotation);
+
+if(typeof ObtainXYRotateCondition==="undefined")
+	function ObtainXYRotateCondition(x,y){return x<y*1.05};
 
 function GameRotation(){
 	var x=window.innerWidth;
 	var y=window.innerHeight;
 	
-	if(x<y*1.05)
+	if(ObtainXYRotateCondition(x,y))
 		SelectSimple('.game-rotation-container','rotate90');
 	else
 		Deselect('.game-rotation-container','rotate90');
 	
 	ResizeCanvas();
 }
+
+GameRotation();
+Listen('resize',GameRotation);
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Save permissions
@@ -313,22 +378,78 @@ function StorageURL(){
 	else
 		return pageNoTag(document.URL);
 }
+function LocalStorageName(name){
+	if (name)
+		return StorageURL()+"_"+name.toLowerCase();
+	else
+		return StorageURL();
+}
+function LocalStorage(name,set,TransformF){ //Getter-setter
+	if(!set){
+		var data=localStorage[LocalStorageName(name)];
+		if(!data)
+			return [];
+		data=JSON.parse(data);
+		
+		if(data['data']){ //unwrap capsule
+			var vers=data['vers'];
+			data=data['data'];
+			if(!vers||vers<DATAVERSION) //legacy conversion
+				data=LegacyConversion(name,data,vers);
+		}		
+		
+		if(TransformF&&data.length)
+			data=data.map(TransformF);
+		return data;
+	}
+	else{
+		var capsule={  //wrap in capsule
+			'data':set,
+			'vers':DATAVERSION,
+			'name':name
+		};
+	}
+		return localStorage[LocalStorageName(name)]=JSON.stringify(capsule);
+}
+
+function LegacyConversion(name,data,vers){
+	var Converter=LegacyConversion[name];
+	if(!Converter)
+		return data;
+	else
+		return Converter(data,vers);
+}
+
+LegacyConversion["solvedlevels"]=function(solvedlevels,vers){
+	if(!vers||vers<5)
+		return solvedlevels.map(LevelNumber);
+	else
+		return solvedlevels;
+};
+
+LegacyConversion["checkpoint"]=function(sta,vers){
+	if(!vers||vers<5)
+		if(sta.dat)
+			return [sta];
+	return sta;
+};
+
 function CanSaveLocally(){
 	return window.localStorage;
 }
 function HasCheckpoint(){
-	return void 0!==localStorage[StorageURL()+"_checkpoint"];
+	return LocalStorage("checkpoint").length>0;
 }
 function HasLevel(){
-	return CanSaveLocally()&&void 0!==localStorage[StorageURL()];
+	return CanSaveLocally()&&!(LocalStorage("").length===0);
 }
 
 
 // Localsave = save in local storage
 function LocalsaveLevel(curscreen){
 	if(savePermission){
-		localStorage[StorageURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelScreens());
-		return localStorage[StorageURL()]=curscreen;
+		LocalStorage("solvedlevels",SolvedLevels());
+		return LocalStorage("",curscreen);
 	}
 	else
 		EraseLocalsaveLevel();
@@ -336,14 +457,14 @@ function LocalsaveLevel(curscreen){
 
 function LocalsaveCheckpoints(newstack){
 	if(savePermission)
-		return localStorage[StorageURL()+"_checkpoint"]=JSON.stringify(newstack);
+		return LocalStorage("checkpoint",newstack);
 	else
 		EraseLocalsaveCheckpoints();
 }
 
 function LocalsaveHints(){
 	if(savePermission&&Hints())
-		localStorage[StorageURL()+"_hintsused"]=JSON.stringify(Hints.used);
+		LocalStorage("hintsused",Hints.used);
 }
 	
 function Localsave(){
@@ -351,18 +472,22 @@ function Localsave(){
 	LocalsaveHints();
 	//LocalsaveCheckpoints();
 }	
-	
+
+function EraseLocalStorage(name){
+	return localStorage.removeItem(LocalStorageName(name));
+}
+
 function EraseLocalsaveLevel(){
-	localStorage.removeItem(StorageURL()+"_solvedlevels");
-	return localStorage.removeItem(StorageURL());
+	EraseLocalStorage("solvedlevels");
+	return EraseLocalStorage("");
 };
 
 function EraseLocalsaveCheckpoints(){
-	return localStorage.removeItem(StorageURL()+"_checkpoint");
+	return EraseLocalStorage("checkpoint");
 };
 
 function EraseLocalsaveHints(){
-	return localStorage.removeItem(StorageURL()+"_hintsused");
+	return EraseLocalStorage("hintsused");
 }
 
 function EraseLocalsave(){
@@ -372,25 +497,16 @@ function EraseLocalsave(){
 
 // Load from memory
 function LoadLevel(){
-	
-	var sls=localStorage[StorageURL()+"_solvedlevels"];
-	if(sls)
-		SolvedLevelScreens.levels=JSON.parse(sls).map(Number);
-	
-	return CurrentScreen(localStorage[StorageURL()]);
+	SolvedLevels.levels=LocalStorage("solvedlevels",undefined,Number);
+	return CurrentScreen(LocalStorage(""));
 }
 
 function LocalloadCheckpoints(){
-	var storeddata=localStorage[StorageURL()+"_checkpoint"];
-	var sta=storeddata?JSON.parse(storeddata):[];
-	sta=sta.dat?[sta]:sta;	//data compatibility (converts single checkpoint to array if needed)
-	return sta;
+	return LocalStorage("checkpoint");
 }
 
 function LoadHints(){
-	var h=localStorage[StorageURL()+"_hintsused"];
-	if(h)
-		return Hints.used=JSON.parse(h).map(Number);
+	return Hints.used=LocalStorage("hintsused",undefined,Number);
 }
 
 function GetCheckpoints(){
@@ -533,19 +649,19 @@ function LevelScreen(n){
 	return LevelScreens()[n-1];
 }
 
-function SolvedLevelScreens(){
-	if(SolvedLevelScreens.levels===undefined)
-		SolvedLevelScreens.levels=[];
-	return SolvedLevelScreens.levels;
+function SolvedLevels(){
+	if(SolvedLevels.levels===undefined)
+		SolvedLevels.levels=[];
+	return SolvedLevels.levels;
 }
 
 function AddToSolvedScreens(curscreen){
 	function SortNumber(a,b){return a-b};
 	if(!ScreenMessage(curscreen)&&!LevelScreenSolved(curscreen)){
-		SolvedLevelScreens.levels.push(Number(curscreen));
-		SolvedLevelScreens.levels=SolvedLevelScreens.levels.sort(SortNumber);
+		SolvedLevels.levels.push(LevelNumber(curscreen));
+		SolvedLevels.levels=SolvedLevels.levels.sort(SortNumber);
 	}
-	return SolvedLevelScreens();
+	return SolvedLevels();
 }
 
 function LevelSolved(n){
@@ -553,7 +669,7 @@ function LevelSolved(n){
 }
 
 function LevelScreenSolved(curscreen){
-	return In(SolvedLevelScreens(),curscreen);
+	return In(SolvedLevels(),LevelNumber(curscreen));
 }
 
 function UnSolvedLevelScreens(){
@@ -586,7 +702,7 @@ function FinalLevelScreen(){
 };
 
 function ClearSolvedLevelScreens(){
-	return SolvedLevelScreens.levels=[];
+	return SolvedLevels.levels=[];
 }
 
 function SolvedAllLevels(){
@@ -609,7 +725,7 @@ function UnlockedLevels(){
 	if(LevelLookahead<1){
 		return Levels();
 	}else{
-		var showlevels=SolvedLevelScreens().map(LevelNumber);
+		var showlevels=SolvedLevels();
 		var lvl=LevelNumber(FirstUnsolvedScreen());
 		var lookahead=1;
 		while(lookahead<=LevelLookahead&&lvl<=Levels().length){
@@ -697,24 +813,21 @@ function RequestLevelSelector(){
 		"0":function(){DelayLevel(0)}
 	});
 	
-	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="LevelSelectorButton")
-		CloseCurrentDatapack();
-	else
-		RequestDataPack([
-				['exclusivechoice',DPOpts]
-			],
-			{
-				action:LoadFromLevelSelectorButton,
-				actionText:"Go to "+type,
-				qonsubmit:CloseLevelSelector,
-				qonclose:GameFocus,
-				qdisplay:LaunchBalloon,
-				qtargetid:ParentSelector(gameSelector),
-				shortcutExtras:LevelSelectorShortcuts,
-				requireConnection:false,
-				buttonSelector:"LevelSelectorButton",
-				spotlight:gameSelector
-		});
+	RequestDataPack([
+			['exclusivechoice',DPOpts]
+		],
+		{
+			action:LoadFromLevelSelectorButton,
+			actionText:"Go to "+type,
+			qonsubmit:CloseLevelSelector,
+			qonclose:GameFocus,
+			qdisplay:LaunchBalloon,
+			qtargetid:ParentSelector(gameSelector),
+			shortcutExtras:LevelSelectorShortcuts,
+			requireConnection:false,
+			buttonSelector:"LevelSelectorButton",
+			spotlight:gameSelector
+	});
 }
 
 function CloseLevelSelector(){
@@ -865,7 +978,8 @@ function StartLevelFromTitle(){
 function ResetLevel(){
 	CurrentScreen(0);
 	curlevelTarget=null;
-	SolvedLevelScreens.levels=[];
+	ClearSolvedLevelScreens();
+	ClearLevelRecord();
 }
 
 
@@ -947,6 +1061,7 @@ function KeyActionsGameBar(){
 	"E"			:RequestGameFeedback,
 	"F"			:RequestGameFullscreen,
 	"H"			:RequestHint,
+	"K"			:ObtainKeyboardAllowed?RequestKeyboard:Identity, 
 	"L"			:RequestLevelSelector, 
 	"M"			:ToggleCurrentSong
 	};
@@ -1017,7 +1132,6 @@ OverwriteShortcuts(gameSelector,FullShortcuts);
 
 
 function RequestGameFullscreen(){
-//	FullscreenToggle(ParentSelector(gameSelector));
 	FullscreenToggle(".game-supra-container");
 	setTimeout(GameRotation,500);
 }
@@ -1121,13 +1235,13 @@ function LoadHintData(hintdata){
 	else{
 		Hints.cached=ParseHintsFile(hintdata);
 		if(Hints.cached){
-			if(!LoadHints())
+			if(LoadHints().length===0)
 				Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
-			
 			ShowHintButton();
 		}
 	}
 }
+
 
 function ShowHintButton(){
 	ReplaceElement(HintButton(),"HintButton")
@@ -1297,19 +1411,74 @@ function RequestHint(){
 		
 	}
 	
-	
-	if(CurrentDatapack()&&CurrentDatapack().buttonSelector==="HintButton")
-		CloseCurrentDatapack();
-	else
-		RequestDataPack(DPFields,{
-			actionvalid:CloseHint,
-			qonsubmit:CloseHint,
-			qonclose:GameFocus,
-			qdisplay:LaunchBalloon,
-			qtargetid:ParentSelector(gameSelector),
-			requireConnection:false,
-			shortcutExtras:FuseObjects(ObtainKeyActionsGameBar(),{"H":CloseHint}),
-			buttonSelector:"HintButton",
-			spotlight:gameSelector
-		});
+
+	RequestDataPack(DPFields,{
+		actionvalid:CloseHint,
+		qonsubmit:CloseHint,
+		qonclose:GameFocus,
+		qdisplay:LaunchAvatarBalloon,
+		qtargetid:ParentSelector(gameSelector),
+		requireConnection:false,
+		shortcutExtras:FuseObjects(ObtainKeyActionsGameBar(),{"H":CloseHint}),
+		buttonSelector:"HintButton",
+		spotlight:gameSelector
+	});
 }
+
+
+
+//Onscreen keyboard
+
+function RequestKeyboard(){
+	
+	if(!ObtainKeyboardAllowed)
+		return;
+	
+	var DPOpts={
+		executeChoice:ObtainGameAction,
+		qchoices:ObtainKeyboardKeys()
+	}
+	
+	var Shortcuts=ObtainKeyActionsGameBar();
+	
+	RequestDataPack([
+			['keyboard',DPOpts]
+		],
+		{
+			action:console.log,
+			qonsubmit:Identity,
+			qonclose:GameFocusAndRestartUndoButtons,
+			qdisplay:ObtainKeyboardLauncher(),
+			qtargetid:ObtainKeyboardTarget(),
+			shortcutExtras:Shortcuts,
+			requireConnection:false,
+			buttonSelector:"KeyboardButton",
+			spotlight:gameSelector,
+			closeonblur:false,
+			layer:-1
+	});
+	
+	function HideButtons(){
+		ReplaceElement(HiddenHTML("RestartButton"),"RestartButton");
+		ReplaceElement(HiddenHTML("UndoButton"),"UndoButton");
+	}
+	
+	HideButtons();
+}
+
+function GameFocusAndRestartUndoButtons(){
+	GameFocus();
+	
+	function RestoreButtons(){
+		ReplaceElement(RestartButton(),"RestartButton");
+		ReplaceElement(UndoButton(),"UndoButton");
+	}
+	
+	setTimeout(RestoreButtons,100); //Needed
+}
+
+function GameKeyboardKeys(){
+	return [["↶","↺"]]; // Undo and Restart
+}
+
+
