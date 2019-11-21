@@ -205,7 +205,7 @@ function PrepareGame(){
 	else
 		LoadStyle(pageRoot()+"codes/game/game.css");
 
-	setTimeout(RefreshTitleScreen,250);
+	setTimeout(ResizeCanvas,250);
 			
 	if(!bar){
 		
@@ -226,10 +226,6 @@ function PrepareGame(){
 	}
 }
 
-function RefreshTitleScreen(){
-	ObtainTitleScreenLoader();
-	ResizeCanvas();
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Game Bar
