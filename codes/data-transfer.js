@@ -1137,10 +1137,6 @@ function DataFieldTypes(type){
 			destination:'',
 			qtype:LongAnswerHTML,
 			qdisplay:LaunchThanksModal}),
-		answer:NewDataField({
-			qfield:"answer",
-			qtype:LongAnswerHTML,
-			qvalidator:SomeTextValidator}),
 		exclusivechoice:NewDataField({
 			qfield:'answer',
 			questionname:"Which one?",

@@ -274,6 +274,7 @@ h4{
 	padding:var(--h1) var(--w2) var(--h1) var(--w2);
     font-weight:bold;
     width: 75%;
+    align-self: center;
 }
 .closing {
   	opacity: 0;
