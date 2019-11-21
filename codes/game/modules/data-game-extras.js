@@ -421,11 +421,14 @@ function LocalStorage(name,set,TransformF){ //Getter-setter
 		return data;
 	}
 	else{
-		var capsule={  //wrap in capsule
-			'data':set,
-			'vers':DATAVERSION,
-			'name':name
-		};
+		if(name==="")
+			var capsule=set; //no capsule, for compatibility
+		else 
+			var capsule={  //wrap in capsule
+				'data':set,
+				'vers':DATAVERSION,
+				'name':name
+			};
 	}
 		return localStorage[LocalStorageName(name)]=JSON.stringify(capsule);
 }
