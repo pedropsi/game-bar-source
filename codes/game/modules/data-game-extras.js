@@ -1,3 +1,5 @@
+DATAVERSION=5;
+
 ////////////////////////////////////////////////////////////////////////////////
 // Game data link defaults, for puzzlescript, overwritable
 
@@ -47,7 +49,10 @@ if(typeof ObtainPlayEndGameSound==="undefined")
 
 if(typeof ObtainLevelTitle==="undefined")
 	function ObtainLevelTitle(lvl){
-		return "Access level "+LevelNumberFromTotal(lvl);
+		if(HasCheckpoint())
+			return "Access checkpoint "+lvl;
+		else
+			return "Access level "+LevelNumberFromTotal(lvl);
 	}
 
 //Read move defaults
@@ -354,22 +359,78 @@ function StorageURL(){
 	else
 		return pageNoTag(document.URL);
 }
+function LocalStorageName(name){
+	if (name)
+		return StorageURL()+"_"+name.toLowerCase();
+	else
+		return StorageURL();
+}
+function LocalStorage(name,set,TransformF){ //Getter-setter
+	if(!set){
+		var data=localStorage[LocalStorageName(name)];
+		if(!data)
+			return [];
+		data=JSON.parse(data);
+		
+		if(data['data']){ //unwrap capsule
+			var vers=data['vers'];
+			data=data['data'];
+			if(!vers||vers<DATAVERSION) //legacy conversion
+				data=LegacyConversion(name,data,vers);
+		}		
+		
+		if(TransformF&&data.length)
+			data=data.map(TransformF);
+		return data;
+	}
+	else{
+		var capsule={  //wrap in capsule
+			'data':set,
+			'vers':DATAVERSION,
+			'name':name
+		};
+	}
+		return localStorage[LocalStorageName(name)]=JSON.stringify(capsule);
+}
+
+function LegacyConversion(name,data,vers){
+	var Converter=LegacyConversion[name];
+	if(!Converter)
+		return data;
+	else
+		return Converter(data,vers);
+}
+
+LegacyConversion["solvedlevels"]=function(solvedlevels,vers){
+	if(!vers||vers<5)
+		return solvedlevels.map(LevelNumber);
+	else
+		return solvedlevels;
+};
+
+LegacyConversion["checkpoint"]=function(sta,vers){
+	if(!vers||vers<5)
+		if(sta.dat)
+			return [sta];
+	return sta;
+};
+
 function CanSaveLocally(){
 	return window.localStorage;
 }
 function HasCheckpoint(){
-	return void 0!==localStorage[StorageURL()+"_checkpoint"];
+	return LocalStorage("checkpoint").length>0;
 }
 function HasLevel(){
-	return CanSaveLocally()&&void 0!==localStorage[StorageURL()];
+	return CanSaveLocally()&&!(LocalStorage("").length===0);
 }
 
 
 // Localsave = save in local storage
 function LocalsaveLevel(curscreen){
 	if(savePermission){
-		localStorage[StorageURL()+"_solvedlevels"]=JSON.stringify(SolvedLevelScreens());
-		return localStorage[StorageURL()]=curscreen;
+		LocalStorage("solvedlevels",SolvedLevels());
+		return LocalStorage("",curscreen);
 	}
 	else
 		EraseLocalsaveLevel();
@@ -377,14 +438,14 @@ function LocalsaveLevel(curscreen){
 
 function LocalsaveCheckpoints(newstack){
 	if(savePermission)
-		return localStorage[StorageURL()+"_checkpoint"]=JSON.stringify(newstack);
+		return LocalStorage("checkpoint",newstack);
 	else
 		EraseLocalsaveCheckpoints();
 }
 
 function LocalsaveHints(){
 	if(savePermission&&Hints())
-		localStorage[StorageURL()+"_hintsused"]=JSON.stringify(Hints.used);
+		LocalStorage("hintsused",Hints.used);
 }
 	
 function Localsave(){
@@ -392,18 +453,22 @@ function Localsave(){
 	LocalsaveHints();
 	//LocalsaveCheckpoints();
 }	
-	
+
+function EraseLocalStorage(name){
+	return localStorage.removeItem(LocalStorageName(name));
+}
+
 function EraseLocalsaveLevel(){
-	localStorage.removeItem(StorageURL()+"_solvedlevels");
-	return localStorage.removeItem(StorageURL());
+	EraseLocalStorage("solvedlevels");
+	return EraseLocalStorage("");
 };
 
 function EraseLocalsaveCheckpoints(){
-	return localStorage.removeItem(StorageURL()+"_checkpoint");
+	return EraseLocalStorage("checkpoint");
 };
 
 function EraseLocalsaveHints(){
-	return localStorage.removeItem(StorageURL()+"_hintsused");
+	return EraseLocalStorage("hintsused");
 }
 
 function EraseLocalsave(){
@@ -413,25 +478,16 @@ function EraseLocalsave(){
 
 // Load from memory
 function LoadLevel(){
-	
-	var sls=localStorage[StorageURL()+"_solvedlevels"];
-	if(sls)
-		SolvedLevelScreens.levels=JSON.parse(sls).map(Number);
-	
-	return CurrentScreen(localStorage[StorageURL()]);
+	SolvedLevels.levels=LocalStorage("solvedlevels",undefined,Number);
+	return CurrentScreen(LocalStorage(""));
 }
 
 function LocalloadCheckpoints(){
-	var storeddata=localStorage[StorageURL()+"_checkpoint"];
-	var sta=storeddata?JSON.parse(storeddata):[];
-	sta=sta.dat?[sta]:sta;	//data compatibility (converts single checkpoint to array if needed)
-	return sta;
+	return LocalStorage("checkpoint");
 }
 
 function LoadHints(){
-	var h=localStorage[StorageURL()+"_hintsused"];
-	if(h)
-		return Hints.used=JSON.parse(h).map(Number);
+	return Hints.used=LocalStorage("hintsused",undefined,Number);
 }
 
 function GetCheckpoints(){
@@ -574,19 +630,19 @@ function LevelScreen(n){
 	return LevelScreens()[n-1];
 }
 
-function SolvedLevelScreens(){
-	if(SolvedLevelScreens.levels===undefined)
-		SolvedLevelScreens.levels=[];
-	return SolvedLevelScreens.levels;
+function SolvedLevels(){
+	if(SolvedLevels.levels===undefined)
+		SolvedLevels.levels=[];
+	return SolvedLevels.levels;
 }
 
 function AddToSolvedScreens(curscreen){
 	function SortNumber(a,b){return a-b};
 	if(!ScreenMessage(curscreen)&&!LevelScreenSolved(curscreen)){
-		SolvedLevelScreens.levels.push(Number(curscreen));
-		SolvedLevelScreens.levels=SolvedLevelScreens.levels.sort(SortNumber);
+		SolvedLevels.levels.push(LevelNumber(curscreen));
+		SolvedLevels.levels=SolvedLevels.levels.sort(SortNumber);
 	}
-	return SolvedLevelScreens();
+	return SolvedLevels();
 }
 
 function LevelSolved(n){
@@ -594,7 +650,7 @@ function LevelSolved(n){
 }
 
 function LevelScreenSolved(curscreen){
-	return In(SolvedLevelScreens(),curscreen);
+	return In(SolvedLevels(),LevelNumber(curscreen));
 }
 
 function UnSolvedLevelScreens(){
@@ -627,7 +683,7 @@ function FinalLevelScreen(){
 };
 
 function ClearSolvedLevelScreens(){
-	return SolvedLevelScreens.levels=[];
+	return SolvedLevels.levels=[];
 }
 
 function SolvedAllLevels(){
@@ -650,7 +706,7 @@ function UnlockedLevels(){
 	if(LevelLookahead<1){
 		return Levels();
 	}else{
-		var showlevels=SolvedLevelScreens().map(LevelNumber);
+		var showlevels=SolvedLevels();
 		var lvl=LevelNumber(FirstUnsolvedScreen());
 		var lookahead=1;
 		while(lookahead<=LevelLookahead&&lvl<=Levels().length){
@@ -905,7 +961,7 @@ function StartLevelFromTitle(){
 function ResetLevel(){
 	CurrentScreen(0);
 	curlevelTarget=null;
-	SolvedLevelScreens.levels=[];
+	ClearSolvedLevelScreens();
 	ClearLevelRecord();
 }
 
@@ -1164,9 +1220,8 @@ function LoadHintData(hintdata){
 	else{
 		Hints.cached=ParseHintsFile(hintdata);
 		if(Hints.cached){
-			if(!LoadHints())
+			if(LoadHints().length===0)
 				Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
-			
 			ShowHintButton();
 		}
 	}

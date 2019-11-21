@@ -49,7 +49,7 @@ function ObtainIsRestartMove(move){return false;}
 var ObtainReadMove=Identity;
 
 //Level navigation
-function ObtainNewGameCondition(){return SolvedLevelScreens().length<1};
+function ObtainNewGameCondition(){return SolvedLevels().length<1};
 function ObtainStateScreens(){return LevelGoals;}
 function ObtainLevelTitle(l){return LevelGoals[l-1];}
 var ObtainLevelLoader=LevelLoader;
@@ -1627,7 +1627,7 @@ function ObtainTitleScreenLoader(){
 	ReplaceChildren("<div class='top'><div class='title'></div><div class='credits'></div></div>",".top");
 	ReplaceChildren("Puzzle Type",".title");
 	ReplaceChildren("by Pedro PSI (2019)",".credits");
-	if(CurLevelNumber()>1||SolvedLevelScreens().length>0)
+	if(CurLevelNumber()>1||SolvedLevels().length>0)
 		Letters.array="CONTINUE".split("");
 	else
 		Letters.array="START".split("");
