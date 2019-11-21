@@ -205,7 +205,7 @@ function PrepareGame(){
 	else
 		LoadStyle(pageRoot()+"codes/game/game.css");
 
-	setTimeout(ResizeCanvas,250);
+	setTimeout(RefreshTitleScreen,250);
 			
 	if(!bar){
 		
@@ -222,10 +222,13 @@ function PrepareGame(){
 		ScrollInto(gameSelector);
 		GameFocus();
 		
-		ObtainTitleScreenLoader();
-		ResizeCanvas();
 		Shout("GameBar");
 	}
+}
+
+function RefreshTitleScreen(){
+	ObtainTitleScreenLoader();
+	ResizeCanvas();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
