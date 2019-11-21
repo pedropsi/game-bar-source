@@ -182,12 +182,8 @@ function PrepareGame(){
 		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
 		
-		ListenOnce('click',ClickActions,gameSelector);
-		
-		function ClickActions(){
-			PlaylistStartPlay();
-			RequestKeyboard();
-		}
+		ListenOnce('click',PlaylistStartPlay,gameSelector);
+		ListenOnce('touchstart',RequestKeyboard,gameSelector);
 		
 		ScrollInto(gameSelector);
 		GameFocus();
