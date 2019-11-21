@@ -437,11 +437,33 @@ function LegacyConversion(name,data,vers){
 		return Converter(data,vers);
 }
 
+function ArrayRemap(wrongarray,rightarray){
+		var i=0;
+		var j=0;
+		var newarray=[];
+		while(i<wrongarray.length){
+			if(In(rightarray,wrongarray[i])){
+				newarray.push(wrongarray[i]);
+				j=rightarray.indexOf(wrongarray[i])+1;
+			}
+			else{
+				newarray.push(rightarray[j])
+				j++;
+			}
+			i++;
+		}
+		return newarray;
+}
+
 LegacyConversion["solvedlevels"]=function(solvedlevels,vers){
+
 	if(!vers||vers<5)
-		return solvedlevels.map(LevelNumber);
-	else
-		return solvedlevels;
+		solvedlevels=solvedlevels.map(LevelNumber);
+	
+	if(solvedlevels.some(ScreenMessage))
+		solvedlevels=ArrayRemap(solvedlevels,Levels());
+	
+	return solvedlevels;
 };
 
 LegacyConversion["checkpoint"]=function(sta,vers){
