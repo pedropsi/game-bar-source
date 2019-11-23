@@ -30,6 +30,14 @@ if(typeof ObtainRestart==="undefined")
 
 
 //Game and Level Navigation
+if(typeof ObtainLevelLookahead==="undefined")
+	function ObtainLevelLookahead(){return 0; //Max number of unsolved levels shown, in linear progression. Example: 0 = all, 1 =1, 2=2, etc...
+	};
+
+if(typeof ObtainGateLevels==="undefined")
+	function ObtainGateLevels(){return []; //Gated "boss" levels require beating all previous levels to show up; all previous levels + itself to show levels afterwards. Example: [] = no gate levels, [2,5] = levels 2 and 5 are gate levels.
+	};
+
 if(typeof ObtainStateScreens==="undefined")
 	function ObtainStateScreens(){return state.levels;}
 
@@ -56,9 +64,10 @@ if(typeof ObtainPlayEndGameSound==="undefined")
 if(typeof ObtainLevelTitle==="undefined")
 	function ObtainLevelTitle(lvl){
 		if(HasCheckpoint())
-			return "Access checkpoint "+lvl;
+			return "Select checkpoint "+lvl;
 		else
-			return "Access level "+LevelNumberFromTotal(lvl);
+			return "Select level "+LevelNumberFromTotal(lvl);
+			//return LevelAccessTitle(lvl);
 	}
 
 //Read move defaults
@@ -122,11 +131,11 @@ if(typeof ObtainKeyboardTarget==="undefined")
 	}
 
 
-
 //Game Action
 if(typeof ObtainGameAction==="undefined")
 	function ObtainGameAction(key){
 		Context(gameSelector)[ComboKeystring(key)]();
+		GameFocus();
 	}
 /*
 	function ObtainGameAction(key){
@@ -134,7 +143,6 @@ if(typeof ObtainGameAction==="undefined")
 		return checkKey({keycode:key}); //TODO
 	}
 */
-
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -438,29 +446,29 @@ function LegacyConversion(name,data,vers){
 }
 
 function ArrayRemap(wrongarray,rightarray){
-		var i=0;
-		var j=0;
-		var newarray=[];
-		while(i<wrongarray.length){
-			if(In(rightarray,wrongarray[i])){
-				newarray.push(wrongarray[i]);
-				j=rightarray.indexOf(wrongarray[i])+1;
-			}
-			else{
-				newarray.push(rightarray[j])
-				j++;
-			}
-			i++;
+	var i=0;
+	var j=0;
+	var newarray=[];
+	while(i<wrongarray.length){
+		if(In(rightarray,wrongarray[i])){
+			newarray.push(wrongarray[i]);
+			j=rightarray.indexOf(wrongarray[i])+1;
 		}
-		return newarray;
+		else{
+			newarray.push(rightarray[j])
+			j++;
+		}
+		i++;
+	}
+	return newarray;
 }
 
 LegacyConversion["solvedlevels"]=function(solvedlevels,vers){
 
-	if(!vers||vers<5)
+	if(!vers||vers<5)	 					//Previous data format;
 		solvedlevels=solvedlevels.map(LevelNumber);
 	
-	if(solvedlevels.some(ScreenMessage))
+	if(solvedlevels.some(ScreenMessage))	//Case of added/removed interlevel messages;
 		solvedlevels=ArrayRemap(solvedlevels,Levels());
 	
 	return solvedlevels;
@@ -757,10 +765,10 @@ function CurLevelNumber(){
 }
 
 
-var LevelLookahead=0;	//Max number of unsolved levels shown, in linear progression: 0 = all  /
-var gateLevels=[]; 		//Require beating all previous levels to show up; all previous levels + itself to show levels afterwards
-
 function UnlockedLevels(){
+	var LevelLookahead=ObtainLevelLookahead();
+	var gateLevels=ObtainGateLevels(); 
+	
 	if(LevelLookahead<1){
 		return Levels();
 	}else{
@@ -853,7 +861,9 @@ function RequestLevelSelector(){
 	});
 	
 	RequestDataPack([
-			['exclusivechoice',DPOpts]
+			['exclusivechoice',FuseObjects(DPOpts,{
+				qsubmittable:false
+			})]
 		],
 		{
 			action:LoadFromLevelSelectorButton,
