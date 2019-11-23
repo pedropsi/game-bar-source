@@ -1339,7 +1339,7 @@ function BalloonHTML(avatarHTML,content,id,classExtra){
 }
 
 function OpenBalloon(content,id,targetid,avatar){
-	if(!avatar||!LOGO)
+	if(!avatar||typeof LOGO==="undefined")
 		var avatar="";
 	else
 		var avatar='<div class="logo avatar">'+LOGO+'</div>';
