@@ -194,8 +194,8 @@ h4{
     animation: fadein var(--duration);
     font-size: var(--fontsize);
     line-height: var(--lineheight);  
-    
 }
+
 .baloon-content{
     flex-direction: row;
     justify-content: flex-start;
@@ -224,6 +224,8 @@ h4{
     margin-right:var(--w4);
     justify-content: center;
     align-items: flex-end;   
+    font-size: var(--fontsize);
+    line-height: var(--lineheight);  
 }
 
 .buttonrow .button {
