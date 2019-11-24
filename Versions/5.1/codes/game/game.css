@@ -5,8 +5,6 @@
 												*/
 
 /*Dimensioning and Rotation*/
-
-
 :root{
     --gameW:calc(100vw - 2*var(--w1));
     --gameH:calc(100vh - 2*var(--h1));
@@ -41,19 +39,12 @@
     border-color:var(--darkblue);
     background-color: var(--white);
     color:var(--darkblue);
+    
     width: 100%;
     max-width: var(--gameW);
+    
+    overflow: hidden;    
     align-items: center;
-    overflow: hidden;
-}
-
-.game-supra-Canvas{
-    flex-grow: 1;
-    justify-self: flex-start;
-    overflow:hidden;
-}
-#GameBar{
-  justify-self: flex-end;
 }
 
 .game {
@@ -62,45 +53,37 @@
     width: 100%;
 }
 
-.game-rotation-container.rotate90 {
-    transform: 
-        translateX(calc(var(--gameH) * -0.5))
-        translateY(calc(var(--gameW) * -0.5))
-        rotate(90deg) 
-        translateX(calc(var(--gameH) * 0.5 ))
-        translateY(calc(var(--gameW) * -0.5 ));
+/*@media only screen and (max-width: 500px) {*/
+    .game-rotation-container.rotate90 {
+        transform: 
+            translateX(calc(var(--gameH) * -0.5))
+            translateY(calc(var(--gameW) * -0.5))
+            rotate(90deg) 
+            translateX(calc(var(--gameH) * 0.5 ))
+            translateY(calc(var(--gameW) * -0.5 ));
+        
+        height: var(--gameW);
+        max-height: var(--gameW);
+        width: var(--gameH);
+        max-width: var(--gameH);
+    }
     
-    height: var(--gameW);
-    max-height: var(--gameW);
-    width: var(--gameH);
-    max-width: var(--gameH);
-}
+   .rotate90 .game-container{
+        max-width: 100%;
+        height: var(--gameW);
+        max-height: var(--gameW);
+    }
+    .rotate90 .game {
+        height: calc(var(--gameW) - 2*var(--fontheight));
+    }
+} 
 
-.rotate90 .game-container{
-    max-width: 100%;
-    height: var(--gameW);
-    max-height: var(--gameW);
-}
-.rotate90 .game {
-    height: calc(var(--gameW) - 2*var(--fontheight));
-}
-
-
-/*
-.level-selector .button{
-    margin: var(--h-8) var(--w-8) var(--h-8) var(--w-8);
-    border-bottom-width: var(--h-4);
-}*/
 
 
 /*Hints*/
 .hint {
     margin: var(--w-2) var(--h-2) var(--w-2) var(--h-2);
     align-items: center;
-}
-
-.hint p{
-    max-width: calc(var(--w32) + var(--w16));
 }
 
 .hint img,
