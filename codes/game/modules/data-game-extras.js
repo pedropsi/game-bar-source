@@ -1348,7 +1348,7 @@ function LoadHintData(hintdata){
 	else{
 		Hints.cached=ParseHintsFile(hintdata);
 		LevelLoadedTitles.titles=ParseLevelTitlesFromHintsFile(hintdata);
-		if(!Hints.cached.some(function(h){h.length>0}))//If no hints inside the file, don't show thr button
+		if(Hints.cached.every(function(h){h.length<1}))//If no hints inside the file, don't show thr button
 			return Hints.cached=false;
 		if(Hints.cached){
 			if(LoadHints().length===0)
@@ -1357,6 +1357,7 @@ function LoadHintData(hintdata){
 		}
 	}
 }
+
 
 function ShowHintButton(){
 	ReplaceElement(HintButton(),"HintButton")
