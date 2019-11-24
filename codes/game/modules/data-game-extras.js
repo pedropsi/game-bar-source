@@ -1,13 +1,16 @@
 DATAVERSION=5;
 
-////////////////////////////////////////////////////////////////////////////////
-// Game data link defaults, for puzzlescript, overwritable
-
 //Portable game bar
 var Portable=False;
 if(typeof RequestGameFeedback==="undefined"||typeof RequestHallOfFame==="undefined")
 	Portable=True;
 
+
+////////////////////////////////////////////////////////////////////////////////
+// Game data link defaults, for puzzlescript, overwritable
+
+//Game selector
+var gameSelector=gameSelector?gameSelector:'#gameCanvas';
 
 //Game Options
 if(typeof ObtainBGColor==="undefined")
@@ -27,6 +30,26 @@ if(typeof ObtainUndo==="undefined")
 
 if(typeof ObtainRestart==="undefined")
 	function ObtainRestart(){CheckRegisterKey({keyCode:82});}
+
+//Game display Options
+if(typeof ObtainInitialScroll==="undefined")
+	var ObtainInitialScroll=true;
+//	var ObtainInitialScroll=false;
+
+if(typeof ObtainInitialMessages==="undefined")
+	var ObtainInitialMessages=true;
+//	var ObtainInitialMessages=false;
+
+if(typeof ObtainXYRotateCondition==="undefined")
+	function ObtainXYRotateCondition(x,y){return x<y*1.05};
+//	function ObtainXYRotateCondition(x,y){return false};
+
+if(typeof ResizeCanvas==="undefined")
+	function ResizeCanvas(){canvasResize();}
+
+if(typeof titleScreen==="undefined")
+	var titleScreen=true;
+
 
 
 //Game and Level Navigation
@@ -95,7 +118,34 @@ if(typeof ObtainReadMove==="undefined")
 if(typeof ObtainKeyActionsGameBar==="undefined")
 	ObtainKeyActionsGameBar=KeyActionsGameBar;
 
-//
+if(typeof ObtainGameAction==="undefined")
+	function ObtainGameAction(key){
+		Context(gameSelector)[ComboKeystring(key)]();
+		GameFocus();
+	}
+
+//On-screen keyboard
+if(typeof ObtainKeyboardAllowed==="undefined")
+	var ObtainKeyboardAllowed=false;
+
+if(typeof ObtainKeyboardKeys==="undefined")
+	var ObtainKeyboardKeys=GameKeyboardKeys;
+
+if(typeof ObtainKeyboardLauncher==="undefined")
+	function ObtainKeyboardLauncher(){
+		return LaunchBalloon;
+	}
+
+if(typeof ObtainKeyboardTarget==="undefined")
+	function ObtainKeyboardTarget(){
+		return ".game-container";
+	}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//Hooks to Pedro PSI main site
+
 var HasGameFeedback=True;
 if(typeof RequestGameFeedback==="undefined"){
 	var RequestGameFeedback=Identity;
@@ -110,54 +160,6 @@ if(typeof RequestHallOfFame==="undefined"){
 
 if(typeof RegisterMove==="undefined")
 	var RegisterMove=Identity;
-
-//On-screen keyboard
-
-if(typeof ObtainKeyboardAllowed==="undefined")
-	var ObtainKeyboardAllowed=false;
-
-if(typeof ObtainKeyboardKeys==="undefined")
-	var ObtainKeyboardKeys=GameKeyboardKeys;
-	
-if(typeof ObtainKeyboardLauncher==="undefined")
-	function ObtainKeyboardLauncher(){
-		return LaunchBalloon;
-	}
-	
-if(typeof ObtainKeyboardTarget==="undefined")
-	function ObtainKeyboardTarget(){
-		return ".game-container";
-	}
-
-
-//Game Action
-if(typeof ObtainGameAction==="undefined")
-	function ObtainGameAction(key){
-		Context(gameSelector)[ComboKeystring(key)]();
-		GameFocus();
-	}
-/*
-	function ObtainGameAction(key){
-		console.log(key);
-		return checkKey({keycode:key}); //TODO
-	}
-*/
-
-
-////////////////////////////////////////////////////////////////////////////////
-//Good defaults
-
-//Game selector
-var gameSelector=gameSelector?gameSelector:'#gameCanvas';
-
-//curlevelTarget
-
-
-if(typeof titleScreen==="undefined")
-	var titleScreen=true;
-
-if(typeof ResizeCanvas==="undefined")
-	function ResizeCanvas(){canvasResize();}
 
 //Record
 if(typeof ClearLevelRecord==="undefined")
@@ -202,12 +204,14 @@ function PrepareGame(){
 		LoadStyle(JoinPath(FOLDER,"game/game.css"));
 		LoadStyle(JoinPath(FOLDER,"game/game-bar-pages.css"));
 		LoadStyle(JoinPath(FOLDER,"index.css"));
-		ConsoleAddMany([
+		
+		if(ObtainInitialMessages)
+			ConsoleAddMany([
 				"Puzzlescript Game bar loaded!",
 				"Issues? Suggestions? Head to pedropsi.github.io/game-bar."
 			//	"Localsave is ON for "+pageTitle()+".",
 			//	"To stop saving and erase all 2 cookies, please deselect 🖫."
-		]);
+			]);
 	}
 	else
 		LoadStyle(pageRoot()+"codes/game/game.css");
@@ -226,7 +230,9 @@ function PrepareGame(){
 		ListenOnce('click',PlaylistStartPlay,gameSelector);
 		ListenOnce('touchstart',RequestKeyboard,gameSelector);
 		
-		ScrollInto(gameSelector);
+		if(ObtainInitialScroll)
+			ScrollInto(gameSelector);
+		
 		GameFocus();
 		
 		Shout("GameBar");
@@ -330,9 +336,6 @@ function UndoAndFocus(){
 
 ////////////////////////////////////////////////////////////////////////////////
 // Screen rotation
-
-if(typeof ObtainXYRotateCondition==="undefined")
-	function ObtainXYRotateCondition(x,y){return x<y*1.05};
 
 function GameRotation(){
 	var x=window.innerWidth;
@@ -1348,7 +1351,7 @@ function LoadHintData(hintdata){
 	else{
 		Hints.cached=ParseHintsFile(hintdata);
 		LevelLoadedTitles.titles=ParseLevelTitlesFromHintsFile(hintdata);
-		if(Hints.cached.every(function(h){h.length<1}))//If no hints inside the file, don't show thr button
+		if(Hints.cached.every(function(h){return h.length<1}))//If no hints inside the file, don't show thr button
 			return Hints.cached=false;
 		if(Hints.cached){
 			if(LoadHints().length===0)
@@ -1357,7 +1360,6 @@ function LoadHintData(hintdata){
 		}
 	}
 }
-
 
 function ShowHintButton(){
 	ReplaceElement(HintButton(),"HintButton")
@@ -1634,3 +1636,4 @@ function GameFocusAndRestartUndoButtons(){
 function GameKeyboardKeys(){
 	return [["↶","↺"]]; // Undo and Restart
 }
+
