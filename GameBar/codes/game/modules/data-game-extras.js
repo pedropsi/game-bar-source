@@ -91,6 +91,12 @@ if(typeof ObtainLevelTitle==="undefined")
 		else
 			return LevelGatedTitle(lvl);
 	}
+else if(ObtainLevelTitle==="Previous") //Case for title specified in message before the level
+	function ObtainLevelTitle(lvl){
+		var title= ObtainStateScreens()[LevelScreen(lvl)-1].message;
+		title=title.replace(/^[\-\"\_\:\'\s\n]*(level\s*\d*)*[\-\"\_\:\'\s\n]*/im,"").replace(/[\-\"\_\:\'\s\n]*$/im,"");
+		return title.replace(/[\-][\-\s]?/gi," ");
+	}
 
 //Read move defaults
 if(typeof ObtainIsUndoMove==="undefined")
@@ -396,17 +402,19 @@ function CurrentScreen(s){
 /////////////////////////////////////////////////////////////////////////////////////
 // Save Level & Checkpoint
 
-function StorageURL(){
-	if (typeof pageNoTag==="undefined")
-		return document.URL;
-	else
-		return pageNoTag(document.URL);
-}
+if(typeof ObtainStorageURL==="undefined")
+	function ObtainStorageURL(){
+		if (typeof pageNoTag==="undefined")
+			return document.URL;
+		else
+			return pageNoTag(document.URL);
+	}
+
 function LocalStorageName(name){
 	if (name)
-		return StorageURL()+"_"+name.toLowerCase();
+		return ObtainStorageURL()+"_"+name.toLowerCase();
 	else
-		return StorageURL();
+		return ObtainStorageURL();
 }
 function LocalStorage(name,set,TransformF){ //Getter-setter
 	if(!set){
