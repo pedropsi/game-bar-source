@@ -101,7 +101,7 @@
 
 .hint p{
     max-width: calc(var(--w32) + var(--w16));
-}
+} 
 
 .hint img,
 .hint canvas{
