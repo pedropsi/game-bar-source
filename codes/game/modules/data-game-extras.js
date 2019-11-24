@@ -66,8 +66,7 @@ if(typeof ObtainLevelTitle==="undefined")
 		if(HasCheckpoint())
 			return "Select checkpoint "+lvl;
 		else
-			return "Select level "+LevelNumberFromTotal(lvl);
-			//return LevelAccessTitle(lvl);
+			return LevelGatedTitle(lvl);
 	}
 
 //Read move defaults
@@ -801,6 +800,42 @@ function MaxLevel(){
 }
 
 
+//Level Title
+function LevelTitle(lvl){
+	var leveltitles=LevelLoadedTitles();
+	if(!leveltitles||!leveltitles[lvl-1])
+		return UnnamedLevelTitle(lvl)
+	else
+		return leveltitles[lvl-1];
+}
+
+function UnnamedLevelTitle(lvl){
+	return "Select level "+LevelNumberFromTotal(lvl);
+}
+
+function LevelGatedTitle(lvl){
+	var LevelLookahead=ObtainLevelLookahead();
+	if(In(ObtainGateLevels(),lvl)&&!SolvedAllLevelsBefore(lvl))
+		return "Level locked: all previous levels required.";
+	else if(LevelLookahead>0&&!SolvedRequiredLevelsBefore(lvl,LevelLookahead))
+		return "Level locked: all but "+(LevelLookahead-1)+" earlier levels required.";
+	else
+		return LevelTitle(lvl);
+}
+
+function LevelsBefore(lvl,howmany){
+	return Levels().filter(function(l){return lvl-howmany<=l&&l<lvl});
+}
+
+function SolvedAllLevelsBefore(lvl){
+	return LevelsBefore(lvl,lvl).every(function(lvl){return In(SolvedLevels(),lvl)});
+}
+
+function SolvedRequiredLevelsBefore(lvl,howmany){
+	return LevelsBefore(lvl,lvl).length-LevelsBefore(lvl,lvl).filter(function(lvl){return In(SolvedLevels(),lvl)}).length<howmany;
+}
+
+
 // Level Selector
 
 function ChosenLevelDescription(){
@@ -814,35 +849,29 @@ function ChosenLevelDescription(){
 	if(ChosenLevelDescription.last)
 		return ChosenLevelDescription.last;
 	else
-		return LevelSelectorTitle();
+		return ObtainLevelTitle(CurLevelNumber());
 }
 
-function LevelSelectorTitle(){
+function LevelSelectorMessage(){
 	if(UnlockedLevels().length!==MaxLevel())
-		return "Access "+UnlockedLevels().length+" out of "+MaxLevel()+" levels";
+		return "Select from "+UnlockedLevels().length+" out of "+MaxLevel()+" levels";
 	else
-		return "Access one of the "+MaxLevel()+" levels";
+		return "Select one of the "+MaxLevel()+" levels";
 }
 
 function RequestLevelSelector(){
 	if(!HasCheckpoint()){
-		var type="level";
 		var DPOpts={
-			questionname:LevelSelectorTitle(),
-			qfield:"level",
+			questionname:ChosenLevelDescription(),
 			qchoices:UnlockedLevels().map(StarLevelNumber),
-			executeChoice:ChooseLevelClose,
 			defaultChoice:function(i,c){return UnstarLevel(c)===CurLevelNumber()}
 		}
 	}
 	else{
-		var type="checkpoint";
 		var checkpointIndices=Object.keys(GetCheckpoints());
 		var DPOpts={
 			questionname:"Reached checkpoints:",
-			qfield:"level",
 			qchoices:checkpointIndices.map(function(l){return (Number(l)+1)+"";}),
-			executeChoice:ChooseLevelClose,
 			defaultChoice:function(i,c){return Number(c)===checkpointIndices.length}
 		}
 	}
@@ -863,12 +892,14 @@ function RequestLevelSelector(){
 	
 	RequestDataPack([
 			['exclusivechoice',FuseObjects(DPOpts,{
-				qsubmittable:false
+				qsubmittable:false,
+				qfield:"level",
+				qclass:"level-selector",
+				executeChoice:ChooseLevelClose
 			})]
 		],
 		{
 			action:LoadFromLevelSelectorButton,
-			actionText:"Go to "+type,
 			qonsubmit:CloseLevelSelector,
 			qonclose:GameFocus,
 			qdisplay:LaunchBalloon,
@@ -1255,6 +1286,34 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+//Load Level Titles
+
+function LevelLoadedTitles(){
+	return LevelLoadedTitles.titles||false;
+}
+
+function ParseLevelTitleParagraph(hintparagraph){
+	var titleline=hintparagraph.replace(/\n.*/mgi,""); //remove all but the first line
+		titleline=titleline.replace(/(?:\-\-?.*)/i,""); //remove comments : ----etc....
+
+	var title=titleline.replace(/(?:^level\s*)/i,""); //isolate level title and subsequent info
+	if(titleline===title)
+		return "";
+	
+	title=title.replace(/(?:\brequire\:.*)/i,""); //remove required conditions info
+	title=ParseNoTrailingWhitespace(title); //remove whitespace
+	title=ParseDenumberLine(title); //remove numeric indicator after "level"
+	title=ParseNoTrailingWhitespace(title); //remove whitespace
+	
+	return title;
+}
+
+function ParseLevelTitlesFromHintsFile(hintdata){
+	var titlesperlevel=HintParagraphArray(hintdata);
+	return titlesperlevel.map(ParseLevelTitleParagraph);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 //Hints
 
 ListenOnce("GameBar",LoadHintsFile);
@@ -1288,6 +1347,9 @@ function LoadHintData(hintdata){
 	}
 	else{
 		Hints.cached=ParseHintsFile(hintdata);
+		LevelLoadedTitles.titles=ParseLevelTitlesFromHintsFile(hintdata);
+		if(!Hints.cached.some(function(h){h.length>0}))//If no hints inside the file, don't show thr button
+			return Hints.cached=false;
 		if(Hints.cached){
 			if(LoadHints().length===0)
 				Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
@@ -1312,22 +1374,32 @@ function HintDisplay(reference){
 	return "<div class='hint'><p>"+reference+"</p></div>";
 }
 
-function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
+function HintParagraphArray(hintstxt){
 	var hintsperlevel=hintstxt.split(/(?:\n\s*)(?:\n\s*)+/); //Two or more newlines separate level items. Lines starting by level... are ignored
-	hintsperlevel=hintsperlevel.filter(function(h){return h!=="";}); //ignore empty blocks
+	return hintsperlevel.filter(function(h){return h!=="";}); //ignore empty blocks
+}
+
+function ParseDenumberLine(hintline){ //Remove numeric indicators, optionally split by full stops
+	return hintline.replace(/^(\d+)(\.\d+)*\s*/,"");
+}
+
+function ParseNoTrailingWhitespace(hintline){ //Remove numeric indicators, optionally split by full stops
+	return hintline.replace(/^\s*/,"").replace(/\s*$/,"");
+}
+
+
+function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
+
+	hintsperlevel=HintParagraphArray(hintstxt);
 	
 	function ParseHintParagraph(hintparagraph){ //One hint per line
 		var hintslines=hintparagraph.replace(/(?:^level.*)/i,"");
 		hintslines=hintslines.split(/\n\s*/);
 		
-		hintslines=hintslines.map(ParseHintLine);
+		hintslines=hintslines.map(ParseDenumberLine);
 		hintslines=hintslines.filter(function(l){return l!==""});
 		
 		return hintslines;
-	}
-	
-	function ParseHintLine(hintline){ //Remove numeric indicators, optionally split by full stops
-		return hintline.replace(/^(\d+)(\.\d+)*\s*/,"")
 	}
 	
 	hintsperlevel=hintsperlevel.map(ParseHintParagraph);
@@ -1335,7 +1407,7 @@ function ParseHintsFile(hintstxt){//ignore most whitespace at junctions
 	for(var i=hintsperlevel.length;i<Levels().length;i++)
 		hintsperlevel[i]=[];
 	
-	return hintsperlevel
+	return hintsperlevel;
 }
 
 
@@ -1561,4 +1633,3 @@ function GameFocusAndRestartUndoButtons(){
 function GameKeyboardKeys(){
 	return [["↶","↺"]]; // Undo and Restart
 }
-
