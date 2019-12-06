@@ -216,6 +216,19 @@ h4{
     background-color: var(--smokewhite);
 }
 
+.question {
+	font-variant-caps:small-caps;
+	font-weight:bold;
+	max-width:100%;
+	font-size:calc(130% * var(--scaling));
+	line-height:calc(110% + 20% * var(--scaling));
+	margin-bottom:calc(var(--h2) * var(--scaling));
+	margin-top:calc(var(--h4) * var(--scaling));
+	transition-duration:var(--durationOff);
+	--scaling:0.95;
+	color: var(--blue);
+}
+
 .buttonrow {
     display: flex;
     flex-direction: row;

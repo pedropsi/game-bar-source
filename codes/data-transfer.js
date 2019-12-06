@@ -1,9 +1,194 @@
+///////////////////////////////////////////////////////////////////////////////
+//Test suite saver
+
+function TestFunction(functionname,testname){
+	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
+	var test=Test[functionname][testname];
+	if(test){
+		var result="___WRONGRESULT___";
+		try{
+			result=test["function"].apply(null,test["arguments"]);
+		}
+		catch(e){
+			console.log(e);
+		}
+		var expect=test["expected"];
+		var passed=(Equal(result,expect));
+		ReportTest(functionname,testname,test,passed,result,expect);
+		return passed;
+	}
+}
+
+var ErrorReport=[];
+
+function ReportTest(functionname,testname,test,passed,result,expect){
+	if(passed)
+		return;
+	var testfunctionid="test-"+functionname;
+	if(!GetElement(testfunctionid))
+		AddElement("<h3 class='test-function' id='"+testfunctionid+"'>"+functionname+"</h3>",TestingAreaSelector());
+
+	var testid=IDfy("test-"+functionname+" "+testname);
+	var testtitle="<h4>"+testname+"</h4>"+"<p><code>"+functionname+"("+JSON.stringify(test["arguments"]).replace(/^\[/,"").replace(/]$/,"")+")="+JSON.stringify(result)+"</code>";
+	var testreport=(passed?"<sup class='test label'>Passed</sup></p>":"<sup class='test label Problem'>Failed</sup></p><p>Expected:<code>"+JSON.stringify(expect))+"</code></p>";
+
+	ErrorReport.push([functionname,testname]);
+	
+	RemoveElement(testid);
+	AppendElement("<div class='test-result' id='"+testid+"'>"+testtitle+testreport+"</div>",testfunctionid);
+}
+
+function Test(functionname){
+	if(!functionname&&Test.functions){
+		AddElement("<p>Tests complete!</p>",TestingAreaSelector());
+		var tests=Test.functions.map(Test);
+		if(ErrorReport.length>0)
+			RegisterStatus(ErrorReport);
+		return tests;
+	}
+
+	var functionname=(typeof functionname==="string")?functionname:FunctionName(functionname);
+	var tests=Test[functionname];
+
+	return Object.keys(tests).map(function(testname){TestFunction(functionname,testname)});
+}
+
+function SaveTest(F,argArray,result,testname){
+
+	var functionname=FunctionName(F)||String(F);
+
+	if(!Test.functions)
+		Test.functions=[];
+
+	if(!Test[functionname]){
+		Test[functionname]={};
+		Test.functions.push(functionname);
+	}
+	var argArray=IsArray(argArray)?argArray:[argArray];
+	var testname=testname?testname:(functionname+"("+argArray.map(String).join(",")+")");
+	
+	Test[functionname][testname]={"function":F,"arguments":argArray,"expected":result};
+}
+
+function TestingAreaSelector(){
+	return ".test-suite";
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //Do nothing
 function Identity(i){return i;};
 function True(){return true};
 function False(){return false};
+
+///////////////////////////////////////////////////////////////////////////////
+// Deep equality testing
+function EqualArray(a,b){
+	if (a.length!==b.length)
+		return false;
+	else{
+		var i=0;
+		var equal=true;
+		while(i<a.length&&equal){
+			equal=Equal(a[i],b[i]);
+			i++
+		}
+		return equal;
+	}
+}
+
+function EqualObject(a,b){
+	return EqualArray(Object.keys(a),Object.keys(b))&&EqualArray(Values(a),Values(b));
+}
+
+function EqualFunction(a,b){
+	return FunctionBody(a)===FunctionBody(b); //Cannot see whether two functions compute the same thing, only whether the source is shared.
+}
+
+function EqualRegex(a,b){
+	return (a.source===b.source)&&(a.flags===b.flags);
+}
+
+function Equal(a,b){
+	if(typeof a==="undefined"&&typeof b==="undefined")
+		return true;
+	else if(typeof a!==typeof b)
+		return false;
+	else if((typeof a==="string"&&typeof b==="string")||(typeof a==="boolean"&&typeof b==="boolean")||(typeof a==="number"&&typeof b==="number"))
+		return a===b;
+	else if(IsArray(a)&&IsArray(b))
+		return EqualArray(a,b);
+	else if(IsObject(a)&&IsObject(b))
+		return EqualObject(a,b);
+	else if(typeof a==="function"&&typeof b==="function")
+		return EqualFunction(a,b);
+	else if(IsRegex(a)&&IsRegex(b))
+		return EqualRegex(a,b);
+	else if(a===b)
+		return true;
+	else{
+		console.log("check this new case:",a,b);
+		return false;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Math
+var Min=Math.min;
+var Max=Math.max;
+var Floor=Math.floor;
+var Ceiling=Math.ceil;
+var Sin=Math.sin;
+var Cos=Math.cos;
+var PI=Math.PI;
+var Abs=Math.abs;
+var Round=Math.round;
+
+function Power(n,exp){
+	if(!exp)
+		return function(m){return Math.pow(m,n)}
+	else
+		return Math.pow(n,exp);
+}
+
+function PoweredSum(vector,power){
+	if(vector.length<1)
+		return 0;
+	else
+		return vector.map(Power(power)).reduce(Accumulate);
+}
+
+function VectorOperation(vector1,vector2,F){
+	if(vector1.length<1||vector2.length<1)
+		return [];
+	else{
+		if(vector2.length<vector1.length){
+			var v1=vector2;
+			var v2=vector1;
+		}else{
+			var v1=vector1;
+			var v2=vector2;
+		}
+		return v1.map(function(x,i){return F(x,v2[i])});
+	}
+}
+
+function VectorPlus(vector1,vector2){
+	return VectorOperation(vector1,vector2,function(a,b){return a+b});
+}
+function VectorMinus(vector1,vector2){
+	return VectorOperation(vector1,vector2,function(a,b){return a-b});
+}
+function VectorTimes(vector1,vector2){
+	return VectorOperation(vector1,vector2,function(a,b){return a*b});
+}
+function VectorDivide(vector1,vector2){
+	return VectorOperation(vector1,vector2,function(a,b){return a/b});
+}
+
+
+function EuclideanDistance(vector1,vector2){
+	return Power(PoweredSum(VectorMinus(vector2,vector1),2),1/2);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Lists (AS = Array or String)
@@ -27,7 +212,7 @@ function Rest(AS){
 		if(typeof AS==="string")
 			return Rest(AS.split("")).join("");
 		else{
-			A=Clone(AS);
+			var A=Clone(AS);
 			A.shift();
 			return A;
 		}
@@ -41,7 +226,7 @@ function Most(AS){
 		if(typeof AS==="string")
 			return Most(AS.split("")).join("");
 		else{
-			A=Clone(AS);
+			var A=Clone(AS);
 			A.pop();
 			return A;
 		}
@@ -53,11 +238,21 @@ function Most(AS){
 
 //Distinguish Objects and Arrays
 function IsArray(array){
+	if(!array)
+		return false;
 	return FunctionName(array.constructor)==="Array";
 }
 
-function IsObject(array){
-	return FunctionName(array.constructor)==="Object";
+function IsObject(obj){
+	if(!obj)
+		return false;
+	return FunctionName(obj.constructor)==="Object";
+}
+
+function IsRegex(obj){
+	if(!obj)
+		return false;
+	return FunctionName(obj.constructor)==="RegExp";
 }
 
 //Apply function to Array or Object
@@ -68,8 +263,20 @@ function Apply(arrayOrObj,F){
 		return F(Object.keys(arrayOrObj));
 	else{
 		console.log("error, nor array nor object");
-		return undefined
+		return undefined;
 	}
+};
+
+function Values(Obj){
+	return Object.keys(Obj).map(function(k){return Obj[k]})||[];
+};
+
+//Flips object keys and values
+function FlipKeysValues(Obj){
+	var k=Object.keys(Obj);
+	var O={};
+	k.map(function(x){O[Obj[x]]=x});
+	return O;
 };
 
 // Does element exist?
@@ -106,6 +313,29 @@ function In(SAO,n){
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+//Set functions
+
+function Unique(array){
+	return array.filter(function(e,i){return array.indexOf(e)===i}).sort();
+}
+
+//Complement (force uniqueness, sort)
+function Complement(arrayInclude,arrayExclude){
+	return arrayInclude.filter(function(e,i){return arrayInclude.indexOf(e)===i&&arrayExclude.indexOf(e)<0}).sort();
+}
+	
+//Intersection (force uniqueness, sort)
+function Intersection(array1,array2){
+	return array1.filter(function(e,i){return array1.indexOf(e)===i&&array2.indexOf(e)>=0}).sort();
+}
+
+//Union (force uniqueness, sort)
+function Union(array1,array2){
+	return Unique(array1.concat(array2));
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
 //Repetitive functions
 
 // Fold
@@ -135,7 +365,6 @@ function FixedPoint(F,x){
 }
 
 
-Fold(function(s,r){return s.replace(r[0],r[1])},"ohnoanother",[["o","l"],["a","i"]])
 
 ///////////////////////////////////////////////////////////////////////////////
 // String Replace
@@ -143,7 +372,7 @@ function StringReplaceOnceRule(string,rule){
 	return string.replace(rule[0],rule.length>0?rule[1]:"");
 }
 function StringReplaceRule(string,rule){
-	return FixedPoint(function(s){return StringReplaceOnceRule(s,rule)},string)
+	return FixedPoint(function(s){return StringReplaceOnceRule(s,rule);},string);
 }
 function StringReplaceRuleArray(string,ruleArray){
 	return Fold(StringReplaceRule,string,ruleArray);
@@ -174,7 +403,7 @@ function StringReplace(string,rules){
 		if(IsArray(rules[0]))
 			return StringReplaceRuleArray(string,rules);
 		else
-			return StringReplaceRule(string,rule);
+			return StringReplaceRule(string,rules);
 	}
 	else{
 		console.log("error: can't make string rule from",r);
@@ -193,6 +422,10 @@ function FunctionName(FunctionF){
 		var body=FunctionF.toString().replace(/[^\)]*\)/,"");
 		return body.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]/gi,"").replace(/^[1234567890]*/,"");
 	}
+}
+
+function FunctionBody(FunctionF){
+	return FunctionF.toString().replace(/[^\)]*\)/,"");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -240,9 +473,9 @@ function Datafy(object){
 ///////////////////////////////////////////////////////////////////////////////
 //Regex
 function CombineMultiRegex(exprarray,joiner){
-	var j="";var kl="";var kr="";
+	var j="";
 	if(joiner){
-		j=joiner;//kl="(";kr=")"
+		j=joiner;
 	}
 	var regarray=exprarray.map(function(a){return new RegExp(a)});
 	regarray=regarray.map(function(a){return(a.source)});
@@ -332,7 +565,7 @@ function pageIdentifierSimple(url){
 	else{
 		var urlAfter=pageNoTag(url).replace(/(.*\/)/,"");
 		if(isMaybeRoot(urlAfter))
-			return ""
+			return "";
 		else
 			return urlAfter.replace(".html","").replace(".htm","").replace(/\?.*/g,"");
 	}
@@ -368,10 +601,10 @@ function pageAfterOwnDomain(url){
 }
 
 function isMaybeRoot(urlAfter){
-	return (urlAfter.replace(".htm","")===urlAfter)&&(urlAfter.replace(".","")!==urlAfter)
+	return (urlAfter.replace(".htm","")===urlAfter)&&(urlAfter.replace(".","")!==urlAfter);
 }
 function isSingleton(urlAfter){
-	return (urlAfter.replace("/","")===urlAfter)
+	return (urlAfter.replace("/","")===urlAfter);
 }
 function pageRelativePath(url){
 	if(typeof url==="undefined")
@@ -419,10 +652,12 @@ function pageAbsolute(url){
 function pageSearch(parameter,page){
 	var l=document.createElement("a");
 	l.href=page||document.URL;
-	var id=l.search.replace("?"+parameter+"=","");
-	if(/.*\=.*/.test(id))
+	l=l.search;
+	var token=new RegExp(".*\\?.*"+parameter+"\\=");
+	var id=l.replace(token,"");
+	if(id===l)
 		id="";
-	return id;
+	return id.replace(/\&.*/,"");
 }
 
 
@@ -473,11 +708,11 @@ function JoinPath(path,subpath){
 	return path.replace(/\\*$/,"")+"/"+subpath.replace(/^\\*/,"");
 }
 function GlocalPath(urlpath,relativepath){
-if(Local())
-	var u="..";
-else
-	var u=urlpath;
-return JoinPath(u,relativepath);
+	if(Local())
+		var u="..";
+	else
+		var u=urlpath;
+	return JoinPath(u,relativepath);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -490,20 +725,61 @@ function MarkElements(selector,markfunction){
 ///////////////////////////////////////////////////////////////////////////////
 //Page auto index
 function IDfy(s){
-	return s.replace(/([^A-Za-z0-9\:\_\.])+/g,"-").replace(/\-$/g,"");
+	return s.replace(/([^A-Za-z0-9\_])+/g,"-").replace(/\-$/g,"").replace(/^\-/g,"");
 }
 
-function IndexTitle(t){t.id=t.id?t.id:IDfy(t.innerText); return t.id}
+function IndexTitle(h){
+	return function(t){return IndexSubTitle(t,h)};
+}
+
+function IndexSubTitle(t,h){
+	t.setAttribute("data-index-depth",h);
+	Select(t,"index-item");
+	t.id=t.id?t.id:IDfy(t.innerText); 
+	return t.id;}
 
 function IndexTag(h){
-	return MarkElements(h,IndexTitle);
+	return MarkElements(".main "+h,IndexTitle(h));
 }
 
 function IndexTitles(){
-	return ["h1","h2","h3","h4","h5","h6"].map(IndexTag);
+	var indexed=["h1","h2","h3","h4","h5","h6"].map(IndexTag);
+	Shout("TitlesIndexed");
+	return indexed;
 }
 
 ListenOnce('DOMContentLoaded',IndexTitles);
+
+function PageIndexHTML(){
+	var index=GetElements(".index-item");
+	return "<div class='index'>"+index.map(IndexItemHTML).join("\
+	")+"</div>";
+}
+
+function IndexItemHTML(e){
+	if(!e||!Classed(e,"index-item"))
+		return "";
+	else{
+		var depth=e.getAttribute("data-index-depth")||"";
+		var title=(depth==="h1"?"Table of contents":Shorten(e.textContent,50));
+		return "<a class='index-link "+depth+"' href='#"+e.id+"'>"+title+"</a>";
+	}
+}
+
+function Shorten(string,maxchars){
+	if(!string)
+		return "";
+	else{
+		if(string.length<=maxchars)
+			return string;
+		else
+			return string.split("").splice(0,maxchars-3).join("")+"...";
+	}
+}
+
+function AddTitleIndex(){
+	PrependElement(PageIndexHTML(),".prose");
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -515,7 +791,7 @@ function UserId(){
 	return UID;
 }
 
-function RandomInteger(n){return Math.floor(Math.random() * n)};
+function RandomInteger(n){return Floor(Math.random() * n)};
 function RandomChoice(v){return v[RandomInteger(v.length)]};
 
 
@@ -579,6 +855,10 @@ function LoadStyle(sourcename){
 ///////////////////////////////////////////////////////////////////////////////
 //Data Reception
 
+//Network status
+function Online(){return navigator.onLine};
+function Offline(){return !Online()};
+
 //Fetch data from url
 function LoadData(url,SuccessF,header){
 	var rawFile=new XMLHttpRequest();
@@ -597,10 +877,6 @@ function LoadData(url,SuccessF,header){
 	rawFile.send(null);
 };
 
-//Network status
-
-function Online(){return navigator.onLine};
-function Offline(){return !Online()};
 
 ///////////////////////////////////////////////////////////////////////////////
 // DOM Manipulation
@@ -630,7 +906,7 @@ function IsQuerySelector(selector){
 }
 
 function ParentSelector(targetIDsel){
-	var parentElement=GetElement(targetIDsel).parentElement;
+	var parentElement=ParentElement(targetIDsel);
 	if(!parentElement.id)
 		parentElement.id=GenerateId();
 	return "#"+parentElement.id;
@@ -672,7 +948,7 @@ function GetElement(selector,pSelector){
 		else
 			parentElement=pSelector;
 	}		
-	return GetElementIn(selector,parentElement)
+	return GetElementIn(selector,parentElement);
 }
 
 //Match Element to selector
@@ -689,7 +965,7 @@ function FindFirstMatch(selectorArray,elem){
 	var elem=GetElement(elem);
 	
 	function F(a){
-		return a.find(function(sel){return Match(elem,sel)})
+		return a.find(function(sel){return Match(elem,sel);});
 	};
 		
 	var item=Apply(selectorArray,F);
@@ -710,7 +986,7 @@ function Siblings(thi,depth,maxParent){
 	if(!parent)
 		return [];
 	
-	while(d<depth&&parent!==maxParent){
+	while(d<depth&&parent!==maxParent&&parent.parentNode){
 		parent=parent.parentNode;
 		d=d+1;
 	}
@@ -718,7 +994,7 @@ function Siblings(thi,depth,maxParent){
 	var chi=[[parent]];
 	while(d>0){
 		var sib=[];
-		Last(chi).map(function(c){sib=sib.concat(Array.from(c.childNodes).filter(function(n){return n.nodeName!=="#text"}))})
+		Last(chi).map(function(c){sib=sib.concat(Array.from(c.childNodes).filter(function(n){return n.nodeName!=="#text";}))})
 		chi.push(sib);
 		d=d-1;
 	}
@@ -755,6 +1031,11 @@ function GetElements(selectorString,parentIDsel){
 		HTMLCollect=parentElement.getElementsByTagName(selectorString);
 	return Array.prototype.slice.call(HTMLCollect);
 };
+
+// Get Parent Element
+function ParentElement(targetIDsel){
+	return GetElement(targetIDsel).parentElement;
+}
 
 // Add new element to page, under a parent element
 function Element(htmlOrElement){
@@ -821,6 +1102,19 @@ function WrapElement(html,elemIDsel,newparentIdsel){
 	AddElement(GetElement(elemIDsel),newparentIdsel);
 }
 
+// Add HTML Data from external source to page
+function OverwriteData(source,destinationID,Transform){
+	function Overwrite(data){
+		if(Transform){
+			data=Transform(data);
+		}
+		ReplaceChildren(data,destinationID);
+		Shout("updated-"+destinationID);
+	}
+	
+	LoadData(source,Overwrite);
+};
+
 
 // Remove Children
 function RemoveChildren(parentID){
@@ -835,6 +1129,12 @@ function RemoveElement(elementIDsel){
 	}
 }
 
+// Remove Multiple Elements
+function RemoveElements(elementIDsel){
+	var eList=GetElements(elementIDsel);
+	eList.map(RemoveElement);
+}
+
 //////////////////////////////////////////////////
 // Scroll into
 
@@ -843,110 +1143,6 @@ function ScrollInto(elementIDsel){
   e.scrollIntoView();
 }
 
-
-//////////////////////////////////////////////////
-//Sort tables
-
-function ColumnNumber(tableSelector,n){
-	var headers=GetElements("TH",tableSelector);
-	if(typeof n==="number"&&n>-1&&n<=headers.length-1)
-		return n;
-	
-	if(typeof n!=="string")
-		return -1;
-	else{
-		headers=headers.map(function(th){return th.textContent.toLowerCase()});
-		return headers.indexOf(n.toLowerCase());
-	}
-}
-
-function CompareRow(n,descending){
-	function CompareAscending(rowA,rowB){
-		
-		var A=Array.from(rowA.children);
-		var B=Array.from(rowB.children);
-		
-		if(A.length<n-1)
-			if(B.length<n-1)
-				return 0;
-			else
-				return 1;
-		
-		if(B.length<n-1)
-			return -1;
-
-		var Atext=A[n]?A[n].textContent.toLowerCase():"";
-		var Btext=B[n]?B[n].textContent.toLowerCase():"";
-		
-		if(Atext<Btext)
-			return -1;
-		else
-			return 1;
-	}
-	
-	if(!descending)
-		return CompareAscending;
-	else
-		return function(rowA,rowB){return 0-CompareAscending(rowA,rowB)};
-}
-
-
-function SortTable(tableSelector,n,descending){
-	var descending=descending||false;
-	var table=GetElement(tableSelector);
-	var tbody=GetElement("TBODY",table);
-	var n=ColumnNumber(table,n);
-	
-	var rows=GetElements("TR",tbody);
-	rows=rows.sort(CompareRow(n,descending));
-	rows.map(function(row){return row.cloneNode(true)});
-	RemoveChildren(tbody);
-	rows.map(function(row){AddElement(row,tbody)});
-}
-
-function SortableTable(tableSelector){
-	var headers=GetElements("TH",tableSelector);
-	
-	function SortByHeader(header){
-		var table=header.parentElement.parentElement.parentElement; //improve this with a Parent function
-		var column=header.textContent;
-		function SortByThis(){
-			Toggle(header,"Ascending");
-			var descending=!Classed(header,"Ascending")
-			if(descending)
-				SelectSimple(header,"Descending");
-			else
-				Deselect(header,"Descending");
-			SortTable(tableSelector,column,descending);
-		}
-		Listen('click',SortByThis,header);
-	}
-	
-	headers.map(SortByHeader)
-}
-
-function SortableTables(){
-	GetElements("TABLE").map(SortableTable);
-}
-
-ListenOnce('load',SortableTables);
-
-function TableLength(idSel){
-	return Array.from(GetElementIn("TBODY",idSel).childNodes).filter(function(e){return e.childNodes.length>0}).length;
-}
-
-//////////////////////////////////////////////////
-// Safe string loading
-function SafeString(tex){
-	return String(tex).replace(/[\<\>\=\+\-\(\)\*\'\"]/g,"");
-}
-
-function SafeUrl(tex){
-	var prefix="https://";
-	if(In(tex,"http:"))
-		prefix="http://";
-	return prefix+String(tex).replace(/[\<\>\+\(\)\*\'\"\#\\\s]+.*/g,"").replace(/https?:\/\//,"");
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -961,13 +1157,13 @@ function ElementHTML(optionsObj){
 	var tag=optionsObj.tag?optionsObj.tag:"div";
 	var attributes=(optionsObj.attributes)?' '+ReadAttributes(optionsObj.attributes):'';	//attributes is an Object
 	var txt=optionsObj.txt?optionsObj.txt:"???";
-	return "<"+tag+attributes+">"+txt+"</"+tag+">"		//txt and tag
+	return "<"+tag+attributes+">"+txt+"</"+tag+">";		//txt and tag
 };
 
 function SingleElementHTML(optionsObj){
 	var tag=optionsObj.tag?optionsObj.tag:"div";
 	var attributes=(optionsObj.attributes)?' '+ReadAttributes(optionsObj.attributes):'';	//attributes is an Object
-	return "<"+tag+attributes+"/>"
+	return "<"+tag+attributes+"/>";
 };
 
 
@@ -978,11 +1174,11 @@ function ImageHTML(optionsObj){
 	o.tag="img";
 	if(!o.attributes)
 		o.attributes={src:"images/splash.png"}
-	return SingleElementHTML(o)
+	return SingleElementHTML(o);
 };
 
 function PlaceholderImageHTML(){
-	return ImageHTML()
+	return ImageHTML();
 };
 
 
@@ -1007,13 +1203,23 @@ function ButtonHTML(optionsObj){
 	
 	o.attributes['tabindex']="0";
 	
-	return ElementHTML(o)
+	return ElementHTML(o);
 };
 
 function AHTML(title,ref){
 	return ElementHTML({tag:"a",txt:title,attributes:{href:ref}});
 }
 
+//Hidden Elements
+function GhostHTML(id){
+	"<span id='"+id+"' class='hidden'></span>";
+}
+
+/*
+SuperimposedHTML(A,B){
+	return "<span class='superimposed'>"+A+"</span>"+B;
+}
+*/
 
 // Basic Buttons
 
@@ -1026,11 +1232,7 @@ function ButtonLinkHTML(title){
 	if(GetElement(id))
 		return ButtonHTML({tag:"a",txt:title,attributes:{href:id,onclick:'FullscreenClose()'}});
 	else
-		return GhostButtonHTML(id);
-}
-
-function GhostButtonHTML(id){
-	"<span id='"+id+"' class='hidden'></span>";
+		return GhostHTML(id);
 }
 
 function CloseButtonHTML(targetid){
@@ -1045,7 +1247,7 @@ function SubmitButtonHTML(DP){
 }
 
 function MessageHTML(message){
-	return "<h4 class='question'>"+message+"</h4>";
+	return "<div class='question'>"+message+"</div>";
 }
 
 function ErrorHTML(message,id){
@@ -1057,7 +1259,7 @@ function PlainMessageHTML(message){
 }
 
 //Button Bar
-function ButtonBar(buttonshtml,id){return '<div id="'+id+'" class="buttonbar buttonrow">'+buttonshtml+'</div>'};
+function ButtonBar(buttonshtml,id){return '<div id="'+id+'" class="buttonbar buttonrow">'+buttonshtml+'</div>';}
 
 ////////////////////////////////////////////////////////////////////////////////
 // DataField and DataPack system : default DataField (customisable), many of which constitute a DataPack 
@@ -1096,6 +1298,7 @@ function DefaultDataPack(){
 		qclass:"",						//class
 		
 		destination:'Feedback',			//Name of data repository (default)
+		findDestination:FindDestination,//Get Destination
 		requireConnection:true,			//Does it need a connection?
 
 		action:CheckSubmit, 			//action on submit :receives a qid
@@ -1122,50 +1325,87 @@ function DefaultDataPack(){
 	
 }
 
+function FindDestination(DP){return FindData("destination",DP.qid)};
 
 function NewDataField(obj){
 	var DF=DefaultDataField();
 	return FuseObjects(DF,obj);
 }
 
+var dataFieldTypes={
+	plain:NewDataField({
+		qsubmittable:false}),
+	message:NewDataField({
+		action:Close,
+		destination:'',
+		qtype:LongAnswerHTML,
+		qdisplay:LaunchThanksModal}),
+	email:NewDataField({
+		qtype:ShortAnswerHTML,
+		qfield:"address",
+		qplaceholder:"_______@___.___",
+		qvalidator:EmailValidator}),
+	name:NewDataField({
+		qrequired:false,
+		qvalidator:NameValidator,
+		qfield:"name",
+		qtype:ShortAnswerHTML,
+		questionname:"Your name",
+		qplaceholder:"(optional)"}),
+	answer:NewDataField({
+		qfield:"answer",
+		qtype:LongAnswerHTML,
+		qvalidator:SomeTextValidator}),
+	exclusivechoice:NewDataField({
+		qfield:'answer',
+		questionname:"Which one?",
+		qchoices:["on","off"],
+		qtype:ExclusiveChoiceButtonRowHTML}),
+	multiplechoice:NewDataField({
+		qfield:'answer',
+		questionname:"Which ones?",
+		qchoices:["1","2","3","4","5"],
+		qtype:ChoicesButtonRowHTML}),
+	navi:NewDataField({
+		qfield:"navi",
+		qclass:"nowrap",
+		questionname:"",
+		qchoices:["◀","OK","▶"],
+		qtype:ExclusiveChoiceButtonRowHTML,
+		defaultChoice:function(i,txt){return txt==="OK";},
+		qsubmittable:false}),
+	keyboard:NewDataField({
+		qfield:"keyboard",
+		questionname:"",
+		qchoices:DefaultKeyboardKeys(),
+		//["Ctrl","Alt","\t\t\t\t\t\t\t\t\t","Shift"]["🠴","␡","⮐"]
+		qtype:KeyboardHTML,
+		defaultChoice:function(i,txt){return txt==="⮐";},//Defaults to enter
+		qsubmittable:false}),
+	pass:NewDataField({
+		questionname:"What is the password?",
+		qfield:'answer',
+		qtype:ShortAnswerHTML,
+		qvalidator:SomeTextValidator,
+		qplaceholder:"(top-secret)"}),
+	snapshot:NewDataField({
+		questionname:"Attach a snapshot?",
+		qfield:'snapshot',
+		qtype:ExclusiveChoiceButtonRowHTML,
+		qchoices:["no","yes"]}),
+	secret:NewDataField({
+		questionname:"",
+		qsubmittable:false})
+}
+
 function DataFieldTypes(type){
-	var DFTypes={
-		plain:NewDataField({
-			qsubmittable:false}),
-		message:NewDataField({
-			action:Close,
-			destination:'',
-			qtype:LongAnswerHTML,
-			qdisplay:LaunchThanksModal}),
-		exclusivechoice:NewDataField({
-			qfield:'answer',
-			questionname:"Which one?",
-			qchoices:["on","off"],
-			qtype:ExclusiveChoiceButtonRowHTML}),
-		navi:NewDataField({
-			qfield:"navi",
-			qclass:"nowrap",
-			questionname:"",
-			qchoices:["◀","OK","▶"],
-			qtype:ExclusiveChoiceButtonRowHTML,
-			defaultChoice:function(i,txt){return txt==="OK";},
-			qsubmittable:false}),
-		keyboard:NewDataField({
-			qfield:"keyboard",
-			questionname:"",
-			qchoices:DefaultKeyboardKeys(),
-			//["Ctrl","Alt","\t\t\t\t\t\t\t\t\t","Shift"]["🠴","␡","⮐"]
-			qtype:KeyboardHTML,
-			defaultChoice:function(i,txt){return txt==="⮐";},//Defaults to enter
-			qsubmittable:false})
-	}
 	if(typeof type==="undefined")
-		return DFTypes;
+		return dataFieldTypes;
 	else
 		if(type==='alias')
 			return CustomDataField('name',{qplaceholder:"or alias"});
 		else
-			return DFTypes[type];
+			return dataFieldTypes[type];
 }
 
 function CustomDataField(type,obj){
@@ -1237,6 +1477,7 @@ function ExclusiveChoiceButtonHTML(choice,dataFiel,i){
 	var buAttribs={
 		'onfocus':SelectF,
 		'onmouseover':SelectF,
+		'ontouchstart':SelectF,
 		'onclick':ExecuteF,
 		'ondblclick':ExecuteF,
 		id:"choice-"+choice};
@@ -1264,20 +1505,48 @@ function ChoiceRowHTML(dataField,buttontype){
 	return choi;
 }
 
+function SectionRowsHTML(sectionArray){
+	if(!sectionArray||sectionArray.length<0)
+		return ChoiceRowHTML;
+	
+	function ChoiceSectionRowHTML(dataField,buttontype){
+		var s=-1;
+		var choi="";
+		for(var i=0;i<dataField.qchoices.length;i++){
+			if(sectionArray[s+1]&&(i+1)===sectionArray[s+1].number){
+				choi=choi+"<h4 class='section-title'>"+sectionArray[s+1].section+"</h4>";
+				s=s+1;
+			}
+			choi=choi+buttontype(dataField.qchoices[i],dataField,i);
+		}
+		return choi;
+	}
+	
+	return ChoiceSectionRowHTML;
+}
+
 function LayoutHTML(dataField,buttontype,layoutclass,LayoutF){
 	ClearData(dataField.qfield,dataField.pid);
 	var clear='onload="ClearData(\''+dataField.qfield+'\',\''+dataField.pid+'\')" ';
+	var questionclass=dataField.qclass||"";
 	var choi=LayoutF(dataField,buttontype);
-	return '<div class="'+layoutclass+' '+dataField.qclass+'" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
+	return '<div class="'+layoutclass+' '+questionclass+'" '+clear+'id="'+dataField.qid+'">'+choi+'</div>';
 }
 
 
 function ExclusiveChoiceButtonRowHTML(dataField){
-	return LayoutHTML(dataField,ExclusiveChoiceButtonHTML,'buttonrow',ChoiceRowHTML)
+	return LayoutHTML(dataField,ExclusiveChoiceButtonHTML,'buttonrow',ChoiceRowHTML);
+}
+
+function ExclusiveChoiceSectionsHTML(sections){
+	function ExChS(dataField){
+		return LayoutHTML(dataField,ExclusiveChoiceButtonHTML,'buttonrow',SectionRowsHTML(sections));
+	};
+	return ExChS;
 }
 
 function ChoicesButtonRowHTML(dataField){
-	return LayoutHTML(dataField,MultiChoiceButtonHTML,'buttonrow',ChoiceRowHTML)
+	return LayoutHTML(dataField,MultiChoiceButtonHTML,'buttonrow',ChoiceRowHTML);
 }
 
 
@@ -1326,7 +1595,6 @@ function LaunchThanksBalloon(DP){
 function LaunchBalloon(DP){
 	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid);
 }
-
 
 function LaunchAvatarBalloon(DP){
 	OpenBalloon(QuestionHTML(DP),DP.qid,DP.qtargetid,true);
@@ -1393,23 +1661,39 @@ function KeyboardHTML(dataField){
 
 function KeyboardButtonHTML(choice,dataFiel,i){
 	var buID='kb'+i;
-	KeyboardButtonHTML[buID]=function(){ExecuteChoice(dataFiel.qfield,choice,dataFiel.pid)};
-	var Kargs='(KeyboardButtonHTML.'+buID+',250,"'+buID+'")';
+	var ID="choice-"+choice;
+	KeyboardButtonHTML[buID]=function(){
+		ExecuteChoice(dataFiel.qfield,choice,dataFiel.pid);
+		PulseSelect(ID);
+	};
+
+	var Kargs='(KeyboardButtonHTML.'+buID+',250,"'+buID+'");';
 	var Start='AutoRepeat'+Kargs;
-	var Stop='AutoStop'+Kargs;
+	var Stop='AutoStop'+Kargs+'FadeSelect('+'"choice-"+"'+choice+'");';
 
 	var buAttribs={
 		'onclick':'KeyboardButtonHTML.'+buID+'()',
 		'ontouchstart':Start,
 		'onmousedown':Start,
+		'onmouseout':Stop,
 		'onmouseup':Stop,
 		'ontouchend':Stop,
 		'ontouchcancel':Stop,
-		id:"choice-"+choice};
+		id:ID};
 		
 	return ButtonHTML({txt:choice,attributes:buAttribs});
 };
 
+function FadeSelect(targetIDsel){
+	var e=GetElement(targetIDsel);
+	if(e){
+		function DeF(){
+			Deselect(e);
+			e.blur();
+		}
+		setTimeout(DeF,500);
+	}
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1495,6 +1779,7 @@ function Toggle(selectorE,clas){
 function PulseSelect(selectorE,clas,delay){
 	var delay=delay||100;
 	var clas=clas||"pulsating";
+	Deselect(selectorE,clas);//cyclical pulse effect on long taps
 	SelectSimple(selectorE,clas);
 	setTimeout(function(){Deselect(selectorE,clas);},delay);
 }
@@ -1588,6 +1873,7 @@ function CurrentDatapack(ConditionF){
 function CloseDatapack(DP){
 	if(DP){
 		Deselect(DP.buttonSelector);
+		PulseSelect(DP.qid+" .closer .button");
 		DeleteShortcuts(DP.qid);
 		DP.closed=true;
 		if(DP.qonclose)
@@ -2115,7 +2401,48 @@ function OpenVideoModal(ytid){
 ///////////////////////////////////////////////////////////////////////////////
 // Form Validators and Modifiers
 
+// Pattern Validator Generator
+function PatternValidatorGenerator(pattern,errormessage){
+	function ValidatorFunction(DF){
+		var string=FindData(DF.qfield,DF.qid);
+		if((typeof string!=="undefined")&&(string.match(pattern)!==null))
+			return {valid:true,error:"none"}
+		else if(DF.qerrorcustom!=='')
+			return {valid:false,error:DF.qerrorcustom}
+		else
+			return {valid:false,error:errormessage}
+		};
+	return ValidatorFunction;
+}
+
+// Form Validators
+
 function IdentityValidator(DF){return {valid:true,error:"no errors"};}
+
+function EmailValidator(DF){
+	var pattern=/(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?\.)+[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9](?:[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9-]*[\u00A0-\uD7FF\uE000-\uFFFF-a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/ig;
+	var errormessage="Please verify your e-mail address!";
+	return PatternValidatorGenerator(pattern,errormessage)(DF);
+}
+
+function SomeTextValidator(DF){
+	var pattern=/[\d\w]/;
+	var errormessage="Please write something!";
+	return PatternValidatorGenerator(pattern,errormessage)(DF);
+}
+
+function NameValidator(DF){
+	var pattern=/[\d\w][\d\w]+/;
+	var errormessage="Please write at least 2 alphanumerics!";
+	return PatternValidatorGenerator(pattern,errormessage)(DF);
+}
+
+// Utility
+function SomeTextValidate(name){
+	var pattern=/[\d\w]/;
+	return name.match(pattern)!==null;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //Message Console 
@@ -2139,7 +2466,7 @@ function ConsoleMessageHTML(message,mID){
 }
 
 function TextReadDuration(textstring){ //by counting number of words, 200ms per word (tagscount but won't hopefully have too many spaces)
-	return Math.min(Math.max(1000,(textstring.split(" ").length)*250),10000);
+	return Min(Max(1000,(textstring.split(" ").length)*250),10000);
 }
 
 function ConsoleAdd(messageHTML,wait,duration,mID){
@@ -2147,7 +2474,7 @@ function ConsoleAdd(messageHTML,wait,duration,mID){
 	if(GetElement("Console")===null)
 		ConsoleLoad();
 	
-	var duration=duration?Math.max(1000,duration):TextReadDuration(messageHTML);
+	var duration=duration?Max(1000,duration):TextReadDuration(messageHTML);
 	var wait=wait?wait:0;
 	var mID=mID?mID:"c-"+GenerateId();//random id
 	setTimeout(function(){AddElement(ConsoleMessageHTML(messageHTML,mID),"Console")},wait)
@@ -2159,7 +2486,7 @@ function ConsoleAdd(messageHTML,wait,duration,mID){
 }
 
 function ConsoleLoad(selector){
-	var selector=selector||ParentSelector(gameSelector);
+	var selector=selector||'.main';
 	RemoveElement("Console");
 	AddElement('<div id="Console"></div>',selector);
 }
@@ -2773,7 +3100,6 @@ var KeyCodes={
 
 
 //Key Capturing
-
 function CaptureComboKey(event){
 	event=event||window.event;
 	var keystring=EventKeystring(event);
@@ -2854,12 +3180,11 @@ function DelayUntil(Condition,F,i){
 		return F();
 	}
 	else{
-
 		//console.log(DelayUntil[n]);
 		
 		if(DelayUntil[n]<10){
 			function D(){return DelayUntil(Condition,F,i);};
-			setTimeout(D,100*(Math.pow(2,DelayUntil[n])));
+			setTimeout(D,100*(Power(2,DelayUntil[n])));
 		}
 		else
 			console.log("Timed out: ",n);
@@ -2892,7 +3217,7 @@ function Cycle(array,n,bounded){
 		var i=(Cycle.hashArray[arrayhash]+n);
 		
 		if(bounded===true)
-			i=Math.max(Math.min(i,array.length-1),0);
+			i=Max(Min(i,array.length-1),0);
 		else
 			i=i%(array.length);
 		
@@ -2980,7 +3305,7 @@ function StartGIF(gid){
 			"height":h
 		})(ctx);
 		
-		var s=Math.pow(w*h,0.5)/3;
+		var s=Power(w*h,0.5)/3;
 				
 		DrawPolygon({
 			"size":s/2,
@@ -3057,14 +3382,14 @@ function DrawPolygon(txtObj){
 		ctx.beginPath();
 		if(n>=3){
 			for (var i=0;i<n;i++){
-				var angle=startAngle+i*Math.PI*2/n;
-				var xpos=x+size*Math.cos(angle);
-				var ypos=y+size*Math.sin(angle);
+				var angle=startAngle+i*PI*2/n;
+				var xpos=x+size*Cos(angle);
+				var ypos=y+size*Sin(angle);
 				ctx.lineTo(xpos,ypos);
 			}
 		}
 		else{
-			ctx.arc(x,y,size,0,Math.PI*2);
+			ctx.arc(x,y,size,0,PI*2);
 		}
 		ctx.closePath();
 		ctx.fillStyle=fillColor;
@@ -3107,3 +3432,6 @@ if(typeof window.CustomEvent!=="function"){
 	CustomEvent.prototype=window.Event.prototype;
 	window.CustomEvent=CustomEvent;
 }
+
+
+
