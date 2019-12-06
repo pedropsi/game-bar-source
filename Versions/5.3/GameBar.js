@@ -56,7 +56,7 @@ function DelayUntil(Condition,F,i){
 		
 		if(DelayUntil[n]<10){
 			function D(){return DelayUntil(Condition,F,i);};
-			setTimeout(D,100*(2**DelayUntil[n]));
+			setTimeout(D,100*(Math.pow(2,DelayUntil[n])));
 		}
 		else
 			console.log("Timed out: ",n);
