@@ -26,10 +26,14 @@ if(typeof ObtainUndoAllowed==="undefined")
 	function ObtainUndoAllowed(){return !state.metadata.noundo;}
 
 if(typeof ObtainUndo==="undefined")
-	function ObtainUndo(){CheckRegisterKey({keyCode:85});}
+	function ObtainUndo(){
+		PulseSelect("UndoButton");
+		CheckRegisterKey({keyCode:85});}
 
 if(typeof ObtainRestart==="undefined")
-	function ObtainRestart(){CheckRegisterKey({keyCode:82});}
+	function ObtainRestart(){
+		PulseSelect("RestartButton");
+		CheckRegisterKey({keyCode:82});}
 
 //Game display Options
 if(typeof ObtainInitialScroll==="undefined")
@@ -50,6 +54,23 @@ if(typeof ResizeCanvas==="undefined")
 if(typeof titleScreen==="undefined")
 	var titleScreen=true;
 
+if(typeof ObtainSymbol==="undefined")
+	function ObtainSymbol(name){
+		var symbols={
+			"fullscreen":"🡯🡥",//"◱",
+			"save":"🖫",
+			"undo":"↶",
+			"restart":"↺",
+			"feedback":"✉",
+			"music":"♫",
+			"hint":"⚿",
+			"keyboard":"🖮"
+			};
+		if(!name)
+			return symbols;
+		else
+			return symbols[name.toLowerCase()];
+	}
 
 
 //Game and Level Navigation
@@ -148,6 +169,9 @@ if(typeof ObtainKeyboardTarget==="undefined")
 	}
 
 
+var ObtainInterlevelMessage=False;
+if(!Portable())
+	ObtainInterlevelMessage=True;
 
 ////////////////////////////////////////////////////////////////////////////////
 //Hooks to Pedro PSI main site
@@ -216,7 +240,7 @@ function PrepareGame(){
 				"Puzzlescript Game bar loaded!",
 				"Issues? Suggestions? Head to pedropsi.github.io/game-bar."
 			//	"Localsave is ON for "+pageTitle()+".",
-			//	"To stop saving and erase all 2 cookies, please deselect 🖫."
+			//	"To stop saving and erase all 2 cookies, please deselect "+ObtainSymbol("Save")+"."
 			]);
 	}
 	else
@@ -251,7 +275,7 @@ function PrepareGame(){
 
 function UndoButton(){
 	if(ObtainUndoAllowed())
-		return ButtonHTML({txt:'↶',attributes:{
+		return ButtonHTML({txt:ObtainSymbol("Undo"),attributes:{
 			onclick:'UndoAndFocus();',
 			onmousedown:'AutoRepeat(UndoAndFocus,250);',
 			ontouchstart:'AutoRepeat(UndoAndFocus,250);',
@@ -266,7 +290,7 @@ function UndoButton(){
 
 function RestartButton(){
 	if(ObtainRestartAllowed())
-		return ButtonHTML({txt:'↺',attributes:{
+		return ButtonHTML({txt:ObtainSymbol("Restart"),attributes:{
 			onclick:'ObtainRestart();GameFocus();',
 			id:'RestartButton'
 		}});
@@ -276,7 +300,7 @@ function RestartButton(){
 
 function FeedbackButton(){
 	if(HasGameFeedback())
-		return ButtonHTML({txt:"✉",attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}});
+		return ButtonHTML({txt:ObtainSymbol("feedback"),attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}});
 	else
 		return "";
 }
@@ -286,32 +310,45 @@ function MuteButton(){
 		return "";
 	else{
 		canYoutube=false;
-		return ButtonHTML({txt:"♫",attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}});
+		return ButtonHTML({txt:ObtainSymbol("music"),attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}});
 	}
 }
 
 function KeyboardButton(){
 	if(ObtainKeyboardAllowed)
-		return ButtonHTML({txt:"🖮",attributes:{onclick:'RequestKeyboard();',id:'KeyboardButton'}})
+		return ButtonHTML({txt:ObtainSymbol("keyboard"),attributes:{onclick:'RequestKeyboard();',id:'KeyboardButton'}})
 	else
 		return "";
 }
 
 
+function LevelSelectorAllowed(){
+	return MaxLevel()>1;
+}
+
+function LevelSelectorButton(){
+	if(LevelSelectorAllowed())
+		return ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}});
+	else
+		return "";
+}
+
+
+
 function GameBar(){
 	
 	var buttons=[
-		ButtonHTML({txt:"🖫",attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
+		ButtonHTML({txt:ObtainSymbol("save"),attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
 		ButtonLinkHTML("How to play?"),
 		HiddenHTML('HintButton'),
 		UndoButton(),
 		RestartButton(),
 		KeyboardButton(),
-		ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}}),
+		LevelSelectorButton(),
 		FeedbackButton(),
 		ButtonLinkHTML("Credits"),
 		MuteButton(),
-		ButtonHTML({txt:"◱",attributes:{onclick:'RequestGameFullscreen();GameFocus();',id:'FullscreenButton'}}),
+		ButtonHTML({txt:ObtainSymbol("Fullscreen"),attributes:{onclick:'RequestGameFullscreen();GameFocus();',id:'FullscreenButton'}}),
 	].join("");
 	
 	return ButtonBar(buttons,"GameBar");
@@ -353,6 +390,7 @@ function GameRotation(){
 		Deselect('.game-rotation-container','rotate90');
 	
 	ResizeCanvas();
+	setTimeout(ResizeCanvas,1000);
 }
 
 GameRotation();
@@ -380,7 +418,7 @@ function ActivateSavePermission(thi){
 	Localsave();
 	ConsoleAddMany([
 		"Localsave is ON for "+pageTitle()+".",
-		"To stop localsaving and erase all 2 cookies, please deselect 🖫."
+		"To stop localsaving and erase all 2 cookies, please deselect "+ObtainSymbol("Save")+"."
 		]);
 	Select(thi);
 }
@@ -478,7 +516,7 @@ LegacyConversion["solvedlevels"]=function(solvedlevels,vers){
 	if(!vers||vers<5)	 					//Previous data format;
 		solvedlevels=solvedlevels.map(LevelNumber);
 	
-	if(solvedlevels.some(ScreenMessage))	//Case of added/removed interlevel messages;
+	if(solvedlevels.some(IsScreenMessage))	//Case of added/removed interlevel messages;
 		solvedlevels=ArrayRemap(solvedlevels,Levels());
 	
 	return solvedlevels;
@@ -579,7 +617,7 @@ function LoadCheckpoint(n){
 	if(n<stack.length)
 		ConsoleAddOnce("Beware! Saving at a past checkpoint will erase former future progress...");
 	
-	curcheckpoint=Math.min(Math.max(n-1,0),stack.length-1); //decrement 1 unit
+	curcheckpoint=Min(Max(n-1,0),stack.length-1); //decrement 1 unit
 	return curlevelTarget=stack[curcheckpoint];
 }
 
@@ -648,8 +686,10 @@ function MarkWonLevel(){
 }
 
 function NextLevel(){
-	var curscreen=Math.min(CurrentScreen(),LastScreen()?LastScreen():CurrentScreen());
+	var curscreen=Min(CurrentScreen(),LastScreen()?LastScreen():CurrentScreen());
 	CurrentScreen(curscreen);
+	
+	HideLevelMessage();
 	
 	if (TitleScreen())
 		StartLevelFromTitle();
@@ -677,8 +717,15 @@ function TitleScreen(t){
 
 // Keep track of solved levels
 
-function ScreenMessage(lvl){
-	return typeof ObtainStateScreens()[lvl].message !=="undefined"
+function ScreenMessage(lvlscreen){
+	return ObtainStateScreens()[lvlscreen].message;
+}
+function CurrentScreenMessage(){
+	return ScreenMessage(CurrentScreen());
+}
+
+function IsScreenMessage(lvlscreen){
+	return typeof ScreenMessage(lvlscreen)!=="undefined"
 }
 
 function ScreenType(level){
@@ -714,7 +761,7 @@ function SolvedLevels(){
 
 function AddToSolvedScreens(curscreen){
 	function SortNumber(a,b){return a-b};
-	if(!ScreenMessage(curscreen)&&!LevelScreenSolved(curscreen)){
+	if(!IsScreenMessage(curscreen)&&!LevelScreenSolved(curscreen)){
 		SolvedLevels.levels.push(LevelNumber(curscreen));
 		SolvedLevels.levels=SolvedLevels.levels.sort(SortNumber);
 	}
@@ -906,7 +953,8 @@ function RequestLevelSelector(){
 				qsubmittable:false,
 				qfield:"level",
 				qclass:"level-selector",
-				executeChoice:ChooseLevelClose
+				executeChoice:ChooseLevelClose,
+				qtype:ExclusiveChoiceSectionsHTML(LevelSections())
 			})]
 		],
 		{
@@ -932,7 +980,7 @@ function CloseLevelSelector(){
 function MaxLevelDigits(){
 	if(MaxLevelDigits.m)
 		return MaxLevelDigits.m;
-	return MaxLevelDigits.m=Math.ceil(Math.log10(1+MaxLevel()));
+	return MaxLevelDigits.m=Ceiling(Math.log10(1+MaxLevel()));
 };
 
 function PadLevelNumber(n){
@@ -1112,7 +1160,7 @@ function AdvanceLevel(){
 
 function AdvanceUnsolvedScreen(){
 	var curscreen=CurrentScreen();
-	if(ScreenMessage(curscreen)&&curscreen<FinalLevelScreen()){
+	if(IsScreenMessage(curscreen)&&curscreen<FinalLevelScreen()){
 		//console.log("from message");
 		CurrentScreen(curscreen+1);
 	}
@@ -1157,7 +1205,7 @@ function KeyActionsGameBar(){
 	"F"			:RequestGameFullscreen,
 	"H"			:RequestHint,
 	"K"			:ObtainKeyboardAllowed?RequestKeyboard:Identity, 
-	"L"			:RequestLevelSelector, 
+	"L"			:LevelSelectorAllowed?RequestLevelSelector:Identity, 
 	"M"			:ToggleCurrentSong
 	};
 }
@@ -1182,11 +1230,11 @@ if(typeof ObtainKeyActionsGame==="undefined"){
 			"X"			:InstructGameKeyF(88),
 			"spacebar"	:InstructGameKeyF(88),
 			// Undo     
-			"Z"			:InstructGameKeyF(85),
-			"U"			:InstructGameKeyF(85),
+			"Z"			:ObtainUndo,	//InstructGameKeyF(85),
+			"U"			:ObtainUndo,	//InstructGameKeyF(85),
 			/*"backspace"	:InstructGameKeyF(85),*/
 			// Restart
-			"R"			:InstructGameKeyF(82),
+			"R"			:ObtainRestart,	//InstructGameKeyF(82),
 			// Quit
 			"escape"	:InstructGameKeyF(27),
 			"Q"			:InstructGameKeyF(27)
@@ -1224,7 +1272,7 @@ if(typeof ObtainKeyActionsGame==="undefined"){
 
 //Keybind to game element
 var FullShortcuts=FuseObjects(ObtainKeyActionsGameBar(),ObtainKeyActionsGame());
-OverwriteShortcuts(gameSelector,FullShortcuts);
+OverwriteShortcuts(ParentSelector(gameSelector),FullShortcuts);
 
 
 function RequestGameFullscreen(){
@@ -1250,22 +1298,21 @@ var stylesheet=".game-supra-container{\
     --lightyellow:rgba(255,249,201,var(--t))   /*#fff9c9*/;\
 }";
 
+
 function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 	var styleSheet=stylesheet;
-
-	var PrimaryDark=ForegroundColour;
-	var PrimaryLight=BackgroundColour;
+	var Lmax=Lightness(BackgroundColour);
+	
+	var PrimaryDark=(ForegroundColour=ObtainFGColor());
+	var PrimaryLight=(BackgroundColour=ObtainBGColor());
+	
 	// Pick the most saturated colour as text colour
 	if(Saturation(BackgroundColour)===0){
 		PrimaryLight=ForegroundColour;
 	}
 	if(Saturation(ForegroundColour)===0){
-		var PrimaryDark=BackgroundColour;
+		PrimaryDark=BackgroundColour;
 	}
-	
-
-	//Background
-	var Lmax=Lightness(BackgroundColour);
 	
 	//Invert in case of dark background
 	if(Lightness(BackgroundColour)<0.5){
@@ -1297,13 +1344,42 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//Load Level Titles
+//Load Level Info
 
-function LevelLoadedTitles(){
-	return LevelLoadedTitles.titles||false;
+function LevelInfo(){
+	return LevelInfo.info||false;
 }
 
-function ParseLevelTitleParagraph(hintparagraph){
+function LevelLoadedTitles(){
+	if(!LevelLoadedTitles.titles){
+		if(!LevelInfo())
+			return false;
+		else
+			return LevelLoadedTitles.titles=LevelInfo().map(function(x){return x.title});
+	}
+	else
+		return LevelLoadedTitles.titles;
+}
+
+function LevelSections(){
+	if(!LevelSections.sections){
+		if(!LevelInfo())
+			return false;
+		else{
+			LevelSections.sections=[];
+			var s;
+			for(var i=0;i<LevelInfo().length;i++){
+				if(s=LevelInfo()[i].section)
+					LevelSections.sections.push({section:s,number:i+1});
+			}
+			return LevelSections.sections;
+		}
+	}
+	else
+		return LevelSections.sections;
+}
+
+function ExtractLevelLine(hintparagraph){
 	var titleline=hintparagraph.replace(/\n.*/mgi,""); //remove all but the first line
 		titleline=titleline.replace(/(?:\-\-?.*)/i,""); //remove comments : ----etc....
 
@@ -1311,17 +1387,38 @@ function ParseLevelTitleParagraph(hintparagraph){
 	if(titleline===title)
 		return "";
 	
-	title=title.replace(/(?:\brequire\:.*)/i,""); //remove required conditions info
-	title=ParseNoTrailingWhitespace(title); //remove whitespace
-	title=ParseDenumberLine(title); //remove numeric indicator after "level"
-	title=ParseNoTrailingWhitespace(title); //remove whitespace
-	
 	return title;
 }
 
-function ParseLevelTitlesFromHintsFile(hintdata){
+function ParseAssignLevelInfo(hintparagraph){
+	var info={};
+	var titleline=ExtractLevelLine(hintparagraph);
+	
+	var unclockconditions=titleline.replace(/.*\brequire\:/i,"");
+	if(unclockconditions!==titleline)
+		info["unlock"]=ParseNoTrailingWhitespace(unclockconditions);
+	
+	titleline=titleline.replace(/\brequire\:.*/i,""); //remove unlock conditions
+	
+	var section=titleline.replace(/.*\§\s*/g,"");
+	if(section!==titleline)
+		info["section"]=ParseNoTrailingWhitespace(section);
+
+	titleline=titleline.replace(/\§.*/g,"");//remove section
+
+	var title=ParseNoTrailingWhitespace(titleline);
+		title=ParseDenumberLine(title);
+		title=ParseNoTrailingWhitespace(title);
+	if(title)
+		info["title"]=title;
+
+	return info;
+}
+
+
+function ParseLevelInfo(hintdata){
 	var titlesperlevel=HintParagraphArray(hintdata);
-	return titlesperlevel.map(ParseLevelTitleParagraph);
+	return titlesperlevel.map(ParseAssignLevelInfo);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1358,7 +1455,7 @@ function LoadHintData(hintdata){
 	}
 	else{
 		Hints.cached=ParseHintsFile(hintdata);
-		LevelLoadedTitles.titles=ParseLevelTitlesFromHintsFile(hintdata);
+		LevelInfo.info=ParseLevelInfo(hintdata);
 		if(Hints.cached.every(function(h){return h.length<1}))//If no hints inside the file, don't show thr button
 			return Hints.cached=false;
 		if(Hints.cached){
@@ -1451,11 +1548,11 @@ function UsedHints(lvl){
 
 function HintProgress(lvl,hintN){
 	var a=AvailableHints(lvl);
-	return "★".repeat(hintN)+"☆".repeat(Math.max(a-hintN,0));
+	return "★".repeat(hintN)+"☆".repeat(Max(a-hintN,0));
 }
 
 function HintButton(){
-	return ButtonHTML({txt:"⚿",attributes:{onclick:'RequestHint();',id:'HintButton'}});	
+	return ButtonHTML({txt:ObtainSymbol("hint"),attributes:{onclick:'RequestHint();',id:'HintButton'}});	
 }
 
 function CloseHint(){
@@ -1478,7 +1575,7 @@ function RequestPrevHint(){
 
 
 RequestHint["tips-welcome"]=[
-			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>⚿</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
+			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>"+ObtainSymbol("hint")+"</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
 			"You got this! Now go ahead and play!"
 ]
 
@@ -1491,12 +1588,12 @@ RequestHint["tips-interlevel"]=[
 			"Remember to pause once in a while!",
 			"If you like this game, share it with your friends!",
 			"Open the level selector with <kbd>L</kbd>, then type a <kbd>number</kbd>.",
-			"Go Fullscreen by pressing ◱ or <kbd>F</kbd>!",
-			"Play or pause the music by pressing ♫ or <kbd>M</kbd>!"
+			"Go Fullscreen by pressing "+ObtainSymbol("Fullscreen")+" or <kbd>F</kbd>!",
+			"Play or pause the music by pressing "+ObtainSymbol("music")+" or <kbd>M</kbd>!"
 ]
 
 if(HasGameFeedback()){
-	RequestHint["tips-interlevel"].splice(1,0,"Email Pedro PSI feedback by pressing ✉ or <kbd>E</kbd>, anytime!");
+	RequestHint["tips-interlevel"].splice(1,0,"Email Pedro PSI feedback by pressing "+ObtainSymbol("feedback")+" or <kbd>E</kbd>, anytime!");
 }
 
 
@@ -1510,7 +1607,7 @@ function RequestHint(){
 		var DFOpts={questionname:tip};
 		var DPFields=[['plain',DFOpts]];
 	}
-	else if(ScreenMessage(CurrentScreen())){
+	else if(IsScreenMessage(CurrentScreen())){
 		var tip=CycleNext(RequestHint["tips-interlevel"]);
 		var DFOpts={questionname:"<b>General tip:</b> "+HintDisplay(tip)};
 		var DPFields=[['plain',DFOpts]];
@@ -1642,6 +1739,27 @@ function GameFocusAndRestartUndoButtons(){
 }
 
 function GameKeyboardKeys(){
-	return [["↶","↺"]]; // Undo and Restart
+	return [[ObtainSymbol("Undo"),ObtainSymbol("Restart")]]; // Undo and Restart
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//Better inter-level messages
+function ShowLevelMessage(lvlscreen){
+	if(!lvlscreen)
+		lvlscreen=CurrentScreen();
+	
+	HideLevelMessage();
+	AppendElement("<div class='game-message-container'><div class='game-message'><p>"+CurrentScreenMessage()+"</p></div></div>",gameSelector);
+	GameFocus();
+}
+
+function HideLevelMessage(){
+	RemoveElements('.game-message-container');
+}
+
+
+
+
 
