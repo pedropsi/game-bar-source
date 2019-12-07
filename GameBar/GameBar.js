@@ -1,3 +1,9 @@
+////////////////////////////////////////////////////////////////////////////////
+//Game Bar Loader (c) by Pedro PSI, 2019
+//MIT License
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
 //Dependency Loaders
 
 //Glocal Files
@@ -63,6 +69,8 @@ function DelayUntil(Condition,F,i){
 	}
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
 // Load the Game Bar
 var puzzlescriptModules=[
 	"data-game-colours",
@@ -76,7 +84,6 @@ var precedences={
 	"data-game-overwrite":function(){return typeof LoadGame!=="undefined";}
 }
 
-
 var VERSIONFOLDER="codes"; 
 FOLDER=GlocalPath("https://pedropsi.github.io/game-bar-source",VERSIONFOLDER);
 
@@ -84,17 +91,29 @@ function LoadModule(module){
 	function L(){return LoaderInFolderGB(JoinPath(FOLDER,"game/modules"))(module)};
 	return DelayUntil(precedences[module],L,module);
 }
+function LoadLaterModules(){
+	puzzlescriptModules.map(LoadModule);
+}
 
+
+//Load PS modules 
+function CC(){return typeof RemoveElement!=="undefined";};
 LoaderInFolderGB(FOLDER)("data-transfer");
-puzzlescriptModules.map(LoadModule);
+DelayUntil(CC,LoadLaterModules);
+
 
 //Start the Bar
 function GameBarLoad(){
 	RemoveElement(".tab");
 	PrepareGame();
 }
-
-
 function C(){return typeof PrepareGame!=="undefined";};
 DelayUntil(C,GameBarLoad);
 
+
+//Check everything loaded properly after 10 seconds
+function NotAllLoaded(){
+	if(!CC()||puzzlescriptModules.map(function(m){return !precedences[m]()}).some(Identity))
+		alert("Not all game bar modules loaded properly. Please file an issue at: https://github.com/pedropsi/game-bar-source/issues");
+}
+setTimeout(NotAllLoaded,10000);
