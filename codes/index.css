@@ -156,6 +156,7 @@ h4{
     align-self: center;
     font-weight: bold;  
     transition-duration: var(--duration);
+    display:flex;
 }
 .button a {
     text-decoration: none;
@@ -384,4 +385,21 @@ kbd {
     flex-grow: 1;
     border-bottom: none;
     justify-content: center;
+}
+
+.iconpath{
+	fill: currentColor;
+	height: var(--fontheight);
+	padding: 0 var(--w-2) 0 var(--w-2);
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+p .icon{
+	display: inline;
 }
