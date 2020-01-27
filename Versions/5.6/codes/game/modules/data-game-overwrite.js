@@ -1,5 +1,4 @@
 
-
 if(typeof ObtainPlayEndLevelSound==="undefined")
 	function ObtainPlayEndLevelSound(){tryPlayEndLevelSound()};
 
@@ -11,10 +10,10 @@ function doSetupTitleScreenLevelContinue(){	LoadGame();};
 
 doSetupTitleScreenLevelContinue()
 
-//DoWin - Level selector - keep track of solved levels 
+//DoWin - Level selector - keep track of solved levels and echo win
 function DoWin() {
 	if (!winning) {
-		MarkWonLevel();
+		MarkWonScreen();
 		ObtainPlayEndLevelSound();
 		againing = false;
 		if (unitTesting){
@@ -36,8 +35,9 @@ function nextLevel(){
 }
 
 
-//level4Serialization - save a full checkpoint stack 
+//level4Serialization - save a full checkpoint stack and echo
 function level4Serialization() { //Intercept
+	EchoCheckpoint();
 	
 	var stack=GetCheckpoints();
 	console.log("restarting",restarting,stack);
@@ -88,8 +88,22 @@ function playSound(seed) {
 // Preserve this function as is
 function AdjustFlickscreen(){
 	if (state!==undefined && state.metadata.flickscreen!==undefined){
-		oldflickscreendat=[0,0,Math.min(state.metadata.flickscreen[0],level.width),Math.min(state.metadata.flickscreen[1],level.height)];
+		oldflickscreendat=[0,0,Min(state.metadata.flickscreen[0],level.width),Min(state.metadata.flickscreen[1],level.height)];
 	}
 }
 
+/*
+if(ObtainInterlevelMessage()){
+	function drawMessageScreen(){
+		titleMode=0;
+		textMode=true;
+		titleImage = deepClone(messagecontainer_template);
+		ShowLevelMessage()
+	//	canvasResize();
+	}
+}
+*/
 
+window.Mobile.GestureHandler.prototype.toggleMenu=RequestLevelSelector;
+if(typeof MobileInitialise!=="undefined")
+	MobileInitialise(window.Mobile.GestureHandler.prototype);

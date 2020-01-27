@@ -11,16 +11,7 @@
  bottom:0;
 }
 
-.rotate90 .gameContainer{
-    top: 0;
-    bottom:calc(20px + var(--w1));
-    left: 0;
-    right: 0;
-}
 
-.rotate90 #gameCanvas{
-    height:calc(var(--gameW) - 20px - var(--w1));
-}
 .footer{
     position: unset;
     margin-top: -10px;

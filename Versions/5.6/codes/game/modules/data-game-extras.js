@@ -2,9 +2,16 @@ DATAVERSION=5;
 
 //Portable game bar
 var Portable=False;
+
 if(typeof RequestGameFeedback==="undefined"||typeof RequestHallOfFame==="undefined")
 	Portable=True;
 
+//Game Console
+var GameConsole=function(){return pageIdentifier()==="game-console"};
+
+function GameHackURL(){
+	return "https://www.puzzlescript.net/editor.html?hack="+pageSearch("game");
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Game data link defaults, for puzzlescript, overwritable
@@ -35,6 +42,10 @@ if(typeof ObtainRestart==="undefined")
 		PulseSelect("RestartButton");
 		CheckRegisterKey({keyCode:82});}
 
+if(typeof ObtainAction==="undefined")
+	function ObtainAction(){
+		CheckRegisterKey({keyCode:88});}
+
 //Game display Options
 if(typeof ObtainInitialScroll==="undefined")
 	var ObtainInitialScroll=true;
@@ -57,19 +68,26 @@ if(typeof titleScreen==="undefined")
 if(typeof ObtainSymbol==="undefined")
 	function ObtainSymbol(name){
 		var symbols={
-			"fullscreen":"🡯🡥",//"◱",
-			"save":"🖫",
-			"undo":"↶",
-			"restart":"↺",
-			"feedback":"✉",
+			"how-to-play":IconHTML("M182 32 C 131 42,96 91,105 142 C 106 149,110 166,110 166 C 110 166,154 156,154 156 C 154 156,153 151,151 144 C 143 106,163 77,199 76 C 255 76,270 151,218 173 C 209 177,204 180,204 181 C 204 181,202 184,199 186 C 181 199,168 218,163 239 C 161 246,158 262,158 263 C 158 263,201 271,201 271 C 201 271,202 266,203 261 C 209 235,217 224,238 214 C 322 175,311 57,222 33 C 213 31,192 30,182 32 M155 304 C 118 318,127 372,167 372 C 203 372,217 326,187 307 C 178 302,164 300,155 304"),
+			"credits":IconHTML("M178 0 C 34 15,-46 177,27 302 C 109 438,310 430,379 288 C 449 146,335 -15,178 0 M218 38 C 327 50,394 169,346 269 C 291 383,133 394,64 289 C -10 174,81 24,218 38 M185 78 C 104 88,56 172,87 248 C 117 320,209 344,273 297 C 284 289,310 260,309 257 C 308 256,273 229,271 229 C 271 229,267 233,263 238 C 232 280,183 286,148 252 C 89 195,156 98,230 132 C 244 139,253 146,267 167 L 271 171 274 169 C 275 168,284 162,293 155 L 310 143 308 141 C 282 104,259 87,224 80 C 217 78,192 77,185 78"),
+			"undo":IconHTML("M216 78 C 174 84,137 106,112 139 L 106 148 100 145 C 97 144,87 139,77 134 C 58 125,58 125,58 127 C 58 127,64 153,71 184 C 78 215,84 241,85 242 C 85 244,194 194,194 192 C 194 191,185 186,173 181 C 161 175,152 170,152 170 C 151 168,164 155,170 150 C 221 110,293 122,328 177 C 339 194,343 211,344 237 L 345 248 355 247 C 360 247,371 246,379 246 L 394 246 394 240 C 394 192,379 153,348 122 C 313 88,262 71,216 78","400 400","0 -050"),
+			"restart":IconHTML("M235 65 C 205 79,180 90,180 90 C 180 90,196 112,216 139 C 235 166,252 188,252 188 C 252 187,255 178,258 167 C 261 156,263 146,264 145 C 264 143,269 147,278 157 C 337 218,307 320,225 340 C 144 360,71 285,93 204 C 97 187,105 174,121 155 L 127 148 125 146 C 122 143,92 118,92 118 C 89 118,65 151,59 164 C 1 284,110 418,238 384 C 370 350,398 174,283 101 C 278 98,277 96,277 95 C 277 95,280 83,284 69 C 288 55,291 43,291 42 C 292 40,295 39,235 65"),
+			"levelselector":IconHTML("M20 66 L 20 120 72 120 L 124 120 124 66 L 124 12 72 12 L 20 12 20 66 M147 66 L 147 120 200 120 L 252 120 252 66 L 252 12 200 12 L 147 12 147 66 M275 66 L 275 120 327 120 L 378 120 378 66 L 378 12 327 12 L 275 12 275 66 M87 66 L 87 83 72 83 L 57 83 57 66 L 57 50 72 50 L 87 50 87 66 M214 66 L 214 83 200 83 L 185 83 185 66 L 185 50 200 50 L 214 50 214 66 M341 66 L 341 83 327 83 L 312 83 312 66 L 312 50 327 50 L 341 50 341 66 M20 200 L 20 254 72 254 L 124 254 124 200 L 124 146 72 146 L 20 146 20 200 M147 200 L 147 254 200 254 L 252 254 252 200 L 252 146 200 146 L 147 146 147 200 M275 200 L 275 254 327 254 L 378 254 378 200 L 378 146 327 146 L 275 146 275 200 M87 200 L 87 216 72 216 L 57 216 57 200 L 57 183 72 183 L 87 183 87 200 M214 200 L 214 216 200 216 L 185 216 185 200 L 185 183 200 183 L 214 183 214 200 M341 200 L 341 216 327 216 L 312 216 312 200 L 312 183 327 183 L 341 183 341 200 M20 333 L 20 387 72 387 L 124 387 124 333 L 124 279 72 279 L 20 279 20 333 M147 333 L 147 387 200 387 L 252 387 252 333 L 252 279 200 279 L 147 279 147 333 M275 333 L 275 387 327 387 L 378 387 378 333 L 378 279 327 279 L 275 279 275 333 M87 333 L 87 349 72 349 L 57 349 57 333 L 57 316 72 316 L 87 316 87 333 M214 333 L 214 349 200 349 L 185 349 185 333 L 185 316 200 316 L 214 316 214 333 M341 333 L 341 349 327 349 L 312 349 312 333 L 312 316 327 316 L 341 316 341 333"),
+			"fullscreen":IconHTML("M236 66 L 236 85 272 85 L 309 85 309 120 L 309 154 327 154 L 346 154 346 101 L 346 48 291 48 L 236 48 236 66 M38 142 L 38 200 57 200 L 75 200 75 160 L 75 121 112 121 L 148 121 148 102 L 148 84 93 84 L 38 84 38 142 M38 308 L 38 363 93 363 L 148 363 148 345 L 148 326 112 326 L 75 326 75 290 L 75 253 57 253 L 38 253 38 308 M272 290 L 272 326 236 326 L 199 326 199 345 L 199 363 254 363 L 309 363 309 308 L 309 253 291 253 L 272 253 272 290"),
+			"save":IconHTML("M0 200 L 0 400 200 400 L 400 400 400 200 L 400 0 200 0 L 0 0 0 200 M56 99 L 56 165 200 165 L 344 165 344 99 L 344 34 355 34 L 365 34 365 200 L 365 365 355 365 L 344 365 344 277 L 344 189 200 189 L 56 189 56 277 L 56 365 45 365 L 34 365 34 200 L 34 34 45 34 L 56 34 56 99 M240 73 L 240 112 260 112 L 279 112 279 73 L 279 34 295 34 L 310 34 310 82 L 310 131 200 131 L 90 131 90 82 L 90 34 165 34 L 240 34 240 73 M310 294 L 310 365 200 365 L 90 365 90 294 L 90 223 200 223 L 310 223 310 294 M118 253 L 118 271 200 271 L 282 271 282 253 L 282 236 200 236 L 118 236 118 253 M118 296 L 118 313 200 313 L 282 313 282 296 L 282 279 200 279 L 118 279 118 296 M118 337 L 118 354 200 354 L 282 354 282 337 L 282 320 200 320 L 118 320 118 337"),
+			"feedback":IconHTML("M7 139 L 7 274 200 274 L 393 274 393 139 L 393 4 200 4 L 7 4 7 139 M301 42 C 301 42,278 65,249 94 L 198 146 146 94 L 94 41 197 41 C 255 41,301 42,301 42 M355 140 L 355 237 200 237 L 44 237 44 142 L 44 47 121 123 L 197 200 276 121 C 319 78,355 42,355 42 C 355 42,355 86,355 140 M58 343 L 58 379 77 379 L 95 379 95 343 L 95 307 77 307 L 58 307 58 343 M304 343 L 304 379 322 379 L 341 379 341 343 L 341 307 322 307 L 304 307 304 343 M181 365 L 181 392 200 392 L 218 392 218 365 L 218 337 200 337 L 181 337 181 365"),
 			"music":"♫",
-			"hint":"⚿",
-			"keyboard":"🖮"
+			"more":"+",
+			"hint":IconHTML("M240 122 L 154 209 152 207 C 128 190,88 188,59 203 C -16 240,-8 352,71 379 C 153 406,225 319,185 243 L 181 236 205 212 L 228 188 240 200 L 252 211 258 205 C 262 202,268 196,272 192 L 279 185 267 173 L 255 161 267 150 L 278 139 297 158 C 307 168,316 177,316 177 C 316 176,323 170,330 163 L 343 150 328 135 L 312 119 324 108 L 335 97 350 112 L 366 127 379 114 L 393 100 361 68 C 343 50,328 36,328 36 C 327 36,288 75,240 122 M118 234 C 162 248,172 305,136 333 C 100 363,44 336,44 288 C 44 250,82 222,118 234"),
+			"keyboard":IconHTML("M0 88 L 0 177 200 177 L 400 177 400 88 L 400 0 200 0 L 0 0 0 88 M384 88 L 384 161 200 161 L 15 161 15 88 L 15 15 200 15 L 384 15 384 88 M30 41 L 30 53 42 53 L 55 53 55 41 L 55 29 42 29 L 30 29 30 41 M69 41 L 69 53 81 53 L 94 53 94 41 L 94 29 81 29 L 69 29 69 41 M108 41 L 108 53 121 53 L 133 53 133 41 L 133 29 121 29 L 108 29 108 41 M148 41 L 148 53 160 53 L 173 53 173 41 L 173 29 160 29 L 148 29 148 41 M187 41 L 187 53 199 53 L 212 53 212 41 L 212 29 199 29 L 187 29 187 41 M226 41 L 226 53 239 53 L 251 53 251 41 L 251 29 239 29 L 226 29 226 41 M266 41 L 266 53 278 53 L 291 53 291 41 L 291 29 278 29 L 266 29 266 41 M305 41 L 305 53 317 53 L 330 53 330 41 L 330 29 317 29 L 305 29 305 41 M344 41 L 344 53 357 53 L 369 53 369 41 L 369 29 357 29 L 344 29 344 41 M30 87 L 30 98 42 98 L 55 98 55 87 L 55 75 42 75 L 30 75 30 87 M69 87 L 69 98 81 98 L 94 98 94 87 L 94 75 81 75 L 69 75 69 87 M108 87 L 108 98 121 98 L 133 98 133 87 L 133 75 121 75 L 108 75 108 87 M148 87 L 148 98 160 98 L 173 98 173 87 L 173 75 160 75 L 148 75 148 87 M187 87 L 187 98 199 98 L 212 98 212 87 L 212 75 199 75 L 187 75 187 87 M226 87 L 226 98 239 98 L 251 98 251 87 L 251 75 239 75 L 226 75 226 87 M266 87 L 266 98 278 98 L 291 98 291 87 L 291 75 278 75 L 266 75 266 87 M305 87 L 305 98 317 98 L 330 98 330 87 L 330 75 317 75 L 305 75 305 87 M344 87 L 344 98 357 98 L 369 98 369 87 L 369 75 357 75 L 344 75 344 87 M30 134 L 30 147 53 147 L 77 147 77 134 L 77 121 53 121 L 30 121 30 134 M93 134 L 93 147 200 147 L 307 147 307 134 L 307 121 200 121 L 93 121 93 134 M322 134 L 322 147 346 147 L 369 147 369 134 L 369 121 346 121 L 322 121 322 134","400 180"),
+			"wrench":IconHTML("M152 112 L 121 147 124 188 L 127 228 75 280 L 23 332 32 341 C 37 346,40 349,40 350 C 39 351,44 356,53 365 L 66 378 122 323 L 177 267 213 266 C 242 265,250 265,250 264 C 251 263,251 263,252 264 C 253 265,253 265,254 263 C 255 263,269 247,285 228 C 301 210,315 195,315 194 C 315 194,287 169,286 169 C 286 169,279 177,271 186 L 256 203 246 203 C 240 204,231 204,225 204 L 214 204 198 190 C 190 183,183 176,183 175 C 183 174,182 166,182 156 L 180 138 196 121 C 205 111,212 102,212 102 C 212 102,185 77,184 77 C 184 77,169 93,152 112")
 			};
 		if(!name)
 			return symbols;
-		else
+		else if(In(symbols,name.toLowerCase()))
 			return symbols[name.toLowerCase()];
+		else
+			return name;
 	}
 
 
@@ -107,6 +125,8 @@ if(typeof ObtainPlayEndGameSound==="undefined")
 
 if(typeof ObtainLevelTitle==="undefined")
 	function ObtainLevelTitle(lvl){
+		if(!lvl)
+			return "";
 		if(HasCheckpoint())
 			return "Select checkpoint "+lvl;
 		else
@@ -172,12 +192,51 @@ if(typeof ObtainKeyboardTarget==="undefined")
 var ObtainInterlevelMessage=False;
 if(!Portable())
 	ObtainInterlevelMessage=True;
+if(GameConsole())
+	ObtainInterlevelMessage=False;
+
+if(typeof ObtainMainKey==="undefined")
+	function ObtainMainKey(action){
+		if(!action)
+			return {
+				"undo":"Z",
+				"restart":"R",
+				"feedback":"E",
+				"fullscreen":"F",
+				"hint":"H",
+				"keyboard":"K",
+				"levelselector":"L",
+				"music":"M"
+			}
+		else
+			return ObtainMainKey()[action.toLowerCase()];
+	}
+
+function ObtainActionTooltip(action){
+	if(!action)
+		return {
+			"credits":"Credits",
+			"how-to-play":"How to play?",
+			"save":"Save permissions",
+			"undo":"Undo",
+			"restart":"Restart",
+			"feedback":"E-mail feedback",
+			"fullscreen":"Fullscreen",
+			"hint":"Hints",
+			"keyboard":"Keyboard on screen",
+			"music":"Music toggle",
+			"wrench":"Hack this game",
+			"more":"More games by the same author"
+		}
+	else
+		return ObtainActionTooltip()[action.toLowerCase()];
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 //Hooks to Pedro PSI main site
 
 var HasGameFeedback=True;
-if(typeof RequestGameFeedback==="undefined"){
+if(typeof RequestGameFeedback==="undefined"||GameConsole()){
 	var RequestGameFeedback=Identity;
 	HasGameFeedback=False;
 }
@@ -228,7 +287,7 @@ function WrapGame(){
 function PrepareGame(){
 	var bar=GetElement("GameBar");
 	WrapGame();
-	
+
 	if(Portable()){
 		var FOLDER=GlocalPath("https://pedropsi.github.io/game-bar-source","codes");
 		LoadStyle(JoinPath(FOLDER,"game/game.css"));
@@ -243,18 +302,19 @@ function PrepareGame(){
 			//	"To stop saving and erase all 2 cookies, please deselect "+ObtainSymbol("Save")+"."
 			]);
 	}
-	else
-		LoadStyle(pageRoot()+"codes/game/game.css");
 
-	setTimeout(ResizeCanvas,250);
-			
+
+	[250,500,1000,2000,4000,8000].map(function(t){
+		setTimeout(ResizeCanvas,t);
+	});
+	
 	if(!bar){
 		
 		if(typeof onKeyDown!=="undefined")
 			StopCapturingKeys(onKeyDown);
 		ResumeCapturingKeys(CaptureComboKey);
 		
-		AddElement("<style>"+ReplaceColours(stylesheet,ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
+		AddElement("<style>"+ReplaceColours(Stylesheet(),ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
 		
 		ListenOnce('click',PlaylistStartPlay,gameSelector);
@@ -273,82 +333,142 @@ function PrepareGame(){
 ////////////////////////////////////////////////////////////////////////////////
 // Game Bar
 
+function GameBarTypewriterBanner(action){
+	var k=ObtainMainKey(action);
+	if(k)
+		k=" ["+k+"]";
+	else
+		k="";
+	return 'TypewriterBanner(this,\"'+ObtainActionTooltip(action)+k+'\",\"'+action+'\")';
+}
+
+function GameBarCancelTypewriterBanner(action){
+	return 'CancelTypewriterBanner(this,ObtainSymbol(\"'+action+'\"),\"'+action+'\")';
+}
+
+function GameBarButtonHTML(action,attribs){
+	var TWB=GameBarTypewriterBanner(action);
+	var UnTWB=GameBarCancelTypewriterBanner(action);
+	return ButtonHTML({
+		txt:ObtainSymbol(action),
+		attributes:FuseObjects(attribs,{
+			onmouseover:TWB,
+			onfocus:TWB,
+			onmouseout:UnTWB,
+			onblur:UnTWB,
+			id:Capitalise(action)+'Button'
+		})
+	});
+}
+function GameBarButtonLinkHTML(title,action){
+	var TWB=GameBarTypewriterBanner(action);
+	var UnTWB=GameBarCancelTypewriterBanner(action);
+	return ButtonLinkHTML(title,ObtainSymbol(action),{
+			onmouseover:TWB,
+			onfocus:TWB,
+			onmouseout:UnTWB,
+			onblur:UnTWB,
+			id:Capitalise(action)+'Button'
+		})
+};
+
+function ShowButton(ButtonNameF){
+	var nameButton=FunctionName(ButtonNameF);
+	ReplaceElement(ButtonNameF(),nameButton);
+	Show(nameButton);
+	Deselect(nameButton);
+}
+
+function SaveButton(){
+	return GameBarButtonHTML('save',{
+		onclick:'ToggleSavePermission(this);GameFocus();',
+		class:savePermission?'selected':''
+	})
+};
+
 function UndoButton(){
 	if(ObtainUndoAllowed())
-		return ButtonHTML({txt:ObtainSymbol("Undo"),attributes:{
+		return GameBarButtonHTML('undo',{
 			onclick:'UndoAndFocus();',
 			onmousedown:'AutoRepeat(UndoAndFocus,250);',
 			ontouchstart:'AutoRepeat(UndoAndFocus,250);',
 			onmouseup:'AutoStop(UndoAndFocus);',
 			ontouchend:'AutoStop(UndoAndFocus);',
-			ontouchcancel:'AutoStop(UndoAndFocus);',
-			id:'UndoButton'
-			}});
+			ontouchcancel:'AutoStop(UndoAndFocus);'
+		})
 	else
 		return "";
 }
 
 function RestartButton(){
 	if(ObtainRestartAllowed())
-		return ButtonHTML({txt:ObtainSymbol("Restart"),attributes:{
-			onclick:'ObtainRestart();GameFocus();',
-			id:'RestartButton'
-		}});
+		return GameBarButtonHTML('restart',{onclick:'ObtainRestart();GameFocus();'});
 	else
 		return "";
 }
 
 function FeedbackButton(){
 	if(HasGameFeedback())
-		return ButtonHTML({txt:ObtainSymbol("feedback"),attributes:{onclick:'RequestGameFeedback();',id:'FeedbackButton'}});
+		return GameBarButtonHTML("feedback",{onclick:'RequestGameFeedback();'});
 	else
 		return "";
 }
 
-function MuteButton(){
+function MusicButton(){
 	if(Playlist().length<1)
 		return "";
 	else{
 		canYoutube=false;
-		return ButtonHTML({txt:ObtainSymbol("music"),attributes:{onclick:'ToggleCurrentSong();GameFocus();',id:'MuteButton'}});
+		return GameBarButtonHTML("music",{onclick:'ToggleCurrentSong();GameFocus();'});
 	}
 }
 
 function KeyboardButton(){
 	if(ObtainKeyboardAllowed)
-		return ButtonHTML({txt:ObtainSymbol("keyboard"),attributes:{onclick:'RequestKeyboard();',id:'KeyboardButton'}})
+		return GameBarButtonHTML("keyboard",{onclick:'RequestKeyboard();'})
 	else
 		return "";
 }
 
-
-function LevelSelectorAllowed(){
-	return MaxLevel()>1;
-}
-
-function LevelSelectorButton(){
-	if(LevelSelectorAllowed())
-		return ButtonHTML({txt:"Select level",attributes:{onclick:'RequestLevelSelector();',id:'LevelSelectorButton'}});
+function WrenchButton(){
+	if(GameConsole())
+		return GameBarButtonHTML("wrench",{onclick:'Navigate(GameHackURL());'})
 	else
 		return "";
 }
 
+if(typeof ObtainLevelSelectorAllowed==="undefined")
+	function ObtainLevelSelectorAllowed(){
+		return MaxLevel()>1;
+	}
 
+function LevelselectorButton(){
+	if(ObtainLevelSelectorAllowed())
+		return ButtonHTML({txt:"Level selector",attributes:{onclick:'RequestLevelSelector();',id:"LevelselectorButton"}});
+	else
+		return "";
+}
+
+function FullscreenButton(){
+	return GameBarButtonHTML("fullscreen",{onclick:'RequestGameFullscreen();GameFocus();'});
+}
 
 function GameBar(){
 	
 	var buttons=[
-		ButtonHTML({txt:ObtainSymbol("save"),attributes:{onclick:'ToggleSavePermission(this);GameFocus();',class:savePermission?'selected':'',id:'SaveButton'}}),
-		ButtonLinkHTML("How to play?"),
+		SaveButton(),
+		GameBarButtonLinkHTML("How to play?","how-to-play"),
 		HiddenHTML('HintButton'),
 		UndoButton(),
 		RestartButton(),
 		KeyboardButton(),
-		LevelSelectorButton(),
+		LevelselectorButton(),
 		FeedbackButton(),
-		ButtonLinkHTML("Credits"),
-		MuteButton(),
-		ButtonHTML({txt:ObtainSymbol("Fullscreen"),attributes:{onclick:'RequestGameFullscreen();GameFocus();',id:'FullscreenButton'}}),
+		GameBarButtonLinkHTML("Credits","credits"),
+		WrenchButton(),
+		HiddenHTML('MoreButton'),
+		MusicButton(),
+		FullscreenButton()
 	].join("");
 	
 	return ButtonBar(buttons,"GameBar");
@@ -385,9 +505,9 @@ function GameRotation(){
 	var y=window.innerHeight;
 	
 	if(ObtainXYRotateCondition(x,y))
-		SelectSimple('.game-rotation-container','rotate90');
+		Class('.game-rotation-container','rotate90');
 	else
-		Deselect('.game-rotation-container','rotate90');
+		Declass('.game-rotation-container','rotate90');
 	
 	ResizeCanvas();
 	setTimeout(ResizeCanvas,1000);
@@ -676,10 +796,12 @@ function FormerLevel4Serialization() { //The original one
 ////////////////////////////////////////////////////////////////////////////////
 // Winning Logic (non-linear level navigation "jumping")
 
-function MarkWonLevel(){
-	EchoLevelWin(CurrentScreen());
-	AddToSolvedScreens(CurrentScreen());
-	LocalsaveLevel(CurrentScreen());
+function MarkWonScreen(screen){
+	var screen=screen||CurrentScreen();
+	
+	EchoLevelWin(screen);
+	AddToSolvedScreens(screen);
+	LocalsaveLevel(screen);
 	
 	if(typeof RegisterLevelHonour!=="undefined")
 		RegisterLevelHonour();
@@ -837,7 +959,7 @@ function UnlockedLevels(){
 				break;
 			else if(!LevelSolved(lvl)){
 				showlevels=showlevels.concat(lvl);
-				if(In(gateLevels,lvl))          //Don't reveal more levels while gate level unsolved
+				if(In(gateLevels,lvl))		  //Don't reveal more levels while gate level unsolved
 					break;
 				else
 					lookahead++;
@@ -935,7 +1057,6 @@ function RequestLevelSelector(){
 	}
 	
 	var LevelSelectorShortcuts=FuseObjects(ObtainKeyActionsGameBar(),{
-		"L":CloseLevelSelector,
 		"1":function(){DelayLevel(1)},
 		"2":function(){DelayLevel(2)},
 		"3":function(){DelayLevel(3)},
@@ -947,6 +1068,8 @@ function RequestLevelSelector(){
 		"9":function(){DelayLevel(9)},
 		"0":function(){DelayLevel(0)}
 	});
+	
+	LevelSelectorShortcuts[ObtainMainKey("levelselector")]=CloseLevelSelector;
 	
 	RequestDataPack([
 			['exclusivechoice',FuseObjects(DPOpts,{
@@ -965,13 +1088,13 @@ function RequestLevelSelector(){
 			qtargetid:".game-container",
 			shortcutExtras:LevelSelectorShortcuts,
 			requireConnection:false,
-			buttonSelector:"LevelSelectorButton",
+			buttonSelector:"LevelselectorButton",
 			spotlight:gameSelector
 	});
 }
 
 function CloseLevelSelector(){
-	if(CurrentDatapack().buttonSelector==="LevelSelectorButton")
+	if(CurrentDatapack().buttonSelector==="LevelselectorButton")
 		CloseCurrentDatapack();
 	GameFocus();
 }
@@ -984,8 +1107,7 @@ function MaxLevelDigits(){
 };
 
 function PadLevelNumber(n){
-	var m=n+"";
-	return "0".repeat(MaxLevelDigits()-m.length)+m;
+	return PadLeft(String(n),"0",MaxLevelDigits());
 }
 
 function LevelHintStar(n){
@@ -1026,7 +1148,7 @@ function UpdateLevelSelectorButton(lvl){
 		var leveltext="Level "+LevelNumberFromTotal(lvl)
 	else
 		var leveltext="★ All levels ★";
-	ReplaceChildren(leveltext,"LevelSelectorButton");
+	ReplaceChildren(leveltext,"LevelselectorButton");
 }
 
 function LoadFromLevelSelectorButton(qid){
@@ -1199,15 +1321,14 @@ function LoadLevelOrCheckpoint(){
 //Key capturing
 
 function KeyActionsGameBar(){
-	return {
-	// Game bar menus
-	"E"			:RequestGameFeedback,
-	"F"			:RequestGameFullscreen,
-	"H"			:RequestHint,
-	"K"			:ObtainKeyboardAllowed?RequestKeyboard:Identity, 
-	"L"			:LevelSelectorAllowed?RequestLevelSelector:Identity, 
-	"M"			:ToggleCurrentSong
-	};
+	var KAGB={};
+		KAGB[ObtainMainKey("feedback")]=RequestGameFeedback;
+		KAGB[ObtainMainKey("fullscreen")]=RequestGameFullscreen;
+		KAGB[ObtainMainKey("hint")]=RequestHint;
+		KAGB[ObtainMainKey("keyboard")]=ObtainKeyboardAllowed?RequestKeyboard:Identity;
+		KAGB[ObtainMainKey("levelselector")]=ObtainLevelSelectorAllowed?RequestLevelSelector:Identity;
+		KAGB[ObtainMainKey("music")]=ToggleCurrentSong;
+	return KAGB;
 }
 
 //Game keybinding profile
@@ -1225,11 +1346,11 @@ if(typeof ObtainKeyActionsGame==="undefined"){
 			"S"			:InstructGameKeyF(39),
 			"D"			:InstructGameKeyF(40),
 			//Action / Select
-			"enter"		:InstructGameKeyF(88),
-			"C"			:InstructGameKeyF(88),
-			"X"			:InstructGameKeyF(88),
-			"spacebar"	:InstructGameKeyF(88),
-			// Undo     
+			"enter"		:ObtainAction,	//InstructGameKeyF(88),
+			"C"			:ObtainAction,	//InstructGameKeyF(88),
+			"X"			:ObtainAction,	//InstructGameKeyF(88),
+			"spacebar"	:ObtainAction,	//InstructGameKeyF(88),
+			// Undo	 
 			"Z"			:ObtainUndo,	//InstructGameKeyF(85),
 			"U"			:ObtainUndo,	//InstructGameKeyF(85),
 			/*"backspace"	:InstructGameKeyF(85),*/
@@ -1286,17 +1407,22 @@ function RequestGameFullscreen(){
 ////////////////////////////////////////////////////////////////////////////////
 //Colorise game bar
 
-var stylesheet=".game-supra-container{\
-    --white:rgba(255,255,255,var(--t));         /*#FFF*/\
-    --smokewhite:rgba(241,241,241,var(--t))    /*#f1f1f1*/;\
-    --darkblue:rgba(7,0,112,var(--t))          /*#070070*/;\
-    --blue:rgba(0,15,255,var(--t))             /*#000FFF*/;\
-    --lightblue:rgba(25,130,237,var(--t))      /*#1982ed*/;\
-    --turquoise:rgba(59,248,222,var(--t))      /*#3bf8de*/;\
-    --green: rgba(70,244,111,var(--t))          /*#46f46f*/;\
-    --yellow: rgba(240,248,175,var(--t))        /*#f0f8af*/;\
-    --lightyellow:rgba(255,249,201,var(--t))   /*#fff9c9*/;\
-}";
+function Stylesheet(){return".game-supra-container{\
+	--white:rgba(255,255,255,var(--t));			/*#FFF*/\
+	--smokewhite:rgba(241,241,241,var(--t))		/*#f1f1f1*/;\
+	--darkblue:rgba(7,0,112,var(--t))			/*#070070*/;\
+	--blue:rgba(0,15,255,var(--t))				/*#000FFF*/;\
+	--lightblue:rgba(25,130,237,var(--t))		/*#1982ed*/;\
+	--turquoise:rgba(59,248,222,var(--t))		/*#3bf8de*/;\
+	--green: rgba(70,244,111,var(--t))			/*#46f46f*/;\
+	--lightgreen:rgba(12,252,189,var(--t))				   ;\
+	--yellow: rgba(240,248,175,var(--t))		/*#f0f8af*/;\
+	--lightyellow:rgba(255,249,201,var(--t))	/*#fff9c9*/;\
+	--beije:rgba(255,240,229,var(--t))					   ;\
+	--bgcolour:"+ObtainBGColor()+"	/*#fff9c9*/;\
+	--fgcolour:"+ObtainFGColor()+"	/*#fff9c9*/;\
+	}";
+}
 
 
 function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
@@ -1318,14 +1444,17 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 	if(Lightness(BackgroundColour)<0.5){
 		styleSheet=styleSheet.replace("rgba(255,255,255,var(--t))",	HEX(DarkenTo(PrimaryLight,-Lmax*0.50+0.950)).colour);
 		styleSheet=styleSheet.replace("rgba(241,241,241,var(--t))",	HEX(DarkenTo(PrimaryLight,-Lmax*0.50+0.925)).colour);
-	
+
 		styleSheet=styleSheet.replace("rgba(7,0,112,var(--t))",		HEX(DarkenTo(PrimaryDark,(-Lmax*0.22+0.22))).colour);
 		styleSheet=styleSheet.replace("rgba(0,15,255,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.40+0.40))).colour);
 		styleSheet=styleSheet.replace("rgba(25,130,237,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.51+0.51))).colour);
 		styleSheet=styleSheet.replace("rgba(59,248,222,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.89+0.89))).colour);
 		styleSheet=styleSheet.replace("rgba(70,244,111,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.91+0.91))).colour);
+		styleSheet=styleSheet.replace("rgba(12,252,189,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.92+0.92))).colour);
 		styleSheet=styleSheet.replace("rgba(240,248,175,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.93+0.93))).colour);
 		styleSheet=styleSheet.replace("rgba(255,249,201,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.95+0.95))).colour);
+		styleSheet=styleSheet.replace("rgba(255,240,229,var(--t))",	HEX(DarkenTo(PrimaryDark,(-Lmax*0.97+0.97))).colour);
+		
 	}
 	else{
 		styleSheet=styleSheet.replace("rgba(255,255,255,var(--t))",	HEX(LightenTo(PrimaryLight,0.925)).colour);
@@ -1336,8 +1465,10 @@ function ReplaceColours(stylesheet,BackgroundColour,ForegroundColour){
 		styleSheet=styleSheet.replace("rgba(25,130,237,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.51))).colour);
 		styleSheet=styleSheet.replace("rgba(59,248,222,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.92))).colour);
 		styleSheet=styleSheet.replace("rgba(70,244,111,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.93))).colour);
+		styleSheet=styleSheet.replace("rgba(12,252,189,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.92))).colour);
 		styleSheet=styleSheet.replace("rgba(240,248,175,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.94))).colour);
 		styleSheet=styleSheet.replace("rgba(255,249,201,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.95))).colour);
+		styleSheet=styleSheet.replace("rgba(255,240,229,var(--t))",	HEX(LightenTo(PrimaryDark,(Lmax*0.97))).colour);
 	}
 		
 	return styleSheet;
@@ -1438,7 +1569,7 @@ function Hints(lvl){
 }
 
 function LoadHintsFile(){
-	if(!Hints.cached){
+	if(!GameConsole()&&!Hints.cached){
 		
 		if(isFileLink(pageURL()))
 			Hints.path="https://pedropsi.github.io/hints/";
@@ -1461,15 +1592,9 @@ function LoadHintData(hintdata){
 		if(Hints.cached){
 			if(LoadHints().length===0)
 				Hints.used=Hints.cached.map(function(x){return 0}); //will add 1s progressively as used
-			ShowHintButton();
+			ShowButton(HintButton);
 		}
 	}
-}
-
-function ShowHintButton(){
-	ReplaceElement(HintButton(),"HintButton")
-	Show("HintButton");
-	Deselect("HintButton");
 }
 
 function HintDisplay(reference){
@@ -1552,7 +1677,7 @@ function HintProgress(lvl,hintN){
 }
 
 function HintButton(){
-	return ButtonHTML({txt:ObtainSymbol("hint"),attributes:{onclick:'RequestHint();',id:'HintButton'}});	
+	return GameBarButtonHTML("hint",{onclick:'RequestHint();'});	
 }
 
 function CloseHint(){
@@ -1575,7 +1700,7 @@ function RequestPrevHint(){
 
 
 RequestHint["tips-welcome"]=[
-			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>"+ObtainSymbol("hint")+"</b> or <kbd>H</kbd> anytime to reveal a hint!</p>",
+			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>"+ObtainSymbol("hint")+"</b> or <kbd>"+ObtainMainKey("hint")+"</kbd> anytime to reveal a hint!</p>",
 			"You got this! Now go ahead and play!"
 ]
 
@@ -1587,13 +1712,13 @@ RequestHint["tips-interlevel"]=[
 			"Just relax and have fun!",
 			"Remember to pause once in a while!",
 			"If you like this game, share it with your friends!",
-			"Open the level selector with <kbd>L</kbd>, then type a <kbd>number</kbd>.",
-			"Go Fullscreen by pressing "+ObtainSymbol("Fullscreen")+" or <kbd>F</kbd>!",
-			"Play or pause the music by pressing "+ObtainSymbol("music")+" or <kbd>M</kbd>!"
+			"Open the level selector with <kbd>"+ObtainMainKey("levelselector")+"</kbd>, then type a <kbd>number</kbd>.",
+			"Go Fullscreen by pressing "+ObtainSymbol("Fullscreen")+" or <kbd>"+ObtainMainKey("fullscreen")+"</kbd>!",
+			"Play or pause the music by pressing "+ObtainSymbol("music")+" or <kbd>"+ObtainMainKey("music")+"</kbd>!"
 ]
 
 if(HasGameFeedback()){
-	RequestHint["tips-interlevel"].splice(1,0,"Email Pedro PSI feedback by pressing "+ObtainSymbol("feedback")+" or <kbd>E</kbd>, anytime!");
+	RequestHint["tips-interlevel"].splice(1,0,"Email Pedro PSI feedback by pressing "+ObtainSymbol("feedback")+" or <kbd>"+ObtainMainKey("feedback")+"</kbd>, anytime!");
 }
 
 
@@ -1695,15 +1820,16 @@ function RequestKeyboard(){
 	if(!ObtainKeyboardAllowed)
 		return;
 	
-	var DPOpts={
+	var DFOpts={
 		executeChoice:ObtainGameAction,
-		qchoices:ObtainKeyboardKeys()
+		qchoices:ObtainKeyboardKeys(),
+		qchoicesViewF:ObtainSymbol
 	}
 	
 	var Shortcuts=ObtainKeyActionsGameBar();
 	
 	RequestDataPack([
-			['keyboard',DPOpts]
+			['keyboard',DFOpts]
 		],
 		{
 			action:console.log,
@@ -1739,7 +1865,7 @@ function GameFocusAndRestartUndoButtons(){
 }
 
 function GameKeyboardKeys(){
-	return [[ObtainSymbol("Undo"),ObtainSymbol("Restart")]]; // Undo and Restart
+	return [["undo","restart"]]; // Undo and Restart
 }
 
 
@@ -1760,6 +1886,43 @@ function HideLevelMessage(){
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//Related games
+function MoreButton(){
+	return GameBarButtonHTML("more",{onclick:'RequestMore();'});	
+}
 
+ListenOnce("LoadPGD",function(){ShowButton(MoreButton)});
 
+function RequestMore(){
+	if(!GameEntryData)
+		return;
+	var id=pageSearch("game");
+	var data=GameEntryData["game-console.html?game="+id];
+	if(!id||!data)
+		return;
+	
+	var author=data["author-consensus"];
+	function SameAuthor(au){
+		return function(d){
+			var d=GameEntryData[d];
+			return In(d["author-consensus"],au)||In(au,d["author-consensus"]);
+		}
+	}
+	var games=GameEntryData.list.filter(SameAuthor(author)).map(function(id){return GameDropDownButtonHTML(id,false)});
+	var DPFields=[
+			['plain',{questionname:"More games by: <b>"+author+"</b>"}],
+			['plain',{questionname:games.join("\n")}],
+		];
+
+	RequestDataPack(DPFields,{
+		qonclose:GameFocus,
+		qdisplay:LaunchAvatarBalloon,
+		qtargetid:".game-container",
+		requireConnection:false,
+		shortcutExtras:ObtainKeyActionsGameBar(),
+		buttonSelector:"MoreButton",
+		spotlight:gameSelector
+	});
+}
 
