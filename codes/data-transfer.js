@@ -1062,9 +1062,10 @@ function isAbsolutableLink(url){
 }
 
 //Glocal Files
-function Local(){
-	return /^file\:.*/.test(document.URL);
-}
+if(typeof Local==="undefined")
+	function Local(){
+		return /^file\:.*/.test(document.URL);
+	}
 function JoinPath(path,subpath){
 	return path.replace(/\\*$/,"")+"/"+subpath.replace(/^\\*/,"");
 }
