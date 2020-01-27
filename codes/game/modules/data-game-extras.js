@@ -1107,8 +1107,7 @@ function MaxLevelDigits(){
 };
 
 function PadLevelNumber(n){
-	var m=n+"";
-	return "0".repeat(MaxLevelDigits()-m.length)+m;
+	return PadLeft(String(n),"0",MaxLevelDigits());
 }
 
 function LevelHintStar(n){
