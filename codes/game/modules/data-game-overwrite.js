@@ -105,4 +105,5 @@ if(ObtainInterlevelMessage()){
 */
 
 window.Mobile.GestureHandler.prototype.toggleMenu=RequestLevelSelector;
-MobileInitialise(window.Mobile.GestureHandler.prototype);
+if(typeof MobileInitialise!=="undefined")
+	MobileInitialise(window.Mobile.GestureHandler.prototype);
