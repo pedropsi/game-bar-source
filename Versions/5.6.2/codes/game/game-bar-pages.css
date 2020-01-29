@@ -1,0 +1,28 @@
+.game-supra-container:fullscreen .gameContainer{
+ left:0;
+ right:0;
+ top:0;
+ bottom:0;
+}
+.game-supra-container:full-screen .gameContainer{
+ left:0;
+ right:0;
+ top:0;
+ bottom:0;
+}
+
+
+.rotate90 .gameContainer{
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.rotate90 #gameCanvas{
+    height:calc(var(--gameW) - 3*var(--fontheight));
+}
+
+.footer{
+    position: unset;
+    margin-top: 15px;
+}
