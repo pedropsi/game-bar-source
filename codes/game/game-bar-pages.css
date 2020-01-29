@@ -11,6 +11,7 @@
  bottom:0;
 }
 
+
 .rotate90 .gameContainer{
     top: 0;
     left: 0;
@@ -19,4 +20,9 @@
 
 .rotate90 #gameCanvas{
     height:calc(var(--gameW) - 3*var(--fontheight));
+}
+
+.footer{
+    position: unset;
+    margin-top: -10px;
 }
