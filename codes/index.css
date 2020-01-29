@@ -103,8 +103,12 @@ body{
 
 
 
-.button:hover,.button:active,.button:focus,
-.button:hover a,.button:active a,.button:focus a,
+.button:hover,
+.button:active,
+.button:focus,
+.button:hover a,
+.button:active a,
+.button:focus a,
 .selected{
     color:var(--turquoise);
     text-decoration-color:currentColor;
@@ -247,6 +251,15 @@ h4{
     margin:unset;
     align-self: stretch;
     background-color: var(--white);
+}
+
+
+.buttonrow .button:hover,
+.buttonrow .button:active,
+.buttonrow .button:focus{
+	background-color:var(--darkblue);
+	border-bottom-color:currentColor;
+	color:var(--turquoise);
 }
 
 .buttonrow .tag:first-of-type {
