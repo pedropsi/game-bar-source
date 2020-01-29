@@ -11,9 +11,12 @@
  bottom:0;
 }
 
-/*
-.footer{
-    position: unset;
-    margin-top: -10px;
+.rotate90 .gameContainer{
+    top: 0;
+    left: 0;
+    right: 0;
 }
-*/
+
+.rotate90 #gameCanvas{
+    height:calc(var(--gameW) - 3*var(--fontheight));
+}
