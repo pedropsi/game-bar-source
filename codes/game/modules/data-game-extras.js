@@ -650,7 +650,10 @@ LegacyConversion["checkpoint"]=function(sta,vers){
 };
 
 function CanSaveLocally(){
-	return window.localStorage;
+	try{
+		return window.localStorage;
+		}
+	catch(e){return false;} //Log error
 }
 function HasCheckpoint(){
 	return LocalStorage("checkpoint").length>0;
