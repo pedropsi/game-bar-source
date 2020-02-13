@@ -209,8 +209,18 @@ if(typeof ObtainMainKey==="undefined")
 				"music":"M"
 			}
 		else
-			return ObtainMainKey()[action.toLowerCase()];
+			return ObtainMainKey()[action.toLowerCase()]||"";
 	}
+
+function ActionKeyText(action){
+	var S=ObtainSymbol(action);
+	var K=ObtainMainKey(action);
+	
+	if(K!=="")
+		K="<kbd>"+K+"</kbd>";
+	
+	return S+((S!==""&&K!=="")?" or ":"")+K;
+}
 
 function ObtainActionTooltip(action){
 	if(!action)
@@ -229,7 +239,7 @@ function ObtainActionTooltip(action){
 			"more":"More games by the same author"
 		}
 	else
-		return ObtainActionTooltip()[action.toLowerCase()];
+		return ObtainActionTooltip()[action.toLowerCase()]||"";
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -380,6 +390,8 @@ function ShowButton(ButtonNameF){
 }
 
 function SaveButton(){
+	if(!CanSaveLocally())
+		return "";
 	return GameBarButtonHTML('save',{
 		onclick:'ToggleSavePermission(this);GameFocus();',
 		class:savePermission?'selected':''
@@ -527,7 +539,7 @@ function ToggleSavePermission(thi){
 	if(savePermission){
 		savePermission=false;
 		EraseLocalsave();
-		ConsoleAdd("All 2 cookies erased for "+pageTitle()+": Localsave is OFF across sessions.");
+		ConsoleAdd("All "+LocalStorageName['list'].length+" cookies erased for "+pageTitle()+": Localsave is OFF across sessions.");
 	}
 	else 
 		ActivateSavePermission(thi);
@@ -538,7 +550,7 @@ function ActivateSavePermission(thi){
 	Localsave();
 	ConsoleAddMany([
 		"Localsave is ON for "+pageTitle()+".",
-		"To stop localsaving and erase all 2 cookies, please deselect "+ObtainSymbol("Save")+"."
+		"To stop localsaving and erase all "+LocalStorageName['list'].length+" cookies, please deselect "+ObtainSymbol("Save")+"."
 		]);
 	Select(thi);
 }
@@ -569,10 +581,17 @@ if(typeof ObtainStorageURL==="undefined")
 	}
 
 function LocalStorageName(name){
-	if (name)
-		return ObtainStorageURL()+"_"+name.toLowerCase();
-	else
+	if(!name)
 		return ObtainStorageURL();
+	else{
+		if(!LocalStorageName['list'])
+			LocalStorageName['list']=[];
+		
+		if(!In(LocalStorageName['list'],name))
+			LocalStorageName['list'].push(name);
+		
+		return ObtainStorageURL()+"_"+name.toLowerCase();
+	}	
 }
 function LocalStorage(name,set,TransformF){ //Getter-setter
 	if(!set){
@@ -700,7 +719,14 @@ function Localsave(){
 }	
 
 function EraseLocalStorage(name){
-	return localStorage.removeItem(LocalStorageName(name));
+	if(name){
+		try{
+			return localStorage.removeItem(LocalStorageName(name));
+		}
+		catch(err){};
+	}
+	else
+		LocalStorageName['list'].map(EraseLocalStorage);
 }
 
 function EraseLocalsaveLevel(){
@@ -717,7 +743,8 @@ function EraseLocalsaveHints(){
 }
 
 function EraseLocalsave(){
-	return CanSaveLocally()&&(EraseLocalsaveLevel(),EraseLocalsaveCheckpoints(),EraseLocalsaveHints());
+	if(CanSaveLocally())
+		EraseLocalStorage();
 }
 
 
@@ -1711,7 +1738,7 @@ function RequestPrevHint(){
 
 
 RequestHint["tips-welcome"]=[
-			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press <b>"+ObtainSymbol("hint")+"</b> or <kbd>"+ObtainMainKey("hint")+"</kbd> anytime to reveal a hint!</p>",
+			"<p>Welcome to the <b>Hint Service</b>.</p><p>Press "+ActionKeyText("hint")+" anytime to reveal a hint!</p>",
 			"You got this! Now go ahead and play!"
 ]
 
@@ -1723,13 +1750,13 @@ RequestHint["tips-interlevel"]=[
 			"Just relax and have fun!",
 			"Remember to pause once in a while!",
 			"If you like this game, share it with your friends!",
-			"Open the level selector with <kbd>"+ObtainMainKey("levelselector")+"</kbd>, then type a <kbd>number</kbd>.",
-			"Go Fullscreen by pressing "+ObtainSymbol("Fullscreen")+" or <kbd>"+ObtainMainKey("fullscreen")+"</kbd>!",
-			"Play or pause the music by pressing "+ObtainSymbol("music")+" or <kbd>"+ObtainMainKey("music")+"</kbd>!"
+			"Open the level selector by pressing "+ActionKeyText("levelselector")+", then type a <kbd>number</kbd>.",
+			"Go Fullscreen by pressing "+ActionKeyText("fullscreen")+"!",
+			"Play or pause the music by pressing "+ActionKeyText("music")+"!"
 ]
 
 if(HasGameFeedback()){
-	RequestHint["tips-interlevel"].splice(1,0,"Email Pedro PSI feedback by pressing "+ObtainSymbol("feedback")+" or <kbd>"+ObtainMainKey("feedback")+"</kbd>, anytime!");
+	RequestHint["tips-interlevel"].splice(1,0,"Email Pedro PSI feedback by pressing "+ActionKeyText("feedback")+", anytime!");
 }
 
 
