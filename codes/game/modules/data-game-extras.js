@@ -576,7 +576,12 @@ function LocalStorageName(name){
 }
 function LocalStorage(name,set,TransformF){ //Getter-setter
 	if(!set){
-		var data=localStorage[LocalStorageName(name)];
+		var data=false;
+		try{
+			var data=localStorage[LocalStorageName(name)];
+		}
+		catch(err){};
+		
 		if(!data)
 			return [];
 		data=JSON.parse(data);
@@ -602,7 +607,10 @@ function LocalStorage(name,set,TransformF){ //Getter-setter
 				'name':name
 			};
 	}
+	try{
 		return localStorage[LocalStorageName(name)]=JSON.stringify(capsule);
+	}
+	catch(err){};
 }
 
 function LegacyConversion(name,data,vers){
