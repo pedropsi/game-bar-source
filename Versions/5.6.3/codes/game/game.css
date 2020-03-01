@@ -10,7 +10,8 @@
     --gameW:calc(100vw - 2*var(--w1) - 17px);
     --gameH:calc(100vh - 2*var(--h1) - 17px);
 }
-/*
+
+//PSI
 .game-supra-container:fullscreen{
     --gameW:calc(100vw);
     --gameH:calc(100vh);
@@ -18,7 +19,7 @@
 .game-supra-container:full-screen{
     --gameW:calc(100vw);
     --gameH:calc(100vh);
-}*/
+}
 
 .game-supra-container{
     height: var(--gameH);
@@ -76,13 +77,14 @@
   justify-self: flex-end;
   z-index: 1;
 }
-/*
+
+//PSI
 .game {
     height: calc(var(--gameH) - 2*var(--fontheight));
     touch-action: none;
     width: 100%;
     overflow: hidden;
-}*/
+}
 
 .game-rotation-container.rotate90 {
     transform: 
