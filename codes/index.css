@@ -4,11 +4,6 @@
   ///////////////////////////////////////////////////////////////////////////////
   MIT License
 */
-#gameCanvas{
-    position:unset;
-    max-height:96vh;
-    width:100%;
-}
 .game-container{
     display:flex;
     flex-direction:column;
@@ -16,12 +11,12 @@
     justify-content: space-between;
 	font-family:var(--font);
 }
-.game-container:fullscreen #gameCanvas{
+/*.game-container:fullscreen #gameCanvas{
     height:calc(96vh);
 }
 .game-container:full-screen #gameCanvas{
     height:calc(96vh);
-}
+}*/
 @media only screen and (max-width:330px) {
     .game-container:fullscreen #gameCanvas{
         height:calc(94vh);
