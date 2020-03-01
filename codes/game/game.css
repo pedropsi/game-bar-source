@@ -11,7 +11,7 @@
     --gameH:calc(100vh - 2*var(--h1) - 17px);
 }
 
-//PSI
+/*PSI*/
 .game-supra-container:fullscreen{
     --gameW:calc(100vw);
     --gameH:calc(100vh);
@@ -78,7 +78,7 @@
   z-index: 1;
 }
 
-//PSI
+/*PSI*/
 .game {
     height: calc(var(--gameH) - 2*var(--fontheight));
     touch-action: none;
