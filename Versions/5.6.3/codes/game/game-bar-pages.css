@@ -19,8 +19,8 @@
     right: 0;
 }
 
-.rotate90 #gameCanvas{
-    height:calc(var(--gameW) - 3*var(--fontheight));
+#gameCanvas{
+    max-height:calc(100% - 2.5*var(--fontheight));
 }
 
 .footer{
