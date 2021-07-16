@@ -327,6 +327,8 @@ function PrepareGame(){
 		AddElement("<style>"+ReplaceColours(Stylesheet(),ObtainBGColor(),ObtainFGColor())+"</style>",'head');//Colorise
 		AddGameBar();
 		
+		GamewiseStyle();
+
 		ListenOnce('click',PlaylistStartPlay,gameSelector);
 		ListenOnce('touchstart',RequestKeyboard,gameSelector);
 		
@@ -1964,3 +1966,14 @@ function RequestMore(){
 	});
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+//Game-specific style
+function GamewiseStyle(){
+	if(document.body.innerHTML.match("mean8")){
+		console.log(">>> mean8 patch")
+		AddElement("<style>.game-rotation-container .game-container .gameContainer 	#gameCanvas{	max-height:calc(100% - 2.5*var(--fontheight));	} 	</style>",'head');
+	}
+}
+
+	
