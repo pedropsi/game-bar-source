@@ -44,6 +44,7 @@
 	bottom:0;
 }
 
+
 .rotate90 .gameContainer #gameCanvas{
 	height:100%;
 	max-height:calc(100% - 2.5*var(--fontheight));
@@ -51,6 +52,15 @@
 
 .game-rotation-container .game-container .gameContainer #gameCanvas{
 	width: 100%;
+}
+
+.game-rotation-container .game-container .gameContainer {
+	position: absolute;
+	top:unset;
+	left: 0;
+	right: 0;
+	width: 100%;
+	max-width: 100%;
 }
 
 .footer{
