@@ -51,7 +51,6 @@
 
 .game-rotation-container .game-container .gameContainer #gameCanvas{
 	width: 100%;
-	max-height:calc(100% - 2.5*var(--fontheight));
 }
 
 .footer{
